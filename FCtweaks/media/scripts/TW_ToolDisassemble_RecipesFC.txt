@@ -1,0 +1,209 @@
+module TW
+{
+	imports
+	{
+		Base,
+	}
+
+
+	recipe Disassemble Hammer
+    {
+	
+    	[Recipe.GetItemTypes.Hammer],
+		keep MetalWorkbench,
+
+		NoBrokenItems			: False,
+		AllowDestroyedItem      : true,
+        Result           		: HammerHead,
+        Time             		: 200.0,
+	    Sound 					: BreakingWeapon,
+		OnGiveXP 				: Give4MWXP,
+		Category 		        : Scrapping,
+		OnCreate                : DeconstructSmallTool_OnCreate,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+	recipe Disassemble Sledgehammer
+    {
+
+    	Sledgehammer/Sledgehammer2,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: False,
+		AllowDestroyedItem      : true,
+        Result           		: SledgeHammerHead,
+        Time             		: 200.0,
+	    Sound 					: BreakingMetalWeapon,
+		OnGiveXP 				: Give4MWXP,
+		Category 		        : Scrapping,
+		OnCreate                : DeconstructMetalTool_OnCreate,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+	recipe Disassemble Axe
+    {
+
+    	WoodAxe/Axe/HandAxe,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: False,
+		AllowDestroyedItem      : true,
+        Result           		: AxeHead,
+        Time             		: 200.0,
+	    Sound 					: BreakingWeapon,
+		OnGiveXP 				: Give4MWXP,
+		Category 		        : Scrapping,
+		OnCreate                : DeconstructTool_OnCreate,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+	recipe Disassemble SmallBlade
+    {
+
+    	HuntingKnife/BreadKnife/KitchenKnife/LetterOpener/Scissors,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: False,
+		AllowDestroyedItem      : true,
+        Result           		: SmallBlade,
+        Time             		: 200.0,
+	    Sound 					: BreakingWeapon,
+		OnGiveXP 				: Give4MWXP,
+		Category 		        : Scrapping,
+		OnCreate                : DeconstructSmallTool_OnCreate,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+	recipe Disassemble Screwdriver
+    {
+
+    	IcePick/Screwdriver,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: False,
+		AllowDestroyedItem      : true,
+        Result           		: SmallMetalBar,
+        Time             		: 200.0,
+	    Sound 					: BreakingWeapon,
+		OnGiveXP 				: Give4MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+	recipe Disassemble MeatCleaver
+    {
+
+    	MeatCleaver,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: False,
+		AllowDestroyedItem      : true,
+        Result           		: MeatCleaverHead,
+        Time             		: 200.0,
+	    Sound 					: BreakingWeapon,
+		OnGiveXP 				: Give4MWXP,
+		Category 		        : Scrapping,
+		OnCreate                : DeconstructSmallTool_OnCreate,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+
+	recipe Disassemble LongBlade
+    {
+
+    	Katana/Machete,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: False,
+		AllowDestroyedItem      : true,
+        Result           		: LongBlade,
+        Time             		: 200.0,
+	    Sound 					: BreakingWeapon,
+		OnGiveXP 				: Give4MWXP,
+		Category 		        : Scrapping,
+		OnCreate                : DeconstructSmallTool_OnCreate,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+	recipe Disassemble Shovel
+    {
+
+    	Shovel/Shovel2/HandShovel/SnowShovel,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: False,
+		$AllowDestroyedItem      : true,
+        Result           		: ShovelHead,
+        Time             		: 200.0,
+	    Sound 					: BreakingWeapon,
+		OnGiveXP 				: Give4MWXP,
+		Category 		        : Scrapping,
+		OnCreate                : DeconstructTool_OnCreate,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+
+	recipe Disassemble Pickaxe
+    {
+
+    	PickAxe,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: False,
+		AllowDestroyedItem      : true,
+        Result           		: PickaxeHead,
+        Time             		: 200.0,
+	    Sound 					: BreakingWeapon,
+		OnGiveXP 				: Give4MWXP,
+		Category 		        : Scrapping,
+		OnCreate                : DeconstructTool_OnCreate,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+
+}

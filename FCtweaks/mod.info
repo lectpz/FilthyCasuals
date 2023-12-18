@@ -1,0 +1,5 @@
+name=FilthyCasualTweaks
+poster=poster.png
+description=Filthy Casual Tweaks
+id=FCTweaks
+require=MoodleFramework

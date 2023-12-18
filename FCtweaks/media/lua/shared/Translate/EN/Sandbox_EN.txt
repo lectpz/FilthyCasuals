@@ -1,0 +1,39 @@
+Sandbox_EN = {
+	Sandbox_OnWeaponSwingFC = "Dynamic Weapons",
+
+	Sandbox_OnWeaponSwingFC_Tier1dmg = "Tier 1 damage modifier",
+	Sandbox_OnWeaponSwingFC_Tier1dmg_tooltip = "e.g. 1.00",
+
+	Sandbox_OnWeaponSwingFC_Tier2dmg = "Tier 2 damage modifier",
+	Sandbox_OnWeaponSwingFC_Tier2dmg_tooltip = "e.g. 0.667",
+		
+	Sandbox_OnWeaponSwingFC_Tier3dmg = "Tier 3 damage modifier",
+	Sandbox_OnWeaponSwingFC_Tier3dmg_tooltip = "e.g. 0.333",
+	
+	Sandbox_OnWeaponSwingFC_Tier4dmg = "Tier 4 damage modifier",
+	Sandbox_OnWeaponSwingFC_Tier4dmg_tooltip = "e.g. 0.167",
+	
+	Sandbox_OnWeaponSwingFC_Tier1critrate = "Tier 1 critical rate modifier",
+	Sandbox_OnWeaponSwingFC_Tier1critrate_tooltip = "e.g. 1.00",
+
+	Sandbox_OnWeaponSwingFC_Tier2critrate = "Tier 2 critical rate modifier",
+	Sandbox_OnWeaponSwingFC_Tier2critrate_tooltip = "e.g. 0.75",
+		
+	Sandbox_OnWeaponSwingFC_Tier3critrate = "Tier 3 critical rate modifier",
+	Sandbox_OnWeaponSwingFC_Tier3critrate_tooltip = "e.g. 0.5",
+	
+	Sandbox_OnWeaponSwingFC_Tier4critrate = "Tier 4 critical rate modifier",
+	Sandbox_OnWeaponSwingFC_Tier4critrate_tooltip = "e.g. 0.25",
+	
+	Sandbox_OnWeaponSwingFC_Tier1critmulti = "Tier 1 critical multiplier modifier",
+	Sandbox_OnWeaponSwingFC_Tier1critmulti_tooltip = "e.g. 1.00",
+
+	Sandbox_OnWeaponSwingFC_Tier2critmulti = "Tier 2 critical multiplier modifier",
+	Sandbox_OnWeaponSwingFC_Tier2critmulti_tooltip = "e.g. 0.75",
+		
+	Sandbox_OnWeaponSwingFC_Tier3critmulti = "Tier 3 critical multiplier modifier",
+	Sandbox_OnWeaponSwingFC_Tier3critmulti_tooltip = "e.g. 0.5",
+	
+	Sandbox_OnWeaponSwingFC_Tier4critmulti = "Tier 4 critical multiplier modifier",
+	Sandbox_OnWeaponSwingFC_Tier4critmulti_tooltip = "e.g. 0.25",
+}

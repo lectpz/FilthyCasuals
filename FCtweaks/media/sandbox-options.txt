@@ -1,0 +1,109 @@
+VERSION = 1,
+
+option OnWeaponSwingFC.Tier1dmg
+{
+	type = string,
+	default = 1.00,
+
+	page = OnWeaponSwingFC,
+	translation = OnWeaponSwingFC_Tier1dmg,
+}
+
+option OnWeaponSwingFC.Tier2dmg
+{
+	type = string,
+	default = 0.667,
+
+	page = OnWeaponSwingFC,
+	translation = OnWeaponSwingFC_Tier2dmg,
+}
+
+option OnWeaponSwingFC.Tier3dmg
+{
+	type = string,
+	default = 0.333,
+
+	page = OnWeaponSwingFC,
+	translation = OnWeaponSwingFC_Tier3dmg,
+}
+
+option OnWeaponSwingFC.Tier4dmg
+{
+	type = string,
+	default = 0.167,
+
+	page = OnWeaponSwingFC,
+	translation = OnWeaponSwingFC_Tier4dmg,
+}
+	
+option OnWeaponSwingFC.Tier1critrate
+{
+	type = string,
+	default = 1.00,
+
+	page = OnWeaponSwingFC,
+	translation = OnWeaponSwingFC_Tier1critrate,
+}
+
+option OnWeaponSwingFC.Tier2critrate
+{
+	type = string,
+	default = 0.75,
+
+	page = OnWeaponSwingFC,
+	translation = OnWeaponSwingFC_Tier2critrate,
+}
+
+option OnWeaponSwingFC.Tier3critrate
+{
+	type = string,
+	default = 0.5,
+
+	page = OnWeaponSwingFC,
+	translation = OnWeaponSwingFC_Tier3critrate,
+}
+
+option OnWeaponSwingFC.Tier4critrate
+{
+	type = string,
+	default = 0.25,
+
+	page = OnWeaponSwingFC,
+	translation = OnWeaponSwingFC_Tier4critrate,
+}
+	
+option OnWeaponSwingFC.Tier1critmulti
+{
+	type = string,
+	default = 1.00,
+
+	page = OnWeaponSwingFC,
+	translation = OnWeaponSwingFC_Tier1critmulti,
+}
+
+option OnWeaponSwingFC.Tier2critmulti
+{
+	type = string,
+	default = 0.75,
+
+	page = OnWeaponSwingFC,
+	translation = OnWeaponSwingFC_Tier2critmulti,
+}
+
+option OnWeaponSwingFC.Tier3critmulti
+{
+	type = string,
+	default = 0.5,
+
+	page = OnWeaponSwingFC,
+	translation = OnWeaponSwingFC_Tier3critmulti,
+}
+
+option OnWeaponSwingFC.Tier4critmulti
+{
+	type = string,
+	default = 0.25,
+
+	page = OnWeaponSwingFC,
+	translation = OnWeaponSwingFC_Tier4critmulti,
+}
