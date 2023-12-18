@@ -1,0 +1,9 @@
+IGUI_EN = {
+    IGUI_Tab_Meds = "Meds",
+	IGUI_Tab_All = "All",
+	IGUI_Tab_Weapons = "Weapons",
+	IGUI_Tab_WeaponsEvent = "Event Weapons",
+	IGUI_Tab_Cosmetics = "Cosmetics",
+	IGUI_Tab_CosmeticsEvent = "Event Cosmetics",	
+	IGUI_Tab_Utility = "Utility",
+}
