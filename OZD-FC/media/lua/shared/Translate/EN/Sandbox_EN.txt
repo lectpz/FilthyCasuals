@@ -1,0 +1,29 @@
+Sandbox_EN = {
+
+	Sandbox_OnZombieDeadFC = "Zombie Item Drop",
+	
+	Sandbox_OZD_roll4 = "Rare loot drop (1 in n zombies)",
+	Sandbox_OZD_roll4_tooltip = "e.g. 5000",
+	
+	Sandbox_OZD_roll3 = "Rare loot drop (1 in n zombies)",
+	Sandbox_OZD_roll3_tooltip = "e.g. 1000",
+	
+	Sandbox_OZD_roll2 = "Uncommon loot drop (1 in n zombies)",
+	Sandbox_OZD_roll2_tooltip = "e.g. 450",
+
+	Sandbox_OZD_roll1 = "Common loot drop (1 in n zombies)",
+	Sandbox_OZD_roll1_tooltip = "e.g. 75",
+	
+	Sandbox_OZD_table4 = "Extremely Rare loot table",
+	Sandbox_OZD_table4_tooltip = "e.g. "Base.Katana"",	
+	
+	Sandbox_OZD_table3 = "Rare loot table",
+	Sandbox_OZD_table3_tooltip = "e.g. "Base.Katana"",
+	
+	Sandbox_OZD_table2 = "Uncommon loot table",
+	Sandbox_OZD_table2_tooltip = "e.g. Base.Machete",
+
+	Sandbox_OZD_table1 = "Common loot table",
+	Sandbox_OZD_table1_tooltip = "e.g. Base.KitchenKnife",
+
+}

@@ -1,0 +1,5 @@
+name=ZombieLootDropFC
+poster=poster.png
+description=Zombie Loot Drop for FC
+id=OZD-FC
+require=FCTweaks

@@ -1,0 +1,6 @@
+Moodles_EN {
+    Moodles_pepe_Bad_lvl1 = "Casual Gamer",
+    Moodles_pepe_Bad_desc_lvl1 = "It's like the Sims, but better!",
+    Moodles_pepeclown_Bad_lvl4 = "Filthy Casual",
+    Moodles_pepeclown_Bad_desc_lvl4 = "You've reached enlightenment.",
+}
