@@ -1,0 +1,325 @@
+VERSION = 1,
+
+option PZwaystonepanel.Xcoord
+{
+	type = integer,
+	min = 0,
+	max = 19799,
+	default = 0,
+
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_Xcoord,
+}
+
+option PZwaystonepanel.Ycoord
+{
+	type = integer,
+	min = 0,
+	max = 19799,
+	default = 0,
+
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_Ycoord,
+}
+
+option PZwaystonepanel.Zcoord
+{
+	type = integer,
+	min = 0,
+	max = 6,
+	default = 0,
+
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_Zcoord,
+}
+
+option PZwaystonepanel.X1coord
+{
+	type = integer,
+	min = 0,
+	max = 19799,
+	default = 19650,
+
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_X1coord,
+}
+
+option PZwaystonepanel.Y1coord
+{
+	type = integer,
+	min = 0,
+	max = 19799,
+	default = 150,
+
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_Y1coord,
+}
+
+option PZwaystonepanel.Z1coord
+{
+	type = integer,
+	min = 0,
+	max = 6,
+	default = 0,
+
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_Z1coord,
+}
+
+option PZwaystonepanel.eventreward1
+{
+	type = string,
+	default = Base.AmmoCanSmallLoot,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward1,
+}
+
+option PZwaystonepanel.eventreward2
+{
+	type = string,
+	default = CDCRR.CDCOrangeAirdrop,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward1,
+}
+
+option PZwaystonepanel.eventreward2chance1
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 3,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward2chance1,
+}
+
+option PZwaystonepanel.eventreward2chance2
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 2,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward2chance2,
+}
+
+
+option PZwaystonepanel.eventreward3
+{
+	type = string,
+	default = Biomass,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward3,
+}
+
+option PZwaystonepanel.eventreward3chance1
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 4,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward3chance1,
+}
+
+option PZwaystonepanel.eventreward3chance2
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 2,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward3chance2,
+}
+
+option PZwaystonepanel.eventreward4
+{
+	type = string,
+	default = ScrapMetal,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward4,
+}
+
+option PZwaystonepanel.eventreward4chance1
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 36,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward4chance1,
+}
+
+option PZwaystonepanel.eventreward4chance2
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 15,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward4chance2,
+}
+
+option PZwaystonepanel.eventreward5
+{
+	type = string,
+	default = ScrapMetal,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward5,
+}
+
+option PZwaystonepanel.eventreward5chance1
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 2,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward5chance1,
+}
+
+option PZwaystonepanel.eventreward5chance2
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 2,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward5chance2,
+}
+
+option PZwaystonepanel.eventreward6
+{
+	type = string,
+	default = ScrapMetal,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward6,
+}
+
+option PZwaystonepanel.eventreward6chance1
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 2,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward6chance1,
+}
+
+option PZwaystonepanel.eventreward6chance2
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 2,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward6chance2,
+}
+
+option PZwaystonepanel.eventreward7
+{
+	type = string,
+	default = ScrapMetal,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward7,
+}
+
+option PZwaystonepanel.eventreward7chance1
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 2,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward7chance1,
+}
+
+option PZwaystonepanel.eventreward7chance2
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 2,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward7chance2,
+}
+
+option PZwaystonepanel.eventreward8
+{
+	type = string,
+	default = ScrapMetal,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward8,
+}
+
+option PZwaystonepanel.eventreward8chance1
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 2,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward8chance1,
+}
+
+option PZwaystonepanel.eventreward8chance2
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 2,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward8chance2,
+}
+
+option PZwaystonepanel.eventreward9
+{
+	type = string,
+	default = ScrapMetal,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward9,
+}
+
+option PZwaystonepanel.eventreward9chance1
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 2,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward9chance1,
+}
+
+option PZwaystonepanel.eventreward9chance2
+{
+	type = integer,
+	min = 2,
+	max = 100,
+	default = 2,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward9chance2,
+}

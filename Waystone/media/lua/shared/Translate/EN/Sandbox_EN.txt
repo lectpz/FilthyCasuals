@@ -1,0 +1,96 @@
+Sandbox_EN = {
+	Sandbox_PZwaystonepanel = "Waystone mod",
+
+	Sandbox_PZwaystonepanel_Xcoord = "X-coordinate for Event Waystone",
+	Sandbox_PZwaystonepanel_Xcoord_tooltip = "e.g. 19650",
+
+	Sandbox_PZwaystonepanel_Ycoord = "Y-coordinate for Event Waystone",
+	Sandbox_PZwaystonepanel_Ycoord_tooltip = "e.g. 150",
+	
+	Sandbox_PZwaystonepanel_Zcoord = "Z-coordinate for Event Waystone",
+	Sandbox_PZwaystonepanel_Zcoord_tooltip = "e.g. 0",
+	
+	Sandbox_PZwaystonepanel_X1coord = "X-coordinate for CC Waystone",
+	Sandbox_PZwaystonepanel_X1coord_tooltip = "e.g. 19650",
+
+	Sandbox_PZwaystonepanel_Y1coord = "Y-coordinate for CC Waystone",
+	Sandbox_PZwaystonepanel_Y1coord_tooltip = "e.g. 150",
+	
+	Sandbox_PZwaystonepanel_Z1coord = "Z-coordinate for CC Waystone",
+	Sandbox_PZwaystonepanel_Z1coord_tooltip = "e.g. 0",
+	
+	Sandbox_PZwaystonepanel_eventreward1 = "Base.Item single reward only",
+	Sandbox_PZwaystonepanel_eventreward1_tooltip = "e.g. Base.AmmoCanSmallLoot",
+	
+	Sandbox_PZwaystonepanel_eventreward2 = "Base.Item multiple rewards",
+	Sandbox_PZwaystonepanel_eventreward2_tooltip = "e.g. CDCRR.OrangeAirdrop",
+	
+	Sandbox_PZwaystonepanel_eventreward2chance1 = "ZombRand(n)+x, n-value",
+	Sandbox_PZwaystonepanel_eventreward2chance1_tooltip = "e.g. ZombRand(3)+2 for chance to roll 2-4 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward2chance2 = "ZombRand(n)+x, x-value",
+	Sandbox_PZwaystonepanel_eventreward2chance2_tooltip = "e.g. ZombRand(3)+2 for chance to roll 2-4 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward3 = "Base.Item multiple rewards",
+	Sandbox_PZwaystonepanel_eventreward3_tooltip = "e.g. Biomass",
+	
+	Sandbox_PZwaystonepanel_eventreward3chance1 = "ZombRand(n)+x, n-value",
+	Sandbox_PZwaystonepanel_eventreward3chance1_tooltip = "e.g. ZombRand(4)+2 for chance to roll 2-5 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward3chance2 = "ZombRand(n)+x, x-value",
+	Sandbox_PZwaystonepanel_eventreward3chance2_tooltip = "e.g. ZombRand(4)+2 for chance to roll 2-5 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward4 = "Base.Item multiple rewards",
+	Sandbox_PZwaystonepanel_eventreward4_tooltip = "e.g. ScrapMetal",
+	
+	Sandbox_PZwaystonepanel_eventreward4chance1 = "ZombRand(n)+x, n-value",
+	Sandbox_PZwaystonepanel_eventreward4chance1_tooltip = "e.g. ZombRand(36)+15 for chance to roll 15-50 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward4chance2 = "ZombRand(n)+x, x-value",
+	Sandbox_PZwaystonepanel_eventreward4chance2_tooltip = "e.g. ZombRand(36)+15 for chance to roll 15-50 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward5 = "Base.Item multiple rewards",
+	Sandbox_PZwaystonepanel_eventreward5_tooltip = "e.g. ScrapMetal",
+	
+	Sandbox_PZwaystonepanel_eventreward5chance1 = "ZombRand(n)+x, n-value",
+	Sandbox_PZwaystonepanel_eventreward5chance1_tooltip = "e.g. ZombRand(36)+15 for chance to roll 15-50 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward5chance2 = "ZombRand(n)+x, x-value",
+	Sandbox_PZwaystonepanel_eventreward5chance2_tooltip = "e.g. ZombRand(36)+15 for chance to roll 15-50 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward6 = "Base.Item multiple rewards",
+	Sandbox_PZwaystonepanel_eventreward6_tooltip = "e.g. ScrapMetal",
+	
+	Sandbox_PZwaystonepanel_eventreward6chance1 = "ZombRand(n)+x, n-value",
+	Sandbox_PZwaystonepanel_eventreward6chance1_tooltip = "e.g. ZombRand(36)+15 for chance to roll 15-50 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward6chance2 = "ZombRand(n)+x, x-value",
+	Sandbox_PZwaystonepanel_eventreward6chance2_tooltip = "e.g. ZombRand(36)+15 for chance to roll 15-50 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward7 = "Base.Item multiple rewards",
+	Sandbox_PZwaystonepanel_eventreward7_tooltip = "e.g. ScrapMetal",
+	
+	Sandbox_PZwaystonepanel_eventreward7chance1 = "ZombRand(n)+x, n-value",
+	Sandbox_PZwaystonepanel_eventreward7chance1_tooltip = "e.g. ZombRand(36)+15 for chance to roll 15-50 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward7chance2 = "ZombRand(n)+x, x-value",
+	Sandbox_PZwaystonepanel_eventreward7chance2_tooltip = "e.g. ZombRand(36)+15 for chance to roll 15-50 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward8 = "Base.Item multiple rewards",
+	Sandbox_PZwaystonepanel_eventreward8_tooltip = "e.g. ScrapMetal",
+	
+	Sandbox_PZwaystonepanel_eventreward8chance1 = "ZombRand(n)+x, n-value",
+	Sandbox_PZwaystonepanel_eventreward8chance1_tooltip = "e.g. ZombRand(36)+15 for chance to roll 15-50 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward8chance2 = "ZombRand(n)+x, x-value",
+	Sandbox_PZwaystonepanel_eventreward8chance2_tooltip = "e.g. ZombRand(36)+15 for chance to roll 15-50 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward9 = "Base.Item multiple rewards",
+	Sandbox_PZwaystonepanel_eventreward9_tooltip = "e.g. ScrapMetal",
+	
+	Sandbox_PZwaystonepanel_eventreward9chance1 = "ZombRand(n)+x, n-value",
+	Sandbox_PZwaystonepanel_eventreward9chance1_tooltip = "e.g. ZombRand(36)+15 for chance to roll 15-50 items",	
+	
+	Sandbox_PZwaystonepanel_eventreward9chance2 = "ZombRand(n)+x, x-value",
+	Sandbox_PZwaystonepanel_eventreward9chance2_tooltip = "e.g. ZombRand(36)+15 for chance to roll 15-50 items",	
+}

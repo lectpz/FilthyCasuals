@@ -1,0 +1,5 @@
+Tooltip_EN =
+{
+    Tooltip_Cache = "It could even be a boat.",
+	Tooltip_Cache_Empty = "I expected nothing and was still disappointed.",
+}

@@ -1,0 +1,132 @@
+module Base
+{	
+	imports
+	{
+		Base
+	}
+	
+	item WeaponCache
+	{
+        Type                    = Normal,
+        Weight                  = 10.0,
+        DisplayName             = Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyWeaponCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item MetalworkCache
+	{
+        Type                    = Normal,
+        Weight                  = 10.0,
+        DisplayName             = Metalwork Cache,
+        Icon                    = i_RikuEmporiumBox_complete_plus,
+        WorldStaticModel        = RikuEmporiumBox_complete_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyMetalworkCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Metalwork Cache,
+        Icon                    = i_RikuEmporiumBox_complete_plus,
+        WorldStaticModel        = RikuEmporiumBox_complete_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+
+	item MechanicCache
+	{
+        Type                    = Normal,
+        Weight                  = 10.0,
+        DisplayName             = Mechanic Cache,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyMechanicCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Mechanic Cache,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item FarmerCache
+	{
+        Type                    = Normal,
+        Weight                  = 10.0,
+        DisplayName             = Farmer Cache,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyFarmerCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Farmer Cache,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Weapon Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		Time:500.0,
+		OnCreate:RikuWeaponCacheFC,
+	}
+	
+	recipe Open Mechanic Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy MechanicCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyMechanicCache,
+		Time:500.0,
+		OnCreate:MechCacheFC,
+	}
+
+	recipe Open Metalwork Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy MetalworkCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyMetalworkCache,
+		Time:500.0,
+		OnCreate:MetalworkCacheFC,
+	}
+	
+	recipe Open Farmer Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy FarmerCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyFarmerCache,
+		Time:500.0,
+		OnCreate:FarmerCacheFC,
+	}
+
+}

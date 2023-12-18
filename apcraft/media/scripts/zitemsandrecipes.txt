@@ -1,0 +1,453 @@
+module Base
+{	
+	imports
+	{
+		Base
+	}
+	
+	item Biomass
+	{
+		DisplayCategory = Material,
+		Weight = 10.0,
+		Type	=	Normal,
+		UseWhileEquipped	=	FALSE,
+		DisplayName = 	Biomass,
+		Icon	=	TZ_CharCoal,
+		WorldStaticModel = Charcoal_Ground,
+	}
+	
+	item Sulphur
+	{
+		DisplayCategory = Material,
+		Weight = 0.1,
+		Type	=	Normal,
+		UseWhileEquipped	=	FALSE,
+		DisplayName = 	Sulphur,
+		Icon	=	TZ_TomatoSeeds,
+		WorldStaticModel = Seeds_Ground,
+	}
+	
+	item Saltpeter
+	{
+		DisplayCategory = Material,
+		Weight = 0.75,
+		Type	=	Normal,
+		UseWhileEquipped	=	FALSE,
+		DisplayName = 	Saltpeter,
+		Icon	=	TZ_StrewberrySeeds,
+		WorldStaticModel = Seeds_Ground,
+	}
+	
+	item CharcoalPowder
+	{
+		DisplayCategory = Material,
+		Weight = 0.15,
+		Type	=	Normal,
+		UseWhileEquipped	=	FALSE,
+		DisplayName = 	Charcoal Powder,
+		Icon	=	TZ_LRRadishSeeds,
+		WorldStaticModel = Seeds_Ground,
+	}
+	
+	
+	item FEMArefiner
+	{
+		DisplayCategory = Tool,
+		Weight = 20.0,
+		Type = Normal,
+		UseWhileEquipped = FALSE,
+		DisplayName = 	DIY Biomass Refiner,
+		Icon = CookingPot,
+		UseWorldItem = TRUE,
+		ScaleWorldIcon = 3.0,
+		StaticModel = CookingPot,
+		WorldStaticModel = CookingPotGround,
+	}
+		
+
+	item PropaneTank
+	{
+	    DisplayCategory = Material,
+		Weight	=	10.0,
+		Type	=	Drainable,
+		UseWhileEquipped	=	FALSE,
+		UseDelta	=	0.2,
+		DisplayName	=	Propane Tank,
+		Icon	=	PropaneTank,
+		ReplaceOnDeplete	=	PropaneTankEmpty,
+		WeightEmpty = 5.0,
+		WorldStaticModel = PropaneTank,
+		cantBeConsolided = false,
+		ConsolidateOption = ContextMenu_Merge,
+	}
+
+	item PropaneTankEmpty
+	{
+	    DisplayCategory = Material,
+		Weight	=	5.0,
+		Type	=	Normal,
+		UseWhileEquipped	=	FALSE,
+		DisplayName	=	Empty Propane Tank,
+		Icon	=	PropaneTank,
+		UseWorldItem = TRUE,
+		WorldStaticModel = PropaneTank,
+		cantBeConsolided = true,
+	}
+	
+	item BlowTorch
+	{
+        DisplayCategory = Tool,
+        Weight	=	1.0,
+        Type	=	Drainable,
+        UseWhileEquipped	=	FALSE,
+        UseDelta	=	0.05,
+        DisplayName	=	Propane Torch,
+        Icon	=	BlowTorch,
+        MetalValue = 20,
+        ReplaceOnDeplete	=	BlowTorchEmpty,
+        StaticModel = BlowTorch,
+        WeightEmpty = 0.3,
+        WorldStaticModel = BlowtorchGround,
+        cantBeConsolided = false,
+		ConsolidateOption = ContextMenu_Merge,
+	}
+	
+	item BlowTorchEmpty
+	{
+        DisplayCategory = Tool,
+        Weight	=	0.3,
+		Type	=	Normal,
+        UseWhileEquipped	=	FALSE,
+        DisplayName	=	Empty Propane Torch,
+        Icon	=	BlowTorch,
+        StaticModel = BlowTorch,
+        WorldStaticModel = BlowtorchGround,
+        cantBeConsolided = true,
+	}
+	
+	item DIYWeldingKit
+	{
+		DisplayCategory = Tool,
+		Weight = 5.0,
+		Type	=	Drainable,
+        UseDelta	=	1,
+        UseWhileEquipped	=	FALSE,
+        DisplayName	=	DIY Welding Kit,
+        ReplaceOnDeplete	=	DIYWeldingKitEmpty,
+        Icon	=	CarBattery,
+		StaticModel = CarBattery,
+        WorldStaticModel = CarBattery,
+		cantBeConsolided = true,
+	}
+	
+	item DIYWeldingKitEmpty
+	{
+        DisplayCategory = Tool,
+        Weight	=	5.0,
+		Type	=	Normal,
+        UseWhileEquipped	=	FALSE,
+        DisplayName	=	Empty DIY Welding Kit,
+        Icon	=	CarBattery,
+        StaticModel = CarBattery,
+        WorldStaticModel = CarBattery,
+        cantBeConsolided = true,
+	}	
+
+	recipe Create DIY Welding Kit
+	{
+		CanBeDoneFromFloor:true,
+		destroy CarBattery1/CarBattery2/CarBattery3,
+		WeldingRods = 20,
+		Battery = 10,
+		ElectricWire = 5,
+		ElectronicsScrap = 5,
+		ScrapMetal = 3,
+		keep [Recipe.GetItemTypes.Screwdriver],
+		Category:Welding,
+		Result:DIYWeldingKit,
+		Time:1000.0,
+		OnGiveXP:Give15ELECMWXP,
+	}
+
+	recipe Recharge DIY Welding Kit
+	{
+		CanBeDoneFromFloor:true,
+		destroy DIYWeldingKitEmpty,
+		WeldingRods = 20,
+		Battery = 10,
+		keep [Recipe.GetItemTypes.Screwdriver],
+		Category:Welding,
+		Result:DIYWeldingKit,
+		Time:1000.0,
+		OnGiveXP:Give15ELECMWXP,
+	}
+
+	recipe Create Propane Tank
+	{
+        CanBeDoneFromFloor:true,
+		SmallSheetMetal = 4,
+		ScrapMetal = 5,
+		DIYWeldingKit = 1,
+		keep [Recipe.GetItemTypes.Hammer],
+        Category:Welding,
+		Result:PropaneTankEmpty,
+		Sound:Hammering,
+        Sound:s_DIYwelding,
+		Time:1000.0,
+		OnGiveXP:Give10MWXP,
+	}
+	
+	recipe Create Propane Torch
+	{
+		CanBeDoneFromFloor:true,
+		MetalPipe = 1,
+		MetalBar = 1,
+		ScrapMetal = 2,
+		DIYWeldingKit = 1,
+		keep [Recipe.GetItemTypes.Hammer],
+		keep [Recipe.GetItemTypes.Saw],
+		Category:Welding,
+		Result:BlowTorchEmpty,
+		Sound:Hammering,
+		Sound:s_DIYwelding,
+		Time:1000.0,
+		OnGiveXP:Give10MWXP,
+	}
+
+	recipe Refine Gasoline
+	{
+        CanBeDoneFromFloor:true,
+		Heat:-0.22,
+		Biomass = 1,
+		Water = 200,
+		keep FEMArefiner,
+		destroy EmptyPetrolCan,
+		AnimNode:Craft,
+        Sound:s_refine,
+		Category:Survivalist,
+		Result:PetrolCan,
+        Time:4000.0,
+	}
+	
+	recipe Refine Propane
+	{
+        CanBeDoneFromFloor:true,
+		Heat:-0.22,
+		Biomass = 1,
+		Water = 100,
+		keep FEMArefiner,
+		keep MetalPipe,
+		destroy PropaneTankEmpty,
+		AnimNode:Craft,
+		Sound:s_refine,
+        Category:Survivalist,
+		Result:PropaneTank,
+        Time:4000.0,
+	}
+	
+	recipe DIY Biomass Refiner
+	{
+		CanBeDoneFromFloor:true,
+		SmallSheetMetal = 4,
+		SheetMetal = 3,
+		ScrapMetal = 15,
+		MetalBar = 4,
+		MetalPipe = 4,
+		ElectricWire = 15,
+		ElectronicsScrap = 20,
+		DIYWeldingKit = 1,
+		keep [Recipe.GetItemTypes.Hammer],
+		AnimNode:Craft,
+		Sound:Hammering,
+		Sound:s_DIYwelding,
+		Category:Welding,
+		Result:FEMArefiner,
+		Time:4000.0,
+		OnGiveXP:Give25ELECMWXP,
+	}
+	
+	recipe Create Fertilizer
+	{
+		CanBeDoneFromFloor:true,
+		CompostBag= 20,
+		Category:Farming,
+		AnimNode:Craft,
+		Result:Fertilizer,
+		Time:100.0,
+	}
+	
+	recipe Refine Biomass
+	{
+		CanBeDoneFromFloor:true,
+		Heat:-0.22,
+		Log = 5,
+		Fertilizer = 8,
+		Water = 100,
+		keep FEMArefiner,
+		Category:Survivalist,
+		Sound:s_refine,
+		AnimNode:Craft,
+		Result:Biomass,
+		Time:4000.0
+	}
+	
+	recipe CraftCharcoal
+	{
+		Log=5,
+		NearItem:Campfire,
+		Result:Charcoal,
+		Time:1440.0,
+		AnimNode:Craft,
+		Sound:s_charcoal,
+		Category:Survivalist,
+		CanBeDoneFromFloor:true,
+		Override:true,
+	}
+	
+	recipe Combine Scrap Metal Bits
+	{
+		ScrapMetalBits=30,
+		Result:ScrapMetal,
+		Time:15.0,
+		Override:TRUE,
+	}
+	
+	recipe Divide Scrap Metal Into Bits
+	{
+		ScrapMetal,
+		Result:ScrapMetalBits=30,
+		Time:15.0,
+		Override:TRUE,
+	}
+	
+	recipe Refill Empty Propane Torch
+	{
+		PropaneTank/LargePropaneTank=1,
+		destroy BlowTorchEmpty,
+		AnimNode:BlowtorchFloor,
+		Sound:s_propane,
+		Result:BlowTorch,
+		Time:100.0,
+	}
+	
+	recipe Tongs
+	{
+		ScrapMetal = 5,
+		MetalBar = 2,
+		DIYWeldingKit = 1,
+		keep [Recipe.GetItemTypes.Hammer],
+		keep TW.MetalWorkbench,
+		Sound:Hammering,
+		AnimNode:Craft,
+		Result:Base.Tongs,
+		Time:500.0,
+		OnGiveXP:Give15MWXP,
+		CanBeDoneFromFloor:true,
+	}
+		
+	recipe Workable Iron
+	{
+		CanBeDoneFromFloor:true,
+		ScrapMetal = 20,
+		BlowTorch = 10,
+		keep [Recipe.GetItemTypes.Hammer],
+		keep Base.Tongs,
+		keep TW.PropaneGasFurnace,
+		Sound:BlowTorch,
+		Sound:Hammering,
+		AnimNode:BlowTorchMid,
+		Prop1:BlowTorch,
+		Result:Base.IronIngot,
+		Time:500.0,
+		OnGiveXP:Give25MWXP,
+	}
+	
+	recipe Create Male Mannequin
+	{
+		CanBeDoneFromFloor:true,
+		destroy Base.CorpseMale,
+		Log = 2,
+		Wire = 10,
+		Nails = 10,
+		keep [Recipe.GetItemTypes.Hammer],
+		keep [Recipe.GetItemTypes.Saw],
+		Sound:Choptree,
+		Sound:Sawing,
+		Sound:Hammering,
+		Sound:BreakWoodItem,
+		AnimNode:SawLog,
+		Result:Base.Mov_MannequinMale,
+		Time:2000.0,
+		OnGiveXP:Give25WoodworkXP,
+	}
+	
+	recipe Create Female Mannequin
+	{
+		CanBeDoneFromFloor:true,
+		destroy Base.CorpseFemale,
+		Log = 2,
+		Wire = 10,
+		Nails = 10,
+		keep [Recipe.GetItemTypes.Hammer],
+		keep [Recipe.GetItemTypes.Saw],
+		Sound:Choptree,
+		Sound:Sawing,
+		Sound:Hammering,
+		Sound:BreakWoodItem,
+		AnimNode:SawLog,
+		Result:Base.Mov_MannequinFemale,
+		Time:2000.0,
+		OnGiveXP:Give25WoodworkXP,
+	}
+	
+	recipe Create Battery Jumpstarter
+	{
+		CanBeDoneFromFloor:true,
+		destroy CarBattery1/CarBattery2/CarBattery3,
+		Battery = 20,
+		ElectricWire = 10,
+		ScrapMetal = 10,
+		ElectronicsScrap = 10,
+		keep [Recipe.GetItemTypes.Screwdriver],
+		Sound:Hammering,
+		AnimNode:Loot,
+		Result:Base.Jumpstarter,
+		Time:500.0,
+		OnGiveXP:Give25ELECXP,
+	}
+	
+	recipe DIY Small Metal Sheet
+	{
+		ScrapMetal = 5,
+		DIYWeldingKit = 1,
+		keep [Recipe.GetItemTypes.Hammer],
+		Sound:s_DIYwelding,
+		AnimNode:BlowtorchFloor,
+		Result:Base.SmallSheetMetal,
+		Time:500.0,
+		OnGiveXP:Give15ELECMWXP,
+	}
+	
+	recipe DIY Metal Sheet
+	{
+		SmallSheetMetal = 4,
+		DIYWeldingKit = 1,
+		keep [Recipe.GetItemTypes.Hammer],
+		Sound:s_DIYwelding,
+		AnimNode:BlowtorchFloor,
+		Result:Base.SheetMetal,
+		Time:500.0,
+		OnGiveXP:Give15ELECMWXP,
+	}
+	
+	recipe Disassemble Metal Workbench
+	{
+		destroy TW.MetalWorkbench,
+		keep [Recipe.GetItemTypes.Hammer],		
+		keep [Recipe.GetItemTypes.Screwdriver],
+		Sound:Hammering,
+		Result:Base.SmallSheetMetal=3,
+		Time:1000.0,
+		OnGiveXP:Give15MWXP,
+	}
+}

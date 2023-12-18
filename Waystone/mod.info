@@ -1,0 +1,6 @@
+name=Waystone
+id=Waystone
+poster=poster.png
+description=Waystone
+pack=PZwaystone
+tiledef=PZwaystone 899

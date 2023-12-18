@@ -1,0 +1,22 @@
+module Base
+{
+
+    item PZwaystone
+	{
+		Icon 		= PZwaystone,
+		Weight 		= 50,
+		Type 		= Moveable,
+		WorldObjectSprite 		= PZwaystone_0,
+		DisplayName 		= Waystone,
+	}
+	
+	recipe Make Waystone
+	{
+		Log = 2,
+		Stone = 10,
+		RippedSheets = 10,
+		Result:PZwaystone,
+		Time:100.0
+	}
+
+}
