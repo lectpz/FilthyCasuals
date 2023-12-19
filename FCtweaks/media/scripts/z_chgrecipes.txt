@@ -1,0 +1,55 @@
+module CGBRecipes
+{    
+    imports
+    {
+        Base
+    }
+
+    recipe Make Hazmat Hood
+    {
+        Hat_GasMask,
+        Vest_HighViz,
+        Result:HazmatHelm,
+        SkillRequired:Tailoring=1,
+        Time:50.0,
+        Category:Tailoring,
+        Override:true,
+    }
+    
+    recipe Make Pop Space Helmet
+    {
+        Hat_CrashHelmet,
+        Crayons,
+        keep [Recipe.GetItemTypes.Scissors],
+        JarLid=2,       
+        Result:PopSpaceHelmet,
+        SkillRequired:Tailoring=1,
+        Time:50.0,
+        Category:Tailoring,
+        Override:true,
+    }
+    
+    recipe Make Steampunk Mask
+    {
+        Hat_GasMask,
+        Glue,
+        Hat_BalaclavaFull,       
+        Result:SteampunkMask,
+        SkillRequired:Tailoring=0,
+        Time:50.0,
+        Category:Tailoring,
+        Override:true,
+    }
+    
+    recipe Make Wooden Mask
+    {
+        Log,
+        Woodglue,
+        Twigs=10,
+        Result:WoodenMask,
+        SkillRequired:Tailoring=0,
+        Time:50.0,
+        Category:Tailoring,
+        Override:true,
+    }
+}

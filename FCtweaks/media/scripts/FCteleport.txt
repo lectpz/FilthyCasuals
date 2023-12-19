@@ -1,7 +1,7 @@
-module FCteleport
+module FC
 {
 
-	item FCteleporter
+	item Teleporter
 	{
 		DisplayCategory = FC,
 		Weight = 0.01,
@@ -14,10 +14,10 @@ module FCteleport
 
 	recipe Teleport
 	{
-		destroy FCteleporter,
+		destroy FC.Teleporter,
 		Sound:s_teleport,
 		AnimNode:Loot,
-		Result:FCteleporter,
+		Result:FC.Teleporter,
 		RemoveResultItem:true,
 		Time:10.0,
 		OnTest:testFCteleport,
