@@ -1,0 +1,27 @@
+module FCteleport
+{
+
+	item FCteleporter
+	{
+		DisplayCategory = FC,
+		Weight = 0.01,
+		Type = Normal,
+		UseWhileEquipped = FALSE,
+		DisplayName = 	Safehouse Teleport,
+		Icon = SpiffoHead,
+		WorldStaticModel = SpiffoPlushie,
+	}
+
+	recipe Teleport
+	{
+		destroy FCteleporter,
+		Sound:s_teleport,
+		AnimNode:Loot,
+		Result:FCteleporter,
+		RemoveResultItem:true,
+		Time:10.0,
+		OnTest:testFCteleport,
+		OnCreate:FCteleport,
+	}
+
+}
