@@ -30,8 +30,10 @@ function OnWeaponSwingFC(character, handWeapon)
 				local o_critmulti	=	playerItem:getCritDmgMultiplier()
 				local o_mindmg		=	playerItem:getMinDamage()
 				local o_maxdmg		=	playerItem:getMaxDamage()
-				local o_name		=	playerItem:getName()
-				print(o_name " base name")
+				local o_name		=	character:getPrimaryHandItem():getName()
+				--if character:getPrimaryHandItem() == playerItem then local o_name = character:getPrimaryHandItem():getName() end
+				--local o_name		=	playerItem--:getName()
+				--print(o_name " base name")
 				-- set moddata in key, value pairs
 				
 				playerItem:getModData().CriticalChance		= o_critrate
@@ -72,11 +74,12 @@ function OnWeaponSwingFC(character, handWeapon)
 			local localcritmulti	= tiercritmultimod[tierzone]
             
 			-- set weapon stats
+			--print(FilthyCasual)
 			playerItem:setCriticalChance(basecritrate * localcritrate + (FilthyCasual * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus critrate is 0. T2=1. T3=2. T4=3. If FC=false, then FC=0 and nothing applies
 			playerItem:setCritDmgMultiplier(basecritmulti * localcritmulti + (FilthyCasual/10 * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus critmulti is 0. T2=0.1. T3=0.2. T4=0.3. If FC=false, then FC=0 and nothing applies
 			playerItem:setMinDamage(basemindmg * localdmgmulti + (FilthyCasual/10 * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus mindmg is 0. T2=0.1. T3=0.2. T4=0.3. If FC=false, then FC=0 and nothing applies
 			playerItem:setMaxDamage(basemaxdmg * localdmgmulti + (FilthyCasual/10 * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus maxdmg is 0. T2=0.1. T3=0.2. T4=0.3. If FC=false, then FC=0 and nothing applies
-			playerItem:setName(basename .. " [T" .. tostring(tierzone) .. "]")
+			if tierzone ~= 1 then playerItem:setName(basename .. " [T" .. tostring(tierzone) .. "]") else playerItem:setName(basename) end
 			-- debug display to make my life easier
 --			character:Say("ModCrit=" .. tostring(basecritrate * localcrit) .. " ModMinDmg=" .. tostring(basemindmg * localdmgmulti) .. " ModMaxDmg=" .. tostring(basemaxdmg * localdmgmulti))
 --			character:Say("ModMinDmg=" .. tostring(basemindmg * localdmgmulti) .. " ModMaxDmg=" .. tostring(basemaxdmg * localdmgmulti) .. "ModCrit=" .. tostring(basecritrate * localcritrate) .. " ModCritMulti=" .. tostring(basecritmulti * localcritmulti))
@@ -104,21 +107,21 @@ function WeaponCheckFC(character, inventoryItem)
 			local o_critmulti	=	inventoryItem:getCritDmgMultiplier()
 			local o_mindmg		=	inventoryItem:getMinDamage()
 			local o_maxdmg		=	inventoryItem:getMaxDamage()
-			local o_name		=	inventoryItem:getName()
-			print(o_name .. " base name")
+			local o_name		=	character:getPrimaryHandItem():getName()
+			--print(o_name .. " base name")
 
 			inventoryItem:getModData().CriticalChance	= o_critrate
 			inventoryItem:getModData().CritDmgMultiplier	= o_critmulti
 			inventoryItem:getModData().MinDamage		= o_mindmg
 			inventoryItem:getModData().MaxDamage		= o_maxdmg
-			inventoryItem:getModData().Name			= o.name
-			character:Say("mod data stored")
+			inventoryItem:getModData().Name			= o_name
+			--character:Say("mod data stored")
 		else
 			--character:Say("mod data already exists, nothing needs to be done")
 		end
 		--character:Say("Inventory Item exists")
 		local basecritrate 	= inventoryItem:getModData().CriticalChance
-		local basecritmulti 	= inventoryItem:getModData().CritDmgMultiplier
+		local basecritmulti = inventoryItem:getModData().CritDmgMultiplier
 		local basemindmg 	= inventoryItem:getModData().MinDamage
 		local basemaxdmg 	= inventoryItem:getModData().MaxDamage
 		local basename		= inventoryItem:getModData().Name
