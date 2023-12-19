@@ -25,6 +25,36 @@ module Base
         Tooltip = Tooltip_Cache_Empty,
 	}
 	
+	item EmptyWeaponCacheT1
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Tier 1 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item EmptyWeaponCacheT2
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Tier 2 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item EmptyWeaponCacheT3
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Tier 3 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
 	item MetalworkCache
 	{
         Type                    = Normal,
@@ -92,8 +122,51 @@ module Base
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
 		Time:500.0,
 		OnCreate:RikuWeaponCacheFC,
+	}
+	
+	recipe Upgrade Weapon Cache To Tier 4
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+		EmptyWeaponCacheT3 = 15,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnTest:onTestTier3CheckFC,
+		OnCreate:RikuWeaponCacheUpgradeFC,
+	}
+	
+	recipe Upgrade Weapon Cache To Tier 3
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+		EmptyWeaponCacheT2 = 10,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnTest:onTestTier2CheckFC,
+		OnCreate:RikuWeaponCacheUpgradeFC,
+	}
+	
+	recipe Upgrade Weapon Cache To Tier 2
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+		EmptyWeaponCacheT1 = 5,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnTest:onTestTier1CheckFC,
+		OnCreate:RikuWeaponCacheUpgradeFC,
 	}
 	
 	recipe Open Mechanic Cache
@@ -103,6 +176,7 @@ module Base
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyMechanicCache,
+		RemoveResultItem:true,
 		Time:500.0,
 		OnCreate:MechCacheFC,
 	}
@@ -114,6 +188,7 @@ module Base
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyMetalworkCache,
+		RemoveResultItem:true,
 		Time:500.0,
 		OnCreate:MetalworkCacheFC,
 	}
@@ -125,6 +200,7 @@ module Base
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyFarmerCache,
+		RemoveResultItem:true,
 		Time:500.0,
 		OnCreate:FarmerCacheFC,
 	}

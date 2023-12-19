@@ -153,49 +153,49 @@ Events.OnPreDistributionMerge.Add(preDistributionMerge)
 local function RMWadjust()
 	local item = ScriptManager.instance:getItem("RMWeapons.firelink")
 	if item then
-		item:DoParam("CriticalChance	=	25")
+		item:DoParam("CriticalChance	=	27")
 	end
 
 	local item = ScriptManager.instance:getItem("RMWeapons.themauler")
 	if item then
-		item:DoParam("CriticalChance	=	30")
+		item:DoParam("CriticalChance	=	33")
 	end
 
 	local item = ScriptManager.instance:getItem("RMWeapons.warhammer40k")
 	if item then
-		item:DoParam("CriticalChance	=	30")
+		item:DoParam("CriticalChance	=	33")
 	end
 
 	local item = ScriptManager.instance:getItem("RMWeapons.MizutsuneSword")
 	if item then
-		item:DoParam("CriticalChance	=	30")
+		item:DoParam("CriticalChance	=	33")
 	end
 
 	local item = ScriptManager.instance:getItem("RMWeapons.Nikabo")
 	if item then
-		item:DoParam("CriticalChance	=	30")
+		item:DoParam("CriticalChance	=	33")
 	end
 
 	local item = ScriptManager.instance:getItem("RMWeapons.falchion")
 	if item then
-		item:DoParam("CriticalChance	=	30")
+		item:DoParam("CriticalChance	=	33")
 	end
 
 	local item = ScriptManager.instance:getItem("RMWeapons.spinecrusher")
 	if item then
-		item:DoParam("CriticalChance	=	30")
+		item:DoParam("CriticalChance	=	33")
 	end
 
 	local item = ScriptManager.instance:getItem("RMWeapons.thunderbreaker")
 	if item then
-		item:DoParam("CriticalChance	=	30")
+		item:DoParam("CriticalChance	=	33")
 	end
 
 	local item = ScriptManager.instance:getItem("RMWeapons.steinbeer")
 	if item then
-		item:DoParam("MaxRange	=	1.1")
-		item:DoParam("ConditionLowerChanceOneIn    =    9")
-		item:DoParam("CriticalChance    =    20")
+		item:DoParam("MaxRange	=	1.15")
+		item:DoParam("ConditionLowerChanceOneIn    =    16")
+		item:DoParam("CriticalChance    =    22")
 	end
 end
 
