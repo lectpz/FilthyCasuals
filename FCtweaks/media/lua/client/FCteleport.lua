@@ -6,10 +6,10 @@ function FCteleport()
 	if safehouse then
 		local x = safehouse:getX()
 		local y = safehouse:getY()
-		self.character:setX(x)
-		self.character:setY(y)
-		self.character:setLx(x)
-		self.character:setLy(y)
+		player:setX(x)
+		player:setY(y)
+		player:setLx(x)
+		player:setLy(y)
 	else
 		return
 	end	
