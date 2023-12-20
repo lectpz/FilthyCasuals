@@ -10,7 +10,7 @@ require "OnZombieDeadFC"
 -- function to scale crit and min/max dmg based on zone
 function OnWeaponSwingFC(character, handWeapon)
 	
-	if character ~= nil and not handWeapon:isRanged() then
+	if character ~= nil and not handWeapon:isRanged() and handWeapon == BareHands and handWeapon == nil then
 		-- set tierzone 
 		local tierzone = checkZone()
 		-- if it's tier 1, just don't do anything
