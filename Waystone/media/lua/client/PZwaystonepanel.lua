@@ -165,11 +165,16 @@ function PZwaystone.mainpanel:shtp()
 
 			local x1 = safehouse:getX()
 			local y1 = safehouse:getY()
+			local w1 = safehouse:getW()
+			local h1 = safehouse:getH()
 
-			self.character:setX(x1)
-			self.character:setY(y1)
-			self.character:setLx(x1)
-			self.character:setLy(y1)
+			local x2 = x1 + w1/2 -- put you in the center of your SH zone
+			local y2 = y1 + h1/2 -- put you in the center of your SH zone
+
+			self.character:setX(x2)
+			self.character:setY(y2)
+			self.character:setLx(x2)
+			self.character:setLy(y2)
 		else
 			pzplayer:Say("I'm homeless. If only I had a SafeHouse to teleport to...")
 			self.close()
