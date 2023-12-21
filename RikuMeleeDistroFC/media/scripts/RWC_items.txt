@@ -205,4 +205,36 @@ module Base
 		OnCreate:FarmerCacheFC,
 	}
 
+	item AmmoCache
+	{
+        Type                    = Normal,
+        Weight                  = 10.0,
+        DisplayName             = Ammo Cache,
+        Icon                    = i_RikuEmporiumBox_event,
+        WorldStaticModel        = RikuEmporiumBox_event,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyAmmoCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Ammo Cache,
+        Icon                    = i_RikuEmporiumBox_event,
+        WorldStaticModel        = RikuEmporiumBox_event,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Ammo Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy AmmoCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyAmmoCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:AmmoCacheFC,
+	}
+	
 }
