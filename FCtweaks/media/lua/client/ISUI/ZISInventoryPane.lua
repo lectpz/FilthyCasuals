@@ -20,8 +20,8 @@ function ISInventoryPane:transferItemsByWeight(items, container)
 			ISInventoryPaneContextMenu.dropItem(item, self.player)
 		else
 			--ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), container))
-			if item and item:getName() ~= "Weapon Cache" and  item:getName() ~= "Mechanic Cache" and item:getName() ~= "Metalwork Cache" and item:getName() ~= "Farmer Cache" then --fc
-			--if item and item:getName() ~= "Weapon Cache1" and  item:getName() ~= "Mechanic Cache1" and item:getName() ~= "Metalwork Cache1" and item:getName() ~= "Farmer Cache1" then --fc
+			if item and item:getFullType() ~= "Base.WeaponCache" and  item:getFullType() ~= "Base.MechanicCache" and item:getFullType() ~= "Base.MetalworkCache" and item:getFullType() ~= "Base.FarmerCache" and item:getFullType() ~= "Base.AmmoCache" then --fc
+			--if item and item:getFullType() ~= "Base.WeaponCache1" and  item:getFullType() ~= "Base.MechanicCache1" and item:getFullType() ~= "Base.MetalworkCache1" and item:getFullType() ~= "Base.FarmerCache1" then --fc
 				ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), container))
 			else
 				playerObj:Say("I should just open this here.")
@@ -64,7 +64,7 @@ function ISInventoryPane:onMouseDoubleClick(x, y)
 							end
 							doWalk = false
 						end
-						if v and v:getName() ~= "Weapon Cache" and  v:getName() ~= "Mechanic Cache" and v:getName() ~= "Metalwork Cache" and v:getName() ~= "Farmer Cache" then --fc
+						if v and v:getFullType() ~= "Base.WeaponCache" and  v:getFullType() ~= "Base.MechanicCache" and v:getFullType() ~= "Base.MetalworkCache" and v:getFullType() ~= "Base.FarmerCache" and v:getFullType() ~= "Base.AmmoCache" then --fc
 							ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, v, v:getContainer(), playerInv))
 						else
 							playerObj:Say("I should just open this here.")
@@ -84,7 +84,7 @@ function ISInventoryPane:onMouseDoubleClick(x, y)
 			if isForceDropHeavyItem(item) then
 				ISInventoryPaneContextMenu.equipHeavyItem(playerObj, item)
 			elseif luautils.walkToContainer(item:getContainer(), self.player) then
-				if item and item:getName() ~= "Weapon Cache" and  item:getName() ~= "Mechanic Cache" and item:getName() ~= "Metalwork Cache" and item:getName() ~= "Farmer Cache" then --fc
+				if item and item:getFullType() ~= "Base.WeaponCache" and  item:getFullType() ~= "Base.MechanicCache" and item:getFullType() ~= "Base.MetalworkCache" and item:getFullType() ~= "Base.FarmerCache" and item:getFullType() ~= "Base.AmmoCache" then --fc
 					ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), playerInv))
 				else
 					playerObj:Say("I should just open this here.")
@@ -103,7 +103,7 @@ function ISInventoryPane.getActualItems(items)
 	local contains = {}
 	for _,item in ipairs(items) do
 		if instanceof(item, "InventoryItem") then
-			if item and item:getName() ~= "Weapon Cache" and  item:getName() ~= "Mechanic Cache" and item:getName() ~= "Metalwork Cache" and item:getName() ~= "Farmer Cache" then --fc
+			if item and item:getFullType() ~= "Base.WeaponCache" and  item:getFullType() ~= "Base.MechanicCache" and item:getFullType() ~= "Base.MetalworkCache" and item:getFullType() ~= "Base.FarmerCache" and item:getFullType() ~= "Base.AmmoCache" then --fc
 				if not contains[item] then
 					-- The top-level group and its children might both be selected.
 					table.insert(ret, item)
@@ -117,7 +117,7 @@ function ISInventoryPane.getActualItems(items)
 			-- The first item is a dummy duplicate, skip it.
 			for i=2,#item.items do
 				local item2 = item.items[i]
-				if item2 and item2:getName() ~= "Weapon Cache" and  item2:getName() ~= "Mechanic Cache" and item2:getName() ~= "Metalwork Cache" and item2:getName() ~= "Farmer Cache" then --fc	
+				if item2 and item2:getFullType() ~= "Base.WeaponCache" and  item2:getFullType() ~= "Base.MechanicCache" and item2:getFullType() ~= "Base.MetalworkCache" and item2:getFullType() ~= "Base.FarmerCache" and item2:getFullType() ~= "Base.AmmoCache" then --fc	
 					if not contains[item2] then
 						table.insert(ret, item2)
 						contains[item2] = true
@@ -177,7 +177,7 @@ function ISInventoryPane:sortItemsByTypeAndWeight(items)
 		end
 		return false
 	end)
-	if item and item:getName() ~= "Weapon Cache" and  item:getName() ~= "Mechanic Cache" and item:getName() ~= "Metalwork Cache" and item:getName() ~= "Farmer Cache" then --fc
+	if item and item:getFullType() ~= "Base.WeaponCache" and  item:getFullType() ~= "Base.MechanicCache" and item:getFullType() ~= "Base.MetalworkCache" and item:getFullType() ~= "Base.FarmerCache" and item:getFullType() ~= "Base.AmmoCache" then --fc
 		table.wipe(items)
 		local count = 1
 		for _,itemList in ipairs(sorted) do
