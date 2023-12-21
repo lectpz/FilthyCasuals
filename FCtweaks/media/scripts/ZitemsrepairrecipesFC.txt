@@ -359,4 +359,113 @@ module Base
 		Fixer: SmallSheetMetal=2;MetalWelding=2,
 		Fixer: ScrapMetal=3;MetalWelding=2,
 	}
+
+	recipe Create Glock 21 Magazine
+	{
+		ScrapMetal=10,
+		SmallSheetMetal=3,
+		BlowTorch=2,
+		Screws=5,
+		keep [Recipe.GetItemTypes.WeldingMask],
+		keep [Recipe.GetItemTypes.Screwdriver],
+		keep [Recipe.GetItemTypes.Hammer],
+
+		Result:GWP.Glock21Mag,
+		Sound:Hammering,
+		Time:300.0,
+		Category:Firearm,
+		SkillRequired:MetalWelding=6;Reloading=6,
+		OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+	}
+
+	recipe Create HK .308 Magazine
+	{
+		ScrapMetal=10,
+		SmallSheetMetal=3,
+		BlowTorch=2,
+		Screws=5,
+		keep [Recipe.GetItemTypes.WeldingMask],
+		keep [Recipe.GetItemTypes.Screwdriver],
+		keep [Recipe.GetItemTypes.Hammer],
+
+		Result:GWP.HK308Mag,
+		Sound:Hammering,
+		Time:300.0,
+		Category:Firearm,
+		SkillRequired:MetalWelding=6;Reloading=6,
+		OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+	}
+
+	recipe Create M1A1 Magazine
+	{
+		ScrapMetal=10,
+		SmallSheetMetal=3,
+		BlowTorch=2,
+		Screws=5,
+		keep [Recipe.GetItemTypes.WeldingMask],
+		keep [Recipe.GetItemTypes.Screwdriver],
+		keep [Recipe.GetItemTypes.Hammer],
+
+		Result:GWP.45Clip30,
+		Sound:Hammering,
+		Time:300.0,
+		Category:Firearm,
+		SkillRequired:MetalWelding=6;Reloading=6,
+		OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+	}
+
+	recipe Create Mac-10 Magazine
+	{
+		ScrapMetal=10,
+		SmallSheetMetal=3,
+		BlowTorch=2,
+		Screws=5,
+		keep [Recipe.GetItemTypes.WeldingMask],
+		keep [Recipe.GetItemTypes.Screwdriver],
+		keep [Recipe.GetItemTypes.Hammer],
+
+		Result:GWP.45Clip30Mac10,
+		Sound:Hammering,
+		Time:300.0,
+		Category:Firearm,
+		SkillRequired:MetalWelding=6;Reloading=6,
+		OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+	}
+
+	recipe Create Mini-30 Magazine
+	{
+		ScrapMetal=10,
+		SmallSheetMetal=3,
+		BlowTorch=2,
+		Screws=5,
+		keep [Recipe.GetItemTypes.WeldingMask],
+		keep [Recipe.GetItemTypes.Screwdriver],
+		keep [Recipe.GetItemTypes.Hammer],
+
+		Result:GWP.Mini30Mag,
+		Sound:Hammering,
+		Time:300.0,
+		Category:Firearm,
+		SkillRequired:MetalWelding=6;Reloading=6,
+		OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+	}
+
+	recipe Create Uzi Magazine
+	{
+		ScrapMetal=10,
+		SmallSheetMetal=3,
+		BlowTorch=2,
+		Screws=5,
+		keep [Recipe.GetItemTypes.WeldingMask],
+		keep [Recipe.GetItemTypes.Screwdriver],
+		keep [Recipe.GetItemTypes.Hammer],
+
+		Result:GWP.Uzi9mmMag,
+		Sound:Hammering,
+		Time:300.0,
+		Category:Firearm,
+		SkillRequired:MetalWelding=6;Reloading=6,
+		OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+	}
+
 }
