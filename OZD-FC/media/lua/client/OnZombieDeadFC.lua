@@ -27,21 +27,21 @@ function CheckZombieKillCountFC()
 	if getPlayer() ~= nil then
 		FCzombieKC = getPlayer():getZombieKills()
 		if FCzombieKC >= 2000 then
+			FilthyCasual = 1
 			if MF.getMoodle("pepeclown"):getValue() ~= 0.1 then
-				FilthyCasual = 1
 				MF.getMoodle("pepeclown"):setValue(0.1) 
 				MF.getMoodle("pepe"):setValue(0.5)
+				return
 			else
-				FilthyCasual = 1
 				return
 			end
-		elseif FCzombieKC >= 1000 then
+		elseif FCzombieKC >= 500 then
+			FilthyCasual = 0.5
 			if MF.getMoodle("pepe"):getValue() ~= 0.4 then
-				FilthyCasual = false
 				MF.getMoodle("pepe"):setValue(0.4)
 				MF.getMoodle("pepeclown"):setValue(0.5)
+				return
 			else
-				FilthyCasual = 0
 				return
 			end
 		else
@@ -110,6 +110,8 @@ function OnZombieDeadItemDrop(zombie)
 	
 	if tierzone == 4 then
 		--getPlayer():Say("Tier 4! 1 / " .. tostring(t4roll))
+		getPlayer():getXp():AddXP(Perks.Strength, tierzone*5);
+		getPlayer():getXp():AddXP(Perks.Fitness, tierzone*5);
 		if t4roll == 0 then
 			itemdrop(table4[t4])
 		elseif t3roll == 0 then
@@ -121,6 +123,8 @@ function OnZombieDeadItemDrop(zombie)
 		end
 	elseif tierzone == 3 then
 		--getPlayer():Say("Tier 3! 1 / " .. tostring(t3roll))
+		getPlayer():getXp():AddXP(Perks.Strength, tierzone*5);
+		getPlayer():getXp():AddXP(Perks.Fitness, tierzone*5);
 		if t3roll == 0 then
 			itemdrop(table3[t3])
 		elseif t2roll == 0 then
@@ -130,6 +134,8 @@ function OnZombieDeadItemDrop(zombie)
 		end
 	elseif tierzone == 2 then
 		--getPlayer():Say("Tier 2! 1 / " .. tostring(t2roll))
+		getPlayer():getXp():AddXP(Perks.Strength, tierzone*5);
+		getPlayer():getXp():AddXP(Perks.Fitness, tierzone*5);
 		if t2roll == 0 then
 			itemdrop(table2[t2])
 		elseif t1roll == 0 then
@@ -137,6 +143,8 @@ function OnZombieDeadItemDrop(zombie)
 		end
 	elseif tierzone == 1 then
 		--getPlayer():Say("Tier 1! 1 / " .. tostring(t1roll))
+		getPlayer():getXp():AddXP(Perks.Strength, tierzone*5);
+		getPlayer():getXp():AddXP(Perks.Fitness, tierzone*5);
 		if t1roll == 0 then
 			itemdrop(table1[t1])
 		end
