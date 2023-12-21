@@ -26,7 +26,7 @@ end
 local function FCteleportercontext(player, context, items) -- # When an inventory item context menu is opened
 	items = ISInventoryPane.getActualItems(items); -- Get table of inventory items (will not be module.item, just item)
 	for _, item in ipairs(items) do -- Check every item in inventory array
-		if item:getFullType() == 'FC.Teleporter' then -- getFullType will display Module.Item, check for FC.Teleporter. this also checks if item is in character inventory
+		if item:getFullType() == "FC.Teleporter" then -- getFullType will display Module.Item, check for FC.Teleporter. this also checks if item is in character inventory
 			context:addOption("Set Return Coordinates for Safehouse Teleport", item, FCteleporterContextMenuObjectName.doFCsafehousecoord, player) -- add context menu option to write safehouse coordinates to player getmoddata
 			context:addOption("Teleport back to Safehouse", item, FCteleporterContextMenuObjectName.doFCteleport, player) -- add context menu option to Teleport
 			break -- break the loop when found

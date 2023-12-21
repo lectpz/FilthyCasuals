@@ -177,7 +177,7 @@ function ISInventoryPane:sortItemsByTypeAndWeight(items)
 		end
 		return false
 	end)
-	if item and item:getFullType() ~= "Base.WeaponCache" and  item:getFullType() ~= "Base.MechanicCache" and item:getFullType() ~= "Base.MetalworkCache" and item:getFullType() ~= "Base.FarmerCache" and item:getFullType() ~= "Base.AmmoCache" then --fc
+	if items and items:getFullType() ~= "Base.WeaponCache" and  items:getFullType() ~= "Base.MechanicCache" and items:getFullType() ~= "Base.MetalworkCache" and items:getFullType() ~= "Base.FarmerCache" and items:getFullType() ~= "Base.AmmoCache" then --fc
 		table.wipe(items)
 		local count = 1
 		for _,itemList in ipairs(sorted) do
