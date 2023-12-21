@@ -160,21 +160,30 @@ function PZwaystone.mainpanel:shtp()
 	then
 		local pzplayer = getPlayer()
 		local safehouse = SafeHouse.hasSafehouse(pzplayer)
-		if safehouse
-		then
+		
+		if safehouse then
+		
+			local sh_x = pzplayer:getModData().SafeHouseX
+			local sh_y = pzplayer:getModData().SafeHouseY
+			local sh_z = pzplayer:getModData().SafeHouseZ
+			
+			if sh_x == nil and sh_y == nil and sh_z == nil then--check moddata if nil then proceed with normal SH tp, else do the saved SH tp
+			
+				local x1 = safehouse:getX()
+				local y1 = safehouse:getY()
 
-			local x1 = safehouse:getX()
-			local y1 = safehouse:getY()
-			local w1 = safehouse:getW()
-			local h1 = safehouse:getH()
-
-			local x2 = x1 + w1/2 -- put you in the center of your SH zone
-			local y2 = y1 + h1/2 -- put you in the center of your SH zone
-
-			self.character:setX(x2)
-			self.character:setY(y2)
-			self.character:setLx(x2)
-			self.character:setLy(y2)
+				self.character:setX(x1)
+				self.character:setY(y1)
+				self.character:setLx(x1)
+				self.character:setLy(y1)
+			else
+				self.character:setX(sh_x)
+				self.character:setY(sh_y)
+				self.character:setY(sh_z)
+				self.character:setLx(sh_x)
+				self.character:setLy(sh_y)
+				self.character:setLy(sh_z)
+			end
 		else
 			pzplayer:Say("I'm homeless. If only I had a SafeHouse to teleport to...")
 			self.close()
