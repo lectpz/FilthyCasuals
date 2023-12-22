@@ -117,8 +117,7 @@ function PZwaystone.mainpanel:teleport()
 		local x2 = safehouse:getW() + x1
 		local y2 = safehouse:getH() + y1
 
-		if x >= x1 and y >= y1 and x <= x2 and y <= y2
-		then
+		if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
 
 			local playerObj = self.character
 			local selectd = self.scrolllist.items[self.scrolllist.selected]
@@ -156,8 +155,7 @@ function PZwaystone.mainpanel:shtp()
 	local x2 = x1cc+3
 	local y2 = y1cc+3
 
-	if x >= x1 and y >= y1 and x <= x2 and y <= y2
-	then
+	if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
 		local pzplayer = getPlayer()
 		local safehouse = SafeHouse.hasSafehouse(pzplayer)
 		

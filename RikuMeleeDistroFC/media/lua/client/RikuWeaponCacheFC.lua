@@ -94,12 +94,13 @@ function RikuWeaponCacheUpgradeFC(items, result, player)
 	
 	if tierzone == 3 then
 		getPlayer():getInventory():AddItem(table4[t4])
+		getPlayer():Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(tierzone + 1) .. "!")
 	elseif tierzone == 2 then
 		getPlayer():getInventory():AddItem(table3[t3])
+		getPlayer():Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(tierzone + 1) .. "!")
 	elseif tierzone == 1 then
 		getPlayer():getInventory():AddItem(table2[t2])
+		getPlayer():Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(tierzone + 1) .. "!")
 	end
-
-	getPlayer():Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(tierzone + 1) .. "!")
 	
 end

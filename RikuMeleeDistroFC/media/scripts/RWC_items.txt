@@ -137,7 +137,7 @@ module Base
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
 		Time:500.0,
-		OnTest:onTestTier3CheckFC,
+		OnCanPerform:onTestTier3CheckFC,
 		OnCreate:RikuWeaponCacheUpgradeFC,
 	}
 	
@@ -151,7 +151,7 @@ module Base
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
 		Time:500.0,
-		OnTest:onTestTier2CheckFC,
+		OnCanPerform:onTestTier2CheckFC,
 		OnCreate:RikuWeaponCacheUpgradeFC,
 	}
 	
@@ -165,7 +165,7 @@ module Base
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
 		Time:500.0,
-		OnTest:onTestTier1CheckFC,
+		OnCanPerform:onTestTier1CheckFC,
 		OnCreate:RikuWeaponCacheUpgradeFC,
 	}
 	
