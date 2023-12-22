@@ -9,9 +9,9 @@ local function splitString(sandboxvar, delimiter)
 	return ztable
 end
 
-local s1 = splitString("Base.ScrapMetal Packing.5pkScrapMetal Packing.10pkScrapMetal Packing.100pkScrapMetal Base.AutoForm")
+local s1 = splitString("Base.ScrapMetal Packing.5pkScrapMetal Packing.10pkScrapMetal Packing.100pkScrapMetal Base.AutoForm FC.Teleporter")
 local s1n = #s1
-local s1price = splitString("1 5 10 100 50")
+local s1price = splitString("1 5 10 100 50 10")
 
 for i=1,s1n do
 	Shop.Items[s1[i]] = { tab = Tab.All, price = s1price[i] }

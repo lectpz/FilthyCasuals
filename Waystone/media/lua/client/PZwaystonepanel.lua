@@ -155,32 +155,38 @@ function PZwaystone.mainpanel:shtp()
 	local x2 = x1cc+3
 	local y2 = y1cc+3
 
-	if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
+	if x >= x1 and y >= y1 and x <= x2 and y <= y2 then--checks if the waystone is at the community center
 		local pzplayer = getPlayer()
 		local safehouse = SafeHouse.hasSafehouse(pzplayer)
+		--define safehouse bounds to check for moddata sh coordinates
+		local xx1 = safehouse:getX()
+		local yy1 = safehouse:getY()
+		local xx2 = safehouse:getW() + xx1
+		local yy2 = safehouse:getH() + yy1
 		
 		if safehouse then
 		
 			local sh_x = pzplayer:getModData().SafeHouseX
 			local sh_y = pzplayer:getModData().SafeHouseY
-			local sh_z = pzplayer:getModData().SafeHouseZ
 			
-			if sh_x == nil and sh_y == nil and sh_z == nil then--check moddata if nil then proceed with normal SH tp, else do the saved SH tp
+			if sh_x ~= nil and sh_y ~= nil then--check moddata if not nil
 			
-				local x1 = safehouse:getX()
-				local y1 = safehouse:getY()
-
-				self.character:setX(x1)
-				self.character:setY(y1)
-				self.character:setLx(x1)
-				self.character:setLy(y1)
+				if sh_x >= xx1 and sh_y >= yy1 and sh_x <= xx2 and sh_y <= yy2 then--check if moddata is within actual sh bounds
+					self.character:setX(player:getModData().SafeHouseX) -- teleport to pre-defined safehouse moddata coordinates
+					self.character:setY(player:getModData().SafeHouseY)
+					self.character:setLx(player:getModData().SafeHouseX)
+					self.character:setLy(player:getModData().SafeHouseY)
+				else
+					self.character:setX(safehouse:getX())
+					self.character:setY(safehouse:getY())
+					self.character:setLx(safehouse:getX())
+					self.character:setLy(safehouse:getY())
+				end
 			else
-				self.character:setX(sh_x)
-				self.character:setY(sh_y)
-				self.character:setY(sh_z)
-				self.character:setLx(sh_x)
-				self.character:setLy(sh_y)
-				self.character:setLy(sh_z)
+				self.character:setX(safehouse:getX())
+				self.character:setY(safehouse:getY())
+				self.character:setLx(safehouse:getX())
+				self.character:setLy(safehouse:getY())
 			end
 		else
 			pzplayer:Say("I'm homeless. If only I had a SafeHouse to teleport to...")
