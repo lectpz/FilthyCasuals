@@ -176,7 +176,7 @@ function AmmoCacheFC(items, result, player)
 -- tiered rolling, checks zone and adds item
 	local tierzone = checkZone()
 	
-	local ammo = splitString("Base.Bullets45Box", "Base.ShotgunShellsBox", "Base.308Box", "Base.556Box", "Base.762Box")
+	local ammo = splitString("Base.Bullets45Box Base.ShotgunShellsBox Base.308Box Base.556Box Base.762Box")
 	
 	local zoneroll = 6-tierzone
 	local player = getPlayer():getInventory()

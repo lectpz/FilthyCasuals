@@ -97,38 +97,3 @@ function ISInventoryPane:onMouseDoubleClick(x, y)
 		self.previousMouseUp = nil;
 	end
 end
-
-function ISInventoryPane.getActualItems(items)
-	local ret = {}
-	local contains = {}
-	for _,item in ipairs(items) do
-		if instanceof(item, "InventoryItem") then
-			if item and item:getFullType() ~= "Base.WeaponCache" and  item:getFullType() ~= "Base.MechanicCache" and item:getFullType() ~= "Base.MetalworkCache" and item:getFullType() ~= "Base.FarmerCache" and item:getFullType() ~= "Base.AmmoCache" then --fc
-				if not contains[item] then
-					-- The top-level group and its children might both be selected.
-					table.insert(ret, item)
-					contains[item] = true
-				end
-			--else
-				--getPlayer():Say("I should just open this here.")
-				--return "Base.Dice"
-			end
-		else
-			-- The first item is a dummy duplicate, skip it.
-			for i=2,#item.items do
-				local item2 = item.items[i]
-				if item2 and item2:getFullType() ~= "Base.WeaponCache" and  item2:getFullType() ~= "Base.MechanicCache" and item2:getFullType() ~= "Base.MetalworkCache" and item2:getFullType() ~= "Base.FarmerCache" and item2:getFullType() ~= "Base.AmmoCache" then --fc	
-					if not contains[item2] then
-						table.insert(ret, item2)
-						contains[item2] = true
-					end
-				--else
-					--getPlayer():Say("I should just open this here.")
-					--table.insert(ret, item2)
-					--contains[item2] = true
-				end
-			end
-		end
-	end
-	return ret
-end

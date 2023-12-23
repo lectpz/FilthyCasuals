@@ -3,7 +3,6 @@ module FC
 
 	item Teleporter
 	{
-		DisplayCategory = FC,
 		Weight = 0.01,
 		Type = Normal,
 		UseWhileEquipped = FALSE,

@@ -42,7 +42,7 @@ function doFCteleport:new(character, command, args)
     o.command = command
     o.args = args
 	o.gameSound = 0
-	o.maxTime = 500
+	o.maxTime = 1
 	o.stopOnWalk = true
 	o.stopOnRun = true
 	o.forceProgressBar = true

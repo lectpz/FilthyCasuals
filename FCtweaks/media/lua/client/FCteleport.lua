@@ -104,11 +104,31 @@ local function FCteleportercontext(player, context, items) -- # When an inventor
 	local playerObj = getSpecificPlayer(player);
 	items = ISInventoryPane.getActualItems(items); -- Get table of inventory items (will not be module.item, just item)
 	for _, item in ipairs(items) do -- Check every item in inventory array
+		if item:getFullType() == 'Base.WeaponCache' or item:getFullType() == 'Base.FarmerCache' or item:getFullType() == 'Base.MechanicCache' or item:getFullType() == 'Base.MetalworkCache' or item:getFullType() == 'Base.AmmoCache' then
+			print(item:getFullType())
+			context:removeOptionByName(getText("ContextMenu_Grab"))
+			context:removeOptionByName(getText("ContextMenu_PutInContainer"))
+			context:removeOptionByName(getText("ContextMenu_Equip_Primary"))--'Equip Primary')
+			context:removeOptionByName(getText("ContextMenu_Equip_Secondary"))
+			context:removeOptionByName(getText("ContextMenu_Drop"))
+			context:removeOptionByName(getText("ContextMenu_PlaceItemOnGround"))
+			--print(context:getMenuOptionNames())
+			
+			--function printTable(tbl)
+			--	for k, v in pairs(tbl) do
+			--		print(k, v)
+			--	end
+			--end
+
+			--printTable(context:getMenuOptionNames())
+		end
+
 		if item:getFullType() == 'FC.Teleporter' and item:isInPlayerInventory() then--and (item:getContainer() == playerObj:getInventory()) then
 			context:addOption("Set Return Coordinates for Safehouse Teleport", item, FCteleporterContextMenuObjectName.doFCsafehousecoord, player) -- add context menu option to write safehouse coordinates to player getmoddata
-			context:addOption("Teleport back to Safehouse", item, FCteleporterContextMenuObjectName.doFCteleport, player) -- add context menu option to Teleport
+			context:addOption("Teleport back to Safehouse (Consume on use)", item, FCteleporterContextMenuObjectName.doFCteleport, player) -- add context menu option to Teleport
 			break -- break the loop when found
 		end
+
 	end
 end
 Events.OnFillInventoryObjectContextMenu.Add(FCteleportercontext) -- everytime you rightclick an object in your inventory it will trigger this check to add a teleport option
