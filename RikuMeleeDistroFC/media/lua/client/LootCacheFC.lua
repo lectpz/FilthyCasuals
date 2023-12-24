@@ -208,5 +208,24 @@ function AmmoCacheFC(items, result, player)
 		randomrollFC(zoneroll, ammoloot)
 		randomrollFC(zoneroll, ammoloot)
 	end
+end
 	
+---event cache 2023
+function EventCacheXMAS2023FC(items, result, player)
+	
+-- tiered rolling, checks zone and adds item
+	local tierzone = checkZone()
+	local player = getPlayer():getInventory()
+	local table2 = splitString(SandboxVars.RWC.table2)
+	local n2 = #table2 --number of tier 2 items in loot pool
+	--local t2 = ZombRand(n2)+1	-- random number generator, integers from 1 to n [eg n = 12, therefore rolls integers from 1 to 12]
+	
+	--player:AddItem(table2[ZombRand(n2)+1])
+	player:AddItem(table2[ZombRand(n2)+1])
+	--player:AddItem("PepeCoin")
+	player:AddItem("PepeCoin")
+	player:AddItem("Biomass")
+	player:AddItem("Biomass")
+	player:AddItem("DIYWeldingKit")
+	player:AddItems("ScrapMetal", 20)
 end
