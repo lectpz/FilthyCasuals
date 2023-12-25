@@ -242,4 +242,36 @@ module Base
 		OnCreate:AmmoCacheFC,
 	}
 	
+	item EventCacheXMAS2023
+	{
+        Type                    = Normal,
+        Weight                  = 10.0,
+        DisplayName             = Event Cache XMAS 2023,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_complete,
+        WorldStaticModel        = RikuEmporiumBox_complete,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyEventCacheXMAS2023
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Event Cache XMAS 2023,
+        Icon                    = i_RikuEmporiumBox_complete,
+        WorldStaticModel        = RikuEmporiumBox_complete,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open 2023 XMAS Event Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy EventCacheXMAS2023,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyEventCacheXMAS2023,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:EventCacheXMAS2023FC,
+	}
 }
