@@ -79,7 +79,8 @@ function OnWeaponSwingFC(character, handWeapon)
 			playerItem:setCritDmgMultiplier(basecritmulti * localcritmulti + (FilthyCasual/10 * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus critmulti is 0. T2=0.1. T3=0.2. T4=0.3. If FC=false, then FC=0 and nothing applies
 			playerItem:setMinDamage(basemindmg * localdmgmulti + (FilthyCasual/10 * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus mindmg is 0. T2=0.1. T3=0.2. T4=0.3. If FC=false, then FC=0 and nothing applies
 			playerItem:setMaxDamage(basemaxdmg * localdmgmulti + (FilthyCasual/10 * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus maxdmg is 0. T2=0.1. T3=0.2. T4=0.3. If FC=false, then FC=0 and nothing applies
-			if tierzone ~= 1 then playerItem:setName(basename .. " [T" .. tostring(tierzone) .. "]") else playerItem:setName(basename) end
+			--if tierzone ~= 1 then playerItem:setName(basename .. " [T" .. tostring(tierzone) .. "]") else playerItem:setName(basename) end
+			playerItem:setName(basename .. " [T" .. tostring(tierzone) .. "]")
 			-- debug display to make my life easier
 --			character:Say("ModCrit=" .. tostring(basecritrate * localcrit) .. " ModMinDmg=" .. tostring(basemindmg * localdmgmulti) .. " ModMaxDmg=" .. tostring(basemaxdmg * localdmgmulti))
 --			character:Say("ModMinDmg=" .. tostring(basemindmg * localdmgmulti) .. " ModMaxDmg=" .. tostring(basemaxdmg * localdmgmulti) .. "ModCrit=" .. tostring(basecritrate * localcritrate) .. " ModCritMulti=" .. tostring(basecritmulti * localcritmulti))

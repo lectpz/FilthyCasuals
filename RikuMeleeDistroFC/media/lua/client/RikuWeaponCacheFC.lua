@@ -50,13 +50,13 @@ function RikuWeaponCacheFC(items, result, player)
 		getPlayer():getInventory():AddItem(table4[t4])
 	elseif tierzone == 3 then
 		getPlayer():getInventory():AddItem(table3[t3])
-		getPlayer():getInventory():AddItem(EmptyWeaponCacheT3);
+		getPlayer():getInventory():AddItem("EmptyWeaponCacheT3");
 	elseif tierzone == 2 then
 		getPlayer():getInventory():AddItem(table2[t2])
-		getPlayer():getInventory():AddItem(EmptyWeaponCacheT2);
+		getPlayer():getInventory():AddItem("EmptyWeaponCacheT2");
 	elseif tierzone == 1 then
 		getPlayer():getInventory():AddItem(table1[t1])
-		getPlayer():getInventory():AddItem(EmptyWeaponCacheT1);
+		getPlayer():getInventory():AddItem("EmptyWeaponCacheT1");
 	end
 	
 end

@@ -8,7 +8,7 @@ module Base
 	item WeaponCache
 	{
         Type                    = Normal,
-        Weight                  = 10.0,
+        Weight                  = 1.0,
         DisplayName             = Weapon Cache,
 		UseWhileEquipped 		= FALSE,
         Icon                    = i_RikuEmporiumBox_event_plus,
@@ -59,7 +59,7 @@ module Base
 	item MetalworkCache
 	{
         Type                    = Normal,
-        Weight                  = 10.0,
+        Weight                  = 1.0,
         DisplayName             = Metalwork Cache,
 		UseWhileEquipped 		= FALSE,
         Icon                    = i_RikuEmporiumBox_complete_plus,
@@ -80,7 +80,7 @@ module Base
 	item MechanicCache
 	{
         Type                    = Normal,
-        Weight                  = 10.0,
+        Weight                  = 1.0,
         DisplayName             = Mechanic Cache,
 		UseWhileEquipped 		= FALSE,
         Icon                    = i_RikuEmporiumBox_basic_plus,
@@ -101,7 +101,7 @@ module Base
 	item FarmerCache
 	{
         Type                    = Normal,
-        Weight                  = 10.0,
+        Weight                  = 1.0,
         DisplayName             = Farmer Cache,
 		UseWhileEquipped 		= FALSE,
         Icon                    = i_RikuEmporiumBox_basic,
@@ -135,7 +135,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
-		EmptyWeaponCacheT3 = 15,
+		EmptyWeaponCacheT3 = 10,
 		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
@@ -149,7 +149,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
-		EmptyWeaponCacheT2 = 10,
+		EmptyWeaponCacheT2 = 7,
 		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
@@ -163,7 +163,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
-		EmptyWeaponCacheT1 = 5,
+		EmptyWeaponCacheT1 = 4,
 		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
@@ -212,7 +212,7 @@ module Base
 	item AmmoCache
 	{
         Type                    = Normal,
-        Weight                  = 10.0,
+        Weight                  = 1.0,
         DisplayName             = Ammo Cache,
 		UseWhileEquipped 		= FALSE,
         Icon                    = i_RikuEmporiumBox_event,
@@ -245,7 +245,7 @@ module Base
 	item EventCacheXMAS2023
 	{
         Type                    = Normal,
-        Weight                  = 10.0,
+        Weight                  = 1.0,
         DisplayName             = Event Cache XMAS 2023,
 		UseWhileEquipped 		= FALSE,
         Icon                    = i_RikuEmporiumBox_complete,

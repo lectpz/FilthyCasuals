@@ -55,7 +55,7 @@ function XMAS2023reward()
 			player:getInventory():AddItem("Base.EventCacheXMAS2023")
 			player:getInventory():AddItem("FC.Teleporter")
 			ModDataFC[getCurrentUserSteamID()] = true
-			player:Say("A merry present just dropped into my inventory!")
+			player:Say("A merry present just dropped into my inventory! It contains heavy items so I better open it somewhere safe!")
 			Events.OnPlayerMove.Remove(XMAS2023reward)
 			--player:Say("XMAS2023reward hook removed.")
 		end

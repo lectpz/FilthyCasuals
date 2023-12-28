@@ -3,7 +3,7 @@ VERSION = 1,
 option OnWeaponSwingFC.Tier1dmg
 {
 	type = string,
-	default = 1.00,
+	default = 1.20,
 
 	page = OnWeaponSwingFC,
 	translation = OnWeaponSwingFC_Tier1dmg,
@@ -39,7 +39,7 @@ option OnWeaponSwingFC.Tier4dmg
 option OnWeaponSwingFC.Tier1critrate
 {
 	type = string,
-	default = 1.00,
+	default = 1.15,
 
 	page = OnWeaponSwingFC,
 	translation = OnWeaponSwingFC_Tier1critrate,
@@ -75,7 +75,7 @@ option OnWeaponSwingFC.Tier4critrate
 option OnWeaponSwingFC.Tier1critmulti
 {
 	type = string,
-	default = 1.00,
+	default = 1.10,
 
 	page = OnWeaponSwingFC,
 	translation = OnWeaponSwingFC_Tier1critmulti,

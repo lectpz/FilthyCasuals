@@ -36,18 +36,21 @@ function EveryOneMinuteFC()
 --		MF.getMoodle("Tier4"):setValue(0.5);
 		
 		if checkMoodle == 4 then
+			--if ZombRand(3) == 0 then player:Say("The dead were the lucky ones...") elseif ZombRand(3) == 1 then player:Say("They say people in hell want ice water... Who am I kidding? This is hell and I want ice water.") else player:Say("I've run out of pithy quotes.") end
 			MF.getMoodle("Tier4"):setValue(0.1);
 			MF.getMoodle("Tier1"):setValue(0.5);
 			MF.getMoodle("Tier2"):setValue(0.5);
 			MF.getMoodle("Tier3"):setValue(0.5);
 --			MF.getMoodle("Tier4"):doWiggle();
 		elseif checkMoodle == 3 then
+			--if ZombRand(3) == 0 then player:Say("The air here is thick with death...") elseif ZombRand(3) == 1 then player:Say("It's as if I'm walking deeper into the maw of hell...") else player:Say("There is no hope here.") end
 			MF.getMoodle("Tier3"):setValue(0.4);
 			MF.getMoodle("Tier1"):setValue(0.5);
 			MF.getMoodle("Tier2"):setValue(0.5);
 			MF.getMoodle("Tier4"):setValue(0.5);			
 --			MF.getMoodle("Tier3"):doWiggle();
 		elseif checkMoodle == 2 then
+			--if ZombRand(3) == 0 then player:Say("Is it just me or do they seem... stronger?") elseif ZombRand(3) == 1 then player:Say("They're somehow... different here...") else player:Say("You'd think that death would slow these things down a bit...") end
 			MF.getMoodle("Tier2"):setValue(0.6);
 			MF.getMoodle("Tier1"):setValue(0.5);
 			MF.getMoodle("Tier4"):setValue(0.5);

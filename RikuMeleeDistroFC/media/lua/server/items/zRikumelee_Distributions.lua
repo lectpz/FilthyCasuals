@@ -133,6 +133,21 @@ local function preDistributionMerge()
 	table.insert(ProceduralDistributions.list.CrateMetalwork.items, "FarmerCache");
 	table.insert(ProceduralDistributions.list.CrateMetalwork.items, 0.001);
 	
+	table.insert(ProceduralDistributions.list.CrateFarming.items, "FarmerCache");
+	table.insert(ProceduralDistributions.list.CrateFarming.items, 0.001);
+	
+	table.insert(ProceduralDistributions.list.GardenStoreMisc.items, "FarmerCache");
+	table.insert(ProceduralDistributions.list.GardenStoreMisc.items, 0.001);
+	
+	table.insert(ProceduralDistributions.list.GardenStoreTools.items, "FarmerCache");
+	table.insert(ProceduralDistributions.list.GardenStoreTools.items, 0.001);
+	
+	table.insert(ProceduralDistributions.list.GigamartFarming.items, "FarmerCache");
+	table.insert(ProceduralDistributions.list.GigamartFarming.items, 0.001);
+	
+	table.insert(ProceduralDistributions.list.ToolStoreFarming.items, "FarmerCache");
+	table.insert(ProceduralDistributions.list.ToolStoreFarming.items, 0.001);
+	
 	----------------------------------------------------------------------------------------
 	table.insert(ProceduralDistributions.list.PoliceStorageAmmunition.items, "AmmoCache");
 	table.insert(ProceduralDistributions.list.PoliceStorageAmmunition.items, 0.001);

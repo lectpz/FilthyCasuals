@@ -4,60 +4,56 @@ require "Items/ProceduralDistributions"
 require "Vehicles/VehicleDistributions"
 
 local function OnPostDistributionMerge()
-
-	table.remove(ProceduralDistributions.list.GarageMetalwork.junk.items, 2)
-	table.remove(ProceduralDistributions.list.GarageMetalwork.junk.items, 1)
-
-	--Duplicate loot chances (or remove loot)
+	
 	local function CopyLoot(old_name, new_name, mult)
-		local cache = {}
+		local function isTableEmpty(t)
+			return t == nil or next(t) == nil
+		end
+
 		local function patch(t)
-			for i=#t,1,-1 do
+			for i = #t, 1, -1 do
 				if t[i] == old_name then
-					local num = (t[i+1] or 0.01) * mult;
+					local num = (t[i + 1] or 0.01) * mult
 					if old_name == new_name then
-						t[i+1] = num; --overwrite
+						t[i + 1] = num  -- overwrite
 					elseif new_name == 0 then
-						table.remove(t,i)
-						table.remove(t,i)
+						table.remove(t, i)
+						table.remove(t, i)
 					else
-						table.insert(t, new_name)
-						table.insert(t, num)
+						table.insert(t, i, new_name)
+						table.insert(t, i + 1, num)
 					end
 				end
 			end
 		end
-		mult = mult or 1;
-		for room,r in ipairs(SuburbsDistributions) do
-			for container,c in pairs(r) do
-				if c.items and not cache[c.items] then
-					cache[c.items] = true
-					patch(c.items)
+
+		local function processTableRecursive(t)
+			for k, v in pairs(t) do
+				if type(v) == "table" then
+					if k == "items" or k == "junk" then
+						patch(v)
+					end
+					processTableRecursive(v)
 				end
 			end
 		end
-		for proc,p in pairs(ProceduralDistributions.list) do
-			if p.items and not cache[p.items] then
-				cache[p.items] = true
-				patch(p.items)
-			end
-			if p.junk and not cache[p.junk] then
-				cache[p.junk] = true
-				patch(p.junk)
-			end
+
+		mult = mult or 1
+
+		for _, topLevelTable in pairs(SuburbsDistributions) do
+			processTableRecursive(topLevelTable)  -- Process the top-level table
 		end
-		for vehicle,p in pairs(VehicleDistributions) do
-			if p.items and not cache[p.items] then
-				cache[p.items] = true
-				patch(p.items)
-			end
-			if p.junk and not cache[p.junk] then
-				cache[p.junk] = true
-				patch(p.junk)
-			end
+
+		for proc, p in pairs(ProceduralDistributions.list) do
+			processTableRecursive(p)
+		end
+
+		for vehicle, p in pairs(VehicleDistributions) do
+			processTableRecursive(p)
 		end
 	end
 
+	
 	local yeetitem = {"Base.AssaultRifleBayonet", "Base.SKSSpiker", "Base.SKSSpikerBayonet", "Base.M16Bayonet", "Base.Tec9", "Base.9mmClip20", "GWP.Wakizashi", "GWP.KatanaGoldRed", "CanteensAndBottles.JerryCanTank", "CanteensAndBottles.JumboJerryCanTank", "Extinguisher", "Hat_DustMask", "Glasses_SafetyGoggles", "PropaneTank", "BlowTorch", "TW.LargePropaneTank", "Base.AmmoCanLoot", "Base.AmmoCanSmallLoot", "VHS", "VHS_Retail", "VHS_Home", "Base.PropaneTank", "TW.HugePropaneTank", "Disc", "Disc_Retail", "TW.WorkshopMag4", "PetrolCan", "Base.PetrolCan", "TW.Chain", "TW.File", "TW.LargeBolt", "TW.BoxLargeBolts", "RMWeapons.RikuMag1", "RMWeapons.RikuMag2", "RMWeapons.Thawk", "RMWeapons.BrushAxe", "RMWeapons.waraxe", "RMWeapons.warhammer", "RMWeapons.LastHope", "RMWeapons.Dadao", "RMWeapons.TrenchShovel", "RMWeapons.Crimson1Sword", "RMWeapons.SpikedClub1", "RMWeapons.bladebat", "RMWeapons.bassax", "RMWeapons.hellokittyax", "RMWeapons.dexkama", "RMWeapons.steinbeer", "RMWeapons.spinecrusher", "RMWeapons.FlangedMace", "RMWeapons.VikingWarhammer", "RMWeapons.MagicMace", "RMWeapons.CrimsonLance", "RMWeapons.MedSword", "RMWeapons.glaive", "RMWeapons.MorningStar", "Trelai.BaseballBatTrelai"}
 	local yeetno = #yeetitem
 		
@@ -95,10 +91,11 @@ local function OnPostDistributionMerge()
 	
 	CopyLoot("Book", "Book", 0.125)
 	
-	CopyLoot("WeaponCache", "WeaponCache", 5)
-	CopyLoot("MechanicCache", "MechanicCache", 3)
-	CopyLoot("MetalworkCache", "MetalworkCache", 3)
-	CopyLoot("FarmerCache", "FarmerCache", 3)
+	CopyLoot("WeaponCache", "WeaponCache", 6)
+	CopyLoot("MechanicCache", "MechanicCache", 4)
+	CopyLoot("MetalworkCache", "MetalworkCache", 4)
+	CopyLoot("FarmerCache", "FarmerCache", 6)
+	CopyLoot("AmmoCache", "AmmoCache", 4)
 	
 	for i=1,yeetno do
 		CopyLoot(yeetitem[i], 0)
