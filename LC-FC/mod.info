@@ -1,8 +1,0 @@
-name=Lake Cumberland V2
-id=LCv2-FC
-description= A map by Petrovick.
-poster=poster.png
-pack=BigBearLake
-tiledef=BigBearLake 9090
-pack=SundayDrivers
-tiledef=SundayDrivers 7989
