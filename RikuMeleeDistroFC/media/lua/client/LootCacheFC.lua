@@ -229,3 +229,21 @@ function EventCacheXMAS2023FC(items, result, player)
 	player:AddItem("DIYWeldingKit")
 	player:AddItems("ScrapMetal", 20)
 end
+
+---NewYear2024reward
+function NewYear2024reward(items, result, player)
+	
+	local player = getPlayer():getInventory()
+	local table2 = splitString(SandboxVars.RWC.table2)
+	local n2 = #table2 --number of tier 2 items in loot pool
+	--local t2 = ZombRand(n2)+1	-- random number generator, integers from 1 to n [eg n = 12, therefore rolls integers from 1 to 12]
+	
+	--player:AddItem(table2[ZombRand(n2)+1])
+	player:AddItem(table2[ZombRand(n2)+1])
+	--player:AddItem("PepeCoin")
+	player:AddItem("PepeCoin")
+	player:AddItem("Wallet")
+	player:AddItem("BlowTorch")
+	player:AddItems("EngineParts", 10)
+	player:AddItems("ScrapMetal", 10)
+end

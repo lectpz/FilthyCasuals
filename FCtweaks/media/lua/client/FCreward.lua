@@ -62,4 +62,27 @@ function XMAS2023reward()
 	end
 end
 
-Events.OnPlayerMove.Add(XMAS2023reward)
+--Events.OnPlayerMove.Add(XMAS2023reward)
+
+function NewYear2024loginreward()
+	player = getPlayer()
+	if player ~= nil then
+		local ModDataFC = ModData.getOrCreate("NewYear2024loginreward")
+		-- Try to get the value, and if it's nil, set it to false
+		local NewYear2024reward = ModDataFC[getCurrentUserSteamID()] or false
+		if NewYear2024reward then
+			--player:Say("I already claimed my gift this year...")
+			Events.OnPlayerMove.Remove(NewYear2024loginreward)
+			return
+		else
+			player:getInventory():AddItem("Base.NewYear2024reward")
+			player:getInventory():AddItem("FC.Teleporter")
+			ModDataFC[getCurrentUserSteamID()] = true
+			player:Say("Welcome to 2024! It's a year for survival!")
+			Events.OnPlayerMove.Remove(NewYear2024loginreward)
+			--player:Say("NewYear2024loginreward hook removed.")
+		end
+	end
+end
+
+Events.OnPlayerMove.Add(NewYear2024loginreward)

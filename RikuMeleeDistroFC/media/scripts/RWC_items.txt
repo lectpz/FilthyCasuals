@@ -274,4 +274,37 @@ module Base
 		Time:500.0,
 		OnCreate:EventCacheXMAS2023FC,
 	}
+	
+	item NewYear2024reward
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = New Year 2024 Login Box,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_complete,
+        WorldStaticModel        = RikuEmporiumBox_complete,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyNewYear2024reward
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty New Year 2024 Login Box,
+        Icon                    = i_RikuEmporiumBox_complete,
+        WorldStaticModel        = RikuEmporiumBox_complete,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open New Year 2024 Login Box
+	{
+		CanBeDoneFromFloor:true,
+		destroy NewYear2024reward,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyNewYear2024reward,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:NewYear2024reward,
+	}
 }
