@@ -245,7 +245,7 @@ module Base
         Sound:s_refine,
 		Category:Survivalist,
 		Result:PetrolCan,
-        Time:4000.0,
+        Time:2000.0,
 	}
 	
 	recipe Refine Propane
@@ -261,17 +261,17 @@ module Base
 		Sound:s_refine,
         Category:Survivalist,
 		Result:PropaneTank,
-        Time:4000.0,
+        Time:2000.0,
 	}
 	
 	recipe DIY Biomass Refiner
 	{
 		CanBeDoneFromFloor:true,
 		SmallSheetMetal = 4,
-		SheetMetal = 3,
-		ScrapMetal = 15,
-		MetalBar = 4,
-		MetalPipe = 4,
+		SheetMetal = 2,
+		ScrapMetal = 10,
+		MetalBar = 3,
+		MetalPipe = 3,
 		ElectricWire = 15,
 		ElectronicsScrap = 20,
 		DIYWeldingKit = 1,
@@ -281,7 +281,7 @@ module Base
 		Sound:s_DIYwelding,
 		Category:Welding,
 		Result:FEMArefiner,
-		Time:4000.0,
+		Time:2000.0,
 		OnGiveXP:Give25ELECMWXP,
 	}
 	
@@ -307,7 +307,7 @@ module Base
 		Sound:s_refine,
 		AnimNode:Craft,
 		Result:Biomass,
-		Time:4000.0
+		Time:2000.0
 	}
 	
 	recipe CraftCharcoal
@@ -437,7 +437,7 @@ module Base
 	
 	recipe DIY Small Metal Sheet
 	{
-		ScrapMetal = 5,
+		ScrapMetal = 4,
 		DIYWeldingKit = 1,
 		keep [Recipe.GetItemTypes.Hammer],
 		Sound:s_DIYwelding,
