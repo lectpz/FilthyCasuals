@@ -1,0 +1,24 @@
+module SapphCooking
+{
+    imports
+    {
+		Base,
+    }
+	
+	recipe Pound Mochi
+    {
+		keep SapphCooking.ButterChurn,
+		Water=1,
+		[Recipe.GetItemTypes.SapphCookingRiceBowl];10,
+		Result : SapphCooking.MochiPrep=3,
+		Time : 1400.0,
+		Category : Cooking,
+		SkillRequired: Cooking=3,
+		OnGiveXP : Recipe.OnGiveXP.Cooking3,
+		Sound : Choptree,
+		AnimNode:Loot,
+		StopOnWalk: true,
+		Override:true,
+    }
+
+}

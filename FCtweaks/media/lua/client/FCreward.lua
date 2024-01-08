@@ -85,4 +85,4 @@ function NewYear2024loginreward()
 	end
 end
 
-Events.OnPlayerMove.Add(NewYear2024loginreward)
+--Events.OnPlayerMove.Add(NewYear2024loginreward)

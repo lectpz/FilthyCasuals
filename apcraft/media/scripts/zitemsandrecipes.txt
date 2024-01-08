@@ -179,7 +179,7 @@ module Base
 		OnGiveXP:Give15ELECMWXP,
 	}
 
-	recipe Recharge DIY Welding Kit
+	recipe Recharge DIY Welding Kit with Batteries
 	{
 		CanBeDoneFromFloor:true,
 		destroy DIYWeldingKit,
@@ -199,6 +199,21 @@ module Base
 		Result:DIYWeldingKit,
 		Time:1000.0,
 		OnGiveXP:Give15ELECMWXP,
+	}
+
+	recipe Recharge DIY Welding Kit with Charged Car Battery
+	{
+		CanBeDoneFromFloor:true,
+		CarBattery1/CarBattery2/CarBattery3,
+		destroy DIYWeldingKit,
+		WeldingRods = 20,
+		keep [Recipe.GetItemTypes.Screwdriver],
+		Category:Welding,
+		Result:DIYWeldingKit,
+		Time:1000.0,
+		OnGiveXP:Give15ELECMWXP,
+		OnTest:DIYtestcarbattery,
+		OnCreate:DIYrecharge,
 	}
 
 	recipe Create Propane Tank

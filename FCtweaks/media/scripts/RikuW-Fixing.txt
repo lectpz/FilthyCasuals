@@ -1,0 +1,344 @@
+module RMWeapons
+{
+
+
+	fixing Repairing Tactical Tomahawk
+	{
+		Require : Thawk,
+		Fixer : bladerepair1=10,
+        	ConditionModifier: 1,
+	}
+	
+
+	fixing Repairing Dadao
+	{
+		Require : Dadao,
+		Fixer : bladerepair1=20;MetalWelding=5,
+		ConditionModifier: 1,
+	}
+
+
+
+	fixing Repairing Trench Shovel
+	{
+		Require : TrenchShovel,
+		Fixer : bladerepair1=10;MetalWelding=4,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Spiked Leg
+	{
+		Require : spikedleg,
+		Fixer : bluntrepair1=10;Woodwork=3,
+		ConditionModifier: 1,
+	}	
+
+	fixing Repairing Crimson Sword
+	{
+		Require : Crimson1Sword,
+		Fixer : bladerepair1=10;MetalWelding=4,
+		ConditionModifier: 1,
+	}	
+
+	fixing Repairing The Commodore
+	{
+		Require : sword40k,
+		Fixer : bladerepair1=20;MetalWelding=4;LongBlade=4,
+		ConditionModifier: 1,
+	}	
+
+	fixing Repairing The Pig Sticker
+	{
+		Require : dagger1,
+		Fixer : bladerepair1=10;MetalWelding=4,
+		ConditionModifier: 1.2,
+	}	
+
+
+
+	fixing Repairing Hello Kitty Ax
+	{
+		Require : hellokittyax,
+		Fixer : bladerepair1=10;Woodwork=3;Axe=3,
+		ConditionModifier: 1,
+	}		
+	
+	fixing Repairing Brush Axe
+	{
+		Require : BrushAxe,
+		Fixer : bladerepair1=10;Woodwork=4;Axe=3,
+		ConditionModifier: 1,
+	}	
+
+	fixing Repairing Sword
+	{
+		Require : MedSword,
+		Fixer : bladerepair1=20;MetalWelding=5;LongBlade=5,
+        	ConditionModifier: 1,
+	}
+
+
+
+	fixing Repairing Battle Axe
+	{
+		Require : waraxe,
+		Fixer : bladerepair1=10;MetalWelding=4,
+		ConditionModifier: 1,
+	}
+
+
+	fixing Repairing Metal Spear
+	{
+		Require : spear1,
+		Fixer : bladerepair1=10;MetalWelding=4,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Warhammer
+	{
+		Require : warhammer,
+		Fixer : bladerepair1=10;MetalWelding=4,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Last Hope
+	{
+		Require : LastHope,
+		Fixer : bladerepair1=20;MetalWelding=4,
+		ConditionModifier: 1,
+	}
+		
+	fixing Repairing Crimson Lance
+	{
+		Require : CrimsonLance,
+		Fixer : bladerepair1=20;MetalWelding=4,
+		ConditionModifier: 1,
+	}	
+
+	fixing Repairing Saw Baseball Bat
+	{
+		Require : sawbat1,
+		Fixer : bladerepair1=20;Woodwork=4,
+		ConditionModifier: 1,
+	}	
+
+	fixing Repairing Morning Star
+	{
+		Require : MorningStar,
+		Fixer : bluntrepair1=20;MetalWelding=4,
+		ConditionModifier: 1,
+	}	
+
+	fixing Repairing Spiked Club
+	{
+		Require : SpikedClub1,
+		Fixer : bluntrepair1=20;Woodwork=3;Blunt=4,
+		ConditionModifier: 1,
+	}	
+
+	fixing Repairing The Santaclauser
+	{
+		Require : steinsword,
+		Fixer : bladerepair1=20;MetalWelding=4,
+		ConditionModifier: 1.2,
+	}	
+
+	fixing Repairing First Resort
+	{
+		Require : beardedaxe,
+		Fixer : bladerepair1=30;MetalWelding=4;Axe=3,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing The Edge
+	{
+		Require : mace1,
+		Fixer : bluntrepair1=20;Woodwork=5,
+		ConditionModifier: 1,
+	}		
+
+	fixing Repairing BassAx
+	{
+		Require : bassax,
+		Fixer : bladerepair1=25;MetalWelding=4;Axe=4,
+		ConditionModifier: 1,
+	}	
+
+
+	fixing Repairing The Claw
+	{
+		Require : crabspear,
+		Fixer : bladerepair1=10;MetalWelding=4,
+		ConditionModifier: 1.4,
+	}
+
+	fixing Repairing Firelink Great Sword
+	{
+		Require : firelink,
+		Fixer : bladerepair1=20;MetalWelding=4,
+		ConditionModifier: 1.4,
+	}
+
+	fixing Repairing Blade Bat
+	{
+		Require : bladebat,
+		Fixer : bladerepair1=25;MetalWelding=4;LongBlade=5,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing The Mauler
+	{
+		Require : themauler,
+		Fixer : bluntrepair1=20;Woodwork=4;Blunt=4,
+		ConditionModifier: 1.4,
+	}
+
+	fixing Repairing Spinecrusher
+	{
+		Require : spinecrusher,
+		Fixer : bluntrepair1=20;Woodwork=3,
+		ConditionModifier: 1,
+	}	
+
+	
+	fixing Repairing Thunder Breaker
+	{
+		Require : thunderbreaker,
+		Fixer : bladerepair1=20;MetalWelding=4,
+		ConditionModifier: 1.4,
+	}
+
+	fixing Repairing Dragon Piercer
+	{
+		Require : dragonpiercer,
+		Fixer : bladerepair1=10;MetalWelding=4,
+		ConditionModifier: 1.4,
+	}
+
+	fixing Repairing Farmer's Scythe
+	{
+		Require : MxScythe,
+		Fixer : bladerepair1=20;MetalWelding=4,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Reiketsuna
+	{
+		Require : NulBlade,
+		Fixer : bladerepair1=20;MetalWelding=4,
+		ConditionModifier: 1.4,
+	}
+
+	fixing Repairing Dex
+	{
+		Require : dexkama,
+		Fixer : bladerepair1=10;MetalWelding=4,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing A Stein
+	{
+		Require : steinbeer,
+		Fixer : bluntrepair1=10;Woodwork=3,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Falx
+	{
+		Require : Falx,
+		Fixer : bladerepair1=35;MetalWelding=6;LongBlade=5,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Heavy Cleaver
+	{
+		Require : HeavyCleaver,
+		Fixer : bladerepair1=40;MetalWelding=6;LongBlade=5,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Scrap Club
+	{
+		Require : ScrapMace1,
+		Fixer : bluntrepair1=35;Woodwork=6;SmallBlunt=4,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Kindness
+	{
+		Require : ScrapMace1,
+		Fixer : bladerepair1=35;Woodwork=6;Axe=5,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Rip and Tear
+	{
+		Require : spikedsword,
+		Fixer : bladerepair1=40;MetalWelding=6;LongBlade=5,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing "Goodnight"
+	{
+		Require : gnbat,
+		Fixer : bluntrepair1=40;Woodwork=4;Blunt=5,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing The Commodore
+	{
+		Require : sword40k,
+		Fixer : bladerepair1=40;MetalWelding=6;LongBlade=5,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Glaive
+	{
+		Require : glaive,
+		Fixer : bladerepair1=40;MetalWelding=6;Spear=4,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Flanged Mace
+	{
+		Require : FlangedMace,
+		Fixer : bluntrepair1=20;MetalWelding=6;Blunt=4,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Magic Mace
+	{
+		Require : MagicMace,
+		Fixer : bluntrepair1=30;MetalWelding=6;Blunt=4,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Viking Warhammer
+	{
+		Require : VikingWarhammer,
+		Fixer : bluntrepair1=30;MetalWelding=6;Blunt=4,
+		ConditionModifier: 1,
+	}
+
+	fixing Repairing Nikabo
+	{
+		Require : Nikabo,
+		Fixer : bluntrepair1=30;MetalWelding=6;Blunt=5,
+		ConditionModifier: 1.4,
+	}
+
+	fixing Repairing Errant
+	{
+		Require : ArcSpear,
+		Fixer : bladerepair1=30;MetalWelding=6;Spear=4,
+		ConditionModifier: 1.4,
+	}
+
+	fixing Repairing Falchion
+	{
+		Require : falchion,
+		Fixer : bladerepair1=30;MetalWelding=4;LongBlade=4,
+		Fixer : Glue=2,
+		ConditionModifier: 1,
+	}
+}
