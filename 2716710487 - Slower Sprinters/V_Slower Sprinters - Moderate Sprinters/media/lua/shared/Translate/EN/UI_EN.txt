@@ -1,0 +1,4 @@
+UI_EN = {
+    UI_trait_Sprinter = "Sprinter",
+    UI_trait_SprinterDesc = "+4 Sprinting"
+}
