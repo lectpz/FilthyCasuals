@@ -9,222 +9,140 @@ local function splitString(sandboxvar, delimiter)
 end
 
 local function preDistributionMerge()
-	table.insert(ProceduralDistributions.list.StoreShelfMedical.items, "Coldpack");
-	table.insert(ProceduralDistributions.list.StoreShelfMedical.items, 5);
+---------------------------------------------------------------------------------
+	local coldpackData = {
+		StoreShelfMedical = 5,
+		MedicalStorageDrugs = 2,
+		MedicalClinicDrugs = 2,
+		ArmyStorageMedical = 1,
+		MedicalStorageTools = 2,
+		MedicalClinicTools= 2
+	}
 	
-	table.insert(ProceduralDistributions.list.MedicalStorageDrugs.items, "Coldpack");
-	table.insert(ProceduralDistributions.list.MedicalStorageDrugs.items, 2);
+	for distribution, chance in pairs(coldpackData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "Coldpack")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+	end
+---------------------------------------------------------------------------------
+	local weaponCacheData = {
+		CampingStoreGear = 0.0001,
+		FireStorageTools = 0.001,
+		GigamartTools = 0.0001,
+		PawnShopGunsSpecial = 0.002,
+		MeleeWeapons = 0.004,
+		JanitorTools = 0.0001,
+		BurglarTools = 0.0001,
+		PoliceStorageGuns = 0.002,
+		WardrobeWoman = 0.00001,
+		PawnShopKnives = 0.001,
+		GardenStoreTools = 0.00001,
+		BarCounterWeapon = 0.00001,
+		BedroomDresser = 0.000001,
+		ToolStoreTools = 0.0001,
+		GunStoreAmmunition = 0.001,
+		WardrobeMan = 0.0001,
+		GunStoreDisplayCase = 0.001,
+		PoliceStorageAmmunition = 0.0001,
+		ArmyStorageGuns = 0.001,
+		GunStoreShelf = 0.001
+	}
+
+	for distribution, chance in pairs(weaponCacheData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "WeaponCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+	end
+-------------------------------------------------------------------------------------
+	local MechMWCacheData = {
+		CampingStoreGear = 0.0001,
+		FireStorageTools = 0.0001,
+		GigamartTools = 0.0001,
+		JanitorTools = 0.0001,
+		BurglarTools = 0.0001,
+		GardenStoreTools = 0.0001,
+		ToolStoreTools = 0.0001,
+		GarageMechanics = 0.001,
+		GasStorageMechanics = 0.001,
+		StoreShelfMechanics = 0.001,
+		CrateMechanics = 0.001,
+		GarageMetalwork = 0.001,
+		ToolStoreMetalwork = 0.001,
+		CrateMetalwork = 0.001
+	}
+
+	for distribution, chance in pairs(MechMWCacheData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "MechanicCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+		table.insert(ProceduralDistributions.list[distribution].items, "MetalworkCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+	end
+----------------------------------------------------------------------------------------
+	local FarmerCacheData = {
+		GigamartTools = 0.0001,
+		GardenStoreTools = 0.001,
+		ToolStoreTools = 0.0001,
+		GarageMechanics = 0.001,
+		GasStorageMechanics = 0.001,
+		StoreShelfMechanics = 0.001,
+		CrateMechanics = 0.001,
+		GarageMetalwork = 0.001,
+		ToolStoreMetalwork = 0.001,
+		CrateMetalwork = 0.001,
+		CrateFarming = 0.001,
+		GardenStoreMisc = 0.001,
+		GigamartFarming = 0.001,
+		ToolStoreFarming = 0.001
+	}
+
+	for distribution, chance in pairs(FarmerCacheData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "FarmerCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+	end
+----------------------------------------------------------------------------------------
+	local AmmoCacheData = {
+		PoliceStorageAmmunition = 0.001,
+		GunStoreAmmunition = 0.001,
+		ArmyStorageAmmunition = 0.001,
+		GunStoreCounter = 0.0001,
+		GunStoreDisplayCase = 0.0001,
+		GunStoreShelf= 0.0001,
+		PoliceStorageGuns = 0.0001,
+		ArmyStorageGuns = 0.0001
+	}
 	
-	table.insert(ProceduralDistributions.list.MedicalClinicDrugs.items, "Coldpack");
-	table.insert(ProceduralDistributions.list.MedicalClinicDrugs.items, 2);
-	
-	table.insert(ProceduralDistributions.list.ArmyStorageMedical.items, "Coldpack");
-	table.insert(ProceduralDistributions.list.ArmyStorageMedical.items, 1);
-	
-	table.insert(ProceduralDistributions.list.MedicalStorageTools.items, "Coldpack");
-	table.insert(ProceduralDistributions.list.MedicalStorageTools.items, 2);
-	
-	table.insert(ProceduralDistributions.list.MedicalClinicTools.items, "Coldpack");
-	table.insert(ProceduralDistributions.list.MedicalClinicTools.items, 2);
-	
-	---------------------------------------------------------------------------------
-	table.insert(ProceduralDistributions.list.CampingStoreGear.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.CampingStoreGear.items, 0.00001);
-
-	table.insert(ProceduralDistributions.list.FireStorageTools.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.FireStorageTools.items, 0.0001);
-	
-	table.insert(ProceduralDistributions.list.GigamartTools.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.GigamartTools.items, 0.00001);
-
-	table.insert(ProceduralDistributions.list.PawnShopGunsSpecial.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.PawnShopGunsSpecial.items, 0.002);
-
-	table.insert(ProceduralDistributions.list.MeleeWeapons.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.MeleeWeapons.items, 0.004);
-
-	table.insert(ProceduralDistributions.list.JanitorTools.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.JanitorTools.items, 0.00001);
-
-	table.insert(ProceduralDistributions.list.BurglarTools.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.BurglarTools.items, 0.00001);
-
-	table.insert(ProceduralDistributions.list.PoliceStorageGuns.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.PoliceStorageGuns.items, 0.002);
-
-	table.insert(ProceduralDistributions.list.WardrobeWoman.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.WardrobeWoman.items, 0.000001);
-
-	table.insert(ProceduralDistributions.list.PawnShopKnives.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.PawnShopKnives.items, 0.001);
-
-	table.insert(ProceduralDistributions.list.GardenStoreTools.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.GardenStoreTools.items, 0.000001);
-
-	table.insert(ProceduralDistributions.list.BarCounterWeapon.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.BarCounterWeapon.items, 0.00001);
-
-	table.insert(ProceduralDistributions.list.BedroomDresser.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.BedroomDresser.items, 0.0000001);
-
-	table.insert(ProceduralDistributions.list.ToolStoreTools.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.ToolStoreTools.items, 0.00001);
-
-	table.insert(ProceduralDistributions.list.GunStoreAmmunition.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.GunStoreAmmunition.items, 0.0001);
-
-	table.insert(ProceduralDistributions.list.WardrobeMan.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.WardrobeMan.items, 0.00001);
-
-	table.insert(ProceduralDistributions.list.GunStoreDisplayCase.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.GunStoreDisplayCase.items, 0.001);
-	
-	table.insert(ProceduralDistributions.list.PoliceStorageAmmunition.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.PoliceStorageAmmunition.items, 0.0001);
-
-	table.insert(ProceduralDistributions.list.ArmyStorageGuns.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.ArmyStorageGuns.items, 0.00001);
-	
-	table.insert(ProceduralDistributions.list.GunStoreShelf.items, "WeaponCache");
-	table.insert(ProceduralDistributions.list.GunStoreShelf.items, 0.001);
-
-	-------------------------------------------------------------------------------------
-	table.insert(ProceduralDistributions.list.GarageMechanics.items, "MechanicCache");
-	table.insert(ProceduralDistributions.list.GarageMechanics.items, 0.001);
-
-	table.insert(ProceduralDistributions.list.GasStorageMechanics.items, "MechanicCache");
-	table.insert(ProceduralDistributions.list.GasStorageMechanics.items, 0.001);
-
-	table.insert(ProceduralDistributions.list.StoreShelfMechanics.items, "MechanicCache");
-	table.insert(ProceduralDistributions.list.StoreShelfMechanics.items, 0.001);
-
-	table.insert(ProceduralDistributions.list.CrateMechanics.items, "MechanicCache");
-	table.insert(ProceduralDistributions.list.CrateMechanics.items, 0.001);
-	
-	-------------------------------------------------------------------------------------
-	table.insert(ProceduralDistributions.list.GarageMetalwork.items, "MetalworkCache");
-	table.insert(ProceduralDistributions.list.GarageMetalwork.items, 0.001);
-
-	table.insert(ProceduralDistributions.list.ToolStoreMetalwork.items, "MetalworkCache");
-	table.insert(ProceduralDistributions.list.ToolStoreMetalwork.items, 0.001);
-
-	table.insert(ProceduralDistributions.list.CrateMetalwork.items, "MetalworkCache");
-	table.insert(ProceduralDistributions.list.CrateMetalwork.items, 0.001);
-	
-	----------------------------------------------------------------------------------------
-	table.insert(ProceduralDistributions.list.GarageMechanics.items, "FarmerCache");
-	table.insert(ProceduralDistributions.list.GarageMechanics.items, 0.001);
-
-	table.insert(ProceduralDistributions.list.GasStorageMechanics.items, "FarmerCache");
-	table.insert(ProceduralDistributions.list.GasStorageMechanics.items, 0.001);
-
-	table.insert(ProceduralDistributions.list.StoreShelfMechanics.items, "FarmerCache");
-	table.insert(ProceduralDistributions.list.StoreShelfMechanics.items, 0.001);
-
-	table.insert(ProceduralDistributions.list.CrateMechanics.items, "FarmerCache");
-	table.insert(ProceduralDistributions.list.CrateMechanics.items, 0.001);
-	
-	table.insert(ProceduralDistributions.list.GarageMetalwork.items, "FarmerCache");
-	table.insert(ProceduralDistributions.list.GarageMetalwork.items, 0.001);
-
-	table.insert(ProceduralDistributions.list.ToolStoreMetalwork.items, "FarmerCache");
-	table.insert(ProceduralDistributions.list.ToolStoreMetalwork.items, 0.001);
-
-	table.insert(ProceduralDistributions.list.CrateMetalwork.items, "FarmerCache");
-	table.insert(ProceduralDistributions.list.CrateMetalwork.items, 0.001);
-	
-	table.insert(ProceduralDistributions.list.CrateFarming.items, "FarmerCache");
-	table.insert(ProceduralDistributions.list.CrateFarming.items, 0.001);
-	
-	table.insert(ProceduralDistributions.list.GardenStoreMisc.items, "FarmerCache");
-	table.insert(ProceduralDistributions.list.GardenStoreMisc.items, 0.001);
-	
-	table.insert(ProceduralDistributions.list.GardenStoreTools.items, "FarmerCache");
-	table.insert(ProceduralDistributions.list.GardenStoreTools.items, 0.001);
-	
-	table.insert(ProceduralDistributions.list.GigamartFarming.items, "FarmerCache");
-	table.insert(ProceduralDistributions.list.GigamartFarming.items, 0.001);
-	
-	table.insert(ProceduralDistributions.list.ToolStoreFarming.items, "FarmerCache");
-	table.insert(ProceduralDistributions.list.ToolStoreFarming.items, 0.001);
-	
-	----------------------------------------------------------------------------------------
-	table.insert(ProceduralDistributions.list.PoliceStorageAmmunition.items, "AmmoCache");
-	table.insert(ProceduralDistributions.list.PoliceStorageAmmunition.items, 0.001);
-	
-	table.insert(ProceduralDistributions.list.GunStoreAmmunition.items, "AmmoCache");
-	table.insert(ProceduralDistributions.list.GunStoreAmmunition.items, 0.001);
-	
-	table.insert(ProceduralDistributions.list.ArmyStorageAmmunition.items, "AmmoCache");
-	table.insert(ProceduralDistributions.list.ArmyStorageAmmunition.items, 0.001);
-	
-	table.insert(ProceduralDistributions.list.GunStoreCounter.items, "AmmoCache");
-	table.insert(ProceduralDistributions.list.GunStoreCounter.items, 0.0001);
-	
-	table.insert(ProceduralDistributions.list.GunStoreDisplayCase.items, "AmmoCache");
-	table.insert(ProceduralDistributions.list.GunStoreDisplayCase.items, 0.0001);
-	
-	table.insert(ProceduralDistributions.list.GunStoreShelf.items, "AmmoCache");
-	table.insert(ProceduralDistributions.list.GunStoreShelf.items, 0.0001);
-	
-	table.insert(ProceduralDistributions.list.PoliceStorageGuns.items, "AmmoCache");
-	table.insert(ProceduralDistributions.list.PoliceStorageGuns.items, 0.0001);
-	
-	table.insert(ProceduralDistributions.list.ArmyStorageGuns.items, "AmmoCache");
-	table.insert(ProceduralDistributions.list.ArmyStorageGuns.items, 0.0001);
-	
+	for distribution, chance in pairs(AmmoCacheData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "AmmoCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+	end
+--------------------------------------------------------------------------------------
 end
 Events.OnPreDistributionMerge.Add(preDistributionMerge)
 
 local function RMWadjust()
-	local item = ScriptManager.instance:getItem("RMWeapons.firelink")
-	if item then
-		item:DoParam("CriticalChance	=	27")
+	local RMWacritchance = {
+		["RMWeapons.firelink"] = 27,
+		["RMWeapons.themauler"] = 33,
+		["RMWeapons.warhammer40k"] = 33,
+		["RMWeapons.MizutsuneSword"] = 33,
+		["RMWeapons.Nikabo"] = 33,
+		["RMWeapons.falchion"] = 33,
+		["RMWeapons.spinecrusher"] = 33,
+		["RMWeapons.thunderbreaker"] = 33
+	}
+	
+	for item, critchance in pairs(RMWacritchance) do
+		local item = ScriptManager.instance:getItem(item)
+		if item then
+			item:DoParam("CriticalChance = " .. tostring(critchance))
+		end
 	end
-
-	local item = ScriptManager.instance:getItem("RMWeapons.themauler")
-	if item then
-		item:DoParam("CriticalChance	=	33")
-	end
-
-	local item = ScriptManager.instance:getItem("RMWeapons.warhammer40k")
-	if item then
-		item:DoParam("CriticalChance	=	33")
-	end
-
-	local item = ScriptManager.instance:getItem("RMWeapons.MizutsuneSword")
-	if item then
-		item:DoParam("CriticalChance	=	33")
-	end
-
-	local item = ScriptManager.instance:getItem("RMWeapons.Nikabo")
-	if item then
-		item:DoParam("CriticalChance	=	33")
-	end
-
-	local item = ScriptManager.instance:getItem("RMWeapons.falchion")
-	if item then
-		item:DoParam("CriticalChance	=	33")
-	end
-
-	local item = ScriptManager.instance:getItem("RMWeapons.spinecrusher")
-	if item then
-		item:DoParam("CriticalChance	=	33")
-	end
-
-	local item = ScriptManager.instance:getItem("RMWeapons.thunderbreaker")
-	if item then
-		item:DoParam("CriticalChance	=	33")
-	end
-
+	
 	local item = ScriptManager.instance:getItem("RMWeapons.steinbeer")
 	if item then
 		item:DoParam("MaxRange	=	1.15")
-		item:DoParam("ConditionLowerChanceOneIn    =    16")
-		item:DoParam("CriticalChance    =    22")
+		item:DoParam("ConditionLowerChanceOneIn	=	16")
+		item:DoParam("CriticalChance	=	22")
 	end
 end
-
 Events.OnInitGlobalModData.Add(RMWadjust)
 
 local function FCnofirethrowables()
@@ -242,7 +160,6 @@ local function FCnofirethrowables()
 	end
 
 end
-
 Events.OnInitGlobalModData.Add(FCnofirethrowables)
 
 local function FCvanillaweaptweak()
@@ -264,5 +181,4 @@ local function FCvanillaweaptweak()
 	end
 
 end
-
 Events.OnInitGlobalModData.Add(FCvanillaweaptweak)

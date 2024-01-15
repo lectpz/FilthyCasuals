@@ -1,0 +1,76 @@
+Sandbox_EN = {
+	Sandbox_PZHMod = "Personalized Zombies Mod",
+	Sandbox_PZHMod_o_Night_Start = "Night starts at",
+	Sandbox_PZHMod_o_Night_Start_tooltip = "Time when the night starts for night speed",
+
+	Sandbox_PZHMod_o_Night_End = "Night ends at",
+	Sandbox_PZHMod_o_Night_End_tooltip = "Time when the night ends for night speed",
+
+	Sandbox_PZHMod_o_Zombie_1_Name = "-------Zombie 1-------",
+	Sandbox_PZHMod_o_Zombie_1_Name_tooltip = "Name of the Zombie 1",
+
+	Sandbox_PZHMod_o_Zombie_2_Name = "-------Zombie 2-------",
+	Sandbox_PZHMod_o_Zombie_2_Name_tooltip = "Name of the Zombie 2",
+
+	Sandbox_PZHMod_o_Zombie_3_Name = "-------Zombie 3-------",
+	Sandbox_PZHMod_o_Zombie_3_Name_tooltip = "Name of the Zombie 3",
+
+	Sandbox_PZHMod_o_Zombie_4_Name = "-------Zombie 4-------",
+	Sandbox_PZHMod_o_Zombie_4_Name_tooltip = "Name of the Zombie 4",
+
+	Sandbox_PZHMod_o_Zombie_5_Name = "-------Zombie 5-------",
+	Sandbox_PZHMod_o_Zombie_5_Name_tooltip = "Name of the Zombie 5",
+
+	Sandbox_PZHMod_o_Zombie_6_Name = "-------Zombie 6-------",
+	Sandbox_PZHMod_o_Zombie_6_Name_tooltip = "Name of the Zombie 6",
+
+	Sandbox_PZHMod_o_Zombie_Active = "Active",
+	Sandbox_PZHMod_o_Zombie_Active_tooltip = "Do you want this zombie in your game?",
+
+	Sandbox_PZHMod_o_Zombie_Weight = "Weight",
+	Sandbox_PZHMod_o_Zombie_Weight_tooltip = "The chance of a zombie being this type is Weight/Total Weight of zombies actives",
+
+	Sandbox_PZHMod_o_Spacer_Empty = "         ",
+	Sandbox_PZHMod_o_Spacer_Empty_tooltip = "This is to increase readability in the options panel.",
+	
+	Sandbox_PZHMod_o_Zombie_Speed = "Speed",
+	Sandbox_PZHMod_o_Zombie_Speed_tooltip = "Speed of the zombie",
+	
+	Sandbox_PZHMod_o_Zombie_Speed_option1 = "Shamblers - Vanilla Shamblers",
+	Sandbox_PZHMod_o_Zombie_Speed_option2 = "Shamblers - Slightly Faster",
+	Sandbox_PZHMod_o_Zombie_Speed_option3 = "Walkers - Vanilla Fast Shamblers",
+	Sandbox_PZHMod_o_Zombie_Speed_option4 = "Walkers - Aggro",
+	Sandbox_PZHMod_o_Zombie_Speed_option5 = "Walkers - Slightly Faster",
+	Sandbox_PZHMod_o_Zombie_Speed_option6 = "Walkers - Moderately Faster",
+	Sandbox_PZHMod_o_Zombie_Speed_option7 = "Runners - Moderately Slower",
+	Sandbox_PZHMod_o_Zombie_Speed_option8 = "Runners - Slightly Slower",
+	Sandbox_PZHMod_o_Zombie_Speed_option9 = "Sprinters - Vanilla Sprinters",
+	Sandbox_PZHMod_o_Zombie_Speed_option10 = "Crawlers - Vanilla Crawlers",
+
+	Sandbox_PZHMod_o_Zombie_SpeedNight = "Speed at night",
+	Sandbox_PZHMod_o_Zombie_SpeedNight_tooltip = "Speed of the zombie at night",
+	
+	Sandbox_PZHMod_o_Zombie_SpeedNight_option1 = "Same as day",
+	Sandbox_PZHMod_o_Zombie_SpeedNight_option2 = "Shamblers - Vanilla Shamblers",
+	Sandbox_PZHMod_o_Zombie_SpeedNight_option3 = "Shamblers - Slightly Faster",
+	Sandbox_PZHMod_o_Zombie_SpeedNight_option4 = "Walkers - Vanilla Fast Shamblers",
+	Sandbox_PZHMod_o_Zombie_SpeedNight_option5 = "Walkers - Aggro",
+	Sandbox_PZHMod_o_Zombie_SpeedNight_option6 = "Walkers - Slightly Faster",
+	Sandbox_PZHMod_o_Zombie_SpeedNight_option7 = "Walkers - Moderately Faster",
+	Sandbox_PZHMod_o_Zombie_SpeedNight_option8 = "Runners - Moderately Slower",
+	Sandbox_PZHMod_o_Zombie_SpeedNight_option9 = "Runners - Slightly Slower",
+	Sandbox_PZHMod_o_Zombie_SpeedNight_option10 = "Sprinters - Vanilla Sprinters",
+	Sandbox_PZHMod_o_Zombie_SpeedNight_option11 = "Crawlers - Vanilla Crawlers",
+
+
+	Sandbox_PZHMod_o_Zombie_Hp = "Health Multiplier",
+	Sandbox_PZHMod_o_Zombie_Hp_tooltip = "Health multiplier",
+
+	Sandbox_PZHMod_o_Zombie_FakeDead = "Fake Dead",
+	Sandbox_PZHMod_o_Zombie_FakeDead_tooltip = "Do hte zombie fake that he is dead?",
+
+	Sandbox_PZHMod_o_Zombie_SprinterProps = "Sprinters Properties",
+	Sandbox_PZHMod_o_Zombie_SprinterProps_tooltip = "Sprinters have some special properties: they slow down the player when attacking, they may stumble, and other possible unkown properties ",
+	
+
+}

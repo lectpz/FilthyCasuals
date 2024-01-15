@@ -22,6 +22,7 @@ local function FCteleport(player, args) -- teleporter function that executes whe
 	if player:getModData().SafeHouseX ~= nil and player:getModData().SafeHouseY ~= nil then
 	--check if saved safehouse coordinates are within existing safehouse coordinates
 		if player:getModData().SafeHouseX >= x1 and player:getModData().SafeHouseY >= y1 and player:getModData().SafeHouseX <= x2 and player:getModData().SafeHouseY <= y2 then--if saved moddata SH is within current SH boundaries then define x, y, z coordinate for teleport
+			--SendCommandToServer("/teleportto " .. player:getModData().SafeHouseX .. "," .. player:getModData().SafeHouseY .. ",0");
 			player:setX(player:getModData().SafeHouseX) -- teleport to safehouse coordinates that are defined the moment you press teleport from context menu. uses x, y, z definitions.
 			player:setY(player:getModData().SafeHouseY)
 			player:setLx(player:getModData().SafeHouseX)
@@ -30,6 +31,7 @@ local function FCteleport(player, args) -- teleporter function that executes whe
 			player:getModData().SafeHouseX = safehouse:getX() --write moddata to player to save safehouse X coordinate
 			player:getModData().SafeHouseY = safehouse:getY() --write moddata to player to save safehouse Y coordinate
 			
+			--SendCommandToServer("/teleportto " .. player:getModData().SafeHouseX .. "," .. player:getModData().SafeHouseY .. ",0");
 			player:setX(player:getModData().SafeHouseX) -- teleport to new default safehouse coordinates that are defined the moment you press teleport from context menu. uses x, y, z definitions.
 			player:setY(player:getModData().SafeHouseY)
 			player:setLx(player:getModData().SafeHouseX)
@@ -38,6 +40,7 @@ local function FCteleport(player, args) -- teleporter function that executes whe
 			player:Say("Old coordinates no longer within Safehouse. Reset coordinates set to: x=" .. tostring(player:getModData().SafeHouseX) ..", y=" .. tostring(player:getModData().SafeHouseY))
 		end
 	else--if no moddata just teleport to the corner of SH bounds
+		--SendCommandToServer("/teleportto " .. x1 .. "," .. y1 .. ",0");
 		player:setX(x1) -- teleport to safehouse coordinates that are defined the moment you press teleport from context menu. uses x, y, z definitions.
 		player:setY(y1)
 		player:setLx(x1)

@@ -1,0 +1,586 @@
+VERSION = 1,
+
+
+option PZHMod.o_Night_Start
+{
+	type = integer, min = 0, max = 24, default = 23,
+	page = PZHMod,
+	translation = PZHMod_o_Night_Start,
+}
+
+option PZHMod.o_Night_End
+{
+	type = integer, min = 0, max = 24, default = 7,
+	page = PZHMod,
+	translation = PZHMod_o_Night_End,
+}
+
+option PZHMod.o_Zombie_1_Name
+{
+	type = string,
+	default = Walker,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_1_Name,
+}
+
+option PZHMod.o_Zombie_1_Active
+{
+	type = boolean,
+	default = true,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Active,
+}
+
+option PZHMod.o_Zombie_1_Weight
+{
+	type = integer, min = 1, max = 10000, default = 700,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Weight,
+}
+
+option PZHMod.o_Zombie_1_Speed
+{
+	type = enum, numValues = 10, default = 3,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Speed,
+}
+
+option PZHMod.o_Zombie_1_SpeedNight
+{
+	type = enum, numValues = 11, default = 1,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_SpeedNight,
+}
+
+option PZHMod.o_Zombie_1_SprinterProps
+{
+	type = boolean,
+	default = false,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_SprinterProps,
+}
+
+option PZHMod.o_Zombie_1_Hp
+{
+	type = double, min = 0.01, max = 1000.00, default = 1.00,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Hp,
+}
+
+
+option PZHMod.o_Zombie_1_Strength
+{
+	type = enum, numValues = 4, default = 2,
+	page = PZHMod,
+	translation = ZStrength,
+}
+
+option PZHMod.o_Zombie_1_Toughness
+{
+	type = enum, numValues = 4, default = 2,
+	page = PZHMod,
+	translation = ZToughness,
+}
+
+option PZHMod.o_Zombie_1_Cognition
+{
+	type = enum, numValues = 4, default = 3,
+	page = PZHMod,
+	translation = ZCognition,
+}
+
+option PZHMod.o_Zombie_1_Memory
+{
+	type = enum, numValues = 4, default = 2,
+	page = PZHMod,
+	translation = ZMemory,
+}
+
+option PZHMod.o_Zombie_1_Sight
+{
+	type = enum, numValues = 3, default = 2,
+	page = PZHMod,
+	translation = ZSight,
+}
+
+option PZHMod.o_Zombie_1_Hearing
+{
+	type = enum, numValues = 3, default = 2,
+	page = PZHMod,
+	translation = ZHearing,
+}
+
+option PZHMod.o_Zombie_2_Name
+{
+	type = string,
+	default = Walker Aggro,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_2_Name,
+}
+
+option PZHMod.o_Zombie_2_Active
+{
+	type = boolean,
+	default = true,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Active,
+}
+
+option PZHMod.o_Zombie_2_Weight
+{
+	type = integer, min = 1, max = 10000, default = 175,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Weight,
+}
+
+option PZHMod.o_Zombie_2_Speed
+{
+	type = enum, numValues = 10, default = 4,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Speed,
+}
+
+option PZHMod.o_Zombie_2_SpeedNight
+{
+	type = enum, numValues = 11, default = 1,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_SpeedNight,
+}
+
+option PZHMod.o_Zombie_2_SprinterProps
+{
+	type = boolean,
+	default = false,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_SprinterProps,
+}
+
+option PZHMod.o_Zombie_2_Hp
+{
+	type = double, min = 0.01, max = 1000.00, default = 1.00,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Hp,
+}
+
+
+option PZHMod.o_Zombie_2_Strength
+{
+	type = enum, numValues = 4, default = 2,
+	page = PZHMod,
+	translation = ZStrength,
+}
+
+option PZHMod.o_Zombie_2_Toughness
+{
+	type = enum, numValues = 4, default = 2,
+	page = PZHMod,
+	translation = ZToughness,
+}
+
+option PZHMod.o_Zombie_2_Cognition
+{
+	type = enum, numValues = 4, default = 3,
+	page = PZHMod,
+	translation = ZCognition,
+}
+
+option PZHMod.o_Zombie_2_Memory
+{
+	type = enum, numValues = 4, default = 2,
+	page = PZHMod,
+	translation = ZMemory,
+}
+
+option PZHMod.o_Zombie_2_Sight
+{
+	type = enum, numValues = 3, default = 2,
+	page = PZHMod,
+	translation = ZSight,
+}
+
+option PZHMod.o_Zombie_2_Hearing
+{
+	type = enum, numValues = 3, default = 2,
+	page = PZHMod,
+	translation = ZHearing,
+}
+
+option PZHMod.o_Zombie_3_Name
+{
+	type = string,
+	default = Fast Walker,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_3_Name,
+}
+
+option PZHMod.o_Zombie_3_Active
+{
+	type = boolean,
+	default = true,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Active,
+}
+
+option PZHMod.o_Zombie_3_Weight
+{
+	type = integer, min = 1, max = 10000, default = 75,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Weight,
+}
+
+option PZHMod.o_Zombie_3_Speed
+{
+	type = enum, numValues = 10, default = 5,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Speed,
+}
+
+option PZHMod.o_Zombie_3_SpeedNight
+{
+	type = enum, numValues = 11, default = 1,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_SpeedNight,
+}
+
+option PZHMod.o_Zombie_3_SprinterProps
+{
+	type = boolean,
+	default = false,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_SprinterProps,
+}
+
+option PZHMod.o_Zombie_3_Hp
+{
+	type = double, min = 0.01, max = 1000.00, default = 1.00,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Hp,
+}
+
+
+option PZHMod.o_Zombie_3_Strength
+{
+	type = enum, numValues = 4, default = 2,
+	page = PZHMod,
+	translation = ZStrength,
+}
+
+option PZHMod.o_Zombie_3_Toughness
+{
+	type = enum, numValues = 4, default = 2,
+	page = PZHMod,
+	translation = ZToughness,
+}
+
+option PZHMod.o_Zombie_3_Cognition
+{
+	type = enum, numValues = 4, default = 3,
+	page = PZHMod,
+	translation = ZCognition,
+}
+
+option PZHMod.o_Zombie_3_Memory
+{
+	type = enum, numValues = 4, default = 2,
+	page = PZHMod,
+	translation = ZMemory,
+}
+
+option PZHMod.o_Zombie_3_Sight
+{
+	type = enum, numValues = 3, default = 2,
+	page = PZHMod,
+	translation = ZSight,
+}
+
+option PZHMod.o_Zombie_3_Hearing
+{
+	type = enum, numValues = 3, default = 3,
+	page = PZHMod,
+	translation = ZHearing,
+}
+
+option PZHMod.o_Zombie_4_Name
+{
+	type = string,
+	default = Weak runner,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_4_Name,
+}
+
+option PZHMod.o_Zombie_4_Active
+{
+	type = boolean,
+	default = true,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Active,
+}
+
+option PZHMod.o_Zombie_4_Weight
+{
+	type = integer, min = 1, max = 10000, default = 40,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Weight,
+}
+
+option PZHMod.o_Zombie_4_Speed
+{
+	type = enum, numValues = 10, default = 6,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Speed,
+}
+
+option PZHMod.o_Zombie_4_SpeedNight
+{
+	type = enum, numValues = 11, default = 1,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_SpeedNight,
+}
+
+option PZHMod.o_Zombie_4_SprinterProps
+{
+	type = boolean,
+	default = false,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_SprinterProps,
+}
+
+option PZHMod.o_Zombie_4_Hp
+{
+	type = double, min = 0.01, max = 1000.00, default = 0.30,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Hp,
+}
+
+
+option PZHMod.o_Zombie_4_Strength
+{
+	type = enum, numValues = 4, default = 3,
+	page = PZHMod,
+	translation = ZStrength,
+}
+
+option PZHMod.o_Zombie_4_Toughness
+{
+	type = enum, numValues = 4, default = 2,
+	page = PZHMod,
+	translation = ZToughness,
+}
+
+option PZHMod.o_Zombie_4_Cognition
+{
+	type = enum, numValues = 4, default = 3,
+	page = PZHMod,
+	translation = ZCognition,
+}
+
+option PZHMod.o_Zombie_4_Memory
+{
+	type = enum, numValues = 4, default = 1,
+	page = PZHMod,
+	translation = ZMemory,
+}
+
+option PZHMod.o_Zombie_4_Sight
+{
+	type = enum, numValues = 3, default = 3,
+	page = PZHMod,
+	translation = ZSight,
+}
+
+option PZHMod.o_Zombie_4_Hearing
+{
+	type = enum, numValues = 3, default = 2,
+	page = PZHMod,
+	translation = ZHearing,
+}
+
+option PZHMod.o_Zombie_5_Name
+{
+	type = string,
+	default = Tank,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_5_Name,
+}
+
+option PZHMod.o_Zombie_5_Active
+{
+	type = boolean,
+	default = true,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Active,
+}
+
+option PZHMod.o_Zombie_5_Weight
+{
+	type = integer, min = 1, max = 10000, default = 5,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Weight,
+}
+
+option PZHMod.o_Zombie_5_Speed
+{
+	type = enum, numValues = 10, default = 2,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Speed,
+}
+
+option PZHMod.o_Zombie_5_SpeedNight
+{
+	type = enum, numValues = 11, default = 1,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_SpeedNight,
+}
+
+option PZHMod.o_Zombie_5_SprinterProps
+{
+	type = boolean,
+	default = false,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_SprinterProps,
+}
+
+option PZHMod.o_Zombie_5_Hp
+{
+	type = double, min = 0.01, max = 1000.00, default = 20.00,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Hp,
+}
+
+
+option PZHMod.o_Zombie_5_Strength
+{
+	type = enum, numValues = 4, default = 1,
+	page = PZHMod,
+	translation = ZStrength,
+}
+
+option PZHMod.o_Zombie_5_Toughness
+{
+	type = enum, numValues = 4, default = 1,
+	page = PZHMod,
+	translation = ZToughness,
+}
+
+option PZHMod.o_Zombie_5_Cognition
+{
+	type = enum, numValues = 4, default = 3,
+	page = PZHMod,
+	translation = ZCognition,
+}
+
+option PZHMod.o_Zombie_5_Memory
+{
+	type = enum, numValues = 4, default = 2,
+	page = PZHMod,
+	translation = ZMemory,
+}
+
+option PZHMod.o_Zombie_5_Sight
+{
+	type = enum, numValues = 3, default = 1,
+	page = PZHMod,
+	translation = ZSight,
+}
+
+option PZHMod.o_Zombie_5_Hearing
+{
+	type = enum, numValues = 3, default = 2,
+	page = PZHMod,
+	translation = ZHearing,
+}
+
+option PZHMod.o_Zombie_6_Name
+{
+	type = string,
+	default = Smart Sound Tracker,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_6_Name,
+}
+
+option PZHMod.o_Zombie_6_Active
+{
+	type = boolean,
+	default = true,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Active,
+}
+
+option PZHMod.o_Zombie_6_Weight
+{
+	type = integer, min = 1, max = 10000, default = 5,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Weight,
+}
+
+option PZHMod.o_Zombie_6_Speed
+{
+	type = enum, numValues = 10, default = 4,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Speed,
+}
+
+option PZHMod.o_Zombie_6_SpeedNight
+{
+	type = enum, numValues = 11, default = 1,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_SpeedNight,
+}
+
+option PZHMod.o_Zombie_6_SprinterProps
+{
+	type = boolean,
+	default = false,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_SprinterProps,
+}
+
+option PZHMod.o_Zombie_6_Hp
+{
+	type = double, min = 0.01, max = 1000.00, default = 3.00,
+	page = PZHMod,
+	translation = PZHMod_o_Zombie_Hp,
+}
+
+
+option PZHMod.o_Zombie_6_Strength
+{
+	type = enum, numValues = 4, default = 3,
+	page = PZHMod,
+	translation = ZStrength,
+}
+
+option PZHMod.o_Zombie_6_Toughness
+{
+	type = enum, numValues = 4, default = 2,
+	page = PZHMod,
+	translation = ZToughness,
+}
+
+option PZHMod.o_Zombie_6_Cognition
+{
+	type = enum, numValues = 4, default = 2,
+	page = PZHMod,
+	translation = ZCognition,
+}
+
+option PZHMod.o_Zombie_6_Memory
+{
+	type = enum, numValues = 4, default = 3,
+	page = PZHMod,
+	translation = ZMemory,
+}
+
+option PZHMod.o_Zombie_6_Sight
+{
+	type = enum, numValues = 3, default = 3,
+	page = PZHMod,
+	translation = ZSight,
+}
+
+option PZHMod.o_Zombie_6_Hearing
+{
+	type = enum, numValues = 3, default = 1,
+	page = PZHMod,
+	translation = ZHearing,
+}

@@ -1,7 +1,67 @@
-local FCadminlist = ModData.getOrCreate("FCadmins")
-FCadminlist["admins"] = {"dirty", "mxl", "lect!!", "Nul Arc", "BakedBean"}
+local FCchk = ModData.getOrCreate("FCchk")
+-----------------------------------------------------------------------------------------
+FCchk["tH"] = {"dirty", "mxl", "lect!!", "Nul Arc", "BakedBean"}
 
-local FCadmins = FCadminlist["admins"]
+FCchk["cO"]= {
+	invisible = function() player:setInvisible(false) end,
+	godMode = function() player:setGodMod(false) end,
+	ghostMode = function() player:setGhostMode(false) end,
+	noclip = function() player:setNoClip(false) end,
+	timedActionInstantCheat = function() player:setTimedActionInstantCheat(false) end,
+	unlimitedCarry = function() player:setUnlimitedCarry(false) end,
+	unlimitedEndurance = function() player:setUnlimitedEndurance(false) end,
+	canSeeAll = function() player:setCanSeeAll(false) end,
+	networkTeleport = function() player:setNetworkTeleportEnabled(false) end,
+	hearAll = function() player:setCanHearAll(false) end,
+	zombiesDontAttack = function() player:setZombiesDontAttack(false) end,
+	ShowMPInfos = function() player:setShowMPInfos(false) end,
+	fastMove = function() ISFastTeleportMove.cheat = false end,
+	buildCheat = function() player:setBuildCheat(false) end,
+	farmCheat = function() player:setFarmingCheat(false) end,
+	healthCheat = function() player:setHealthCheat(false) end,
+	mechanicCheat = function() player:isMechanicsCheat(false) end,
+	moveableCheat = function() player:setMovablesCheat(false) end
+}
+
+FCchk["pC"] = {
+	invisible = player:isInvisible(),
+	godMode = player:isGodMod(),
+	ghostMode = player:isGhostMode(),
+	noclip = player:isNoClip(),
+	timedActionInstantCheat = player:isTimedActionInstantCheat(),
+	unlimitedCarry = player:isUnlimitedCarry(),
+	unlimitedEndurance = player:isUnlimitedEndurance(),
+	canSeeAll = player:isCanSeeAll(),
+	networkTeleport = player:isNetworkTeleportEnabled(),
+	hearAll = player:isCanHearAll(),
+	zombiesDontAttack = player:isZombiesDontAttack(),
+	ShowMPInfos = player:isShowMPInfos(),
+	fastMove = ISFastTeleportMove.cheat,
+	buildCheat = player:isBuildCheat(),
+	farmCheat = player:isFarmingCheat(),
+	healthCheat = player:isHealthCheat(),
+	mechanicCheat = player:isMechanicsCheat(),
+	moveableCheat = player:isMovablesCheat()
+}
+
+FCchk["hTime"] = function(player, reason)
+    FClog(player, "FCban", "[Ban]", "Banned: ", reason)
+    return banSteamID(FCgCUS(), reason, true)
+end
+
+FCchk["gOU"] = function() getOnlineUsername() end
+
+FCchk["gCUS"] = function() getCurrentUserSteamID() end
+
+FCchk["gAL"] = function() getAccessLevel() end
+-----------------------------------------------------------------------------------------
+local FCtH = FCchk["tH"]
+local FCcO = FCchk["cO"]
+local FCpC = FCchk["pC"]
+local FChTime = FCchk["hTime"]
+local FCgOU = FCchk["gOU"]
+local FCgCUS = FCchk["gCUS"]
+local FCgAL = FCchk["gAL"]
 
 local function tablecontains(table, element)
     for _, value in pairs(table) do
@@ -13,139 +73,93 @@ local function tablecontains(table, element)
 end
 
 local function FClog(player, FCloggerName, FClogText, logAction, logDescriptor)
-	sendClientCommand(player, 'ISLogSystem', 'writeLog', {loggerName = FCloggerName, logText = FClogText .. " " .. tostring(getOnlineUsername()) .. " " .. logAction .. " " .. logDescriptor})
+	sendClientCommand(player, 'ISLogSystem', 'writeLog', {loggerName = FCloggerName, logText = FClogText .. " " .. tostring(FCgOU()) .. " " .. logAction .. " " .. logDescriptor})
 end
 
 function FCinit(player)
-	local FCaccess
 	local success, errorOrResult = pcall(function()
-
-		local ModDataFCaccess = ModData.getOrCreate("LoginAccessCheck")
 		local ModDataFCtimestamp = ModData.getOrCreate("TimeStamp") or false
 		if not ModDataFCtimestamp then
-			ModDataFCtimestamp[getCurrentUserSteamID()] = os.time()
+			ModDataFCtimestamp = ModData.getOrCreate("TimeStamp")
+			ModDataFCtimestamp[FCgCUS()] = os.time()
 		end
-		
-		if tablecontains(FCadmins, getOnlineUsername()) then
-			ModDataFCaccess[getCurrentUserSteamID()] = "Filthy Casual"
-			FCaccess = ModDataFCaccess[getCurrentUserSteamID()]
-			FClog(player, "FC", "[Login Check]", " logged on with privilege: ", tostring(getAccessLevel()))
-		elseif getAccessLevel() ~= "player" then
-			ModDataFCaccess[getCurrentUserSteamID()] = false
-			FCaccess = ModDataFCaccess[getCurrentUserSteamID()]
-			FClog(player, "FC", "[Login Check]", " logged on with unauthorized privilege: ", tostring(getAccessLevel()))
+
+		if tablecontains(FCtH, FCgOU()) then
+			FClog(player, "FC", "[Login Check]", " logged on : ", tostring(FCgAL()))
 		else 
-			ModDataFCaccess[getCurrentUserSteamID()] = false
-			FCaccess = ModDataFCaccess[getCurrentUserSteamID()]
-			FClog(player, "FC", "[Login Check]", " logged on as a ", tostring(getAccessLevel()))
+			FClog(player, "FC", "[Login Check]", " logged on : ", tostring(FCgAL()))
 		end
 	end)
 
 	if not success then
 		Events.OnPlayerUpdate.Remove(FCinit)
-		FClog(player, "FC", "[Login Check]", "------------------ START ERROR STACK", " -----------------------")
-		FClog(player, "FC", "[Login Check]", " HAD AN ERROR ON INIT. NO PRIVILEGES WERE LOGGED. Error: ", tostring(errorOrResult))
-		FClog(player, "FC", "[Login Check]", "------------------- END ERROR STACK", " ------------------------")
+		FClog(player, "FC", "[Login Check]", "===== START ERROR STACK", " =====")
+		FClog(player, "FC", "[Login Check]", " HAD AN ERROR ON INIT. Error: ", tostring(errorOrResult))
+		FClog(player, "FC", "[Login Check]", "====== END ERROR STACK", " ======")
 	else
 		Events.OnPlayerUpdate.Remove(FCinit)
-		if not FCaccess then
-			FClog(player, "FC", "[Login Check]", " --", "checking for privileged actions.")
-			Events.EveryOneMinute.Add(function()
-				local successChecklog, errorOrResultChecklog = pcall(FCchecklog, player, ModDataFCtimestamp)
-				if not successChecklog then
-					FClog(player, "FC", "[Error in FCchecklog]", "----------------- START ERROR STACK", " ----------------------")
-					FClog(player, "FC", "[Error in FCchecklog]", " HAD AN ERROR ON FCchecklog. Error: ", tostring(errorOrResultChecklog))
-					FClog(player, "FC", "[Error in FCchecklog]", "------------------ END ERROR STACK", " -----------------------")
-				end
-			end)
-		end
+		FClog(player, "FC", "[Login Check]", " --", "checking.")
+		Events.EveryOneMinute.Add(function()
+			local successChecklog, errorOrResultChecklog = pcall(FCchecklog, player, ModDataFCtimestamp)
+			if not successChecklog then
+				FClog(player, "FC", "[Error in FCchecklog]", "===== START ERROR STACK", " =====")
+				FClog(player, "FC", "[Error in FCchecklog]", " Error: ", tostring(errorOrResultChecklog))
+				FClog(player, "FC", "[Error in FCchecklog]", "====== END ERROR STACK", " ======")
+			end
+		end)
 	end
-	
-
 end
 
-local function FCchecklog(player)
+local function FCchecklog(player, ModDataFCtimestamp)
 
-	local playerBeginTrackTime = ModDataFCtimestamp[getCurrentUserSteamID()]
+	local playerBeginTrackTime = ModDataFCtimestamp[FCgCUS()]
 	local currentTime = os.time()
-	local hoursPlayed = math.floor((currentTime - playerBeginTrackTime) / 60 / 60)
+	local hoursPassed = math.floor((currentTime - playerBeginTrackTime) / 60 / 60)
 		
-	local cheatsOff = {
-		invisible = function() player:setInvisible(false) end,
-		godMode = function() player:setGodMod(false) end,
-		ghostMode = function() player:setGhostMode(false) end,
-		noclip = function() player:setNoClip(false) end,
-		timedActionInstantCheat = function() player:setTimedActionInstantCheat(false) end,
-		unlimitedCarry = function() player:setUnlimitedCarry(false) end,
-		unlimitedEndurance = function() player:setUnlimitedEndurance(false) end,
-		canSeeAll = function() player:setCanSeeAll(false) end,
-		networkTeleport = function() player:setNetworkTeleportEnabled(false) end,
-		hearAll = function() player:setCanHearAll(false) end,
-		zombiesDontAttack = function() player:setZombiesDontAttack(false) end,
-		ShowMPInfos = function() player:setShowMPInfos(false) end,
-		fastMove = function() ISFastTeleportMove.cheat = false end,
-		buildCheat = function() player:setBuildCheat(false) end,
-		farmCheat = function() player:setFarmingCheat(false) end,
-		healthCheat = function() player:setHealthCheat(false) end,
-		mechanicCheat = function() player:isMechanicsCheat(false) end,
-		moveableCheat = function() player:setMovablesCheat(false) end
-	}
-
-	local playerCheats = {
-		invisible = player:isInvisible(),
-		godMode = player:isGodMod(),
-		ghostMode = player:isGhostMode(),
-		noclip = player:isNoClip(),
-		timedActionInstantCheat = player:isTimedActionInstantCheat(),
-		unlimitedCarry = player:isUnlimitedCarry(),
-		unlimitedEndurance = player:isUnlimitedEndurance(),
-		canSeeAll = player:isCanSeeAll(),
-		networkTeleport = player:isNetworkTeleportEnabled(),
-		hearAll = player:isCanHearAll(),
-		zombiesDontAttack = player:isZombiesDontAttack(),
-		ShowMPInfos = player:isShowMPInfos(),
-		fastMove = ISFastTeleportMove.cheat,
-		buildCheat = player:isBuildCheat(),
-		farmCheat = player:isFarmingCheat(),
-		healthCheat = player:isHealthCheat(),
-		mechanicCheat = player:isMechanicsCheat(),
-		moveableCheat = player:isMovablesCheat()
-	}
-
-	local ModDataFCcheater = ModData.getOrCreate("cheatCounterFC")
-	local cheatCounter = ModDataFCcheater[getCurrentUserSteamID()] or false
+	local ModDataFCc = ModData.getOrCreate("cCounter")
+	local cCounter = ModDataFCc[FCgCUS()] or false
 	
-	if not cheatCounter then 
-		ModDataFCcheater[getCurrentUserSteamID()] = 0
+	if not cCounter then 
+		ModDataFCc[FCgCUS()] = 0
+		cCounter = ModDataFCc[FCgCUS()]
+	end
+	
+	local ModDataFCi = ModData.getOrCreate("iCounter")
+	local iCounter = ModDataFCi[FCgCUS()] or false
+	
+	if not iCounter then 
+		ModDataFCi[FCgCUS()] = {}
+		iCounter = ModDataFCi[FCgCUS()]
 	end
 
-	for key, value in pairs(playerCheats) do
+	for key, value in pairs(FCpC) do
 		if value then
-			local turnCheatOff = cheatsOff[key]
-			if turnCheatOff then
-				turnCheatOff()
-				FClog(player, "FC", "[Player Action Log]", key, " detected and turned off.")
-				cheatCounter = cheatCounter + 1
-				ModDataFCcheater[getCurrentUserSteamID()] = cheatCounter
-				FClog(player, "FC", "[Player Action Log]", "caught cheating # of times: ", cheatCounter)
+			local tCO = FCcO[key]
+			if tCO then
+				tCO()
+				FClog(player, "FC", "[Player Log]", " used", key)
+				cCounter = cCounter + 1
+				table.insert(iCounter, key)
+				ModDataFCc[FCgCUS()] = cCounter
+				FClog(player, "FC", "[Player Log]", " # of times: ", cCounter)
 			end
 		end
 	end
 	
-	local cheatReason = tostring("[ " .. player .. " ] " .. getOnlineUsername() .. " detected cheating " .. cheatCounter .. " times using: " .. table.concat(infraction, ", ") .. ". Total hours played: " .. hoursPlayed)
-	local banhammer = function()
-		FClog(player, "FCban", "[Ban]", "Banned: ", cheatReason)
-		return banSteamID(getCurrentUserSteamID(), cheatReason, true)
-	end
-	if cheatCounter > 2 and hoursPlayed < 12 then 
-		banhammer()
-	elseif cheatCounter > 4 and hoursPlayed < 24 then
-		banhammer()
-	elseif cheatCounter > 5 and hoursPlayed < 48 then
-		banhammer()
-	elseif cheatCounter >= 6 then
-		banhammer()
+	local orz = tostring("[ " .. player .. " ] " .. FCgOU() .. " " .. cCounter .. " times. List: " .. table.concat(iCounter, ", ") .. ". Length: " .. hoursPassed)
+	local hTime = FChTime(player, orz)
+	if not tablecontains(FCtH, FCgOU()) then
+		if cCounter > 3 and hoursPassed < 12 then 
+			hTime()
+		elseif cCounter > 4 and hoursPassed < 24 then
+			hTime()
+		elseif cCounter > 5 and hoursPassed < 48 then
+			hTime()
+		elseif cCounter >= 6 then
+			hTime()
+		end
 	end
 end
 
 Events.OnPlayerUpdate.Add(FCinit)
+--### if you've read up to this point, just DM me instead
