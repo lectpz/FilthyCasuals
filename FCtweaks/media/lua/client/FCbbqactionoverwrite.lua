@@ -37,6 +37,7 @@ function ISBBQInsertPropaneTank:perform()
 	local bbq = self.bbq
 	local args = { x = bbq:getX(), y = bbq:getY(), z = bbq:getZ(), delta = tank:getUsedDelta() }
 	sendClientCommand('FCbbq', 'insertPropaneTank', args)
+	self.character:Say("Mmm. Cheesy.")
 	-- needed to remove from queue / start next.
 	ISBaseTimedAction.perform(self)
 end

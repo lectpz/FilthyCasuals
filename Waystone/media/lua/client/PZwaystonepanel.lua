@@ -123,7 +123,6 @@ function PZwaystone.mainpanel:teleport()
 			local selectd = self.scrolllist.items[self.scrolllist.selected]
 			local postion = selectd.item.postion
 
-			--SendCommandToServer("/teleportto " .. postion[1] .. "," .. postion[2] .. "," .. postion[3]);
 			playerObj:setX(postion[1])
 			playerObj:setY(postion[2])
 			playerObj:setZ(postion[3])
@@ -173,20 +172,17 @@ function PZwaystone.mainpanel:shtp()
 			if sh_x ~= nil and sh_y ~= nil then--check moddata if not nil
 			
 				if sh_x >= xx1 and sh_y >= yy1 and sh_x <= xx2 and sh_y <= yy2 then--check if moddata is within actual sh bounds
-					--SendCommandToServer("/teleportto " .. sh_x .. "," .. sh_y .. ",0");
-					self.character:setX(sh_x) -- teleport to pre-defined safehouse moddata coordinates
-					self.character:setY(sh_y)
-					self.character:setLx(sh_x)
-					self.character:setLy(sh_yY)
+					self.character:setX(player:getModData().SafeHouseX) -- teleport to pre-defined safehouse moddata coordinates
+					self.character:setY(player:getModData().SafeHouseY)
+					self.character:setLx(player:getModData().SafeHouseX)
+					self.character:setLy(player:getModData().SafeHouseY)
 				else
-					--SendCommandToServer("/teleportto " .. xx1 .. "," .. yy1 .. ",0");
 					self.character:setX(safehouse:getX())
 					self.character:setY(safehouse:getY())
 					self.character:setLx(safehouse:getX())
 					self.character:setLy(safehouse:getY())
 				end
 			else
-				--SendCommandToServer("/teleportto " .. xx1 .. "," .. yy1 .. ",0");
 				self.character:setX(safehouse:getX())
 				self.character:setY(safehouse:getY())
 				self.character:setLx(safehouse:getX())
@@ -226,7 +222,6 @@ function PZwaystone.mainpanel:eventreward()
 		local y1cc = SandboxVars.PZwaystonepanel.Y1coord
 		local z1cc = SandboxVars.PZwaystonepanel.Z1coord
 		
-		--SendCommandToServer("/teleportto " .. x1cc .. "," .. y1cc .. "," .. z1cc);
 		self.character:setX(x1cc)
 		self.character:setY(y1cc)
 		self.character:setZ(z1cc)
