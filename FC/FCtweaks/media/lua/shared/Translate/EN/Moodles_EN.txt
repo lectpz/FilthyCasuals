@@ -1,0 +1,10 @@
+Moodles_EN {
+    Moodles_Tier1_Good_lvl4 = "Tier 1 Zone",
+    Moodles_Tier1_Good_desc_lvl4 = "No reduction in melee damage. You fear nothing.",
+    Moodles_Tier2_Good_lvl1 = "Tier 2 Zone",
+    Moodles_Tier2_Good_desc_lvl1 = "Minor reduction melee damage. This area makes you nervous.",
+    Moodles_Tier3_Bad_lvl1 = "Tier 3 Zone",
+    Moodles_Tier3_Bad_desc_lvl1 = "Moderate reduction in damage dealt by melee weapons. Fear and uncertainty lurk in the shadows.",
+    Moodles_Tier4_Bad_lvl4 = "Tier 4 Zone",
+    Moodles_Tier4_Bad_desc_lvl4 = "Major reduction in damage dealt by melee weapons. You feel the crushing weight of death and despair.",
+}

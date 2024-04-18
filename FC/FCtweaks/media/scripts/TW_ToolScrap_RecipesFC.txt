@@ -1,0 +1,118 @@
+module TW
+{
+	imports
+	{
+		Base,
+	}
+
+	recipe Deconstruct Pan
+    {
+
+    	Pan/GridlePan/RoastingPan/Saucepan/Pot/BakingPan/Kettle,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=7,
+        Time             		: 200.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+	
+    recipe Deconstruct Fishing Rod
+    {
+
+    	FishingRod,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts,
+        Time             		: 200.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+
+    recipe Deconstruct SmallBlade
+    {
+
+    	SmallBlade,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=6,
+        Time             		: 200.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+
+	recipe Deconstruct Wrench
+    {
+
+    	PipeWrench/Wrench,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=5,
+        Time             		: 200.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+
+	recipe Deconstruct Scalpel
+    {
+
+    	Scalpel,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=1,
+        Time             		: 200.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:isFavoritedItem,
+		Override:true,
+		NeedToBeLearn: true,
+    }
+
+}

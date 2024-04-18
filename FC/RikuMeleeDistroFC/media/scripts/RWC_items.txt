@@ -1,0 +1,310 @@
+module Base
+{	
+	imports
+	{
+		Base
+	}
+	
+	item WeaponCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Weapon Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyWeaponCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item EmptyWeaponCacheT1
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Tier 1 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item EmptyWeaponCacheT2
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Tier 2 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item EmptyWeaponCacheT3
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Tier 3 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item MetalworkCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Metalwork Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_complete_plus,
+        WorldStaticModel        = RikuEmporiumBox_complete_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyMetalworkCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Metalwork Cache,
+        Icon                    = i_RikuEmporiumBox_complete_plus,
+        WorldStaticModel        = RikuEmporiumBox_complete_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+
+	item MechanicCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Mechanic Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyMechanicCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Mechanic Cache,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item FarmerCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Farmer Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyFarmerCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Farmer Cache,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Weapon Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:RikuWeaponCacheFC,
+	}
+	
+	recipe Upgrade Weapon Cache To Tier 4
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+		EmptyWeaponCacheT3 = 10,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCanPerform:onTestTier3CheckFC,
+		OnCreate:RikuWeaponCacheUpgradeFC,
+	}
+	
+	recipe Upgrade Weapon Cache To Tier 3
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+		EmptyWeaponCacheT2 = 7,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCanPerform:onTestTier2CheckFC,
+		OnCreate:RikuWeaponCacheUpgradeFC,
+	}
+	
+	recipe Upgrade Weapon Cache To Tier 2
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+		EmptyWeaponCacheT1 = 4,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCanPerform:onTestTier1CheckFC,
+		OnCreate:RikuWeaponCacheUpgradeFC,
+	}
+	
+	recipe Open Mechanic Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy MechanicCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyMechanicCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:MechCacheFC,
+	}
+
+	recipe Open Metalwork Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy MetalworkCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyMetalworkCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:MetalworkCacheFC,
+	}
+	
+	recipe Open Farmer Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy FarmerCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyFarmerCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:FarmerCacheFC,
+	}
+
+	item AmmoCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Ammo Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event,
+        WorldStaticModel        = RikuEmporiumBox_event,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyAmmoCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Ammo Cache,
+        Icon                    = i_RikuEmporiumBox_event,
+        WorldStaticModel        = RikuEmporiumBox_event,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Ammo Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy AmmoCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyAmmoCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:AmmoCacheFC,
+	}
+	
+	item EventCacheXMAS2023
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Event Cache XMAS 2023,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_complete,
+        WorldStaticModel        = RikuEmporiumBox_complete,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyEventCacheXMAS2023
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Event Cache XMAS 2023,
+        Icon                    = i_RikuEmporiumBox_complete,
+        WorldStaticModel        = RikuEmporiumBox_complete,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open 2023 XMAS Event Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy EventCacheXMAS2023,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyEventCacheXMAS2023,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:EventCacheXMAS2023FC,
+	}
+	
+	item NewYear2024reward
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = New Year 2024 Login Box,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_complete,
+        WorldStaticModel        = RikuEmporiumBox_complete,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyNewYear2024reward
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty New Year 2024 Login Box,
+        Icon                    = i_RikuEmporiumBox_complete,
+        WorldStaticModel        = RikuEmporiumBox_complete,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open New Year 2024 Login Box
+	{
+		CanBeDoneFromFloor:true,
+		destroy NewYear2024reward,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyNewYear2024reward,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:NewYear2024reward,
+	}
+}

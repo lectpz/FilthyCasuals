@@ -1,4 +1,0 @@
-Recipes_CN = {
-    Recipe_Make_Waystone = "Make Waystone",
-
-}
