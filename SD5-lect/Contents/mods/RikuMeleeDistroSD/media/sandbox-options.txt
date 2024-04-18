@@ -1,0 +1,38 @@
+VERSION = 1,
+
+option RWC.table4
+{
+	type = string,
+	default = RMWeapons.NulBlade RMWeapons.bassax RMWeapons.crabspear RMWeapons.themauler RMWeapons.warhammer40k RMWeapons.MizutsuneSword RMWeapons.Nikabo RMWeapons.firelink RMWeapons.mace1,
+	
+	page = RikuWeaponCacheSD,
+	translation = RWC_table4,
+}
+
+
+option RWC.table3
+{
+	type = string,
+	default = RMWeapons.falchion RMWeapons.spinecrusher RMWeapons.thunderbreaker RMWeapons.gnbat RMWeapons.SpikedClub1 RMWeapons.FlangedMace RMWeapons.HeavyCleaver RMWeapons.MagicMace RMWeapons.spikedsword RMWeapons.bladebat RMWeapons.MedSword RMWeapons.steinsword RMWeapons.dexkama RMWeapons.hellokittyax RMWeapons.ArcSpear,
+	
+	page = RikuWeaponCacheSD,
+	translation = RWC_table3,
+}
+
+option RWC.table2
+{
+	type = string,
+	default = RMWeapons.Golok RMWeapons.dragonpiercer RMWeapons.beardedaxe RMWeapons.glaive RMWeapons.Dadao RMWeapons.MxScythe RMWeapons.ScrapMace1,
+	
+	page = RikuWeaponCacheSD,
+	translation = RWC_table2,
+}
+
+option RWC.table1
+{
+	type = string,
+	default = RMWeapons.waraxe RMWeapons.spear1 RMWeapons.VikingWarhammer RMWeapons.club2 RMWeapons.tanto,
+	
+	page = RikuWeaponCacheSD,
+	translation = RWC_table1,
+}

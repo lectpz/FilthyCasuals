@@ -1,0 +1,17 @@
+Sandbox_EN = {
+
+	Sandbox_RikuWeaponCacheSD = "Riku Weapon Cache",
+	
+	Sandbox_RWC_table4 = "Extremely Rare loot table",
+	Sandbox_RWC_table4_tooltip = "e.g. RMWeapons.MedSword RMWeapons.hellokittyaxe RMWeapons.sword40k RMWeapons.spinecrusher RMWeapons.bassax RMWeapons.gnbat RMWeapons.mace1",	
+	
+	Sandbox_RWC_table3 = "Rare loot table",
+	Sandbox_RWC_table3_tooltip = "e.g. "RMWeapons.SpikedClub1 RMWeapons.kindness RMWeapons.MxScythe RMWeapons.kindness RMWeapons.sawbat1 RMWeapons.warhammer RMWeapons.MorningStar"",
+	
+	Sandbox_RWC_table2 = "Uncommon loot table",
+	Sandbox_RWC_table2_tooltip = "e.g. RMWeapons.BrushAxe RMWeapons.LastHope RMWeapons.Golok RMWeapons.Thawk RMWeapons.dragonpiercer RMWeapons.waraxe RMWeapons.Crimson1Sword",
+
+	Sandbox_RWC_table1 = "Common loot table",
+	Sandbox_RWC_table1_tooltip = "e.g. RMWeapons.club1 RMWeapons.club2 RMWeapons.beardedaxe RMWeapons.MightCleaver RMWeapons.ScrapMace1 RMWeapons.spikedleg RMWeapons.TrenchShovel",
+
+}

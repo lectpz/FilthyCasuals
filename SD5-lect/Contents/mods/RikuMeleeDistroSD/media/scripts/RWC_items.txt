@@ -1,0 +1,113 @@
+module Base
+{	
+	imports
+	{
+		Base
+	}
+	
+	item WeaponCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Weapon Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyWeaponCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item EmptyWeaponCacheT1
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Tier 1 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item EmptyWeaponCacheT2
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Tier 2 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item EmptyWeaponCacheT3
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Tier 3 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Weapon Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:RikuWeaponCacheSD,
+	}
+	
+	recipe Upgrade Weapon Cache To Tier 4
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+		EmptyWeaponCacheT3 = 5,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCanPerform:onTestTier3CheckSD,
+		OnCreate:RikuWeaponCacheUpgradeSD,
+	}
+	
+	recipe Upgrade Weapon Cache To Tier 3
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+		EmptyWeaponCacheT2 = 4,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCanPerform:onTestTier2CheckSD,
+		OnCreate:RikuWeaponCacheUpgradeSD,
+	}
+	
+	recipe Upgrade Weapon Cache To Tier 2
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+		EmptyWeaponCacheT1 = 3,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCanPerform:onTestTier1CheckSD,
+		OnCreate:RikuWeaponCacheUpgradeSD,
+	}
+	
+}

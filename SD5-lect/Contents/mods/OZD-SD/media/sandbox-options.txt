@@ -1,0 +1,82 @@
+VERSION = 1,
+
+option OZD.roll4
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 5000,
+
+	page = OnZombieDeadSD,
+	translation = OZD_roll4,
+}
+
+option OZD.roll3
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 1000,
+
+	page = OnZombieDeadSD,
+	translation = OZD_roll3,
+}
+
+option OZD.roll2
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 500,
+
+	page = OnZombieDeadSD,
+	translation = OZD_roll2,
+}
+
+option OZD.roll1
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 75,
+
+	page = OnZombieDeadSD,
+	translation = OZD_roll1,
+}
+
+option OZD.table4
+{
+	type = string,
+	default = RMWeapons.NulBlade RMWeapons.bassax RMWeapons.crabspear RMWeapons.themauler RMWeapons.warhammer40k RMWeapons.MizutsuneSword RMWeapons.Nikabo RMWeapons.firelink RMWeapons.mace1,
+	
+	page = OnZombieDeadSD,
+	translation = OZD_table4,
+}
+
+
+option OZD.table3
+{
+	type = string,
+	default = RMWeapons.Falx RMWeapons.kindness RMWeapons.Crimson1Sword RMWeapons.MorningStar RMWeapons.BrushAxe RMWeapons.sword40k RMWeapons.LastHope RMWeapons.sawbat1 RMWeapons.spikedleg,
+	
+	page = OnZombieDeadSD,
+	translation = OZD_table3,
+}
+
+option OZD.table2
+{
+	type = string,
+	default = RMWeapons.TrenchShovel RMWeapons.CrimsonLance RMWeapons.warhammer RMWeapons.MightCleaver RMWeapons.Thawk,
+	
+	page = OnZombieDeadSD,
+	translation = OZD_table2,
+}
+
+option OZD.table1
+{
+	type = string,
+	default = RMWeapons.bonkhammer RMWeapons.club1 RMWeapons.PiroCraftKnife RMWeapons.steinbeer,
+	
+	page = OnZombieDeadSD,
+	translation = OZD_table1,
+}
