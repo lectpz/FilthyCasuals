@@ -29,7 +29,7 @@ local function scaledNormal()
 
     -- Scale and shift to the 0-1 range
     local scaledValue = (z + 2.5) / 5
-    scaledValue = scaledValue^1.33 --shift normal distribution to the left. set to 1.0 for a traditional normal distribution.
+    scaledValue = scaledValue^1.33 --shift normal distribution to the left. set to 1.0 for a traditional normal distribution. NOTE: not really a left-shift, but it's easier than doing an actual transform to shift the distribution. GOOD ENOUGH.
     scaledValue = math.floor(scaledValue * 10 + 0.5) / 10
     return scaledValue
 end
