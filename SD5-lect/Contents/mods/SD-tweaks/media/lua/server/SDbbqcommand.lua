@@ -17,7 +17,7 @@ local function gaussianRandom()
     -- Generate two random integers between 0 and 999
     local u1 = ZombRand(1000) / 1000
     local u2 = ZombRand(1000) / 1000
-    local z0 = math.sqrt(-2.0 * math.log(u1)) * math.cos(2 * math.pi * u2)
+    local z0 = math.sqrt(-2.0 * math.log(u1)) * math.cos(2 * math.pi * u2)--Box-Muller transform
     return z0
 end
 
