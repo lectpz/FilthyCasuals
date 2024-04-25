@@ -1,14 +1,14 @@
---local function yeetbbqpropane(player, context, worldobjects, _)
---	for _,v in ipairs(worldobjects) do
---		if instanceof(v, "IsoBarbecue") then
---			context:removeOptionByName(getText("ContextMenu_Insert_Propane_Tank"))
+local function yeetbbqpropane(player, context, worldobjects, _)
+	for _,v in ipairs(worldobjects) do
+		if instanceof(v, "IsoBarbecue") then
+			context:removeOptionByName(getText("ContextMenu_Insert_Propane_Tank"))
 --			context:removeOptionByName(getText("ContextMenu_Remove_Propane_Tank"))
---			break;
---		end
---	end
---end
+			break;
+		end
+	end
+end
 
---Events.OnFillWorldObjectContextMenu.Add(yeetbbqpropane);
+Events.OnFillWorldObjectContextMenu.Add(yeetbbqpropane);
 
 require "TimedActions/ISBaseTimedAction"
 
@@ -18,6 +18,7 @@ function ISBBQRemovePropaneTank:perform()
 	local bbq = self.bbq
 	local args = { x = bbq:getX(), y = bbq:getY(), z = bbq:getZ() }
 	sendClientCommand('SDbbq', 'removePropaneTank', args)
+	self.character:Say("Looks like the grill is broken beyond use, shame.")
 	-- needed to remove from queue / start next.
 	ISBaseTimedAction.perform(self)
 end
@@ -36,6 +37,7 @@ function ISBBQInsertPropaneTank:perform()
 	local bbq = self.bbq
 	local args = { x = bbq:getX(), y = bbq:getY(), z = bbq:getZ(), delta = tank:getUsedDelta() }
 	sendClientCommand('SDbbq', 'insertPropaneTank', args)
+	self.character:Say("Looks like all the gas leaked out. How sad.")
 	-- needed to remove from queue / start next.
 	ISBaseTimedAction.perform(self)
 end

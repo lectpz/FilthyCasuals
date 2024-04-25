@@ -56,6 +56,69 @@ module Base
         Tooltip = Tooltip_Cache_Empty,
 	}
 	
+	item MetalworkCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Metalwork Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_complete_plus,
+        WorldStaticModel        = RikuEmporiumBox_complete_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyMetalworkCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Metalwork Cache,
+        Icon                    = i_RikuEmporiumBox_complete_plus,
+        WorldStaticModel        = RikuEmporiumBox_complete_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+
+	item MechanicCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Mechanic Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyMechanicCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Mechanic Cache,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item MedicalCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Medical Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyMedicalCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Medical Cache,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
 	recipe Open Weapon Cache
 	{
 		CanBeDoneFromFloor:true,
@@ -72,7 +135,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
-		EmptyWeaponCacheT3 = 5,
+		EmptyWeaponCacheT3 = 10,
 		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
@@ -86,7 +149,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
-		EmptyWeaponCacheT2 = 4,
+		EmptyWeaponCacheT2 = 7,
 		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
@@ -100,7 +163,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
-		EmptyWeaponCacheT1 = 3,
+		EmptyWeaponCacheT1 = 4,
 		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
@@ -110,4 +173,72 @@ module Base
 		OnCreate:RikuWeaponCacheUpgradeSD,
 	}
 	
+	recipe Open Mechanic Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy MechanicCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyMechanicCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:MechCacheSD,
+	}
+
+	recipe Open Metalwork Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy MetalworkCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyMetalworkCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:MetalworkCacheSD,
+	}
+	
+	recipe Open Medical Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy MedicalCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyMedicalCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:MedicalCacheSD,
+	}
+
+	item AmmoCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Ammo Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event,
+        WorldStaticModel        = RikuEmporiumBox_event,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyAmmoCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Ammo Cache,
+        Icon                    = i_RikuEmporiumBox_event,
+        WorldStaticModel        = RikuEmporiumBox_event,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Ammo Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy AmmoCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyAmmoCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:AmmoCacheSD,
+	}
 }

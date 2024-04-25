@@ -27,20 +27,23 @@ Zone = {
 		["BigBearLake"] = {4800, 6900, 6900, 8400, zonetier[2]},
 		["Chestown"] = {4500, 6600, 4800, 6900, zonetier[2]},
 		["LC"] = {15000, 6300, 18300, 8100, zonetier[2], "Nested"},
-		["Dirker1"] = {1500, 1800, 3000, 3300, zonetier[2]},
-		["Dirker2"] = {3000, 1800, 7500, 6900, zonetier[2]},
-		["Dirker3"] = {7500, 1800, 9300, 6900, zonetier[2]},
-		["Dirker4"] = {9300, 2400, 10500, 6300, zonetier[2]},
+		--["Dirker1"] = {1500, 1800, 3000, 3300, zonetier[2]},
+		--["Dirker2"] = {3000, 1800, 7500, 6900, zonetier[2]},
+		--["Dirker3"] = {7500, 1800, 9300, 6900, zonetier[2]},
+		--["Dirker4"] = {9300, 2400, 10500, 6300, zonetier[2]},
+		["Saint Paulo Hammer"] = {3601, 9001, 5099, 10799, zonetier[3]},
+		["Greenport"] = {8101, 7201, 8700, 7800, zonetier[2]},
+		["Taylorsville"] = {9001, 6301, 10220, 7200, zonetier[2]},
 	}
 }
 
 NestedZone = {
 	list = {
-		["Louisville Main PD / Pawnshops"] = {12292, 1345, 12614, 1807, zonetier[3], "Nested"},
-		["Louisville Mall Area"] = {12905, 1230, 13800, 1800, zonetier[3], "Nested"},
+		["Louisville Main PD / Pawnshops"] = {12002, 1201, 12676, 1863, zonetier[4], "Nested"},
+		["Louisville Mall Area"] = {12905, 1230, 13800, 1800, zonetier[4], "Nested"},
 		["LCBunker"] = {17700, 6300, 18300, 6900, zonetier[4], "Nested"},
 		["LCDowntown"] = {17100, 6300, 17700, 6900, zonetier[3], "Nested"},
-		["Raven Creek Main PD / Military Hospital"] = {3514, 11355, 3946, 11922, zonetier[4], "Nested"},
+		["Raven Creek Main PD / Military Hospital"] = {3000, 11100, 3946, 11922, zonetier[4], "Nested"},
 	}
 }
 
