@@ -50,14 +50,25 @@ function OnZombieDeadItemDrop(zombie)
 	local t4 = ZombRand(n4)+1	-- random number generator, integers from 1 to n [eg n = 23, therefore rolls integers from 1 to 23]
 	
 -- calculate roll for tiers /// ZombRand(n) where n is the number of zombies to kill before that tier may drop
+    
+	local modData = zombie:getModData()
+	
+	if modData.SDspeed == 1 then
+		zombieSprinterValue = modData.SDSprinterZoneValue or 0
+		--getPlayer():Say("killed a sprinter")
+		--getPlayer():Say("sprinter zone value: " .. zombieSprinterValue)
+	else
+		zombieSprinterValue = 0
+	end
+	--adjust zombrand by subtracting sprinter zone values.
 
 	local t1roll = ZombRand(SandboxVars.OZD.roll1)--ZombRand(SandboxVars.OZD.roll1) -- rolls an integer between 0-roll1
 	--getPlayer():Say(tostring(SandboxVars.OZD.roll1))
-	local t2roll = ZombRand(SandboxVars.OZD.roll2) -- rolls an integer between 0-roll2 
+	local t2roll = ZombRand(math.max(SandboxVars.OZD.roll2 - math.floor(zombieSprinterValue*0.5), 1)) -- rolls an integer between 0-roll2 
 	--getPlayer():Say(tostring(SandboxVars.OZD.roll2))
-	local t3roll = ZombRand(SandboxVars.OZD.roll3) -- rolls an integer between 0-roll3 
+	local t3roll = ZombRand(math.max(SandboxVars.OZD.roll3 - math.floor(zombieSprinterValue*1.25), 1)) -- rolls an integer between 0-roll3 
 	--getPlayer():Say(tostring(SandboxVars.OZD.roll3))
-	local t4roll = ZombRand(SandboxVars.OZD.roll4)
+	local t4roll = ZombRand(math.max(SandboxVars.OZD.roll4 - math.floor(zombieSprinterValue*2), 1))
 	--getPlayer():Say(tostring(SandboxVars.OZD.roll4))
 	
 -- function to add item

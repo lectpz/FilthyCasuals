@@ -6,23 +6,23 @@ require "Vehicles/VehicleDistributions"
 -- add items to ProceduralDistributions
 local function preDistributionMergeSD5()
 ----------------------------------------------------------------------------------------
-	local propaneSpawn = {
-		CampingStoreGear = 0.1,
-		FireStorageTools = 0.1,
-		GigamartTools = 0.5,
-		GardenStoreTools = 0.25,
-		ToolStoreTools = 0.5,
-		GarageMechanics = 0.5,
-		GasStorageMechanics = 2,
-		StoreShelfMechanics = 0.5,
-		CrateMechanics = 0.5,
-		CrateMetalwork = 0.5,
-		Chemistry = 0.5,
-		CratePropane = 10,
-		CrateRandomJunk = 0.5,
-		GarageMetalwork = 0.5,
-		MetalShopTools = 4,
-		ToolStoreMetalwork = 0.5
+	--[[local propaneSpawn = {
+		--CampingStoreGear = 0.01,
+		--FireStorageTools = 0.01,
+		GigamartTools = 0.025,
+		--GardenStoreTools = 0.025,
+		--ToolStoreTools = 0.05,
+		--GarageMechanics = 0.025,
+		GasStorageMechanics = 0.15,
+		--StoreShelfMechanics = 0.05,
+		--CrateMechanics = 0.025,
+		CrateMetalwork = 0.05,
+		Chemistry = 0.05,
+		CratePropane = 1,
+		--CrateRandomJunk = 0.05,
+		GarageMetalwork = 0.025,
+		MetalShopTools = 0.25,
+		ToolStoreMetalwork = 0.05
 	}
 	
 	for distribution, chance in pairs(propaneSpawn) do
@@ -30,7 +30,7 @@ local function preDistributionMergeSD5()
 		table.insert(ProceduralDistributions.list[distribution].items, chance)
 		table.insert(ProceduralDistributions.list[distribution].items, "TW.LargePropaneTank")
 		table.insert(ProceduralDistributions.list[distribution].items, chance)
-	end
+	end]]--
 ----------------------------------------------------------------------------------------	
 	local weaponCacheData = {
 		CampingStoreGear = 0.01,
@@ -66,15 +66,15 @@ local function preDistributionMergeSD5()
 		GigamartTools = 0.001,
 		JanitorTools = 0.001,
 		BurglarTools = 0.001,
-		GardenStoreTools = 0.001,
+		GardenStoreTools = 0.0001,
 		ToolStoreTools = 0.001,
-		GarageMechanics = 0.01,
-		GasStorageMechanics = 0.01,
+		GarageMechanics = 0.0001,
+		GasStorageMechanics = 0.0001,
 		StoreShelfMechanics = 0.001,
-		CrateMechanics = 0.01,
-		GarageMetalwork = 0.01,
+		CrateMechanics = 0.001,
+		GarageMetalwork = 0.001,
 		ToolStoreMetalwork = 0.001,
-		CrateMetalwork = 0.01
+		CrateMetalwork = 0.001
 	}
 
 	for distribution, chance in pairs(MechMWCacheData) do
@@ -285,13 +285,19 @@ local function OnPostDistributionMergeSD5()
 
 	--modification to Books, otherwise it will outbloat skillbooks
 	modifyItemWeight("Book", 0.125)
-	--modifier to Weapon Cache. because I'm lazy
-	modifyItemWeight("WeaponCache", 5.0)
+	--modifier to Caches. because I'm lazy
+	modifyItemWeight("WeaponCache", 1.5)
+	--modifyItemWeight("AmmoCache", 2.0)
+	modifyItemWeight("MetalworkCache", 0.5)
+	--modifyItemWeight("MechanicCache", 1.0)
+	--modifyItemWeight("MedicalCache", 2.0)
 	--modifier to Propane Tanks for rarity
-	modifyItemWeight("PropaneTank", 0.5)
+	modifyItemWeight("PropaneTank", 0.0)
 	--modifier to Workshop Large Propane Tank for rarity
-	modifyItemWeight("TW.LargePropaneTank", 0.15)
-
+	modifyItemWeight("TW.LargePropaneTank", 0)
+	
+	table.remove(ProceduralDistributions.list.GarageMetalwork.junk.items, 1)
+	table.remove(ProceduralDistributions.list.GarageMetalwork.junk.items, 1)
 
 	--print("-----------------------------------------------")
 	--print("SD5 Modification to Loot Distribution Complete.")

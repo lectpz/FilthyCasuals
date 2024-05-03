@@ -19,7 +19,7 @@ module Base
 	item EmptyWeaponCache
 	{
         Type                    = Normal,
-        Weight                  = 0.1,
+        Weight                  = 0.01,
         DisplayName             = Empty Weapon Cache,
         Icon                    = i_RikuEmporiumBox_event_plus,
         WorldStaticModel        = RikuEmporiumBox_event_plus,
@@ -29,7 +29,7 @@ module Base
 	item EmptyWeaponCacheT1
 	{
         Type                    = Normal,
-        Weight                  = 0.1,
+        Weight                  = 0.01,
         DisplayName             = Tier 1 Empty Weapon Cache,
         Icon                    = i_RikuEmporiumBox_event_plus,
         WorldStaticModel        = RikuEmporiumBox_event_plus,
@@ -39,7 +39,7 @@ module Base
 	item EmptyWeaponCacheT2
 	{
         Type                    = Normal,
-        Weight                  = 0.1,
+        Weight                  = 0.01,
         DisplayName             = Tier 2 Empty Weapon Cache,
         Icon                    = i_RikuEmporiumBox_event_plus,
         WorldStaticModel        = RikuEmporiumBox_event_plus,
@@ -49,7 +49,7 @@ module Base
 	item EmptyWeaponCacheT3
 	{
         Type                    = Normal,
-        Weight                  = 0.1,
+        Weight                  = 0.01,
         DisplayName             = Tier 3 Empty Weapon Cache,
         Icon                    = i_RikuEmporiumBox_event_plus,
         WorldStaticModel        = RikuEmporiumBox_event_plus,
@@ -70,7 +70,7 @@ module Base
 	item EmptyMetalworkCache
 	{
         Type                    = Normal,
-        Weight                  = 0.1,
+        Weight                  = 0.01,
         DisplayName             = Empty Metalwork Cache,
         Icon                    = i_RikuEmporiumBox_complete_plus,
         WorldStaticModel        = RikuEmporiumBox_complete_plus,
@@ -91,7 +91,7 @@ module Base
 	item EmptyMechanicCache
 	{
         Type                    = Normal,
-        Weight                  = 0.1,
+        Weight                  = 0.01,
         DisplayName             = Empty Mechanic Cache,
         Icon                    = i_RikuEmporiumBox_basic_plus,
         WorldStaticModel        = RikuEmporiumBox_basic_plus
@@ -112,7 +112,7 @@ module Base
 	item EmptyMedicalCache
 	{
         Type                    = Normal,
-        Weight                  = 0.1,
+        Weight                  = 0.01,
         DisplayName             = Empty Medical Cache,
         Icon                    = i_RikuEmporiumBox_basic,
         WorldStaticModel        = RikuEmporiumBox_basic,
@@ -135,7 +135,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
-		EmptyWeaponCacheT3 = 10,
+		EmptyWeaponCacheT3 = 4,
 		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
@@ -149,7 +149,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
-		EmptyWeaponCacheT2 = 7,
+		EmptyWeaponCacheT2 = 3,
 		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
@@ -163,7 +163,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
-		EmptyWeaponCacheT1 = 4,
+		EmptyWeaponCacheT1 = 2,
 		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
@@ -223,7 +223,7 @@ module Base
 	item EmptyAmmoCache
 	{
         Type                    = Normal,
-        Weight                  = 0.1,
+        Weight                  = 0.01,
         DisplayName             = Empty Ammo Cache,
         Icon                    = i_RikuEmporiumBox_event,
         WorldStaticModel        = RikuEmporiumBox_event,

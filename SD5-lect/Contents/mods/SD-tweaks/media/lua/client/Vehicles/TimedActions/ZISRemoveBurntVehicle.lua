@@ -12,21 +12,21 @@ function ISRemoveBurntVehicle:perform()
 		self.character:getEmitter():stopSound(self.sound)
 	end
 	local totalXp = 5;
-	for i=1,math.min(tierzone,self.character:getPerkLevel(Perks.MetalWelding)) do
+	for i=1,math.min(tierzone*2, self.character:getPerkLevel(Perks.MetalWelding)) do
 --		if self:checkAddItem("MetalBar", 15) then totalXp = totalXp + 2 end;
 --		if self:checkAddItem("MetalBar", 15) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("MetalBar", 15) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("MetalBar", 15) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining-
 --		if self:checkAddItem("MetalPipe", 15) then totalXp = totalXp + 2 end;
 --		if self:checkAddItem("MetalPipe", 15) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("MetalPipe", 15) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("MetalPipe", 15) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining
+		if self:checkAddItem("MetalPipe", 20) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("MetalPipe", 20) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining
 --		if self:checkAddItem("SheetMetal", 25) then totalXp = totalXp + 2 end;
 --		if self:checkAddItem("SheetMetal", 25) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("SheetMetal", 25) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("SheetMetal", 25) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining
 --		if self:checkAddItem("SmallSheetMetal", 15) then totalXp = totalXp + 2 end;
---		if self:checkAddItem("SmallSheetMetal", 15) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("SmallSheetMetal", 15) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("SmallSheetMetal", 15) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("SmallSheetMetal", 15) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining
 --		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;

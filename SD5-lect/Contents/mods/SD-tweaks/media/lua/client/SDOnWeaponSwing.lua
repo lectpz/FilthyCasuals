@@ -16,13 +16,14 @@ function SDOnWeaponSwing(character, handWeapon)
 		if tierzone then
 			-- save original crit rate, min dmg, and max dmg
 			local playerItem = handWeapon
+			local modData = playerItem:getModData()
 			
 			-- check weapon for moddata, if no moddata then establish moddata
-			if	playerItem:getModData().CriticalChance		== nil and
-				playerItem:getModData().CritDmgMultiplier	== nil and
-				playerItem:getModData().MinDamage		== nil and
-				playerItem:getModData().MaxDamage		== nil and
-				playerItem:getModData().Name			== nil then
+			if	modData.CriticalChance		== nil and
+				modData.CritDmgMultiplier	== nil and
+				modData.MinDamage		== nil and
+				modData.MaxDamage		== nil and
+				modData.Name			== nil then
 				
 				-- if there are no moddata stats attached to the weapon then set moddata to weapon
 				local o_critrate 	=	playerItem:getCriticalChance()
@@ -35,21 +36,21 @@ function SDOnWeaponSwing(character, handWeapon)
 				--print(o_name " base name")
 				-- set moddata in key, value pairs
 				
-				playerItem:getModData().CriticalChance		= o_critrate
-				playerItem:getModData().CritDmgMultiplier	= o_critmulti
-				playerItem:getModData().MinDamage		= o_mindmg
-				playerItem:getModData().MaxDamage		= o_maxdmg
-				playerItem:getModData().Name			= o_name
+				modData.CriticalChance		= o_critrate
+				modData.CritDmgMultiplier	= o_critmulti
+				modData.MinDamage		= o_mindmg
+				modData.MaxDamage		= o_maxdmg
+				modData.Name			= o_name
 				--print:Say("mod data stored")
 			else
 				--print("mod data already exists, nothing needs to be done")
 			end
 			
-			local basecritrate 	= playerItem:getModData().CriticalChance
-			local basecritmulti	= playerItem:getModData().CritDmgMultiplier
-			local basemindmg 	= playerItem:getModData().MinDamage
-			local basemaxdmg 	= playerItem:getModData().MaxDamage
-			local basename		= playerItem:getModData().Name
+			local basecritrate 	= modData.CriticalChance
+			local basecritmulti	= modData.CritDmgMultiplier
+			local basemindmg 	= modData.MinDamage
+			local basemaxdmg 	= modData.MaxDamage
+			local basename		= modData.Name
 			
 --			local basecritrate = playerItem:getCriticalChance()
 --			local basecritmulti = playerItem:getCritDmgMultiplier()
@@ -90,6 +91,10 @@ end
 
 Events.OnWeaponSwing.Add(SDOnWeaponSwing)
 
+local function KillCountSD(player)
+	return player:getZombieKills()
+end
+
 function SDWeaponCheck(character, inventoryItem)
 	--character:Say("SDWeaponCheck")
 
@@ -97,11 +102,14 @@ function SDWeaponCheck(character, inventoryItem)
 		--character:Say("Inventory Item is Nil")
 		--return
 	elseif inventoryItem:IsWeapon() and not inventoryItem:isRanged() then
-		if	inventoryItem:getModData().CriticalChance	== nil and
-			inventoryItem:getModData().CritDmgMultiplier	== nil and
-			inventoryItem:getModData().MinDamage		== nil and
-			inventoryItem:getModData().MaxDamage		== nil and
-			inventoryItem:getModData().Name			== nil then
+		
+		local modData = inventoryItem:getModData()
+	
+		if	modData.CriticalChance	== nil and
+			modData.CritDmgMultiplier	== nil and
+			modData.MinDamage		== nil and
+			modData.MaxDamage		== nil and
+			modData.Name			== nil then
 			
 			local o_critrate 	=	inventoryItem:getCriticalChance()
 			local o_critmulti	=	inventoryItem:getCritDmgMultiplier()
@@ -110,27 +118,34 @@ function SDWeaponCheck(character, inventoryItem)
 			local o_name		=	character:getPrimaryHandItem():getName()
 			--print(o_name .. " base name")
 
-			inventoryItem:getModData().CriticalChance	= o_critrate
-			inventoryItem:getModData().CritDmgMultiplier	= o_critmulti
-			inventoryItem:getModData().MinDamage		= o_mindmg
-			inventoryItem:getModData().MaxDamage		= o_maxdmg
-			inventoryItem:getModData().Name			= o_name
+			modData.CriticalChance	= o_critrate
+			modData.CritDmgMultiplier	= o_critmulti
+			modData.MinDamage		= o_mindmg
+			modData.MaxDamage		= o_maxdmg
+			modData.Name			= o_name
 			--character:Say("mod data stored")
 		else
 			--character:Say("mod data already exists, nothing needs to be done")
 		end
 		--character:Say("Inventory Item exists")
-		local basecritrate 	= inventoryItem:getModData().CriticalChance
-		local basecritmulti = inventoryItem:getModData().CritDmgMultiplier
-		local basemindmg 	= inventoryItem:getModData().MinDamage
-		local basemaxdmg 	= inventoryItem:getModData().MaxDamage
-		local basename		= inventoryItem:getModData().Name
+		local basecritrate 	= modData.CriticalChance
+		local basecritmulti = modData.CritDmgMultiplier
+		local basemindmg 	= modData.MinDamage
+		local basemaxdmg 	= modData.MaxDamage
+		local basename		= modData.Name
 		
 		inventoryItem:setCriticalChance(basecritrate)
 		inventoryItem:setCritDmgMultiplier(basecritmulti)
 		inventoryItem:setMinDamage(basemindmg)
 		inventoryItem:setMaxDamage(basemaxdmg)
 		inventoryItem:setName(basename)
+		
+		if modData.KillCount == nil then
+			modData.KillCount = 0
+		end
+		
+		modData.PlayerKills = KillCountSD(character)
+		
 	end
 	
 end

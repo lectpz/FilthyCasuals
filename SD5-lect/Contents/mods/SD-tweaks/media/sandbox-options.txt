@@ -107,3 +107,291 @@ option SDOnWeaponSwing.Tier4critmulti
 	page = SDOnWeaponSwing,
 	translation = SDOnWeaponSwing_Tier4critmulti,
 }
+
+option SDevents.Xcoord1
+{
+	type = integer,
+	min = 1, max = 99999, default = 11100,
+
+	page = SDevents,
+	translation = SDevents_Xcoord1,
+}
+
+option SDevents.Ycoord1
+{
+	type = integer,
+	min = 1, max = 99999, default = 8700,
+
+	page = SDevents,
+	translation = SDevents_Ycoord1,
+}
+
+option SDevents.Xcoord2
+{
+	type = integer,
+	min = 1, max = 99999, default = 11400,
+
+	page = SDevents,
+	translation = SDevents_Xcoord2,
+}
+
+option SDevents.Ycoord2
+{
+	type = integer,
+	min = 1, max = 99999, default = 9300,
+
+	page = SDevents,
+	translation = SDevents_Ycoord2,
+}
+
+option SDevents.enabled
+{
+	type = boolean,
+	default = false,
+
+	page = SDevents,
+	translation = SDevents_enabled,
+}
+
+option SDevents.EventTier
+{
+	type = integer,
+	min = 1, max = 4, default = 1,
+
+	page = SDevents,
+	translation = SDevents_EventTier,
+}
+
+option SDevents.Xcoordevent
+{
+	type = integer,
+	min = 1, max = 99999, default = 11250,
+
+	page = SDevents,
+	translation = SDevents_Xcoordevent,
+}
+
+option SDevents.Ycoordevent
+{
+	type = integer,
+	min = 1, max = 99999, default = 9000,
+
+	page = SDevents,
+	translation = SDevents_Ycoordevent,
+}
+
+option SDZones.ResearchFacility
+{
+    type = integer,
+    min = 1, max = 4, default = 2,
+    page = SDZones,
+    translation = SDZones_ResearchFacility,
+}
+
+option SDZones.WestPoint
+{
+    type = integer,
+    min = 1, max = 4, default = 2,
+    page = SDZones,
+    translation = SDZones_WestPoint,
+}
+
+option SDZones.Grapeseed
+{
+    type = integer,
+    min = 1, max = 4, default = 2,
+    page = SDZones,
+    translation = SDZones_Grapeseed,
+}
+
+option SDZones.Greenport
+{
+    type = integer,
+    min = 1, max = 4, default = 2,
+    page = SDZones,
+    translation = SDZones_Greenport,
+}
+
+option SDZones.EerieMilitaryBase
+{
+    type = integer,
+    min = 1, max = 4, default = 4,
+    page = SDZones,
+    translation = SDZones_EerieMilitaryBase,
+}
+
+option SDZones.LakeIvy
+{
+    type = integer,
+    min = 1, max = 4, default = 1,
+    page = SDZones,
+    translation = SDZones_LakeIvy,
+}
+
+option SDZones.EerieCountry
+{
+    type = integer,
+    min = 1, max = 4, default = 2,
+    page = SDZones,
+    translation = SDZones_EerieCountry,
+}
+
+option SDZones.RavenCreek
+{
+    type = integer,
+    min = 1, max = 4, default = 3,
+    page = SDZones,
+    translation = SDZones_RavenCreek,
+}
+
+option SDZones.LCBunker
+{
+    type = integer,
+    min = 1, max = 4, default = 4,
+    page = SDZones,
+    translation = SDZones_LCBunker,
+}
+
+option SDZones.FortRedstone
+{
+    type = integer,
+    min = 1, max = 4, default = 2,
+    page = SDZones,
+    translation = SDZones_FortRedstone,
+}
+
+option SDZones.LouisvilleMallArea
+{
+    type = integer,
+    min = 1, max = 4, default = 4,
+    page = SDZones,
+    translation = SDZones_LouisvilleMallArea,
+}
+
+option SDZones.Chestown
+{
+    type = integer,
+    min = 1, max = 4, default = 2,
+    page = SDZones,
+    translation = SDZones_Chestown,
+}
+
+option SDZones.Riverside
+{
+    type = integer,
+    min = 1, max = 4, default = 1,
+    page = SDZones,
+    translation = SDZones_Riverside,
+}
+
+option SDZones.Louisville
+{
+    type = integer,
+    min = 1, max = 4, default = 3,
+    page = SDZones,
+    translation = SDZones_Louisville,
+}
+
+option SDZones.SaintPaulosHammer
+{
+    type = integer,
+    min = 1, max = 4, default = 3,
+    page = SDZones,
+    translation = SDZones_SaintPaulosHammer,
+}
+
+option SDZones.LC
+{
+    type = integer,
+    min = 1, max = 4, default = 2,
+    page = SDZones,
+    translation = SDZones_LC,
+}
+
+option SDZones.LCDowntown
+{
+    type = integer,
+    min = 1, max = 4, default = 3,
+    page = SDZones,
+    translation = SDZones_LCDowntown,
+}
+
+option SDZones.RavenCreekPDMilitaryHospital
+{
+    type = integer,
+    min = 1, max = 4, default = 4,
+    page = SDZones,
+    translation = SDZones_RavenCreekPDMilitaryHospital,
+}
+
+option SDZones.Petroville
+{
+    type = integer,
+    min = 1, max = 4, default = 4,
+    page = SDZones,
+    translation = SDZones_Petroville,
+}
+
+option SDZones.CC
+{
+    type = integer,
+    min = 1, max = 4, default = 1,
+    page = SDZones,
+    translation = SDZones_CC,
+}
+
+option SDZones.EeriePowerPlant
+{
+    type = integer,
+    min = 1, max = 4, default = 4,
+    page = SDZones,
+    translation = SDZones_EeriePowerPlant,
+}
+
+option SDZones.BigBearLake
+{
+    type = integer,
+    min = 1, max = 4, default = 2,
+    page = SDZones,
+    translation = SDZones_BigBearLake,
+}
+
+option SDZones.MarchRidge
+{
+    type = integer,
+    min = 1, max = 4, default = 1,
+    page = SDZones,
+    translation = SDZones_MarchRidge,
+}
+
+option SDZones.Rosewood
+{
+    type = integer,
+    min = 1, max = 4, default = 1,
+    page = SDZones,
+    translation = SDZones_Rosewood,
+}
+
+option SDZones.LouisvillePD
+{
+    type = integer,
+    min = 1, max = 4, default = 4,
+    page = SDZones,
+    translation = SDZones_LouisvillePD,
+}
+
+option SDZones.Taylorsville
+{
+    type = integer,
+    min = 1, max = 4, default = 2,
+    page = SDZones,
+    translation = SDZones_Taylorsville,
+}
+
+option SDZones.Muldraugh
+{
+    type = integer,
+    min = 1, max = 4, default = 1,
+    page = SDZones,
+    translation = SDZones_Muldraugh,
+}

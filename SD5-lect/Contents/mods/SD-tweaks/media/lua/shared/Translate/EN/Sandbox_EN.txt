@@ -36,4 +36,122 @@ Sandbox_EN = {
 	
 	Sandbox_SDOnWeaponSwing_Tier4critmulti = "Tier 4 critical multiplier modifier",
 	Sandbox_SDOnWeaponSwing_Tier4critmulti_tooltip = "e.g. 0.55",
+	
+	Sandbox_SDevents = "SD Events",
+	
+	Sandbox_SDevents_Xcoord1 = "Top Left X-Coordinate for Zone",
+	Sandbox_SDevents_Xcoord1_tooltip = "e.g. 11100",
+	
+	Sandbox_SDevents_Ycoord1 = "Top Left Y-Coordinate for Zone",
+	Sandbox_SDevents_Ycoord1_tooltip = "e.g. 8700",
+	
+	Sandbox_SDevents_Xcoord2 = "Bottom Right X-Coordinate for Zone",
+	Sandbox_SDevents_Xcoord2_tooltip = "e.g. 11400",
+	
+	Sandbox_SDevents_Ycoord2 = "Bottom Right Y-Coordinate for Zone",
+	Sandbox_SDevents_Ycoord2_tooltip = "e.g. 9300",
+	
+	Sandbox_SDevents_EventTier = "Event Tier for Zone",
+	Sandbox_SDevents_EventTier_tooltip = "e.g. 2",
+	
+	Sandbox_SDevents_enabled = "Enable Event Zone",
+	Sandbox_SDevents_enabled_tooltip = "Check to enable, uncheck to disable",
+	
+	Sandbox_SDevents_teleporttoeventenabled = "Enable to Allow Players to Teleport Event Coordinate",
+	Sandbox_SDevents_teleporttoeventenabled_tooltip = "Check to enable, uncheck to disable",
+	
+	Sandbox_SDevents_teleporttoCCorSHenabled = "Enable to Allow Players to Teleport From Event End-Marker",
+	Sandbox_SDevents_teleporttoCCorSHenabled_tooltip = "Check to enable, uncheck to disable",
+	
+	Sandbox_SDevents_Xcoordevent = "X-Coordinate for Start Event Teleport",
+	Sandbox_SDevents_Xcoordevent_tooltip = "e.g. 11250",
+	
+	Sandbox_SDevents_Ycoordevent = "Y-Coordinate for Start Event Teleport",
+	Sandbox_SDevents_Ycoordevent_tooltip = "e.g. 9000",
+	
+	Sandbox_SDevents_reward = "Event Reward (delivered using Event End-Marker Teleport)",
+	Sandbox_SDevents_reward = "***items separated by space, no space at start/end*** e.g.: Base.T4WeaponCache RMW.spear1 Base.katana Base.SpecialCoin",
+	
+	Sandbox_SDZones = "SD Tier Zones",
+	
+	Sandbox_SDZones_Chestown = "Chestown Tier Zone",
+	Sandbox_SDZones_Chestown_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_Louisville = "Louisville Tier Zone",
+	Sandbox_SDZones_Louisville_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_WestPoint = "WestPoint Tier Zone",
+	Sandbox_SDZones_WestPoint_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_LakeIvy = "LakeIvy Tier Zone",
+	Sandbox_SDZones_LakeIvy_tooltip = "e.g. 1",
+
+	Sandbox_SDZones_EeriePowerPlant = "Eerie Power Plant Tier Zone",
+	Sandbox_SDZones_EeriePowerPlant_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_Muldraugh = "Muldraugh Tier Zone",
+	Sandbox_SDZones_Muldraugh_tooltip = "e.g. 1",
+
+	Sandbox_SDZones_EerieMilitaryBase = "Eerie Military Base Tier Zone",
+	Sandbox_SDZones_EerieMilitaryBase_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_BigBearLake = "BigBearLake Tier Zone",
+	Sandbox_SDZones_BigBearLake_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_Petroville = "Petroville Tier Zone",
+	Sandbox_SDZones_Petroville_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_Riverside = "Riverside Tier Zone",
+	Sandbox_SDZones_Riverside_tooltip = "e.g. 1",
+
+	Sandbox_SDZones_ResearchFacility = "ResearchFacility Tier Zone",
+	Sandbox_SDZones_ResearchFacility_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_RavenCreekPDMilitaryHospital = "Raven Creek Main PD / Military Hospital Tier Zone",
+	Sandbox_SDZones_RavenCreekPDMilitaryHospital_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_LouisvillePD= "Louisville Main PD / Pawnshops Tier Zone",
+	Sandbox_SDZones_LouisvillePD_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_MarchRidge = "MarchRidge Tier Zone",
+	Sandbox_SDZones_MarchRidge_tooltip = "e.g. 1",
+
+	Sandbox_SDZones_LCDowntown = "LCDowntown Tier Zone",
+	Sandbox_SDZones_LCDowntown_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_Taylorsville = "Taylorsville Tier Zone",
+	Sandbox_SDZones_Taylorsville_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_Greenport = "Greenport Tier Zone",
+	Sandbox_SDZones_Greenport_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_RavenCreek = "RavenCreek Tier Zone",
+	Sandbox_SDZones_RavenCreek_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_SaintPaulosHammer = "Saint Paulo's Hammer Tier Zone",
+	Sandbox_SDZones_SaintPaulosHammer_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_EerieCountry = "EerieCountry Tier Zone",
+	Sandbox_SDZones_EerieCountry_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_LC = "LC Tier Zone",
+	Sandbox_SDZones_LC_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_Grapeseed = "Grapeseed Tier Zone",
+	Sandbox_SDZones_Grapeseed_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_LouisvilleMallArea = "Louisville Mall Area Tier Zone",
+	Sandbox_SDZones_LouisvilleMallArea_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_FortRedstone = "FortRedstone Tier Zone",
+	Sandbox_SDZones_FortRedstone_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_LCBunker = "LCBunker Tier Zone",
+	Sandbox_SDZones_LCBunker_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_Rosewood = "Rosewood Tier Zone",
+	Sandbox_SDZones_Rosewood_tooltip = "e.g. 1",
+
+	Sandbox_SDZones_CC = "CC Tier Zone",
+	Sandbox_SDZones_CC_tooltip = "e.g. 1",
 }
