@@ -1,0 +1,5 @@
+Sandbox_EN = {
+	Sandbox_Shops= "Shops",
+	Sandbox_Shops_PurchaseLog = "Enable logs: Purchases"
+	Sandbox_Shops_SellLog = "Enable logs: Sells "
+}

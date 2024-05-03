@@ -1,0 +1,6 @@
+Recipes_EN = {
+
+    Recipe_Build_Player_Shop = "Build Player Shop",
+    Recipe_Build_Player_Shop_Freezer = "Build Player Shop (Freezer)",
+    
+}
