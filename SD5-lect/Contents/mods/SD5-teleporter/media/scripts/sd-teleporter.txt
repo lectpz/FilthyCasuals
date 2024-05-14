@@ -1,0 +1,42 @@
+module SD
+{
+    imports
+    {
+        Base
+    }
+
+    item Teleporter
+    {
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Teleporter,
+        DisplayCategory = Junk,
+        Icon            = Teleporter,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item TeleporterConsumable
+    {
+        Type            = Drainable,
+        UseDelta        = 0.01,
+        ReplaceOnDeplete= TeleporterBroken,
+        Weight          = 0.1,
+        DisplayName     = Rusty Teleporter,
+        DisplayCategory = Junk,
+        Icon            = TeleporterConsumable,
+        WorldStaticModel= PaperNapkins_Ground,
+
+		UseWhileEquipped		=	FALSE,
+		ReplaceOnDeplete		=	TeleporterBroken,
+    }
+
+    item TeleporterBroken
+    {
+        Type            = Normal,
+        Weight          = 1,
+        DisplayName     = Depleted Teleporter,
+        DisplayCategory = Junk,
+        Icon            = TeleporterBroken,
+        WorldStaticModel= PaperNapkins_Ground,
+    }
+}

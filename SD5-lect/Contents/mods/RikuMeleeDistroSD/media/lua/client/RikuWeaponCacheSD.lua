@@ -9,7 +9,7 @@ require "SDZoneCheck"
 -- function to split the sandbox string into a table. my brute force way to bypass the limitations of sandbox var string delimiter. parses the input string and pulls out the everything between spaces.
 local function splitString(sandboxvar, delimiter)
 	local ztable = {}
-	local pattern = "%S+"
+	local pattern = "[^ %;,]+"
 
 	for match in sandboxvar:gmatch(pattern) do
 		table.insert(ztable, match)
@@ -103,4 +103,20 @@ function RikuWeaponCacheUpgradeSD(items, result, player)
 		getPlayer():Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(tierzone + 1) .. "!")
 	end
 	
+end
+
+function RikuRewardsT4(items, result, player)
+	local table4 = splitString(SandboxVars.RWC.table4)
+	local n4 = #table4 --number of tier 4 items in loot pool
+	local t4 = ZombRand(n4)+1	-- random number generator, integers from 1 to n [eg n = 23, therefore rolls integers from 1 to 23]
+
+	getPlayer():getInventory():AddItem(table4[t4])
+end
+
+function RikuRewardsT3(items, result, player)
+	local table3 = splitString(SandboxVars.RWC.table3)
+	local n3 = #table3 --number of tier 3 items in loot pool
+	local t3 = ZombRand(n3)+1	-- random number generator, integers from 1 to n [eg n = 23, therefore rolls integers from 1 to 23]
+	
+	getPlayer():getInventory():AddItem(table3[t3])
 end

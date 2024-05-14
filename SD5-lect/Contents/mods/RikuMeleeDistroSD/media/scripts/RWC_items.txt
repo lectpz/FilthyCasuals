@@ -16,6 +16,28 @@ module Base
         Tooltip = Tooltip_Cache,
 	}
 	
+	item EventWeaponCacheT3
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tier 3 Event Weapon Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EventWeaponCacheT4
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tier 4 Event Weapon Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
 	item EmptyWeaponCache
 	{
         Type                    = Normal,
@@ -129,6 +151,30 @@ module Base
 		RemoveResultItem:true,
 		Time:500.0,
 		OnCreate:RikuWeaponCacheSD,
+	}
+	
+	recipe Open Tier 3 Event Weapon Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy EventWeaponCacheT3,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:RikuRewardsT3,
+	}
+	
+	recipe Open Tier 4 Event Weapon Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy EventWeaponCacheT4,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:RikuRewardsT4,
 	}
 	
 	recipe Upgrade Weapon Cache To Tier 4

@@ -54,14 +54,23 @@ Sandbox_EN = {
 	Sandbox_SDevents_EventTier = "Event Tier for Zone",
 	Sandbox_SDevents_EventTier_tooltip = "e.g. 2",
 	
+	Sandbox_SDevents_roll4 = "Rare loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll4_tooltip = "e.g. 1250",
+	
+	Sandbox_SDevents_roll3 = "Rare loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll3_tooltip = "e.g. 750",
+	
+	Sandbox_SDevents_roll2 = "Uncommon loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll2_tooltip = "e.g. 350",
+
+	Sandbox_SDevents_roll1 = "Common loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll1_tooltip = "e.g. 150",
+	
 	Sandbox_SDevents_enabled = "Enable Event Zone",
 	Sandbox_SDevents_enabled_tooltip = "Check to enable, uncheck to disable",
 	
-	Sandbox_SDevents_teleporttoeventenabled = "Enable to Allow Players to Teleport Event Coordinate",
+	Sandbox_SDevents_teleporttoeventenabled = "Enable to Allow Players to Teleport Event",
 	Sandbox_SDevents_teleporttoeventenabled_tooltip = "Check to enable, uncheck to disable",
-	
-	Sandbox_SDevents_teleporttoCCorSHenabled = "Enable to Allow Players to Teleport From Event End-Marker",
-	Sandbox_SDevents_teleporttoCCorSHenabled_tooltip = "Check to enable, uncheck to disable",
 	
 	Sandbox_SDevents_Xcoordevent = "X-Coordinate for Start Event Teleport",
 	Sandbox_SDevents_Xcoordevent_tooltip = "e.g. 11250",
@@ -69,9 +78,24 @@ Sandbox_EN = {
 	Sandbox_SDevents_Ycoordevent = "Y-Coordinate for Start Event Teleport",
 	Sandbox_SDevents_Ycoordevent_tooltip = "e.g. 9000",
 	
-	Sandbox_SDevents_reward = "Event Reward (delivered using Event End-Marker Teleport)",
-	Sandbox_SDevents_reward = "***items separated by space, no space at start/end*** e.g.: Base.T4WeaponCache RMW.spear1 Base.katana Base.SpecialCoin",
+	Sandbox_SDevents_Admin_to_Teleport = "Admin to Teleport to"
+	Sandbox_SDevents_Admin_to_Teleport_tooltip = "e.g. Rowsdower"
 	
+	Sandbox_SDevents_EventRewardEnabled = "Enable to Allow Players to Claim Event Reward (will TP them away from event)",
+	Sandbox_SDevents_EventRewardEnabled_tooltip = "Check to enable, uncheck to disable",
+
+	Sandbox_SDevents_Rewards1 = "Reward Loot",
+	Sandbox_SDevents_Rewards1_tooltip = "Base.Item",
+
+	Sandbox_SDevents_Rewards2 = "Reward Loot",
+	Sandbox_SDevents_Rewards2_tooltip = "Base.EventWeaponCacheT3",
+	
+	Sandbox_SDevents_Rewards3 = "Reward Loot",
+	Sandbox_SDevents_Rewards3_tooltip = "Base.XCoin",
+	
+	Sandbox_SDevents_Rewards4 = "Reward Loot",
+	Sandbox_SDevents_Rewards4_tooltip = "Base.XCoin",
+
 	Sandbox_SDZones = "SD Tier Zones",
 	
 	Sandbox_SDZones_Chestown = "Chestown Tier Zone",
@@ -94,6 +118,9 @@ Sandbox_EN = {
 
 	Sandbox_SDZones_EerieMilitaryBase = "Eerie Military Base Tier Zone",
 	Sandbox_SDZones_EerieMilitaryBase_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_BigBearLakeWest = "BigBearLakeWest Tier Zone",
+	Sandbox_SDZones_BigBearLakeWest_tooltip = "e.g. 4",
 
 	Sandbox_SDZones_BigBearLake = "BigBearLake Tier Zone",
 	Sandbox_SDZones_BigBearLake_tooltip = "e.g. 2",

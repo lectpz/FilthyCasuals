@@ -1,0 +1,21 @@
+VERSION = 1,
+
+option SDTeleporter.CooldownCCCategory = {
+	type = integer, default = 480, min = 12, max = 2400,
+	page = SDTeleporter, translation = CooldownCCCategory,
+}
+
+option SDTeleporter.CooldownPlayerCategory = {
+	type = integer, default = 480, min = 12, max = 2400,
+	page = SDTeleporter, translation = CooldownPlayerCategory,
+}
+
+option SDTeleporter.CooldownSafehouseCategory = {
+	type = integer, default = 480, min = 12, max = 2400,
+	page = SDTeleporter, translation = CooldownSafehouseCategory,
+}
+
+option SDTeleporter.AllowTeleportToPlayer = {
+	type = boolean, default = false,
+	page = SDTeleporter, translation = AllowTeleportToPlayer,
+}

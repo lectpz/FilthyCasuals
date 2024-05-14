@@ -1,0 +1,31 @@
+Sandbox_EN = {
+	Sandbox_PZwaystonepanel = "Waystone",
+
+	Sandbox_PZwaystonepanel_Xcoord = "X-coordinate for Event Waystone",
+	Sandbox_PZwaystonepanel_Xcoord_tooltip = "e.g. 19650",
+
+	Sandbox_PZwaystonepanel_Ycoord = "Y-coordinate for Event Waystone",
+	Sandbox_PZwaystonepanel_Ycoord_tooltip = "e.g. 150",
+	
+	Sandbox_PZwaystonepanel_Zcoord = "Z-coordinate for Event Waystone",
+	Sandbox_PZwaystonepanel_Zcoord_tooltip = "e.g. 0",
+
+	Sandbox_PZwaystonepanel_allowshtp = "Enable to Allow Players to Teleport to Safehouse",
+	Sandbox_PZwaystonepanel_allowshtp_tooltip = "Check to enable, uncheck to disable",	
+	
+	Sandbox_PZwaystonepanel_allowreward = "Enable to Allow Players to Claim Reward",
+	Sandbox_PZwaystonepanel_allowreward_tooltip = "Check to enable, uncheck to disable",	
+	
+	Sandbox_PZwaystonepanel_eventreward1 = "Base.Item single reward only",
+	Sandbox_PZwaystonepanel_eventreward1_tooltip = "e.g. Base.SCoin",
+	
+	Sandbox_PZwaystonepanel_eventreward2 = "Base.Item single reward only",
+	Sandbox_PZwaystonepanel_eventreward2_tooltip = "e.g. Base.EventWeaponCacheT3",
+	
+	Sandbox_PZwaystonepanel_eventreward3 = "Base.Item single reward only",
+	Sandbox_PZwaystonepanel_eventreward3_tooltip = "e.g. Base.XCoin",
+	
+	Sandbox_PZwaystonepanel_eventreward4 = "Base.Item single reward only",
+	Sandbox_PZwaystonepanel_eventreward4_tooltip = "e.g. Base.XCoin",
+	
+}

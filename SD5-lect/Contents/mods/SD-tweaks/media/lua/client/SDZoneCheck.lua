@@ -9,6 +9,7 @@ zonetier = {1, 2, 3, 4}
 zonetierno = #zonetier
 
 -- zone input, overall zones are on top, nested zones are on bottom
+-- order of this table is random, therefore i need to check for nested zones specifically otherwise it may not detect nested areas.
 
 Zone = {
 	list = {
@@ -30,10 +31,11 @@ Zone = {
 		["EeriePowerPlant"] = {9900, 13879, 10966, 15292, SandboxVars.SDZones.EeriePowerPlant},
 		["EerieMilitaryBase"] = {8101, 17063, 8527, 17610, SandboxVars.SDZones.EerieMilitaryBase},
 		["EerieCountry"] = {7200, 13500, 12300, 18300, SandboxVars.SDZones.EerieCountry, "Nested"},
-		["BigBearLake"] = {4800, 6900, 6900, 8400, SandboxVars.SDZones.BigBearLake},
+		["BigBearLakeWest"] = {5000, 7800, 5700, 8200, SandboxVars.SDZones.BigBearLakeWest},
+		["BigBearLake"] = {4800, 6900, 6900, 8400, SandboxVars.SDZones.BigBearLake, "Nested"},
 		["Chestown"] = {4500, 6600, 4800, 6900, SandboxVars.SDZones.Chestown},
-		["LCBunker"] = {17700, 6300, 18300, 6900, SandboxVars.SDZones.LCBunker},
-		["LCDowntown"] = {17100, 6300, 17700, 6900, SandboxVars.SDZones.LCDowntown},
+		["LCBunker"] = {17400, 6300, 18300, 6900, SandboxVars.SDZones.LCBunker},
+		["LCDowntown"] = {16800, 6300, 17400, 6900, SandboxVars.SDZones.LCDowntown},
 		["LC"] = {15000, 6300, 18300, 8100, SandboxVars.SDZones.LC, "Nested"},
 		["SaintPaulosHammer"] = {3601, 9001, 5099, 10799, SandboxVars.SDZones.SaintPaulosHammer},
 		["Greenport"] = {8101, 7201, 8700, 7800, SandboxVars.SDZones.Greenport},
@@ -83,9 +85,10 @@ NestedZone = {
 	list = {
 		["LouisvillePD"] = {12002, 1201, 12676, 1863, SandboxVars.SDZones.LouisvillePD},
 		["LouisvilleMallArea"] = {12905, 1230, 13800, 1800, SandboxVars.SDZones.LouisvilleMallArea},
-		["LCBunker"] = {17700, 6300, 18300, 6900, SandboxVars.SDZones.LCBunker},
-		["LCDowntown"] = {17100, 6300, 17700, 6900, SandboxVars.SDZones.LCDowntown},
-		["RavenCreekPDMilitaryHospital"] = {3000, 11100, 3946, 11922, SandboxVars.SDZones.RavenCreekPDMilitaryHospital}
+		["LCBunker"] = {17400, 6300, 18300, 6900, SandboxVars.SDZones.LCBunker},
+		["LCDowntown"] = {16800, 6300, 17400, 6900, SandboxVars.SDZones.LCDowntown},
+		["RavenCreekPDMilitaryHospital"] = {3000, 11100, 3946, 11922, SandboxVars.SDZones.RavenCreekPDMilitaryHospital},
+		["BigBearLakeWest"] = {5000, 7800, 5700, 8200, SandboxVars.SDZones.BigBearLakeWest}
 	}
 }
 
@@ -175,7 +178,7 @@ function checkZone()
 			end
 		end
 	else
-		-- if the check doesn't match any of the zones or if player is nil, it just defaults to zonetier[1] and sets x = 5000 and y = 5000 to avoid errors
+		-- if the check doesn't match any of the zones or if player is nil, it just defaults to zonetier[1] and sets x = 11250 and y = 9000 to avoid errors (CC coordinates)
 		local x = 11250
 		local y = 9000
 	end

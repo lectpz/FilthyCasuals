@@ -9,7 +9,7 @@ require "SDZoneCheck"
 -- function to split the sandbox string into a table. my brute force way to bypass the limitations of sandbox var string delimiter. parses the input string and pulls out the everything between spaces.
 local function splitString(sandboxvar, delimiter)
 	local ztable = {}
-	local pattern = "%S+"
+	local pattern = "[^ %;,]+"
 
 	for match in sandboxvar:gmatch(pattern) do
 		table.insert(ztable, match)

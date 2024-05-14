@@ -1,0 +1,107 @@
+module SoulForge {
+
+	recipe Fill Soul Flask
+	{
+		CanBeDoneFromFloor:true,
+		destroy EmptySoulFlaskWhite,
+		Sound:s_spookyitem,
+		AnimNode:Loot,
+		Result:StoredSouls,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnTest:OnTest_checkEmptyFlask,
+		OnCreate:OnCreate_fillEmptySoulFlask,
+	}
+	
+	recipe Infuse Souls Into Weapon
+	{
+		CanBeDoneFromFloor:true,
+		destroy StoredSouls,
+		AnimNode:Loot,
+		Result:EmptySoulFlaskWhite,
+		Time:500.0,
+		OnTest:OnTest_hasSoulCount,
+		OnCreate:OnCreate_addFullSoulCount,
+	}
+	
+	recipe Paint Soul Flask White
+	{
+		CanBeDoneFromFloor:true,
+		destroy EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue,
+		Base.PaintWhite=2,
+		AnimNode:Loot,
+		Result:EmptySoulFlaskWhite,
+		Time:500.0,
+	}
+	
+	recipe Paint Soul Flask Yellow
+	{
+		CanBeDoneFromFloor:true,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue,
+		Base.PaintYellow=2,
+		AnimNode:Loot,
+		Result:EmptySoulFlaskYellow,
+		Time:500.0,
+	}
+	
+	recipe Paint Soul Flask Red
+	{
+		CanBeDoneFromFloor:true,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue,
+		Base.PaintRed=2,
+		AnimNode:Loot,
+		Result:EmptySoulFlaskRed,
+		Time:500.0,
+	}
+	
+	recipe Paint Soul Flask Purple
+	{
+		CanBeDoneFromFloor:true,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue,
+		Base.PaintPurple=2,
+		AnimNode:Loot,
+		Result:EmptySoulFlaskPurple,
+		Time:500.0,
+	}
+	
+	recipe Paint Soul Flask Pink
+	{
+		CanBeDoneFromFloor:true,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue,
+		Base.PaintPink=2,
+		AnimNode:Loot,
+		Result:EmptySoulFlaskPink,
+		Time:500.0,
+	}
+	
+	recipe Paint Soul Flask Green
+	{
+		CanBeDoneFromFloor:true,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskCyan/EmptySoulFlaskBlue,
+		Base.PaintGreen=2,
+		AnimNode:Loot,
+		Result:EmptySoulFlaskGreen,
+		Time:500.0,
+	}
+	
+	recipe Paint Soul Flask Cyan
+	{
+		CanBeDoneFromFloor:true,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskBlue,
+		Base.PaintCyan=2,
+		AnimNode:Loot,
+		Result:EmptySoulFlaskCyan,
+		Time:500.0,
+	}
+	
+	recipe Paint Soul Flask Blue
+	{
+		CanBeDoneFromFloor:true,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan,
+		Base.PaintBlue=2,
+		AnimNode:Loot,
+		Result:EmptySoulFlaskBlue,
+		Time:500.0,
+	}
+	
+}

@@ -1,0 +1,58 @@
+module Base
+{
+	model world_WhiteBot
+	{
+		mesh = SoulBottle,
+        texture = WhiteBot,
+        scale = 0.35,
+	}
+	
+	model world_YellowBot
+	{
+		mesh = SoulBottle,
+        texture = YellowBot,
+        scale = 0.35,
+	}
+
+	model world_RedBot
+	{
+		mesh = SoulBottle,
+        texture = RedBot,
+        scale = 0.35,
+	}
+	
+	model world_PurpleBot
+	{
+		mesh = SoulBottle,
+        texture = PurpleBot,
+        scale = 0.35,
+	}
+
+	model world_PinkBot
+	{
+		mesh = SoulBottle,
+        texture = PinkBot,
+        scale = 0.35,
+	}
+	
+	model world_GreenBot
+	{
+		mesh = SoulBottle,
+        texture = GreenBot,
+        scale = 0.35,
+	}
+
+	model world_CyanBot
+	{
+		mesh = SoulBottle,
+        texture = CyanBot,
+        scale = 0.35,
+	}
+	
+	model world_BlueBot
+	{
+		mesh = SoulBottle,
+        texture = BlueBot,
+        scale = 0.35,
+	}
+}

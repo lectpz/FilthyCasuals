@@ -145,29 +145,40 @@ Events.OnPreDistributionMerge.Add(preDistributionMergeSD5)
 
 
 local function OnPostDistributionMergeSD5()
-	
-	--create local item index table
 	local itemIndex = {}
+	local containerIndex = {}
 
-	--index ProceduralDistributions.container.items and container.junk.items
 	for containerName, containerData in pairs(ProceduralDistributions.list) do
-
-	  if containerData.items then
-		for i = 1, #containerData.items, 2 do  -- Step by 2 to get item name and weight
-		  local itemName = containerData.items[i]
-		  itemIndex[itemName] = itemIndex[itemName] or {}
-		  table.insert(itemIndex[itemName], { container = containerName, type = "items" })
+		-- Index items
+		if containerData.items then
+			for i = 1, #containerData.items, 2 do  -- Step by 2 to get item name and weight
+				local itemName = containerData.items[i]
+				itemIndex[itemName] = itemIndex[itemName] or {}
+				table.insert(itemIndex[itemName], { container = containerName, type = "items" })
+			end
 		end
-	  end
 
-
-	  if containerData.junk and containerData.junk.items then
-		for i = 1, #containerData.junk.items, 2 do -- Step by 2 to get item name and weight
-		  local itemName = containerData.junk.items[i]
-		  itemIndex[itemName] = itemIndex[itemName] or {}
-		  table.insert(itemIndex[itemName], { container = containerName, type = "junk" })
+		-- Index junk items
+		if containerData.junk and containerData.junk.items then
+			for i = 1, #containerData.junk.items, 2 do -- Step by 2 to get item name and weight
+				local itemName = containerData.junk.items[i]
+				itemIndex[itemName] = itemIndex[itemName] or {}
+				table.insert(itemIndex[itemName], { container = containerName, type = "junk" })
+			end
 		end
-	  end
+
+		-- Index containers
+		containerIndex[containerName] = {
+			rolls = containerData.rolls, 
+			items = {} -- Store items found within the container
+		}
+
+		if containerData.items then
+			for i = 1, #containerData.items, 2 do
+				local itemName = containerData.items[i]
+				table.insert(containerIndex[containerName].items, itemName)
+			end
+		end
 	end
 
 
@@ -238,7 +249,25 @@ local function OnPostDistributionMergeSD5()
 		end
 	  end
 	end
+	
+	foodContainers = { "Bakery", "BakeryBread", "BakeryCake", "BakeryDoughnuts", "BakeryKitchenBaking", "BakeryKitchenFridge", "BakeryKitchenFreezer", "BakeryMisc", "BakeryPie", "BarCounterGlasses", "BarCounterLiquor", "BarCounterMisc", "BarCounterWeapon", "BreweryBottles", "BreweryCans", "BreweryEmptyBottles", "BurgerKitchenButcher", "BurgerKitchenFridge", "BurgerKitchenFreezer", "BurgerKitchenSauce", "ButcherChicken", "ButcherChops", "ButcherFish", "ButcherFreezer", "ButcherGround", "ButcherSnacks", "ButcherSmoked", "ButcherTools", "CafeKitchenFridge", "CafeteriaDrinks", "CafeteriaFruit", "CafeteriaSandwiches", "CafeteriaSnacks", "CandyStoreSnacks", "ChineseKitchenBaking", "ChineseKitchenButcher", "ChineseKitchenFreezer", "ChineseKitchenFridge", "ChineseKitchenSauce", "CrepeKitchenBaking", "CrepeKitchenFridge", "CrepeKitchenSauce", "DeepFryKitchenFridge", "DeepFryKitchenFreezer", "DinerKitchenFridge", "DinerKitchenFreezer", "FishChipsKitchenButcher", "FishChipsKitchenFridge", "FishChipsKitchenFreezer", "FoodGourmet", "FreezerGeneric", "FreezerIceCream", "FreezerRich", "FreezerTrailerPark", "FridgeBeer", "FridgeBottles", "FridgeGeneric", "FridgeOffice", "FridgeOther", "FridgeSnacks", "FridgeSoda", "FridgeTrailerPark", "GigamartBakingMisc", "GigamartBottles", "GigamartCandy", "GigamartCannedFood", "GigamartCrisps", "GigamartDryGoods", "GigamartFarming", "GigamartHousewares", "GigamartLightbulb", "GigamartPots", "GigamartSauce", "GigamartSchool", "GigamartToys", "GroceryStandFruits1", "GroceryStandFruits2", "GroceryStandFruits3", "GroceryStandLettuce", "GroceryStandVegetables1", "GroceryStandVegetables2", "GroceryStandVegetables3", "GroceryStandVegetables4", "GroceryStorageCrate1", "GroceryStorageCrate2", "GroceryStorageCrate3", "ItalianKitchenBaking", "ItalianKitchenButcher", "ItalianKitchenFridge", "ItalianKitchenFreezer", "JaysKitchenBaking", "JaysKitchenBags", "JaysKitchenButcher", "JaysKitchenFridge", "JaysKitchenFreezer", "KitchenBaking", "KitchenBottles", "KitchenBreakfast", "KitchenDishes", "KitchenDryFood", "KitchenPots", "KitchenRandom", "Meat", "MexicanKitchenBaking", "MexicanKitchenButcher", "MexicanKitchenFridge", "MexicanKitchenFreezer", "MexicanKitchenSauce", "MotelFridge", "PizzaKitchenBaking", "PizzaKitchenButcher", "PizzaKitchenCheese", "PizzaKitchenFridge", "PizzaKitchenSauce", "ProduceStorageApples", "ProduceStorageBellPeppers", "ProduceStorageBroccoli", "ProduceStorageCabbages", "ProduceStorageCarrots", "ProduceStorageCherries", "ProduceStorageCorn", "ProduceStorageEggplant", "ProduceStorageLettuce", "ProduceStorageLeeks", "ProduceStorageOnions", "ProduceStoragePeaches", "ProduceStoragePear", "ProduceStoragePotatoes", "ProduceStorageRadishes", "ProduceStorageStrawberries", "ProduceStorageTomatoes", "ProduceStorageWatermelons", "RestaurantKitchenFreezer", "SeafoodKitchenButcher", "SeafoodKitchenFridge", "SeafoodKitchenFreezer", "SeafoodKitchenSauce", "ServingTrayBiscuits", "ServingTrayBurgers", "ServingTrayBurritos", "ServingTrayChicken", "ServingTrayChickenNuggets", "ServingTrayCornbread", "ServingTrayFish", "ServingTrayFries", "ServingTrayGravy", "ServingTrayHotdogs", "ServingTrayMaki", "ServingTrayNoodleSoup", "ServingTrayOmelettes", "ServingTrayOnionRings", "ServingTrayOnigiri", "ServingTrayOysters", "ServingTrayPancakes", "ServingTrayPerogies", "ServingTrayPizza", "ServingTrayPotatoPancakes", "ServingTrayRefriedBeans", "ServingTrayScrambledEggs", "ServingTrayShrimp", "ServingTrayShrimpDumplings", "ServingTraySpringRolls", "ServingTraySushiEgg", "ServingTraySushiFish", "ServingTrayTaco", "ServingTrayTofuFried", "ServingTrayWaffles", "SpiffosKitchenBags", "SpiffosKitchenCounter", "SpiffosKitchenFridge", "SpiffosKitchenFreezer", "SushiKitchenBaking", "SushiKitchenButcher", "SushiKitchenCutlery", "SushiKitchenFridge", "SushiKitchenFreezer", "SushiKitchenSauce" } 
+	gunContainers = { "ArmyStorageAmmunition", "ArmyStorageGuns", "FirearmWeapons", "GarageFirearms", "GunStoreAmmunition", "GunStoreCounter", "GunStoreDisplayCase", "GunStoreMagazineRack", "GunStoreShelf", "HuntingLockers", "PawnShopGuns", "PawnShopGunsSpecial", "PlankStashGun", "PoliceStorageAmmunition", "PoliceStorageGuns", "PawnShopCases", "PawnShopGuns", "PawnShopGunsSpecial", "PawnShopKnives" } 
 
+	-- Function to set roll values of a list of containers 
+	function setRollValue(containerList, newRollValue)
+	  for _, containerName in ipairs(containerList) do
+		if ProceduralDistributions.list[containerName] then -- Make sure the container exists in ProceduralDistributions.list
+		  ProceduralDistributions.list[containerName].rolls = newRollValue
+
+		  -- Print log message
+		  --print("Setting roll value for container:", containerName, "to", newRollValue)
+		end
+	  end
+	end
+
+	-- Set rolls to 1 for food containers
+	setRollValue(foodContainers, 1)
+	
 	--item list for removal (setting to 0 chance on distribution)
 	local yeetItems = {"RMWeapons.NulBlade", "RMWeapons.bassax", "RMWeapons.crabspear", "RMWeapons.themauler", "RMWeapons.warhammer40k", "RMWeapons.MizutsuneSword", "RMWeapons.Nikabo", "RMWeapons.firelink", "RMWeapons.mace1", "RMWeapons.Falx", "RMWeapons.kindness", "RMWeapons.Crimson1Sword", "RMWeapons.MorningStar", "RMWeapons.BrushAxe", "RMWeapons.sword40k", "RMWeapons.LastHope", "RMWeapons.sawbat1", "RMWeapons.spikedleg", "RMWeapons.TrenchShovel", "RMWeapons.CrimsonLance", "RMWeapons.warhammer", "RMWeapons.MightCleaver", "RMWeapons.Thawk", "RMWeapons.bonkhammer", "RMWeapons.club1", "RMWeapons.PiroCraftKnife", "RMWeapons.steinbeer"}
 
@@ -295,6 +324,8 @@ local function OnPostDistributionMergeSD5()
 	modifyItemWeight("PropaneTank", 0.0)
 	--modifier to Workshop Large Propane Tank for rarity
 	modifyItemWeight("TW.LargePropaneTank", 0)
+	--modifier to Biofuel Industrial Propane Tank for rarity
+	modifyItemWeight("BioFuel.IndustrialPropaneTank", 0.1)
 	
 	table.remove(ProceduralDistributions.list.GarageMetalwork.junk.items, 1)
 	table.remove(ProceduralDistributions.list.GarageMetalwork.junk.items, 1)

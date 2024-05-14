@@ -162,6 +162,50 @@ option SDevents.EventTier
 	translation = SDevents_EventTier,
 }
 
+option SDevents.roll4
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 1250,
+
+	page = SDevents,
+	translation = SDevents_roll4,
+}
+
+option SDevents.roll3
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 750,
+
+	page = SDevents,
+	translation = SDevents_roll3,
+}
+
+option SDevents.roll2
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 350,
+
+	page = SDevents,
+	translation = SDevents_roll2,
+}
+
+option SDevents.roll1
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 150,
+
+	page = SDevents,
+	translation = SDevents_roll1,
+}
+
 option SDevents.Xcoordevent
 {
 	type = integer,
@@ -178,6 +222,33 @@ option SDevents.Ycoordevent
 
 	page = SDevents,
 	translation = SDevents_Ycoordevent,
+}
+
+option SDevents.teleporttoeventenabled
+{
+	type = boolean,
+	default = false,
+
+	page = SDevents,
+	translation = SDevents_teleporttoeventenabled,
+}
+
+option SDevents.Admin_to_Teleport
+{
+	type = string,
+	default = Rowsdower,
+
+	page = SDevents,
+	translation = SDevents_Admin_to_Teleport,
+}
+
+option SDevents.EventRewardEnabled
+{
+	type = boolean,
+	default = false,
+
+	page = SDevents,
+	translation = SDevents_EventRewardEnabled,
 }
 
 option SDZones.ResearchFacility
@@ -346,6 +417,14 @@ option SDZones.EeriePowerPlant
     min = 1, max = 4, default = 4,
     page = SDZones,
     translation = SDZones_EeriePowerPlant,
+}
+
+option SDZones.BigBearLakeWest
+{
+    type = integer,
+    min = 1, max = 4, default = 4,
+    page = SDZones,
+    translation = SDZones_BigBearLakeWest,
 }
 
 option SDZones.BigBearLake
