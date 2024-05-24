@@ -10,7 +10,7 @@ local function PartialFlaskContext(player, context, items)
     items = ISInventoryPane.getActualItems(items)
 
     for _, item in ipairs(items) do
-        if item:getFullType() == 'SoulForge.StoredSouls' then
+        if item:getFullType() == 'SoulForge.StoredSouls' and item:isInPlayerInventory() then
             local soulsStored = math.ceil(item:getUsedDelta() * 1000 )
             local soulsCapacity = 1000 - soulsStored
             local weapon = playerObj:getPrimaryHandItem()

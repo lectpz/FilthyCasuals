@@ -31,6 +31,9 @@ Sandbox_EN = {
   Sandbox_SDRandomZombies_RavenCreek = "Raven Creek Sprinters % ",
   Sandbox_SDRandomZombies_RavenCreek_tooltip = "Percentage of Sprinters present in Raven Creek.",
 
+  Sandbox_SDRandomZombies_EerieCapitol = "Eerie Capitol Sprinters % ",
+  Sandbox_SDRandomZombies_EerieCapitol_tooltip = "Percentage of Sprinters present in Eerie Capitol.",
+
   Sandbox_SDRandomZombies_EeriePowerPlant = "Eerie Power Plant Sprinters % ",
   Sandbox_SDRandomZombies_EeriePowerPlant_tooltip = "Percentage of Sprinters present in Eerie Power Plant.",
   
@@ -109,6 +112,9 @@ Sandbox_EN = {
 
   Sandbox_SDRandomZombies_PinpointRavenCreek = "Raven Creek Pinpoint % ",
   Sandbox_SDRandomZombies_PinpointRavenCreek_tooltip = "Pinpoint % in Raven Creek.",
+
+  Sandbox_SDRandomZombies_PinpointEerieCapitol = "Eerie Capitol Pinpoint % ",
+  Sandbox_SDRandomZombies_PinpointEerieCapitol_tooltip = "Pinpoint % in Eerie Capitol.",
 
   Sandbox_SDRandomZombies_PinpointEeriePowerPlant = "Eerie Power Plant Pinpoint % ",
   Sandbox_SDRandomZombies_PinpointEeriePowerPlant_tooltip = "Pinpoint % in Eerie Power Plant.",

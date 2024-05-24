@@ -19,7 +19,7 @@ function OnTest_hasSoulCount(item)
 
 	local player = getSpecificPlayer(0)
 	
-
+	if not item:isInPlayerInventory() then return false end
 	
 	if player:getPrimaryHandItem() ~= nil then
 		local weapon = player:getPrimaryHandItem()
@@ -103,6 +103,9 @@ end
 
 function OnTest_checkEmptyFlask(item)
 	local player = getSpecificPlayer(0)
+	
+	if not item:isInPlayerInventory() then return false end
+	
 	if player:getPrimaryHandItem() ~= nil then
 		local weapon = player:getPrimaryHandItem()
 		local weaponModData = weapon:getModData()
@@ -133,6 +136,22 @@ function OnCreate_fillEmptySoulFlask(items, result, player)
 		filledFlask:setUsedDelta(1)
 		player:getInventory():AddItem(filledFlask)
 		weaponModData.KillCount = soulsFreed - 1000 -- deduct souls from soul counter
+	end
+	
+end
+
+function OnTest_dontDestroySouls(item)
+
+	if not item:isInPlayerInventory() then return false end
+	
+	local player = getSpecificPlayer(0)
+	local weapon = player:getPrimaryHandItem()
+	local soulsFreed = item:getModData().KillCount or nil
+	
+	if item:isFavorite() or (soulsFreed and soulsFreed > 0) then
+		return false
+	else
+		return true
 	end
 	
 end

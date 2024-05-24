@@ -139,6 +139,30 @@ local function preDistributionMergeSD5()
 		table.insert(ProceduralDistributions.list[distribution].items, chance)
 	end
 ----------------------------------------------------------------------------------------		
+	local armorCacheData = {	
+		CampingStoreGear = 0.01,
+		PawnShopGunsSpecial = 0.01,
+		PoliceStorageOutfit = 0.01,
+		PoliceLockers = 0.01,
+		PoliceStorageGuns = 0.01,
+		WardrobeWoman = 0.001,
+		ArmySurplusOutfit = 0.01,
+		LockerArmyBedroom = 0.01,
+		ArmyStorageOutfit = 0.01,
+		GunStoreAmmunition = 0.01,
+		WardrobeMan = 0.001,
+		GunStoreDisplayCase = 0.01,
+	}
+	
+	for distribution, chance in pairs(armorCacheData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "ArmorCacheDefender")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+		table.insert(ProceduralDistributions.list[distribution].items, "ArmorCachePatriot")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+		table.insert(ProceduralDistributions.list[distribution].items, "ArmorCacheVanguard")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+	end
+----------------------------------------------------------------------------------------		
 end
 	
 Events.OnPreDistributionMerge.Add(preDistributionMergeSD5)
@@ -267,9 +291,11 @@ local function OnPostDistributionMergeSD5()
 
 	-- Set rolls to 1 for food containers
 	setRollValue(foodContainers, 1)
+	-- Set rolls to 2 for gun/ammo/weapon containers
+	setRollValue(gunContainers, 2)
 	
 	--item list for removal (setting to 0 chance on distribution)
-	local yeetItems = {"RMWeapons.NulBlade", "RMWeapons.bassax", "RMWeapons.crabspear", "RMWeapons.themauler", "RMWeapons.warhammer40k", "RMWeapons.MizutsuneSword", "RMWeapons.Nikabo", "RMWeapons.firelink", "RMWeapons.mace1", "RMWeapons.Falx", "RMWeapons.kindness", "RMWeapons.Crimson1Sword", "RMWeapons.MorningStar", "RMWeapons.BrushAxe", "RMWeapons.sword40k", "RMWeapons.LastHope", "RMWeapons.sawbat1", "RMWeapons.spikedleg", "RMWeapons.TrenchShovel", "RMWeapons.CrimsonLance", "RMWeapons.warhammer", "RMWeapons.MightCleaver", "RMWeapons.Thawk", "RMWeapons.bonkhammer", "RMWeapons.club1", "RMWeapons.PiroCraftKnife", "RMWeapons.steinbeer"}
+	local yeetItems = {"RMWeapons.NulBlade", "RMWeapons.bassax", "RMWeapons.crabspear", "RMWeapons.themauler", "RMWeapons.warhammer40k", "RMWeapons.MizutsuneSword", "RMWeapons.Nikabo", "RMWeapons.firelink", "RMWeapons.mace1", "RMWeapons.Falx", "RMWeapons.kindness", "RMWeapons.Crimson1Sword", "RMWeapons.MorningStar", "RMWeapons.BrushAxe", "RMWeapons.sword40k", "RMWeapons.LastHope", "RMWeapons.sawbat1", "RMWeapons.spikedleg", "RMWeapons.TrenchShovel", "RMWeapons.CrimsonLance", "RMWeapons.warhammer", "RMWeapons.MightCleaver", "RMWeapons.Thawk", "RMWeapons.bonkhammer", "RMWeapons.club1", "RMWeapons.PiroCraftKnife", "RMWeapons.steinbeer", "Base.TanPlating", "Base.BluePlating", "Base.RedPlating", "Base.GoldGunPlating", "Base.RainbowPlating", "Base.DZPlating", "Base.RemingtonRiflesDarkCherryStock", "Base.WinterCamoPlating", "Base.WoodStyledPlating", "Base.PinkPlating", "Base.RedWhitePlating", "Base.GreenGoldPlating", "Base.AztecPlating", "Base.DesertEagleGoldPlating", "Base.GoldShotgunPlating", "Base.RainbowAnodizedPlating", "Base.GreenPlating", "Base.SteelDamascusPlating", "Base.SalvagedRagePlating", "Base.ZoidbergSpecialPlating", "Base.NerfPlating", "Base.BespokeEngravedPlating", "Base.SurvivalistPlating", "Base.MysteryMachinePlating", "Base.SalvagedBlackPlating", "Base.PlankPlating", "Base.BlackIcePlating", "Base.BlackDeathPlating", "Base.OrnateIvoryPlating", "Base.GildedAgePlating", "Base.TBDPlating", "Base.CannabisPlating"}
 
 	--skill books
 	local skillbooks1 = {"BookTrapping1", "BookFishing1", "BookCarpentry1", "BookMechanic1", "BookFirstAid1", "BookBlacksmith1", "BookMetalWelding1", "BookElectrician1", "BookCooking1", "BookFarming1", "BookForaging1", "BookTailoring1"}
@@ -315,7 +341,7 @@ local function OnPostDistributionMergeSD5()
 	--modification to Books, otherwise it will outbloat skillbooks
 	modifyItemWeight("Book", 0.125)
 	--modifier to Caches. because I'm lazy
-	modifyItemWeight("WeaponCache", 1.5)
+	--modifyItemWeight("WeaponCache", 1.0)
 	--modifyItemWeight("AmmoCache", 2.0)
 	modifyItemWeight("MetalworkCache", 0.5)
 	--modifyItemWeight("MechanicCache", 1.0)
@@ -325,7 +351,7 @@ local function OnPostDistributionMergeSD5()
 	--modifier to Workshop Large Propane Tank for rarity
 	modifyItemWeight("TW.LargePropaneTank", 0)
 	--modifier to Biofuel Industrial Propane Tank for rarity
-	modifyItemWeight("BioFuel.IndustrialPropaneTank", 0.1)
+	modifyItemWeight("BioFuel.IndustrialPropaneTank", 0.05)
 	
 	table.remove(ProceduralDistributions.list.GarageMetalwork.junk.items, 1)
 	table.remove(ProceduralDistributions.list.GarageMetalwork.junk.items, 1)

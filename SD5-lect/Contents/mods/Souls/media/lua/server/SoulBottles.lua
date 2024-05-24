@@ -6,7 +6,8 @@ local flasktable = {
 	"SoulForge.SoulFlaskWaterPink",
 	"SoulForge.SoulFlaskWaterGreen",
 	"SoulForge.SoulFlaskWaterCyan",
-	"SoulForge.SoulFlaskWaterBlue"
+	"SoulForge.SoulFlaskWaterBlue",
+	"SoulForge.SoulFlaskWaterBlack"
 }
 
 local indexedFlasks = {}

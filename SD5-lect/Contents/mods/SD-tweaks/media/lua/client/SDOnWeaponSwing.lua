@@ -149,8 +149,22 @@ function SDOnWeaponSwing(character, handWeapon)
 				modData.MaxDamage		= o_maxdmg
 				modData.Name			= o_name
 				--print:Say("mod data stored")
+				modData.updatedweapon20240517 = true
 			else
-				--print("mod data already exists, nothing needs to be done")
+				if modData.updatedweapon20240517 == nil then -- check moddata tag for weapon stats. if this is an old weapon, nuke the stats and overwrite 
+					scriptItem = ScriptManager.instance:getItem(playerItem:getFullType())
+					
+					--local o_critrate  	=	scriptItem:getCriticalChance()
+					--local o_critmulti 	= 	scriptItem:getCritDmgMultiplier()
+					local o_mindmg		=	scriptItem:getMinDamage()
+					local o_maxdmg		=	scriptItem:getMaxDamage()
+
+					--modData.CriticalChance	= o_critrate
+					--modData.CritDmgMultiplier	= o_critmulti
+					modData.MinDamage = o_mindmg
+					modData.MaxDamage = o_maxdmg
+					modData.updatedweapon20240517 = true
+				end
 			end
 			
 			local basecritrate 	= modData.CriticalChance
@@ -240,10 +254,27 @@ function SDWeaponCheck(character, inventoryItem)
 			modData.MaxDamage		= o_maxdmg
 			modData.Name			= o_name
 			--character:Say("mod data stored")
+			modData.updatedweapon20240517 = true
 		else
 			--character:Say("mod data already exists, nothing needs to be done")
 		end
 		--character:Say("Inventory Item exists")
+		
+		if modData.updatedweapon20240517 == nil then -- check moddata tag for weapon stats. if this is an old weapon, nuke the stats and overwrite 
+			scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
+			
+			--local o_critrate  	=	scriptItem:getCriticalChance()
+			--local o_critmulti 	= 	scriptItem:getCritDmgMultiplier()
+			local o_mindmg		=	scriptItem:getMinDamage()
+			local o_maxdmg		=	scriptItem:getMaxDamage()
+
+			--modData.CriticalChance	= o_critrate
+			--modData.CritDmgMultiplier	= o_critmulti
+			modData.MinDamage = o_mindmg
+			modData.MaxDamage = o_maxdmg
+			modData.updatedweapon20240517 = true
+		end
+		
 		local basecritrate 	= modData.CriticalChance
 		local basecritmulti = modData.CritDmgMultiplier
 		local basemindmg 	= modData.MinDamage
@@ -272,8 +303,8 @@ function SDWeaponCheck(character, inventoryItem)
 			modData.CritDmgMultiplier	= o_critmulti
 			modData.Name			= o_name
 			--character:Say("mod data stored")
-		else
-			--character:Say("mod data already exists, nothing needs to be done")
+		else--for old weapons with no stat save
+
 		end
 		--character:Say("Inventory Item exists")
 		local basecritrate 	= modData.CriticalChance

@@ -20,7 +20,8 @@ function ISInventoryPane:transferItemsByWeight(items, container)
 			ISInventoryPaneContextMenu.dropItem(item, self.player)
 		else
 			--ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), container))
-			if item and item:getFullType() ~= "Base.WeaponCache" and  item:getFullType() ~= "Base.MechanicCache" and item:getFullType() ~= "Base.MetalworkCache" and item:getFullType() ~= "Base.MedicalCache" and item:getFullType() ~= "Base.AmmoCache" then --SD
+			local iFT = item:getFullType()
+			if item and iFT ~= "Base.WeaponCache" and  iFT ~= "Base.MechanicCache" and iFT ~= "Base.MetalworkCache" and iFT ~= "Base.MedicalCache" and iFT ~= "Base.AmmoCache" and iFT ~= 'Base.ArmorCachePatriot' and iFT ~= 'Base.ArmorCacheDefender' and iFT ~= 'Base.ArmorCacheVanguard' then --SD
 			--if item and item:getFullType() ~= "Base.WeaponCache1" and  item:getFullType() ~= "Base.MechanicCache1" and item:getFullType() ~= "Base.MetalworkCache1" and item:getFullType() ~= "Base.MedicalCache1" then --SD
 				ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), container))
 			else
@@ -64,7 +65,8 @@ function ISInventoryPane:onMouseDoubleClick(x, y)
 							end
 							doWalk = false
 						end
-						if v and v:getFullType() ~= "Base.WeaponCache" and  v:getFullType() ~= "Base.MechanicCache" and v:getFullType() ~= "Base.MetalworkCache" and v:getFullType() ~= "Base.MedicalCache" and v:getFullType() ~= "Base.AmmoCache" then --SD
+						local vFT = v:getFullType()
+						if v and vFT ~= "Base.WeaponCache" and  vFT ~= "Base.MechanicCache" and vFT ~= "Base.MetalworkCache" and vFT ~= "Base.MedicalCache" and vFT ~= "Base.AmmoCache" and vFT ~= 'Base.ArmorCachePatriot' and vFT ~= 'Base.ArmorCacheDefender' and vFT ~= 'Base.ArmorCacheVanguard' then --SD
 							ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, v, v:getContainer(), playerInv))
 						else
 							playerObj:Say("I should just open this here.")
@@ -84,7 +86,8 @@ function ISInventoryPane:onMouseDoubleClick(x, y)
 			if isForceDropHeavyItem(item) then
 				ISInventoryPaneContextMenu.equipHeavyItem(playerObj, item)
 			elseif luautils.walkToContainer(item:getContainer(), self.player) then
-				if item and item:getFullType() ~= "Base.WeaponCache" and  item:getFullType() ~= "Base.MechanicCache" and item:getFullType() ~= "Base.MetalworkCache" and item:getFullType() ~= "Base.MedicalCache" and item:getFullType() ~= "Base.AmmoCache" then --SD
+				local iFT = item:getFullType()
+				if item and iFT ~= "Base.WeaponCache" and  iFT ~= "Base.MechanicCache" and iFT ~= "Base.MetalworkCache" and iFT ~= "Base.MedicalCache" and iFT ~= "Base.AmmoCache" and iFT ~= 'Base.ArmorCachePatriot' and iFT ~= 'Base.ArmorCacheDefender' and iFT ~= 'Base.ArmorCacheVanguard' then --SD
 					ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), playerInv))
 				else
 					playerObj:Say("I should just open this here.")
@@ -206,7 +209,8 @@ function ISInventoryPane:doButtons(y)
             end
         end
     else
-		if item:getFullType() == 'Base.WeaponCache' or item:getFullType() == 'Base.MedicalCache' or item:getFullType() == 'Base.MechanicCache' or item:getFullType() == 'Base.MetalworkCache' or item:getFullType() == 'Base.AmmoCache' then
+		local iFT = item:getFullType()
+		if iFT == 'Base.WeaponCache' or iFT == 'Base.MedicalCache' or iFT == 'Base.MechanicCache' or iFT == 'Base.MetalworkCache' or iFT == 'Base.AmmoCache' or iFT == 'Base.ArmorCachePatriot' or iFT == 'Base.ArmorCacheDefender' or iFT == 'Base.ArmorCacheVanguard' then
 			return
 		else
 			if count == 1 then

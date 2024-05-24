@@ -14,4 +14,4 @@ local function addshopitems()
 	print("Added items SD5")
 end
 
-addshopitems()
+Events.OnGameStart.Add(addshopitems())
