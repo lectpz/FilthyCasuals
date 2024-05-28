@@ -171,6 +171,7 @@ function PZwaystone.mainpanel:shtp()
 		
 		local sh_x = playerModData.SafeHouseX
 		local sh_y = playerModData.SafeHouseY
+		local sh_z = playerModData.SafeHouseZ or 0
 		
 		if safehouse then
 		
@@ -186,7 +187,7 @@ function PZwaystone.mainpanel:shtp()
 					local args = {
 						safehouse_x = math.floor(sh_x)-3,
 						safehouse_y = math.floor(sh_y)-3,
-						--safehouse_z = 0,
+						safehouse_z = sh_z,
 						player_name = getOnlineUsername()
 					};
 					
@@ -200,7 +201,7 @@ function PZwaystone.mainpanel:shtp()
 					local args = {
 						safehouse_x = safehouse:getX(),
 						safehouse_y = safehouse:getY(),
-						--safehouse_z = 0,
+						safehouse_z = 0,
 						player_name = getOnlineUsername()
 					};
 					
@@ -213,7 +214,7 @@ function PZwaystone.mainpanel:shtp()
 				local args = {
 					safehouse_x = safehouse:getX(),
 					safehouse_y = safehouse:getY(),
-					--safehouse_z = 0,
+					safehouse_z = 0,
 					player_name = getOnlineUsername()
 				};
 				

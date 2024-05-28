@@ -7,6 +7,13 @@ module Base
         scale = 0.35,
 	}
 	
+	model world_BlackBot
+	{
+		mesh = SoulBottle,
+        texture = BlackBot,
+        scale = 0.35,
+	}
+	
 	model world_YellowBot
 	{
 		mesh = SoulBottle,

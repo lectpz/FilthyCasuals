@@ -1,11 +1,11 @@
-module SoulForge {
+module SoulForge {	
 
 	recipe Fill Soul Flask
 	{
 		CanBeDoneFromFloor:true,
 		destroy EmptySoulFlaskWhite,
-		Sound:s_spookyitem,
 		AnimNode:Loot,
+		Prop1: Source=1,
 		Result:StoredSouls,
 		RemoveResultItem:true,
 		Time:500.0,
@@ -13,13 +13,27 @@ module SoulForge {
 		OnCreate:OnCreate_fillEmptySoulFlask,
 	}
 	
+	recipe Infuse Souls Into Weapon (Single Use)
+	{
+		CanBeDoneFromFloor:true,
+		destroy ContainerSoulsDisposable,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.brokenglass_1_0,
+		RemoveResultItem:true,
+		Time:1000.0,
+		OnTest:OnTest_hasSoulCount,
+		OnCreate:OnCreate_addFullSoulCount,
+	}
+	
 	recipe Infuse Souls Into Weapon
 	{
 		CanBeDoneFromFloor:true,
 		destroy StoredSouls,
 		AnimNode:Loot,
+		Prop1: Source=1,
 		Result:EmptySoulFlaskWhite,
-		Time:500.0,
+		Time:1000.0,
 		OnTest:OnTest_hasSoulCount,
 		OnCreate:OnCreate_addFullSoulCount,
 	}
@@ -27,7 +41,7 @@ module SoulForge {
 	recipe Paint Soul Flask White
 	{
 		CanBeDoneFromFloor:true,
-		destroy EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue,
+		destroy EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue/EmptySoulFlaskBlack,
 		Base.PaintWhite=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskWhite,
@@ -37,7 +51,7 @@ module SoulForge {
 	recipe Paint Soul Flask Yellow
 	{
 		CanBeDoneFromFloor:true,
-		destroy EmptySoulFlaskWhite/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue/EmptySoulFlaskBlack,
 		Base.PaintYellow=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskYellow,
@@ -47,7 +61,7 @@ module SoulForge {
 	recipe Paint Soul Flask Red
 	{
 		CanBeDoneFromFloor:true,
-		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue/EmptySoulFlaskBlack,
 		Base.PaintRed=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskRed,
@@ -57,7 +71,7 @@ module SoulForge {
 	recipe Paint Soul Flask Purple
 	{
 		CanBeDoneFromFloor:true,
-		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue/EmptySoulFlaskBlack,
 		Base.PaintPurple=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskPurple,
@@ -67,7 +81,7 @@ module SoulForge {
 	recipe Paint Soul Flask Pink
 	{
 		CanBeDoneFromFloor:true,
-		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue/EmptySoulFlaskBlack,
 		Base.PaintPink=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskPink,
@@ -77,7 +91,7 @@ module SoulForge {
 	recipe Paint Soul Flask Green
 	{
 		CanBeDoneFromFloor:true,
-		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskCyan/EmptySoulFlaskBlue,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskCyan/EmptySoulFlaskBlue/EmptySoulFlaskBlack,
 		Base.PaintGreen=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskGreen,
@@ -87,7 +101,7 @@ module SoulForge {
 	recipe Paint Soul Flask Cyan
 	{
 		CanBeDoneFromFloor:true,
-		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskBlue,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskBlue/EmptySoulFlaskBlack,
 		Base.PaintCyan=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskCyan,
@@ -97,11 +111,81 @@ module SoulForge {
 	recipe Paint Soul Flask Blue
 	{
 		CanBeDoneFromFloor:true,
-		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlack,
 		Base.PaintBlue=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskBlue,
 		Time:500.0,
+	}
+	
+	recipe Paint Soul Flask Black
+	{
+		CanBeDoneFromFloor:true,
+		destroy EmptySoulFlaskWhite/EmptySoulFlaskYellow/EmptySoulFlaskRed/EmptySoulFlaskPurple/EmptySoulFlaskPink/EmptySoulFlaskGreen/EmptySoulFlaskCyan/EmptySoulFlaskBlue,
+		Base.PaintBlack=2,
+		AnimNode:Loot,
+		Result:EmptySoulFlaskBlack,
+		Time:500.0,
+	}
+
+	recipe Create Tier 1 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		destroy RMWeapons.Thawk/RMWeapons.ScrapMace1/RMWeapons.TrenchShovel/RMWeapons.spikedleg/RMWeapons.beardedaxe/RMWeapons.IceAxe1/RMWeapons.PiroCraftKnife/RMWeapons.steinbeer/RMWeapons.bonkhammer/RMWeapons.club1/RMWeapons.MightCleaver/RMWeapons.tanto/RMWeapons.club2/RMWeapons.spear1,
+		StoredSouls=100,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		Prop2: Source=2,
+		OnTest:OnTest_dontDestroySouls,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT1,
+		Time:1000.0,
+	}
+	
+	recipe Create Tier 2 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		destroy RMWeapons.thunderbreaker/RMWeapons.hellokittyax/RMWeapons.FlangedMace/RMWeapons.Golok/RMWeapons.MeatHook/RMWeapons.glaive/RMWeapons.HeavyCleaver/RMWeapons.dagger1/RMWeapons.MagicMace/RMWeapons.ZombieTrimmer/RMWeapons.BrushAxe/RMWeapons.Falx/RMWeapons.Crimson1Sword/RMWeapons.MxScythe/RMWeapons.Dadao/RMWeapons.dragonpiercer/RMWeapons.VikingWarhammer/RMWeapons.warhammer/RMWeapons.SpikedClub1/RMWeapons.sword40k/RMWeapons.spinecrusher/RMWeapons.Slapper/RMWeapons.gnbat/RMWeapons.spikedsword/RMWeapons.CavSword,
+		StoredSouls=400,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		Prop2: Source=2,
+		OnTest:OnTest_dontDestroySouls,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT2,
+		Time:1000.0,
+	}
+	
+	recipe Create Tier 3 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		destroy RMWeapons.CrimsonLance/RMWeapons.JadeSword/RMWeapons.ArcSpear/RMWeapons.themauler/RMWeapons.Nikabo/RMWeapons.bassax/RMWeapons.LastHope/RMWeapons.bladebat/RMWeapons.sawbat1/RMWeapons.MorningStar/RMWeapons.waraxe/RMWeapons.steinsword/RMWeapons.CatnipCrusher,
+		StoredSouls=700,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		Prop2: Source=2,
+		OnTest:OnTest_dontDestroySouls,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT3,
+		Time:1000.0,
+	}
+	
+	recipe Create Tier 4 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		destroy RMWeapons.warhammer40k/RMWeapons.crabspear/RMWeapons.MizutsuneGlaive/RMWeapons.firelink/RMWeapons.MedSword/RMWeapons.NulBlade/RMWeapons.mace1/RMWeapons.CavAxe/RMWeapons.MizutsuneSword,
+		StoredSouls=1000,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		Prop2: Source=2,
+		OnTest:OnTest_dontDestroySouls,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT4,
+		Time:1000.0,
 	}
 	
 }

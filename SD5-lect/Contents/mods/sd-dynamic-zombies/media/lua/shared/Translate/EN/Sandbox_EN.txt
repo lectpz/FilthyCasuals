@@ -4,6 +4,12 @@ Sandbox_EN = {
   Sandbox_SDRandomZombies_Default = "Default Sprinters % ",
   Sandbox_SDRandomZombies_Default_tooltip = "Percentage of Sprinters present in the world.",
 
+  Sandbox_SDRandomZombies_LouisvillePD = "Louisville PD/Mili Surplus Sprinters % ",
+  Sandbox_SDRandomZombies_LouisvillePD_tooltip = "Percentage of Sprinters present in Louisville.",
+  
+  Sandbox_SDRandomZombies_LouisvilleMallArea = "Louisville Grand Ohio Mall Sprinters % ",
+  Sandbox_SDRandomZombies_LouisvilleMallArea_tooltip = "Percentage of Sprinters present in Louisville Grand Ohio Mall .",
+
   Sandbox_SDRandomZombies_Louisville = "Louisville Sprinters % ",
   Sandbox_SDRandomZombies_Louisville_tooltip = "Percentage of Sprinters present in Louisville.",
 
@@ -28,8 +34,17 @@ Sandbox_EN = {
   Sandbox_SDRandomZombies_LakeIvy = "Lake Ivy Sprinters % ",
   Sandbox_SDRandomZombies_LakeIvy_tooltip = "Percentage of Sprinters present in Lake Ivy.",
 
+  Sandbox_SDRandomZombies_RavenCreekPDMilitaryHospital = "Raven Creek PD/Hospital Sprinters % ",
+  Sandbox_SDRandomZombies_RavenCreekPDMilitaryHospital_tooltip = "Percentage of Sprinters present in Raven Creek PD/Hospital.",
+
   Sandbox_SDRandomZombies_RavenCreek = "Raven Creek Sprinters % ",
   Sandbox_SDRandomZombies_RavenCreek_tooltip = "Percentage of Sprinters present in Raven Creek.",
+
+  Sandbox_SDRandomZombies_EerieIrvington = "Eerie Irvington Sprinters % ",
+  Sandbox_SDRandomZombies_EerieIrvington_tooltip = "Percentage of Sprinters present in Eerie Irvington.",
+
+  Sandbox_SDRandomZombies_EerieCapitol = "Eerie Capitol Sprinters % ",
+  Sandbox_SDRandomZombies_EerieCapitol_tooltip = "Percentage of Sprinters present in Eerie Capitol.",
 
   Sandbox_SDRandomZombies_EeriePowerPlant = "Eerie Power Plant Sprinters % ",
   Sandbox_SDRandomZombies_EeriePowerPlant_tooltip = "Percentage of Sprinters present in Eerie Power Plant.",
@@ -39,6 +54,9 @@ Sandbox_EN = {
   
   Sandbox_SDRandomZombies_EerieCountry = "Eerie Country Sprinters % ",
   Sandbox_SDRandomZombies_EerieCountry_tooltip = "Percentage of Sprinters present in Eerie Country.",
+
+  Sandbox_SDRandomZombies_BigBearLakeWest = "Big Bear Lake West Sprinters % ",
+  Sandbox_SDRandomZombies_BigBearLakeWest_tooltip = "Percentage of Sprinters present in Big Bear Lake West.",
 
   Sandbox_SDRandomZombies_BigBearLake = "Big Bear Lake Sprinters % ",
   Sandbox_SDRandomZombies_BigBearLake_tooltip = "Percentage of Sprinters present in Big Bear Lake.",
@@ -109,6 +127,9 @@ Sandbox_EN = {
 
   Sandbox_SDRandomZombies_PinpointRavenCreek = "Raven Creek Pinpoint % ",
   Sandbox_SDRandomZombies_PinpointRavenCreek_tooltip = "Pinpoint % in Raven Creek.",
+
+  Sandbox_SDRandomZombies_PinpointEerieCapitol = "Eerie Capitol Pinpoint % ",
+  Sandbox_SDRandomZombies_PinpointEerieCapitol_tooltip = "Pinpoint % in Eerie Capitol.",
 
   Sandbox_SDRandomZombies_PinpointEeriePowerPlant = "Eerie Power Plant Pinpoint % ",
   Sandbox_SDRandomZombies_PinpointEeriePowerPlant_tooltip = "Pinpoint % in Eerie Power Plant.",

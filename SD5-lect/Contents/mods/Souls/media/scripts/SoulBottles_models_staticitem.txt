@@ -7,6 +7,13 @@ module Base
         scale = 0.35,
 	}
 	
+	model static_BlackBot
+	{
+		mesh = SoulBottleFlip,
+        texture = BlackBot,
+        scale = 0.35,
+	}
+	
 	model static_YellowBot
 	{
 		mesh = SoulBottleFlip,

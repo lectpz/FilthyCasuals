@@ -17,16 +17,39 @@ local function splitString(sandboxvar, delimiter)
 	return ztable
 end
 
-local function randomrollSD(zoneroll, loot)
-	if ZombRand(zoneroll) == 0 then getPlayer():getInventory():AddItem(loot) end
+local args = {}
+
+local function addToArgs(item, amount, itemname)
+	local item = itemname or item
+	amount = amount or 1
+    local newItemKey = "item" .. (#args + 1) 
+    args[newItemKey] = args[newItemKey] or {}  
+    table.insert(args[newItemKey], amount .. "x " .. item) 
+end
+
+local function addItemsToPlayer(loot, amount)
+	getSpecificPlayer(0):getInventory():AddItems(loot, amount)
+	addToArgs(loot, amount)
+end
+
+local function addItemToPlayer(loot)
+	getSpecificPlayer(0):getInventory():AddItem(loot)
+	addToArgs(loot)
+end
+
+local function randomrollSD(zoneroll, loot, itemname)
+	if ZombRand(zoneroll) == 0 then
+		getSpecificPlayer(0):getInventory():AddItem(loot)
+		local itemname = itemname or loot
+		addToArgs(loot, 1, itemname)
+	end
 end
 
 function MechCacheSD(items, result, player)
 	
 -- tiered rolling, checks zone and adds item
-	local tierzone = checkZone()
-	local zoneroll = 6-tierzone
-	local player = getPlayer():getInventory()
+	local zonetier, zonename, x, y = checkZone()
+	local zoneroll = 6-zonetier
 	
 	local ki5parts = splitString("damnCraft.GlassPaneLarge damnCraft.GlassPaneSmall damnCraft.HandleClassic damnCraft.HandleModern damnCraft.HingeLarge damnCraft.HingeSmall damnCraft.RubberStrip damnCraft.TireRepairKit damnCraft.TireRepairRubberSolution damnCraft.TireRepairStrips")
 	
@@ -38,36 +61,46 @@ function MechCacheSD(items, result, player)
 	
 	local modsuspension = splitString("ModernSuspension1 ModernSuspension2 ModernSuspension3")
 	
-	if tierzone == 4 then
-		player:AddItems("EngineParts", ZombRand(tierzone*2)+2)
-		player:AddItem(ki5parts[ZombRand(#ki5parts)+1])
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Mechanic Cache",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+	
+	if zonetier == 4 then
+		addItemsToPlayer("EngineParts", ZombRand(zonetier*2)+2)
+		addItemToPlayer(ki5parts[ZombRand(#ki5parts)+1])
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
-		player:AddItem(modbrakes[ZombRand(#modbrakes)+1])
-		player:AddItem(modsuspension[ZombRand(#modsuspension)+1])
-	elseif tierzone == 3 then
-		player:AddItems("EngineParts", ZombRand(tierzone*2)+2)
+		addItemToPlayer(modbrakes[ZombRand(#modbrakes)+1])
+		addItemToPlayer(modsuspension[ZombRand(#modsuspension)+1])
+	elseif zonetier == 3 then
+		addItemsToPlayer("EngineParts", ZombRand(zonetier*2)+2)
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])		
-		player:AddItem(modbrakes[ZombRand(#modbrakes)+1])
-		player:AddItem(modsuspension[ZombRand(#modsuspension)+1])
-	elseif tierzone == 2 then
-		player:AddItems("EngineParts", ZombRand(tierzone*2)+2)
+		addItemToPlayer(modbrakes[ZombRand(#modbrakes)+1])
+		addItemToPlayer(modsuspension[ZombRand(#modsuspension)+1])
+	elseif zonetier == 2 then
+		addItemsToPlayer("EngineParts", ZombRand(zonetier*2)+2)
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
 		randomrollSD(zoneroll, regbrakes[ZombRand(#regbrakes)+1])
 		randomrollSD(zoneroll, regsuspension[ZombRand(#regsuspension)+1])
-	elseif tierzone == 1 then
-		player:AddItems("EngineParts", ZombRand(tierzone*2)+2)
+	elseif zonetier == 1 then
+		addItemsToPlayer("EngineParts", ZombRand(zonetier*2)+2)
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
 		randomrollSD(zoneroll, regsuspension[ZombRand(#regsuspension)+1])
 		randomrollSD(zoneroll, regbrakes[ZombRand(#regbrakes)+1])
 	end
 	
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 end
 
 function MetalworkCacheSD(items, result, player)
@@ -96,133 +129,270 @@ function MetalworkCacheSD(items, result, player)
 	end
 
 -- tiered rolling, checks zone and adds item
-	local tierzone = checkZone()
+	local zonetier, zonename, x, y = checkZone()
 		
-	local zoneroll = 8-tierzone
-	local player = getPlayer():getInventory()
+	local zoneroll = 8-zonetier
+
 	
 	local newtank = InventoryItemFactory.CreateItem("Base.PropaneTank")
 	local newLargetank = InventoryItemFactory.CreateItem("TW.LargePropaneTank")
 	
-	if tierzone == 4 then
-		newLargetank:setUsedDelta(math.min(1, scaledNormal() + tierzone/10))
-		player:AddItems("ScrapMetal", ZombRand(tierzone*2)+3)
-		player:AddItems("MetalPipe", ZombRand(tierzone)+1)
-		player:AddItems("MetalBar", ZombRand(tierzone)+1)
-		player:AddItems("SmallSheetMetal", ZombRand(tierzone)+1)
-		player:AddItem("SheetMetal")
-		player:AddItem("BlowTorch")
-		randomrollSD(zoneroll, newLargetank)
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Metalwork Cache",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+	
+	if zonetier == 4 then
+		newLargetank:setUsedDelta(math.min(1, scaledNormal() + zonetier/10))
+		addItemsToPlayer("ScrapMetal", ZombRand(zonetier*2)+3)
+		addItemsToPlayer("MetalPipe", ZombRand(zonetier)+1)
+		addItemsToPlayer("MetalBar", ZombRand(zonetier)+1)
+		addItemsToPlayer("SmallSheetMetal", ZombRand(zonetier)+1)
+		addItemToPlayer("SheetMetal")
+		addItemToPlayer("BlowTorch")
+		randomrollSD(zoneroll, newLargetank, "TW.LargePropaneTank")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
-	elseif tierzone == 3 then
-		newLargetank:setUsedDelta(math.min(scaledNormal()))
-		player:AddItems("ScrapMetal", ZombRand(tierzone*2)+3)
-		player:AddItems("MetalPipe", ZombRand(tierzone)+1)
-		player:AddItems("MetalBar", ZombRand(tierzone)+1)
-		player:AddItems("SmallSheetMetal", ZombRand(tierzone)+1)
-		player:AddItem("SheetMetal")
-		player:AddItem("BlowTorch")
-		randomrollSD(zoneroll, newLargetank)
+	elseif zonetier == 3 then
+		newLargetank:setUsedDelta(math.min(1, scaledNormal()))
+		addItemsToPlayer("ScrapMetal", ZombRand(zonetier*2)+3)
+		addItemsToPlayer("MetalPipe", ZombRand(zonetier)+1)
+		addItemsToPlayer("MetalBar", ZombRand(zonetier)+1)
+		addItemsToPlayer("SmallSheetMetal", ZombRand(zonetier)+1)
+		addItemToPlayer("SheetMetal")
+		addItemToPlayer("BlowTorch")
+		randomrollSD(zoneroll, newLargetank, "TW.LargePropaneTank")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
-	elseif tierzone == 2 then
-		newtank:setUsedDelta(math.min(1, scaledNormal() + tierzone/10))
-		player:AddItems("ScrapMetal", ZombRand(tierzone*2)+3)
-		player:AddItems("MetalPipe", ZombRand(tierzone)+1)
-		player:AddItems("MetalBar", ZombRand(tierzone)+1)
-		player:AddItems("SmallSheetMetal", ZombRand(tierzone)+1)
-		player:AddItem("SheetMetal")
-		player:AddItem("BlowTorch")
-		randomrollSD(zoneroll, newtank)
+	elseif zonetier == 2 then
+		newtank:setUsedDelta(math.min(1, scaledNormal() + zonetier/10))
+		addItemsToPlayer("ScrapMetal", ZombRand(zonetier*2)+3)
+		addItemsToPlayer("MetalPipe", ZombRand(zonetier)+1)
+		addItemsToPlayer("MetalBar", ZombRand(zonetier)+1)
+		addItemsToPlayer("SmallSheetMetal", ZombRand(zonetier)+1)
+		addItemToPlayer("SheetMetal")
+		addItemToPlayer("BlowTorch")
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
-	elseif tierzone == 1 then
+	elseif zonetier == 1 then
 		newtank:setUsedDelta(math.min(1, scaledNormal()))
-		player:AddItems("ScrapMetal", ZombRand(tierzone*2)+3)
-		player:AddItems("MetalPipe", ZombRand(tierzone)+1)
-		player:AddItems("MetalBar", ZombRand(tierzone)+1)
-		player:AddItems("SmallSheetMetal", ZombRand(tierzone)+1)
-		player:AddItem("SheetMetal")
+		addItemsToPlayer("ScrapMetal", ZombRand(zonetier*2)+3)
+		addItemsToPlayer("MetalPipe", ZombRand(zonetier)+1)
+		addItemsToPlayer("MetalBar", ZombRand(zonetier)+1)
+		addItemsToPlayer("SmallSheetMetal", ZombRand(zonetier)+1)
+		addItemToPlayer("SheetMetal")
 		randomrollSD(zoneroll, "BlowTorch")
-		randomrollSD(zoneroll, newtank)
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		randomrollSD(zoneroll, "SheetMetal")
 	end
-	
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 end
 
 function MedicalCacheSD(items, result, player)
 	
 -- tiered rolling, checks zone and adds item
-	local tierzone = checkZone()
+	local zonetier, zonename, x, y = checkZone()
 	
-	local medicalitems = splitString("CDCRR.Zedalis CDCRR.Zomboflex CDCRR.Bitezapro CDCRR.Salivix CDCRR.Viazom CDCRR.Fevarax CDCRR.Humanox CanteenAndBottles.GymBottleSpiffoade SapphCooking.ThermosCoffee CanteenAndBottles.MedicinalCAnteenGreenWhiteSerum CanteenAndBottles.MedicinalCAnteenWhiteGreenSerum")
+	local medicalitems = splitString("CDCRR.Zedalis CDCRR.Zomboflex CDCRR.Bitezapro CDCRR.Salivix CDCRR.Viazom CDCRR.Fevarax CDCRR.Humanox CanteenAndBottles.GymBottleSpiffoade SapphCooking.ThermosCoffee CanteenAndBottles.MedicinalCanteenGreenWhiteSerum CanteenAndBottles.MedicinalCanteenWhiteGreenSerum")
 		
-	local zoneroll = 7-tierzone
-	local player = getPlayer():getInventory()
+	local zoneroll = 9-zonetier
+
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Medical Cache",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
 	
-	if tierzone == 4 then
-		randomrollSD((zoneroll+2), "CDCRR.CDCRedAirdrop")
-		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
-		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
-		player:AddItem(medicalitems[ZombRand(#medicalitems)+1])
-		player:AddItem(medicalitems[ZombRand(#medicalitems)+1])
-		player:AddItem(medicalitems[ZombRand(#medicalitems)+1])
-		player:AddItem(medicalitems[ZombRand(#medicalitems)+1])
-	elseif tierzone == 3 then
+	if zonetier == 4 then
+		randomrollSD((zoneroll+3), "CDCRR.CDCRedAirdrop")
+		randomrollSD(zoneroll+2, "CDCRR.CDCOrangeAirdrop")
+		randomrollSD(zoneroll+1, "CDCRR.CDCYellowAirdrop")
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+	elseif zonetier == 3 then
 		randomrollSD((zoneroll+4), "CDCRR.CDCRedAirdrop")
-		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
+		randomrollSD(zoneroll+3, "CDCRR.CDCOrangeAirdrop")
+		randomrollSD(zoneroll+2, "CDCRR.CDCYellowAirdrop")
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+	elseif zonetier == 2 then
+		randomrollSD(zoneroll+3, "CDCRR.CDCOrangeAirdrop")
+		randomrollSD(zoneroll+2, "CDCRR.CDCYellowAirdrop")
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+	elseif zonetier == 1 then
 		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
-		player:AddItem(medicalitems[ZombRand(#medicalitems)+1])
-		player:AddItem(medicalitems[ZombRand(#medicalitems)+1])
-		player:AddItem(medicalitems[ZombRand(#medicalitems)+1])
-	elseif tierzone == 2 then
-		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
-		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
-		player:AddItem(medicalitems[ZombRand(#medicalitems)+1])
-		player:AddItem(medicalitems[ZombRand(#medicalitems)+1])
-	elseif tierzone == 1 then
-		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
-		player:AddItem(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 	end
-	
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 end
 
 function AmmoCacheSD(items, result, player)
 	
 -- tiered rolling, checks zone and adds item
-	local tierzone = checkZone()
+	local zonetier, zonename, x, y = checkZone()
 	
 	local ammo = splitString("Base.Bullets45Box Base.ShotgunShellsBox Base.308Box Base.556Box Base.Bullets9mmBox Base.762x54rBox Base.762Box Base.50BMGBox Base.57Box Base.545Box Base.380Box Base.223Box")
 	
-	local zoneroll = 6-tierzone
-	local player = getPlayer():getInventory()
+	local zoneroll = 6-zonetier
+
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Ammo Cache",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
 	
-	if tierzone == 4 then
-		player:AddItem(ammo[ZombRand(#ammo)+1])
-		player:AddItem(ammo[ZombRand(#ammo)+1])
+	if zonetier == 4 then
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
-	elseif tierzone == 3 then
-		player:AddItem(ammo[ZombRand(#ammo)+1])
+	elseif zonetier == 3 then
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
-	elseif tierzone == 2 then
-		player:AddItem(ammo[ZombRand(#ammo)+1])
+	elseif zonetier == 2 then
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
-	elseif tierzone == 1 then
-		player:AddItem(ammo[ZombRand(#ammo)+1])
+	elseif zonetier == 1 then
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 	end
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+end
+
+function ArmorCachePatriotSD(items, result, player)
+	
+-- tiered rolling, checks zone and adds item
+	local zonetier, zonename, x, y = checkZone()
+	
+	local zoneroll = 7-zonetier
+
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Armor Cache (Patriot)",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+	
+	local loot = splitString("Base.Military_ArmsProtectionLower_Patriot_Light-Black Base.Military_ArmsProtectionLower_Patriot_Light-Desert Base.Military_ArmsProtectionLower_Patriot_Light-Green Base.Military_ArmsProtectionLower_Patriot_Light-White Base.Military_ArmsProtectionUpper_Patriot_Light-Black Base.Military_ArmsProtectionUpper_Patriot_Light-Desert Base.Military_ArmsProtectionUpper_Patriot_Light-Green Base.Military_ArmsProtectionUpper_Patriot_Light-White Base.Military_BulletproofVest_Patriot_Light-Black Base.Military_BulletproofVest_Patriot_Light-Desert Base.Military_BulletproofVest_Patriot_Light-Green Base.Military_BulletproofVest_Patriot_Light-White Base.Military_BulletproofVest_Patriot_Light-Press Base.Military_Helmet_Patriot-Black Base.Military_Helmet_Patriot-Desert Base.Military_Helmet_Patriot-Green Base.Military_Helmet_Patriot-White Base.Military_Helmet_Patriot-Press Base.Military_LegsProtectionLower_Patriot_Light-Black Base.Military_LegsProtectionLower_Patriot_Light-Desert Base.Military_LegsProtectionLower_Patriot_Light-Green Base.Military_LegsProtectionLower_Patriot_Light-White Base.Military_LegsProtectionUpper_Patriot_Light-Black Base.Military_LegsProtectionUpper_Patriot_Light-Desert Base.Military_LegsProtectionUpper_Patriot_Light-Green Base.Military_LegsProtectionUpper_Patriot_Light-White")
+	
+	if zonetier == 4 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+4, "Base.Military_MaskHelmet_GasMask-M80")
+		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+2, loot[ZombRand(#loot)+1])
+	elseif zonetier == 3 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
+	elseif zonetier == 2 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+	elseif zonetier == 1 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+	end
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+end
+
+function ArmorCacheDefenderSD(items, result, player)
+	
+-- tiered rolling, checks zone and adds item
+	local zonetier, zonename, x, y = checkZone()
+	
+	local zoneroll = 7-zonetier
+
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Armor Cache (Defender)",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+	
+	local loot = splitString("Base.Military_ArmsProtectionLower_Defender_Medium-Black Base.Military_ArmsProtectionLower_Defender_Medium-Desert Base.Military_ArmsProtectionLower_Defender_Medium-Green Base.Military_ArmsProtectionLower_Defender_Medium-White Base.Military_ArmsProtectionUpper_Defender_Medium-Black Base.Military_ArmsProtectionUpper_Defender_Medium-Desert Base.Military_ArmsProtectionUpper_Defender_Medium-Green Base.Military_ArmsProtectionUpper_Defender_Medium-White Base.Military_ArmsProtectionUpper_Defender_Medium-Press Base.Military_BulletproofVest_Defender_Medium-Black Base.Military_BulletproofVest_Defender_Medium-Desert Base.Military_BulletproofVest_Defender_Medium-Green Base.Military_BulletproofVest_Defender_Medium-White Base.Military_Helmet_Defender-Black Base.Military_Helmet_Defender-Desert Base.Military_Helmet_Defender-Green Base.Military_Helmet_Defender-White Base.Military_LegsProtectionLower_Defender_Medium-Black Base.Military_LegsProtectionLower_Defender_Medium-Desert Base.Military_LegsProtectionLower_Defender_Medium-Green Base.Military_LegsProtectionLower_Defender_Medium-White Base.Military_LegsProtectionUpper_Defender_Medium-Black Base.Military_LegsProtectionUpper_Defender_Medium-Desert Base.Military_LegsProtectionUpper_Defender_Medium-Green Base.Military_LegsProtectionUpper_Defender_Medium-White Base.Military_LegsProtectionUpper_Defender_Medium-Press")
+	
+	if zonetier == 4 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+4, "Base.Military_MaskHelmet_GasMask-M80")
+		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+2, loot[ZombRand(#loot)+1])
+	elseif zonetier == 3 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
+	elseif zonetier == 2 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+	elseif zonetier == 1 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+	end
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+end
+
+function ArmorCacheVanguardSD(items, result, player)
+	
+-- tiered rolling, checks zone and adds item
+	local zonetier, zonename, x, y = checkZone()
+	
+	local zoneroll = 7-zonetier
+
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Armor Cache (Vanguard)",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+	
+	local loot = splitString("Base.Military_ArmsProtectionLower_Vanguard_Heavy-Black Base.Military_ArmsProtectionLower_Vanguard_Heavy-Desert Base.Military_ArmsProtectionLower_Vanguard_Heavy-Green Base.Military_ArmsProtectionLower_Vanguard_Heavy-White Base.Military_ArmsProtectionUpper_Vanguard_Heavy-Black Base.Military_ArmsProtectionUpper_Vanguard_Heavy-Desert Base.Military_ArmsProtectionUpper_Vanguard_Heavy-Green Base.Military_ArmsProtectionUpper_Vanguard_Heavy-White Base.Military_BulletproofVest_Vanguard_Heavy-Black Base.Military_BulletproofVest_Vanguard_Heavy-Desert Base.Military_BulletproofVest_Vanguard_Heavy-Green Base.Military_BulletproofVest_Vanguard_Heavy-White Base.Military_FullHelmet_Vanguard-Black Base.Military_FullHelmet_Vanguard-Desert Base.Military_FullHelmet_Vanguard-Green Base.Military_FullHelmet_Vanguard-White Base.Military_LegsProtectionLower_Vanguard_Heavy-Black Base.Military_LegsProtectionLower_Vanguard_Heavy-Desert Base.Military_LegsProtectionLower_Vanguard_Heavy-Green Base.Military_LegsProtectionLower_Vanguard_Heavy-White Base.Military_LegsProtectionUpper_Vanguard_Heavy-Black Base.Military_LegsProtectionUpper_Vanguard_Heavy-Desert Base.Military_LegsProtectionUpper_Vanguard_Heavy-Green Base.Military_LegsProtectionUpper_Vanguard_Heavy-White")
+	
+	if zonetier == 4 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+4, "Base.Military_MaskHelmet_GasMask-M80")
+		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+2, loot[ZombRand(#loot)+1])
+	elseif zonetier == 3 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
+	elseif zonetier == 2 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+	elseif zonetier == 1 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+	end
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 end

@@ -1,0 +1,43 @@
+module SoulForge {
+
+	item SoulCrystalT4
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	0.2,
+		Type 				= 	Normal,
+		DisplayName 		= 	Soul Crystal [T4],
+		Icon 				= 	RedCrystal,
+		WorldStaticModel 	= 	RedCrystal,
+	}
+
+	item SoulCrystalT3
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	0.2,
+		Type 				= 	Normal,
+		DisplayName 		= 	Soul Crystal [T3],
+		Icon 				= 	OrangeCrystal,
+		WorldStaticModel 	= 	OrangeCrystal,
+	}
+
+	item SoulCrystalT2
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	0.2,
+		Type 				= 	Normal,
+		DisplayName 		= 	Soul Crystal [T2],
+		Icon 				= 	YellowCrystal,
+		WorldStaticModel 	= 	YellowCrystal,
+	}
+	
+	item SoulCrystalT1
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	0.2,
+		Type 				= 	Normal,
+		DisplayName 		= 	Soul Crystal [T1],
+		Icon 				= 	GreenCrystal,
+		WorldStaticModel 	= 	GreenCrystal,
+	}
+
+}

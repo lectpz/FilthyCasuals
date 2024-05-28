@@ -1,0 +1,26 @@
+module Base
+{
+	model RedCrystal
+	{
+		mesh = SoulCrystal,
+        	texture = RedCrystal,
+	}
+	
+	model YellowCrystal
+	{
+		mesh = SoulCrystal,
+        	texture = YellowCrystal,
+	}
+
+	model OrangeCrystal
+	{
+		mesh = SoulCrystal,
+        	texture = OrangeCrystal,
+	}
+	
+	model GreenCrystal
+	{
+		mesh = SoulCrystal,
+        	texture = GreenCrystal,
+	}
+}

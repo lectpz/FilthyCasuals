@@ -135,7 +135,7 @@ end
 
 function Commands.SDT.TravelToSafehouse(player, args)
     if authorizeTeleport(player, args.player_name, "safehouse") then
-        print("Player [" .. args.player_name .. "] requesting teleport to safehouse at " .. args.safehouse_x .. "," .. args.safehouse_y )
+        print("Player [" .. args.player_name .. "] requesting teleport to safehouse at " .. args.safehouse_x .. "," .. args.safehouse_y .. "," .. args.safehouse_z)
     end
     -- update player with cooldowns
     Commands.SDT.GetCooldowns(player,args);
@@ -144,12 +144,12 @@ end
 --SD5 lect
 function Commands.SDT.EventTPToSH(player, args)
     print("Event Completion Safehouse Teleport activated for: [" .. args.player_name .."]")
-    print("Player [" .. args.player_name .. "] requesting teleport to safehouse at " .. args.safehouse_x .. "," .. args.safehouse_y )
+    print("Player [" .. args.player_name .. "] requesting teleport to safehouse at " .. args.safehouse_x .. "," .. args.safehouse_y .. "," .. args.safehouse_z)
 end
 
 function Commands.SDT.TravelToCoordinates(player, args)
-    print("Event Teleport to [ x = " .. args.safehouse_x .. ", y = " .. args.safehouse_y .. " ] activated for: [" .. args.player_name .."]")
-    print("Player [" .. args.player_name .. "] requesting teleport to safehouse at " .. args.safehouse_x .. "," .. args.safehouse_y )
+    print("Event Teleport to [ x = " .. args.safehouse_x .. ", y = " .. args.safehouse_y .. args.safehouse_z .. " ] activated for: [" .. args.player_name .."]")
+    print("Player [" .. args.player_name .. "] requesting teleport to safehouse at " .. args.safehouse_x .. "," .. args.safehouse_y .. "," .. args.safehouse_z)
 end
 --SD5 lect
 

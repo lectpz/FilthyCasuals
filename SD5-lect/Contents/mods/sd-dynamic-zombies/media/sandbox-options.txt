@@ -14,6 +14,34 @@ option SDRandomZombies.PinpointDefault
 	translation = SDRandomZombies_PinpointDefault,
 }
 
+option SDRandomZombies.LouisvillePD
+{
+	type = double, min = 0, max = 100, default = 25,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_LouisvillePD,
+}
+
+option SDRandomZombies.PinpointLouisvillePD
+{
+	type = integer, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointLouisvillePD,
+}
+
+option SDRandomZombies.LouisvilleMallArea
+{
+	type = double, min = 0, max = 100, default = 20,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_LouisvilleMallArea,
+}
+
+option SDRandomZombies.PinpointLouisvilleMallArea
+{
+	type = integer, min = 0, max = 100, default = 25,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointLouisvilleMallArea,
+}
+
 option SDRandomZombies.Louisville
 {
 	type = double, min = 0, max = 100, default = 5,
@@ -126,6 +154,20 @@ option SDRandomZombies.PinpointLakeIvy
 	translation = SDRandomZombies_PinpointLakeIvy,
 }
 
+option SDRandomZombies.RavenCreekPDMilitaryHospital
+{
+	type = double, min = 0, max = 100, default = 30,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_RavenCreekPDMilitaryHospital,
+}
+
+option SDRandomZombies.PinpointRavenCreekPDMilitaryHospital
+{
+	type = integer, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointRavenCreekPDMilitaryHospital,
+}
+
 option SDRandomZombies.RavenCreek
 {
 	type = double, min = 0, max = 100, default = 5,
@@ -140,9 +182,24 @@ option SDRandomZombies.PinpointRavenCreek
 	translation = SDRandomZombies_PinpointRavenCreek,
 }
 
-option SDRandomZombies.EeriePowerPlant
+option SDRandomZombies.EerieIrvington
 {
 	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_EerieIrvington,
+}
+
+option SDRandomZombies.PinpointEerieIrvington
+{
+	type = integer, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointEerieIrvington,
+}
+
+
+option SDRandomZombies.EeriePowerPlant
+{
+	type = double, min = 0, max = 100, default = 100,
 	page = SDRandomZombies,
 	translation = SDRandomZombies_EeriePowerPlant,
 }
@@ -152,6 +209,20 @@ option SDRandomZombies.PinpointEeriePowerPlant
 	type = integer, min = 0, max = 100, default = 5,
 	page = SDRandomZombies,
 	translation = SDRandomZombies_PinpointEeriePowerPlant,
+}
+
+option SDRandomZombies.EerieCapitol
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_EerieCapitol,
+}
+
+option SDRandomZombies.PinpointEerieCapitol
+{
+	type = integer, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointEerieCapitol,
 }
 
 option SDRandomZombies.EerieMilitaryBase
@@ -180,6 +251,20 @@ option SDRandomZombies.PinpointEerieCountry
 	type = integer, min = 0, max = 100, default = 5,
 	page = SDRandomZombies,
 	translation = SDRandomZombies_PinpointEerieCountry,
+}
+
+option SDRandomZombies.BigBearLakeWest
+{
+	type = double, min = 0, max = 100, default = 10,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_BigBearLakeWest,
+}
+
+option SDRandomZombies.PinpointBigBearLakeWest
+{
+	type = integer, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointBigBearLakeWest,
 }
 
 option SDRandomZombies.BigBearLake

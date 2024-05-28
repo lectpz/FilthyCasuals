@@ -1,0 +1,199 @@
+require "ISUI/ISCollapsableWindow"
+require "ISUI/ISGeneratorInfoWindow"
+
+MGGeneratorInfoWindow = ISCollapsableWindow:derive("MGGeneratorInfoWindow")
+MGGeneratorInfoWindow.windows = {}
+
+function MGGeneratorInfoWindow:createChildren()
+    ISCollapsableWindow.createChildren(self)
+    self.panel = ISToolTip:new()
+    self.panel.followMouse = false
+    self.panel:initialise()
+    self:setObject(self.object)
+    self:addView(self.panel)
+end
+
+function MGGeneratorInfoWindow:update()
+    ISCollapsableWindow.update(self)
+    
+    self.panel.maxLineWidth = 400
+    self.panel.description = MGGeneratorInfoWindow.getRichTextNew(self.object, true);
+
+    if self:getIsVisible() and (not self.object or self.object:getObjectIndex() == -1) then
+        if self.joyfocus then
+            self.joyfocus.focus = nil
+            updateJoypadFocus(self.joyfocus)
+        end
+        self:removeFromUIManager()
+        return
+    end
+
+    if self.fuel ~= self.object:getFuel() or self.condition ~= self.object:getCondition() then
+        self:setObject(self.object)
+    end
+    self:setWidth(self.panel:getWidth())
+    self:setHeight(self:titleBarHeight() + self.panel:getHeight())
+end
+
+function MGGeneratorInfoWindow:setObject(object)
+    self.object = object
+    self.panel:setName(getText("IGUI_Generator_TypeGas"))
+    self.panel:setTexture(object:getTextureName())
+    self.fuel = object:getFuel()
+    self.condition = object:getCondition()
+--    self.panel.description = MGGeneratorInfoWindow.getRichText(object, true)
+end
+
+-- wanted to use the original mod code but GTR was declared local so had to copy this here
+function MGGeneratorInfoWindow.Time2String (days, hours, hoursDec)
+
+  local str = ""
+  --#region New format and switch-case
+  if days > 1 then
+    if hours > 1 then
+      str = string.format(
+        " (%.0f %s, %.0f %s)",
+        days, getText("Tooltip_GTR_Days"),
+        hours, getText("Tooltip_GTR_Hours")
+      )
+    elseif hours == 1 then
+      str = string.format(
+        " (%.0f %s, %.0f %s)",
+        days, getText("Tooltip_GTR_Days"),
+        hours, getText("Tooltip_GTR_Hour")
+      )
+    else
+      str = string.format(
+        " (%.0f %s)",
+        days, getText("Tooltip_GTR_Days")
+      )
+    end
+  elseif days == 1 then
+    if hours > 1 then
+      str = string.format(
+        " (%.0f %s, %.0f %s)",
+        days, getText("Tooltip_GTR_Day"),
+        hours, getText("Tooltip_GTR_Hours")
+      )
+    elseif hours == 1 then
+      str = string.format(
+        " (%.0f %s, %.0f %s)",
+        days, getText("Tooltip_GTR_Day"),
+        hours, getText("Tooltip_GTR_Hour")
+      )
+    else
+      str = string.format(
+        " (%.0f %s)",
+        days, getText("Tooltip_GTR_Day")
+      )
+    end
+  else
+    if hours > 1 then
+      str = string.format(
+        " (%.0f %s)",
+        hours, getText("Tooltip_GTR_Hours")
+      )
+    elseif hours == 1 then
+      str = string.format(
+        " (%.0f %s)",
+        hours, getText("Tooltip_GTR_Hour")
+      )
+    else
+      str = string.format(
+        " (%.0f %s)",
+        hoursDec * 60, getText("Tooltip_GTR_Minutes")
+      )
+    end
+  end
+
+  return str
+end
+
+function MGGeneratorInfoWindow.getRichText (object, displayStats)
+    return ""
+end
+
+function MGGeneratorInfoWindow.getRichTextNew(object, displayStats)
+    local x = object:getX()
+    local y = object:getY()
+    local z = object:getZ()
+    local vg = VirtualGenerator.Get (x, y, z)
+
+    if not vg or not vg.groupPoweredItems or not vg.realTotalPower then return MGGeneratorInfoWindow.getRichText (object, displayStats) end
+
+    local square = object:getSquare()
+    if not displayStats then
+        local text = " <INDENT:10> "
+        if square and not square:isOutside() and square:getBuilding() then
+            text = text .. " <RED> " .. getText("IGUI_Generator_IsToxic")
+        end
+        return text
+    end
+    local fuel = object:getFuel()
+    local condition = object:getCondition()
+
+    local fuelLeft = ""
+    local test3 = getActivatedMods()
+    if getActivatedMods():contains("GeneratorTimeRemaining") and object:isActivated() then
+        local fuelConsumption = getSandboxOptions():getOptionByName("GeneratorFuelConsumption"):getValue()
+        local hoursDec = 100 / vg.realTotalPower * (fuel / 100) / fuelConsumption
+        fuelLeft = hoursDec
+        local hours = math.floor(hoursDec)
+        local days = math.floor(hours / 24)
+        
+        if days >= 1 then
+            hours = hours % 24
+        end
+        fuelLeft = MGGeneratorInfoWindow.Time2String(days, hours, hoursDec)
+
+    end
+
+    local text = getText("IGUI_Generator_FuelAmount", string.format("%.3f", fuel)) .. fuelLeft .. " <LINE> " .. getText("IGUI_Generator_Condition", condition) .. " <LINE> "
+
+    if object:isActivated() then
+        text = text ..  " <LINE> " .. getText("IGUI_PowerConsumption") .. ": <LINE> ";
+        text = text .. " <INDENT:10> "
+        
+        for k, item in pairs(vg.groupPoweredItems) do
+            text = text .. "   " .. item.name .. " x" .. item.times .. " <SPACE> " .. string.format("%.3f", item.realPower) .. " (L/h) <LINE> "
+        end
+
+        text = text .. getText("IGUI_Total") .. ": " .. string.format("%.3f", vg.realTotalPower) .. " L/h <LINE> <LINE> ";
+    
+    end
+    if square and not square:isOutside() and square:getBuilding() then
+        text = text .. " <LINE> <RED> " .. getText("IGUI_Generator_IsToxic")
+    end
+    return text
+end
+
+function MGGeneratorInfoWindow:onGainJoypadFocus(joypadData)
+    self.drawJoypadFocus = true
+end
+
+function MGGeneratorInfoWindow:onJoypadDown(button)
+    if button == Joypad.BButton then
+        self:removeFromUIManager()
+        setJoypadFocus(self.playerNum, nil)
+    end
+end
+
+function MGGeneratorInfoWindow:close()
+    self:removeFromUIManager()
+end
+
+function MGGeneratorInfoWindow:new(x, y, character, object)
+    local width = 320
+    local height = 16 + 64 + 16 + 16
+    local o = ISCollapsableWindow:new(x, y, width, height)
+    setmetatable(o, self)
+    self.__index = self
+    o.character = character
+    o.playerNum = character:getPlayerNum()
+    o.object = object
+    o:setResizable(false)
+    return o
+end
+
+-- compatibility with other mods that manipulate this object
+ISGeneratorInfoWindow = MGGeneratorInfoWindow

@@ -1,0 +1,32 @@
+module Base
+{
+	model BandageRed
+	{
+		mesh = Bandage,
+        	texture = BandageRed,
+	}
+	
+	model BandageYellow
+	{
+		mesh = Bandage,
+        	texture = BandageYellow,
+	}
+
+	model BandageOrange
+	{
+		mesh = Bandage,
+        	texture = BandageOrange,
+	}
+	
+	model BandageGreen
+	{
+		mesh = Bandage,
+        	texture = BandageGreen,
+	}
+	
+	model BandageBlack
+	{
+		mesh = Bandage,
+        	texture = BandageBlack,
+	}
+}

@@ -273,13 +273,18 @@ local function checkDepleted(player, item)
     local playerObj = getSpecificPlayer(player);
     if item:getType() == "TeleporterConsumable"
     then
-        item:setUsedDelta(item:getUsedDelta() - 0.1)
+        item:setUsedDelta(math.max(item:getUsedDelta() - 0.1,0))
 
-        if item:getUsedDelta() < 0.05
+        if item:getUsedDelta() < 0.1
         then
-            local inventory = playerObj:getInventory():getItems()
-			playerObj:getInventory():AddItem(InventoryItemFactory.CreateItem("SD.TeleporterBroken"))
-			playerObj:getInventory():Remove(item)
+            local playerInv = playerObj:getInventory()
+			local brokenTP = InventoryItemFactory.CreateItem("SD.TeleporterBroken")
+			playerInv:AddItem(brokenTP)
+			if item:isInPlayerInventory() then
+				playerInv:Remove(item)
+			else
+				item:getContainer():Remove(item)
+			end
         end
     end
 end
@@ -293,8 +298,12 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToPlayer = function(item, p
         another_player = another_player
     };
 
-	checkDepleted(player, item)
-    ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToPlayer', args));
+	if (item:getType() == "TeleporterConsumable") and (item:getUsedDelta() < 0.1) then
+		playerObj:Say("This teleporter is useless.")
+	else
+		checkDepleted(player, item)
+		ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToPlayer', args));
+	end
 end
 
 SundayDriversTeleporterContextMenuObjectName.onTravelToCC = function(item, player)
@@ -304,9 +313,13 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToCC = function(item, playe
     local args = {
         player_name = getOnlineUsername()
     };
-
-	checkDepleted(player, item)
-    ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToCC', args));
+	
+	if (item:getType() == "TeleporterConsumable") and (item:getUsedDelta() < 0.1) then
+		playerObj:Say("This teleporter is useless.")
+	else
+		checkDepleted(player, item)
+		ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToCC', args));
+	end
 end
 
 
@@ -317,6 +330,7 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 	local playerModData = playerObj:getModData()
 	local pshx = playerModData.SafeHouseX
 	local pshy = playerModData.SafeHouseY
+	local pshz = playerModData.SafeHouseZ or 0
     if safehouse then
 		if playerModData.SafeHouseX ~= nil and playerModData.SafeHouseY ~= nil then
 			local x1 = safehouse:getX()
@@ -327,11 +341,17 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 				local args = {
 					safehouse_x = pshx-3,
 					safehouse_y = pshy-3,
+					safehouse_z = pshz,
 					player_name = getOnlineUsername()
 				};
 				
-				checkDepleted(player, item)
-				ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
+				if (item:getType() == "TeleporterConsumable") and (item:getUsedDelta() < 0.1) then
+					playerObj:Say("This teleporter is useless.")
+					return
+				else
+					checkDepleted(player, item)
+					ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
+				end
 			else--if saved moddata SH is not within current SH boundaries then write overwrite existing moddata with default SH coordinates
 				playerModData.SafeHouseX = safehouse:getX() --write moddata to player to save safehouse X coordinate
 				playerModData.SafeHouseY = safehouse:getY() --write moddata to player to save safehouse Y coordinate
@@ -340,21 +360,33 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 				local args = {
 					safehouse_x = safehouse:getX(),
 					safehouse_y = safehouse:getY(),
+					safehouse_z = 0,
 					player_name = getOnlineUsername()
 				};
 				
-				checkDepleted(player, item)
-				ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
+				if (item:getType() == "TeleporterConsumable") and (item:getUsedDelta() < 0.1) then
+					playerObj:Say("This teleporter is useless.")
+					return
+				else
+					checkDepleted(player, item)
+					ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
+				end
 			end
 		else
 			local args = {
 				safehouse_x = safehouse:getX(),
 				safehouse_y = safehouse:getY(),
+				safehouse_z = 0,
 				player_name = getOnlineUsername()
 			};
 			
-			checkDepleted(player, item)
-			ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
+			if (item:getType() == "TeleporterConsumable") and (item:getUsedDelta() < 0.1) then
+				playerObj:Say("This teleporter is useless.")
+				return
+			else
+				checkDepleted(player, item)
+				ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
+			end
 		end
 	else
 		playerObj:Say("I have no Safehouse to teleport to.")
@@ -488,14 +520,14 @@ doSDsafehousecoord_SD5 = function(item, player)
 		local y2 = safehouse:getH() + y1
 	
 		if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
-			if z == 0 then
+			--if z == 0 then
 				playerModData.SafeHouseX = math.floor(x) --write moddata to player to save safehouse X coordinate
 				playerModData.SafeHouseY = math.floor(y) --write moddata to player to save safehouse Y coordinate
-				--player:getModData().SafeHouseZ = z --write moddata to player to save safehouse Z coordinate
-				playerObj:Say("Safehouse teleport coordinates set to: x=" .. tostring(playerModData.SafeHouseX) ..", y=" .. tostring(playerModData.SafeHouseY))
-			else
-				playerObj:Say("I need to be on the ground floor to do this.")
-			end
+				playerModData.SafeHouseZ = z --write moddata to player to save safehouse Z coordinate
+				playerObj:Say("Safehouse teleport coordinates set to: x=" .. tostring(playerModData.SafeHouseX) ..", y=" .. tostring(playerModData.SafeHouseY) .. ", z=" .. tostring(playerModData.SafeHouseZ))
+			--else
+			--	playerObj:Say("I need to be on the ground floor to do this.")
+			--end
 		else
 			playerObj:Say("I need to be inside my Safehouse boundaries to do this.")
 		end

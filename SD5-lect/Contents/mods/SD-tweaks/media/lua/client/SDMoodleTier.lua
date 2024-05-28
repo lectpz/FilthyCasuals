@@ -24,8 +24,8 @@ MF.createMoodle("Tier4");
 
 -- function for checking zone OnPlayerUpdate and updating moodles and checking for lootboxes
 --function OnPlayerMoveFC(player)
-function EveryOneMinuteSD()
-	player = getPlayer()
+local function EveryOneMinuteSD()
+	local player = getSpecificPlayer(0)
 	if player ~= nil then
 	--if player ~= nil and player == getPlayer() then
 	
@@ -63,28 +63,9 @@ function EveryOneMinuteSD()
 			MF.getMoodle("Tier3"):setValue(0.5);			
 --			MF.getMoodle("Tier1"):doWiggle();
 		end
-
-		--searchItems = player:getInventory():GetItemsFromFullType("Container")
-		--print(table.concat(searchItems, ", "))
-
-
-		--if player:getInventory():contains("WeaponCache") then
-		--	player:getInventory():Remove("WeaponCache")
-		--	player:Say("The Weapon Cache disintegrates and leaves it's contents behind...")
-		--	RikuWeaponCacheFC()
-		--elseif player:getInventory():contains("MetalworkCache") then
-		--	player:getInventory():Remove("MetalworkCache")
-		--	player:Say("The Metalwork Cache disintegrates and leaves it's contents behind...")
-		--	MetalworkCacheFC()		
-		--elseif player:getInventory():contains("MechanicCache") then	
-		--	player:getInventory():Remove("MechanicCache")
-		--	player:Say("The Mechanic Cache disintegrates and leaves it's contents behind...")
-		--	MechCacheFC()
-		--end
 		
 	end
 	
 end
 
---Events.OnPlayerMove.Add(OnPlayerMoveFC)
 Events.EveryOneMinute.Add(EveryOneMinuteSD)

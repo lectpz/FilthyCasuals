@@ -34,6 +34,41 @@ module SoulForge {
 		StaticModel 			=	static_WhiteBot,
 		WorldStaticModel 		= 	world_WhiteBot,
 	}
+	
+	item EmptySoulFlaskBlack
+	{
+		DisplayName 			= 	Empty Soul Flask (Black),
+		DisplayCategory 		= 	SoulForge,
+		Weight 					= 	0.3,
+		CanStoreWater			=	TRUE,
+		Type 					= 	Normal,
+		ReplaceOnUseOn			=	WaterSource-SoulFlaskWaterBlack,
+		ReplaceTypes			=	WaterSource SoulFlaskWaterBlack,
+		Icon 					= 	BlackBot,
+		StaticModel				=	static_BlackBot,
+		WorldStaticModel 		= 	world_BlackBot,
+	}
+	
+	item SoulFlaskWaterBlack
+	{
+		DisplayName 			=	Soul Flask (Black),
+		DisplayCategory 		=	Water,
+		Type 					=	Drainable,
+		Weight 					=	0.7,
+		Icon 					=	BlackBot,
+		CanStoreWater 			=	TRUE,
+		FillFromDispenserSound 	=	GetWaterFromDispenserGlass,
+		FillFromTapSound 		=	GetWaterFromTapGlass,
+		IsCookable 				=	TRUE,
+		IsWaterSource 			=	TRUE,
+		ReplaceOnDeplete 		=	EmptySoulFlaskBlack,
+		ReplaceOnUseOn 			=	WaterSource-SoulFlaskWaterBlack,
+		UseDelta 				=	0.025,
+		UseWhileEquipped  		=	FALSE,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		StaticModel 			=	static_BlackBot,
+		WorldStaticModel 		= 	world_BlackBot,
+	}
 
 	item EmptySoulFlaskYellow
 	{	
@@ -288,16 +323,28 @@ module SoulForge {
 
 	item StoredSouls
 	{
-		DisplayCategory = Souls,
+		DisplayCategory 	= 		SoulForge,
 		Type				=		Drainable,
 		DisplayName			=		Flask of Stored Souls,
 		Icon				=		WhiteBot,
 		Weight				=		1.0,
-		ReplaceOnDeplete 		=	EmptySoulFlaskWhite,
-		UseDelta 				=	0.001,
-		UseWhileEquipped  		=	FALSE,
+		ReplaceOnDeplete 	=		EmptySoulFlaskWhite,
+		UseDelta 			=		0.001,
+		UseWhileEquipped  	=		FALSE,
 		StaticModel			=		static_WhiteBot,
 		WorldStaticModel	=		world_WhiteBot,
 	}
 
+	item ContainerSoulsDisposable
+	{
+		DisplayCategory 	= 		SoulForge,
+		Type				=		Drainable,
+		DisplayName			=		Container of 1000 Souls (Single Use),
+		Icon				=		CyanBot,
+		Weight				=		5.0,
+		UseDelta 			=		0.001,
+		UseWhileEquipped  	=		FALSE,
+		StaticModel			=		static_CyanBot,
+		WorldStaticModel	=		world_CyanBot,
+	}
 }

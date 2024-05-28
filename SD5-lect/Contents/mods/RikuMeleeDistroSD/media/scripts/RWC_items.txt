@@ -287,4 +287,103 @@ module Base
 		Time:500.0,
 		OnCreate:AmmoCacheSD,
 	}
+	
+	item ArmorCachePatriot
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Armor Cache (Patriot),
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache1,
+        WorldStaticModel        = cache1,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyArmorCachePatriot
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Armor Cache (Patriot),
+        Icon                    = cache1,
+        WorldStaticModel        = cache1,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Armor Cache (Patriot)
+	{
+		CanBeDoneFromFloor:true,
+		destroy ArmorCachePatriot,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyArmorCachePatriot,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:ArmorCachePatriotSD,
+	}
+	
+	item ArmorCacheDefender
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Armor Cache (Defender),
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache2,
+        WorldStaticModel        = cache2,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyArmorCacheDefender
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Armor Cache (Defender),
+        Icon                    = cache2,
+        WorldStaticModel        = cache2,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Armor Cache (Defender)
+	{
+		CanBeDoneFromFloor:true,
+		destroy ArmorCacheDefender,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyArmorCacheDefender,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:ArmorCacheDefenderSD,
+	}
+	
+	item ArmorCacheVanguard
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Armor Cache (Vanguard),
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache3,
+        WorldStaticModel        = cache3,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyArmorCacheVanguard
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Armor Cache (Vanguard),
+        Icon                    = cache3,
+        WorldStaticModel        = cache3,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Armor Cache (Vanguard)
+	{
+		CanBeDoneFromFloor:true,
+		destroy ArmorCacheVanguard,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyArmorCacheVanguard,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:ArmorCacheVanguardSD,
+	}
 }

@@ -149,8 +149,22 @@ function SDOnWeaponSwing(character, handWeapon)
 				modData.MaxDamage		= o_maxdmg
 				modData.Name			= o_name
 				--print:Say("mod data stored")
+				modData.updatedweapon20240517 = true
 			else
-				--print("mod data already exists, nothing needs to be done")
+				if modData.updatedweapon20240517 == nil then -- check moddata tag for weapon stats. if this is an old weapon, nuke the stats and overwrite 
+					scriptItem = ScriptManager.instance:getItem(playerItem:getFullType())
+					
+					--local o_critrate  	=	scriptItem:getCriticalChance()
+					--local o_critmulti 	= 	scriptItem:getCritDmgMultiplier()
+					local o_mindmg		=	scriptItem:getMinDamage()
+					local o_maxdmg		=	scriptItem:getMaxDamage()
+
+					--modData.CriticalChance	= o_critrate
+					--modData.CritDmgMultiplier	= o_critmulti
+					modData.MinDamage = o_mindmg
+					modData.MaxDamage = o_maxdmg
+					modData.updatedweapon20240517 = true
+				end
 			end
 			
 			local basecritrate 	= modData.CriticalChance
@@ -177,13 +191,27 @@ function SDOnWeaponSwing(character, handWeapon)
 			local tierdmgmod	= {tonumber(SandboxVars.SDOnWeaponSwing.Tier1dmg), tonumber(SandboxVars.SDOnWeaponSwing.Tier2dmg), tonumber(SandboxVars.SDOnWeaponSwing.Tier3dmg), tonumber(SandboxVars.SDOnWeaponSwing.Tier4dmg)}
 			
 			local isHardmode = modData.HardcoreMode or nil
-			local modeMultiplier = 1
+			local modeMultiplier = 1.0
 			
-			--if isHardmode then
-			--	modeMultiplier = 0.5
-			--else
-			--	modeMultiplier = 1.0
-			--end
+			if isHardmode then
+				modeMultiplier = 0.5
+			end
+			
+			local isSoulForged = modData.SoulForged or false
+			local hasSouls = modData.KillCount or false
+			local addMaxDmg = 0
+			local addCritChance = 0
+			local addCritMulti = 0
+			if isSoulForged and hasSouls then
+				local weaponMaxCond = playerItem:getConditionMax()
+				local weaponCondLowerChance = playerItem:getConditionLowerChance()
+				local soulsRequired = weaponMaxCond * weaponCondLowerChance * 3
+				local soulsFreed = modData.KillCount or nil
+				local soulPower = math.min(soulsFreed / soulsRequired, 1)
+				addMaxDmg = soulPower * 1
+				addCritChance = soulPower * 5
+				addCritMulti = soulPower * 0.5
+			end
 			
 			local localdmgmulti	= tierdmgmod[tierzone] * modeMultiplier
 			local localcritrate	= tiercritratemod[tierzone] * modeMultiplier
@@ -191,10 +219,10 @@ function SDOnWeaponSwing(character, handWeapon)
             
 			-- set weapon stats
 			--print(FilthyCasual)
-			playerItem:setCriticalChance(basecritrate * localcritrate)-- + (FilthyCasual * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus critrate is 0. T2=1. T3=2. T4=3. If FC=false, then FC=0 and nothing applies
-			playerItem:setCritDmgMultiplier(basecritmulti * localcritmulti)-- + (FilthyCasual/10 * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus critmulti is 0. T2=0.1. T3=0.2. T4=0.3. If FC=false, then FC=0 and nothing applies
-			playerItem:setMinDamage(basemindmg * localdmgmulti)-- + (FilthyCasual/10 * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus mindmg is 0. T2=0.1. T3=0.2. T4=0.3. If FC=false, then FC=0 and nothing applies
-			playerItem:setMaxDamage(basemaxdmg * localdmgmulti)-- + (FilthyCasual/10 * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus maxdmg is 0. T2=0.1. T3=0.2. T4=0.3. If FC=false, then FC=0 and nothing applies
+			playerItem:setCriticalChance(((basecritrate + addCritChance) * localcritrate) * modeMultiplier)-- + (FilthyCasual * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus critrate is 0. T2=1. T3=2. T4=3. If FC=false, then FC=0 and nothing applies
+			playerItem:setCritDmgMultiplier(((basecritmulti + addCritMulti) * localcritmulti) * modeMultiplier)-- + (FilthyCasual/10 * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus critmulti is 0. T2=0.1. T3=0.2. T4=0.3. If FC=false, then FC=0 and nothing applies
+			playerItem:setMinDamage((basemindmg * localdmgmulti) * modeMultiplier)-- + (FilthyCasual/10 * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus mindmg is 0. T2=0.1. T3=0.2. T4=0.3. If FC=false, then FC=0 and nothing applies
+			playerItem:setMaxDamage(((basemaxdmg + addMaxDmg) * localdmgmulti) * modeMultiplier)-- + (FilthyCasual/10 * (tierzone-1))) -- if FilthyCasual is true, then FilthyCasual = 1. For T1, bonus maxdmg is 0. T2=0.1. T3=0.2. T4=0.3. If FC=false, then FC=0 and nothing applies
 			--if tierzone ~= 1 then playerItem:setName(basename .. " [T" .. tostring(tierzone) .. "]") else playerItem:setName(basename) end
 			playerItem:setName(basename .. " [T" .. tostring(tierzone) .. "]")
 			-- debug display to make my life easier
@@ -240,20 +268,60 @@ function SDWeaponCheck(character, inventoryItem)
 			modData.MaxDamage		= o_maxdmg
 			modData.Name			= o_name
 			--character:Say("mod data stored")
+			modData.updatedweapon20240517 = true
 		else
 			--character:Say("mod data already exists, nothing needs to be done")
 		end
 		--character:Say("Inventory Item exists")
+		
+		if modData.updatedweapon20240517 == nil then -- check moddata tag for weapon stats. if this is an old weapon, nuke the stats and overwrite 
+			scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
+			
+			--local o_critrate  	=	scriptItem:getCriticalChance()
+			--local o_critmulti 	= 	scriptItem:getCritDmgMultiplier()
+			local o_mindmg		=	scriptItem:getMinDamage()
+			local o_maxdmg		=	scriptItem:getMaxDamage()
+
+			--modData.CriticalChance	= o_critrate
+			--modData.CritDmgMultiplier	= o_critmulti
+			modData.MinDamage = o_mindmg
+			modData.MaxDamage = o_maxdmg
+			modData.updatedweapon20240517 = true
+		end
+		
+		local isHardmode = modData.HardcoreMode or nil
+		local modeMultiplier = 1.0
+		
+		if isHardmode then
+			modeMultiplier = 0.5
+		end
+		
+		local isSoulForged = modData.SoulForged or false
+		local hasSouls = modData.KillCount or false
+		local addMaxDmg = 0
+		local addCritChance = 0
+		local addCritMulti = 0
+		if isSoulForged and hasSouls then
+			local weaponMaxCond = inventoryItem:getConditionMax()
+			local weaponCondLowerChance = inventoryItem:getConditionLowerChance()
+			local soulsRequired = weaponMaxCond * weaponCondLowerChance * 3
+			local soulsFreed = modData.KillCount or nil
+			local soulPower = math.min(soulsFreed / soulsRequired, 1)
+			addMaxDmg = soulPower * 1
+			addCritChance = soulPower * 5
+			addCritMulti = soulPower * 0.5
+		end
+		
 		local basecritrate 	= modData.CriticalChance
 		local basecritmulti = modData.CritDmgMultiplier
 		local basemindmg 	= modData.MinDamage
 		local basemaxdmg 	= modData.MaxDamage
 		local basename		= modData.Name
 		
-		inventoryItem:setCriticalChance(basecritrate)
-		inventoryItem:setCritDmgMultiplier(basecritmulti)
+		inventoryItem:setCriticalChance(basecritrate + addCritChance)
+		inventoryItem:setCritDmgMultiplier(basecritmulti + addCritMulti)
 		inventoryItem:setMinDamage(basemindmg)
-		inventoryItem:setMaxDamage(basemaxdmg)
+		inventoryItem:setMaxDamage(basemaxdmg + addMaxDmg)
 		inventoryItem:setName(basename)
 		
 	elseif inventoryItem:IsWeapon() and inventoryItem:isRanged() then
@@ -272,8 +340,8 @@ function SDWeaponCheck(character, inventoryItem)
 			modData.CritDmgMultiplier	= o_critmulti
 			modData.Name			= o_name
 			--character:Say("mod data stored")
-		else
-			--character:Say("mod data already exists, nothing needs to be done")
+		else--for old weapons with no stat save
+
 		end
 		--character:Say("Inventory Item exists")
 		local basecritrate 	= modData.CriticalChance

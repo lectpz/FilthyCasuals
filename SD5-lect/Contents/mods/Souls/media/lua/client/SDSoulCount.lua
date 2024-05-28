@@ -9,6 +9,11 @@ require "SDZoneCheck"
 local function KillCountSD(player)
 	return player:getZombieKills()
 end
+
+local soulsghs = " <RGB:" .. getCore():getGoodHighlitedColor():getR() .. "," .. getCore():getGoodHighlitedColor():getG() .. "," .. getCore():getGoodHighlitedColor():getB() .. "> "
+local soulsbhs = " <RGB:" .. getCore():getBadHighlitedColor():getR() .. "," .. getCore():getBadHighlitedColor():getG() .. "," .. getCore():getBadHighlitedColor():getB() .. "> "
+
+
 --[[
 local responseCraft = {
 	"I expected nothing and I'm still disappointed.",
@@ -56,11 +61,17 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 			weaponRepairedStack = item:getHaveBeenRepaired()
 			soulsRequired = weaponMaxCond * weaponCondLowerChance * 3
 			soulsFreed = weaponModData.KillCount or nil
+			
+			local function itemStats()
+				soulPower = math.min(soulsFreed / soulsRequired, 1) or 0
+				tooltip.description = tooltip.description .. soulsghs .. " <LINE> <LINE> Stat modifiers to weapon: <LINE> "
+				tooltip.description = tooltip.description .. soulsghs .. " <LINE> Extra Base Maximum Damage: +" .. math.floor(soulPower * 10)/10 .. " <LINE> "
+				tooltip.description = tooltip.description .. soulsghs .. "Extra Base Critical Chance: +" .. math.floor(soulPower * 50)/10 .. "% <LINE> "
+				tooltip.description = tooltip.description .. soulsghs .. "Extra Base Critical Multi: +" .. math.floor(soulPower * 50)/100 .. "x <LINE> "
+			end
+			
 			if not soulsFreed then return end
 			soulsContext = context:addOption("Soul Power: " .. soulsFreed .. "/" .. soulsRequired, item, nil, player)
-			--if isAdmin() then
-			--	context:addOption("[ADMIN] Current Repair Stacks: " .. weaponRepairedStack .. "x", item, nil, player)
-			--end
 
 			if soulsFreed ~= nil then
 			
@@ -68,63 +79,23 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 					weaponModData.KillCount = soulsFreed + amount
 					soulsFreed = weaponModData.KillCount
 				end
-				--[[
-				if isAdmin() then
-					soulgain = 1000
-					context:addOption("[Admin] Add " .. soulgain .. " Soul Power To Weapon", item, modifySouls(item, player, soulgain), player)
-				end
-				hasStoredSouls = playerObj:getInventory():containsTypeRecurse("SoulForge.StoredSouls")
-				
-				function addSouls(item, player, amount)
-					weaponModData.KillCount = soulsFreed + amount
-					--soulsFreed = weaponModData.KillCount
-					playerInv:RemoveOneOf("SoulForge.StoredSouls")
-					playerInv:AddItem("SoulForge.EmptySoulFlaskWhite")
-				end
-				
-				if hasStoredSouls then
-					soulgain = 1000
-					context:addOption("Add " .. soulgain .. " Soul Power To Weapon", item, addSouls(item, player, soulgain), player)
-				end
-				]]--
+
 				if soulsFreed < soulsRequired then
 					soulsContext.notAvailable = true;
 					tooltip = ISWorldObjectContextMenu.addToolTip();
 					tooltip.description = tooltip.description .. "You need to free more souls."
 					soulsContext.toolTip = tooltip
+					if weaponModData.SoulForged then itemStats() end
 				else
 					submenu = ISContextMenu:getNew(context)
 					context:addSubMenu(soulsContext, submenu)
 					
-					------------------------------------------------------------------------------------------------------
-					--soul storage (1000 souls)
-					------------------------------------------------------------------------------------------------------
 					function updatesoulsFreed(soulsFreed, soulsRequired, weaponRepairedStack)
 						local n_soulsFreed = math.max(soulsFreed - math.floor(soulsRequired/((math.min(5, weaponRepairedStack) -1)/2)),0)
 						return n_soulsFreed
 					end
 					
 					n_soulsFreed = updatesoulsFreed(soulsFreed, soulsRequired, weaponRepairedStack)
-					--[[
-					soulFlaskEmpty = playerObj:getInventory():containsTypeRecurse("SoulForge.EmptySoulFlaskWhite")
-					soulstored = -1000
-					
-					function storeSouls(item, player, amount)
-						weaponModData.KillCount = soulsFreed + amount
-						--soulsFreed = weaponModData.KillCount
-						playerInv:RemoveOneOf("SoulForge.EmptySoulFlaskWhite")
-						playerInv:AddItem("SoulForge.StoredSouls")
-					end
-										
-					option_storesouls = submenu:addOption("Store souls: (" .. soulstored .." souls.) New Soul Power: " .. n_soulsFreed .. "/" .. soulsRequired, item, storeSouls(item, player, soulstored), player)
-					
-					if not soulFlaskEmpty then
-						option_storesouls.notAvailable = true;
-						tooltip = ISWorldObjectContextMenu.addToolTip();
-						tooltip.description = tooltip.description .. "This weapon is still serviceable. Higher repair stack requires less souls to mend."
-						option_storesouls.toolTip = tooltip
-					end
-					]]--
 					------------------------------------------------------------------------------------------------------
 					--repair stack option
 					------------------------------------------------------------------------------------------------------
@@ -172,6 +143,109 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 						option_weaponCondition.toolTip = tooltip
 					end
 					------------------------------------------------------------------------------------------------------
+					--infuse weapon
+					------------------------------------------------------------------------------------------------------
+					local function removeWeaponsNotEquipped(playerObj, item)
+						local inv = playerObj:getInventory()
+						local items = inv:getItemsFromFullType(item:getFullType(), true)
+						for i=1,items:size() do
+							local invItem = items:get(i-1)
+							if not instanceof(invItem, "InventoryContainer") or item:getInventory():getItems():isEmpty() then
+								if invItem ~= playerObj:getPrimaryHandItem() then
+									if not invItem:getModData().SoulForged then
+										playerInv:Remove(invItem)
+										break
+									end
+								end
+							end
+						end
+					end
+					
+					local function countWeapons(playerObj, item)
+						local inv = playerInv
+						local items = inv:getItemsFromFullType(item:getFullType(), true)
+						local count = 0
+						for i=1,items:size() do
+							local invItem = items:get(i-1)
+							if not instanceof(invItem, "InventoryContainer") or item:getInventory():getItems():isEmpty() then
+								if not invItem:getModData().SoulForged then
+									count = count + 1
+								end
+							end
+						end
+						return count
+					end
+					
+					local function itemToolTipMats(material)
+						local scriptItem = ScriptManager.instance:getItem(material)
+						local itemdisplayname = scriptItem:getDisplayName()
+						tooltip.description = tooltip.description .. " <LINE> "
+						if not playerInv:contains(material) then
+							option_soulForgeWeapon.notAvailable = true;
+							--tooltip = ISWorldObjectContextMenu.addToolTip();
+							tooltip.description = tooltip.description .. soulsbhs .. itemdisplayname .. " 0/1" ;
+						else
+							count = playerInv:getCountTypeRecurse(material)
+							tooltip.description = tooltip.description .. soulsghs .. itemdisplayname .. " " .. count .. "/1" ;
+						end
+					end
+					
+						
+					
+					local function soulForgeWeapon(item, player)
+						print(item)
+						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
+						weaponModData.Name = "Soul Forged " .. scriptItem:getDisplayName()
+						weaponModData.MinDamage = scriptItem:getMinDamage()
+						weaponModData.MaxDamage = scriptItem:getMaxDamage()
+						weaponModData.SoulForged = true
+						playerInv:RemoveOneOf("SoulForge.SoulCrystalT1")
+						playerInv:RemoveOneOf("SoulForge.SoulCrystalT2")
+						playerInv:RemoveOneOf("SoulForge.SoulCrystalT3")
+						playerInv:RemoveOneOf("SoulForge.SoulCrystalT4")
+						removeWeaponsNotEquipped(playerObj, item)
+						removeWeaponsNotEquipped(playerObj, item)
+						item:setName(weaponModData.Name)
+					end
+					
+					option_soulForgeWeapon = submenu:addOption("Soul Forge Weapon", item, soulForgeWeapon, player)
+					
+					local forged = weaponModData.SoulForged or false
+
+					if forged then
+						submenu:removeOptionByName("Soul Forge Weapon")
+						tooltip = ISWorldObjectContextMenu.addToolTip();
+						option_soulForgeModifiers = submenu:addOption("Soul Forged Modifiers", item, nil, player)
+						option_soulForgeModifiers.toolTip = tooltip
+						itemStats()
+					elseif (weaponCurrentCondition ~= weaponMaxCond or soulsFreed < soulsRequired) then
+						print("elseif")
+						option_soulForgeWeapon.notAvailable = true;
+						tooltip = ISWorldObjectContextMenu.addToolTip();
+						tooltip.description = tooltip.description .. "Requires " .. soulsRequired .. " Soul Power and full weapon condition to Soul Forge. <LINE> "
+						option_soulForgeWeapon.toolTip = tooltip
+						itemStats()
+					else
+						--option_soulForgeWeapon.notAvailable = true;
+						tooltip = ISWorldObjectContextMenu.addToolTip();
+						tooltip.description = tooltip.description .. "Materials required: <LINE> "
+						option_soulForgeWeapon.toolTip = tooltip
+						
+						itemToolTipMats("SoulForge.SoulCrystalT1")
+						itemToolTipMats("SoulForge.SoulCrystalT2")
+						itemToolTipMats("SoulForge.SoulCrystalT3")
+						itemToolTipMats("SoulForge.SoulCrystalT4")
+						
+						count = countWeapons(playerObj, item)
+						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
+						if count < 3 then
+							option_soulForgeWeapon.notAvailable = true;
+							tooltip.description = tooltip.description .. soulsbhs .. " <LINE> " .. scriptItem:getDisplayName() .. " " .. math.max(0,count-1) .. "/2" ;
+						elseif count >= 3 then
+							tooltip.description = tooltip.description .. soulsghs .. " <LINE> " .. scriptItem:getDisplayName() .. " " .. count-1 .. "/2" ;
+						end
+					end
+					------------------------------------------------------------------------------------------------------
 					------------------------------------------------------------------------------------------------------
 				end
 			end
@@ -193,7 +267,7 @@ function SoulCountSD(character, handWeapon)
 		local weaponPlayerKC = weaponModData.PlayerKills or nil
 		
 		if weaponSouls == nil then
-			weaponModData.KillCount = 1 --SD write initial killcount to weapon (zero). in case a weapon does not have an internal kill counter.
+			weaponModData.KillCount = 0 --SD write initial killcount to weapon (zero). in case a weapon does not have an internal kill counter.
 			weaponSouls = weaponModData.KillCount
 		end
 		

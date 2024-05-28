@@ -69,21 +69,6 @@ Sandbox_EN = {
 	Sandbox_SDevents_enabled = "Enable Event Zone",
 	Sandbox_SDevents_enabled_tooltip = "Check to enable, uncheck to disable",
 	
-	Sandbox_SDevents_teleporttoeventenabled = "Enable to Allow Players to Teleport Event",
-	Sandbox_SDevents_teleporttoeventenabled_tooltip = "Check to enable, uncheck to disable",
-	
-	Sandbox_SDevents_Xcoordevent = "X-Coordinate for Start Event Teleport",
-	Sandbox_SDevents_Xcoordevent_tooltip = "e.g. 11250",
-	
-	Sandbox_SDevents_Ycoordevent = "Y-Coordinate for Start Event Teleport",
-	Sandbox_SDevents_Ycoordevent_tooltip = "e.g. 9000",
-	
-	Sandbox_SDevents_Admin_to_Teleport = "Admin to Teleport to"
-	Sandbox_SDevents_Admin_to_Teleport_tooltip = "e.g. Rowsdower"
-	
-	Sandbox_SDevents_EventRewardEnabled = "Enable to Allow Players to Claim Event Reward (will TP them away from event)",
-	Sandbox_SDevents_EventRewardEnabled_tooltip = "Check to enable, uncheck to disable",
-
 	Sandbox_SDevents_Rewards1 = "Reward Loot",
 	Sandbox_SDevents_Rewards1_tooltip = "Base.Item",
 
@@ -115,6 +100,12 @@ Sandbox_EN = {
 
 	Sandbox_SDZones_Muldraugh = "Muldraugh Tier Zone",
 	Sandbox_SDZones_Muldraugh_tooltip = "e.g. 1",
+
+	Sandbox_SDZones_EerieIrvington = "Eerie Irvington",
+	Sandbox_SDZones_EerieIrvington_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_EerieCapitol = "Eerie Country Capitol",
+	Sandbox_SDZones_EerieCapitol_tooltip = "e.g. 4",
 
 	Sandbox_SDZones_EerieMilitaryBase = "Eerie Military Base Tier Zone",
 	Sandbox_SDZones_EerieMilitaryBase_tooltip = "e.g. 4",
