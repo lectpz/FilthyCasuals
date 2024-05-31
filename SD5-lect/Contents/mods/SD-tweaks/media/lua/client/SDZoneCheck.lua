@@ -30,7 +30,11 @@ Zone = {
 		["RavenCreek"] = {3000, 11100, 5400, 13500, SandboxVars.SDZones.RavenCreek, "Nested"},
 		["EerieIrvington"] = {11161, 17788, 11700, 18299, SandboxVars.SDZones.EerieIrvington},
 		["EeriePowerPlant"] = {9900, 13879, 10966, 15292, SandboxVars.SDZones.EeriePowerPlant},
+<<<<<<< HEAD
 		["EerieCapitol"] = {9300, 16800, 9600, 17100, SandboxVars.SDZones.EerieCapitol},
+=======
+		["EerieCapitol"] = {9000, 16800, 9600, 17225, SandboxVars.SDZones.EerieCapitol},
+>>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 		["EerieMilitaryBase"] = {8101, 17063, 8527, 17610, SandboxVars.SDZones.EerieMilitaryBase},
 		["EerieCountry"] = {7200, 13500, 12300, 18300, SandboxVars.SDZones.EerieCountry, "Nested"},
 		["BigBearLakeWest"] = {5000, 7800, 5700, 8200, SandboxVars.SDZones.BigBearLakeWest},
@@ -91,9 +95,14 @@ NestedZone = {
 		["LCDowntown"] = {16800, 6300, 17400, 6900, SandboxVars.SDZones.LCDowntown},
 		["RavenCreekPDMilitaryHospital"] = {3000, 11100, 3946, 11922, SandboxVars.SDZones.RavenCreekPDMilitaryHospital},
 		["EeriePowerPlant"] = {9900, 13879, 10966, 15292, SandboxVars.SDZones.EeriePowerPlant},
+<<<<<<< HEAD
 		["EerieCapitol"] = {9300, 16800, 9600, 17100, SandboxVars.SDZones.EerieCapitol},
 		["EerieMilitaryBase"] = {8101, 17063, 8527, 17610, SandboxVars.SDZones.EerieMilitaryBase},
 		["EerieIrvington"] = {11161, 17788, 11700, 18299, SandboxVars.SDZones.EerieIrvington},
+=======
+		["EerieCapitol"] = {9000, 16800, 9600, 17225, SandboxVars.SDZones.EerieCapitol},
+		["EerieMilitaryBase"] = {8101, 17063, 8527, 17610, SandboxVars.SDZones.EerieMilitaryBase},
+>>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 		["BigBearLakeWest"] = {5000, 7800, 5700, 8200, SandboxVars.SDZones.BigBearLakeWest}
 	}
 }

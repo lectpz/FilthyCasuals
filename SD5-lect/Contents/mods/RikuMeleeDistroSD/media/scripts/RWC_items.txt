@@ -386,6 +386,7 @@ module Base
 		Time:500.0,
 		OnCreate:ArmorCacheVanguardSD,
 	}
+<<<<<<< HEAD
 	
 	item SpiffoCache
 	{
@@ -419,4 +420,6 @@ module Base
 		Time:500.0,
 		OnCreate:SpiffoCacheSD,
 	}
+=======
+>>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 }

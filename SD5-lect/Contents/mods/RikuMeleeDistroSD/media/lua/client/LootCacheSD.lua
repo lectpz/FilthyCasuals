@@ -203,7 +203,11 @@ function MedicalCacheSD(items, result, player)
 	
 	local medicalitems = splitString("CDCRR.Zedalis CDCRR.Zomboflex CDCRR.Bitezapro CDCRR.Salivix CDCRR.Viazom CDCRR.Fevarax CDCRR.Humanox CanteenAndBottles.GymBottleSpiffoade SapphCooking.ThermosCoffee CanteenAndBottles.MedicinalCanteenGreenWhiteSerum CanteenAndBottles.MedicinalCanteenWhiteGreenSerum")
 		
+<<<<<<< HEAD
 	local zoneroll = 9-zonetier
+=======
+	local zoneroll = 7-zonetier
+>>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 
 	args = {
 	  player_name = getOnlineUsername(),
@@ -215,9 +219,15 @@ function MedicalCacheSD(items, result, player)
 	}
 	
 	if zonetier == 4 then
+<<<<<<< HEAD
 		randomrollSD((zoneroll+3), "CDCRR.CDCRedAirdrop")
 		randomrollSD(zoneroll+2, "CDCRR.CDCOrangeAirdrop")
 		randomrollSD(zoneroll+1, "CDCRR.CDCYellowAirdrop")
+=======
+		randomrollSD((zoneroll+2), "CDCRR.CDCRedAirdrop")
+		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
+		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+>>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
@@ -237,6 +247,19 @@ function MedicalCacheSD(items, result, player)
 	elseif zonetier == 1 then
 		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+<<<<<<< HEAD
+=======
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+	elseif zonetier == 2 then
+		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
+		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+	elseif zonetier == 1 then
+		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+>>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 end
@@ -291,7 +314,11 @@ function ArmorCachePatriotSD(items, result, player)
 -- tiered rolling, checks zone and adds item
 	local zonetier, zonename, x, y = checkZone()
 	
+<<<<<<< HEAD
 	local zoneroll = 7-zonetier
+=======
+	local zoneroll = 6-zonetier
+>>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 
 	args = {
 	  player_name = getOnlineUsername(),
@@ -328,7 +355,11 @@ function ArmorCacheDefenderSD(items, result, player)
 -- tiered rolling, checks zone and adds item
 	local zonetier, zonename, x, y = checkZone()
 	
+<<<<<<< HEAD
 	local zoneroll = 7-zonetier
+=======
+	local zoneroll = 6-zonetier
+>>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 
 	args = {
 	  player_name = getOnlineUsername(),
@@ -365,7 +396,11 @@ function ArmorCacheVanguardSD(items, result, player)
 -- tiered rolling, checks zone and adds item
 	local zonetier, zonename, x, y = checkZone()
 	
+<<<<<<< HEAD
 	local zoneroll = 7-zonetier
+=======
+	local zoneroll = 6-zonetier
+>>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 
 	args = {
 	  player_name = getOnlineUsername(),
@@ -395,6 +430,7 @@ function ArmorCacheVanguardSD(items, result, player)
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+<<<<<<< HEAD
 end
 
 local function addSpiffoToPlayer(loot, itemname)
@@ -527,4 +563,6 @@ function SpiffoCacheSD(items, result, player)
 		end
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+=======
+>>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 end

@@ -402,9 +402,12 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
 	elseif squareXVal >= Coords["RavenCreek"].x1 and squareYVal >= Coords["RavenCreek"].y1 and squareXVal < Coords["RavenCreek"].x2 and squareYVal < Coords["RavenCreek"].y2 then
         distributionLocal, distributionHearing, distributionZone = SDDistribution("RavenCreek")
 	--elseif SDSprinterZoneCheck("EeriePowerPlant") then
+<<<<<<< HEAD
 	
 	elseif squareXVal >= Coords["EerieIrvington"].x1 and squareYVal >= Coords["EerieIrvington"].y1 and squareXVal < Coords["EerieIrvington"].x2 and squareYVal < Coords["EerieIrvington"].y2 then
         distributionLocal, distributionHearing, distributionZone = SDDistribution("EerieIrvington")
+=======
+>>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 	elseif squareXVal >= Coords["EerieCapitol"].x1 and squareYVal >= Coords["EerieCapitol"].y1 and squareXVal < Coords["EerieCapitol"].x2 and squareYVal < Coords["EerieCapitol"].y2 then
         distributionLocal, distributionHearing, distributionZone = SDDistribution("EerieCapitol")
 	elseif squareXVal >= Coords["EeriePowerPlant"].x1 and squareYVal >= Coords["EeriePowerPlant"].y1 and squareXVal < Coords["EeriePowerPlant"].x2 and squareYVal < Coords["EeriePowerPlant"].y2 then
