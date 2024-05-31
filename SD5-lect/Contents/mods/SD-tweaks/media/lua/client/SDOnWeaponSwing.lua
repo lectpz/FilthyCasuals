@@ -289,7 +289,6 @@ function SDWeaponCheck(character, inventoryItem)
 			modData.updatedweapon20240517 = true
 		end
 		
-<<<<<<< HEAD
 		local isHardmode = modData.HardcoreMode or nil
 		local modeMultiplier = 1.0
 		
@@ -313,8 +312,6 @@ function SDWeaponCheck(character, inventoryItem)
 			addCritMulti = soulPower * 0.5
 		end
 		
-=======
->>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 		local basecritrate 	= modData.CriticalChance
 		local basecritmulti = modData.CritDmgMultiplier
 		local basemindmg 	= modData.MinDamage

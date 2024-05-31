@@ -154,7 +154,6 @@ function OnTest_dontDestroySouls(item)
 		return true
 	end
 	
-<<<<<<< HEAD
 end
 
 function OnTest_isInPlayerInventory(item)
@@ -167,6 +166,4 @@ function OnTest_isInPlayerInventory(item)
 		return false 
 	end
 	
-=======
->>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 end

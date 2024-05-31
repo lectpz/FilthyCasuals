@@ -19,11 +19,7 @@ module SoulForge {
 		destroy ContainerSoulsDisposable,
 		AnimNode:Loot,
 		Prop1: Source=1,
-<<<<<<< HEAD
 		Result:Base.brokenglass_1_0,
-=======
-		Result:Base.XCoin,
->>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 		RemoveResultItem:true,
 		Time:1000.0,
 		OnTest:OnTest_hasSoulCount,

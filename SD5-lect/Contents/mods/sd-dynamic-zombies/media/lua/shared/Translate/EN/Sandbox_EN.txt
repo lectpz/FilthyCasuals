@@ -40,12 +40,9 @@ Sandbox_EN = {
   Sandbox_SDRandomZombies_RavenCreek = "Raven Creek Sprinters % ",
   Sandbox_SDRandomZombies_RavenCreek_tooltip = "Percentage of Sprinters present in Raven Creek.",
 
-<<<<<<< HEAD
   Sandbox_SDRandomZombies_EerieIrvington = "Eerie Irvington Sprinters % ",
   Sandbox_SDRandomZombies_EerieIrvington_tooltip = "Percentage of Sprinters present in Eerie Irvington.",
 
-=======
->>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
   Sandbox_SDRandomZombies_EerieCapitol = "Eerie Capitol Sprinters % ",
   Sandbox_SDRandomZombies_EerieCapitol_tooltip = "Percentage of Sprinters present in Eerie Capitol.",
 

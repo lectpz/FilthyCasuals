@@ -89,10 +89,7 @@ function ISInventoryPane:onMouseDoubleClick(x, y)
 			elseif luautils.walkToContainer(item:getContainer(), self.player) then
 				local iFT = item:getFullType()
 				if item and iFT ~= "Base.WeaponCache" and  iFT ~= "Base.MechanicCache" and iFT ~= "Base.MetalworkCache" and iFT ~= "Base.MedicalCache" and iFT ~= "Base.AmmoCache" and iFT ~= 'Base.ArmorCachePatriot' and iFT ~= 'Base.ArmorCacheDefender' and iFT ~= 'Base.ArmorCacheVanguard' then --SD
-<<<<<<< HEAD
 					sendClientCommand(playerObj, "sdContainerSetLooted", "setHasBeenLooted", item:getContainer())
-=======
->>>>>>> 08a3ee505703ffe5f8115b56e066db775091aef4
 					ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), playerInv))
 				else
 					playerObj:Say("I should just open this here.")
