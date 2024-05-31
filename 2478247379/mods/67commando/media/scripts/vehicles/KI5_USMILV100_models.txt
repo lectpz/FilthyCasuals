@@ -1,0 +1,10 @@
+module USMIL
+{
+
+    model USMILSeat0WI
+    {
+        mesh    = vehicles/Objects_USMIL|USMILseat0WI,
+        texture = Vehicles/Objects_USMIL,
+        scale   = 0.6,
+    }
+}

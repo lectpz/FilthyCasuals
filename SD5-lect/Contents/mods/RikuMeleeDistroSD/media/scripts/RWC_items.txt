@@ -386,4 +386,37 @@ module Base
 		Time:500.0,
 		OnCreate:ArmorCacheVanguardSD,
 	}
+	
+	item SpiffoCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Spiffo Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache4,
+        WorldStaticModel        = cache4,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptySpiffoCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Spiffo Cache,
+        Icon                    = cache4,
+        WorldStaticModel        = cache4,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Spiffo Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy SpiffoCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptySpiffoCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:SpiffoCacheSD,
+	}
 }

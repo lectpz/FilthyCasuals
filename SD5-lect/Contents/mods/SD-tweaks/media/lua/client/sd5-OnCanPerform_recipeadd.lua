@@ -41,7 +41,7 @@ local function OnCanPerform_addtorecipe()
         return string.find(str:lower(), word:lower()) ~= nil
     end
 
-    local packWords = {"pack", "unpack", "put together", "split in"}
+    local packWords = {"pack", "unpack", "put together", "split in", "rope", "unrope"}
     local excludedWords = {"packet", "package", "pack of", "booster pack", "into a pack", "backpack", "from pack", "fanny pack"}  
 
     for i = 1, recipes:size() do

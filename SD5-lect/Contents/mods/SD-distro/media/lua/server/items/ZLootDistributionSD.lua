@@ -163,6 +163,16 @@ local function preDistributionMergeSD5()
 		table.insert(ProceduralDistributions.list[distribution].items, chance)
 	end
 ----------------------------------------------------------------------------------------		
+	local toyData = {
+		CrateToys = 0.01,
+		GigamartToys = 0.01,
+	}
+	
+	for distribution, chance in pairs(toyData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "SpiffoCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+	end
+----------------------------------------------------------------------------------------		
 end
 	
 Events.OnPreDistributionMerge.Add(preDistributionMergeSD5)
@@ -290,7 +300,7 @@ local function OnPostDistributionMergeSD5()
 	end
 
 	-- Set rolls to 1 for food containers
-	setRollValue(foodContainers, 1)
+	--setRollValue(foodContainers, 2)
 	-- Set rolls to 2 for gun/ammo/weapon containers
 	setRollValue(gunContainers, 2)
 	

@@ -1,0 +1,117 @@
+module Base
+{
+	/************************ Tires ************************/
+
+    item V100Tire2
+    {
+        Weight	=	15.0,
+        Type	=	Normal,
+        DisplayName	=	RunFlat Tire,
+        Icon	=	runflatTire,
+        MaxCapacity = 35,
+        ChanceToSpawnDamaged = 20,
+        WheelFriction = 1.6,
+        ConditionMax = 100,
+        ConditionLowerStandard = 0.10,
+        ConditionLowerOffroad = 0.12,
+        MechanicsItem = TRUE,
+        WorldStaticModel = RunFlatWI,
+    }
+
+	/************************ Doors ************************/
+
+	item FrontLeftV100Door2
+    {
+        Weight	=	14.9,
+        Type	=	Normal,
+        DisplayName	=	Commando Left Door,
+        Icon	=	door_flV100,
+        ChanceToSpawnDamaged = 20,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        WorldStaticModel = v100_door_flWI,
+    }
+
+	item FrontRightV100Door2
+    {
+        Weight	=	14.9,
+        Type	=	Normal,
+        DisplayName	=	Commando Right Door,
+        Icon	=	door_frV100,
+        ChanceToSpawnDamaged = 20,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        WorldStaticModel = v100_door_frWI,
+    }
+
+	item RearV100Door2
+    {
+        Weight	=	14.9,
+        Type	=	Normal,
+        DisplayName	=	Commando Rear Door,
+        Icon	=	door_rV100,
+        ChanceToSpawnDamaged = 20,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        WorldStaticModel = v100_door_rWI,
+    }
+
+	/************************ Windows ************************/
+
+
+    item V100Window2
+  {
+        Weight	=	3.0,
+        Type	=	Normal,
+        DisplayName	=	Commando Viewport,
+        Icon	=	viewportV100,
+        ChanceToSpawnDamaged = 20,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        WorldStaticModel = v100_viewportWI,
+    }
+
+    /************************ Hatches ************************/
+
+    item V100EngineDoor2
+    {
+        DisplayCategory = VehicleMaintenance,
+        Weight  =   15.0,
+        Type    =   Normal,
+        DisplayName =   Commando Hood,
+        Icon    =   hoodV100,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        WorldStaticModel = v100_hoodWI,
+    }
+
+    item V100ToolboxLid2
+    {
+        DisplayCategory = VehicleMaintenance,
+        Weight  =   15.0,
+        Type    =   Normal,
+        DisplayName =   Commando Toolbox Lid,
+        Icon    =   toolboxV100,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        WorldStaticModel = v100_toolboxWI,
+    }
+
+    /************************ Storage ************************/
+
+    item V100Toolbox2
+    {
+        DisplayCategory = VehicleMaintenance,
+        Weight  =   1.0,
+        Type    =   Normal,
+        DisplayName =   V100 Toolbox,
+        MaxCapacity = 15,
+        ConditionAffectsCapacity = false,
+        ConditionMax = 100,
+        ChanceToSpawnDamaged = 20,
+        MechanicsItem = TRUE,
+    }
+	
+}

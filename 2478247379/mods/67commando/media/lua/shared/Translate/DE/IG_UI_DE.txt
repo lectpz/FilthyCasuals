@@ -1,0 +1,6 @@
+IG_UI_DE = {
+	IGUI_VehicleName67commando = "'67 Cadillac Gage Commando",
+	IGUI_VehicleName67commandoT50 = "'67 Cadillac Gage Commando T50",
+	IGUI_VehicleName67commandoBurnt = "'67 Cadillac Gage Commando (ausgebrannt)",
+}
+

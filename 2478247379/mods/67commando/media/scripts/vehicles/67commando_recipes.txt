@@ -1,0 +1,59 @@
+module Base
+
+{
+
+	recipe Make Commando Viewport
+	{
+		keep Scalpel,
+		FrontWindow2=1,
+		SmallSheetMetal=2,
+
+		Result:V100Window2,
+		Time:450.0,
+		Category:V100,
+		SkillRequired:Mechanics=5,
+		Prop1:Scalpel,
+	}
+
+	recipe Make Commando Viewport 1
+	{
+		keep Scalpel,
+		RearWindow2=1,
+		SmallSheetMetal=2,
+
+		Result:V100Window2,
+		Time:450.0,
+		Category:V100,
+		SkillRequired:Mechanics=5,
+		Prop1:Scalpel,
+	}
+
+	recipe Make Commando Hood
+	{
+		BlowTorch=5,
+       	keep WeldingMask,
+		EngineDoor2=1,
+		SmallSheetMetal=1,
+
+		Result:V100EngineDoor2,
+		Time:750.0,
+		Category:V100,
+		SkillRequired:Mechanics=5,
+		OnGiveXP:Recipe.OnGiveXP.MetalWelding20,
+	}
+
+	recipe Make Commando ToolBox Lid
+	{
+		BlowTorch=5,
+       	keep WeldingMask,
+		TrunkDoor2=1,
+		SmallSheetMetal=1,
+
+		Result:V100ToolboxLid2,
+		Time:650.0,
+		Category:V100,
+		SkillRequired:Mechanics=5,
+		OnGiveXP:Recipe.OnGiveXP.MetalWelding20,
+	}
+
+}
