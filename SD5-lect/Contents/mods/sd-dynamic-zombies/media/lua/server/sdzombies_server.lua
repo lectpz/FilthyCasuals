@@ -310,7 +310,7 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
     -- see IsoZombie::resetForReuse and VirtualZombieManager::createRealZombieAlways for more info
     local shouldSkip = speedTypeVal == modData.SDspeed and cognitionVal == modData.SDcog and hearingVal ==
                            modData.SDhearing and crawlingVal == modData.SDcrawl and math.abs(squareXVal - modData.SDx) <=
-                           20 and math.abs(squareYVal - modData.SDy) <= 20
+                           50 and math.abs(squareYVal - modData.SDy) <= 50
 						   
 --lect
 	local zombieSprinterZoneValue = modData.SDSprinterZoneValue or nil --call the modData for sprinterzone % associated with the zombie, or nil if it doesn't exist. if it does exist, its because it was written at the end of updateZombie
@@ -319,12 +319,12 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
 --lect
     -- NOTE(belette) we check for square to avoid crash in Java engine postupdate calls later
     if shouldSkip or (not square) then
-        if zombieSprinterZoneValue and zombieSprinterZone then
-		
+	if zombieSprinterZoneValue and zombieSprinterZone then
 			if zombieSprinterZoneValue == SandboxVars.SDRandomZombies[zombieSprinterZone] then--lect
 				return true
 			end
 		end
+
     end
 
     local zid = zombieID(zombie)
@@ -469,13 +469,26 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
     return false
 end
 
+local zCounter = 0
+
+local function addEventUpdate()
+	Events.EveryOneMinute.Add(updateAllZombies)
+	--print("Events.EveryOneMinute.Add(updateAllZombies) executed!")
+end
+
+local function removeEventUpdate()
+	Events.EveryOneMinute.Remove(updateAllZombies)
+	--print("Events.EveryOneMinute.Remove(updateAllZombies) executed!")
+end
+
+--[[
 local tickFrequency = 10
 local lastTicks = {16, 16, 16, 16, 16}
 local lastTicksIdx = 1
 local last = getTimestampMs()
-local tickCount = 0
+local tickCount = 0]]
 local function updateAllZombies()
-    tickCount = tickCount + 1
+--[[tickCount = tickCount + 1
     if tickCount % tickFrequency ~= 1 then
         return
     end
@@ -498,34 +511,46 @@ local function updateAllZombies()
     local avgTickMs = sumTicks / totalTicks
     -- NOTE: needs to be at least 2 for modulo check to pass
     tickFrequency = math.max(2, math.ceil(SDZ_UPDATE_FREQUENTY / avgTickMs))
+]]
+	zCounter = zCounter + 1
+	--print("update zombie counter... " .. zCounter*5 .. " seconds passed!")
+	if zCounter >=2 then
+		removeEventUpdate() -- lect -- remove the event update, dont want this overlapping
+		--local startTime = getTimestampMs()
+		local zs = getCell():getZombieList()
+		local sz = zs:size()
 
-    local zs = getCell():getZombieList()
-    local sz = zs:size()
-
-    -- Lib.time("update_" .. sz, function ()
-    local distribution = Lib.makeDistribution()
-    local bob = IsoZombie.new(nil)
-    local cognition = Lib.findField(bob, "public int zombie.characters.IsoZombie.cognition")
-    local speedType = Lib.findField(bob, "public int zombie.characters.IsoZombie.speedType")
-    local hearing = Lib.findField(bob, "public int zombie.characters.IsoZombie.hearing")
-    local client = isClient()
-    for i = 0, sz - 1 do
-        local z = zs:get(i)
-        if not (client and z:isRemoteZombie()) then
-            updateZombie(z, distribution, speedType, cognition, hearing)
-        end
-    end
-    -- end)
+		-- Lib.time("update_" .. sz, function ()
+		local distribution = Lib.makeDistribution()
+		local bob = IsoZombie.new(nil)
+		local cognition = Lib.findField(bob, "public int zombie.characters.IsoZombie.cognition")
+		local speedType = Lib.findField(bob, "public int zombie.characters.IsoZombie.speedType")
+		local hearing = Lib.findField(bob, "public int zombie.characters.IsoZombie.hearing")
+		local client = isClient()
+		for i = 0, sz - 1 do
+			local z = zs:get(i)
+			if not (client and z:isRemoteZombie()) then
+				updateZombie(z, distribution, speedType, cognition, hearing)
+			end
+		end
+		-- end)
+		--print("zombies updated! total zombies updated: " .. sz)
+		addEventUpdate() -- lect -- re-add event update after all zombies have been updated.
+		--local timeElapsed = getTimestampMs() - startTime
+		--print("It took " .. timeElapsed .. "ms to complete zombie update!")
+		zCounter = 0
+	end
 end
 
 function Lib.enable()
-    local prevTickMs = lastTicks[((lastTicksIdx + 3) % 5) + 1]
-    last = getTimestampMs() - prevTickMs * tickCount
-    Events.OnTick.Add(updateAllZombies)
+    --local prevTickMs = lastTicks[((lastTicksIdx + 3) % 5) + 1]
+    --last = getTimestampMs() - prevTickMs * tickCount
+    --Events.OnTick.Add(updateAllZombies)
 end
 
 function Lib.disable()
     Events.OnTick.Remove(updateAllZombies)
 end
 
-Lib.enable()
+--Lib.enable()
+Events.EveryOneMinute.Add(updateAllZombies)

@@ -10,13 +10,4 @@ module Base
 		DisplayName 		= Waystone,
 	}
 	
-	recipe Make Waystone
-	{
-		Log = 1,
-		Stone = 5,
-		RippedSheets = 10,
-		Result:PZwaystone,
-		Time:100.0
-	}
-
 }

@@ -25,6 +25,7 @@ function OnCanPerform_notAtCCshops()
 	local x2, y2 = 11384, 8932
 	
 	if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
+		player:setHaloNote("I cannot bulk pack or unpack items while inside the CC shop area.", 236, 131, 190, 50)
 		return false
 	else
 		return true
@@ -74,4 +75,4 @@ local function OnCanPerform_addtorecipe()
     print("Modified " .. modified .. " recipes to restrict OnCanPerform in " .. (endTime - startTime) .. "ms!")
 end
 
-Events.OnGameStart.Add(OnCanPerform_addtorecipe)
+--Events.OnGameStart.Add(OnCanPerform_addtorecipe)

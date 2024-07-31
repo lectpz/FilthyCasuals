@@ -42,4 +42,4 @@ local function yeet_recipes()
 	print("Yeeted "..yeeted.." recipes in "..(stop - start).."ms!")
 end
 
-Events.OnGameStart.Add(yeet_recipes)
+--Events.OnGameStart.Add(yeet_recipes)

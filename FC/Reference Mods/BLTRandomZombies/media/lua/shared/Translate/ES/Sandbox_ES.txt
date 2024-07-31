@@ -1,0 +1,30 @@
+Sandbox_ES = {
+  Sandbox_BLTRandomZombies = "Zombis Aleatorios",
+
+  Sandbox_BLTRandomZombies_Reptantes = "Reptantes% (velocidad)",
+  Sandbox_BLTRandomZombies_Reptantes_tooltip = "Porcentaje de Reptantes presentes en el mundo. Reptantes%, Tambaleantes%, TambaleantesVeloces% y Velocistas% deben sumar 100.",
+
+  Sandbox_BLTRandomZombies_Shambler = "Tambaleantes% (velocidad)",
+  Sandbox_BLTRandomZombies_Shambler_tooltip = "Porcentaje de Tambaleantes presentes en el mundo. Reptantes%, Tambaleantes%, TambaleantesVeloces% y Velocistas% deben sumar 100.",
+
+  Sandbox_BLTRandomZombies_FastShambler = "TambaleantesVeloces% (velocidad)",
+  Sandbox_BLTRandomZombies_FastShambler_tooltip = "Porcentaje de Tambaleantes Veloces presentes en el mundo. Reptantes%, Tambaleantes%, TambaleantesVeloces% y Velocistas% deben sumar 100.",
+
+  Sandbox_BLTRandomZombies_Sprinter = "Velocistas% (velocidad)",
+  Sandbox_BLTRandomZombies_Sprinter_tooltip = "Porcentaje de Velocistas presentes en el mundo. Reptantes%, Tambaleantes%, TambaleantesVeloces% y Velocistas% deben sumar 100.",
+
+  Sandbox_BLTRandomZombies_Fragile = "Débil% (fuerza)",
+  Sandbox_BLTRandomZombies_Fragile_tooltip = "Porcentaje de zombis Débiles presentes en el mundo. Débil%, Normal% y Superhumano% deben sumar 100.",
+
+  Sandbox_BLTRandomZombies_NormalTough = "Normal% (fuerza)",
+  Sandbox_BLTRandomZombies_NormalTough_tooltip = "Porcentaje de zombis Normales presentes en el mundo. Débil%, Normal% y Superhumano% deben sumar 100.",
+
+  Sandbox_BLTRandomZombies_Tough = "Superhumano% (fuerza)",
+  Sandbox_BLTRandomZombies_Tough_tooltip = "Porcentaje de zombis Super Humanos presentes en el mundo. Débil%, Normal% y Superhumano% deben sumar 100.",
+
+  Sandbox_BLTRandomZombies_Smart = "Inteligentes% (cerebroz)",
+  Sandbox_BLTRandomZombies_Smart_tooltip = "Porcentaje de zombis Inteligentes presentes en el mundo. Estos zombis pueden abrir puertas y más.",
+
+  Sandbox_BLTRandomZombies_Frequency = "[AVANZADO] Frequencia",
+  Sandbox_BLTRandomZombies_Frequency_tooltip = "[OPCIÓN AVANZADA] El intervalo en milisegundos entre dos actualizaciones. Más alto significa menos uso de CPU, un número más bajo siginifica errores de correción menores",
+}

@@ -1,0 +1,64 @@
+VERSION = 1,
+
+option BLTRandomZombies.Crawler
+{
+	type = double, min = 0, max = 100, default = 2,
+	page = BLTRandomZombies,
+	translation = BLTRandomZombies_Crawler,
+}
+
+option BLTRandomZombies.Shambler
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = BLTRandomZombies,
+	translation = BLTRandomZombies_Shambler,
+}
+
+option BLTRandomZombies.FastShambler
+{
+	type = double, min = 0, max = 100, default = 78,
+	page = BLTRandomZombies,
+	translation = BLTRandomZombies_FastShambler,
+}
+
+option BLTRandomZombies.Sprinter
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = BLTRandomZombies,
+	translation = BLTRandomZombies_Sprinter,
+}
+
+option BLTRandomZombies.Fragile
+{
+	type = double, min = 0, max = 100, default = 0,
+	page = BLTRandomZombies,
+	translation = BLTRandomZombies_Fragile,
+}
+
+option BLTRandomZombies.NormalTough
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = BLTRandomZombies,
+	translation = BLTRandomZombies_NormalTough,
+}
+
+option BLTRandomZombies.Tough
+{
+	type = double, min = 0, max = 100, default = 0,
+	page = BLTRandomZombies,
+	translation = BLTRandomZombies_Tough,
+}
+
+option BLTRandomZombies.Smart
+{
+	type = double, min = 0, max = 100, default = 0,
+	page = BLTRandomZombies,
+	translation = BLTRandomZombies_Smart,
+}
+
+option BLTRandomZombies.Frequency
+{
+	type = integer, min = 1000, max = 60000, default = 7500,
+	page = BLTRandomZombies,
+	translation = BLTRandomZombies_Frequency,
+}

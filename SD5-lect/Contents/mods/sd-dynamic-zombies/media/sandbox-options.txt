@@ -14,6 +14,20 @@ option SDRandomZombies.PinpointDefault
 	translation = SDRandomZombies_PinpointDefault,
 }
 
+option SDRandomZombies.EventZone
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_EventZone,
+}
+
+option SDRandomZombies.PinpointEventZone
+{
+	type = integer, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointEventZone,
+}
+
 option SDRandomZombies.LouisvillePD
 {
 	type = double, min = 0, max = 100, default = 25,
@@ -433,18 +447,4 @@ option SDRandomZombies.PinpointGrapeseed
 	type = integer, min = 0, max = 100, default = 5,
 	page = SDRandomZombies,
 	translation = SDRandomZombies_PinpointGrapeseed,
-}
-
-option SDRandomZombies.EventZone
-{
-	type = double, min = 0, max = 100, default = 5,
-	page = SDRandomZombies,
-	translation = SDRandomZombies_EventZone,
-}
-
-option SDRandomZombies.PinpointEventZone
-{
-	type = integer, min = 0, max = 100, default = 5,
-	page = SDRandomZombies,
-	translation = SDRandomZombies_PinpointEventZone,
 }

@@ -1,0 +1,30 @@
+Sandbox_RU = {
+  Sandbox_BLTRandomZombies = "Random Zombies",
+
+  Sandbox_BLTRandomZombies_Crawler = "Ползающие% (Скорость Зомби)",
+  Sandbox_BLTRandomZombies_Crawler_tooltip = "Процент ползающих зомби в мире. Этот и другие (Скорость Зомби) зомби должны в сумме составлять 100%.",
+
+  Sandbox_BLTRandomZombies_Shambler = "Еле волочащие ноги% (Скорость Зомби)",
+  Sandbox_BLTRandomZombies_Shambler_tooltip = "Процент еле волочащих ноги зомби в мире. Этот и другие (Скорость Зомби) зомби должны в сумме составлять 100%.",
+
+  Sandbox_BLTRandomZombies_FastShambler = "Быстро волочащие ноги% (Скорость Зомби)",
+  Sandbox_BLTRandomZombies_FastShambler_tooltip = "Процент быстро волочащих ноги зомби в мире. Этот и другие (Скорость Зомби) зомби должны в сумме составлять 100%.",
+
+  Sandbox_BLTRandomZombies_Sprinter = "Бегающие% (Скорость Зомби)",
+  Sandbox_BLTRandomZombies_Sprinter_tooltip = "Процент бегающих зомби в мире. Этот и другие (Скорость Зомби) зомби должны в сумме составлять 100%.",
+
+  Sandbox_BLTRandomZombies_Fragile = "Хрупкие% (Прочность)",
+  Sandbox_BLTRandomZombies_Fragile_tooltip = "Процент хрупких зомби в мире. Этот и другие (Прочность) зомби должны в сумме составлять 100%.",
+
+  Sandbox_BLTRandomZombies_NormalTough = "Нормальные (Прочность)",
+  Sandbox_BLTRandomZombies_NormalTough_tooltip = "Процент нормальных зомби в мире. Этот и другие (Прочность) зомби должны в сумме составлять 100%.",
+
+  Sandbox_BLTRandomZombies_Tough = "Крепкие (Прочность)",
+  Sandbox_BLTRandomZombies_Tough_tooltip = "Процент крепких зомби в мире. Этот и другие (Прочность) зомби должны в сумме составлять 100%.",
+
+  Sandbox_BLTRandomZombies_Smart = "Умные (Разум)",
+  Sandbox_BLTRandomZombies_Smart_tooltip = "Процент умных зомби в мире. Эти зомби могут открывать двери и умнее других.",
+
+  Sandbox_BLTRandomZombies_Frequency = "[ADVANCED] Частота обновления",
+  Sandbox_BLTRandomZombies_Frequency_tooltip = "[ADVANCED OPTION] Интервал в милисекундах между обновлениями зомби. Большее число означает меньшее использование ЦП.",
+}

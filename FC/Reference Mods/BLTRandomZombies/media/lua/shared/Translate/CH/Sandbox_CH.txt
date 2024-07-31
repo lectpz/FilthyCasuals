@@ -1,0 +1,30 @@
+Sandbox_CH = {
+  Sandbox_BLTRandomZombies = "隨機殭屍",
+
+  Sandbox_BLTRandomZombies_Crawler = "爬行仔% (速度)",
+  Sandbox_BLTRandomZombies_Crawler_tooltip = "遊戲中爬行仔的比例. 爬行仔, 蹣跚仔, 漫步仔, 衝刺仔的比例相加需為 100.",
+
+	Sandbox_BLTRandomZombies_Shambler = "蹣跚仔% (速度)",
+  Sandbox_BLTRandomZombies_Shambler_tooltip = "遊戲中蹣跚仔的比例. 爬行仔, 蹣跚仔, 漫步仔, 衝刺仔的比例相加需為 100.",
+
+	Sandbox_BLTRandomZombies_FastShambler = "漫步仔% (速度)",
+  Sandbox_BLTRandomZombies_FastShambler_tooltip = "遊戲中漫步仔的比例. 爬行仔, 蹣跚仔, 漫步仔, 衝刺仔的比例相加需為 100.",
+
+	Sandbox_BLTRandomZombies_Sprinter = "衝刺仔% (速度)",
+  Sandbox_BLTRandomZombies_Sprinter_tooltip = "遊戲中衝刺仔的比例. 爬行仔, 蹣跚仔, 漫步仔, 衝刺仔的比例相加需為 100.",
+
+	Sandbox_BLTRandomZombies_Fragile = "脆弱% (狀態)",
+  Sandbox_BLTRandomZombies_Fragile_tooltip = "遊戲中脆弱殭屍的比例. 脆弱, 普通, 強壯殭屍的比例相加需為 100.",
+
+	Sandbox_BLTRandomZombies_NormalTough = "普通% (狀態)",
+  Sandbox_BLTRandomZombies_NormalTough_tooltip = "遊戲中普通殭屍的比例. 脆弱, 普通, 強壯殭屍的比例相加需為 100.",
+
+	Sandbox_BLTRandomZombies_Tough = "強壯% (狀態)",
+  Sandbox_BLTRandomZombies_Tough_tooltip = "遊戲中強壯殭屍的比例. 脆弱, 普通, 強壯殭屍的比例相加需為 100.",
+
+	Sandbox_BLTRandomZombies_Smart = "聰明% (腦力)",
+  Sandbox_BLTRandomZombies_Smart_tooltip = "遊戲中聰明殭屍的比例. 聰明的殭屍具有包含開門在內的更多行為能力",
+
+  Sandbox_BLTRandomZombies_Frequency = "[進階] 頻率",
+  Sandbox_BLTRandomZombies_Frequency_tooltip = "[進階選項] 以毫秒為單位的更新週期. 數值越高則CPU使用率越低, 數值越低則錯誤發生率越低",
+}

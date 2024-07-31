@@ -39,4 +39,4 @@ local function eventCheck(character, handWeapon)
 	end
 end
 
-Events.OnWeaponSwing.Add(eventCheck)
+--Events.OnWeaponSwing.Add(eventCheck)

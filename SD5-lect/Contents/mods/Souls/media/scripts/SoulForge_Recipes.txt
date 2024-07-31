@@ -1,5 +1,16 @@
 module SoulForge {	
 
+	recipe Create Empty Soul Flask
+	{
+		CanBeDoneFromFloor:true,
+		Base.WhiskeyFull=3,
+		Base.LeatherStrips=10,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:EmptySoulFlaskWhite,
+		Time:500.0,
+	}
+
 	recipe Fill Soul Flask
 	{
 		CanBeDoneFromFloor:true,
@@ -131,7 +142,7 @@ module SoulForge {
 	recipe Create Tier 1 Soul Crystal
 	{
 		CanBeDoneFromFloor:false,
-		destroy RMWeapons.Thawk/RMWeapons.ScrapMace1/RMWeapons.TrenchShovel/RMWeapons.spikedleg/RMWeapons.beardedaxe/RMWeapons.IceAxe1/RMWeapons.PiroCraftKnife/RMWeapons.steinbeer/RMWeapons.bonkhammer/RMWeapons.club1/RMWeapons.MightCleaver/RMWeapons.tanto/RMWeapons.club2/RMWeapons.spear1,
+		destroy RMWeapons.PiroCraftKnife/RMWeapons.steinbeer/RMWeapons.club1/RMWeapons.bonkhammer/RMWeapons.MightCleaver/RMWeapons.club2/RMWeapons.spear1/RMWeapons.tanto/RMWeapons.ScrapMace1/RMWeapons.Thawk/RMWeapons.spikedleg/RMWeapons.TrenchShovel/RMWeapons.beardedaxe/RMWeapons.Golok/RMWeapons.FlangedMace/RMWeapons.glaive/RMWeapons.IceAxe1,
 		StoredSouls=100,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
@@ -146,8 +157,8 @@ module SoulForge {
 	recipe Create Tier 2 Soul Crystal
 	{
 		CanBeDoneFromFloor:false,
-		destroy RMWeapons.thunderbreaker/RMWeapons.hellokittyax/RMWeapons.FlangedMace/RMWeapons.Golok/RMWeapons.MeatHook/RMWeapons.glaive/RMWeapons.HeavyCleaver/RMWeapons.dagger1/RMWeapons.MagicMace/RMWeapons.ZombieTrimmer/RMWeapons.BrushAxe/RMWeapons.Falx/RMWeapons.Crimson1Sword/RMWeapons.MxScythe/RMWeapons.Dadao/RMWeapons.dragonpiercer/RMWeapons.VikingWarhammer/RMWeapons.warhammer/RMWeapons.SpikedClub1/RMWeapons.sword40k/RMWeapons.spinecrusher/RMWeapons.Slapper/RMWeapons.gnbat/RMWeapons.spikedsword/RMWeapons.CavSword,
-		StoredSouls=400,
+		destroy RMWeapons.SpikedClub1/RMWeapons.sword40k/RMWeapons.spinecrusher/RMWeapons.Slapper/RMWeapons.Crimson1Sword/RMWeapons.ZombieTrimmer/RMWeapons.MxScythe/RMWeapons.VikingWarhammer/RMWeapons.spikedsword/RMWeapons.CavSword/RMWeapons.MeatHook/RMWeapons.HeavyCleaver/RMWeapons.hellokittyax/RMWeapons.thunderbreaker/RMWeapons.dagger1/RMWeapons.MagicMace/RMWeapons.Falx/RMWeapons.Dadao/RMWeapons.BrushAxe/RMWeapons.kindness/RMWeapons.dragonpiercer/RMWeapons.warhammer,
+		StoredSouls=300,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		Prop2: Source=2,
@@ -161,8 +172,8 @@ module SoulForge {
 	recipe Create Tier 3 Soul Crystal
 	{
 		CanBeDoneFromFloor:false,
-		destroy RMWeapons.CrimsonLance/RMWeapons.JadeSword/RMWeapons.ArcSpear/RMWeapons.themauler/RMWeapons.Nikabo/RMWeapons.bassax/RMWeapons.LastHope/RMWeapons.bladebat/RMWeapons.sawbat1/RMWeapons.MorningStar/RMWeapons.waraxe/RMWeapons.steinsword/RMWeapons.CatnipCrusher,
-		StoredSouls=700,
+		destroy RMWeapons.LastHope/RMWeapons.MorningStar/RMWeapons.sawbat1/RMWeapons.gnbat/RMWeapons.bladebat/RMWeapons.waraxe/RMWeapons.RebarClub/RMWeapons.StarWand/RMWeapons.Shaxe/RMWeapons.FallenCross/RMWeapons.FuriosEppe/RMWeapons.BigBertha/RMWeapons.MoonlightGS/RMWeapons.steinsword/RMWeapons.CrimsonLance/RMWeapons.ArcSpear/RMWeapons.bassax/RMWeapons.JadeSword/RMWeapons.LanceofLonginus/RMWeapons.mace1/RMWeapons.StarWand/RMWeapons.BigBertha/RMWeapons.MoonlightGS,
+		StoredSouls=600,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		Prop2: Source=2,
@@ -176,7 +187,7 @@ module SoulForge {
 	recipe Create Tier 4 Soul Crystal
 	{
 		CanBeDoneFromFloor:false,
-		destroy RMWeapons.warhammer40k/RMWeapons.crabspear/RMWeapons.MizutsuneGlaive/RMWeapons.firelink/RMWeapons.MedSword/RMWeapons.NulBlade/RMWeapons.mace1/RMWeapons.CavAxe/RMWeapons.MizutsuneSword,
+		destroy RMWeapons.themauler/RMWeapons.Nikabo/RMWeapons.warhammer40k/RMWeapons.crabspear/RMWeapons.MizutsuneGlaive/RMWeapons.firelink/RMWeapons.MedSword/RMWeapons.NulBlade/RMWeapons.MizutsuneSword/RMWeapons.SealingStaff2/RMWeapons.DreamAxe/RMWeapons.CavAxe/RMWeapons.CatnipCrusher/RMWeapons.PochitaSword/RMWeapons.RefudClaws,
 		StoredSouls=1000,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
@@ -188,4 +199,76 @@ module SoulForge {
 		Time:1000.0,
 	}
 	
+	recipe Fuse Tier 2 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		SoulCrystalT1=5,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT2,
+		Time:1000.0,
+	}
+	
+	recipe Fuse Tier 3 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		SoulCrystalT2=4,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT3,
+		Time:1000.0,
+	}
+	
+	recipe Fuse Tier 4 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		SoulCrystalT3=3,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT4,
+		Time:1000.0,
+	}
+	
+	recipe Reroll Tier 3 Weapons
+	{
+		CanBeDoneFromFloor:false,
+		destroy RMWeapons.LastHope/RMWeapons.MorningStar/RMWeapons.sawbat1/RMWeapons.gnbat/RMWeapons.bladebat/RMWeapons.waraxe/RMWeapons.RebarClub/RMWeapons.StarWand/RMWeapons.Shaxe/RMWeapons.FallenCross/RMWeapons.FuriosEppe/RMWeapons.BigBertha/RMWeapons.MoonlightGS/RMWeapons.steinsword/RMWeapons.CrimsonLance/RMWeapons.ArcSpear/RMWeapons.bassax/RMWeapons.JadeSword/RMWeapons.LanceofLonginus/RMWeapons.mace1/RMWeapons.StarWand/RMWeapons.BigBertha/RMWeapons.MoonlightGS,
+		SoulCrystalT3=4,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		Prop2: Source=2,
+		OnTest:OnTest_dontDestroySouls,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT3,
+		RemoveResultItem:true,
+		Time:1000.0,
+		OnCreate:OnCreate_RerollT3,
+	}
+	
+	recipe Reroll Tier 4 Weapons
+	{
+		CanBeDoneFromFloor:false,
+		destroy RMWeapons.themauler/RMWeapons.Nikabo/RMWeapons.warhammer40k/RMWeapons.crabspear/RMWeapons.MizutsuneGlaive/RMWeapons.firelink/RMWeapons.MedSword/RMWeapons.NulBlade/RMWeapons.MizutsuneSword/RMWeapons.SealingStaff2/RMWeapons.DreamAxe/RMWeapons.CavAxe,
+		SoulCrystalT4=3,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		Prop2: Source=2,
+		OnTest:OnTest_dontDestroySouls,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT4,
+		RemoveResultItem:true,
+		Time:1000.0,
+		OnCreate:OnCreate_RerollT4,
+	}
 }

@@ -1,6 +1,9 @@
 Sandbox_EN = {
 	Sandbox_PZwaystonepanel = "Waystone",
 
+	Sandbox_PZwaystonepanel_enableTeleport = "Enable to Allow Players to use Teleport button",
+	Sandbox_PZwaystonepanel_enableTeleport_tooltip = "Check to enable, uncheck to disable",
+
 	Sandbox_PZwaystonepanel_Xcoord = "X-coordinate for Event Waystone",
 	Sandbox_PZwaystonepanel_Xcoord_tooltip = "e.g. 19650",
 

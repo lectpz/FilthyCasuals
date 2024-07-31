@@ -29,7 +29,7 @@ function ISRemoveBurntVehicle:perform()
 		if self:checkAddItem("SmallSheetMetal", 15) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("SmallSheetMetal", 15) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("SmallSheetMetal", 15) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining
---		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining

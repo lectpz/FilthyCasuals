@@ -4,7 +4,8 @@ module SoulForge {
 	{
 		DisplayCategory 	= 	SoulForge,
 		Weight 				= 	1.0,
-		Type 				= 	Normal,
+		Type 				= 	Drainable,
+		UseDelta 			=	0.25,
 		DisplayName 		= 	Laceration Binding,
 		Icon 				= 	BandageYellow,
 		StaticModel 		=	BandageYellow,
@@ -15,7 +16,8 @@ module SoulForge {
 	{
 		DisplayCategory 	= 	SoulForge,
 		Weight 				= 	1.0,
-		Type 				= 	Normal,
+		Type 				= 	Drainable,
+		UseDelta 			=	0.5,
 		DisplayName 		= 	Deep Wound Binding,
 		Icon 				= 	BandageOrange,
 		StaticModel 		=	BandageOrange,
@@ -26,7 +28,8 @@ module SoulForge {
 	{
 		DisplayCategory 	= 	SoulForge,
 		Weight 				= 	1.0,
-		Type 				= 	Normal,
+		Type 				= 	Drainable,
+		UseDelta 			=	0.5,
 		DisplayName 		= 	Bite Binding,
 		Icon 				= 	BandageRed,
 		StaticModel 		=	BandageRed,
@@ -37,7 +40,8 @@ module SoulForge {
 	{
 		DisplayCategory 	= 	SoulForge,
 		Weight 				= 	1.0,
-		Type 				= 	Normal,
+		Type 				= 	Drainable,
+		UseDelta 			=	0.5,
 		DisplayName 		= 	Fracture Binding,
 		Icon 				= 	BandageBlack,
 		StaticModel 		=	BandageBlack,
@@ -48,7 +52,8 @@ module SoulForge {
 	{
 		DisplayCategory 	= 	SoulForge,
 		Weight 				= 	1.0,
-		Type 				= 	Normal,
+		Type 				= 	Drainable,
+		UseDelta 			=	0.5,
 		DisplayName 		= 	Burn Binding,
 		Icon 				= 	BandageGreen,
 		StaticModel 		=	BandageGreen,

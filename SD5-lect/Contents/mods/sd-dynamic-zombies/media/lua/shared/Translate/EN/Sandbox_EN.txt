@@ -1,6 +1,12 @@
 Sandbox_EN = {
   Sandbox_SDRandomZombies = "Sunday Drivers Sprinters",
 
+  Sandbox_SDRandomZombies_EventZone = "Event Zone Sprinters % ",
+  Sandbox_SDRandomZombies_EventZone_tooltip = "Percentage of Sprinters present at Event Zone.",
+  
+  Sandbox_SDRandomZombies_PinpointEventZone = "Event Zone Pinpoint % ",
+  Sandbox_SDRandomZombies_PinpointEventZone_tooltip = "Pinpoint % at Event Zone.",
+
   Sandbox_SDRandomZombies_Default = "Default Sprinters % ",
   Sandbox_SDRandomZombies_Default_tooltip = "Percentage of Sprinters present in the world.",
 
@@ -94,9 +100,6 @@ Sandbox_EN = {
   Sandbox_SDRandomZombies_CC = "Community Center Sprinters % ",
   Sandbox_SDRandomZombies_CC_tooltip = "Percentage of Sprinters present at Main Community Center.",
 
-  Sandbox_SDRandomZombies_EventZone = "Event Zone Sprinters % ",
-  Sandbox_SDRandomZombies_EventZone_tooltip = "Percentage of Sprinters present at Event Zone.",
-
 
   Sandbox_SDRandomZombies_PinpointDefault = "Default Pinpoint % ",
   Sandbox_SDRandomZombies_PinpointDefault_tooltip = "Percentage of zombies with pinpoint hearing in the world.",
@@ -176,6 +179,5 @@ Sandbox_EN = {
   Sandbox_SDRandomZombies_PinpointCC = "Community Center Pinpoint % ",
   Sandbox_SDRandomZombies_PinpointCC_tooltip = "Pinpoint % at Main Community Center.",
   
-  Sandbox_SDRandomZombies_PinpointEventZone = "Event Zone Pinpoint % ",
-  Sandbox_SDRandomZombies_PinpointEventZone_tooltip = "Pinpoint % at Event Zone.",
+
 }
