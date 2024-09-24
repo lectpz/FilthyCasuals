@@ -61,6 +61,7 @@ local function SDOnWeaponSwing(character, handWeapon)
 	local localdmgmulti, localcritrate, localcritmulti = tierdmgmod[tierzone], tiercritratemod[tierzone], tiercritmultimod[tierzone]
 	
 	local inventoryItem = handWeapon
+	local scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
 	local modData = inventoryItem:getModData()
 	
 	if tierzone and not handWeapon:isRanged() then
@@ -137,6 +138,7 @@ Events.OnWeaponSwing.Add(SDOnWeaponSwing)
 
 local function SDWeaponCheck(character, inventoryItem)
 	if inventoryItem == nil then return end
+	local scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
 	
 	local tierzone = checkZone()
 	
