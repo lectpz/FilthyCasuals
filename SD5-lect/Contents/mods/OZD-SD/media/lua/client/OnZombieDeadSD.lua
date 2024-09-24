@@ -18,7 +18,7 @@ local function splitString(sandboxvar, delimiter)
 end
 
 
-function OnZombieDeadItemDrop(zombie)
+local function OnZombieDeadItemDrop(zombie)
 	player = getSpecificPlayer(0)
 	--player:Say("OZD TEST")
 	

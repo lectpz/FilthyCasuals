@@ -310,7 +310,7 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
     -- see IsoZombie::resetForReuse and VirtualZombieManager::createRealZombieAlways for more info
     local shouldSkip = speedTypeVal == modData.SDspeed and cognitionVal == modData.SDcog and hearingVal ==
                            modData.SDhearing and crawlingVal == modData.SDcrawl and math.abs(squareXVal - modData.SDx) <=
-                           20 and math.abs(squareYVal - modData.SDy) <= 20
+                           50 and math.abs(squareYVal - modData.SDy) <= 50
 						   
 --lect
 	local zombieSprinterZoneValue = modData.SDSprinterZoneValue or nil --call the modData for sprinterzone % associated with the zombie, or nil if it doesn't exist. if it does exist, its because it was written at the end of updateZombie
@@ -319,12 +319,12 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
 --lect
     -- NOTE(belette) we check for square to avoid crash in Java engine postupdate calls later
     if shouldSkip or (not square) then
-        if zombieSprinterZoneValue and zombieSprinterZone then
-		
+	if zombieSprinterZoneValue and zombieSprinterZone then
 			if zombieSprinterZoneValue == SandboxVars.SDRandomZombies[zombieSprinterZone] then--lect
 				return true
 			end
 		end
+
     end
 
     local zid = zombieID(zombie)
@@ -345,8 +345,14 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
 		--distributionHearing = 100 * SandboxVars.SDRandomZombies.PinpointEventZone
 		distributionLocal, distributionHearing, distributionZone = SDDistribution("EventZone")
     --elseif SDSprinterZoneCheck("Louisville") then
+	
+	elseif squareXVal >= Coords["LouisvillePD"].x1 and squareYVal >= Coords["LouisvillePD"].y1 and squareXVal < Coords["LouisvillePD"].x2 and squareYVal < Coords["LouisvillePD"].y2 then
+        distributionLocal, distributionHearing, distributionZone = SDDistribution("LouisvillePD")
+	elseif squareXVal >= Coords["LouisvilleMallArea"].x1 and squareYVal >= Coords["LouisvilleMallArea"].y1 and squareXVal < Coords["LouisvilleMallArea"].x2 and squareYVal < Coords["LouisvilleMallArea"].y2 then
+        distributionLocal, distributionHearing, distributionZone = SDDistribution("LouisvilleMallArea")
 	elseif squareXVal >= Coords["Louisville"].x1 and squareYVal >= Coords["Louisville"].y1 and squareXVal < Coords["Louisville"].x2 and squareYVal < Coords["Louisville"].y2 then
         distributionLocal, distributionHearing, distributionZone = SDDistribution("Louisville")
+		
     --elseif SDSprinterZoneCheck("CC") then
 	elseif squareXVal >= Coords["CC"].x1 and squareYVal >= Coords["CC"].y1 and squareXVal < Coords["CC"].x2 and squareYVal < Coords["CC"].y2 then
         distributionLocal, distributionHearing, distributionZone = SDDistribution("CC")
@@ -390,9 +396,15 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
 	elseif squareXVal >= Coords["Grapeseed"].x1 and squareYVal >= Coords["Grapeseed"].y1 and squareXVal < Coords["Grapeseed"].x2 and squareYVal < Coords["Grapeseed"].y2 then
         distributionLocal, distributionHearing, distributionZone = SDDistribution("Grapeseed")
 	--elseif SDSprinterZoneCheck("RavenCreek") then
+	
+	elseif squareXVal >= Coords["RavenCreekPDMilitaryHospital"].x1 and squareYVal >= Coords["RavenCreekPDMilitaryHospital"].y1 and squareXVal < Coords["RavenCreekPDMilitaryHospital"].x2 and squareYVal < Coords["RavenCreekPDMilitaryHospital"].y2 then
+        distributionLocal, distributionHearing, distributionZone = SDDistribution("RavenCreekPDMilitaryHospital")
 	elseif squareXVal >= Coords["RavenCreek"].x1 and squareYVal >= Coords["RavenCreek"].y1 and squareXVal < Coords["RavenCreek"].x2 and squareYVal < Coords["RavenCreek"].y2 then
         distributionLocal, distributionHearing, distributionZone = SDDistribution("RavenCreek")
 	--elseif SDSprinterZoneCheck("EeriePowerPlant") then
+	
+	elseif squareXVal >= Coords["EerieIrvington"].x1 and squareYVal >= Coords["EerieIrvington"].y1 and squareXVal < Coords["EerieIrvington"].x2 and squareYVal < Coords["EerieIrvington"].y2 then
+        distributionLocal, distributionHearing, distributionZone = SDDistribution("EerieIrvington")
 	elseif squareXVal >= Coords["EerieCapitol"].x1 and squareYVal >= Coords["EerieCapitol"].y1 and squareXVal < Coords["EerieCapitol"].x2 and squareYVal < Coords["EerieCapitol"].y2 then
         distributionLocal, distributionHearing, distributionZone = SDDistribution("EerieCapitol")
 	elseif squareXVal >= Coords["EeriePowerPlant"].x1 and squareYVal >= Coords["EeriePowerPlant"].y1 and squareXVal < Coords["EeriePowerPlant"].x2 and squareYVal < Coords["EeriePowerPlant"].y2 then
@@ -404,11 +416,16 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
 	elseif squareXVal >= Coords["EerieCountry"].x1 and squareYVal >= Coords["EerieCountry"].y1 and squareXVal < Coords["EerieCountry"].x2 and squareYVal < Coords["EerieCountry"].y2 then
         distributionLocal, distributionHearing, distributionZone = SDDistribution("EerieCountry")
 	--elseif SDSprinterZoneCheck("BigBearLake") then
+	
+	elseif squareXVal >= Coords["BigBearLakeWest"].x1 and squareYVal >= Coords["BigBearLakeWest"].y1 and squareXVal < Coords["BigBearLakeWest"].x2 and squareYVal < Coords["BigBearLakeWest"].y2 then
+        distributionLocal, distributionHearing, distributionZone = SDDistribution("BigBearLakeWest")
 	elseif squareXVal >= Coords["BigBearLake"].x1 and squareYVal >= Coords["BigBearLake"].y1 and squareXVal < Coords["BigBearLake"].x2 and squareYVal < Coords["BigBearLake"].y2 then
         distributionLocal, distributionHearing, distributionZone = SDDistribution("BigBearLake")
+		
 	--elseif SDSprinterZoneCheck("Chestown") then
 	elseif squareXVal >= Coords["Chestown"].x1 and squareYVal >= Coords["Chestown"].y1 and squareXVal < Coords["Chestown"].x2 and squareYVal < Coords["Chestown"].y2 then
         distributionLocal, distributionHearing, distributionZone = SDDistribution("Chestown")
+		
 	--elseif SDSprinterZoneCheck("LCBunker") then
 	elseif squareXVal >= Coords["LCBunker"].x1 and squareYVal >= Coords["LCBunker"].y1 and squareXVal < Coords["LCBunker"].x2 and squareYVal < Coords["LCBunker"].y2 then
         distributionLocal, distributionHearing, distributionZone = SDDistribution("LCBunker")
@@ -418,6 +435,7 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
 	--elseif SDSprinterZoneCheck("LC") then
 	elseif squareXVal >= Coords["LC"].x1 and squareYVal >= Coords["LC"].y1 and squareXVal < Coords["LC"].x2 and squareYVal < Coords["LC"].y2 then
         distributionLocal, distributionHearing, distributionZone = SDDistribution("LC")
+		
     else
         --distributionLocal = 100 * SandboxVars.SDRandomZombies.Default
         --distributionHearing = 100 * SandboxVars.SDRandomZombies.PinpointDefault
@@ -451,13 +469,26 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
     return false
 end
 
+local zCounter = 0
+
+local function addEventUpdate()
+	Events.EveryOneMinute.Add(updateAllZombies)
+	--print("Events.EveryOneMinute.Add(updateAllZombies) executed!")
+end
+
+local function removeEventUpdate()
+	Events.EveryOneMinute.Remove(updateAllZombies)
+	--print("Events.EveryOneMinute.Remove(updateAllZombies) executed!")
+end
+
+--[[
 local tickFrequency = 10
 local lastTicks = {16, 16, 16, 16, 16}
 local lastTicksIdx = 1
 local last = getTimestampMs()
-local tickCount = 0
+local tickCount = 0]]
 local function updateAllZombies()
-    tickCount = tickCount + 1
+--[[tickCount = tickCount + 1
     if tickCount % tickFrequency ~= 1 then
         return
     end
@@ -480,34 +511,46 @@ local function updateAllZombies()
     local avgTickMs = sumTicks / totalTicks
     -- NOTE: needs to be at least 2 for modulo check to pass
     tickFrequency = math.max(2, math.ceil(SDZ_UPDATE_FREQUENTY / avgTickMs))
+]]
+	zCounter = zCounter + 1
+	--print("update zombie counter... " .. zCounter*5 .. " seconds passed!")
+	if zCounter >=2 then
+		removeEventUpdate() -- lect -- remove the event update, dont want this overlapping
+		--local startTime = getTimestampMs()
+		local zs = getCell():getZombieList()
+		local sz = zs:size()
 
-    local zs = getCell():getZombieList()
-    local sz = zs:size()
-
-    -- Lib.time("update_" .. sz, function ()
-    local distribution = Lib.makeDistribution()
-    local bob = IsoZombie.new(nil)
-    local cognition = Lib.findField(bob, "public int zombie.characters.IsoZombie.cognition")
-    local speedType = Lib.findField(bob, "public int zombie.characters.IsoZombie.speedType")
-    local hearing = Lib.findField(bob, "public int zombie.characters.IsoZombie.hearing")
-    local client = isClient()
-    for i = 0, sz - 1 do
-        local z = zs:get(i)
-        if not (client and z:isRemoteZombie()) then
-            updateZombie(z, distribution, speedType, cognition, hearing)
-        end
-    end
-    -- end)
+		-- Lib.time("update_" .. sz, function ()
+		local distribution = Lib.makeDistribution()
+		local bob = IsoZombie.new(nil)
+		local cognition = Lib.findField(bob, "public int zombie.characters.IsoZombie.cognition")
+		local speedType = Lib.findField(bob, "public int zombie.characters.IsoZombie.speedType")
+		local hearing = Lib.findField(bob, "public int zombie.characters.IsoZombie.hearing")
+		local client = isClient()
+		for i = 0, sz - 1 do
+			local z = zs:get(i)
+			if not (client and z:isRemoteZombie()) then
+				updateZombie(z, distribution, speedType, cognition, hearing)
+			end
+		end
+		-- end)
+		--print("zombies updated! total zombies updated: " .. sz)
+		addEventUpdate() -- lect -- re-add event update after all zombies have been updated.
+		--local timeElapsed = getTimestampMs() - startTime
+		--print("It took " .. timeElapsed .. "ms to complete zombie update!")
+		zCounter = 0
+	end
 end
 
 function Lib.enable()
-    local prevTickMs = lastTicks[((lastTicksIdx + 3) % 5) + 1]
-    last = getTimestampMs() - prevTickMs * tickCount
-    Events.OnTick.Add(updateAllZombies)
+    --local prevTickMs = lastTicks[((lastTicksIdx + 3) % 5) + 1]
+    --last = getTimestampMs() - prevTickMs * tickCount
+    --Events.OnTick.Add(updateAllZombies)
 end
 
 function Lib.disable()
     Events.OnTick.Remove(updateAllZombies)
 end
 
-Lib.enable()
+--Lib.enable()
+Events.EveryOneMinute.Add(updateAllZombies)

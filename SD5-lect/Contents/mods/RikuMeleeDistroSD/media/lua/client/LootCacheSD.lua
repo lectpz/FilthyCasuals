@@ -201,9 +201,9 @@ function MedicalCacheSD(items, result, player)
 -- tiered rolling, checks zone and adds item
 	local zonetier, zonename, x, y = checkZone()
 	
-	local medicalitems = splitString("CDCRR.Zedalis CDCRR.Zomboflex CDCRR.Bitezapro CDCRR.Salivix CDCRR.Viazom CDCRR.Fevarax CDCRR.Humanox CanteenAndBottles.GymBottleSpiffoade SapphCooking.ThermosCoffee CanteenAndBottles.MedicinalCanteenGreenWhiteSerum CanteenAndBottles.MedicinalCanteenWhiteGreenSerum")
+	local medicalitems = splitString("CDCRR.Zedalis CDCRR.Zomboflex CDCRR.Bitezapro CDCRR.Salivix CDCRR.Viazom CDCRR.Fevarax CDCRR.Humanox CanteensAndBottles.GymBottleSpiffoade SapphCooking.ThermosCoffee CanteensAndBottles.MedicinalCanteenGreenWhiteSerum CanteensAndBottles.MedicinalCanteenWhiteGreenSerum")
 		
-	local zoneroll = 7-zonetier
+	local zoneroll = 9-zonetier
 
 	args = {
 	  player_name = getOnlineUsername(),
@@ -215,23 +215,23 @@ function MedicalCacheSD(items, result, player)
 	}
 	
 	if zonetier == 4 then
-		randomrollSD((zoneroll+2), "CDCRR.CDCRedAirdrop")
-		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
-		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD((zoneroll+3), "CDCRR.CDCRedAirdrop")
+		randomrollSD(zoneroll+2, "CDCRR.CDCOrangeAirdrop")
+		randomrollSD(zoneroll+1, "CDCRR.CDCYellowAirdrop")
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 	elseif zonetier == 3 then
 		randomrollSD((zoneroll+4), "CDCRR.CDCRedAirdrop")
-		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
-		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD(zoneroll+3, "CDCRR.CDCOrangeAirdrop")
+		randomrollSD(zoneroll+2, "CDCRR.CDCYellowAirdrop")
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 	elseif zonetier == 2 then
-		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
-		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD(zoneroll+3, "CDCRR.CDCOrangeAirdrop")
+		randomrollSD(zoneroll+2, "CDCRR.CDCYellowAirdrop")
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 	elseif zonetier == 1 then
@@ -291,7 +291,7 @@ function ArmorCachePatriotSD(items, result, player)
 -- tiered rolling, checks zone and adds item
 	local zonetier, zonename, x, y = checkZone()
 	
-	local zoneroll = 6-zonetier
+	local zoneroll = 7-zonetier
 
 	args = {
 	  player_name = getOnlineUsername(),
@@ -328,7 +328,7 @@ function ArmorCacheDefenderSD(items, result, player)
 -- tiered rolling, checks zone and adds item
 	local zonetier, zonename, x, y = checkZone()
 	
-	local zoneroll = 6-zonetier
+	local zoneroll = 7-zonetier
 
 	args = {
 	  player_name = getOnlineUsername(),
@@ -365,7 +365,7 @@ function ArmorCacheVanguardSD(items, result, player)
 -- tiered rolling, checks zone and adds item
 	local zonetier, zonename, x, y = checkZone()
 	
-	local zoneroll = 6-zonetier
+	local zoneroll = 7-zonetier
 
 	args = {
 	  player_name = getOnlineUsername(),
@@ -394,5 +394,223 @@ function ArmorCacheVanguardSD(items, result, player)
 	elseif zonetier == 1 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 	end
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+end
+
+local function addSpiffoToPlayer(loot, itemname)
+	getSpecificPlayer(0):getInventory():AddItem("Moveables.Moveable"):ReadFromWorldSprite(loot)
+	addToArgs(loot, 1, itemname)
+end
+
+local SpiffoTable = {
+	"00ATOX-Spiffos_0", 
+	"00ATOX-Spiffos_1", 
+	"00ATOX-Spiffos_2", 
+	"00ATOX-Spiffos_3", 
+	"00ATOX-Spiffos_4", 
+	"00ATOX-Spiffos_5", 
+	"00ATOX-Spiffos_6", 
+	"00ATOX-Spiffos_7", 
+	"00ATOX-Spiffos_8", 
+	"00ATOX-Spiffos_9", 
+	"00ATOX-Spiffos_10", 
+	"00ATOX-Spiffos_11", 
+	"00ATOX-Spiffos_12", 
+	"00ATOX-Spiffos_13", 
+	"00ATOX-Spiffos_14", 
+	"00ATOX-Spiffos_15", 
+	"00ATOX-Spiffos_16", 
+	"00ATOX-Spiffos_17", 
+	"00ATOX-Spiffos_18", 
+	"00ATOX-Spiffos_19", 
+	"00ATOX-Spiffos_20", 
+	"00ATOX-Spiffos_21", 
+	"00ATOX-Spiffos_22", 
+	"00ATOX-Spiffos_23", 
+	"00ATOX-Spiffos_24", 
+	"00ATOX-Spiffos_25", 
+	"00ATOX-Spiffos_26", 
+	"00ATOX-Spiffos_27", 
+	"00ATOX-Spiffos_28", 
+	"00ATOX-Spiffos_29", 
+	"00ATOX-Spiffos_30", 
+	"00ATOX-Spiffos_31", 
+	"00ATOX-Spiffos_32", 
+	"00ATOX-Spiffos_33", 
+	"00ATOX-Spiffos_34", 
+}
+
+local SpiffoName = {
+	"Vader Spiffo",
+	"UUee Spiffo",
+	"Freddy Krueger Spiffo",
+	"Batman Spiffo",
+	"Swamp Monster Spiffo",
+	"Dross 2 Spiffo",
+	"Dross 1 Spiffo",
+	"Frankenstein Spiffo",
+	"Kiss Spiffo",
+	"Heisenberg Spiffo",
+	"Bandaged Spiffo",
+	"Hunter S. Thompson Spiffo",
+	"Jaison Spiffo",
+	"Wolf Spiffo",
+	"Doctor Spiffo",
+	"Military Spiffo",
+	"Mummy Spiffo",
+	"Nerd Spiffo",
+	"Patch Spiffo",
+	"Chemical Spiffo",
+	"King Spiffo",
+	"Billionare Spiffo",
+	"Terminator Spiffo",
+	"Tio Sam - I want you Spiffo",
+	"Builder Spiffo",
+	"Dracula Spiffo",
+	"Zombie Spiffo",
+	"Bomb Spiffo",
+	"Ash Spiffo",
+	"Ripped Spiffo",
+	"Lincoln Spiffo",
+	"Alien Spiffo",
+	"Oktoberfest Spiffo",
+	"Speaking Spiffo",
+	"Lumberjack Spiffo",
+}
+
+function SpiffoCacheSD(items, result, player)
+
+	local zonetier, zonename, x, y = checkZone()
+	
+	local zoneroll = 5-zonetier
+
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Spiffo Cache",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+	
+	local randomnumber = ZombRand(#SpiffoTable)+1
+	local loot = SpiffoTable[randomnumber]
+	local itemname = SpiffoName[randomnumber]
+	
+	if zonetier == 4 then
+		addSpiffoToPlayer(loot, itemname)
+		addItemToPlayer("CanteensAndBottles.GymBottleSpiffoade")
+	elseif zonetier == 3 then
+		if ZombRand(zoneroll) == 0 then
+			addSpiffoToPlayer(loot, itemname)
+			randomrollSD(zoneroll, "CanteensAndBottles.GymBottleSpiffoade")
+		else
+			addItemToPlayer("Base.SpiffoBig")
+			randomrollSD(zoneroll, "CanteensAndBottles.GymBottleSpiffoade")
+		end
+	elseif zonetier == 2 then
+		if ZombRand(zoneroll) == 0 then
+			addSpiffoToPlayer(loot, itemname)
+			randomrollSD(zoneroll, "CanteensAndBottles.GymBottleSpiffoade")
+		else
+			addItemToPlayer("Base.Spiffo")
+			randomrollSD(zoneroll, "CanteensAndBottles.GymBottleSpiffoade")
+		end
+	elseif zonetier == 1 then
+		if ZombRand(zoneroll) == 0 then
+			addSpiffoToPlayer(loot, itemname)
+			randomrollSD(zoneroll, "CanteensAndBottles.GymBottleSpiffoade")
+		else
+			addItemToPlayer("Base.Spiffo")
+			randomrollSD(zoneroll, "CanteensAndBottles.GymBottleSpiffoade")
+		end
+	end
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+end
+
+function EventSpiffoCacheSD(items, result, player)
+	
+	local zonetier, zonename, x, y = checkZone()
+	
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Spiffo Cache",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+
+	local randomnumber = ZombRand(#SpiffoTable)+1
+	local loot = SpiffoTable[randomnumber]
+	local itemname = SpiffoName[randomnumber]
+
+	addSpiffoToPlayer(loot, itemname)
+	addItemToPlayer("CanteensAndBottles.GymBottleSpiffoade")
+	
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+end
+
+local function addPokemonTileToPlayer(loot, itemname)
+	getSpecificPlayer(0):getInventory():AddItem("Moveables.Moveable"):ReadFromWorldSprite(loot)
+	addToArgs(loot, 1, itemname)
+end
+
+function PokemonCachePremiumSD(items, result, player)
+	
+	local zonetier, zonename, x, y = checkZone()
+	
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Pokemon Cache Premium",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+	
+	local startno = 280
+	local endno = 431 --432 to 583 gives shinies
+	
+	local randompokemon = ZombRand(endno - startno + 1) + startno
+	local loot = "Aza_01_" .. randompokemon
+	addPokemonTileToPlayer(loot, loot)
+	
+--	for i = startno, endno do
+--		local loot = "Aza_01_" .. i
+--		addPokemonTileToPlayer(loot, loot)
+--	end
+	
+	randompokemon = ZombRand(endno - startno + 1) + startno
+	loot = "Aza_01_" .. randompokemon
+	addPokemonTileToPlayer(loot, loot)
+	
+	randompokemon = ZombRand(endno - startno + 1) + startno
+	loot = "Aza_01_" .. randompokemon
+	addPokemonTileToPlayer(loot, loot)
+	
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+end
+
+function PokemonCacheRegularSD(items, result, player)
+	
+	local zonetier, zonename, x, y = checkZone()
+	
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Pokemon Cache Regular",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+	
+	local startno = 280
+	local endno = 431 --432 to 583 gives shinies
+	
+	local randompokemon = ZombRand(endno - startno + 1) + startno
+	local loot = "Aza_01_" .. randompokemon
+	addPokemonTileToPlayer(loot, loot)
+	
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 end

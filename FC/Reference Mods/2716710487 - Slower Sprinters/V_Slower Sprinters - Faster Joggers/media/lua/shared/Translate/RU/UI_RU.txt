@@ -1,4 +1,0 @@
-UI_RU = {
-    UI_trait_Sprinter = "Спринтер",
-    UI_trait_SprinterDesc = "+4 Бег"
-}

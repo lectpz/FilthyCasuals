@@ -1,5 +1,5 @@
 --triggerEvent("onFillSearchIconContextMenu", contextMenu, self);
---[[
+
 local function onFillSearchIconContextMenu(context, self)
 	local player = getSpecificPlayer(0)
 	local playerSQ = player:getSquare()
@@ -26,7 +26,7 @@ local function onFillSearchIconContextMenu(context, self)
 	end
 	printTable(context:getMenuOptionNames())
 	
-	if SafeHouse.isSafeHouse(self.square, playerUSERNAME, true) then
+	if SafeHouse.getSafeHouse(self.square) then
 		
 		--local menuOptionNames = context:getMenuOptionNames()
 		--local numOptions = #menuOptionNames
@@ -47,4 +47,3 @@ local function onFillSearchIconContextMenu(context, self)
 end
 
 Events.onFillSearchIconContextMenu.Add(onFillSearchIconContextMenu)
-]]--

@@ -1,0 +1,153 @@
+module SoulForge {
+
+	recipe Create Soul Infused Binding (Laceration)
+	{
+		CanBeDoneFromFloor:false,
+		destroy SoulCrystalT1,
+		Base.AlcoholBandage=2,
+		destroy Base.SutureNeedle,
+		Base.PlantainCataplasm=1,
+		Base.WildGarlicCataplasm=1,
+		Base.Thread=5,
+		Base.Pills=5,
+		Base.Disinfectant=5,
+		Base.Antibiotics=1,
+		AnimNode:Loot,
+		Result:SoulForge.LacerationHealing,
+		Time:500.0,
+		OnTest:OnTest_isInPlayerInventory,
+	}
+
+	recipe Create Soul Infused Binding (Deep Wound)
+	{
+		CanBeDoneFromFloor:false,
+		destroy SoulCrystalT2,
+		Base.AlcoholBandage=2,
+		destroy Base.SutureNeedle,
+		Base.PlantainCataplasm=2,
+		Base.WildGarlicCataplasm=1,
+		Base.Thread=5,
+		Base.Pills=5,
+		Base.Disinfectant=5,
+		Base.Antibiotics=2,
+		AnimNode:Loot,
+		Result:SoulForge.DeepWoundHealing,
+		Time:500.0,
+		OnTest:OnTest_isInPlayerInventory,
+	}
+
+	recipe Create Soul Infused Binding (Bite)
+	{
+		CanBeDoneFromFloor:false,
+		destroy SoulCrystalT3,
+		Base.AlcoholBandage=4,
+		destroy Base.SutureNeedle,
+		Base.PlantainCataplasm=2,
+		Base.WildGarlicCataplasm=1,
+		Base.Thread=5,
+		Base.Pills=10,
+		Base.Disinfectant=5,
+		Base.Antibiotics=2,
+		AnimNode:Loot,
+		Result:SoulForge.BiteHealing,
+		Time:500.0,
+		OnTest:OnTest_isInPlayerInventory,
+	}
+
+	recipe Create Soul Infused Binding (Fracture)
+	{
+		CanBeDoneFromFloor:false,
+		destroy SoulCrystalT3,
+		Base.AlcoholBandage=4,
+		Base.Splint=2,
+		Base.ComfreyCataplasm=2,
+		Base.WildGarlicCataplasm=1,
+		Base.Pills=50,
+		AnimNode:Loot,
+		Result:SoulForge.FractureHealing,
+		Time:500.0,
+		OnTest:OnTest_isInPlayerInventory,
+	}
+	
+	recipe Create Soul Infused Binding (Burn)
+	{
+		CanBeDoneFromFloor:false,
+		destroy SoulCrystalT3,
+		Base.AlcoholBandage=4,
+		Base.PlantainCataplasm=1,
+		Base.WildGarlicCataplasm=1,
+		Base.Thread=5,
+		Base.Pills=5,
+		Base.Disinfectant=5,
+		Base.Antibiotics=3,
+		AnimNode:Loot,
+		Result:SoulForge.BurnHealing,
+		Time:500.0,
+		OnTest:OnTest_isInPlayerInventory,
+	}
+
+	recipe Bind Laceration
+	{
+		CanBeDoneFromFloor:true,
+		SoulForge.LacerationHealing,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.BandageDirty,
+		Time:500.0,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCanPerform:OnCanPerform_healWound_cut,
+		OnCreate:OnCreate_healWound_cut,
+	}
+	
+	recipe Bind Deep Wound
+	{
+		CanBeDoneFromFloor:true,
+		SoulForge.DeepWoundHealing,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.BandageDirty,
+		Time:500.0,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCanPerform:OnCanPerform_healWound_deepWound,
+		OnCreate:OnCreate_healWound_deepWound,
+	}
+	
+	recipe Bind Bite
+	{
+		CanBeDoneFromFloor:true,
+		SoulForge.BiteHealing,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.BandageDirty,
+		Time:500.0,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCanPerform:OnCanPerform_healWound_bite,
+		OnCreate:OnCreate_healWound_bite,
+	}
+	
+	recipe Bind Fracture
+	{
+		CanBeDoneFromFloor:true,
+		SoulForge.FractureHealing,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.BandageDirty,
+		Time:500.0,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCanPerform:OnCanPerform_healWound_fracture,
+		OnCreate:OnCreate_healWound_fracture,
+	}
+	
+	recipe Bind Burn
+	{
+		CanBeDoneFromFloor:true,
+		SoulForge.BurnHealing,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.BandageDirty,
+		Time:500.0,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCanPerform:OnCanPerform_healWound_burned,
+		OnCreate:OnCreate_healWound_burned,
+	}
+}

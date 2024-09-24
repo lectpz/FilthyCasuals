@@ -366,10 +366,18 @@ option SDZones.CC
     translation = SDZones_CC,
 }
 
-option SDZones.EeriePowerPlant
+option SDZones.EerieIrvington
 {
     type = integer,
     min = 1, max = 4, default = 4,
+    page = SDZones,
+    translation = SDZones_EerieIrvington,
+}
+
+option SDZones.EeriePowerPlant
+{
+    type = integer,
+    min = 1, max = 4, default = 2,
     page = SDZones,
     translation = SDZones_EeriePowerPlant,
 }

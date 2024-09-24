@@ -330,6 +330,7 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 	local playerModData = playerObj:getModData()
 	local pshx = playerModData.SafeHouseX
 	local pshy = playerModData.SafeHouseY
+	local pshz = playerModData.SafeHouseZ or 0
     if safehouse then
 		if playerModData.SafeHouseX ~= nil and playerModData.SafeHouseY ~= nil then
 			local x1 = safehouse:getX()
@@ -340,6 +341,7 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 				local args = {
 					safehouse_x = pshx-3,
 					safehouse_y = pshy-3,
+					safehouse_z = pshz,
 					player_name = getOnlineUsername()
 				};
 				
@@ -358,6 +360,7 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 				local args = {
 					safehouse_x = safehouse:getX(),
 					safehouse_y = safehouse:getY(),
+					safehouse_z = 0,
 					player_name = getOnlineUsername()
 				};
 				
@@ -373,6 +376,7 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 			local args = {
 				safehouse_x = safehouse:getX(),
 				safehouse_y = safehouse:getY(),
+				safehouse_z = 0,
 				player_name = getOnlineUsername()
 			};
 			
@@ -516,14 +520,14 @@ doSDsafehousecoord_SD5 = function(item, player)
 		local y2 = safehouse:getH() + y1
 	
 		if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
-			if z == 0 then
+			--if z == 0 then
 				playerModData.SafeHouseX = math.floor(x) --write moddata to player to save safehouse X coordinate
 				playerModData.SafeHouseY = math.floor(y) --write moddata to player to save safehouse Y coordinate
-				--player:getModData().SafeHouseZ = z --write moddata to player to save safehouse Z coordinate
-				playerObj:Say("Safehouse teleport coordinates set to: x=" .. tostring(playerModData.SafeHouseX) ..", y=" .. tostring(playerModData.SafeHouseY))
-			else
-				playerObj:Say("I need to be on the ground floor to do this.")
-			end
+				playerModData.SafeHouseZ = z --write moddata to player to save safehouse Z coordinate
+				playerObj:Say("Safehouse teleport coordinates set to: x=" .. tostring(playerModData.SafeHouseX) ..", y=" .. tostring(playerModData.SafeHouseY) .. ", z=" .. tostring(playerModData.SafeHouseZ))
+			--else
+			--	playerObj:Say("I need to be on the ground floor to do this.")
+			--end
 		else
 			playerObj:Say("I need to be inside my Safehouse boundaries to do this.")
 		end

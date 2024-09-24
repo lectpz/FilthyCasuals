@@ -160,6 +160,7 @@ module Base
 		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
 		RemoveResultItem:true,
 		Time:500.0,
 		OnCreate:RikuRewardsT3,
@@ -172,6 +173,7 @@ module Base
 		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
 		RemoveResultItem:true,
 		Time:500.0,
 		OnCreate:RikuRewardsT4,
@@ -386,4 +388,142 @@ module Base
 		Time:500.0,
 		OnCreate:ArmorCacheVanguardSD,
 	}
+	
+	item SpiffoCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Spiffo Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache4,
+        WorldStaticModel        = cache4,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptySpiffoCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Spiffo Cache,
+        Icon                    = cache4,
+        WorldStaticModel        = cache4,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Spiffo Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy SpiffoCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptySpiffoCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:SpiffoCacheSD,
+	}
+	
+	item EventSpiffoCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Event Spiffo Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache4,
+        WorldStaticModel        = cache4,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open Event Spiffo Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy EventSpiffoCache,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptySpiffoCache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:EventSpiffoCacheSD,
+	}
+	
+	item TileCacheRegular
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tile Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache5,
+        WorldStaticModel        = cache5,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item TileCachePremium
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Premium Tile Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache6,
+        WorldStaticModel        = cache6,
+        Tooltip = Tooltip_Cache,
+	}
+
+	recipe Whos That Pokemon (3x)
+	{
+		CanBeDoneFromFloor:true,
+		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackfossil,
+		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackfossil,
+		destroy Base.TileCachePremium,
+		Sound:s_pokemon,
+		AnimNode:Loot,
+		Result:boosterpack_trash,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:PokemonCachePremiumSD,
+	}
+	
+	recipe Whos That Pokemon (1x)
+	{
+		CanBeDoneFromFloor:true,
+		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackfossil,
+		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackfossil,
+		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackfossil,
+		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackfossil,
+		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackfossil,
+		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackfossil,
+		destroy Base.TileCacheRegular,
+		Sound:s_pokemon,
+		AnimNode:Loot,
+		Result:boosterpack_trash,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:PokemonCacheRegularSD,
+	}
+	
+	recipe Reroll Pokemon Booster Pack
+	{
+		[Recipe.GetItemTypes.PokemonCards001_049]=5,
+		[Recipe.GetItemTypes.PokemonCards050_099]=5,
+		[Recipe.GetItemTypes.PokemonCards100_151]=5,
+		Result:pkmncards.boosterpack,
+		Time:100.0,
+	}
+	
+	recipe Reroll Pokemon Jungle Booster Pack
+	{
+		[Recipe.GetItemTypes.PokemonCards001_049]=5,
+		[Recipe.GetItemTypes.PokemonCards050_099]=5,
+		[Recipe.GetItemTypes.PokemonCards100_151]=5,
+		Result:pkmncards.boosterpackjungle,
+		Time:100.0,
+	}
+	
+	recipe Reroll Pokemon Fossil Booster Pack
+	{
+		[Recipe.GetItemTypes.PokemonCards001_049]=5,
+		[Recipe.GetItemTypes.PokemonCards050_099]=5,
+		[Recipe.GetItemTypes.PokemonCards100_151]=5,
+		Result:pkmncards.boosterpackfossil,
+		Time:100.0,
+	}
+
 }

@@ -101,6 +101,9 @@ Sandbox_EN = {
 	Sandbox_SDZones_Muldraugh = "Muldraugh Tier Zone",
 	Sandbox_SDZones_Muldraugh_tooltip = "e.g. 1",
 
+	Sandbox_SDZones_EerieIrvington = "Eerie Irvington",
+	Sandbox_SDZones_EerieIrvington_tooltip = "e.g. 4",
+
 	Sandbox_SDZones_EerieCapitol = "Eerie Country Capitol",
 	Sandbox_SDZones_EerieCapitol_tooltip = "e.g. 4",
 

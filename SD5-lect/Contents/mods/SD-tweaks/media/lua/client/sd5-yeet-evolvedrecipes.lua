@@ -15,34 +15,31 @@
 ]]
 local modName = "UdderlyAmmoCrafting"
 
-local evolvedRecipesToYeet = {}
+local recipesToyeet = {}
 
-evolvedRecipesToYeet["SapphCooking.BlenderShake"] = true
-evolvedRecipesToYeet["SapphCooking.BlenderSmoothie"] = true
-evolvedRecipesToYeet["SapphCooking.BlenderPuree"] = true
-evolvedRecipesToYeet["SapphCooking.BlenderJuice"] = true
+recipesToyeet["Blend Puree"] = true
 
-function nopenopenope()
+function yeetthepuree()
 	return false
 end
 
-local function yeet_evolvedRecipes()
+local function yeet_recipes()
 	local yeeted = 0
 	local start = Calendar.getInstance():getTimeInMillis()
-	local recipes = getScriptManager():getAllEvolvedRecipes()
+	local recipes = getScriptManager():getAllRecipes()
 	for i = 1, recipes:size() do
 		local recipe = recipes:get(i - 1)
 		local name = recipe:getOriginalname()
-		if evolvedRecipesToYeet[name] then
+		if recipesToyeet[name] then
 			recipe:setIsHidden(true)
-			recipe:setCanPerform("nopenopenope")
+			recipe:setCanPerform("yeetthepuree")
 			yeeted = yeeted + 1
 			print ("yeeted \""..name.."\"..")
 		end
 	end
 	local stop = Calendar.getInstance():getTimeInMillis()
 
-	print("yeeted "..yeeted.." evolved recipes in "..(stop - start).."ms!")
+	print("Yeeted "..yeeted.." recipes in "..(stop - start).."ms!")
 end
 
-Events.OnGameStart.Add(yeet_evolvedRecipes)
+--Events.OnGameStart.Add(yeet_recipes)

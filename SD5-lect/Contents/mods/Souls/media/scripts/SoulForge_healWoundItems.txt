@@ -1,0 +1,62 @@
+module SoulForge {
+
+	item LacerationHealing
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	1.0,
+		Type 				= 	Drainable,
+		UseDelta 			=	0.25,
+		DisplayName 		= 	Laceration Binding,
+		Icon 				= 	BandageYellow,
+		StaticModel 		=	BandageYellow,
+		WorldStaticModel 	= 	BandageYellow,
+	}
+
+	item DeepWoundHealing
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	1.0,
+		Type 				= 	Drainable,
+		UseDelta 			=	0.5,
+		DisplayName 		= 	Deep Wound Binding,
+		Icon 				= 	BandageOrange,
+		StaticModel 		=	BandageOrange,
+		WorldStaticModel 	= 	BandageOrange,
+	}
+	
+	item BiteHealing
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	1.0,
+		Type 				= 	Drainable,
+		UseDelta 			=	0.5,
+		DisplayName 		= 	Bite Binding,
+		Icon 				= 	BandageRed,
+		StaticModel 		=	BandageRed,
+		WorldStaticModel 	= 	BandageRed,
+	}
+
+	item FractureHealing
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	1.0,
+		Type 				= 	Drainable,
+		UseDelta 			=	0.5,
+		DisplayName 		= 	Fracture Binding,
+		Icon 				= 	BandageBlack,
+		StaticModel 		=	BandageBlack,
+		WorldStaticModel 	= 	BandageBlack,
+	}
+
+	item BurnHealing
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	1.0,
+		Type 				= 	Drainable,
+		UseDelta 			=	0.5,
+		DisplayName 		= 	Burn Binding,
+		Icon 				= 	BandageGreen,
+		StaticModel 		=	BandageGreen,
+		WorldStaticModel 	= 	BandageGreen,
+	}
+}

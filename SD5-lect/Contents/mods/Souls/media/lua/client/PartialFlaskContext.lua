@@ -30,8 +30,8 @@ local function PartialFlaskContext(player, context, items)
                     item:setUsedDelta((soulsStored + math.floor(transferAmount)) / 1000)
                 end
 
-                local optionText = soulsFreed >= soulsCapacity and "Fill Soul Flask"
-                context:addOption(optionText, item, transferSouls, player, soulsFreed >= soulsCapacity) 
+                --local optionText = soulsFreed >= soulsCapacity and "Fill Soul Flask"
+                context:addOption("Fill Soul Flask", item, transferSouls, player, soulsFreed >= soulsCapacity) 
 			end
 			
 			if soulsFreed and soulsStored > 999 then -- Flask is full

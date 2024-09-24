@@ -1,3 +1,23 @@
+local args = {}
+
+local function addToArgs(item, amount, itemname)
+	local item = itemname or item
+	amount = amount or 1
+    local newItemKey = "item" .. (#args + 1) 
+    args[newItemKey] = args[newItemKey] or {}  
+    table.insert(args[newItemKey], amount .. "x " .. item) 
+end
+
+local function addItemsToPlayer(loot, amount)
+	getSpecificPlayer(0):getInventory():AddItems(loot, amount)
+	addToArgs(loot, amount)
+end
+
+local function addItemToPlayer(loot)
+	getSpecificPlayer(0):getInventory():AddItem(loot)
+	addToArgs(loot)
+end
+
 function checkSoulCount(item)
 	local player = getSpecificPlayer(0)
 	if player:getPrimaryHandItem() ~= nil then
@@ -111,7 +131,7 @@ function OnTest_checkEmptyFlask(item)
 		local weaponModData = weapon:getModData()
 		local soulsFreed = weaponModData.KillCount or nil
 
-		if soulsFreed > 0 then	
+		if soulsFreed and soulsFreed > 0 then	
 			return true
 		else
 			return false
@@ -144,14 +164,69 @@ function OnTest_dontDestroySouls(item)
 
 	if not item:isInPlayerInventory() then return false end
 	
+	local weaponModData = item:getModData()
 	local player = getSpecificPlayer(0)
-	local weapon = player:getPrimaryHandItem()
-	local soulsFreed = item:getModData().KillCount or nil
+	local soulsFreed = weaponModData.KillCount or nil
+	local soulForged = weaponModData.SoulForged or false
 	
-	if item:isFavorite() or (soulsFreed and soulsFreed > 0) then
+	if item:isFavorite() or (soulsFreed and soulsFreed > 0) or soulForged then
 		return false
 	else
 		return true
 	end
 	
+end
+
+function OnTest_isInPlayerInventory(item)
+
+	local player = getSpecificPlayer(0)
+	
+	if item:isInPlayerInventory() then
+		return true 
+	else
+		return false 
+	end
+	
+end
+
+function OnCreate_RerollT3(items, result, player)
+	local t3weaps = { "RMWeapons.LastHope", "RMWeapons.MorningStar", "RMWeapons.sawbat1", "RMWeapons.gnbat", "RMWeapons.bladebat", "RMWeapons.waraxe", "RMWeapons.RebarClub", "RMWeapons.StarWand", "RMWeapons.Shaxe", "RMWeapons.FallenCross", "RMWeapons.FuriosEppe", "RMWeapons.BigBertha", "RMWeapons.MoonlightGS", "RMWeapons.steinsword", "RMWeapons.CrimsonLance", "RMWeapons.ArcSpear", "RMWeapons.bassax", "RMWeapons.JadeSword", "RMWeapons.LanceofLonginus", "RMWeapons.mace1", "RMWeapons.StarWand", "RMWeapons.BigBertha", "RMWeapons.MoonlightGS" }
+	local rn = ZombRand(#t3weaps)+1
+	local weapon = t3weaps[rn]
+	
+	local zonetier, zonename, x, y = checkZone()
+	
+	args = {
+	  player_name = getOnlineUsername(),
+	  reroll = "RerollT3",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+
+	addItemToPlayer(weapon)
+	
+	sendClientCommand(player, 'sdLogger', 'RerollWeapon', args);
+end
+
+function OnCreate_RerollT4(items, result, player)
+	local t4weaps = { "RMWeapons.themauler", "RMWeapons.Nikabo", "RMWeapons.warhammer40k", "RMWeapons.crabspear", "RMWeapons.MizutsuneGlaive", "RMWeapons.firelink", "RMWeapons.MedSword", "RMWeapons.NulBlade", "RMWeapons.MizutsuneSword", "RMWeapons.SealingStaff2", "RMWeapons.DreamAxe", "RMWeapons.CavAxe" }
+	local rn = ZombRand(#t4weaps)+1
+	local weapon = t4weaps[rn]
+	
+	local zonetier, zonename, x, y = checkZone()
+	
+	args = {
+	  player_name = getOnlineUsername(),
+	  reroll = "RerollT4",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+
+	addItemToPlayer(weapon)
+	
+	sendClientCommand(player, 'sdLogger', 'RerollWeapon', args);
 end

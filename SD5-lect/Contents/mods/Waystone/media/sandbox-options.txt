@@ -1,5 +1,14 @@
 VERSION = 1,
 
+option PZwaystonepanel.enableTeleport
+{
+	type = boolean,
+	default = false,
+
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_enableTeleport,
+}
+
 option PZwaystonepanel.Xcoord
 {
 	type = integer,

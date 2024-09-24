@@ -28,8 +28,9 @@ Zone = {
 		["ResearchFacility"] = {5400, 12300, 6000, 12900, SandboxVars.SDZones.ResearchFacility},	
 		["RavenCreekPDMilitaryHospital"] = {3000, 11100, 3946, 11922, SandboxVars.SDZones.RavenCreekPDMilitaryHospital},
 		["RavenCreek"] = {3000, 11100, 5400, 13500, SandboxVars.SDZones.RavenCreek, "Nested"},
+		["EerieIrvington"] = {11161, 17788, 11700, 18299, SandboxVars.SDZones.EerieIrvington},
 		["EeriePowerPlant"] = {9900, 13879, 10966, 15292, SandboxVars.SDZones.EeriePowerPlant},
-		["EerieCapitol"] = {9000, 16800, 9600, 17225, SandboxVars.SDZones.EerieCapitol},
+		["EerieCapitol"] = {8970, 16600, 9600, 17300, SandboxVars.SDZones.EerieCapitol},
 		["EerieMilitaryBase"] = {8101, 17063, 8527, 17610, SandboxVars.SDZones.EerieMilitaryBase},
 		["EerieCountry"] = {7200, 13500, 12300, 18300, SandboxVars.SDZones.EerieCountry, "Nested"},
 		["BigBearLakeWest"] = {5000, 7800, 5700, 8200, SandboxVars.SDZones.BigBearLakeWest},
@@ -90,8 +91,9 @@ NestedZone = {
 		["LCDowntown"] = {16800, 6300, 17400, 6900, SandboxVars.SDZones.LCDowntown},
 		["RavenCreekPDMilitaryHospital"] = {3000, 11100, 3946, 11922, SandboxVars.SDZones.RavenCreekPDMilitaryHospital},
 		["EeriePowerPlant"] = {9900, 13879, 10966, 15292, SandboxVars.SDZones.EeriePowerPlant},
-		["EerieCapitol"] = {9000, 16800, 9600, 17225, SandboxVars.SDZones.EerieCapitol},
+		["EerieCapitol"] = {8970, 16600, 9600, 17300, SandboxVars.SDZones.EerieCapitol},
 		["EerieMilitaryBase"] = {8101, 17063, 8527, 17610, SandboxVars.SDZones.EerieMilitaryBase},
+		["EerieIrvington"] = {11161, 17788, 11700, 18299, SandboxVars.SDZones.EerieIrvington},
 		["BigBearLakeWest"] = {5000, 7800, 5700, 8200, SandboxVars.SDZones.BigBearLakeWest}
 	}
 }
@@ -187,5 +189,56 @@ function checkZone()
 		local x = 11250
 		local y = 9000
 		return zonetier[1], "Twilight Zone", x, y
+	end
+end
+
+function checkZoneAtXY(x, y)
+	-- check if coordinates are not nil
+	if x and y then
+		
+		--check if SD events is enabled, then check if player is in the coordinate for SD events. if not, then it does the rest of the zone check.
+		if SandboxVars.SDevents.enabled then
+			local x1 = SandboxVars.SDevents.Xcoord1
+			local y1 = SandboxVars.SDevents.Ycoord1
+			local x2 = SandboxVars.SDevents.Xcoord2
+			local y2 = SandboxVars.SDevents.Ycoord2
+			if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
+				return SandboxVars.SDevents.EventTier, "Event Zone", x, y
+			end
+		end
+		
+		-- iteratively check if player is in array and define zonetier based on zone, starting from the top of the list
+		for i = 1, ZoneNo do
+			local x1 = Zone.list[ZoneNames[i]][1]
+			local y1 = Zone.list[ZoneNames[i]][2]
+			local x2 = Zone.list[ZoneNames[i]][3]
+			local y2 = Zone.list[ZoneNames[i]][4]
+			-- check if player is inside rectangular zone boundary
+			if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
+				-- check if its a tiered zone, if element 6 returns nil then it's not nested and returns the zone tier, otherwise it checks the NestedZone list
+				-- check if its not nested first to avoid looping into the nested check if possible
+				if not Zone.list[ZoneNames[i]][6] then 
+					--print(ZoneNames[i])
+					updateZoneTier(ZoneNames[i])
+					return Zone.list[ZoneNames[i]][5], ZoneNames[i], x, y
+				else
+					for j = 1, NestedZoneNo do
+						-- check if player is inside nested zone boundaries, redefine local parameters as something different
+						local xx1 = NestedZone.list[NestedZoneNames[j]][1]
+						local yy1 = NestedZone.list[NestedZoneNames[j]][2]
+						local xx2 = NestedZone.list[NestedZoneNames[j]][3]
+						local yy2 = NestedZone.list[NestedZoneNames[j]][4]
+						if x >= xx1 and y >= yy1 and x <= xx2 and y <= yy2 then 
+							updateNestedZoneTier(NestedZoneNames[j])
+							return NestedZone.list[NestedZoneNames[j]][5], NestedZoneNames[j], x, y
+						end
+					end
+					--print(ZoneNames[i])
+					updateZoneTier(ZoneNames[i])
+					return Zone.list[ZoneNames[i]][5], ZoneNames[i], x, y
+				end
+			end
+		end
+		return zonetier[1], "Unnamed Zone", x, y
 	end
 end

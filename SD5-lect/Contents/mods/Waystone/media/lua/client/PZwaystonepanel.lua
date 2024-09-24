@@ -2,8 +2,24 @@ require "PZwaystoneserver"
 require "PZwaystoneclientcore"
 require "TimedActions/ISBaseTimedAction"
 require "TimedActions/sd-teleporter-action"
+require "SDZoneCheck"
 
 PZwaystone.mainpanel = ISPanel:derive("PZwaystone.mainpanel")
+
+local args = {}
+
+local function addToArgs(item, amount, itemname)
+	local item = itemname or item
+	amount = amount or 1
+    local newItemKey = "item" .. (#args + 1) 
+    args[newItemKey] = args[newItemKey] or {}  
+    table.insert(args[newItemKey], amount .. "x " .. item) 
+end
+
+local function addItemToPlayer(loot)
+	getSpecificPlayer(0):getInventory():AddItem(loot)
+	addToArgs(loot)
+end
 
 
 --************************************************************************--
@@ -110,13 +126,15 @@ function PZwaystone.mainpanel:teleport()
 	local playerObj = self.character
 	local x = playerObj:getX()
 	local y = playerObj:getY()
-
+	
 --	local x1 = SandboxVars.PZwaystonepanel.X1coord - 3
 --	local y1 = SandboxVars.PZwaystonepanel.Y1coord - 3
 --	local x2 = SandboxVars.PZwaystonepanel.X1coord + 3
 --	local y2 = SandboxVars.PZwaystonepanel.Y1coord + 3
+	local enableTeleport = SandboxVars.PZwaystonepanel.enableTeleport
 
 	--if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
+	if enableTeleport then
 
 		local selectd = self.scrolllist.items[self.scrolllist.selected]
 		local postion = selectd.item.postion
@@ -141,10 +159,10 @@ function PZwaystone.mainpanel:teleport()
 		sendClientCommand(self.character, 'SDT', 'TravelToCoordinates', args);
 		--sendClientCommand("PZwaystone","EventTPToSH",args)
 		--playerObj:Say("Teleport()")	
-	--else
-	--	playerObj:Say("I need to be in CC to teleport there.")			
-	--	self:close()
-	--end
+	else
+		playerObj:Say("I need to be in CC to teleport.")
+		self:close()
+	end
 
 end
 
@@ -171,6 +189,7 @@ function PZwaystone.mainpanel:shtp()
 		
 		local sh_x = playerModData.SafeHouseX
 		local sh_y = playerModData.SafeHouseY
+		local sh_z = playerModData.SafeHouseZ or 0
 		
 		if safehouse then
 		
@@ -186,7 +205,7 @@ function PZwaystone.mainpanel:shtp()
 					local args = {
 						safehouse_x = math.floor(sh_x)-3,
 						safehouse_y = math.floor(sh_y)-3,
-						--safehouse_z = 0,
+						safehouse_z = sh_z,
 						player_name = getOnlineUsername()
 					};
 					
@@ -200,7 +219,7 @@ function PZwaystone.mainpanel:shtp()
 					local args = {
 						safehouse_x = safehouse:getX(),
 						safehouse_y = safehouse:getY(),
-						--safehouse_z = 0,
+						safehouse_z = 0,
 						player_name = getOnlineUsername()
 					};
 					
@@ -213,7 +232,7 @@ function PZwaystone.mainpanel:shtp()
 				local args = {
 					safehouse_x = safehouse:getX(),
 					safehouse_y = safehouse:getY(),
-					--safehouse_z = 0,
+					safehouse_z = 0,
 					player_name = getOnlineUsername()
 				};
 				
@@ -262,13 +281,30 @@ function PZwaystone.mainpanel:eventreward()
 
 	if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
 		if not claimed then
+		
+			local zonetier, zonename, x, y = checkZone()
+		
+			args = {
+			  player_name = getOnlineUsername(),
+			  eventreward = "Event Reward",
+			  player_x = math.floor(x),
+			  player_y = math.floor(y),
+			  zonename = zonename,
+			  zonetier = zonetier,
+			}
+			
 			ModDataSD[getCurrentUserSteamID()] = true
 			pzplayer:Say("Event reward claimed.")
-
-			pzInv:AddItem(eventreward1);
-			pzInv:AddItem(eventreward2);
-			pzInv:AddItem(eventreward3);
-			pzInv:AddItem(eventreward4);
+			
+			addItemToPlayer(eventreward1)
+			addItemToPlayer(eventreward2)
+			addItemToPlayer(eventreward3)
+			addItemToPlayer(eventreward4)
+			sendClientCommand(player, 'sdLogger', 'ClaimReward', args);
+			--pzInv:AddItem(eventreward1);
+			--pzInv:AddItem(eventreward2);
+			--pzInv:AddItem(eventreward3);
+			--pzInv:AddItem(eventreward4);
 			self:close()
 		else
 			pzplayer:Say("I already claimed a reward.")
@@ -463,11 +499,12 @@ function PZwaystone.mainpanel:prerender()
 
     if self.scrolllist.selected > 0 and  stringposselect~= stringpos then
 --		if Safehouse.isSafeHouse(instance.stoneobject:IsoGridSquare.getGridSquare(stonex, stoney, stonez)) then
-			-- self.buttonteleport:setEnabled(true)
-			self.buttonteleport:setVisible(true)
+		--local zonetier, zonename, x, y = checkZone()
+		--if zonename == "CC" then 
+		self.buttonteleport:setVisible(true)
 			--self.buttonshtp:setEnabled(false)
 			--self.buttonshtp:setVisible(true)
---		end
+		--end
     else
         --self.buttonteleport:setEnabled(false)
 		self.buttonteleport:setVisible(false)

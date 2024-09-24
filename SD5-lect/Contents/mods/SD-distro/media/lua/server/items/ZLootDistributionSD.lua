@@ -41,14 +41,14 @@ local function preDistributionMergeSD5()
 		JanitorTools = 0.001,
 		BurglarTools = 0.001,
 		PoliceStorageGuns = 0.02,
-		WardrobeWoman = 0.0001,
+		WardrobeWoman = 0.000001,
 		PawnShopKnives = 0.01,
 		GardenStoreTools = 0.001,
 		BarCounterWeapon = 0.001,
 		BedroomDresser = 0.0001,
 		ToolStoreTools = 0.01,
 		GunStoreAmmunition = 0.01,
-		WardrobeMan = 0.001,
+		WardrobeMan = 0.000001,
 		GunStoreDisplayCase = 0.02,
 		PoliceStorageAmmunition = 0.01,
 		ArmyStorageGuns = 0.01,
@@ -114,7 +114,9 @@ local function preDistributionMergeSD5()
 		GunStoreDisplayCase = 0.001,
 		GunStoreShelf= 0.001,
 		PoliceStorageGuns = 0.001,
-		ArmyStorageGuns = 0.001
+		ArmyStorageGuns = 0.001,
+		WardrobeWoman = 0.0001,
+		WardrobeMan = 0.0001,
 	}
 	
 	for distribution, chance in pairs(AmmoCacheData) do
@@ -123,15 +125,15 @@ local function preDistributionMergeSD5()
 	end
 ----------------------------------------------------------------------------------------	
 	local medData = {
-		StoreShelfMedical = 0.001,
-		MedicalStorageDrugs = 0.01,
-		MedicalClinicDrugs = 0.01,
-		ArmyStorageMedical = 0.01,
-		MedicalStorageTools = 0.01,
-		MedicalClinicTools = 0.01,
-		MedicalClinicOutfit = 0.01,
-		MedicalStorageOutfit = 0.01,
-		HospitalLockers = 0.02
+		StoreShelfMedical = 0.0001,
+		MedicalStorageDrugs = 0.001,
+		MedicalClinicDrugs = 0.001,
+		ArmyStorageMedical = 0.001,
+		MedicalStorageTools = 0.001,
+		MedicalClinicTools = 0.001,
+		MedicalClinicOutfit = 0.001,
+		MedicalStorageOutfit = 0.001,
+		HospitalLockers = 0.002
 	}
 	
 	for distribution, chance in pairs(medData) do
@@ -160,6 +162,23 @@ local function preDistributionMergeSD5()
 		table.insert(ProceduralDistributions.list[distribution].items, "ArmorCachePatriot")
 		table.insert(ProceduralDistributions.list[distribution].items, chance)
 		table.insert(ProceduralDistributions.list[distribution].items, "ArmorCacheVanguard")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+	end
+----------------------------------------------------------------------------------------		
+	local toyData = {
+		CrateToys = 0.01,
+		GigamartToys = 0.01,
+		WardrobeChild = 0.01,
+		Hobbies = 0.01,
+		Gifts = 0.01,
+		DaycareShelves = 0.01,
+		DaycareDesk = 0.01,
+		DaycareCounter = 0.01,
+		CrateToys = 0.01,
+	}
+	
+	for distribution, chance in pairs(toyData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "SpiffoCache")
 		table.insert(ProceduralDistributions.list[distribution].items, chance)
 	end
 ----------------------------------------------------------------------------------------		
@@ -274,7 +293,7 @@ local function OnPostDistributionMergeSD5()
 	  end
 	end
 	
-	foodContainers = { "Bakery", "BakeryBread", "BakeryCake", "BakeryDoughnuts", "BakeryKitchenBaking", "BakeryKitchenFridge", "BakeryKitchenFreezer", "BakeryMisc", "BakeryPie", "BarCounterGlasses", "BarCounterLiquor", "BarCounterMisc", "BarCounterWeapon", "BreweryBottles", "BreweryCans", "BreweryEmptyBottles", "BurgerKitchenButcher", "BurgerKitchenFridge", "BurgerKitchenFreezer", "BurgerKitchenSauce", "ButcherChicken", "ButcherChops", "ButcherFish", "ButcherFreezer", "ButcherGround", "ButcherSnacks", "ButcherSmoked", "ButcherTools", "CafeKitchenFridge", "CafeteriaDrinks", "CafeteriaFruit", "CafeteriaSandwiches", "CafeteriaSnacks", "CandyStoreSnacks", "ChineseKitchenBaking", "ChineseKitchenButcher", "ChineseKitchenFreezer", "ChineseKitchenFridge", "ChineseKitchenSauce", "CrepeKitchenBaking", "CrepeKitchenFridge", "CrepeKitchenSauce", "DeepFryKitchenFridge", "DeepFryKitchenFreezer", "DinerKitchenFridge", "DinerKitchenFreezer", "FishChipsKitchenButcher", "FishChipsKitchenFridge", "FishChipsKitchenFreezer", "FoodGourmet", "FreezerGeneric", "FreezerIceCream", "FreezerRich", "FreezerTrailerPark", "FridgeBeer", "FridgeBottles", "FridgeGeneric", "FridgeOffice", "FridgeOther", "FridgeSnacks", "FridgeSoda", "FridgeTrailerPark", "GigamartBakingMisc", "GigamartBottles", "GigamartCandy", "GigamartCannedFood", "GigamartCrisps", "GigamartDryGoods", "GigamartFarming", "GigamartHousewares", "GigamartLightbulb", "GigamartPots", "GigamartSauce", "GigamartSchool", "GigamartToys", "GroceryStandFruits1", "GroceryStandFruits2", "GroceryStandFruits3", "GroceryStandLettuce", "GroceryStandVegetables1", "GroceryStandVegetables2", "GroceryStandVegetables3", "GroceryStandVegetables4", "GroceryStorageCrate1", "GroceryStorageCrate2", "GroceryStorageCrate3", "ItalianKitchenBaking", "ItalianKitchenButcher", "ItalianKitchenFridge", "ItalianKitchenFreezer", "JaysKitchenBaking", "JaysKitchenBags", "JaysKitchenButcher", "JaysKitchenFridge", "JaysKitchenFreezer", "KitchenBaking", "KitchenBottles", "KitchenBreakfast", "KitchenDishes", "KitchenDryFood", "KitchenPots", "KitchenRandom", "Meat", "MexicanKitchenBaking", "MexicanKitchenButcher", "MexicanKitchenFridge", "MexicanKitchenFreezer", "MexicanKitchenSauce", "MotelFridge", "PizzaKitchenBaking", "PizzaKitchenButcher", "PizzaKitchenCheese", "PizzaKitchenFridge", "PizzaKitchenSauce", "ProduceStorageApples", "ProduceStorageBellPeppers", "ProduceStorageBroccoli", "ProduceStorageCabbages", "ProduceStorageCarrots", "ProduceStorageCherries", "ProduceStorageCorn", "ProduceStorageEggplant", "ProduceStorageLettuce", "ProduceStorageLeeks", "ProduceStorageOnions", "ProduceStoragePeaches", "ProduceStoragePear", "ProduceStoragePotatoes", "ProduceStorageRadishes", "ProduceStorageStrawberries", "ProduceStorageTomatoes", "ProduceStorageWatermelons", "RestaurantKitchenFreezer", "SeafoodKitchenButcher", "SeafoodKitchenFridge", "SeafoodKitchenFreezer", "SeafoodKitchenSauce", "ServingTrayBiscuits", "ServingTrayBurgers", "ServingTrayBurritos", "ServingTrayChicken", "ServingTrayChickenNuggets", "ServingTrayCornbread", "ServingTrayFish", "ServingTrayFries", "ServingTrayGravy", "ServingTrayHotdogs", "ServingTrayMaki", "ServingTrayNoodleSoup", "ServingTrayOmelettes", "ServingTrayOnionRings", "ServingTrayOnigiri", "ServingTrayOysters", "ServingTrayPancakes", "ServingTrayPerogies", "ServingTrayPizza", "ServingTrayPotatoPancakes", "ServingTrayRefriedBeans", "ServingTrayScrambledEggs", "ServingTrayShrimp", "ServingTrayShrimpDumplings", "ServingTraySpringRolls", "ServingTraySushiEgg", "ServingTraySushiFish", "ServingTrayTaco", "ServingTrayTofuFried", "ServingTrayWaffles", "SpiffosKitchenBags", "SpiffosKitchenCounter", "SpiffosKitchenFridge", "SpiffosKitchenFreezer", "SushiKitchenBaking", "SushiKitchenButcher", "SushiKitchenCutlery", "SushiKitchenFridge", "SushiKitchenFreezer", "SushiKitchenSauce" } 
+	--foodContainers = { "Bakery", "BakeryBread", "BakeryCake", "BakeryDoughnuts", "BakeryKitchenBaking", "BakeryKitchenFridge", "BakeryKitchenFreezer", "BakeryMisc", "BakeryPie", "BarCounterGlasses", "BarCounterLiquor", "BarCounterMisc", "BarCounterWeapon", "BreweryBottles", "BreweryCans", "BreweryEmptyBottles", "BurgerKitchenButcher", "BurgerKitchenFridge", "BurgerKitchenFreezer", "BurgerKitchenSauce", "ButcherChicken", "ButcherChops", "ButcherFish", "ButcherFreezer", "ButcherGround", "ButcherSnacks", "ButcherSmoked", "ButcherTools", "CafeKitchenFridge", "CafeteriaDrinks", "CafeteriaFruit", "CafeteriaSandwiches", "CafeteriaSnacks", "CandyStoreSnacks", "ChineseKitchenBaking", "ChineseKitchenButcher", "ChineseKitchenFreezer", "ChineseKitchenFridge", "ChineseKitchenSauce", "CrepeKitchenBaking", "CrepeKitchenFridge", "CrepeKitchenSauce", "DeepFryKitchenFridge", "DeepFryKitchenFreezer", "DinerKitchenFridge", "DinerKitchenFreezer", "FishChipsKitchenButcher", "FishChipsKitchenFridge", "FishChipsKitchenFreezer", "FoodGourmet", "FreezerGeneric", "FreezerIceCream", "FreezerRich", "FreezerTrailerPark", "FridgeBeer", "FridgeBottles", "FridgeGeneric", "FridgeOffice", "FridgeOther", "FridgeSnacks", "FridgeSoda", "FridgeTrailerPark", "GigamartBakingMisc", "GigamartBottles", "GigamartCandy", "GigamartCannedFood", "GigamartCrisps", "GigamartDryGoods", "GigamartFarming", "GigamartHousewares", "GigamartLightbulb", "GigamartPots", "GigamartSauce", "GigamartSchool", "GigamartToys", "GroceryStandFruits1", "GroceryStandFruits2", "GroceryStandFruits3", "GroceryStandLettuce", "GroceryStandVegetables1", "GroceryStandVegetables2", "GroceryStandVegetables3", "GroceryStandVegetables4", "GroceryStorageCrate1", "GroceryStorageCrate2", "GroceryStorageCrate3", "ItalianKitchenBaking", "ItalianKitchenButcher", "ItalianKitchenFridge", "ItalianKitchenFreezer", "JaysKitchenBaking", "JaysKitchenBags", "JaysKitchenButcher", "JaysKitchenFridge", "JaysKitchenFreezer", "KitchenBaking", "KitchenBottles", "KitchenBreakfast", "KitchenDishes", "KitchenDryFood", "KitchenPots", "KitchenRandom", "Meat", "MexicanKitchenBaking", "MexicanKitchenButcher", "MexicanKitchenFridge", "MexicanKitchenFreezer", "MexicanKitchenSauce", "MotelFridge", "PizzaKitchenBaking", "PizzaKitchenButcher", "PizzaKitchenCheese", "PizzaKitchenFridge", "PizzaKitchenSauce", "ProduceStorageApples", "ProduceStorageBellPeppers", "ProduceStorageBroccoli", "ProduceStorageCabbages", "ProduceStorageCarrots", "ProduceStorageCherries", "ProduceStorageCorn", "ProduceStorageEggplant", "ProduceStorageLettuce", "ProduceStorageLeeks", "ProduceStorageOnions", "ProduceStoragePeaches", "ProduceStoragePear", "ProduceStoragePotatoes", "ProduceStorageRadishes", "ProduceStorageStrawberries", "ProduceStorageTomatoes", "ProduceStorageWatermelons", "RestaurantKitchenFreezer", "SeafoodKitchenButcher", "SeafoodKitchenFridge", "SeafoodKitchenFreezer", "SeafoodKitchenSauce", "ServingTrayBiscuits", "ServingTrayBurgers", "ServingTrayBurritos", "ServingTrayChicken", "ServingTrayChickenNuggets", "ServingTrayCornbread", "ServingTrayFish", "ServingTrayFries", "ServingTrayGravy", "ServingTrayHotdogs", "ServingTrayMaki", "ServingTrayNoodleSoup", "ServingTrayOmelettes", "ServingTrayOnionRings", "ServingTrayOnigiri", "ServingTrayOysters", "ServingTrayPancakes", "ServingTrayPerogies", "ServingTrayPizza", "ServingTrayPotatoPancakes", "ServingTrayRefriedBeans", "ServingTrayScrambledEggs", "ServingTrayShrimp", "ServingTrayShrimpDumplings", "ServingTraySpringRolls", "ServingTraySushiEgg", "ServingTraySushiFish", "ServingTrayTaco", "ServingTrayTofuFried", "ServingTrayWaffles", "SpiffosKitchenBags", "SpiffosKitchenCounter", "SpiffosKitchenFridge", "SpiffosKitchenFreezer", "SushiKitchenBaking", "SushiKitchenButcher", "SushiKitchenCutlery", "SushiKitchenFridge", "SushiKitchenFreezer", "SushiKitchenSauce" } 
 	gunContainers = { "ArmyStorageAmmunition", "ArmyStorageGuns", "FirearmWeapons", "GarageFirearms", "GunStoreAmmunition", "GunStoreCounter", "GunStoreDisplayCase", "GunStoreMagazineRack", "GunStoreShelf", "HuntingLockers", "PawnShopGuns", "PawnShopGunsSpecial", "PlankStashGun", "PoliceStorageAmmunition", "PoliceStorageGuns", "PawnShopCases", "PawnShopGuns", "PawnShopGunsSpecial", "PawnShopKnives" } 
 
 	-- Function to set roll values of a list of containers 
@@ -290,12 +309,12 @@ local function OnPostDistributionMergeSD5()
 	end
 
 	-- Set rolls to 1 for food containers
-	setRollValue(foodContainers, 1)
+	--setRollValue(foodContainers, 1)
 	-- Set rolls to 2 for gun/ammo/weapon containers
 	setRollValue(gunContainers, 2)
 	
 	--item list for removal (setting to 0 chance on distribution)
-	local yeetItems = {"RMWeapons.NulBlade", "RMWeapons.bassax", "RMWeapons.crabspear", "RMWeapons.themauler", "RMWeapons.warhammer40k", "RMWeapons.MizutsuneSword", "RMWeapons.Nikabo", "RMWeapons.firelink", "RMWeapons.mace1", "RMWeapons.Falx", "RMWeapons.kindness", "RMWeapons.Crimson1Sword", "RMWeapons.MorningStar", "RMWeapons.BrushAxe", "RMWeapons.sword40k", "RMWeapons.LastHope", "RMWeapons.sawbat1", "RMWeapons.spikedleg", "RMWeapons.TrenchShovel", "RMWeapons.CrimsonLance", "RMWeapons.warhammer", "RMWeapons.MightCleaver", "RMWeapons.Thawk", "RMWeapons.bonkhammer", "RMWeapons.club1", "RMWeapons.PiroCraftKnife", "RMWeapons.steinbeer", "Base.TanPlating", "Base.BluePlating", "Base.RedPlating", "Base.GoldGunPlating", "Base.RainbowPlating", "Base.DZPlating", "Base.RemingtonRiflesDarkCherryStock", "Base.WinterCamoPlating", "Base.WoodStyledPlating", "Base.PinkPlating", "Base.RedWhitePlating", "Base.GreenGoldPlating", "Base.AztecPlating", "Base.DesertEagleGoldPlating", "Base.GoldShotgunPlating", "Base.RainbowAnodizedPlating", "Base.GreenPlating", "Base.SteelDamascusPlating", "Base.SalvagedRagePlating", "Base.ZoidbergSpecialPlating", "Base.NerfPlating", "Base.BespokeEngravedPlating", "Base.SurvivalistPlating", "Base.MysteryMachinePlating", "Base.SalvagedBlackPlating", "Base.PlankPlating", "Base.BlackIcePlating", "Base.BlackDeathPlating", "Base.OrnateIvoryPlating", "Base.GildedAgePlating", "Base.TBDPlating", "Base.CannabisPlating"}
+	local yeetItems = {"RMWeapons.NulBlade", "RMWeapons.bassax", "RMWeapons.crabspear", "RMWeapons.themauler", "RMWeapons.warhammer40k", "RMWeapons.MizutsuneSword", "RMWeapons.Nikabo", "RMWeapons.firelink", "RMWeapons.mace1", "RMWeapons.Falx", "RMWeapons.kindness", "RMWeapons.Crimson1Sword", "RMWeapons.MorningStar", "RMWeapons.BrushAxe", "RMWeapons.sword40k", "RMWeapons.LastHope", "RMWeapons.sawbat1", "RMWeapons.spikedleg", "RMWeapons.TrenchShovel", "RMWeapons.CrimsonLance", "RMWeapons.warhammer", "RMWeapons.MightCleaver", "RMWeapons.Thawk", "RMWeapons.bonkhammer", "RMWeapons.club1", "RMWeapons.PiroCraftKnife", "RMWeapons.steinbeer", "Base.TanPlating", "Base.BluePlating", "Base.RedPlating", "Base.GoldGunPlating", "Base.RainbowPlating", "Base.DZPlating", "Base.RemingtonRiflesDarkCherryStock", "Base.WinterCamoPlating", "Base.WoodStyledPlating", "Base.PinkPlating", "Base.RedWhitePlating", "Base.GreenGoldPlating", "Base.AztecPlating", "Base.DesertEagleGoldPlating", "Base.GoldShotgunPlating", "Base.RainbowAnodizedPlating", "Base.GreenPlating", "Base.SteelDamascusPlating", "Base.SalvagedRagePlating", "Base.ZoidbergSpecialPlating", "Base.NerfPlating", "Base.BespokeEngravedPlating", "Base.SurvivalistPlating", "Base.MysteryMachinePlating", "Base.SalvagedBlackPlating", "Base.PlankPlating", "Base.BlackIcePlating", "Base.BlackDeathPlating", "Base.OrnateIvoryPlating", "Base.GildedAgePlating", "Base.TBDPlating", "Base.CannabisPlating", "Base.Mag9Drum", "Base.Mag57Drum", "Base.MagLugerDrum", "Base.Mag380Drum", "Base.Mag45Drum"}
 
 	--skill books
 	local skillbooks1 = {"BookTrapping1", "BookFishing1", "BookCarpentry1", "BookMechanic1", "BookFirstAid1", "BookBlacksmith1", "BookMetalWelding1", "BookElectrician1", "BookCooking1", "BookFarming1", "BookForaging1", "BookTailoring1"}
@@ -303,7 +322,10 @@ local function OnPostDistributionMergeSD5()
 	local skillbooks3 = {"BookTrapping3", "BookFishing3", "BookCarpentry3", "BookMechanic3", "BookFirstAid3", "BookBlacksmith3", "BookMetalWelding3", "BookElectrician3", "BookCooking3", "BookFarming3", "BookForaging3", "BookTailoring3"}
 	local skillbooks4 = {"BookTrapping4", "BookFishing4", "BookCarpentry4", "BookMechanic4", "BookFirstAid4", "BookBlacksmith4", "BookMetalWelding4", "BookElectrician4", "BookCooking4", "BookFarming4", "BookForaging4", "BookTailoring4"}	
 	local skillbooks5 = {"BookTrapping5", "BookFishing5", "BookCarpentry5", "BookMechanic5", "BookFirstAid5", "BookBlacksmith5", "BookMetalWelding5", "BookElectrician5", "BookCooking5", "BookFarming5", "BookForaging5", "BookTailoring5"}	
-		
+	
+	--foods
+	local baseFoods = {"Base.Lard", "Base.Pasta", "Base.DriedKidneyBeans", "Base.Margarine", "Base.Butter", "Base.DriedBlackBeans", "Base.DriedLentils", "Base.Rice", "Base.DriedChickpeas", "Base.DriedWhiteBeans", "Base.PeanutButter", "Base.OilOlive", "Base.Cereal", "Base.DriedSplitPeas", "Base.OilVegetable", "Base.WhiskeyFull", "Base.OatsRaw", "Base.Ketchup", "Base.MapleSyrup", "Base.Chocolate", "Base.CannedCornedBeef", "Base.Crisps", "Base.Crisps2", "Base.Crisps3", "Base.Crisps4", "Base.Macandcheese", "Base.TVDinner", "Base.Honey", "Base.JamFruit", "Base.JamMarmalade", "Base.CannedBolognese", "Base.DoughRolled", "Base.Wine2", "Base.Mustard", "Base.CandyPackage", "Base.Dogfood", "Base.Wine", "Base.CannedMilk", "Base.Hotsauce", "Base.TortillaChips", "Base.PopBottle", "Base.Sugar", "Base.TunaTin", "Base.Marinara", "Base.CinnamonRoll", "Base.SugarBrown", "Base.CannedCorn", "Base.CannedPeas", "Base.CannedChili", "Base.CannedFruitCocktail", "Base.CannedFruitBeverage", "Base.CannedPeaches", "Base.CannedPineapple"}
+	local sapphFoods = {"SapphCooking.Tortellini", "SapphCooking.ArborioRice", "SapphCooking.BrownRice", "SapphCooking.PeanutOil", "SapphCooking.CanolaOil", "SapphCooking.AvocadoOil", "SapphCooking.ChocolateEgg_Large", "SapphCooking.WhiteChocolate", "SapphCooking.ChickenBroth", "SapphCooking.BeefBroth", "SapphCooking.VegetableBroth", "SapphCooking.Syrup_Chocolate", "SapphCooking.Syrup_Strawberry", "SapphCooking.Syrup_Caramel", "SapphCooking.PastaSheets", "SapphCooking.PastryDough", "SapphCooking.CachacaFull", "SapphCooking.RolledPastaDough", "SapphCooking.FilledMeatPastaDough", "SapphCooking.Gingerbread_House", "SapphCooking.BananaBread_Dough", "SapphCooking.ColaBottle", "SapphCooking.CannedBread", "SapphCooking.PipingBag_PastryDough", "SapphCooking.Vermouth", "SapphCooking.WokPan_YakisobaEvolved", "SapphCooking.GinFull", "SapphCooking.TequilaFull", "SapphCooking.VodkaFull", "SapphCooking.SapphDoughnutChocolate", "SapphCooking.ChocolateEgg_Medium", "SapphCooking.SapphTortillaChips", "SapphCooking.CannedSausages", "SapphCooking.CannedBacon", "SapphCooking.CanofBeets", "SapphCooking.BagofFlourTortillas"}
 	--print("--------------------------------------------")
 	--print("SD5 Modification to Loot Distribution Start.")
 	--print("--------------------------------------------")
@@ -311,6 +333,14 @@ local function OnPostDistributionMergeSD5()
 	--set items to zero to effectively yeet off table
 	for _, itemName in ipairs(yeetItems) do
 	  modifyItemWeight(itemName, 0)
+	end
+	
+	--reduce spawn rates of these foods
+	for _, itemName in ipairs(baseFoods) do
+	  modifyItemWeight(itemName, 0.2)
+	end
+	for _, itemName in ipairs(sapphFoods) do
+	  modifyItemWeight(itemName, 0.2)
 	end
 
 	--modification to skillbooks vol 1
@@ -343,15 +373,15 @@ local function OnPostDistributionMergeSD5()
 	--modifier to Caches. because I'm lazy
 	--modifyItemWeight("WeaponCache", 1.0)
 	--modifyItemWeight("AmmoCache", 2.0)
-	modifyItemWeight("MetalworkCache", 0.5)
+	--modifyItemWeight("MetalworkCache", 0.5)
 	--modifyItemWeight("MechanicCache", 1.0)
 	--modifyItemWeight("MedicalCache", 2.0)
 	--modifier to Propane Tanks for rarity
-	modifyItemWeight("PropaneTank", 0.0)
+	modifyItemWeight("PropaneTank", 0)
 	--modifier to Workshop Large Propane Tank for rarity
 	modifyItemWeight("TW.LargePropaneTank", 0)
 	--modifier to Biofuel Industrial Propane Tank for rarity
-	modifyItemWeight("BioFuel.IndustrialPropaneTank", 0.05)
+	modifyItemWeight("BioFuel.IndustrialPropaneTank", 0.02)
 	
 	table.remove(ProceduralDistributions.list.GarageMetalwork.junk.items, 1)
 	table.remove(ProceduralDistributions.list.GarageMetalwork.junk.items, 1)

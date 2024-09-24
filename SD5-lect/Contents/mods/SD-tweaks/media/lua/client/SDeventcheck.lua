@@ -1,7 +1,7 @@
 require "SDZoneCheck"
 
 local args = {}
--- function to scale crit and min/max dmg based on zone
+
 local function eventCheck(character, handWeapon)
 
 	if character ~= nil then 
@@ -14,8 +14,12 @@ local function eventCheck(character, handWeapon)
 		
 		local zonetier, zonename, x, y = checkZone()
 		
-		local charModData = character:getModData()
-		local eventFlag = charModData.eventparticipant or false
+		local isInsideEventZone = eventenabled and x >= x1 and y >= y1 and x <= x2 and y <= y2
+		
+		local player = getSpecificPlayer(0)
+		
+		local playerModData = player:getModData()
+		local eventFlag = playerModData.eventparticipant or false
 		
 		args = {
 		  player_name = getOnlineUsername(),
@@ -25,20 +29,14 @@ local function eventCheck(character, handWeapon)
 		  zonetier = zonetier,
 		}
 		
-		if not eventFlag then
-			if eventenabled and x >= x1 and y >= y1 and x <= x2 and y <= y2 then
-				charModData.eventparticipant = true
-				sendClientCommand(player, 'sdLogger', 'EventEntered', args);
-			end
-		elseif eventFlag then
-			if eventenabled and x >= x1 and y >= y1 and x <= x2 and y <= y2 then
-				return
-			else
-				charModData.eventparticipant = false
-				sendClientCommand(player, 'sdLogger', 'EventExited', args);
-			end
+		if not eventFlag and isInsideEventZone then
+			playerModData.eventparticipant = true
+			sendClientCommand(player, 'sdLogger', 'EventEntered', args)
+		elseif eventFlag and not isInsideEventZone then
+			playerModData.eventparticipant = false
+			sendClientCommand(player, 'sdLogger', 'EventExited', args)
 		end
 	end
 end
 
-Events.OnWeaponSwing.Add(eventCheck)
+--Events.OnWeaponSwing.Add(eventCheck)

@@ -4,16 +4,26 @@ local args = {}
 
 local function PlayerDeathSD(player)
 	local zonetier, zonename, x, y = checkZone()
-	playerModData = player:getModData()
-	playerHC = playerModData.HardcoreMode or nil
-	playerSSF = playerModData.SSFMode or nil
+	local z_vis = player:getStats():getNumVisibleZombies() or 0
+	local z_chase = player:getStats():getNumChasingZombies() or 0
+	local z_close = player:getStats():getNumVeryCloseZombies() or 0
+	local playerModData = player:getModData()
+	local playerHC = playerModData.HardcoreMode or nil
+	local playerSSF = playerModData.SSFMode or nil
+	local playerKillCount = player:getZombieKills()
+	local playerSurvived = player:getHoursSurvived()
 	
 	args = {
-		playerdeath_x = x,
-		playerdeath_y = y,
+		player_x = math.floor(x),
+		player_y = math.floor(y),
 		player_name = getOnlineUsername(),
+		player_kc = playerKillCount,
+		player_hrs = playerSurvived,
 		zonename = zonename,
-		zonetier = zonetier
+		zonetier = zonetier,
+		z_vis = z_vis,
+		z_chase = z_chase,
+		z_close = z_close,
 	};
 	
 	if SandboxVars.SDevents.enabled then
@@ -22,22 +32,22 @@ local function PlayerDeathSD(player)
 		local x2 = SandboxVars.SDevents.Xcoord2
 		local y2 = SandboxVars.SDevents.Ycoord2
 		if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
-			sendClientCommand(player_name, 'sdLogger', 'LogEventDeath', args);
+			sendClientCommand(player, 'sdLogger', 'LogEventDeath', args);
 		end
 	end
 	
 	if playerHC and playerSSF then
-		sendClientCommand(player_name, 'sdLogger', 'LogHCSSFDeath', args);
+		sendClientCommand(player, 'sdLogger', 'LogHCSSFDeath', args);
 	elseif playerHC then
-		sendClientCommand(player_name, 'sdLogger', 'LogHCDeath', args);
+		sendClientCommand(player, 'sdLogger', 'LogHCDeath', args);
 	elseif playerSSF then
-		sendClientCommand(player_name, 'sdLogger', 'LogSSFDeath', args);
+		sendClientCommand(player, 'sdLogger', 'LogSSFDeath', args);
 	else
-		sendClientCommand(player_name, 'sdLogger', 'LogNormalDeath', args);
+		sendClientCommand(player, 'sdLogger', 'LogNormalDeath', args);
 	end
 
 end
---Events.OnPlayerDeath.Add(PlayerDeathSD)
+Events.OnPlayerDeath.Add(PlayerDeathSD)
 
 
 
@@ -102,21 +112,22 @@ end
 
 local function onItemFall(item)
 	local player = getSpecificPlayer(0)
-	local safehouse = SafeHouse.hasSafehouse(player)
-
-	if safehouse then
-		local x = player:getX()
-		local y = player:getY()
+	local zonetier, zonename, x, y = checkZone()
 	
-		local x1 = safehouse:getX()
-		local y1 = safehouse:getY()
-		local x2 = safehouse:getW() + x1
-		local y2 = safehouse:getH() + y1
-		
-		if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
-			player:Say("I threw " .. string.upper(item:getName()) .. " on the ground. It might disappear.")
-		end
-	end
+	local iFT = item:getFullType()
+	local itemID = item:getID()
+	
+	args.player_name = getOnlineUsername()
+	args.item = iFT
+	args.itemID = itemID
+	args.player_x = math.floor(x)
+	args.player_y = math.floor(y)
+	args.player_z = getSpecificPlayer(0):getZ()
+	args.zonename = zonename
+	args.zonetier = zonetier
+	
+	player:Say("I dropped " .. item:getName() .. "! Better pick it up later before it disappears!")
+	sendClientCommand(player, 'sdLogger', 'onItemFall', args);
 end
 
---Events.onItemFall.Add(onItemFall)
+Events.onItemFall.Add(onItemFall)
