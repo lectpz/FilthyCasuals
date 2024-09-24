@@ -1,0 +1,12 @@
+Moodles_EN {
+    Moodles_SD6Tier1_Good_lvl4 = "Tier 1 Zone",
+    Moodles_SD6Tier1_Good_desc_lvl4 = "No reduction to weapon effectiveness. You fear nothing.",
+    Moodles_SD6Tier2_Good_lvl2 = "Tier 2 Zone",
+    Moodles_SD6Tier2_Good_desc_lvl2 = "Minor reduction to weapon effectiveness. This area makes you nervous.",
+    Moodles_SD6Tier3_Bad_lvl1 = "Tier 3 Zone",
+    Moodles_SD6Tier3_Bad_desc_lvl1 = "Some reduction to weapon effectiveness. You hesitate at every sound and movement.",
+    Moodles_SD6Tier4_Bad_lvl4 = "Tier 4 Zone",
+    Moodles_SD6Tier4_Bad_desc_lvl4 = "Moderate reduction to weapon effectiveness. Fear and uncertainty lurk in the shadows.",
+	Moodles_SD6Tier5_Bad_lvl4 = "Tier 5 Zone",
+    Moodles_SD6Tier5_Bad_desc_lvl4 = "Major reduction to weapon effectiveness. You feel the crushing weight of death and despair.",
+}

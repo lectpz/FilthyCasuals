@@ -1,0 +1,209 @@
+Sandbox_EN = {
+	Sandbox_SDRandomZombies = "Sunday Drivers Sprinters",
+
+	Sandbox_SDRandomZombies_BigBearLake = "BigBearLake Sprinters % ",
+	Sandbox_SDRandomZombies_BigBearLake_tooltip = "Percentage of Sprinters present at BigBearLake",
+	Sandbox_SDRandomZombies_PinpointBigBearLake = "BigBearLake Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointBigBearLake_tooltip = "Pinpoint % at BigBearLake",
+
+	Sandbox_SDRandomZombies_BigBearLakeWest = "BigBearLakeWest Sprinters % ",
+	Sandbox_SDRandomZombies_BigBearLakeWest_tooltip = "Percentage of Sprinters present at BigBearLakeWest",
+	Sandbox_SDRandomZombies_PinpointBigBearLakeWest = "BigBearLakeWest Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointBigBearLakeWest_tooltip = "Pinpoint % at BigBearLakeWest",
+
+	Sandbox_SDRandomZombies_CC = "CC Sprinters % ",
+	Sandbox_SDRandomZombies_CC_tooltip = "Percentage of Sprinters present at CC",
+	Sandbox_SDRandomZombies_PinpointCC = "CC Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointCC_tooltip = "Pinpoint % at CC",
+
+	Sandbox_SDRandomZombies_Chestown = "Chestown Sprinters % ",
+	Sandbox_SDRandomZombies_Chestown_tooltip = "Percentage of Sprinters present at Chestown",
+	Sandbox_SDRandomZombies_PinpointChestown = "Chestown Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointChestown_tooltip = "Pinpoint % at Chestown",
+
+	Sandbox_SDRandomZombies_Default = "Default Sprinters % ",
+	Sandbox_SDRandomZombies_Default_tooltip = "Percentage of Sprinters present at Default",
+	Sandbox_SDRandomZombies_PinpointDefault = "Default Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDefault_tooltip = "Pinpoint % at Default",
+
+	Sandbox_SDRandomZombies_DirkerEasy = "DirkerEasy Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerEasy_tooltip = "Percentage of Sprinters present at DirkerEasy",
+	Sandbox_SDRandomZombies_PinpointDirkerEasy = "DirkerEasy Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerEasy_tooltip = "Pinpoint % at DirkerEasy",
+
+	Sandbox_SDRandomZombies_DirkerHard = "DirkerHard Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerHard_tooltip = "Percentage of Sprinters present at DirkerHard",
+	Sandbox_SDRandomZombies_PinpointDirkerHard = "DirkerHard Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerHard_tooltip = "Pinpoint % at DirkerHard",
+
+	Sandbox_SDRandomZombies_DirkerMed = "DirkerMed Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerMed_tooltip = "Percentage of Sprinters present at DirkerMed",
+	Sandbox_SDRandomZombies_PinpointDirkerMed = "DirkerMed Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerMed_tooltip = "Pinpoint % at DirkerMed",
+
+	Sandbox_SDRandomZombies_EerieCapitol = "EerieCapitol Sprinters % ",
+	Sandbox_SDRandomZombies_EerieCapitol_tooltip = "Percentage of Sprinters present at EerieCapitol",
+	Sandbox_SDRandomZombies_PinpointEerieCapitol = "EerieCapitol Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointEerieCapitol_tooltip = "Pinpoint % at EerieCapitol",
+
+	Sandbox_SDRandomZombies_EerieCountry = "EerieCountry Sprinters % ",
+	Sandbox_SDRandomZombies_EerieCountry_tooltip = "Percentage of Sprinters present at EerieCountry",
+	Sandbox_SDRandomZombies_PinpointEerieCountry = "EerieCountry Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointEerieCountry_tooltip = "Pinpoint % at EerieCountry",
+
+	Sandbox_SDRandomZombies_EerieIrvington = "EerieIrvington Sprinters % ",
+	Sandbox_SDRandomZombies_EerieIrvington_tooltip = "Percentage of Sprinters present at EerieIrvington",
+	Sandbox_SDRandomZombies_PinpointEerieIrvington = "EerieIrvington Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointEerieIrvington_tooltip = "Pinpoint % at EerieIrvington",
+
+	Sandbox_SDRandomZombies_EerieMilitaryBase = "EerieMilitaryBase Sprinters % ",
+	Sandbox_SDRandomZombies_EerieMilitaryBase_tooltip = "Percentage of Sprinters present at EerieMilitaryBase",
+	Sandbox_SDRandomZombies_PinpointEerieMilitaryBase = "EerieMilitaryBase Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointEerieMilitaryBase_tooltip = "Pinpoint % at EerieMilitaryBase",
+
+	Sandbox_SDRandomZombies_EeriePowerPlant = "EeriePowerPlant Sprinters % ",
+	Sandbox_SDRandomZombies_EeriePowerPlant_tooltip = "Percentage of Sprinters present at EeriePowerPlant",
+	Sandbox_SDRandomZombies_PinpointEeriePowerPlant = "EeriePowerPlant Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointEeriePowerPlant_tooltip = "Pinpoint % at EeriePowerPlant",
+
+	Sandbox_SDRandomZombies_EventZone = "EventZone Sprinters % ",
+	Sandbox_SDRandomZombies_EventZone_tooltip = "Percentage of Sprinters present at EventZone",
+	Sandbox_SDRandomZombies_PinpointEventZone = "EventZone Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointEventZone_tooltip = "Pinpoint % at EventZone",
+
+	Sandbox_SDRandomZombies_FortRedstone = "FortRedstone Sprinters % ",
+	Sandbox_SDRandomZombies_FortRedstone_tooltip = "Percentage of Sprinters present at FortRedstone",
+	Sandbox_SDRandomZombies_PinpointFortRedstone = "FortRedstone Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointFortRedstone_tooltip = "Pinpoint % at FortRedstone",
+
+	Sandbox_SDRandomZombies_Grapeseed = "Grapeseed Sprinters % ",
+	Sandbox_SDRandomZombies_Grapeseed_tooltip = "Percentage of Sprinters present at Grapeseed",
+	Sandbox_SDRandomZombies_PinpointGrapeseed = "Grapeseed Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointGrapeseed_tooltip = "Pinpoint % at Grapeseed",
+
+	Sandbox_SDRandomZombies_InsidePetro = "InsidePetro Sprinters % ",
+	Sandbox_SDRandomZombies_InsidePetro_tooltip = "Percentage of Sprinters present at InsidePetro",
+	Sandbox_SDRandomZombies_PinpointInsidePetro = "InsidePetro Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointInsidePetro_tooltip = "Pinpoint % at InsidePetro",
+
+	Sandbox_SDRandomZombies_LC = "LC Sprinters % ",
+	Sandbox_SDRandomZombies_LC_tooltip = "Percentage of Sprinters present at LC",
+	Sandbox_SDRandomZombies_PinpointLC = "LC Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointLC_tooltip = "Pinpoint % at LC",
+
+	Sandbox_SDRandomZombies_LCBunker = "LCBunker Sprinters % ",
+	Sandbox_SDRandomZombies_LCBunker_tooltip = "Percentage of Sprinters present at LCBunker",
+	Sandbox_SDRandomZombies_PinpointLCBunker = "LCBunker Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointLCBunker_tooltip = "Pinpoint % at LCBunker",
+
+	Sandbox_SDRandomZombies_LCDowntown = "LCDowntown Sprinters % ",
+	Sandbox_SDRandomZombies_LCDowntown_tooltip = "Percentage of Sprinters present at LCDowntown",
+	Sandbox_SDRandomZombies_PinpointLCDowntown = "LCDowntown Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointLCDowntown_tooltip = "Pinpoint % at LCDowntown",
+
+	Sandbox_SDRandomZombies_LVairport = "LVairport Sprinters % ",
+	Sandbox_SDRandomZombies_LVairport_tooltip = "Percentage of Sprinters present at LVairport",
+	Sandbox_SDRandomZombies_PinpointLVairport = "LVairport Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointLVairport_tooltip = "Pinpoint % at LVairport",
+
+	Sandbox_SDRandomZombies_LVshipping = "LVshipping Sprinters % ",
+	Sandbox_SDRandomZombies_LVshipping_tooltip = "Percentage of Sprinters present at LVshipping",
+	Sandbox_SDRandomZombies_PinpointLVshipping = "LVshipping Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointLVshipping_tooltip = "Pinpoint % at LVshipping",
+
+	Sandbox_SDRandomZombies_LakeIvy = "LakeIvy Sprinters % ",
+	Sandbox_SDRandomZombies_LakeIvy_tooltip = "Percentage of Sprinters present at LakeIvy",
+	Sandbox_SDRandomZombies_PinpointLakeIvy = "LakeIvy Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointLakeIvy_tooltip = "Pinpoint % at LakeIvy",
+
+	Sandbox_SDRandomZombies_Louisville = "Louisville Sprinters % ",
+	Sandbox_SDRandomZombies_Louisville_tooltip = "Percentage of Sprinters present at Louisville",
+	Sandbox_SDRandomZombies_PinpointLouisville = "Louisville Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointLouisville_tooltip = "Pinpoint % at Louisville",
+
+	Sandbox_SDRandomZombies_LouisvilleMallArea = "LouisvilleMallArea Sprinters % ",
+	Sandbox_SDRandomZombies_LouisvilleMallArea_tooltip = "Percentage of Sprinters present at LouisvilleMallArea",
+	Sandbox_SDRandomZombies_PinpointLouisvilleMallArea = "LouisvilleMallArea Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointLouisvilleMallArea_tooltip = "Pinpoint % at LouisvilleMallArea",
+
+	Sandbox_SDRandomZombies_LouisvillePD = "LouisvillePD Sprinters % ",
+	Sandbox_SDRandomZombies_LouisvillePD_tooltip = "Percentage of Sprinters present at LouisvillePD",
+	Sandbox_SDRandomZombies_PinpointLouisvillePD = "LouisvillePD Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointLouisvillePD_tooltip = "Pinpoint % at LouisvillePD",
+
+	Sandbox_SDRandomZombies_MarchRidge = "MarchRidge Sprinters % ",
+	Sandbox_SDRandomZombies_MarchRidge_tooltip = "Percentage of Sprinters present at MarchRidge",
+	Sandbox_SDRandomZombies_PinpointMarchRidge = "MarchRidge Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointMarchRidge_tooltip = "Pinpoint % at MarchRidge",
+
+	Sandbox_SDRandomZombies_Muldraugh = "Muldraugh Sprinters % ",
+	Sandbox_SDRandomZombies_Muldraugh_tooltip = "Percentage of Sprinters present at Muldraugh",
+	Sandbox_SDRandomZombies_PinpointMuldraugh = "Muldraugh Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointMuldraugh_tooltip = "Pinpoint % at Muldraugh",
+
+	Sandbox_SDRandomZombies_Nettle = "Nettle Sprinters % ",
+	Sandbox_SDRandomZombies_Nettle_tooltip = "Percentage of Sprinters present at Nettle",
+	Sandbox_SDRandomZombies_PinpointNettle = "Nettle Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointNettle_tooltip = "Pinpoint % at Nettle",
+
+	Sandbox_SDRandomZombies_OaksdaleU = "OaksdaleU Sprinters % ",
+	Sandbox_SDRandomZombies_OaksdaleU_tooltip = "Percentage of Sprinters present at OaksdaleU",
+	Sandbox_SDRandomZombies_PinpointOaksdaleU = "OaksdaleU Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointOaksdaleU_tooltip = "Pinpoint % at OaksdaleU",
+
+	Sandbox_SDRandomZombies_OldStPaulo = "OldStPaulo Sprinters % ",
+	Sandbox_SDRandomZombies_OldStPaulo_tooltip = "Percentage of Sprinters present at OldStPaulo",
+	Sandbox_SDRandomZombies_PinpointOldStPaulo = "OldStPaulo Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointOldStPaulo_tooltip = "Pinpoint % at OldStPaulo",
+
+	Sandbox_SDRandomZombies_Petroville = "Petroville Sprinters % ",
+	Sandbox_SDRandomZombies_Petroville_tooltip = "Percentage of Sprinters present at Petroville",
+	Sandbox_SDRandomZombies_PinpointPetroville = "Petroville Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointPetroville_tooltip = "Pinpoint % at Petroville",
+
+	Sandbox_SDRandomZombies_RavenCreek = "RavenCreek Sprinters % ",
+	Sandbox_SDRandomZombies_RavenCreek_tooltip = "Percentage of Sprinters present at RavenCreek",
+	Sandbox_SDRandomZombies_PinpointRavenCreek = "RavenCreek Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointRavenCreek_tooltip = "Pinpoint % at RavenCreek",
+
+	Sandbox_SDRandomZombies_RavenCreekEntrance = "RavenCreekEntrance Sprinters % ",
+	Sandbox_SDRandomZombies_RavenCreekEntrance_tooltip = "Percentage of Sprinters present at RavenCreekEntrance",
+	Sandbox_SDRandomZombies_PinpointRavenCreekEntrance = "RavenCreekEntrance Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointRavenCreekEntrance_tooltip = "Pinpoint % at RavenCreekEntrance",
+
+	Sandbox_SDRandomZombies_RavenCreekPDMilitaryHospital = "RavenCreekPDMilitaryHospital Sprinters % ",
+	Sandbox_SDRandomZombies_RavenCreekPDMilitaryHospital_tooltip = "Percentage of Sprinters present at RavenCreekPDMilitaryHospital",
+	Sandbox_SDRandomZombies_PinpointRavenCreekPDMilitaryHospital = "RavenCreekPDMilitaryHospital Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointRavenCreekPDMilitaryHospital_tooltip = "Pinpoint % at RavenCreekPDMilitaryHospital",
+
+	Sandbox_SDRandomZombies_Riverside = "Riverside Sprinters % ",
+	Sandbox_SDRandomZombies_Riverside_tooltip = "Percentage of Sprinters present at Riverside",
+	Sandbox_SDRandomZombies_PinpointRiverside = "Riverside Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointRiverside_tooltip = "Pinpoint % at Riverside",
+
+	Sandbox_SDRandomZombies_Rosewood = "Rosewood Sprinters % ",
+	Sandbox_SDRandomZombies_Rosewood_tooltip = "Percentage of Sprinters present at Rosewood",
+	Sandbox_SDRandomZombies_PinpointRosewood = "Rosewood Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointRosewood_tooltip = "Pinpoint % at Rosewood",
+
+	Sandbox_SDRandomZombies_RosewoodX = "RosewoodX Sprinters % ",
+	Sandbox_SDRandomZombies_RosewoodX_tooltip = "Percentage of Sprinters present at RosewoodX",
+	Sandbox_SDRandomZombies_PinpointRosewoodX = "RosewoodX Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointRosewoodX_tooltip = "Pinpoint % at RosewoodX",
+
+	Sandbox_SDRandomZombies_Taylorsville = "Taylorsville Sprinters % ",
+	Sandbox_SDRandomZombies_Taylorsville_tooltip = "Percentage of Sprinters present at Taylorsville",
+	Sandbox_SDRandomZombies_PinpointTaylorsville = "Taylorsville Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointTaylorsville_tooltip = "Pinpoint % at Taylorsville",
+
+	Sandbox_SDRandomZombies_WestPointEast = "WestPointEast Sprinters % ",
+	Sandbox_SDRandomZombies_WestPointEast_tooltip = "Percentage of Sprinters present at WestPointEast",
+	Sandbox_SDRandomZombies_PinpointWestPointEast = "WestPointEast Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointWestPointEast_tooltip = "Pinpoint % at WestPointEast",
+
+	Sandbox_SDRandomZombies_WestPointWest = "WestPointWest Sprinters % ",
+	Sandbox_SDRandomZombies_WestPointWest_tooltip = "Percentage of Sprinters present at WestPointWest",
+	Sandbox_SDRandomZombies_PinpointWestPointWest = "WestPointWest Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointWestPointWest_tooltip = "Pinpoint % at WestPointWest",
+
+}

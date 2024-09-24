@@ -1,0 +1,13 @@
+module Base
+{
+
+    item PZwaystone
+	{
+		Icon 		= PZwaystone,
+		Weight 		= 30,
+		Type 		= Moveable,
+		WorldObjectSprite 		= PZwaystone_0,
+		DisplayName 		= Waystone,
+	}
+	
+}

@@ -1,0 +1,582 @@
+VERSION = 1,
+
+option SDOnWeaponSwing.Tier1dmg
+{
+	type = string,
+	default = 1.00,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier1dmg,
+}
+
+option SDOnWeaponSwing.Tier2dmg
+{
+	type = string,
+	default = 0.85,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier2dmg,
+}
+
+option SDOnWeaponSwing.Tier3dmg
+{
+	type = string,
+	default = 0.7,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier3dmg,
+}
+
+option SDOnWeaponSwing.Tier4dmg
+{
+	type = string,
+	default = 0.55,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier4dmg,
+}
+
+option SDOnWeaponSwing.Tier5dmg
+{
+	type = string,
+	default = 0.4,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier5dmg,
+}
+	
+option SDOnWeaponSwing.Tier1critrate
+{
+	type = string,
+	default = 1.0,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier1critrate,
+}
+
+option SDOnWeaponSwing.Tier2critrate
+{
+	type = string,
+	default = 0.85,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier2critrate,
+}
+
+option SDOnWeaponSwing.Tier3critrate
+{
+	type = string,
+	default = 0.7,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier3critrate,
+}
+
+option SDOnWeaponSwing.Tier4critrate
+{
+	type = string,
+	default = 0.55,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier4critrate,
+}
+
+option SDOnWeaponSwing.Tier5critrate
+{
+	type = string,
+	default = 0.4,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier5critrate,
+}
+	
+option SDOnWeaponSwing.Tier1critmulti
+{
+	type = string,
+	default = 1.0,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier1critmulti,
+}
+
+option SDOnWeaponSwing.Tier2critmulti
+{
+	type = string,
+	default = 0.85,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier2critmulti,
+}
+
+option SDOnWeaponSwing.Tier3critmulti
+{
+	type = string,
+	default = 0.7,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier3critmulti,
+}
+
+option SDOnWeaponSwing.Tier4critmulti
+{
+	type = string,
+	default = 0.55,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier4critmulti,
+}
+
+option SDOnWeaponSwing.Tier5critmulti
+{
+	type = string,
+	default = 0.4,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier5critmulti,
+}
+
+option SDevents.Xcoord1
+{
+	type = integer,
+	min = 1, max = 99999, default = 11100,
+
+	page = SDevents,
+	translation = SDevents_Xcoord1,
+}
+
+option SDevents.Ycoord1
+{
+	type = integer,
+	min = 1, max = 99999, default = 8700,
+
+	page = SDevents,
+	translation = SDevents_Ycoord1,
+}
+
+option SDevents.Xcoord2
+{
+	type = integer,
+	min = 1, max = 99999, default = 11400,
+
+	page = SDevents,
+	translation = SDevents_Xcoord2,
+}
+
+option SDevents.Ycoord2
+{
+	type = integer,
+	min = 1, max = 99999, default = 9300,
+
+	page = SDevents,
+	translation = SDevents_Ycoord2,
+}
+
+option SDevents.enabled
+{
+	type = boolean,
+	default = false,
+
+	page = SDevents,
+	translation = SDevents_enabled,
+}
+
+option SDevents.toxic
+{
+	type = boolean,
+	default = false,
+
+	page = SDevents,
+	translation = SDevents_toxic,
+}
+
+option SDevents.EventTier
+{
+	type = integer,
+	min = 1, max = 5, default = 1,
+
+	page = SDevents,
+	translation = SDevents_EventTier,
+}
+
+option SDevents.roll5
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 2000,
+
+	page = SDevents,
+	translation = SDevents_roll5,
+}
+
+option SDevents.roll4
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 1250,
+
+	page = SDevents,
+	translation = SDevents_roll4,
+}
+
+option SDevents.roll3
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 750,
+
+	page = SDevents,
+	translation = SDevents_roll3,
+}
+
+option SDevents.roll2
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 350,
+
+	page = SDevents,
+	translation = SDevents_roll2,
+}
+
+option SDevents.roll1
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 150,
+
+	page = SDevents,
+	translation = SDevents_roll1,
+}
+
+option SDZones.BigBearLake
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_BigBearLake,
+}
+
+option SDZones.BigBearLakeWest
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_BigBearLakeWest,
+}
+
+option SDZones.CC
+{
+    type = integer,
+    min = 1, max = 5, default = 1,
+    page = SDZones,
+    translation = SDZones_CC,
+}
+
+option SDZones.Chestown
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_Chestown,
+}
+
+option SDZones.DirkerEasy
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_DirkerEasy,
+}
+
+option SDZones.DirkerHard
+{
+    type = integer,
+    min = 1, max = 5, default = 5,
+    page = SDZones,
+    translation = SDZones_DirkerHard,
+}
+
+option SDZones.DirkerMed
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_DirkerMed,
+}
+
+option SDZones.EerieCapitol
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_EerieCapitol,
+}
+
+option SDZones.EerieCountry
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_EerieCountry,
+}
+
+option SDZones.EerieIrvington
+{
+    type = integer,
+    min = 1, max = 5, default = 5,
+    page = SDZones,
+    translation = SDZones_EerieIrvington,
+}
+
+option SDZones.EerieMilitaryBase
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_EerieMilitaryBase,
+}
+
+option SDZones.EeriePowerPlant
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_EeriePowerPlant,
+}
+
+option SDZones.FortRedstone
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_FortRedstone,
+}
+
+option SDZones.Grapeseed
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_Grapeseed,
+}
+
+option SDZones.InsidePetro
+{
+    type = integer,
+    min = 1, max = 5, default = 5,
+    page = SDZones,
+    translation = SDZones_InsidePetro,
+}
+
+option SDZones.LC
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_LC,
+}
+
+option SDZones.LCBunker
+{
+    type = integer,
+    min = 1, max = 5, default = 5,
+    page = SDZones,
+    translation = SDZones_LCBunker,
+}
+
+option SDZones.LCDowntown
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_LCDowntown,
+}
+
+option SDZones.LVairport
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_LVairport,
+}
+
+option SDZones.LVshipping
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_LVshipping,
+}
+
+option SDZones.LakeIvy
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_LakeIvy,
+}
+
+option SDZones.Louisville
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_Louisville,
+}
+
+option SDZones.LouisvilleMallArea
+{
+    type = integer,
+    min = 1, max = 5, default = 5,
+    page = SDZones,
+    translation = SDZones_LouisvilleMallArea,
+}
+
+option SDZones.LouisvillePD
+{
+    type = integer,
+    min = 1, max = 5, default = 5,
+    page = SDZones,
+    translation = SDZones_LouisvillePD,
+}
+
+option SDZones.MarchRidge
+{
+    type = integer,
+    min = 1, max = 5, default = 1,
+    page = SDZones,
+    translation = SDZones_MarchRidge,
+}
+
+option SDZones.Muldraugh
+{
+    type = integer,
+    min = 1, max = 5, default = 1,
+    page = SDZones,
+    translation = SDZones_Muldraugh,
+}
+
+option SDZones.Nettle
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_Nettle,
+}
+
+option SDZones.OaksdaleU
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_OaksdaleU,
+}
+
+option SDZones.OldStPaulo
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_OldStPaulo,
+}
+
+option SDZones.Petroville
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_Petroville,
+}
+
+option SDZones.RavenCreek
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_RavenCreek,
+}
+
+option SDZones.RavenCreekEntrance
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_RavenCreekEntrance,
+}
+
+option SDZones.RavenCreekPDMilitaryHospital
+{
+    type = integer,
+    min = 1, max = 5, default = 5,
+    page = SDZones,
+    translation = SDZones_RavenCreekPDMilitaryHospital,
+}
+
+option SDZones.Riverside
+{
+    type = integer,
+    min = 1, max = 5, default = 1,
+    page = SDZones,
+    translation = SDZones_Riverside,
+}
+
+option SDZones.Rosewood
+{
+    type = integer,
+    min = 1, max = 5, default = 1,
+    page = SDZones,
+    translation = SDZones_Rosewood,
+}
+
+option SDZones.RosewoodX
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_RosewoodX,
+}
+
+option SDZones.Taylorsville
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_Taylorsville,
+}
+
+option SDZones.WestPointEast
+{
+    type = integer,
+    min = 1, max = 5, default = 2,
+    page = SDZones,
+    translation = SDZones_WestPointEast,
+}
+
+option SDZones.WestPointWest
+{
+    type = integer,
+    min = 1, max = 5, default = 1,
+    page = SDZones,
+    translation = SDZones_WestPointWest,
+}
+
+option McCraes.X
+{
+    type = integer,
+    min = 1, max = 19000, default = 1000,
+    page = McCraes,
+    translation = McCraes_X,
+}
+
+option McCraes.Y
+{
+    type = integer,
+    min = 1, max = 19000, default = 1000,
+    page = McCraes,
+    translation = McCraes_Y,
+}

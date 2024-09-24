@@ -1,0 +1,225 @@
+Sandbox_EN = {
+	Sandbox_SDOnWeaponSwing = "Dynamic Weapons",
+
+	Sandbox_SDOnWeaponSwing_Tier1dmg = "Tier 1 damage modifier",
+	Sandbox_SDOnWeaponSwing_Tier1dmg_tooltip = "e.g. 1.00",
+
+	Sandbox_SDOnWeaponSwing_Tier2dmg = "Tier 2 damage modifier",
+	Sandbox_SDOnWeaponSwing_Tier2dmg_tooltip = "e.g. 0.85",
+		
+	Sandbox_SDOnWeaponSwing_Tier3dmg = "Tier 3 damage modifier",
+	Sandbox_SDOnWeaponSwing_Tier3dmg_tooltip = "e.g. 0.7",
+	
+	Sandbox_SDOnWeaponSwing_Tier4dmg = "Tier 4 damage modifier",
+	Sandbox_SDOnWeaponSwing_Tier4dmg_tooltip = "e.g. 0.55",
+	
+	Sandbox_SDOnWeaponSwing_Tier5dmg = "Tier 5 damage modifier",
+	Sandbox_SDOnWeaponSwing_Tier5dmg_tooltip = "e.g. 0.4",
+	
+	Sandbox_SDOnWeaponSwing_Tier1critrate = "Tier 1 critical rate modifier",
+	Sandbox_SDOnWeaponSwing_Tier1critrate_tooltip = "e.g. 1.00",
+
+	Sandbox_SDOnWeaponSwing_Tier2critrate = "Tier 2 critical rate modifier",
+	Sandbox_SDOnWeaponSwing_Tier2critrate_tooltip = "e.g. 0.85",
+		
+	Sandbox_SDOnWeaponSwing_Tier3critrate = "Tier 3 critical rate modifier",
+	Sandbox_SDOnWeaponSwing_Tier3critrate_tooltip = "e.g. 0.7",
+	
+	Sandbox_SDOnWeaponSwing_Tier4critrate = "Tier 4 critical rate modifier",
+	Sandbox_SDOnWeaponSwing_Tier4critrate_tooltip = "e.g. 0.55",
+	
+	Sandbox_SDOnWeaponSwing_Tier5critrate = "Tier 5 critical rate modifier",
+	Sandbox_SDOnWeaponSwing_Tier5critrate_tooltip = "e.g. 0.4",
+	
+	Sandbox_SDOnWeaponSwing_Tier1critmulti = "Tier 1 critical multiplier modifier",
+	Sandbox_SDOnWeaponSwing_Tier1critmulti_tooltip = "e.g. 1.00",
+
+	Sandbox_SDOnWeaponSwing_Tier2critmulti = "Tier 2 critical multiplier modifier",
+	Sandbox_SDOnWeaponSwing_Tier2critmulti_tooltip = "e.g. 0.85",
+		
+	Sandbox_SDOnWeaponSwing_Tier3critmulti = "Tier 3 critical multiplier modifier",
+	Sandbox_SDOnWeaponSwing_Tier3critmulti_tooltip = "e.g. 0.7",
+	
+	Sandbox_SDOnWeaponSwing_Tier4critmulti = "Tier 4 critical multiplier modifier",
+	Sandbox_SDOnWeaponSwing_Tier4critmulti_tooltip = "e.g. 0.55",
+	
+	Sandbox_SDOnWeaponSwing_Tier5critmulti = "Tier 5 critical multiplier modifier",
+	Sandbox_SDOnWeaponSwing_Tier5critmulti_tooltip = "e.g. 0.4",
+	
+	Sandbox_SDevents = "SD Events",
+	
+	Sandbox_SDevents_Xcoord1 = "Top Left X-Coordinate for Zone",
+	Sandbox_SDevents_Xcoord1_tooltip = "e.g. 11100",
+	
+	Sandbox_SDevents_Ycoord1 = "Top Left Y-Coordinate for Zone",
+	Sandbox_SDevents_Ycoord1_tooltip = "e.g. 8700",
+	
+	Sandbox_SDevents_Xcoord2 = "Bottom Right X-Coordinate for Zone",
+	Sandbox_SDevents_Xcoord2_tooltip = "e.g. 11400",
+	
+	Sandbox_SDevents_Ycoord2 = "Bottom Right Y-Coordinate for Zone",
+	Sandbox_SDevents_Ycoord2_tooltip = "e.g. 9300",
+	
+	Sandbox_SDevents_EventTier = "Event Tier for Zone",
+	Sandbox_SDevents_EventTier_tooltip = "e.g. 2",
+	
+	Sandbox_SDevents_roll5 = "Tier 5 loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll5_tooltip = "e.g. 2000",
+	
+	Sandbox_SDevents_roll4 = "Tier 4 loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll4_tooltip = "e.g. 1250",
+	
+	Sandbox_SDevents_roll3 = "Tier 3 loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll3_tooltip = "e.g. 750",
+	
+	Sandbox_SDevents_roll2 = "Tier 2 loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll2_tooltip = "e.g. 350",
+
+	Sandbox_SDevents_roll1 = "Tier 1 loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll1_tooltip = "e.g. 150",
+	
+	Sandbox_SDevents_enabled = "Enable Event Zone",
+	Sandbox_SDevents_enabled_tooltip = "Check to enable, uncheck to disable",
+	
+	Sandbox_SDevents_toxic = "Enable Toxic Event Zone",
+	Sandbox_SDevents_toxic_tooltip = "Check to enable, uncheck to disable",
+	
+	Sandbox_SDevents_Rewards1 = "Reward Loot",
+	Sandbox_SDevents_Rewards1_tooltip = "Base.Item",
+
+	Sandbox_SDevents_Rewards2 = "Reward Loot",
+	Sandbox_SDevents_Rewards2_tooltip = "Base.EventWeaponCacheT3",
+	
+	Sandbox_SDevents_Rewards3 = "Reward Loot",
+	Sandbox_SDevents_Rewards3_tooltip = "Base.XCoin",
+	
+	Sandbox_SDevents_Rewards4 = "Reward Loot",
+	Sandbox_SDevents_Rewards4_tooltip = "Base.XCoin",
+
+	Sandbox_SDZones = "SD Tier Zones",
+	
+	Sandbox_SDZones_BigBearLake = "BigBearLake Tier Zone",
+	Sandbox_SDZones_BigBearLake_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_BigBearLakeWest = "BigBearLakeWest Tier Zone",
+	Sandbox_SDZones_BigBearLakeWest_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_CC = "CC Tier Zone",
+	Sandbox_SDZones_CC_tooltip = "e.g. 1",
+
+	Sandbox_SDZones_Chestown = "Chestown Tier Zone",
+	Sandbox_SDZones_Chestown_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_DirkerEasy = "DirkerEasy Tier Zone",
+	Sandbox_SDZones_DirkerEasy_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_DirkerHard = "DirkerHard Tier Zone",
+	Sandbox_SDZones_DirkerHard_tooltip = "e.g. 5",
+
+	Sandbox_SDZones_DirkerMed = "DirkerMed Tier Zone",
+	Sandbox_SDZones_DirkerMed_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_EerieCapitol = "EerieCapitol Tier Zone",
+	Sandbox_SDZones_EerieCapitol_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_EerieCountry = "EerieCountry Tier Zone",
+	Sandbox_SDZones_EerieCountry_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_EerieIrvington = "EerieIrvington Tier Zone",
+	Sandbox_SDZones_EerieIrvington_tooltip = "e.g. 5",
+
+	Sandbox_SDZones_EerieMilitaryBase = "EerieMilitaryBase Tier Zone",
+	Sandbox_SDZones_EerieMilitaryBase_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_EeriePowerPlant = "EeriePowerPlant Tier Zone",
+	Sandbox_SDZones_EeriePowerPlant_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_FortRedstone = "FortRedstone Tier Zone",
+	Sandbox_SDZones_FortRedstone_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_Grapeseed = "Grapeseed Tier Zone",
+	Sandbox_SDZones_Grapeseed_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_InsidePetro = "InsidePetro Tier Zone",
+	Sandbox_SDZones_InsidePetro_tooltip = "e.g. 5",
+
+	Sandbox_SDZones_LC = "LC Tier Zone",
+	Sandbox_SDZones_LC_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_LCBunker = "LCBunker Tier Zone",
+	Sandbox_SDZones_LCBunker_tooltip = "e.g. 5",
+
+	Sandbox_SDZones_LCDowntown = "LCDowntown Tier Zone",
+	Sandbox_SDZones_LCDowntown_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_LVairport = "LVairport Tier Zone",
+	Sandbox_SDZones_LVairport_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_LVshipping = "LVshipping Tier Zone",
+	Sandbox_SDZones_LVshipping_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_LakeIvy = "LakeIvy Tier Zone",
+	Sandbox_SDZones_LakeIvy_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_Louisville = "Louisville Tier Zone",
+	Sandbox_SDZones_Louisville_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_LouisvilleMallArea = "LouisvilleMallArea Tier Zone",
+	Sandbox_SDZones_LouisvilleMallArea_tooltip = "e.g. 5",
+
+	Sandbox_SDZones_LouisvillePD = "LouisvillePD Tier Zone",
+	Sandbox_SDZones_LouisvillePD_tooltip = "e.g. 5",
+
+	Sandbox_SDZones_MarchRidge = "MarchRidge Tier Zone",
+	Sandbox_SDZones_MarchRidge_tooltip = "e.g. 1",
+
+	Sandbox_SDZones_Muldraugh = "Muldraugh Tier Zone",
+	Sandbox_SDZones_Muldraugh_tooltip = "e.g. 1",
+
+	Sandbox_SDZones_Nettle = "Nettle Tier Zone",
+	Sandbox_SDZones_Nettle_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_OaksdaleU = "OaksdaleU Tier Zone",
+	Sandbox_SDZones_OaksdaleU_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_OldStPaulo = "OldStPaulo Tier Zone",
+	Sandbox_SDZones_OldStPaulo_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_Petroville = "Petroville Tier Zone",
+	Sandbox_SDZones_Petroville_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_RavenCreek = "RavenCreek Tier Zone",
+	Sandbox_SDZones_RavenCreek_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_RavenCreekEntrance = "RavenCreekEntrance Tier Zone",
+	Sandbox_SDZones_RavenCreekEntrance_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_RavenCreekPDMilitaryHospital = "RavenCreekPDMilitaryHospital Tier Zone",
+	Sandbox_SDZones_RavenCreekPDMilitaryHospital_tooltip = "e.g. 5",
+
+	Sandbox_SDZones_Riverside = "Riverside Tier Zone",
+	Sandbox_SDZones_Riverside_tooltip = "e.g. 1",
+
+	Sandbox_SDZones_Rosewood = "Rosewood Tier Zone",
+	Sandbox_SDZones_Rosewood_tooltip = "e.g. 1",
+
+	Sandbox_SDZones_RosewoodX = "RosewoodX Tier Zone",
+	Sandbox_SDZones_RosewoodX_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_Taylorsville = "Taylorsville Tier Zone",
+	Sandbox_SDZones_Taylorsville_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_WestPointEast = "WestPointEast Tier Zone",
+	Sandbox_SDZones_WestPointEast_tooltip = "e.g. 2",
+
+	Sandbox_SDZones_WestPointWest = "WestPointWest Tier Zone",
+	Sandbox_SDZones_WestPointWest_tooltip = "e.g. 1",
+	
+	Sandbox_McCraes = "McCrae's Car Battery Charger",
+	
+	Sandbox_McCraes_X = "McCrae's Car Battery Charger X-Coordinate",
+	Sandbox_McCraes_X_tooltip = "e.g. 19000",
+	
+	Sandbox_McCraes_Y = "McCrae's Car Battery Charger Y-Coordinate",
+	Sandbox_McCraes_Y_tooltip = "e.g. 1000",
+}

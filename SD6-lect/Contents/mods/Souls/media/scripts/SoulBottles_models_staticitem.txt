@@ -1,0 +1,65 @@
+module Base
+{
+	model static_WhiteBot
+	{
+		mesh = SoulBottleFlip,
+        texture = WhiteBot,
+        scale = 0.35,
+	}
+	
+	model static_BlackBot
+	{
+		mesh = SoulBottleFlip,
+        texture = BlackBot,
+        scale = 0.35,
+	}
+	
+	model static_YellowBot
+	{
+		mesh = SoulBottleFlip,
+        texture = YellowBot,
+        scale = 0.35,
+	}
+
+	model static_RedBot
+	{
+		mesh = SoulBottleFlip,
+        texture = RedBot,
+        scale = 0.35,
+	}
+	
+	model static_PurpleBot
+	{
+		mesh = SoulBottleFlip,
+        texture = PurpleBot,
+        scale = 0.35,
+	}
+
+	model static_PinkBot
+	{
+		mesh = SoulBottleFlip,
+        texture = PinkBot,
+        scale = 0.35,
+	}
+	
+	model static_GreenBot
+	{
+		mesh = SoulBottleFlip,
+        texture = GreenBot,
+        scale = 0.35,
+	}
+
+	model static_CyanBot
+	{
+		mesh = SoulBottleFlip,
+        texture = CyanBot,
+        scale = 0.35,
+	}
+	
+	model static_BlueBot
+	{
+		mesh = SoulBottleFlip,
+        texture = BlueBot,
+        scale = 0.35,
+	}
+}

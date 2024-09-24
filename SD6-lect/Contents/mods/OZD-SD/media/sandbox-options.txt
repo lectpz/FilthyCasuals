@@ -1,0 +1,102 @@
+VERSION = 1,
+
+option OZD.roll5
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 1250,
+
+	page = OnZombieDeadSD,
+	translation = OZD_roll5,
+}
+
+option OZD.roll4
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 900,
+
+	page = OnZombieDeadSD,
+	translation = OZD_roll4,
+}
+
+option OZD.roll3
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 600,
+
+	page = OnZombieDeadSD,
+	translation = OZD_roll3,
+}
+
+option OZD.roll2
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 350,
+
+	page = OnZombieDeadSD,
+	translation = OZD_roll2,
+}
+
+option OZD.roll1
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 150,
+
+	page = OnZombieDeadSD,
+	translation = OZD_roll1,
+}
+
+option OZD.table5
+{
+	type = string,
+	default = RMWeapons.MedSword;RMWeapons.PochitaSword;RMWeapons.NulBlade;RMWeapons.CavAxe;RMWeapons.MizutsuneSword;RMWeapons.ApostateAxe;RMWeapons.RefudClaws;RMWeapons.mace1;RMWeapons.RockstarGuitar;RMWeapons.VampClaymore,
+	
+	page = OnZombieDeadSD,
+	translation = OZD_table5,
+}
+
+option OZD.table4
+{
+	type = string,
+	default = RMWeapons.ArcSpear;RMWeapons.SealingStaff2;RMWeapons.LanceofLonginus;RMWeapons.JadeSword;RMWeapons.bassax;RMWeapons.EyeStaff;RMWeapons.themauler;RMWeapons.Nikabo;RMWeapons.FallenCross;RMWeapons.warhammer40k;RMWeapons.DreamAxe;RMWeapons.RoyalGreatsword;RMWeapons.crabspear;RMWeapons.MizutsuneGlaive;RMWeapons.SwordofSolitude;RMWeapons.firelink,
+	
+	page = OnZombieDeadSD,
+	translation = OZD_table4,
+}
+
+
+option OZD.table3
+{
+	type = string,
+	default = RMWeapons.MorningStar;RMWeapons.LastHope;RMWeapons.MadamScythe;RMWeapons.KineticHammer;RMWeapons.Shaxe;RMWeapons.TreeHugger;RMWeapons.bladebat;RMWeapons.sawbat1;RMWeapons.gnbat;RMWeapons.RebarClub;RMWeapons.CatnipCrusher;RMWeapons.MandateofHeaven;RMWeapons.steinsword;RMWeapons.CrimsonLance;RMWeapons.MoonlightGS;RMWeapons.waraxe;RMWeapons.BigBertha,
+	
+	page = OnZombieDeadSD,
+	translation = OZD_table3,
+}
+
+option OZD.table2
+{
+	type = string,
+	default = RMWeapons.Dadao;RMWeapons.dragonpiercer;RMWeapons.sword40k;RMWeapons.kindness;RMWeapons.spinecrusher;RMWeapons.Slapper;RMWeapons.BrushAxe;RMWeapons.warhammer;RMWeapons.SpikedClub1;RMWeapons.ZombieTrimmer;RMWeapons.Crimson1Sword;RMWeapons.MxScythe;RMWeapons.VikingWarhammer;RMWeapons.CavSword;RMWeapons.FuriosEppe;RMWeapons.StarWand;RMWeapons.falchion;RMWeapons.spikedsword,
+	
+	page = OnZombieDeadSD,
+	translation = OZD_table2,
+}
+
+option OZD.table1
+{
+	type = string,
+	default = RMWeapons.PiroCraftKnife;RMWeapons.steinbeer;RMWeapons.club1;RMWeapons.MightCleaver;RMWeapons.bonkhammer;RMWeapons.club2;RMWeapons.spear1;RMWeapons.tanto;RMWeapons.Thawk;RMWeapons.ScrapMace1;RMWeapons.spikedleg;RMWeapons.RailSpike;RMWeapons.dexkama;RMWeapons.TrenchShovel;RMWeapons.IceAxe1;RMWeapons.beardedaxe;RMWeapons.Golok;RMWeapons.MeatHook;RMWeapons.hellokittyax;RMWeapons.FlangedMace;RMWeapons.HeavyCleaver;RMWeapons.glaive;RMWeapons.dagger1;RMWeapons.thunderbreaker;RMWeapons.Falx;RMWeapons.MagicMace,
+	
+	page = OnZombieDeadSD,
+	translation = OZD_table1,
+}

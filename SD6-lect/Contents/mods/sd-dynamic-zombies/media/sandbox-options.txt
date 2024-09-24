@@ -1,0 +1,534 @@
+VERSION = 1,
+
+option SDRandomZombies.BigBearLake
+{
+	type = double, min = 0, max = 100, default = 10,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_BigBearLake,
+}
+option SDRandomZombies.PinpointBigBearLake
+{
+	type = double, min = 0, max = 100, default = 20,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointBigBearLake,
+}
+
+option SDRandomZombies.BigBearLakeWest
+{
+	type = double, min = 0, max = 100, default = 20,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_BigBearLakeWest,
+}
+option SDRandomZombies.PinpointBigBearLakeWest
+{
+	type = double, min = 0, max = 100, default = 25,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointBigBearLakeWest,
+}
+
+option SDRandomZombies.CC
+{
+	type = double, min = 0, max = 100, default = 0,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_CC,
+}
+option SDRandomZombies.PinpointCC
+{
+	type = double, min = 0, max = 100, default = 0,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointCC,
+}
+
+option SDRandomZombies.Chestown
+{
+	type = double, min = 0, max = 100, default = 10,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_Chestown,
+}
+option SDRandomZombies.PinpointChestown
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointChestown,
+}
+
+option SDRandomZombies.Default
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_Default,
+}
+option SDRandomZombies.PinpointDefault
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointDefault,
+}
+
+option SDRandomZombies.DirkerEasy
+{
+	type = double, min = 0, max = 100, default = 50,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_DirkerEasy,
+}
+option SDRandomZombies.PinpointDirkerEasy
+{
+	type = double, min = 0, max = 100, default = 50,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointDirkerEasy,
+}
+
+option SDRandomZombies.DirkerHard
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_DirkerHard,
+}
+option SDRandomZombies.PinpointDirkerHard
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointDirkerHard,
+}
+
+option SDRandomZombies.DirkerMed
+{
+	type = double, min = 0, max = 100, default = 75,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_DirkerMed,
+}
+option SDRandomZombies.PinpointDirkerMed
+{
+	type = double, min = 0, max = 100, default = 75,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointDirkerMed,
+}
+
+option SDRandomZombies.EerieCapitol
+{
+	type = double, min = 0, max = 100, default = 35,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_EerieCapitol,
+}
+option SDRandomZombies.PinpointEerieCapitol
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointEerieCapitol,
+}
+
+option SDRandomZombies.EerieCountry
+{
+	type = double, min = 0, max = 100, default = 20,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_EerieCountry,
+}
+option SDRandomZombies.PinpointEerieCountry
+{
+	type = double, min = 0, max = 100, default = 20,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointEerieCountry,
+}
+
+option SDRandomZombies.EerieIrvington
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_EerieIrvington,
+}
+option SDRandomZombies.PinpointEerieIrvington
+{
+	type = double, min = 0, max = 100, default = 50,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointEerieIrvington,
+}
+
+option SDRandomZombies.EerieMilitaryBase
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_EerieMilitaryBase,
+}
+option SDRandomZombies.PinpointEerieMilitaryBase
+{
+	type = double, min = 0, max = 100, default = 50,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointEerieMilitaryBase,
+}
+
+option SDRandomZombies.EeriePowerPlant
+{
+	type = double, min = 0, max = 100, default = 35,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_EeriePowerPlant,
+}
+option SDRandomZombies.PinpointEeriePowerPlant
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointEeriePowerPlant,
+}
+
+option SDRandomZombies.EventZone
+{
+	type = double, min = 0, max = 100, default = 0,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_EventZone,
+}
+option SDRandomZombies.PinpointEventZone
+{
+	type = double, min = 0, max = 100, default = 0,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointEventZone,
+}
+
+option SDRandomZombies.FortRedstone
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_FortRedstone,
+}
+option SDRandomZombies.PinpointFortRedstone
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointFortRedstone,
+}
+
+option SDRandomZombies.Grapeseed
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_Grapeseed,
+}
+option SDRandomZombies.PinpointGrapeseed
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointGrapeseed,
+}
+
+option SDRandomZombies.InsidePetro
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_InsidePetro,
+}
+option SDRandomZombies.PinpointInsidePetro
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointInsidePetro,
+}
+
+option SDRandomZombies.LC
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_LC,
+}
+option SDRandomZombies.PinpointLC
+{
+	type = double, min = 0, max = 100, default = 20,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointLC,
+}
+
+option SDRandomZombies.LCBunker
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_LCBunker,
+}
+option SDRandomZombies.PinpointLCBunker
+{
+	type = double, min = 0, max = 100, default = 50,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointLCBunker,
+}
+
+option SDRandomZombies.LCDowntown
+{
+	type = double, min = 0, max = 100, default = 25,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_LCDowntown,
+}
+option SDRandomZombies.PinpointLCDowntown
+{
+	type = double, min = 0, max = 100, default = 35,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointLCDowntown,
+}
+
+option SDRandomZombies.LVairport
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_LVairport,
+}
+option SDRandomZombies.PinpointLVairport
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointLVairport,
+}
+
+option SDRandomZombies.LVshipping
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_LVshipping,
+}
+option SDRandomZombies.PinpointLVshipping
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointLVshipping,
+}
+
+option SDRandomZombies.LakeIvy
+{
+	type = double, min = 0, max = 100, default = 10,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_LakeIvy,
+}
+option SDRandomZombies.PinpointLakeIvy
+{
+	type = double, min = 0, max = 100, default = 10,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointLakeIvy,
+}
+
+option SDRandomZombies.Louisville
+{
+	type = double, min = 0, max = 100, default = 20,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_Louisville,
+}
+option SDRandomZombies.PinpointLouisville
+{
+	type = double, min = 0, max = 100, default = 25,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointLouisville,
+}
+
+option SDRandomZombies.LouisvilleMallArea
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_LouisvilleMallArea,
+}
+option SDRandomZombies.PinpointLouisvilleMallArea
+{
+	type = double, min = 0, max = 100, default = 50,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointLouisvilleMallArea,
+}
+
+option SDRandomZombies.LouisvillePD
+{
+	type = double, min = 0, max = 100, default = 35,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_LouisvillePD,
+}
+option SDRandomZombies.PinpointLouisvillePD
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointLouisvillePD,
+}
+
+option SDRandomZombies.MarchRidge
+{
+	type = double, min = 0, max = 100, default = 10,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_MarchRidge,
+}
+option SDRandomZombies.PinpointMarchRidge
+{
+	type = double, min = 0, max = 100, default = 10,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointMarchRidge,
+}
+
+option SDRandomZombies.Muldraugh
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_Muldraugh,
+}
+option SDRandomZombies.PinpointMuldraugh
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointMuldraugh,
+}
+
+option SDRandomZombies.Nettle
+{
+	type = double, min = 0, max = 100, default = 20,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_Nettle,
+}
+option SDRandomZombies.PinpointNettle
+{
+	type = double, min = 0, max = 100, default = 20,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointNettle,
+}
+
+option SDRandomZombies.OaksdaleU
+{
+	type = double, min = 0, max = 100, default = 20,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_OaksdaleU,
+}
+option SDRandomZombies.PinpointOaksdaleU
+{
+	type = double, min = 0, max = 100, default = 20,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointOaksdaleU,
+}
+
+option SDRandomZombies.OldStPaulo
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_OldStPaulo,
+}
+option SDRandomZombies.PinpointOldStPaulo
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointOldStPaulo,
+}
+
+option SDRandomZombies.Petroville
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_Petroville,
+}
+option SDRandomZombies.PinpointPetroville
+{
+	type = double, min = 0, max = 100, default = 50,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointPetroville,
+}
+
+option SDRandomZombies.RavenCreek
+{
+	type = double, min = 0, max = 100, default = 25,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_RavenCreek,
+}
+option SDRandomZombies.PinpointRavenCreek
+{
+	type = double, min = 0, max = 100, default = 25,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointRavenCreek,
+}
+
+option SDRandomZombies.RavenCreekEntrance
+{
+	type = double, min = 0, max = 100, default = 25,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_RavenCreekEntrance,
+}
+option SDRandomZombies.PinpointRavenCreekEntrance
+{
+	type = double, min = 0, max = 100, default = 50,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointRavenCreekEntrance,
+}
+
+option SDRandomZombies.RavenCreekPDMilitaryHospital
+{
+	type = double, min = 0, max = 100, default = 100,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_RavenCreekPDMilitaryHospital,
+}
+option SDRandomZombies.PinpointRavenCreekPDMilitaryHospital
+{
+	type = double, min = 0, max = 100, default = 50,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointRavenCreekPDMilitaryHospital,
+}
+
+option SDRandomZombies.Riverside
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_Riverside,
+}
+option SDRandomZombies.PinpointRiverside
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointRiverside,
+}
+
+option SDRandomZombies.Rosewood
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_Rosewood,
+}
+option SDRandomZombies.PinpointRosewood
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointRosewood,
+}
+
+option SDRandomZombies.RosewoodX
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_RosewoodX,
+}
+option SDRandomZombies.PinpointRosewoodX
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointRosewoodX,
+}
+
+option SDRandomZombies.Taylorsville
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_Taylorsville,
+}
+option SDRandomZombies.PinpointTaylorsville
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointTaylorsville,
+}
+
+option SDRandomZombies.WestPointEast
+{
+	type = double, min = 0, max = 100, default = 10,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_WestPointEast,
+}
+option SDRandomZombies.PinpointWestPointEast
+{
+	type = double, min = 0, max = 100, default = 10,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointWestPointEast,
+}
+
+option SDRandomZombies.WestPointWest
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_WestPointWest,
+}
+option SDRandomZombies.PinpointWestPointWest
+{
+	type = double, min = 0, max = 100, default = 5,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointWestPointWest,
+}
