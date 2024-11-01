@@ -1,0 +1,162 @@
+module Base
+{
+	recipe Salvage Box of Screws
+	{
+		ScrewsBox=1,
+		BlowTorch=1,
+		Result:ScrapMetal=3,
+		Time:25.0,
+		Category:Scrapping,
+		AnimNode: BlowTorchMid,
+		Prop1: Source=1,
+		Prop2:BlowTorch,
+		Sound:s_propane,
+	}
+	
+	item GasCanVoucher
+	{
+	    DisplayCategory = VehicleMaintenance,
+		Weight	=	7.5,
+		Type	=	Normal,
+		DisplayName	=	Gas Can Voucher (8 units),
+		Icon	=	Petrol,
+		StaticModel = GasCan,
+        WorldStaticModel = GasCan_Ground,
+	}
+	
+	recipe Create Gas Can Voucher (8 units)
+	{
+		[Recipe.GetItemTypes.Petrol]=8,
+		destroy SheetPaper/SheetPaper2,
+		Result:GasCanVoucher,
+		Time:25.0,
+		AnimNode: BlowTorchMid,
+		Prop1: Source=1,
+	}
+	
+	recipe Redeem Gas Can Voucher (8 units)
+	{
+		destroy GasCanVoucher,
+		destroy EmptyPetrolCan,
+		Result:PetrolCan,
+		Time:25.0,
+		AnimNode: BlowTorchMid,
+		Prop1: Source=1,
+	}
+	
+	recipe Salvage Box of Screws
+	{
+		ScrewsBox=1,
+		BlowTorch=1,
+		Result:ScrapMetal=3,
+		Time:25.0,
+		Category:Scrapping,
+		AnimNode: BlowTorchMid,
+		Prop1: Source=1,
+		Prop2:BlowTorch,
+		Sound:s_propane,
+	}
+	
+	recipe Refill Blow Torch
+    {
+       destroy BlowTorch=1,
+       Biofuel.IndustrialPropaneTank,
+
+       Result:BlowTorch,
+       Time:50.0,
+       Category:Welding,
+       OnTest:Recipe.OnTest.RefillBlowTorchBioIndustrial,
+       OnCreate:Recipe.OnCreate.RefillBlowTorchBioIndustrial,
+	   CanBeDoneFromFloor      : TRUE,
+    }
+	
+	item PropaneTankVoucher
+	{
+	    DisplayCategory = Material,
+		Weight	=	7.5,
+		Type	=	Normal,
+		UseWhileEquipped	=	FALSE,
+		DisplayName	=	Propane Tank Voucher (Full Tank),
+		Icon	=	PropaneTank,
+		UseWorldItem = TRUE,
+		WorldStaticModel = PropaneTank,
+		cantBeConsolided = true,
+	}
+	
+	recipe Create Propane Tank Voucher (Full Tank)
+	{
+		destroy PropaneTank,
+		destroy SheetPaper/SheetPaper2,
+		OnTest:Recipe.OnTest.checkFullPropaneTank,
+		OnCreate:patchEmptyPropaneTank,
+		Result:PropaneTankVoucher,
+		Time:25.0,
+		AnimNode: BlowTorchMid,
+		Prop1: Source=1,
+	}
+	
+	recipe Redeem Propane Tank Voucher (Full Tank)
+	{
+		destroy PropaneTankVoucher,
+		destroy PropaneTank,
+		OnTest:Recipe.OnTest.checkEmptyPropaneTank,
+		Result:PropaneTank,
+		Time:25.0,
+		AnimNode: BlowTorchMid,
+		Prop1: Source=1,
+	}
+	
+	recipe Disassemble Empty Propane Torch
+    {
+    	destroy Base.BlowTorch,
+		keep MetalWorkbench,
+		NoBrokenItems			: False,
+		AllowDestroyedItem      : true,
+        Result           		: Base.ScrapMetal=1,
+        OnTest					: Recipe.OnTest.checkEmptyPropaneTorch,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give10MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+    }
+	
+	recipe Disassemble Empty Propane Tank
+    {
+    	destroy Base.PropaneTank,
+		keep MetalWorkbench,
+		NoBrokenItems			: False,
+		AllowDestroyedItem      : true,
+        Result           		: Base.ScrapMetal=2,
+        OnTest					: Recipe.OnTest.checkEmptyPropaneTank,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give10MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+    }
+
+	recipe Disassemble Empty Industrial Propane Tank
+    {
+    	destroy Biofuel.IndustrialPropaneTank,
+		keep MetalWorkbench,
+		NoBrokenItems			: False,
+		AllowDestroyedItem      : true,
+        Result           		: Base.ScrapMetal=4,
+        OnTest					: Recipe.OnTest.checkEmptyIndustrialPropaneTank,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give10MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+    }
+}

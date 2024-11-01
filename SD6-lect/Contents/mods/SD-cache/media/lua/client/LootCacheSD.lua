@@ -45,13 +45,34 @@ local function randomrollSD(zoneroll, loot, itemname)
 	end
 end
 
+local function gaussianRandom()
+	-- Generate two random integers between 0 and 999
+	local u1 = ZombRand(1000) / 1000
+	local u2 = ZombRand(1000) / 1000
+	local z0 = math.sqrt(-2.0 * math.log(u1)) * math.cos(2 * math.pi * u2)--Box-Mueller Transform
+	return z0
+end
+
+
+local function scaledNormal()
+	local z = gaussianRandom() 
+
+	z = math.max(-2.5, math.min(2.5, z)) 
+
+	-- Scale and shift to the 0-1 range
+	local scaledValue = (z + 2.5) / 5
+	scaledValue = scaledValue^1.75 --shift normal distribution to the left. set to 1.0 for a traditional normal distribution.
+	scaledValue = math.floor(scaledValue * 10 + 0.5) / 10
+	return scaledValue
+end
+
 function MechCacheSD(items, result, player)
 	
 -- tiered rolling, checks zone and adds item
 	local zonetier, zonename, x, y = checkZone()
 	local zoneroll = 7-zonetier
 	
-	local ki5parts = splitString("damnCraft.GlassPaneLarge damnCraft.GlassPaneSmall damnCraft.HandleClassic damnCraft.HandleModern damnCraft.HingeLarge damnCraft.HingeSmall damnCraft.RubberStrip damnCraft.TireRepairKit damnCraft.TireRepairRubberSolution damnCraft.TireRepairStrips")
+	local ki5parts = splitString("damnCraft.SteelRimSmall damnCraft.SteelRimMedium damnCraft.SteelRimLarge damnCraft.TireRubberNewSmall damnCraft.TireRubberUsedSmall damnCraft.TireRubberDestroyedSmall damnCraft.TireRubberNewLargedamnCraft.TireRubberUsedLarge damnCraft.TireRubberDestroyedLarge damnCraft.TireRubberMountSmall damnCraft.TireRubberMountedSmall damnCraft.TireRubberMountLarge damnCraft.TireRubberMountedLarge damnCraft.GlassPaneSmall damnCraft.GlassPaneLarge damnCraft.HandleClassic damnCraft.HandleModern damnCraft.HingeSmall damnCraft.HingeLarge damnCraft.RubberStrip damnCraft.SeatFabric damnCraft.SeatFoam damnCraft.SeatFrameSmall damnCraft.SeatFrameLarge damnCraft.TireRepairKit damnCraft.TireRepairTools damnCraft.TireRepairRubberSolution damnCraft.TireRepairStrips damnCraft.PlasticWeldingKit damnCraft.PlasticWeldingGun damnCraft.PlasticWeldingStaples100Pack damnCraft.SmallTire1 damnCraft.SmallTire2")
 	
 	local regbrakes = splitString("NormalBrake1 NormalBrake2 NormalBrake3")
 	
@@ -60,6 +81,9 @@ function MechCacheSD(items, result, player)
 	local modbrakes = splitString("ModernBrake1 ModernBrake2 ModernBrake3")
 	
 	local modsuspension = splitString("ModernSuspension1 ModernSuspension2 ModernSuspension3")
+	
+	local newtank = InventoryItemFactory.CreateItem("Base.PropaneTank")
+	local gascan = InventoryItemFactory.CreateItem("Base.PetrolCan")
 	
 	args = {
 	  player_name = getOnlineUsername(),
@@ -80,6 +104,11 @@ function MechCacheSD(items, result, player)
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
 		addItemToPlayer(modbrakes[ZombRand(#modbrakes)+1])
 		addItemToPlayer(modsuspension[ZombRand(#modsuspension)+1])
+		randomrollSD(zoneroll, "BlowTorch")
+		newtank:setUsedDelta(math.min(0.5, scaledNormal()))
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
+		gascan:setUsedDelta(math.min(0.5, scaledNormal()))
+		randomrollSD(zoneroll, gascan, "Base.PetrolCan")
 	elseif zonetier == 4 then
 		addItemToPlayer("Base.WhiskeyPetrol")
 		addItemsToPlayer("EngineParts", ZombRand(zonetier*2)+2)
@@ -90,6 +119,11 @@ function MechCacheSD(items, result, player)
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
 		addItemToPlayer(modbrakes[ZombRand(#modbrakes)+1])
 		addItemToPlayer(modsuspension[ZombRand(#modsuspension)+1])
+		randomrollSD(zoneroll, "BlowTorch")
+		newtank:setUsedDelta(math.min(0.4, scaledNormal()))
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
+		gascan:setUsedDelta(math.min(0.4, scaledNormal()))
+		randomrollSD(zoneroll, gascan, "Base.PetrolCan")
 	elseif zonetier == 3 then
 		addItemToPlayer("Base.WinePetrol")
 		addItemsToPlayer("EngineParts", ZombRand(zonetier*2)+2)
@@ -99,6 +133,11 @@ function MechCacheSD(items, result, player)
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])		
 		addItemToPlayer(modbrakes[ZombRand(#modbrakes)+1])
 		addItemToPlayer(modsuspension[ZombRand(#modsuspension)+1])
+		randomrollSD(zoneroll, "BlowTorch")
+		newtank:setUsedDelta(math.min(0.3, scaledNormal()))
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
+		gascan:setUsedDelta(math.min(0.3, scaledNormal()))
+		randomrollSD(zoneroll, gascan, "Base.PetrolCan")
 	elseif zonetier == 2 then
 		addItemToPlayer("Base.PetrolPopBottle")
 		addItemsToPlayer("EngineParts", ZombRand(zonetier*2)+2)
@@ -106,36 +145,25 @@ function MechCacheSD(items, result, player)
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
 		randomrollSD(zoneroll, regbrakes[ZombRand(#regbrakes)+1])
 		randomrollSD(zoneroll, regsuspension[ZombRand(#regsuspension)+1])
+		randomrollSD(zoneroll, "BlowTorch")
+		newtank:setUsedDelta(math.min(0.3, scaledNormal()))
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
+		gascan:setUsedDelta(math.min(0.2, scaledNormal()))
+		randomrollSD(zoneroll, gascan, "Base.PetrolCan")
 	elseif zonetier == 1 then
 		addItemToPlayer("Base.WaterBottlePetrol")
 		addItemsToPlayer("EngineParts", ZombRand(zonetier*2)+2)
 		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
 		randomrollSD(zoneroll, regsuspension[ZombRand(#regsuspension)+1])
 		randomrollSD(zoneroll, regbrakes[ZombRand(#regbrakes)+1])
+		randomrollSD(zoneroll, "BlowTorch")
+		newtank:setUsedDelta(math.min(0.3, scaledNormal()))
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
+		gascan:setUsedDelta(math.min(0.1, scaledNormal()))
+		randomrollSD(zoneroll, gascan, "Base.PetrolCan")
 	end
 	
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
-end
-
-local function gaussianRandom()
-	-- Generate two random integers between 0 and 999
-	local u1 = ZombRand(1000) / 1000
-	local u2 = ZombRand(1000) / 1000
-	local z0 = math.sqrt(-2.0 * math.log(u1)) * math.cos(2 * math.pi * u2)--Box-Mueller Transform
-	return z0
-end
-
-
-local function scaledNormal()
-	local z = gaussianRandom() 
-
-	z = math.max(-2.5, math.min(2.5, z)) 
-
-	-- Scale and shift to the 0-1 range
-	local scaledValue = (z + 2.5) / 5
-	scaledValue = scaledValue^1.75 --shift normal distribution to the left. set to 1.0 for a traditional normal distribution.
-	scaledValue = math.floor(scaledValue * 10 + 0.5) / 10
-	return scaledValue
 end
 
 function MetalworkCacheSD(items, result, player)

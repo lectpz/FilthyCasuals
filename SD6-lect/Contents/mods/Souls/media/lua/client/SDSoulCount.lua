@@ -286,7 +286,7 @@ local pref2_args = {
 						--print("Decimator arg: maxCondition = " .. maxCondition)
 
 						local description = gold .. "Prefix Modifer: Decimator" ..
-								green .. " <LINE> " .. math.ceil((sm1*100-100))  .. "% More Maximum Damage" ..
+								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Maximum Damage" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm2*100-100))  .. "% More Weapon Condition Lower Chance <LINE> "
 						return description, scriptItem, maxDamage, conditionLowerChance, maxCondition
 					end,
@@ -325,7 +325,7 @@ local pref2_args = {
 						--print("Reaver arg: conditionLowerChance = " .. conditionLowerChance)
 
 						local description = gold .. "Prefix Modifer: Reaver" ..
-								green .. " <LINE> " .. math.ceil((sm1*100-100))  .. "% More Maximum Damage" ..
+								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Maximum Damage" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm2*100-100))  .. "% More Minimum Damage <LINE> "
 								--orange .. " <LINE> " .. string.format("%.0f", (100-sm3*100))  .. "% Less Weapon Condition Lower Chance <LINE> "
 						return description, scriptItem, maxDamage, minDamage, conditionLowerChance
@@ -718,6 +718,9 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 			soulsRequired = math.floor(weaponMaxCond * weaponCondLowerChance * o_scriptItem:getMinDamage())
 			soulsFreed = weaponModData.KillCount or nil
 			numAugments = weaponModData.Augments or 0
+			soulWrought = weaponModData.SoulWrought or nil
+			baseMaxCond = "10"
+			if soulWrought then baseMaxCond = "50" end
 			
 			local function itemStats()
 				soulPower = math.min(soulsFreed / soulsRequired, 1) or 0
@@ -725,8 +728,8 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 				tooltip.description = tooltip.description .. green .. " <LINE> Extra Base Maximum Damage: +" .. math.floor(soulPower * 10)/10 * numAugments/4 .. " <LINE> "
 				tooltip.description = tooltip.description .. green .. "Extra Base Critical Chance: +" .. math.floor(soulPower * 50)/10 * numAugments/4 .. "% <LINE> "
 				tooltip.description = tooltip.description .. green .. "Extra Base Critical Multi: +" .. math.floor(soulPower * 50)/100 * numAugments/4 .. "x <LINE> "
-				tooltip.description = tooltip.description .. green .. "Extra Base Maximum Condition: +10% <LINE> "
-				tooltip.description = tooltip.description .. green .. "Extra Base Condition Lower Chance: +10% <LINE> "
+				tooltip.description = tooltip.description .. green .. "Extra Base Maximum Condition: +" .. baseMaxCond .. "% <LINE> "
+				tooltip.description = tooltip.description .. green .. "Extra Base Condition Lower Chance: +" .. baseMaxCond .. "% <LINE> "
 				
 				--tooltip.description = tooltip.description .. white .. " <LINE> DEBUG - Endurance Mod: " .. math.ceil(item:getEnduranceMod()*100)/100
 				
@@ -788,7 +791,11 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 					
 					soulDiff = calcsoulDiff(soulsRequired, weaponRepairedStack)
 					
-					option_repairstack = submenu:addOption("Remove 1x repair stack. (-" .. soulDiff .. " souls.) New Soul Power: " .. n_soulsFreed .. "/" .. soulsRequired, item, new_weaponRepairStack, player)
+					if weaponRepairedStack >= 5 then
+						option_repairstack = submenu:addOption("Remove 1x repair stack. (-" .. soulDiff .. " souls.) New Soul Power: " .. n_soulsFreed .. "/" .. soulsRequired, item, new_weaponRepairStack, player)
+					else
+						option_repairstack = submenu:addOption("Requires repair stacks of 4x or greater to remove a repair stack.", item, nil, player)
+					end
 					
 					if weaponRepairedStack < 5 then
 					
@@ -800,9 +807,10 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 					------------------------------------------------------------------------------------------------------
 					--weapon condition option
 					------------------------------------------------------------------------------------------------------
+					local soulForgeMaxCondition = weaponModData.MaxCondition or 1.0
 					weaponCurrentCondition = item:getCondition()
-					weaponCondRepairAmount = math.ceil(weaponMaxCond/3)
-					weaponNewCondition = math.min((weaponCurrentCondition + weaponCondRepairAmount), weaponMaxCond)
+					weaponCondRepairAmount = math.ceil(weaponMaxCond/4 * soulForgeMaxCondition)
+					weaponNewCondition = math.floor(math.min((weaponCurrentCondition + weaponCondRepairAmount), weaponMaxCond*soulForgeMaxCondition)+0.5)
 					
 					new_weaponCondition = function(item, player)
 						item:setCondition(weaponNewCondition)
@@ -810,9 +818,13 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 						--soulsFreed = weaponModData.KillCount
 					end
 					
-					option_weaponCondition = submenu:addOption("Repair weapon to: " .. weaponNewCondition .. "/" .. weaponMaxCond .. " (-" .. soulDiff .. " souls.) New Soul Power: " .. n_soulsFreed .. "/" .. soulsRequired, item, new_weaponCondition, player)
+					if weaponRepairedStack >= 5 then
+						option_weaponCondition = submenu:addOption("Repair weapon to: " .. weaponNewCondition .. "/" .. weaponMaxCond .. " (-" .. soulDiff .. " souls.) New Soul Power: " .. n_soulsFreed .. "/" .. soulsRequired, item, new_weaponCondition, player)
+					else
+						option_weaponCondition = submenu:addOption("Requires repair stacks of 4x or greater to repair with souls.", item, nil, player)
+					end
 					
-					if weaponRepairedStack < 5 or (weaponCurrentCondition == weaponMaxCond) then
+					if weaponRepairedStack < 5 or (weaponCurrentCondition == (weaponMaxCond * soulForgeMaxCondition)) then
 						option_weaponCondition.notAvailable = true;
 						tooltip = ISWorldObjectContextMenu.addToolTip();
 						tooltip.description = tooltip.description .. "This weapon is still serviceable. Higher repair stack requires less souls to mend."
@@ -976,16 +988,16 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 							itemToolTipMats("SoulForge.SoulCrystalT3", option_sm11_upgrade)
 							if _fix == pref2_setstat or _fix == suff2_setstat  then itemToolTipMats("SoulForge.SoulCrystalT4", option_sm11_upgrade) end
 							
-							if _fix == pref2_setstat or _fix == suff2_setstat  then
+							--if _fix == pref2_setstat or _fix == suff2_setstat  then
 								count = countWeapons(playerObj, item)
 								local scriptItem = ScriptManager.instance:getItem(item:getFullType())
 								if count < 1 then
 									option_sm11_upgrade.notAvailable = true;
 									tooltip.description = tooltip.description .. red .. " <LINE> " .. scriptItem:getDisplayName() .. " " .. "0/1" ;
 								elseif count >= 1 then
-									tooltip.description = tooltip.description .. green .. " <LINE> " .. scriptItem:getDisplayName() .. " " .. count-1 .. "/1" ;
+									tooltip.description = tooltip.description .. green .. " <LINE> " .. scriptItem:getDisplayName() .. " " .. count .. "/1" ;
 								end
-							end
+							--end
 						end
 						
 						if weaponModData.Augments and weaponModData.Augments >= 4 then
@@ -1065,7 +1077,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 
 						end
 						
-					elseif (weaponCurrentCondition ~= weaponMaxCond or soulsFreed < soulsRequired) then
+					elseif (weaponCurrentCondition < (weaponMaxCond*soulForgeMaxCondition) or soulsFreed < soulsRequired) then
 						--print("elseif")
 						option_soulForgeWeapon.notAvailable = true;
 						tooltip = ISWorldObjectContextMenu.addToolTip();

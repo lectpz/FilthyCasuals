@@ -23,4 +23,42 @@ module Base
 		mesh = SoulCrystal,
         	texture = GreenCrystal,
 	}
+	
+	model PrismCrystal
+	{
+		mesh = SoulCrystal,
+        	texture = PrismCrystal,
+	}
+	
+
+	model RedCrystalShard
+	{
+		mesh = CrystalShard,
+        	texture = RedCrystal,
+	}
+	
+	model YellowCrystalShard
+	{
+		mesh = CrystalShard,
+        	texture = YellowCrystal,
+	}
+
+	model OrangeCrystalShard
+	{
+		mesh = CrystalShard,
+        	texture = OrangeCrystal,
+	}
+	
+	model GreenCrystalShard
+	{
+		mesh = CrystalShard,
+        	texture = GreenCrystal,
+	}
+	
+	model PrismCrystalShard
+	{
+		mesh = CrystalShard,
+        	texture = PrismCrystal,
+	}
+		
 }

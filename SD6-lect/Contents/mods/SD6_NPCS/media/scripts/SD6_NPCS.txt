@@ -1,0 +1,18 @@
+module SD6_NPCS {
+    imports
+    {
+        Base
+    }
+
+	item SundayDriversNPC_CY
+    {
+        DisplayCategory = Cartography,
+        Type = Map,
+        DisplayName = Cassandra Y.,
+        Icon = Map,
+        Weight = 100.0,
+        Map = SundayDriversNPC_CY,
+        WorldStaticModel = Map,
+    }
+}
+

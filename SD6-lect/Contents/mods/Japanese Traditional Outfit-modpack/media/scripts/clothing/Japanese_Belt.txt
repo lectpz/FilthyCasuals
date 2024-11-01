@@ -1,0 +1,23 @@
+module Base
+{
+
+     item Japanese_Belt-White
+    {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+	DisplayName	= Traditional Japanese Obi,
+        ClothingItem = Japanese_Belt-White,
+        BodyLocation = TorsoExtra,
+	BloodLocation = Apron,
+        IconsForTexture = Japanese_Belt-White;Japanese_Belt-Grey;Japanese_Belt-Beige;Japanese_Belt-Black;Japanese_Belt-Brown,
+
+        ScratchDefense = 10,
+        BiteDefense = 10,
+        Insulation = 0.5,
+        WindResistance = 0.5,
+        WaterResistance = 0.5,
+        Weight = 0.2,
+
+        WorldStaticModel = Japanese_Belt_Ground,
+    }
+ }

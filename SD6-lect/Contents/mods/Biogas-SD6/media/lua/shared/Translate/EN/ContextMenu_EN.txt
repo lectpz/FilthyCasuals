@@ -1,0 +1,9 @@
+ContextMenu_EN = {
+    ContextMenu_BioGas_toolTip_isOutside = "Solar Panel needs to be outside",
+    ContextMenu_BioGas_BioGasUnit = "Bio Gas Unit",
+    ContextMenu_BioGas_GasUnitStatus = "Open Status Window",
+    ContextMenu_BioGas_PlungeFunnel = "Plunge Funnel",
+    ContextMenu_BioGas_SiphonPropane = "Siphon Propane",
+    ContextMenu_BioGas_PickupFertilizer = "Drain Fertilizer",
+
+}

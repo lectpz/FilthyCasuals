@@ -1,0 +1,10 @@
+ContextMenu_EN = {
+    ContextMenu_Distillery_toolTip_needsPower = "Distillery Needs Power",
+    ContextMenu_Distillery_Distillery = "Distillery",
+    ContextMenu_Distillery_DistilleryStatus = "Open Status Window",
+    ContextMenu_Distillery_AddMash = "Add Moonshine Mash",
+    ContextMenu_Distillery_DrainMoonshine = "Drain Moonshine",
+    ContextMenu_Distillery_AddMoonshine = "Add Moonshine for Second Distilling",
+    ContextMenu_Distillery_DistillEthanol = "Redistill Moonshine to Ethanol",
+    ContextMenu_Distillery_DrainGas = "Drain Gas",
+}

@@ -1,0 +1,27 @@
+module Biofuel
+{
+    model MoonshineJar_Ground
+    {
+        mesh = WorldItems/JarFood,
+        texture = WorldItems/JarLiquidMoonshine,
+        scale = 0.4,
+    }
+    model keg
+    {
+        mesh = WorldItems/keg,
+        texture = WorldItems/keg,
+        scale = 1,
+    }
+    model NatoJerryCan_Ground
+    {
+        mesh = WorldItems/natojerrycan,
+        texture = WorldItems/natojerrycan,
+        scale = 1,
+    }
+    model JarSieve_Ground
+    {
+        mesh = WorldItems/jar_sieve,
+        texture = WorldItems/jar_sieve,
+        scale = 1,
+    }
+}

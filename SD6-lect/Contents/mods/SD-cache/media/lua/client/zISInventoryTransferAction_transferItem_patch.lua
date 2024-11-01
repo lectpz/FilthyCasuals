@@ -160,13 +160,13 @@ function ISInventoryTransferAction:transferItem(item)
 					local x2 = safehouse:getW() + x1
 					local y2 = safehouse:getH() + y1
 					if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
-						self:o_transferItem(item)
-						logItemTransfer(iFT, itemID, sourceContainer, destinationContainer)
 						if (item ~= nil) and (item:getType() == "Generator" or item:getType() == "CorpseMale" or item:getType() == "CorpseFemale" or item:hasTag("HeavyItem")) then
 							self.character:getModData().isXferHeavyItem = true -- true
 						else
 							self.character:getModData().isXferHeavyItem = false -- false
 						end
+						self:o_transferItem(item)
+						logItemTransfer(iFT, itemID, sourceContainer, destinationContainer)
 						return
 					end
 				end
@@ -179,24 +179,22 @@ function ISInventoryTransferAction:transferItem(item)
     			self.character:PlayAnim("Idle")
 				return
 			else
-				self:o_transferItem(item)
-				logItemTransfer(iFT, itemID, sourceContainer, destinationContainer)
 				if (item ~= nil) and (item:getType() == "Generator" or item:getType() == "CorpseMale" or item:getType() == "CorpseFemale" or item:hasTag("HeavyItem")) then
 					self.character:getModData().isXferHeavyItem = true -- true
 				else
 					self.character:getModData().isXferHeavyItem = false -- false
 				end
-
+				self:o_transferItem(item)
+				logItemTransfer(iFT, itemID, sourceContainer, destinationContainer)
 			end
 		else
-			self:o_transferItem(item)
-			logItemTransfer(iFT, itemID, sourceContainer, destinationContainer)
 			if (item ~= nil) and (item:getType() == "Generator" or item:getType() == "CorpseMale" or item:getType() == "CorpseFemale" or item:hasTag("HeavyItem")) then
 				self.character:getModData().isXferHeavyItem = true -- true
 			else
 				self.character:getModData().isXferHeavyItem = false -- false
 			end
-
+			self:o_transferItem(item)
+			logItemTransfer(iFT, itemID, sourceContainer, destinationContainer)
 		end
 	else
 		self.character:Say("I should just open this here.")

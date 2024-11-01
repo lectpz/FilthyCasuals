@@ -43,6 +43,22 @@ local function unyeet_recipes()
 		local recipe = recipes:get(i - 1)
 		local name = recipe:getOriginalname()
 		if recipesToUnyeet[name] then
+			if name == "Make Wonton Wrappers Dough" then
+				recipe:findSource("Base.Flour"):setCount(3)
+			end
+			if name == "Make Pasta Dough" then 
+				--print("Recipe Name: " .. name)
+				local eggs = 3
+				recipe:findSource("Base.Flour"):setCount(5)
+				recipe:findSource("Base.WildEggs"):setCount(eggs)
+				recipe:findSource("Base.Egg"):setCount(eggs)
+				recipe:findSource("SapphCooking.BowlwithBeatenEggs"):setCount(eggs)
+				recipe:findSource("SapphCooking.BrownEgg"):setCount(eggs)
+				--[[local sourceIngredients = recipe:getSource()
+				for i=0, sourceIngredients:size()-1 do
+					print(sourceIngredients:get(i):getItems())
+				end]]
+			end
 			recipe:setIsHidden(false)
 			recipe:setCanPerform("yeppers")
 			unyeeted = unyeeted + 1

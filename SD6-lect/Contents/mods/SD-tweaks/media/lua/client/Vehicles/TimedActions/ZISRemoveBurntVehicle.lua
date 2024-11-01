@@ -31,12 +31,12 @@ function ISRemoveBurntVehicle:perform()
 		if self:checkAddItem("SmallSheetMetal", 15) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining
 --		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
 --		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
+--		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
 		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining
 	end
-	for i=1,(tierzone+5) do
+	for i=1,(15+(tierzone)*2) do
 		self.item:Use();
 	end
 	self.character:getXp():AddXP(Perks.MetalWelding, totalXp);

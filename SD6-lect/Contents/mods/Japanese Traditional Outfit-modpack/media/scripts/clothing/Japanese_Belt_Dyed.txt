@@ -1,0 +1,22 @@
+module Base
+{
+    item Japanese_Belt-Dyed
+    {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName	= Traditional Japanese Obi (Dyed),
+        ClothingItem = Japanese_Belt-Dyed,
+        BodyLocation = TorsoExtra,
+        BloodLocation = Apron,
+        IconsForTexture = Japanese_Belt-White,
+
+        ScratchDefense = 10,
+        BiteDefense = 10,
+        Insulation = 0.5,
+        WindResistance = 0.5,
+        WaterResistance = 0.5,
+        Weight = 0.2,
+
+        WorldStaticModel = Japanese_Belt_Ground,
+    }
+}

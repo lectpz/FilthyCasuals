@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<clothingItem>
+	<m_MaleModel>Skinned\Jacket\M_Japanese_Jacket_Undershirt</m_MaleModel>
+	<m_FemaleModel>Skinned\Jacket\F_Japanese_Jacket_Undershirt</m_FemaleModel>
+	<m_GUID>78cc1090-b743-4cbf-b84c-7905e72f4009</m_GUID>
+	<m_Static>false</m_Static>
+	<m_AllowRandomHue>false</m_AllowRandomHue>
+	<m_AllowRandomTint>false</m_AllowRandomTint>
+	<m_AttachBone></m_AttachBone>
+	<m_Masks>3</m_Masks>
+	<m_Masks>5</m_Masks>
+	<m_Masks>1</m_Masks>
+	<textureChoices>Clothes\Japanese\Jacket\Japanese_Jacket_Undershirt-Beige</textureChoices>
+	<textureChoices>Clothes\Japanese\Jacket\Japanese_Jacket_Undershirt-Black</textureChoices>
+	<textureChoices>Clothes\Japanese\Jacket\Japanese_Jacket_Undershirt-Blue</textureChoices>
+	<textureChoices>Clothes\Japanese\Jacket\Japanese_Jacket_Undershirt-Brown</textureChoices>
+	<textureChoices>Clothes\Japanese\Jacket\Japanese_Jacket_Undershirt-Red</textureChoices>
+	<textureChoices>Clothes\Japanese\Jacket\Japanese_Jacket_Undershirt-White</textureChoices>
+</clothingItem>

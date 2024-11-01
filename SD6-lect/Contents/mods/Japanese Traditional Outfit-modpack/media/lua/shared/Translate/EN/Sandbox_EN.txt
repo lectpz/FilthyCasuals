@@ -1,0 +1,39 @@
+Sandbox_EN = {
+
+Sandbox_KATTAJ1_Japanese = "KATTAJ1 Japanese Traditional Outfit",
+
+Sandbox_KATTAJ1_Japanese_JapaneseTraditionalDefault = "Zombies in Traditional Japanese Outfit Spawn Chances - Default  Zones",	
+Sandbox_KATTAJ1_Japanese_JapaneseTraditionalDefault_tooltip = "Defines spawn chances for Zombies in Traditional Japanese Outfit  at Default Zones. This setting determines whether this Zeds can be encountered in cities, forests, or essentially any location where regular zombies can be found.",
+
+Sandbox_KATTAJ1_Japanese_JapaneseTraditionalDyedDefault = "Zombies in Traditional Japanese Dyed Outfit Spawn Chances - Default  Zones",	
+Sandbox_KATTAJ1_Japanese_JapaneseTraditionalDyedDefault_tooltip = "Defines spawn chances for Zombies in Dyed Traditional Japanese Outfit at Default Zones. This setting determines whether this Zeds can be encountered in cities, forests, or essentially any location where regular zombies can be found. Dyed means that this clothing uses vanilla color palette for its texture.",
+
+
+
+
+Sandbox_KATTAJ1_Japanese_clothingStoresSpawnChances = "Clothing Stores Spawn Chances",	
+Sandbox_KATTAJ1_Japanese_clothingStoresSpawnChances_tooltip = "<LINE> Defines spawn chances for clothing at clothing stores.",
+
+Sandbox_KATTAJ1_Japanese_gunStoresSpawnChances = "Gun Stores Spawn Chances",	
+Sandbox_KATTAJ1_Japanese_gunStoresSpawnChances_tooltip = "<LINE> Defines spawn chances for clothing at gun stores.",
+
+Sandbox_KATTAJ1_Japanese_librariesSpawnChances = "Libraries and Book Stores Spawn Chances",	
+Sandbox_KATTAJ1_Japanese_librariesSpawnChances_tooltip = "<LINE> Defines spawn chances for clothing in counters at libraries and book stores.",
+
+
+Sandbox_KATTAJ1_Japanese_clothingStoresSpawnChancesDyed = "Clothing Stores Spawn Chances for Dyed clothing",	
+Sandbox_KATTAJ1_Japanese_clothingStoresSpawnChancesDyed_tooltip = "<LINE> Defines spawn chances for dyed version of clothing at clothing stores. Dyed means that this clothing uses vanilla color palette for its texture.",
+
+Sandbox_KATTAJ1_Japanese_gunStoresSpawnChancesDyed = "Gun Stores Spawn Chances for Dyed clothing",	
+Sandbox_KATTAJ1_Japanese_gunStoresSpawnChancesDyed_tooltip = "<LINE> Defines spawn chances for dyed version of clothing at gun stores. Dyed means that this clothing uses vanilla color palette for its texture.",
+
+Sandbox_KATTAJ1_Japanese_librariesSpawnChancesDyed = "Libraries and Book Stores Spawn Chances for Dyed clothing",	
+Sandbox_KATTAJ1_Japanese_librariesSpawnChancesDyed_tooltip = "<LINE> Defines spawn chances for dyed version of clothing in counters at libraries and book stores. Dyed means that this clothing uses vanilla color palette for its texture.",
+
+
+Sandbox_KATTAJ1_Japanese_Category1 = "",	
+Sandbox_KATTAJ1_Japanese_Category1_tooltip = "",
+
+
+	
+}

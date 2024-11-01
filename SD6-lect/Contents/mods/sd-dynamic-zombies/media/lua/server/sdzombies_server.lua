@@ -187,16 +187,18 @@ local function shouldBeStanding(z)
     return not z:isKnockedDown() and z:getCrawlerType() == 0 and not z:wasFakeDead()
 end
 
+local sandboxOpts = getSandboxOptions()
 local function updateSpeedAndHearing(zombie, targetSpeed, actualSpeed, targetHearing, actualHearing)
     local didChange = false
 
     if actualSpeed ~= targetSpeed or actualHearing ~= targetHearing then
-        getSandboxOptions():set("ZombieLore.Speed", targetSpeed)
-        getSandboxOptions():set("ZombieLore.Hearing", targetHearing)
+		--local sandboxOpts = getSandboxOptions()
+        sandboxOpts:set("ZombieLore.Speed", targetSpeed)
+        sandboxOpts:set("ZombieLore.Hearing", targetHearing)
         zombie:makeInactive(true)
         zombie:makeInactive(false)
-        getSandboxOptions():set("ZombieLore.Speed", SPEED_FAST_SHAMBLER)
-        getSandboxOptions():set("ZombieLore.Hearing", HEARING_NORMAL)
+        sandboxOpts:set("ZombieLore.Speed", SPEED_FAST_SHAMBLER)
+        sandboxOpts:set("ZombieLore.Hearing", HEARING_NORMAL)
         didChange = true
     end
 
@@ -413,6 +415,7 @@ local function updateAllZombies()
     tickFrequency = math.max(2, math.ceil(SDZ_UPDATE_FREQUENTY / avgTickMs))
 ]]
 	zCounter = zCounter + 1
+	sandboxOpts = getSandboxOptions()
 	--print("update zombie counter... " .. zCounter*5 .. " seconds passed!")
 	if zCounter >=3 then
 		removeEventUpdate() -- lect -- remove the event update, dont want this overlapping

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<clothingItem>
+	<m_MaleModel>Skinned\Socks\M_Japanese_Socks</m_MaleModel>
+	<m_FemaleModel>Skinned\Socks\F_Japanese_Socks</m_FemaleModel>
+	<m_GUID>36874e0d-7e4b-4cac-bfe3-ddea626a6ad1</m_GUID>
+	<m_Static>false</m_Static>
+	<m_AllowRandomHue>false</m_AllowRandomHue>
+	<m_AllowRandomTint>true</m_AllowRandomTint>
+	<m_Masks>8</m_Masks>
+	<m_Masks>10</m_Masks>
+	<m_MasksFolder></m_MasksFolder>
+	<m_AttachBone></m_AttachBone>
+	<textureChoices>Clothes\Japanese\Socks\Japanese_Socks-Black</textureChoices>
+</clothingItem>

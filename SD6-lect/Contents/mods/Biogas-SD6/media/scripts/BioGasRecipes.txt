@@ -1,0 +1,82 @@
+module Biofuel
+{
+    imports
+    {
+        Base
+    }
+    recipe Craft Bio Gas Unit
+    {
+        IBCEmpty=2,
+        MetalBar=20,
+        BacteriaStarter,
+        BlowTorch,
+        keep WeldingMask,
+        
+        Result:HomeBioGas,
+        SkillRequired:Farming=2,
+        Time:300,
+        CanBeDoneFromFloor:true,
+        Category:Farming, 
+    }
+    recipe Make Bacteria Starter
+    {
+        Yeast=1,
+        Flour=1,
+        destroy WaterBottleFull,
+        EmptyJar,
+
+        Result:BacteriaStarter,
+        SkillRequired:Cooking=2,
+        Time:90,
+        Category:Cooking,
+        OnCreate:Recipe.OnCreate.WaterBottle,
+    }
+    recipe Double Bacteria Starter
+    {
+        BacteriaStarter,
+        Flour=1,
+        destroy WaterBottleFull,
+        EmptyJar,
+
+        Result:BacteriaStarter=2,
+        SkillRequired:Cooking=2,
+        Time:90,
+        Category:Cooking,
+        OnCreate:Recipe.OnCreate.WaterBottle,
+    }
+    recipe Make NPK Fertilizer
+    {
+        Dirtbag=1,
+        BucketFertilizerFull=2,
+        
+        Result:Fertilizer,
+        SkillRequired:Farming=2,
+        Time:30,
+        CanBeDoneFromFloor:true,
+        Category:Farming,
+    }
+    recipe Refill Propane Tank
+    {
+       destroy PropaneTank,
+       IndustrialPropaneTank,
+
+       Result:PropaneTank,
+       Time:50.0,
+       Category:Welding,
+       OnTest:Recipe.OnTest.RefillFromIndustrialPropaneTank,
+       OnCreate:Recipe.OnCreate.RefillFromIndustrialPropaneTank,
+	   CanBeDoneFromFloor: TRUE,
+    }
+    recipe Store Propane in Industrial Tank
+    {
+       destroy IndustrialPropaneTank,
+       PropaneTank,
+
+       Result:IndustrialPropaneTank,
+       Time:50.0,
+       Category:Welding,
+       OnTest:Recipe.OnTest.StorePropaneinIndustrial,
+       OnCreate:Recipe.OnCreate.StorePropaneinIndustrial,
+	   CanBeDoneFromFloor: TRUE,
+    }
+}

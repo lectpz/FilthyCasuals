@@ -1,0 +1,97 @@
+module TW
+{
+	imports
+	{
+		Base,
+	}
+        recipe Disassamble Metal Armor
+    {
+	[Recipe.GetItemTypes.MetalArmor],
+		keep MetalWorkbench,
+	
+	NoBrokenItems			: False,
+	AllowDestroyedItem      : true,
+	Result 					: ScrapMetal,
+	OnTest:Recipe.OnTest.IsFavorite,		
+	Sound 					: GunDissasembly,
+	Time 					: 200,
+	Category 				: Scrapping,
+	SkillRequired 			: MetalWelding=2,
+	OnGiveXP 				: Give2MWXP,
+	AnimNode 				: Disassemble,
+	CanBeDoneFromFloor      : TRUE,
+	Prop1 					: Screwdriver,
+	Prop2 					: Source=1,
+	NeedToBeLearn			: true,
+	Override:true,
+    }
+	recipe Disassamble Gun
+    {
+	[Recipe.GetItemTypes.Gun]/VarmintRifle/HuntingRifle/Shotgun/DoubleBarrelShotgun/ShotgunSawnoff/Pistol/Pistol2/Pistol3/Revolver/Revolver_Long/Revolver_Short/AssaultRifle/AssaultRifle2/HKUSP/UMP/KrissVector/AKMCAMO/SCARH/SCARH2/SCARH3/SCARH4/SCARH5/SCARH6/SCARH7/SCARH8/MAS36/FNFAL/RSX1/DeadlyHeadhunterRifle/HeadhunterRifle/AK74U/AK74U_Folded/FranchiLF57/FranchiLF57_Folded/AK103/AK74/M4A1/FiveSeven/Glock/PLR16/Luger/Makarov/MosinNagant/MosinNagantObrez/GrozaOTs14/PM3RAK/PM3RAK_Extended/PM3RAK_GripExtended/PM3RAK_Grip/Remington1100/SVDragunov/StG44/WaltherPPk/ColtCavalryRevolver/BarrettM82A1/HenryRepeatingBigBoy,
+		keep MetalWorkbench,
+	
+	NoBrokenItems			: False,
+	AllowDestroyedItem      : true,
+	Result 					: GunParts,
+	OnTest:Recipe.OnTest.IsFavorite,
+	Sound 					: GunDissasembly,
+	Time 					: 50.0,
+	Category 				: Scrapping,
+	SkillRequired 			: MetalWelding=4,
+	OnCreate                : DeconstructGun_OnCreate,
+	OnGiveXP 				: Give10MWXP,
+	AnimNode 				: Disassemble,
+	CanBeDoneFromFloor      : TRUE,
+	Prop1 					: Screwdriver,
+	Prop2 					: Source=1,
+	NeedToBeLearn			: true,
+	OnTest:Recipe.OnTest.IsFavorite,
+	Override:true,
+    }
+        recipe Disassemble Gun Magazine
+    {
+    	[Recipe.GetItemTypes.GunMagazine]/M14Clip/556Clip/308Clip/223Clip/44Clip/45Clip/9mmClip/545Clip/762Clip/9mmBoxClip/ScarHMag/FNFALMag/USPMag/UMPMag/VectorMag/223Clip10/9mmClip8/45Clip13/792x33Clip/50BMGClip/57Clip/380Clip/762x54rStripperClip,
+		keep MetalWorkbench,
+		
+	NoBrokenItems			: False,
+	AllowDestroyedItem      : true,
+        Result           	: Spring,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 30.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give10MWXP,
+		Category 		        : Scrapping,
+		SkillRequired 			: MetalWelding=3,
+		OnCreate                : DeconstructGunMag_OnCreate,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		OnTest:Recipe.OnTest.IsFavorite,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Disassemble Motor
+    {
+
+    	Motor,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: False,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=15,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 200.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give10MWXP,
+		Category 		        : Scrapping,
+		SkillRequired    		: Mechanics=3,
+		OnCreate                : DeconstructMotor_OnCreate,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+}

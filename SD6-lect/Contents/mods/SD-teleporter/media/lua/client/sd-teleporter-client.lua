@@ -70,6 +70,50 @@ function Commands.UpdateCooldowns(args)
 
 end
 
+function Commands.SD6_TPtoSH(args)
+	local playerObj = getPlayer()
+	if args.player_name == getOnlineUsername() then
+		playerObj:setX(args.safehouse_x)
+		playerObj:setY(args.safehouse_y)
+		playerObj:setZ(args.safehouse_z)
+		playerObj:setLx(args.safehouse_x)
+		playerObj:setLy(args.safehouse_y)
+		playerObj:setLz(args.safehouse_z)
+		print("TP to SH")
+	end
+end
+
+function Commands.SD6_TravelToCC(args)
+	local playerObj = getPlayer()
+	if args.player_name == getOnlineUsername() then
+		playerObj:setX(args.x)
+		playerObj:setY(args.y)
+		playerObj:setZ(args.z)
+		playerObj:setLx(args.x)
+		playerObj:setLy(args.y)
+		playerObj:setLz(args.z)
+		print("TP to CC")
+	end
+end
+
+function Commands.SD6_TPtoPlayer(args)
+	local playerObj = getPlayer()
+	if args.player_name == getOnlineUsername() then
+		playerObj:setX(args.x)
+		playerObj:setY(args.y)
+		playerObj:setZ(args.z)
+		playerObj:setLx(args.x)
+		playerObj:setLy(args.y)
+		playerObj:setLz(args.z)
+		print("TP to Player")
+	end
+end
+
+function Commands.SD6_denyTPtoPlayer(args)
+	getPlayer():Say(args.deny)
+	print("TP to Player Denied: " .. args.deny)
+end
+
 local onServerCommand = function(module, command, args)
     if module == moduleName and Commands[command] then
         args = args or {}
@@ -172,6 +216,11 @@ SundayDriversTeleporterContextMenuObjectName.doMenu = function(player, context, 
         end
         local item_type = item:getType()
         if item_type and (item_type == "Teleporter" or item_type == "TeleporterConsumable") then
+			local playerObj = getSpecificPlayer(player)
+			if playerObj:isSeatedInVehicle() then
+				playerObj:Say("I cannot teleport while I am inside of a vehicle.")
+				return
+			end
 
             if isAdmin() then
                 context:addOption("[Debug] Request cooldowns", item, SundayDriversTeleporterContextMenuObjectName.onRequestCooldowns, player);
@@ -302,23 +351,41 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToPlayer = function(item, p
 		playerObj:Say("This teleporter is useless.")
 	else
 		checkDepleted(player, item)
-		ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToPlayer', args));
+		--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToPlayer', args));
+		ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'SD6_TPtoPlayer', args));
+		print("Player Teleport Requested")
 	end
 end
 
 SundayDriversTeleporterContextMenuObjectName.onTravelToCC = function(item, player)
 
     local playerObj = getSpecificPlayer(player);
-
-    local args = {
-        player_name = getOnlineUsername()
+	
+	local CC = { 11072, 8851, 0 }
+    
+	local args = {
+        player_name = getOnlineUsername(),
+		x = CC[1],
+		y = CC[2],
+		z = CC[3],
     };
 	
 	if (item:getType() == "TeleporterConsumable") and (item:getUsedDelta() < 0.1) then
 		playerObj:Say("This teleporter is useless.")
 	else
 		checkDepleted(player, item)
-		ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToCC', args));
+		--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToCC', args));
+		ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'SD6_TravelToCC', args));
+		print("CC Teleport Requested")
+		--[[local CC = { 11072, 8851, 0 }
+		
+		playerObj:setX(CC[1])
+		playerObj:setY(CC[2])
+		playerObj:setZ(CC[3])
+		playerObj:setLx(CC[1])
+		playerObj:setLy(CC[2])
+		playerObj:setLz(CC[3])]]
+
 	end
 end
 
@@ -339,8 +406,8 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 			local y2 = safehouse:getH() + y1
 			if playerModData.SafeHouseX >= x1 and playerModData.SafeHouseY >= y1 and playerModData.SafeHouseX <= x2 and playerModData.SafeHouseY <= y2 then
 				local args = {
-					safehouse_x = pshx-3,
-					safehouse_y = pshy-3,
+					safehouse_x = pshx,
+					safehouse_y = pshy,
 					safehouse_z = pshz,
 					player_name = getOnlineUsername()
 				};
@@ -350,7 +417,15 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 					return
 				else
 					checkDepleted(player, item)
-					ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
+					ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'SD6_TPtoSH', args));
+					print("SH Teleport Requested")
+					--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
+					--[[playerObj:setX(args.safehouse_x)
+					playerObj:setY(args.safehouse_y)
+					playerObj:setZ(args.safehouse_z)
+					playerObj:setLx(args.safehouse_x)
+					playerObj:setLy(args.safehouse_y)
+					playerObj:setLz(args.safehouse_z)]]
 				end
 			else--if saved moddata SH is not within current SH boundaries then write overwrite existing moddata with default SH coordinates
 				playerModData.SafeHouseX = safehouse:getX() --write moddata to player to save safehouse X coordinate
@@ -358,8 +433,8 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 				playerObj:Say("Custom Safehouse coordinates are no longer within your current Safehouse and need to be reset.")
 				
 				local args = {
-					safehouse_x = safehouse:getX(),
-					safehouse_y = safehouse:getY(),
+					safehouse_x = safehouse:getX()+3,
+					safehouse_y = safehouse:getY()+3,
 					safehouse_z = 0,
 					player_name = getOnlineUsername()
 				};
@@ -369,13 +444,21 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 					return
 				else
 					checkDepleted(player, item)
-					ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
+					ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'SD6_TPtoSH', args));
+					print("SH Teleport Requested")
+					--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
+					--[[playerObj:setX(args.safehouse_x)
+					playerObj:setY(args.safehouse_y)
+					playerObj:setZ(args.safehouse_z)
+					playerObj:setLx(args.safehouse_x)
+					playerObj:setLy(args.safehouse_y)
+					playerObj:setLz(args.safehouse_z)]]
 				end
 			end
 		else
 			local args = {
-				safehouse_x = safehouse:getX(),
-				safehouse_y = safehouse:getY(),
+				safehouse_x = safehouse:getX()+3,
+				safehouse_y = safehouse:getY()+3,
 				safehouse_z = 0,
 				player_name = getOnlineUsername()
 			};
@@ -385,7 +468,15 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 				return
 			else
 				checkDepleted(player, item)
-				ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
+				ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'SD6_TPtoSH', args));
+				print("SH Teleport Requested")
+				--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
+				--[[playerObj:setX(args.safehouse_x)
+				playerObj:setY(args.safehouse_y)
+				playerObj:setZ(args.safehouse_z)
+				playerObj:setLx(args.safehouse_x)
+				playerObj:setLy(args.safehouse_y)
+				playerObj:setLz(args.safehouse_z)]]
 			end
 		end
 	else

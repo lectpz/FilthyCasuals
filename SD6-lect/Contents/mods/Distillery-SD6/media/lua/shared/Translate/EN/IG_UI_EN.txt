@@ -1,0 +1,13 @@
+IGUI_EN = {
+    IGUI_Distillery_NotFood = "Wait, %1, that's not food",
+    IGUI_Distillery_ContainerEmpty = "The funnel is empty",
+    IGUI_ItemCat_Carpentry = "Carpentry",
+
+    IGUI_Distillery_Window_Title = "Distillery",
+    IGUI_Distillery_Window_TitleStatus = "Still",
+    IGUI_Distillery_Window_Details_TabTitle = "Details",
+    IGUI_Distillery_Window_Details_Power = "Unit Has Power:",
+    IGUI_Distillery_Window_Details_Status = "Distillery Power:",
+    IGUI_Distillery_Window_Details_Mode = "Product:",
+    IGUI_Distillery_Window_Details_Tank = "Capacity:",
+}

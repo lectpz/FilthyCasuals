@@ -1,5 +1,14 @@
 VERSION = 1,
 
+option SDnoBuild.exclusionZones
+{
+	type = string,
+	default = 19000:100:19750:150;,
+
+	page = SDnoBuild,
+	translation = SDnoBuild_exclusionZones,
+}
+
 option SDOnWeaponSwing.Tier1dmg
 {
 	type = string,
@@ -253,6 +262,48 @@ option SDevents.roll1
 	translation = SDevents_roll1,
 }
 
+option SDevents.teleportenabled
+{
+	type = boolean,
+	default = false,
+
+	page = SDevents,
+	translation = SDevents_teleportenabled,
+}
+
+option SDevents.tpX
+{
+	type = integer,
+	min = 1,
+	max = 20000,
+	default = 19628,
+
+	page = SDevents,
+	translation = SDevents_tpX,
+}
+
+option SDevents.tpY
+{
+	type = integer,
+	min = 1,
+	max = 20000,
+	default = 127,
+
+	page = SDevents,
+	translation = SDevents_tpY,
+}
+
+option SDevents.tpZ
+{
+	type = integer,
+	min = 0,
+	max = 6,
+	default = 0,
+
+	page = SDevents,
+	translation = SDevents_tpZ,
+}
+
 option SDZones.BigBearLake
 {
     type = integer,
@@ -261,12 +312,28 @@ option SDZones.BigBearLake
     translation = SDZones_BigBearLake,
 }
 
+option SDZones.BigBearLakeMili
+{
+    type = integer,
+    min = 1, max = 5, default = 5,
+    page = SDZones,
+    translation = SDZones_BigBearLakeMili,
+}
+
 option SDZones.BigBearLakeWest
 {
     type = integer,
     min = 1, max = 5, default = 4,
     page = SDZones,
     translation = SDZones_BigBearLakeWest,
+}
+
+option SDZones.BigBearLakeEast
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_BigBearLakeEast,
 }
 
 option SDZones.CC
@@ -579,4 +646,28 @@ option McCraes.Y
     min = 1, max = 19000, default = 1000,
     page = McCraes,
     translation = McCraes_Y,
+}
+
+option SDVehicleReroll.rareKI5
+{
+    type = integer,
+    min = 0, max = 100, default = 95,
+    page = SDVehicleReroll,
+    translation = SDVehicleReroll_rareKI5,
+}
+
+option SDVehicleReroll.KI5
+{
+    type = integer,
+    min = 0, max = 100, default = 85,
+    page = SDVehicleReroll,
+    translation = SDVehicleReroll_KI5,
+}
+
+option SDVehicleReroll.Vanilla
+{
+    type = integer,
+    min = 0, max = 100, default = 35,
+    page = SDVehicleReroll,
+    translation = SDVehicleReroll_Vanilla,
 }

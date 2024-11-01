@@ -1,5 +1,10 @@
 Sandbox_EN = {
 	Sandbox_SDOnWeaponSwing = "Dynamic Weapons",
+	
+	Sandbox_SDnoBuild = "SD Building Exclusion Zones",
+
+	Sandbox_SDnoBuild_exclusionZones = "Exclusion coords- topleft->bottomright x1,y2,x2,y2;",
+	Sandbox_SDnoBuild_exclusionZones_tooltip = "e.g. 19000:100:19750:150;",
 
 	Sandbox_SDOnWeaponSwing_Tier1dmg = "Tier 1 damage modifier",
 	Sandbox_SDOnWeaponSwing_Tier1dmg_tooltip = "e.g. 1.00",
@@ -84,6 +89,18 @@ Sandbox_EN = {
 	Sandbox_SDevents_toxic = "Enable Toxic Event Zone",
 	Sandbox_SDevents_toxic_tooltip = "Check to enable, uncheck to disable",
 	
+	Sandbox_SDevents_teleportenabled = "Enable Event Teleport",
+	Sandbox_SDevents_teleportenabled_tooltip = "Check to enable, uncheck to disable",
+	
+	Sandbox_SDevents_tpX = "Event Teleport X-Coordinate",
+	Sandbox_SDevents_tpX_tooltip = "e.g. 19627",
+	
+	Sandbox_SDevents_tpY = "Event Teleport Y-Coordinate",
+	Sandbox_SDevents_tpY_tooltip = "e.g. 127",
+	
+	Sandbox_SDevents_tpZ = "Event Teleport Z-Coordinate",
+	Sandbox_SDevents_tpZ_tooltip = "e.g. 0",
+	
 	Sandbox_SDevents_Rewards1 = "Reward Loot",
 	Sandbox_SDevents_Rewards1_tooltip = "Base.Item",
 
@@ -101,8 +118,14 @@ Sandbox_EN = {
 	Sandbox_SDZones_BigBearLake = "BigBearLake Tier Zone",
 	Sandbox_SDZones_BigBearLake_tooltip = "e.g. 2",
 
+	Sandbox_SDZones_BigBearLakeMili = "BigBearLakeMili Tier Zone",
+	Sandbox_SDZones_BigBearLakeMili_tooltip = "e.g. 5",
+	
 	Sandbox_SDZones_BigBearLakeWest = "BigBearLakeWest Tier Zone",
 	Sandbox_SDZones_BigBearLakeWest_tooltip = "e.g. 4",
+	
+	Sandbox_SDZones_BigBearLakeEast = "BigBearLakeEast Tier Zone",
+	Sandbox_SDZones_BigBearLakeEast_tooltip = "e.g. 3",
 
 	Sandbox_SDZones_CC = "CC Tier Zone",
 	Sandbox_SDZones_CC_tooltip = "e.g. 1",
@@ -222,4 +245,15 @@ Sandbox_EN = {
 	
 	Sandbox_McCraes_Y = "McCrae's Car Battery Charger Y-Coordinate",
 	Sandbox_McCraes_Y_tooltip = "e.g. 1000",
+	
+	Sandbox_SDVehicleReroll = "SD Vehicle Respawn",
+	
+	Sandbox_SDVehicleReroll_rareKI5 = "Rare KI5 spawn chance (n/100)",
+	Sandbox_SDVehicleReroll_rareKI5_tooltip = "e.g. 95",
+	
+	Sandbox_SDVehicleReroll_KI5 = "KI5 spawn chance (n/100)",
+	Sandbox_SDVehicleReroll_KI5_tooltip = "e.g. 85",
+	
+	Sandbox_SDVehicleReroll_Vanilla = "Vanilla spawn chance (n/100)",
+	Sandbox_SDVehicleReroll_Vanilla_tooltip = "e.g. 50",
 }

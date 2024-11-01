@@ -1,0 +1,6 @@
+ContextMenu_EN = {
+
+    ContextMenu_PutOn = "Put On",
+    ContextMenu_JacketTuck = "Tuck",
+    ContextMenu_RollUpPants = "Roll Up",
+} 

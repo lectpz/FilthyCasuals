@@ -1,0 +1,15 @@
+Sandbox_EN = {
+	Sandbox_Distillery = "Distillery",
+
+	Sandbox_Distillery_processTime = "The time the still takes to process out the water.",
+	Sandbox_Distillery_processTime_tooltip = "In game hours it takes to process the mixture.",
+
+	Sandbox_Distillery_ethanolFermTime = "The duration, in days, of the fermentation process for ethanol",
+	Sandbox_Distillery_ethanolFermTime_tooltip = "In game days it takes for the fermentation process of the ethanol slurry.",
+
+	Sandbox_Distillery_moonshineFermTime = "The duration, in days, of the fermentation process for moonshine",
+	Sandbox_Distillery_moonshineFermTime_tooltip = "In game days it takes for the fermentation process of the moonshine slurry.",
+
+	Sandbox_Distillery_maxTankAmount = "Amount the tank holds after the process completes.",
+	Sandbox_Distillery_maxTankAmount_tooltip = "Default is 8 as that's the amount in one vanilla gas can.",
+}

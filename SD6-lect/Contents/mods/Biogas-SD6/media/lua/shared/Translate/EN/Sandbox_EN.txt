@@ -1,0 +1,39 @@
+Sandbox_EN = {
+	Sandbox_BioGas = "BioGas",
+
+	Sandbox_BioGas_TempEfficiency = "Enable the temperature efficiency multiplier",
+	Sandbox_BioGas_TempEfficiency_tooltip = "Bio Gas digesters normally have a higher efficiency with higher temp. This enables that logic",
+
+	Sandbox_BioGas_SpawnIndustrialTanks = "Industrial Propane Tank Distro"
+	Sandbox_BioGas_SpawnIndustrialTanks_tooltip = "Enable/Disable Industrial Propane Tank Distrobution."
+
+	Sandbox_BioGas_calorieMultiplier = "Calorie Input Multiplier"
+	Sandbox_BioGas_calorieMultiplier_tooltip = "Multiplies the input calories by this number. Suggest default if not using Temp Efficiency."
+
+	Sandbox_BioGas_cutOffTemp = "Cut off temperature:"
+	Sandbox_BioGas_cutOffTemp_tooltip = "Set this at or below min temp. Output will be at 0%."
+
+	Sandbox_BioGas_minTemp = "Minimum temperature:"
+	Sandbox_BioGas_minTemp_tooltip = "Set this at or above cutoff temp. Output will be at 25%."
+
+	Sandbox_BioGas_maxTemp = "Maximum temperature:"
+	Sandbox_BioGas_maxTemp_tooltip = "Set this above the min temp. Output will be at 100%. Note: Efficiency drops to 90% after temp reaches 5 deg above max."
+
+	Sandbox_BioGas_BiowasteConsumptionRate = "Biowaste daily consumption:",
+	Sandbox_BioGas_BiowasteConsumptionRate_tooltip = "Amount of biowaste the digester will consume daily.",
+
+    Sandbox_BioGas_MethaneDailyRate = "Amount of Propane produced daily:",
+	Sandbox_BioGas_MethaneDailyRate_tooltip = "Amount of propane produced daily.",
+	
+	Sandbox_BioGas_FertilizerDailyRate = "Amount of Fertilizer produced daily:",
+	Sandbox_BioGas_FertilizerDailyRate_tooltip = "Amount of fertilizer produced daily.",
+
+	Sandbox_BioGas_MaxBiowaste = "BioWaste Digester Tank:",
+	Sandbox_BioGas_MaxBiowaste_tooltip = "Max amount of biowaste that can be added to the device.",
+
+	Sandbox_BioGas_MaxMethane = "Methane Tank:",
+	Sandbox_BioGas_MaxMethane_tooltip = "Max amount of Methane the internal tank can hold.",
+
+	Sandbox_BioGas_MaxFertilizer = "Fertilizer Tank:",
+	Sandbox_BioGas_MaxFertilizer_tooltip = "Max amount of Fertilizer the internal tank can hold.",
+}

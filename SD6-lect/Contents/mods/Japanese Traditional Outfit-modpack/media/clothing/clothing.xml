@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<outfitManager>
+
+
+	<m_FemaleOutfits>
+		<m_Name>KATTAJ1_Japanese_Traditional</m_Name>
+		<m_Guid>9bf76b5a-d87e-4473-a51e-5f789f689f19</m_Guid> 
+		<m_Top>false</m_Top>
+		<m_Pants>false</m_Pants>
+		<m_AllowPantsHue>false</m_AllowPantsHue>
+		<m_AllowTopTint>false</m_AllowTopTint>
+		<m_AllowTShirtDecal>false</m_AllowTShirtDecal>
+<!-- Overshirt -->
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>9274ee57-ac30-4d9e-b51d-f698dcf477e4</itemGUID> <!--Japanese_Jacket_Overshirt -->
+			<subItems>
+				<itemGUID>471f3f0a-b8bd-433a-ace1-f300fb8e8a73</itemGUID> <!--Japanese_Jacket_Overshirt_Tuck -->
+			</subItems>	
+		</m_items>
+<!-- Undershirt -->	
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>78cc1090-b743-4cbf-b84c-7905e72f4009</itemGUID> <!--Japanese_Jacket_Undershirt -->
+			<subItems>
+				<itemGUID>0420e329-86c4-4a54-a31c-ff25f9c51e3c</itemGUID> <!--Japanese_Jacket_Undershirt_Tuck-->
+			</subItems>	
+		</m_items>	
+<!-- Belt -->
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>76c5a6b8-df0d-48d1-90a4-b56e616cecde</itemGUID> <!-- Japanese_Belt -->
+		</m_items>
+<!-- Pants -->
+		<m_items>
+			<itemGUID>cdcf3c2b-1160-4008-a44f-604ee8d387ea</itemGUID> <!-- Japanese_Pants_Hakama -->
+			<subItems>
+				<itemGUID>e41e8760-908e-4bf2-9584-03c278d7fdec</itemGUID> <!--Japanese_Pants_Hakama_RollUp-->
+			</subItems>	
+		</m_items>
+<!-- Socks -->
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>119a9f85-a09d-4796-88bc-5a66f7e5d497</itemGUID> <!-- Japanese_Socks -->
+		</m_items>
+<!-- Sandals -->		
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>3d241361-b52c-43f7-869e-9f68227c3644</itemGUID> <!-- Japanese_Shoes_Sandals-Straw -->
+		</m_items>
+	</m_FemaleOutfits>
+	<m_MaleOutfits>
+		<m_Name>KATTAJ1_Japanese_Traditional</m_Name>
+		<m_Guid>9bf76b5a-d87e-4473-a51e-5f789f689f19</m_Guid> 
+		<m_Top>false</m_Top>
+		<m_Pants>false</m_Pants>
+		<m_AllowPantsHue>false</m_AllowPantsHue>
+		<m_AllowTopTint>false</m_AllowTopTint>
+		<m_AllowTShirtDecal>false</m_AllowTShirtDecal>
+<!-- Overshirt -->
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>9274ee57-ac30-4d9e-b51d-f698dcf477e4</itemGUID> <!--Japanese_Jacket_Overshirt -->
+			<subItems>
+				<itemGUID>471f3f0a-b8bd-433a-ace1-f300fb8e8a73</itemGUID> <!--Japanese_Jacket_Overshirt_Tuck -->
+			</subItems>	
+		</m_items>
+<!-- Undershirt -->	
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>78cc1090-b743-4cbf-b84c-7905e72f4009</itemGUID> <!--Japanese_Jacket_Undershirt -->
+			<subItems>
+				<itemGUID>0420e329-86c4-4a54-a31c-ff25f9c51e3c</itemGUID> <!--Japanese_Jacket_Undershirt_Tuck-->
+			</subItems>	
+		</m_items>	
+<!-- Belt -->
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>76c5a6b8-df0d-48d1-90a4-b56e616cecde</itemGUID> <!-- Japanese_Belt -->
+		</m_items>
+<!-- Pants -->
+		<m_items>
+			<itemGUID>cdcf3c2b-1160-4008-a44f-604ee8d387ea</itemGUID> <!-- Japanese_Pants_Hakama -->
+			<subItems>
+				<itemGUID>e41e8760-908e-4bf2-9584-03c278d7fdec</itemGUID> <!--Japanese_Pants_Hakama_RollUp-->
+			</subItems>	
+		</m_items>
+<!-- Socks -->
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>119a9f85-a09d-4796-88bc-5a66f7e5d497</itemGUID> <!-- Japanese_Socks -->
+		</m_items>
+<!-- Sandals -->		
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>3d241361-b52c-43f7-869e-9f68227c3644</itemGUID> <!-- Japanese_Shoes_Sandals-Straw -->
+		</m_items>
+	</m_MaleOutfits>
+
+
+
+
+
+
+	<m_FemaleOutfits>
+		<m_Name>KATTAJ1_Traditional_Japanese_Outfit_Dyed</m_Name>
+		<m_Guid>93d7bbfb-f478-4758-8046-7a3c0a64b22d</m_Guid> 
+		<m_Top>false</m_Top>
+		<m_Pants>false</m_Pants>
+		<m_AllowPantsHue>false</m_AllowPantsHue>
+		<m_AllowTopTint>false</m_AllowTopTint>
+		<m_AllowTShirtDecal>false</m_AllowTShirtDecal>
+<!-- Overshirt -->
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>9d40efea-837f-4bb8-bc08-4e19cbaf9b72</itemGUID> <!--Japanese_Jacket_Overshirt -->
+			<subItems>
+				<itemGUID>f7fac34b-47c6-4421-8fb9-97bf4e7c97a0</itemGUID> <!--Japanese_Jacket_Overshirt_Tuck -->
+			</subItems>	
+		</m_items>
+<!-- Undershirt -->	
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>52dbed7f-8c9a-4f7f-8953-e3e989c43d79</itemGUID> <!--Japanese_Jacket_Undershirt -->
+			<subItems>
+				<itemGUID>63f5836a-5101-4c1c-b284-b73fc31cd04d</itemGUID> <!--Japanese_Jacket_Undershirt_Tuck-->
+			</subItems>	
+		</m_items>	
+<!-- Belt -->
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>17a488c7-e08c-4774-9d00-534c55b0e23c</itemGUID> <!-- Japanese_Belt -->
+		</m_items>
+<!-- Pants -->
+		<m_items>
+			<itemGUID>84007278-d2b7-44fa-af47-5dbfec960090</itemGUID> <!-- Japanese_Pants_Hakama -->
+			<subItems>
+				<itemGUID>4f593c7b-225c-4718-8f2c-3e09d5affa47</itemGUID> <!--Japanese_Pants_Hakama_RollUp-->
+			</subItems>	
+		</m_items>
+<!-- Socks -->
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>36874e0d-7e4b-4cac-bfe3-ddea626a6ad1</itemGUID> <!-- Japanese_Socks -->
+		</m_items>
+<!-- Sandals -->		
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>876a888b-6a59-43f8-b864-3d545f86b6f5</itemGUID> <!-- Japanese_Shoes_Sandals-Straw -->
+		</m_items>
+	</m_FemaleOutfits>
+	<m_MaleOutfits>
+		<m_Name>KATTAJ1_Traditional_Japanese_Outfit_Dyed</m_Name>
+		<m_Guid>93d7bbfb-f478-4758-8046-7a3c0a64b22d</m_Guid> 
+		<m_Top>false</m_Top>
+		<m_Pants>false</m_Pants>
+		<m_AllowPantsHue>false</m_AllowPantsHue>
+		<m_AllowTopTint>false</m_AllowTopTint>
+		<m_AllowTShirtDecal>false</m_AllowTShirtDecal>
+<!-- Overshirt -->
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>9d40efea-837f-4bb8-bc08-4e19cbaf9b72</itemGUID> <!--Japanese_Jacket_Overshirt -->
+			<subItems>
+				<itemGUID>f7fac34b-47c6-4421-8fb9-97bf4e7c97a0</itemGUID> <!--Japanese_Jacket_Overshirt_Tuck -->
+			</subItems>	
+		</m_items>
+<!-- Undershirt -->	
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>52dbed7f-8c9a-4f7f-8953-e3e989c43d79</itemGUID> <!--Japanese_Jacket_Undershirt -->
+			<subItems>
+				<itemGUID>63f5836a-5101-4c1c-b284-b73fc31cd04d</itemGUID> <!--Japanese_Jacket_Undershirt_Tuck-->
+			</subItems>	
+		</m_items>	
+<!-- Belt -->
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>17a488c7-e08c-4774-9d00-534c55b0e23c</itemGUID> <!-- Japanese_Belt -->
+		</m_items>
+<!-- Pants -->
+		<m_items>
+			<itemGUID>84007278-d2b7-44fa-af47-5dbfec960090</itemGUID> <!-- Japanese_Pants_Hakama -->
+			<subItems>
+				<itemGUID>4f593c7b-225c-4718-8f2c-3e09d5affa47</itemGUID> <!--Japanese_Pants_Hakama_RollUp-->
+			</subItems>	
+		</m_items>
+<!-- Socks -->
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>36874e0d-7e4b-4cac-bfe3-ddea626a6ad1</itemGUID> <!-- Japanese_Socks -->
+		</m_items>
+<!-- Sandals -->		
+		<m_items>
+			<probability>0.5</probability>
+			<itemGUID>876a888b-6a59-43f8-b864-3d545f86b6f5</itemGUID> <!-- Japanese_Shoes_Sandals-Straw -->
+		</m_items>
+	</m_MaleOutfits>
+
+</outfitManager>

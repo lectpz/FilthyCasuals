@@ -1,6 +1,7 @@
 local function addshopitems()
 	--Shop.Items["SoulForge.EmptySoulFlaskWhite"] = {tab = "Tab.Event", price = 1, specialCoin = true}
 	Shop.Items["Base.TileCachePremium"] = {tab = "Tab.Event", price = 1, specialCoin = true}
+	Shop.Items["Base.VehicleSkinChanger"] = {tab = "Tab.Event", price = 1, specialCoin = true}
 
 --	Shop.Items["SoulForge.EmptySoulFlaskYellow"] = {tab = "Tab.Event", price = 1, specialCoin = true}
 --	Shop.Items["SoulForge.EmptySoulFlaskRed"] = {tab = "Tab.Event", price = 1, specialCoin = true}
@@ -17,4 +18,4 @@ local function addshopitems()
 	--print("Added items SD5")
 end
 
-Events.OnGameStart.Add(addshopitems())
+Events.OnGameStart.Add(addshopitems)

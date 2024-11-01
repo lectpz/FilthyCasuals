@@ -66,6 +66,7 @@ function OnCreate_addFullSoulCount(items, result, player)
 	local soulsFreed = weaponModData.KillCount or nil
 	weaponModData.KillCount = soulsFreed + 1000 -- add souls from destroyed soul counter
 	soulsFreed = weaponModData.KillCount
+	result:setUsedDelta(0)
 end
 
 --[[
@@ -250,4 +251,184 @@ function OnCreate_RerollT5(items, result, player)
 	addItemToPlayer(weapon)
 	
 	sendClientCommand(player, 'sdLogger', 'RerollWeapon', args);
+end
+
+function OnTest_checkSoulFlask(item)
+	local player = getSpecificPlayer(0)
+	
+	if not item:isInPlayerInventory() then return false end
+	
+	if item:getFullType() == "SoulForge.StoredSouls" then
+        if item:getUsedDelta() == 1 then return false; end
+    end
+	
+	if player:getPrimaryHandItem() ~= nil then
+		local weapon = player:getPrimaryHandItem()
+		local weaponModData = weapon:getModData()
+		local soulsFreed = weaponModData.KillCount or nil
+
+		if soulsFreed and soulsFreed > 0 then	
+			return true
+		else
+			return false
+		end
+	else
+		return false
+	end
+end
+
+function OnCreate_fillSoulFlask(items, result, player)
+
+	local weapon = player:getPrimaryHandItem()
+	local weaponModData = weapon:getModData()
+	local soulsFreed = weaponModData.KillCount or nil
+
+    local previousFlask = nil;
+    for i=0, items:size()-1 do
+       if items:get(i):getFullType() == "SoulForge.StoredSouls" then
+           previousFlask = items:get(i);
+		   break
+       end
+    end
+
+	local previousFlaskCharge = previousFlask:getUsedDelta()
+	local flaskChargeRemaining = 1000 - math.floor(previousFlaskCharge*1000+0.5) -- get flask charge remaining integer value
+
+	if soulsFreed < flaskChargeRemaining then -- if # of souls cannot fill flask
+		local addSouls = math.floor(soulsFreed+0.5)/1000 -- addSouls is in units of 0.001
+		result:setUsedDelta(previousFlaskCharge+addSouls);
+		weaponModData.KillCount = 0
+	elseif soulsFreed == flaskChargeRemaining then -- if # of souls is equal to flask delta
+		weaponModData.KillCount = 0
+		result:setUsedDelta(1);
+	elseif soulsFreed > flaskChargeRemaining then -- if flask cannot hold all the souls
+		weaponModData.KillCount = math.floor(weaponModData.KillCount - flaskChargeRemaining + 0.5)
+		result:setUsedDelta(1);
+	end
+
+	
+end
+
+function OnTest_checkEmptySoulFlask(item)
+	local player = getSpecificPlayer(0)
+	
+	if not item:isInPlayerInventory() then return false end
+	
+	if item:getFullType() == "SoulForge.StoredSouls" then
+        if item:getUsedDelta() == 0 then return true; end
+    elseif item:getFullType() == "Base.LeatherStrips" then 
+		return true 
+	end
+	
+	return false
+end
+
+function OnCreate_EmptySoulFlask(items, result, player)
+	local soulFlask = InventoryItemFactory.CreateItem("SoulForge.StoredSouls")
+	soulFlask:setUsedDelta(0)
+	playerObj:getInventory():AddItem(soulFlask)
+end
+
+local canReturnSoulForge = true
+local waitTimer = 0
+
+local function waitToUnforge()
+	waitTimer = waitTimer + 1
+	if waitTimer > 1000 then
+		waitTimer = 0
+		canReturnSoulForge = true
+		Events.OnPlayerUpdate.Remove(waitToUnforge)
+	end
+end
+
+function OnTest_checkMainHand(item)
+	if not canReturnSoulForge then return false end
+	local player = getSpecificPlayer(0)
+
+	if not item:isInPlayerInventory() then return false end
+	
+	if player:getPrimaryHandItem() ~= nil then
+		local weapon = player:getPrimaryHandItem()
+		local weaponModData = weapon:getModData()
+		local soulsFreed = weaponModData.KillCount or nil
+		local soulForged = weaponModData.SoulForged or false
+		
+		if weapon:isFavorite() then return false end
+		
+		if soulForged and (soulsFreed and soulsFreed < 1) then
+			return true
+		end
+	end
+	return false
+end
+
+function OnCreate_unforgeMainHand(items, result, player)
+	if not canReturnSoulForge then return end
+	canReturnSoulForge = false
+	local playerInv = player:getInventory()
+	local weapon = player:getPrimaryHandItem()
+	local weaponModData = weapon:getModData()
+	local soulForged = weaponModData.SoulForged or false
+	local augments = weaponModData.Augments
+	local returnSoulForge = false
+	local returnAugments = false
+	
+	if soulForged then returnSoulForge = true end
+	if augments then returnAugments = true end
+	
+	if returnAugments then
+		
+		for i=1,augments do
+			local returnBrokenWeapon = InventoryItemFactory.CreateItem(weapon:getFullType())
+			returnBrokenWeapon:setCondition(0)
+			returnBrokenWeapon:setHaveBeenRepaired(25)
+			playerInv:AddItem(returnBrokenWeapon)
+		end
+		local p1_desc = weaponModData.p1_desc or nil
+		local p2_desc = weaponModData.p2_desc or nil
+		local s1_desc = weaponModData.s1_desc or nil
+		local s2_desc = weaponModData.s2_desc or nil
+		
+		if p1_desc then 
+			playerInv:AddItem("SoulForge.SoulCrystalT1")
+			playerInv:AddItem("SoulForge.SoulCrystalT2")
+			playerInv:AddItem("SoulForge.SoulCrystalT3")
+			--playerInv:AddItem("SoulForge.SoulCrystalT4")
+		end
+		if p2_desc then 
+			playerInv:AddItem("SoulForge.SoulCrystalT1")
+			playerInv:AddItem("SoulForge.SoulCrystalT2")
+			playerInv:AddItem("SoulForge.SoulCrystalT3")
+			playerInv:AddItem("SoulForge.SoulCrystalT4")
+		end
+		if s1_desc then 
+			playerInv:AddItem("SoulForge.SoulCrystalT1")
+			playerInv:AddItem("SoulForge.SoulCrystalT2")
+			playerInv:AddItem("SoulForge.SoulCrystalT3")
+			--playerInv:AddItem("SoulForge.SoulCrystalT4")
+		end
+		if s2_desc then 
+			playerInv:AddItem("SoulForge.SoulCrystalT1")
+			playerInv:AddItem("SoulForge.SoulCrystalT2")
+			playerInv:AddItem("SoulForge.SoulCrystalT3")
+			playerInv:AddItem("SoulForge.SoulCrystalT4")
+		end
+	end
+		
+	if returnSoulForge then
+		local o_weaponRepair = weapon:getHaveBeenRepaired()
+		playerInv:Remove(weapon)
+		player:setPrimaryHandItem(nil)
+		
+		local returnBrokenWeapon = InventoryItemFactory.CreateItem(weapon:getFullType())
+		returnBrokenWeapon:setCondition(0)
+		returnBrokenWeapon:setHaveBeenRepaired(o_weaponRepair)
+		
+		playerInv:AddItem(returnBrokenWeapon)
+		playerInv:AddItem("SoulForge.SoulCrystalT1")
+		playerInv:AddItem("SoulForge.SoulCrystalT2")
+		playerInv:AddItem("SoulForge.SoulCrystalT3")
+		playerInv:AddItem("SoulForge.SoulCrystalT4")
+	end
+	Events.OnPlayerUpdate.Add(waitToUnforge)
 end

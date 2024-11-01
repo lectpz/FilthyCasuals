@@ -1,0 +1,110 @@
+ VERSION = 1,
+
+option KATTAJ1_Japanese.JapaneseTraditionalDefault
+{
+	type = double, 
+	min = 0, 
+	max = 100, 
+	default = 0.05,
+	page = KATTAJ1_Japanese, 
+	translation = KATTAJ1_Japanese_JapaneseTraditionalDefault, 
+	description = KATTAJ1_Japanese_JapaneseTraditionalDefault,
+}
+
+
+
+option KATTAJ1_Japanese.clothingStoresSpawnChances
+{
+	type = double, 
+	min = 0, 
+	max = 100, 
+	default = 0.015,
+	page = KATTAJ1_Japanese, 
+	translation = KATTAJ1_Japanese_clothingStoresSpawnChances, 
+	description = KATTAJ1_Japanese_clothingStoresSpawnChances,
+}
+
+option KATTAJ1_Japanese.gunStoresSpawnChances
+{
+	type = double, 
+	min = 0, 
+	max = 100, 
+	default = 0,
+	page = KATTAJ1_Japanese, 
+	translation = KATTAJ1_Japanese_gunStoresSpawnChances, 
+	description = KATTAJ1_Japanese_gunStoresSpawnChances,
+}
+
+option KATTAJ1_Japanese.librariesSpawnChances
+{
+	type = double, 
+	min = 0, 
+	max = 100, 
+	default = 0,
+	page = KATTAJ1_Japanese, 
+	translation = KATTAJ1_Japanese_librariesSpawnChances, 
+	description = KATTAJ1_Japanese_librariesSpawnChances,
+}
+
+
+
+
+option KATTAJ1_Japanese.Category1
+{
+    type = boolean,
+    default = false,
+    page = KATTAJ1_Japanese,
+    translation = KATTAJ1_Japanese_Category1,
+    description = KATTAJ1_Japanese_Category1,
+}
+
+
+
+
+option KATTAJ1_Japanese.JapaneseTraditionalDyedDefault
+{
+	type = double, 
+	min = 0, 
+	max = 100, 
+	default = 0.03,
+	page = KATTAJ1_Japanese, 
+	translation = KATTAJ1_Japanese_JapaneseTraditionalDyedDefault, 
+	description = KATTAJ1_Japanese_JapaneseTraditionalDyedDefault,
+}
+
+option KATTAJ1_Japanese.clothingStoresSpawnChancesDyed
+{
+	type = double, 
+	min = 0, 
+	max = 100, 
+	default = 0.015,
+	page = KATTAJ1_Japanese, 
+	translation = KATTAJ1_Japanese_clothingStoresSpawnChancesDyed, 
+	description = KATTAJ1_Japanese_clothingStoresSpawnChancesDyed,
+}
+
+option KATTAJ1_Japanese.gunStoresSpawnChancesDyed
+{
+	type = double, 
+	min = 0, 
+	max = 100, 
+	default = 0,
+	page = KATTAJ1_Japanese, 
+	translation = KATTAJ1_Japanese_gunStoresSpawnChancesDyed, 
+	description = KATTAJ1_Japanese_gunStoresSpawnChancesDyed,
+}
+
+option KATTAJ1_Japanese.librariesSpawnChancesDyed
+{
+	type = double, 
+	min = 0, 
+	max = 100, 
+	default = 0,
+	page = KATTAJ1_Japanese, 
+	translation = KATTAJ1_Japanese_librariesSpawnChancesDyed, 
+	description = KATTAJ1_Japanese_librariesSpawnChancesDyed,
+}
+
+
+
+

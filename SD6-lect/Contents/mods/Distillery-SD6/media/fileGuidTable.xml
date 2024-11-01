@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fileGuidTable>
+	<files>
+		<path>media/clothing/clothingItems/Bag_GasCan_LHand.xml</path>
+		<guid>e4cc157d-b22d-4213-a4b0-4a66bffede58</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Bag_GasCan_RHand.xml</path>
+		<guid>cde33137-6940-40a7-b9aa-0a25c49e3c67</guid>
+	</files>
+</fileGuidTable>

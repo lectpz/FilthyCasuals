@@ -1,0 +1,118 @@
+VERSION = 1,
+
+option BioGas.spawnIndustrialTanks
+{
+	type = boolean, 
+    default = true,
+
+	page = BioGas, 
+    translation = BioGas_SpawnIndustrialTanks,
+}
+option BioGas.tempEfficiency
+{
+	type = boolean, 
+    default = true,
+
+	page = BioGas, 
+    translation = BioGas_TempEfficiency,
+}
+option BioGas.CalorieMultiplier
+{
+	type = integer,
+	min = 1,
+	max = 4,
+	default = 1,
+	
+	page = BioGas,
+	translation = BioGas_calorieMultiplier,
+}
+option BioGas.cutOffTemp
+{
+	type = integer,
+	min = -10,
+	max = 10,
+	default = 0,
+
+	page = BioGas,
+	translation = BioGas_cutOffTemp,
+}
+option BioGas.minTemp
+{
+	type = integer,
+	min = 1,
+	max = 20,
+	default = 3,
+
+	page = BioGas,
+	translation = BioGas_minTemp,
+}
+option BioGas.maxTemp
+{
+	type = integer,
+	min = 15,
+	max = 50,
+	default = 28,
+
+	page = BioGas,
+	translation = BioGas_maxTemp,
+}
+option BioGas.BiowasteDayConsumptionRate
+{
+	type = integer,
+	min = 1,
+	max = 100000,
+	default = 20000,
+
+	page = BioGas,
+	translation = BioGas_BiowasteConsumptionRate,
+}
+option BioGas.MethaneDailyRate
+{
+	type = integer,
+	min = 1,
+	max = 100,
+	default = 2,
+
+	page = BioGas,
+	translation = BioGas_MethaneDailyRate,
+}
+option BioGas.FertilizerDailyRate
+{
+	type = integer,
+	min = 0,
+	max = 100,
+	default = 3,
+
+	page = BioGas,
+	translation = BioGas_FertilizerDailyRate,
+}
+option BioGas.MaxBiowaste
+{
+	type = integer,
+	min = 10000,
+	max = 500000,
+	default = 120000,
+
+	page = BioGas,
+	translation = BioGas_MaxBiowaste,
+}
+option BioGas.MaxMethane
+{
+	type = integer,
+	min = 4,
+	max = 100,
+	default = 24,
+
+	page = BioGas,
+	translation = BioGas_MaxMethane,
+}
+option BioGas.MaxFertilizer
+{
+	type = integer,
+	min = 4,
+	max = 100,
+	default = 24,
+
+	page = BioGas,
+	translation = BioGas_MaxFertilizer,
+}

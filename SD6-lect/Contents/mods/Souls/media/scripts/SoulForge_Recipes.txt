@@ -8,7 +8,34 @@ module SoulForge {
 		AnimNode:Loot,
 		Prop1: Source=1,
 		Result:EmptySoulFlaskWhite,
-		Time:500.0,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:OnCreate_EmptySoulFlask,
+	}
+
+	recipe Convert Soul Flask Into A Water Container
+	{
+		CanBeDoneFromFloor:true,
+		destroy StoredSouls,
+		Base.LeatherStrips=1,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:EmptySoulFlaskWhite,
+		Time:50.0,
+		OnTest:OnTest_checkEmptySoulFlask,
+	}
+	
+	recipe Convert Empty Soul Flask Water Container into Soul Container
+	{
+		CanBeDoneFromFloor:true,
+		destroy EmptySoulFlaskWhite,
+		Base.LeatherStrips=1,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:StoredSouls,
+		RemoveResultItem:true,
+		Time:50.0,
+		OnCreate:OnCreate_EmptySoulFlask,
 	}
 
 	recipe Fill Soul Flask
@@ -19,10 +46,22 @@ module SoulForge {
 		Prop1: Source=1,
 		Result:StoredSouls,
 		RemoveResultItem:true,
-		Time:250.0,
+		Time:50.0,
 		OnTest:OnTest_checkEmptyFlask,
 		OnCreate:OnCreate_fillEmptySoulFlask,
 	}
+	
+	recipe Fill Soul Flask
+	{
+		CanBeDoneFromFloor:true,
+		destroy StoredSouls,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:StoredSouls,
+		Time:50.0,
+		OnTest:OnTest_checkSoulFlask,
+		OnCreate:OnCreate_fillSoulFlask,
+	}	
 	
 	recipe Infuse Souls Into Weapon (Single Use)
 	{
@@ -30,9 +69,9 @@ module SoulForge {
 		destroy ContainerSoulsDisposable,
 		AnimNode:Loot,
 		Prop1: Source=1,
-		Result:Base.brokenglass_1_0,
+		Result:StoredSouls,
 		RemoveResultItem:true,
-		Time:250.0,
+		Time:50.0,
 		OnTest:OnTest_hasSoulCount,
 		OnCreate:OnCreate_addFullSoulCount,
 	}
@@ -40,11 +79,12 @@ module SoulForge {
 	recipe Infuse Souls Into Weapon
 	{
 		CanBeDoneFromFloor:true,
-		destroy StoredSouls,
+		StoredSouls=1000,
 		AnimNode:Loot,
 		Prop1: Source=1,
-		Result:EmptySoulFlaskWhite,
-		Time:250.0,
+		Result:StoredSouls,
+		RemoveResultItem:true,
+		Time:50.0,
 		OnTest:OnTest_hasSoulCount,
 		OnCreate:OnCreate_addFullSoulCount,
 	}
@@ -56,7 +96,7 @@ module SoulForge {
 		Base.PaintWhite=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskWhite,
-		Time:500.0,
+		Time:100.0,
 	}
 	
 	recipe Paint Soul Flask Yellow
@@ -66,7 +106,7 @@ module SoulForge {
 		Base.PaintYellow=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskYellow,
-		Time:500.0,
+		Time:100.0,
 	}
 	
 	recipe Paint Soul Flask Red
@@ -76,7 +116,7 @@ module SoulForge {
 		Base.PaintRed=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskRed,
-		Time:500.0,
+		Time:100.0,
 	}
 	
 	recipe Paint Soul Flask Purple
@@ -86,7 +126,7 @@ module SoulForge {
 		Base.PaintPurple=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskPurple,
-		Time:500.0,
+		Time:100.0,
 	}
 	
 	recipe Paint Soul Flask Pink
@@ -96,7 +136,7 @@ module SoulForge {
 		Base.PaintPink=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskPink,
-		Time:500.0,
+		Time:100.0,
 	}
 	
 	recipe Paint Soul Flask Green
@@ -106,7 +146,7 @@ module SoulForge {
 		Base.PaintGreen=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskGreen,
-		Time:500.0,
+		Time:100.0,
 	}
 	
 	recipe Paint Soul Flask Cyan
@@ -116,7 +156,7 @@ module SoulForge {
 		Base.PaintCyan=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskCyan,
-		Time:500.0,
+		Time:100.0,
 	}
 	
 	recipe Paint Soul Flask Blue
@@ -126,7 +166,7 @@ module SoulForge {
 		Base.PaintBlue=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskBlue,
-		Time:500.0,
+		Time:100.0,
 	}
 	
 	recipe Paint Soul Flask Black
@@ -136,13 +176,13 @@ module SoulForge {
 		Base.PaintBlack=2,
 		AnimNode:Loot,
 		Result:EmptySoulFlaskBlack,
-		Time:500.0,
+		Time:100.0,
 	}
 
 	recipe Create Tier 1 Soul Crystal
 	{
 		CanBeDoneFromFloor:false,
-		destroy RMWeapons.PiroCraftKnife/RMWeapons.steinbeer/RMWeapons.club1/RMWeapons.bonkhammer/RMWeapons.MightCleaver/RMWeapons.club2/RMWeapons.spear1/RMWeapons.tanto/RMWeapons.ScrapMace1/RMWeapons.Thawk/RMWeapons.spikedleg/RMWeapons.TrenchShovel/RMWeapons.beardedaxe/RMWeapons.Golok/RMWeapons.FlangedMace/RMWeapons.glaive/RMWeapons.IceAxe1,
+		destroy RMWeapons.PiroCraftKnife/RMWeapons.steinbeer/RMWeapons.club1/RMWeapons.MightCleaver/RMWeapons.bonkhammer/RMWeapons.club2/RMWeapons.spear1/RMWeapons.tanto/RMWeapons.Thawk/RMWeapons.ScrapMace1/RMWeapons.spikedleg/RMWeapons.RailSpike/RMWeapons.dexkama/RMWeapons.TrenchShovel/RMWeapons.IceAxe1/RMWeapons.beardedaxe/RMWeapons.Golok/RMWeapons.MeatHook/RMWeapons.hellokittyax/RMWeapons.FlangedMace/RMWeapons.HeavyCleaver/RMWeapons.glaive/RMWeapons.dagger1/RMWeapons.thunderbreaker/RMWeapons.Falx/RMWeapons.MagicMace,
 		StoredSouls=100,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
@@ -151,13 +191,13 @@ module SoulForge {
 		InSameInventory:true,
 		NoBrokenItems:false,
 		Result:SoulCrystalT1,
-		Time:250.0,
+		Time:100.0,
 	}
 	
 	recipe Create Tier 2 Soul Crystal
 	{
 		CanBeDoneFromFloor:false,
-		destroy RMWeapons.SpikedClub1/RMWeapons.sword40k/RMWeapons.spinecrusher/RMWeapons.Slapper/RMWeapons.Crimson1Sword/RMWeapons.ZombieTrimmer/RMWeapons.MxScythe/RMWeapons.VikingWarhammer/RMWeapons.spikedsword/RMWeapons.CavSword/RMWeapons.MeatHook/RMWeapons.HeavyCleaver/RMWeapons.hellokittyax/RMWeapons.thunderbreaker/RMWeapons.dagger1/RMWeapons.MagicMace/RMWeapons.Falx/RMWeapons.Dadao/RMWeapons.BrushAxe/RMWeapons.kindness/RMWeapons.dragonpiercer/RMWeapons.warhammer,
+		destroy RMWeapons.dragonpiercer/RMWeapons.Dadao/RMWeapons.kindness/RMWeapons.sword40k/RMWeapons.ZombieTrimmer/RMWeapons.warhammer/RMWeapons.Slapper/RMWeapons.BrushAxe/RMWeapons.spinecrusher/RMWeapons.SpikedClub1/RMWeapons.MxScythe/RMWeapons.VikingWarhammer/RMWeapons.Crimson1Sword/RMWeapons.CavSword/RMWeapons.FuriosEppe/RMWeapons.StarWand/RMWeapons.spikedsword/RMWeapons.KnightsSword/RMWeapons.BladeMace,
 		StoredSouls=300,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
@@ -166,13 +206,13 @@ module SoulForge {
 		InSameInventory:true,
 		NoBrokenItems:false,
 		Result:SoulCrystalT2,
-		Time:250.0,
+		Time:100.0,
 	}
 	
 	recipe Create Tier 3 Soul Crystal
 	{
 		CanBeDoneFromFloor:false,
-		destroy RMWeapons.LastHope/RMWeapons.MorningStar/RMWeapons.sawbat1/RMWeapons.gnbat/RMWeapons.bladebat/RMWeapons.waraxe/RMWeapons.RebarClub/RMWeapons.StarWand/RMWeapons.Shaxe/RMWeapons.FallenCross/RMWeapons.FuriosEppe/RMWeapons.BigBertha/RMWeapons.MoonlightGS/RMWeapons.steinsword/RMWeapons.CrimsonLance/RMWeapons.ArcSpear/RMWeapons.bassax/RMWeapons.JadeSword/RMWeapons.LanceofLonginus/RMWeapons.mace1/RMWeapons.StarWand/RMWeapons.BigBertha/RMWeapons.MoonlightGS,
+		destroy RMWeapons.MorningStar/RMWeapons.LastHope/RMWeapons.MadamScythe/RMWeapons.Shaxe/RMWeapons.bladebat/RMWeapons.sawbat1/RMWeapons.gnbat/RMWeapons.RebarClub/RMWeapons.CatnipCrusher/RMWeapons.steinsword/RMWeapons.CrimsonLance/RMWeapons.MoonlightGS/RMWeapons.waraxe/RMWeapons.BigBertha/RMWeapons.FullThrottle/RMWeapons.FoldingChair1,
 		StoredSouls=600,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
@@ -181,13 +221,13 @@ module SoulForge {
 		InSameInventory:true,
 		NoBrokenItems:false,
 		Result:SoulCrystalT3,
-		Time:250.0,
+		Time:100.0,
 	}
 	
 	recipe Create Tier 4 Soul Crystal
 	{
 		CanBeDoneFromFloor:false,
-		destroy RMWeapons.themauler/RMWeapons.Nikabo/RMWeapons.warhammer40k/RMWeapons.crabspear/RMWeapons.MizutsuneGlaive/RMWeapons.firelink/RMWeapons.MedSword/RMWeapons.NulBlade/RMWeapons.MizutsuneSword/RMWeapons.SealingStaff2/RMWeapons.DreamAxe/RMWeapons.CavAxe/RMWeapons.CatnipCrusher/RMWeapons.PochitaSword/RMWeapons.RefudClaws,
+		destroy RMWeapons.ArcSpear/RMWeapons.SealingStaff2/RMWeapons.LanceofLonginus/RMWeapons.JadeSword/RMWeapons.bassax/RMWeapons.themauler/RMWeapons.Nikabo/RMWeapons.FallenCross/RMWeapons.warhammer40k/RMWeapons.DreamAxe/RMWeapons.RoyalGreatsword/RMWeapons.crabspear/RMWeapons.MizutsuneGlaive/RMWeapons.SwordofSolitude/RMWeapons.firelink/RMWeapons.HolyGavel/RMWeapons.Purrasol/RMWeapons.CivilUnrest,
 		StoredSouls=1000,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
@@ -196,9 +236,140 @@ module SoulForge {
 		InSameInventory:true,
 		NoBrokenItems:false,
 		Result:SoulCrystalT4,
-		Time:250.0,
+		Time:100.0,
 	}
 	
+	recipe Create Tier 1 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		SoulShardT1=10,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT1,
+		Time:100.0,
+	}
+	
+	recipe Create Tier 2 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		SoulShardT2=10,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT2,
+		Time:100.0,
+	}
+	
+	recipe Create Tier 3 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		SoulShardT3=10,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT3,
+		Time:100.0,
+	}
+	
+	recipe Create Tier 4 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		SoulShardT4=10,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT4,
+		Time:100.0,
+	}
+	
+	recipe Create Tier 5 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		SoulShardT5=10,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT5,
+		Time:100.0,
+	}
+
+
+	recipe Break Tier 1 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		destroy SoulCrystalT1,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulShardT1=10,
+		Time:100.0,
+	}
+	
+	recipe Break Tier 2 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		destroy SoulCrystalT2,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulShardT2=10,
+		Time:100.0,
+	}
+	
+	recipe Break Tier 3 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		destroy SoulCrystalT3,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulShardT3=10,
+		Time:100.0,
+	}
+	
+	recipe Break Tier 4 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		destroy SoulCrystalT4,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulShardT4=10,
+		Time:100.0,
+	}
+	
+	recipe Break Tier 5 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		destroy SoulCrystalT5,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulShardT5=10,
+		Time:100.0,
+	}
+
 	recipe Fuse Tier 2 Soul Crystal
 	{
 		CanBeDoneFromFloor:false,
@@ -209,7 +380,7 @@ module SoulForge {
 		InSameInventory:true,
 		NoBrokenItems:false,
 		Result:SoulCrystalT2,
-		Time:250.0,
+		Time:100.0,
 	}
 	
 	recipe Fuse Tier 3 Soul Crystal
@@ -222,7 +393,7 @@ module SoulForge {
 		InSameInventory:true,
 		NoBrokenItems:false,
 		Result:SoulCrystalT3,
-		Time:250.0,
+		Time:100.0,
 	}
 	
 	recipe Fuse Tier 4 Soul Crystal
@@ -235,13 +406,13 @@ module SoulForge {
 		InSameInventory:true,
 		NoBrokenItems:false,
 		Result:SoulCrystalT4,
-		Time:250.0,
+		Time:100.0,
 	}
 	
 	recipe Reroll Tier 3 Weapons
 	{
 		CanBeDoneFromFloor:false,
-		destroy RMWeapons.LastHope/RMWeapons.MorningStar/RMWeapons.sawbat1/RMWeapons.gnbat/RMWeapons.bladebat/RMWeapons.waraxe/RMWeapons.RebarClub/RMWeapons.StarWand/RMWeapons.Shaxe/RMWeapons.FallenCross/RMWeapons.FuriosEppe/RMWeapons.BigBertha/RMWeapons.MoonlightGS/RMWeapons.steinsword/RMWeapons.CrimsonLance/RMWeapons.ArcSpear/RMWeapons.bassax/RMWeapons.JadeSword/RMWeapons.LanceofLonginus/RMWeapons.mace1/RMWeapons.StarWand/RMWeapons.BigBertha/RMWeapons.MoonlightGS,
+		destroy RMWeapons.MorningStar/RMWeapons.LastHope/RMWeapons.MadamScythe/RMWeapons.Shaxe/RMWeapons.bladebat/RMWeapons.sawbat1/RMWeapons.gnbat/RMWeapons.RebarClub/RMWeapons.CatnipCrusher/RMWeapons.steinsword/RMWeapons.CrimsonLance/RMWeapons.MoonlightGS/RMWeapons.waraxe/RMWeapons.BigBertha/RMWeapons.FullThrottle/RMWeapons.FoldingChair1,
 		SoulCrystalT3=4,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
@@ -251,14 +422,14 @@ module SoulForge {
 		NoBrokenItems:false,
 		Result:SoulCrystalT3,
 		RemoveResultItem:true,
-		Time:250.0,
+		Time:100.0,
 		OnCreate:OnCreate_RerollT3,
 	}
 	
 	recipe Reroll Tier 4 Weapons
 	{
 		CanBeDoneFromFloor:false,
-		destroy RMWeapons.themauler/RMWeapons.Nikabo/RMWeapons.warhammer40k/RMWeapons.crabspear/RMWeapons.MizutsuneGlaive/RMWeapons.firelink/RMWeapons.MedSword/RMWeapons.NulBlade/RMWeapons.MizutsuneSword/RMWeapons.SealingStaff2/RMWeapons.DreamAxe/RMWeapons.CavAxe,
+		destroy RMWeapons.ArcSpear/RMWeapons.SealingStaff2/RMWeapons.LanceofLonginus/RMWeapons.JadeSword/RMWeapons.bassax/RMWeapons.themauler/RMWeapons.Nikabo/RMWeapons.FallenCross/RMWeapons.warhammer40k/RMWeapons.DreamAxe/RMWeapons.RoyalGreatsword/RMWeapons.crabspear/RMWeapons.MizutsuneGlaive/RMWeapons.SwordofSolitude/RMWeapons.firelink/RMWeapons.HolyGavel/RMWeapons.Purrasol/RMWeapons.CivilUnrest,
 		SoulCrystalT4=3,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
@@ -268,7 +439,36 @@ module SoulForge {
 		NoBrokenItems:false,
 		Result:SoulCrystalT4,
 		RemoveResultItem:true,
-		Time:250.0,
+		Time:100.0,
 		OnCreate:OnCreate_RerollT4,
+	}
+	
+	recipe Create Container of 1000 Souls (Single Use)
+	{
+		CanBeDoneFromFloor:true,
+		StoredSouls=1000,
+		destroy Base.WaterBottleEmpty/Base.PopBottleEmpty,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:ContainerSoulsDisposable,
+		Time:50.0,
+		InSameInventory:true,
+	}
+	
+	recipe Unforge Weapon
+	{
+		StoredSouls=1000,
+		SoulShardT1=8,
+		SoulShardT2=6,
+		SoulShardT3=4,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:EmptySoulFlaskWhite,
+		RemoveResultItem:true,
+		Time:50.0,
+		InSameInventory:true,
+		AllowOnlyOne:true,
+		OnTest:OnTest_checkMainHand,
+		OnCreate:OnCreate_unforgeMainHand,
 	}
 }

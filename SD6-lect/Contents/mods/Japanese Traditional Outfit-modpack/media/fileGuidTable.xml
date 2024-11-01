@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fileGuidTable>
+
+    
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Jacket_Overshirt-Black.xml</path>
+        <guid>9274ee57-ac30-4d9e-b51d-f698dcf477e4</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Jacket_Overshirt-Black_Tuck.xml</path>
+        <guid>471f3f0a-b8bd-433a-ace1-f300fb8e8a73</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Jacket_Overshirt-Dyed.xml</path>
+        <guid>9d40efea-837f-4bb8-bc08-4e19cbaf9b72</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Jacket_Overshirt-Dyed_Tuck.xml</path>
+        <guid>f7fac34b-47c6-4421-8fb9-97bf4e7c97a0</guid>
+    </files>
+
+   
+
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Jacket_Undershirt-Beige.xml</path>
+        <guid>78cc1090-b743-4cbf-b84c-7905e72f4009</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Jacket_Undershirt-Beige_Tuck.xml</path>
+        <guid>0420e329-86c4-4a54-a31c-ff25f9c51e3c</guid>
+    </files>
+        <files>
+        <path>media/clothing/clothingItems/Japanese_Jacket_Undershirt-Dyed.xml</path>
+        <guid>52dbed7f-8c9a-4f7f-8953-e3e989c43d79</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Jacket_Undershirt-Dyed_Tuck.xml</path>
+        <guid>63f5836a-5101-4c1c-b284-b73fc31cd04d</guid>
+    </files>
+    
+
+
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Belt-White.xml</path>
+        <guid>76c5a6b8-df0d-48d1-90a4-b56e616cecde</guid>
+    </files>
+        <files>
+        <path>media/clothing/clothingItems/Japanese_Belt-Dyed.xml</path>
+        <guid>17a488c7-e08c-4774-9d00-534c55b0e23c</guid>
+    </files>
+
+
+
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Pants_Hakama-Brown.xml</path>
+        <guid>cdcf3c2b-1160-4008-a44f-604ee8d387ea</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Pants_Hakama-Brown_RollUp.xml</path>
+        <guid>e41e8760-908e-4bf2-9584-03c278d7fdec</guid>
+    </files>
+        <files>
+        <path>media/clothing/clothingItems/Japanese_Pants_Hakama-Dyed.xml</path>
+        <guid>84007278-d2b7-44fa-af47-5dbfec960090</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Pants_Hakama-Dyed_RollUp.xml</path>
+        <guid>4f593c7b-225c-4718-8f2c-3e09d5affa47</guid>
+    </files>
+
+
+
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Socks-Black.xml</path>
+        <guid>119a9f85-a09d-4796-88bc-5a66f7e5d497</guid>
+    </files>
+        <files>
+        <path>media/clothing/clothingItems/Japanese_Socks-Dyed.xml</path>
+        <guid>36874e0d-7e4b-4cac-bfe3-ddea626a6ad1</guid>
+    </files>
+
+
+
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Shoes_Sandals-Straw.xml</path>
+        <guid>3d241361-b52c-43f7-869e-9f68227c3644</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/Japanese_Shoes_Sandals-Dyed.xml</path>
+        <guid>876a888b-6a59-43f8-b864-3d545f86b6f5</guid>
+    </files>
+
+</fileGuidTable>

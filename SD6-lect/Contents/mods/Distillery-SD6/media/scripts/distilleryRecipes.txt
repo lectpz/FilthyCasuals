@@ -1,0 +1,225 @@
+module Biofuel
+{
+	imports{
+		Base,
+	}
+	recipe Craft Distillery
+	{
+		EmptyKeg=1,
+		MetalPipe=4,
+		BlowTorch;4,
+		keep WeldingMask,
+		Screws=4,
+
+		Result:Distillery,
+		Time:400,
+		Category:Welding,
+		SkillRequired:MetalWelding=2,
+		OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
+	}
+	recipe Grind Cornmeal
+	{
+		keep MortarPestle,
+		Corn=10,
+
+		Result:Cornmeal,
+		Time:80,
+		Category:Cooking,
+		OnGiveXP:Recipe.OnGiveXP.None,
+	}
+    recipe Create Corn Slurry
+    {
+	   Cornmeal;5,
+	   destroy WaterPot,
+
+	   Result:CornSlurry,
+	   Time:50.0,
+	   Category:Cooking,
+	   OnCreate:Recipe.OnCreate.instructions,
+	   OnGiveXP:Recipe.OnGiveXP.None,
+	   OnCreate:Recipe.OnCreate.setAge,
+    }
+    recipe Make Unfermented Slurry with Yeast
+    {
+	   Yeast;1,
+	   [Recipe.GetItemTypes.Sugar];15,
+	   destroy CornSlurry,
+
+	   Result:UnfermentedSlurry,
+       Time:50.0,
+       Category:Cooking,
+	   OnTest:Recipe.OnTest.isSlurryCooked,
+	   OnCreate:Recipe.OnCreate.setAge,
+       OnGiveXP:Recipe.OnGiveXP.Cooking10,
+    }
+	recipe Make Unfermented Slurry with a Starter
+    {
+	   BacteriaStarter,
+	   [Recipe.GetItemTypes.Sugar];15,
+	   destroy CornSlurry,
+
+	   Result:UnfermentedSlurry,
+       Time:50.0,
+       Category:Cooking,
+	   OnTest:Recipe.OnTest.isSlurryCooked,
+	   OnCreate:Recipe.OnCreate.setAge,
+       OnGiveXP:Recipe.OnGiveXP.Cooking10,
+    }
+	recipe Craft Makeshift Sieve
+	{
+		RubberBand=2,
+		DishCloth,
+		EmptyJar,
+
+		Result:JarSieve,
+		Time:120,
+		Category:Cooking,
+		OnGiveXP:Recipe.OnGiveXP.None,
+	}
+	recipe Filter Moonshine into Water Bottles
+	{
+		destroy UnfilteredMoonshinePot,
+		WaterBottleEmpty=4,
+		keep JarSieve,
+
+		Result:WaterBottleMoonshine=4,
+		Time:80.0,
+		Category:Cooking,
+		OnGiveXP:Recipe.OnGiveXP.None,
+		OnTest:Recipe.OnTest.PotFull,
+		OnCreate:Recipe.OnCreate.ConvertToPot,
+	}
+	recipe Filter Moonshine into Pop Bottles
+	{
+		destroy UnfilteredMoonshinePot,
+		PopBottleEmpty=4,
+		keep JarSieve,
+
+		Result:PopBottleMoonshine=4,
+		Time:80.0,
+		Category:Cooking,
+		OnGiveXP:Recipe.OnGiveXP.None,
+		OnTest:Recipe.OnTest.PotFull,
+		OnCreate:Recipe.OnCreate.ConvertToPot,
+	}
+	recipe Filter Moonshine into Jars
+	{
+		destroy UnfilteredMoonshinePot,
+		EmptyJar=4,
+		keep JarSieve,
+
+		Result:JarofMoonshine=4,
+		Time:80.0,
+		Category:Cooking,
+		OnGiveXP:Recipe.OnGiveXP.None,
+		OnTest:Recipe.OnTest.PotFull,
+		OnCreate:Recipe.OnCreate.ConvertToPot,
+	}
+	recipe Filter Moonshine into Whiskey Bottles
+	{
+		destroy UnfilteredMoonshinePot,
+		WhiskeyEmpty=4,
+		keep JarSieve,
+
+		Result:WhiskeyMoonshine=4,
+		Time:80.0,
+		Category:Cooking,
+		OnGiveXP:Recipe.OnGiveXP.None,
+		OnTest:Recipe.OnTest.PotFull,
+		OnCreate:Recipe.OnCreate.ConvertToPot,
+	}
+	recipe Filter Moonshine into Wine Bottles
+	{
+		destroy UnfilteredMoonshinePot,
+		WineEmpty=4,
+		keep JarSieve,
+
+		Result:WineMoonshine=4,
+		Time:80.0,
+		Category:Cooking,
+		OnGiveXP:Recipe.OnGiveXP.None,
+		OnTest:Recipe.OnTest.PotFull,
+		OnCreate:Recipe.OnCreate.ConvertToPot,
+	}
+	recipe Filter Moonshine into Wine Bottles
+	{
+		destroy UnfilteredMoonshinePot,
+		WineEmpty2=4,
+		keep JarSieve,
+
+		Result:WineMoonshine=4,
+		Time:80.0,
+		Category:Cooking,
+		OnGiveXP:Recipe.OnGiveXP.None,
+		OnTest:Recipe.OnTest.PotFull,
+		OnCreate:Recipe.OnCreate.ConvertToPot,
+	}
+	recipe Filter Moonshine into Keg
+	{
+		destroy UnfilteredMoonshinePot,
+		destroy EmptyKeg,
+		keep JarSieve,
+
+		Result:KegofMoonshine,
+		Time:80.0,
+		Category:Cooking,
+		OnGiveXP:Recipe.OnGiveXP.None,
+		OnTest:Recipe.OnTest.PotFull,
+		OnCreate:Recipe.OnCreate.ConvertToPot,
+		CanBeDoneFromFloor: TRUE,
+	}
+	recipe Pump Moonshine from Keg
+	{
+		destroy KegofMoonshine,
+		EmptyJar=4,
+
+		Result:JarofMoonshine=4,
+		Time:80.0,
+		Category:Cooking,
+		OnGiveXP:Recipe.OnGiveXP.None,
+		OnTest:Recipe.OnTest.FullKeg,
+		OnCreate:Recipe.OnCreate.ReturnEmptyKeg,
+		CanBeDoneFromFloor: TRUE,
+	}
+	recipe Pump Beer from Keg
+	{
+		destroy KegofBeer,
+		destroy BeerEmpty,
+
+		Result:KegofBeer,
+		RemoveResultItem:true,
+		Time:80.0,
+		Category:Cooking,
+		OnGiveXP:Recipe.OnGiveXP.None,
+		OnTest:Recipe.OnTest.KegAmount,
+		OnCreate:Recipe.OnCreate.FillCup,
+		CanBeDoneFromFloor: TRUE,
+	}
+	recipe Pour Gas Can into IBC
+	{
+		destroy IBCGas/IBCEmpty,
+		destroy PetrolCan/NatoJerryCan,
+
+		Result:IBCGas,
+		Time:120.0,
+		Category:Survivalist,
+		OnGiveXP:Recipe.OnGiveXP.None,
+		OnTest:Recipe.OnTest.FullIBC,
+		OnCreate:Recipe.OnCreate.PourPetrolintoIBC,
+		CanBeDoneFromFloor: TRUE,
+	}
+	recipe Drain Gas into Can
+	{
+		destroy IBCGas,
+		destroy PetrolCan/NatoJerryCan/EmptyNatoJerryCan/EmptyPetrolCan,
+
+		Result:IBCGas,
+		RemoveResultItem:true,
+		Time:120.0,
+		Category:Survivalist,
+		OnGiveXP:Recipe.OnGiveXP.None,
+		OnTest:Recipe.OnTest.FullCan,
+		OnCreate:Recipe.OnCreate.FillCansFromIBC,
+		CanBeDoneFromFloor: TRUE,
+	}
+}

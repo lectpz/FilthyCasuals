@@ -1,0 +1,41 @@
+module Base
+{
+
+
+
+    model Japanese_Jacket_Undershirt_Ground
+    {
+        mesh = WorldItems/Clothing/Jacket/Japanese_Jacket_Undershirt_Ground,
+        scale = 1,
+    }
+
+    model Japanese_Jacket_Overshirt_Ground
+    {
+        mesh = WorldItems/Clothing/Jacket/Japanese_Jacket_Overshirt_Ground,
+        scale = 1,
+    }
+
+    model Japanese_Belt_Ground
+    {
+        mesh = WorldItems/Clothing/Belt/Japanese_Belt_Ground,
+        scale = 1,
+    }
+
+    model Japanese_Pants_Hakama_Ground
+    {
+        mesh = WorldItems/Clothing/Pants/Japanese_Pants_Hakama_Ground,
+        scale = 1,
+    }
+
+    model Japanese_Socks_Ground
+    {
+        mesh = WorldItems/Clothing/Socks/Japanese_Socks_Ground,
+        scale = 1,
+    }
+
+    model Japanese_Shoes_Sandals_Ground
+    {
+        mesh = WorldItems/Clothing/Shoes/Japanese_Shoes_Sandals_Ground,
+        scale = 1,
+    }
+}

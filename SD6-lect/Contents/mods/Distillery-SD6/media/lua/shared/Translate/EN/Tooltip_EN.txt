@@ -1,0 +1,7 @@
+Tooltip_EN = {
+    -- Item tooltip
+    Tooltip_item_INeedCooked = "Cook the corn slurry, before adding yeast, to make unfermented slurry.",
+    Tooltip_item_FermentTime = "Fermentation takes time, check back later.",
+    Tooltip_item_AddToStill = "Add this to the still to remove the water and purify the mixture.",
+    Tooltip_item_AddToStillorFilter = "Add back to the still or filter into jars.",
+}

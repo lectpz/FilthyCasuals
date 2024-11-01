@@ -137,14 +137,14 @@ function PZwaystone.mainpanel:teleport()
 		local selectd = self.scrolllist.items[self.scrolllist.selected]
 		local postion = selectd.item.postion
 
-		--[[
-		playerObj:setX(postion[1])
-		playerObj:setY(postion[2])
+		
+		playerObj:setX(postion[1]+2)
+		playerObj:setY(postion[2]+2)
 		playerObj:setZ(postion[3])
-		playerObj:setLx(postion[1])
-		playerObj:setLy(postion[2])
+		playerObj:setLx(postion[1]+2)
+		playerObj:setLy(postion[2]+2)
 		playerObj:setLz(postion[3])
-		]]--
+		
 		
 		local args = {
 			safehouse_x = postion[1]-3,
@@ -154,7 +154,7 @@ function PZwaystone.mainpanel:teleport()
 		};
 		--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToEvent', args));
 		--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'EventTPToSH', args));
-		sendClientCommand(self.character, 'SDT', 'TravelToCoordinates', args);
+		--sendClientCommand(self.character, 'SDT', 'TravelToCoordinates', args);
 		--sendClientCommand("PZwaystone","EventTPToSH",args)
 		--playerObj:Say("Teleport()")	
 	--else
@@ -201,43 +201,61 @@ function PZwaystone.mainpanel:shtp()
 				if sh_x >= xx1 and sh_y >= yy1 and sh_x <= xx2 and sh_y <= yy2 then--check if moddata is within actual sh bounds
 
 					local args = {
-						safehouse_x = math.floor(sh_x)-3,
-						safehouse_y = math.floor(sh_y)-3,
+						safehouse_x = math.floor(sh_x),
+						safehouse_y = math.floor(sh_y),
 						safehouse_z = sh_z,
 						player_name = getOnlineUsername()
 					};
 					
 					--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'EventTPToSH', args));
-					sendClientCommand(self.character, 'SDT', 'TravelToCoordinates', args);
+					--sendClientCommand(self.character, 'SDT', 'TravelToCoordinates', args);
 					--sendClientCommand("PZwaystone","EventTPToSH",args)
 					--playerObj:Say("shtp 1")
+					playerObj:setX(args.safehouse_x)
+					playerObj:setY(args.safehouse_y)
+					playerObj:setZ(args.safehouse_z)
+					playerObj:setLx(args.safehouse_x)
+					playerObj:setLy(args.safehouse_y)
+					playerObj:setLz(args.safehouse_z)
 
 				else
 					
 					local args = {
-						safehouse_x = safehouse:getX(),
-						safehouse_y = safehouse:getY(),
+						safehouse_x = safehouse:getX()+3,
+						safehouse_y = safehouse:getY()+3,
 						safehouse_z = 0,
 						player_name = getOnlineUsername()
 					};
 					
 					--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'EventTPToSH', args));
-					sendClientCommand(self.character, 'SDT', 'TravelToCoordinates', args);
+					--sendClientCommand(self.character, 'SDT', 'TravelToCoordinates', args);
 					--sendClientCommand("PZwaystone","EventTPToSH",args)
 					--playerObj:Say("shtp 2")
+					playerObj:setX(args.safehouse_x)
+					playerObj:setY(args.safehouse_y)
+					playerObj:setZ(args.safehouse_z)
+					playerObj:setLx(args.safehouse_x)
+					playerObj:setLy(args.safehouse_y)
+					playerObj:setLz(args.safehouse_z)
 				end
 			else
 				local args = {
-					safehouse_x = safehouse:getX(),
-					safehouse_y = safehouse:getY(),
+					safehouse_x = safehouse:getX()+3,
+					safehouse_y = safehouse:getY()+3,
 					safehouse_z = 0,
 					player_name = getOnlineUsername()
 				};
 				
 				--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'EventTPToSH', args));
-				sendClientCommand(self.character, 'SDT', 'TravelToCoordinates', args);
+				--sendClientCommand(self.character, 'SDT', 'TravelToCoordinates', args);
 				--sendClientCommand("PZwaystone","EventTPToSH",args)
 				--playerObj:Say("shtp 3")
+				playerObj:setX(args.safehouse_x)
+				playerObj:setY(args.safehouse_y)
+				playerObj:setZ(args.safehouse_z)
+				playerObj:setLx(args.safehouse_x)
+				playerObj:setLy(args.safehouse_y)
+				playerObj:setLz(args.safehouse_z)
 			end
 
 		else
@@ -298,7 +316,7 @@ function PZwaystone.mainpanel:eventreward()
 			addItemToPlayer(eventreward2)
 			addItemToPlayer(eventreward3)
 			addItemToPlayer(eventreward4)
-			sendClientCommand(player, 'sdLogger', 'ClaimReward', args);
+			--sendClientCommand(player, 'sdLogger', 'ClaimReward', args);
 			--pzInv:AddItem(eventreward1);
 			--pzInv:AddItem(eventreward2);
 			--pzInv:AddItem(eventreward3);
@@ -498,11 +516,11 @@ function PZwaystone.mainpanel:prerender()
     if self.scrolllist.selected > 0 and  stringposselect~= stringpos then
 --		if Safehouse.isSafeHouse(instance.stoneobject:IsoGridSquare.getGridSquare(stonex, stoney, stonez)) then
 		local zonetier, zonename, x, y = checkZone()
-		if zonename == "CC" then 
+		--if zonename == "CC" then 
 			self.buttonteleport:setVisible(true)
 			--self.buttonshtp:setEnabled(false)
 			--self.buttonshtp:setVisible(true)
-		end
+		--end
     else
         --self.buttonteleport:setEnabled(false)
 		self.buttonteleport:setVisible(false)

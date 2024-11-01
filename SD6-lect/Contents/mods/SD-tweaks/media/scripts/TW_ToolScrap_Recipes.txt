@@ -1,0 +1,468 @@
+module TW
+{
+	imports
+	{
+		Base,
+	}
+    recipe Deconstruct Crowbar
+    {
+
+    	Crowbar,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=7,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Crowbar,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct Pan
+    {
+
+    	Pan/GridlePan/RoastingPan/Saucepan/Pot/BakingPan/Kettle,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=7,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+    recipe Deconstruct Fishing Rod
+    {
+
+    	FishingRod,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+    }
+    recipe Deconstruct Golf Club Head
+    {
+
+    	GolfClubHead,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=6,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+    recipe Deconstruct Hammer Head
+    {
+
+    	HammerHead,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=2,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+    recipe Deconstruct SledgeHammer Head
+    {
+
+    	SledgeHammerHead,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=16,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+    recipe Deconstruct Axe Head
+    {
+
+    	AxeHead,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=8,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+    recipe Deconstruct SmallBlade
+    {
+
+    	SmallBlade,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=6,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+    recipe Deconstruct Small Metal Bar
+    {
+
+    	SmallMetalBar,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct Meat Cleaver Head
+    {
+
+    	MeatCleaverHead,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=7,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct Scythe Head
+    {
+
+    	ScytheHead,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=2,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct Long Blade Head
+    {
+
+    	LongBlade,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=11,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct Wrench
+    {
+
+    	PipeWrench/Wrench,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=5,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct Shovel Head
+    {
+
+    	ShovelHead,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=5,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct Hoe Head
+    {
+
+    	HoeHead,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=3,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct Pickaxe Head
+    {
+
+    	PickaxeHead,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=12,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct Rake Head
+    {
+
+    	RakeHead,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=5,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct BarBell
+    {
+
+    	BarBell,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=30,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct DumbBell
+    {
+
+    	DumbBell,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=15,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct Scalpel
+    {
+
+    	Scalpel,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=1,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct Fork Head
+    {
+
+    	ForkHead,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=1,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+	    Sound 					: ScrapStuff,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+	recipe Deconstruct Tool Box
+    {
+
+    	Toolbox,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: false,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=10,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 50.0,
+		OnGiveXP 				: Give2MWXP,
+		Category 		        : Scrapping,
+	    Sound 					: ScrapStuff,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+		Override:true,
+    }
+}

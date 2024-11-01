@@ -9,21 +9,51 @@ local function PartialFlaskContext(player, context, items)
     local playerInv = playerObj:getInventory()
     items = ISInventoryPane.getActualItems(items)
 
-    for _, item in ipairs(items) do
+    --for _, item in ipairs(items) do
+	for i=1, #items do
+		item = items[i]
+		--[[if item:getFullType() == 'SoulForge.EmptySoulFlaskWhite' and item:isInPlayerInventory() then
+			item:getContainer():Remove(item)
+			local soulFlask = InventoryItemFactory.CreateItem("SoulForge.StoredSouls")
+			soulFlask:setUsedDelta(0)
+			playerObj:getInventory():AddItem(soulFlask)
+		end]]
         if item:getFullType() == 'SoulForge.StoredSouls' and item:isInPlayerInventory() then
             local soulsStored = math.ceil(item:getUsedDelta() * 1000 )
             local soulsCapacity = 1000 - soulsStored
             local weapon = playerObj:getPrimaryHandItem()
 
-            -- Weapon Validation
+			playerItems = playerInv:getItems()
+			for j=1,playerItems:size() do
+				local invItem = playerItems:get(j-1)
+				isBroken = invItem:isBroken()
+				if isBroken then 
+					--print("invItem:" .. invItem:getName() .. " is broken")
+					local weaponModData = invItem:getModData()
+					local soulsFreed = weaponModData.KillCount or 0
+					if soulsStored < 1000 and soulsFreed >= 0 then -- Flask not full, weapon has souls and weapon is broken
+						local function transferSouls(item, player, fullFill)
+							local transferAmount = fullFill and soulsCapacity or math.min(soulsFreed, soulsCapacity)
+							weaponModData.KillCount = soulsFreed - math.floor(transferAmount)
+							item:setUsedDelta((soulsStored + math.floor(transferAmount)) / 1000)
+						end
+
+						--local optionText = soulsFreed >= soulsCapacity and "Fill Soul Flask"
+						context:addOption("Fill Soul Flask Using Broken Weapon", item, transferSouls, player, soulsFreed >= soulsCapacity) 
+						break
+					end
+				end
+			end
+			
+			-- Weapon Validation
             if not weapon or not weapon:IsWeapon() or weapon:isRanged() then
-                return -- Not a valid weapon or is ranged, exit early
+			    return -- Not a valid weapon or is ranged. Check for broken weapons, then exit early
             end
 
             local weaponModData = weapon:getModData()
             local soulsFreed = weaponModData.KillCount or 0
 
-            if soulsStored < 1000 and soulsFreed > 0 then -- Flask not full, weapon has souls
+            --[[if soulsStored < 1000 and soulsFreed >= 0 then -- Flask not full, weapon has souls
                 local function transferSouls(item, player, fullFill)
                     local transferAmount = fullFill and soulsCapacity or math.min(soulsFreed, soulsCapacity)
                     weaponModData.KillCount = soulsFreed - math.floor(transferAmount)
@@ -32,19 +62,22 @@ local function PartialFlaskContext(player, context, items)
 
                 --local optionText = soulsFreed >= soulsCapacity and "Fill Soul Flask"
                 context:addOption("Fill Soul Flask", item, transferSouls, player, soulsFreed >= soulsCapacity) 
-			end
+			end]]
 			
 			if soulsFreed and soulsStored > 999 then -- Flask is full
 				return
-			elseif soulsFreed and soulsStored > 0	 then -- Flask has souls
+			elseif soulsFreed and soulsStored >= 0	 then -- Flask has souls
 
 				local function infuseWeapon(item, player)
 					weaponModData.KillCount = soulsFreed + soulsStored
+					--item:getContainer():Remove(item)
+					--playerObj:getInventory():AddItem("SoulForge.EmptySoulFlaskWhite")
 					item:getContainer():Remove(item)
-					playerObj:getInventory():AddItem("SoulForge.EmptySoulFlaskWhite")
+					local soulFlask = InventoryItemFactory.CreateItem("SoulForge.StoredSouls")
+					soulFlask:setUsedDelta(0)
+					playerObj:getInventory():AddItem(soulFlask)
 				end
 				context:addOption("Infuse Souls Into Weapon", item, infuseWeapon, player)
-
 			end
 
             break  

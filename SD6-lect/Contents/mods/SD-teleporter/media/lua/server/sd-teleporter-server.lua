@@ -1,3 +1,4 @@
+require "SDZoneCheck_shared"
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 
@@ -60,13 +61,16 @@ local function authorizeTeleport(player, player_name, type)
     end
 
     return result;
+	--return true
 end
 
 -- Fix for 41.78 TiS garbage: send list of players online
 -- Thanks bikinihorst!
+local tpList = {}
 function broadcastPlayersOnline()
 
     print("Broadcasting players online...")
+	tpList = {}
 
 	local online_players = getOnlinePlayers();
 	local players_online = {};
@@ -79,7 +83,13 @@ function broadcastPlayersOnline()
 
 			if player
 			then
-				table.insert(players_online, player:getUsername());
+				local playerName = player:getUsername()
+				table.insert(players_online, playerName);
+				tpList[playerName] = player
+				--print(player:getX(), player:getY(), player:getZ())
+				--tier,zone,x,y,control,toxic = checkZoneAtXY(player:getX(),player:getY())
+				--print(tier,zone,x,y,control,toxic)
+				--print(tpList[playerName]:getX(), tpList[playerName]:getY(), tpList[playerName]:getZ())
 			end
 		end
 
@@ -152,6 +162,58 @@ function Commands.SDT.TravelToCoordinates(player, args)
     print("Player [" .. args.player_name .. "] requesting teleport to safehouse at " .. args.safehouse_x .. "," .. args.safehouse_y .. "," .. args.safehouse_z)
 end
 --SD5 lect
+
+function Commands.SDT.SD6_TravelToCC(player, args)--lect
+	if authorizeTeleport(player, args.player_name, "CC") then
+		sendServerCommand(player, 'SDT', 'SD6_TravelToCC', args)
+		print("Teleporting " .. args.player_name .. " to [" .. args.x .. "," .. args.y .. "," .. args.z .. "]")
+	end
+	Commands.SDT.GetCooldowns(player,args);
+end
+
+function Commands.SDT.SD6_TPtoPlayer(player, args)--lect
+	local toPlayer = args.another_player
+	local localPlayer = args.player_name
+	local tpPlayer = tpList[toPlayer]
+	local args = {}
+	if tpPlayer then
+		args = {
+			player_name = localPlayer,
+			x = tpPlayer:getX(),
+			y = tpPlayer:getY(),
+			z = tpPlayer:getZ(),
+		}
+		
+		tier, zone, x, y, control, toxic = checkZoneAtXY(args.x, args.y)
+		
+		if tier >=5 or toxic then
+			args.deny = "Player is in a zone that cannot be reached."
+			sendServerCommand(player, 'SDT', 'SD6_denyTPtoPlayer', args)
+			Commands.SDT.GetCooldowns(player,args);
+			return
+		end
+	else
+		args.deny = "Player does not exist."
+		sendServerCommand(player, 'SDT', 'SD6_denyTPtoPlayer', args)
+		Commands.SDT.GetCooldowns(player,args);
+		return
+	end
+	
+	if tpPlayer and authorizeTeleport(player, localPlayer, "player") then
+		sendServerCommand(player, 'SDT', 'SD6_TPtoPlayer', args)
+		print("Teleporting " .. localPlayer .. " to " .. toPlayer .. " at [" .. args.x .. "," .. args.y .. "," .. args.z .. "]")
+	end
+	Commands.SDT.GetCooldowns(player,args);
+end
+
+function Commands.SDT.SD6_TPtoSH(player, args)
+	if authorizeTeleport(player, args.player_name, "safehouse") then
+		sendServerCommand(player, 'SDT', 'SD6_TPtoSH', args)
+		print("Teleporting " .. args.player_name .. " to safehouse at [" .. args.safehouse_x .. "," .. args.safehouse_y .. "," .. args.safehouse_z .. "]")
+	end
+    -- update player with cooldowns
+    Commands.SDT.GetCooldowns(player,args);
+end
 
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------

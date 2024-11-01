@@ -5,7 +5,7 @@ local function mendWound(bodyPart, player)
 	else
 		getInfectionMortalityDuration 	= bD:getInfectionMortalityDuration();
 		getInfectionTime 				= bD:getInfectionTime();
-		getInfectionLevel 				= bD:getInfectionLevel(0);
+		getInfectionLevel 				= bD:getInfectionLevel();
 		
 		bodyPart:RestoreToFullHealth()
 		

@@ -32,13 +32,8 @@ function ISGrabItemAction:transferItem(item)
 			end
 		end
 		self.character:Say("I can't move items in someone else's SafeHouse.")
-		args.SafeHouseOwner = isOwned
-		sendClientCommand(getSpecificPlayer(0), 'sdLogger', 'ItemTransferSH', args);
-		self.character:StopAllActionQueue();
-		local queue = ISTimedActionQueue.getTimedActionQueue(self.character);
-		queue:clearQueue();
-		self.character:PlayAnim("Idle")
-		return
+		args.SafeHouseOwner = SafehouseSQ:getOwner()
+		sendClientCommand(self.character, 'sdLogger', 'ItemTransferSH', args);
 	else
 		self:o_transferItem(item)
 	end

@@ -1,0 +1,15 @@
+module Biofuel
+{
+	model IndustrialPropane
+	{
+		mesh = WorldItems/100lb_worthingtonpro,
+		texture = WorldItems/100lb_worthingtonpro,
+		scale = 1,
+	}
+	model IBCtank
+	{
+		mesh = WorldItems/IBC,
+		texture = WorldItems/IBC,
+		scale = 1,
+	}
+}

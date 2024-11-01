@@ -1,0 +1,53 @@
+module Base
+{
+    item Japanese_Pants_Hakama-Dyed
+    {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Traditional Japanese Hakama (Dyed),
+        ClothingItem = Japanese_Pants_Hakama-Dyed,
+        BodyLocation = Pants,
+        BloodLocation = Trousers,
+        IconsForTexture = Japanese_Pants_Hakama-White,
+
+        RunSpeedModifier = 0.98,
+        ScratchDefense = 35,
+        BiteDefense = 25,
+        Insulation = 0.35,
+        WindResistance = 0.5,
+        WaterResistance = 0.6,
+        Weight = 1,
+        FabricType = Cotton,
+
+        ClothingItemExtra = Japanese_Pants_Hakama-Dyed_RollUp,
+        ClothingItemExtraOption = RollUpPants,
+        ClothingExtraSubmenu = PutOn,
+        WorldStaticModel = Japanese_Pants_Hakama_Ground,
+    }
+
+    item Japanese_Pants_Hakama-Dyed_RollUp
+    {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Traditional Japanese Tattsuke Bakama (Dyed),
+        ClothingItem = Japanese_Pants_Hakama-Dyed_RollUp,
+        BodyLocation = Pants,
+        BloodLocation = Trousers,
+        IconsForTexture = Japanese_Pants_Hakama-White_RollUp,
+
+        RunSpeedModifier = 0.98,
+        ScratchDefense = 35,
+        BiteDefense = 25,
+        Insulation = 0.35,
+        WindResistance = 0.5,
+        WaterResistance = 0.6,
+        Weight = 1,
+        FabricType = Cotton,
+
+        ClothingItemExtra = Japanese_Pants_Hakama-Dyed,
+        ClothingItemExtraOption = PutOn,
+        ClothingExtraSubmenu = RollUpPants,
+        WorldStaticModel = Japanese_Pants_Hakama_Ground,
+    }
+
+}

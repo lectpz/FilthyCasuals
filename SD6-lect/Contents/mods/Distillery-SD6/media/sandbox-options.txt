@@ -1,0 +1,31 @@
+VERSION = 1,
+option Distillery.maxTankAmount
+{
+	type = integer,
+	min = 1,
+	max = 100,
+	default = 8,
+
+	page = Distillery, 
+    translation = Distillery_maxTankAmount,
+}
+option Distillery.processTime
+{
+	type = integer,
+	min = 1,
+	max = 48,
+	default = 6,
+
+	page = Distillery, 
+    translation = Distillery_processTime,
+}
+option Distillery.moonshineFermTime
+{
+	type = integer,
+	min = 1,
+	max = 31,
+	default = 4,
+
+	page = Distillery, 
+    translation = Distillery_moonshineFermTime,
+}

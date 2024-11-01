@@ -1,0 +1,54 @@
+module Base
+{
+
+     item Japanese_Jacket_Overshirt-Black
+    {
+        DisplayCategory = Clothing,
+	Type = Clothing,
+        DisplayName = Traditional Japanese Haori,
+        ClothingItem = Japanese_Jacket_Overshirt-Black,
+        BodyLocation = Jacket,
+        BloodLocation = Jacket,
+        IconsForTexture = Japanese_Jacket_Overshirt-Beige;Japanese_Jacket_Overshirt-Black;Japanese_Jacket_Overshirt-Blue;Japanese_Jacket_Overshirt-Brown;Japanese_Jacket_Overshirt-Red;Japanese_Jacket_Overshirt-White,
+
+        ScratchDefense = 60,
+        BiteDefense = 30,
+        Insulation = 0.4,
+        WindResistance = 0.7,
+        WaterResistance = 0.8,
+        Weight = 1,
+        FabricType = Cotton,
+        NeckProtectionModifier = 0.5,
+
+        ClothingItemExtra =  Japanese_Jacket_Overshirt-Black_Tuck,
+        ClothingItemExtraOption = JacketTuck,
+        ClothingExtraSubmenu = PutOn,
+        WorldStaticModel = Japanese_Jacket_Undershirt_Ground,
+    }
+
+    item Japanese_Jacket_Overshirt-Black_Tuck
+    {
+        DisplayCategory = Clothing,
+	Type = Clothing,
+        DisplayName = Traditional Japanese Haori,
+        ClothingItem = Japanese_Jacket_Overshirt-Black_Tuck,
+        BodyLocation = Jacket,
+        BloodLocation = Jacket,
+        IconsForTexture = Japanese_Jacket_Overshirt-Beige;Japanese_Jacket_Overshirt-Black;Japanese_Jacket_Overshirt-Blue;Japanese_Jacket_Overshirt-Brown;Japanese_Jacket_Overshirt-Red;Japanese_Jacket_Overshirt-White,
+
+        ScratchDefense = 60,
+        BiteDefense = 30,
+        Insulation = 0.4,
+        WindResistance = 0.7,
+        WaterResistance = 0.8,
+        Weight = 1,
+        FabricType = Cotton,
+        NeckProtectionModifier = 0.5,
+
+        ClothingItemExtra = Japanese_Jacket_Overshirt-Black,
+        ClothingItemExtraOption = PutOn,
+        ClothingExtraSubmenu = JacketTuck,
+        WorldStaticModel = Japanese_Jacket_Undershirt_Ground,
+    }
+
+}

@@ -1,0 +1,16 @@
+module Base
+{
+	fixing Crowbar
+	{
+	   Require : Crowbar,
+	   
+       Fixer : BlowTorch=5; MetalWelding=2,
+	}
+
+	fixing Wrench
+	{
+	   Require : Wrench,
+	   
+       Fixer : BlowTorch=5; MetalWelding=2,
+	}
+}

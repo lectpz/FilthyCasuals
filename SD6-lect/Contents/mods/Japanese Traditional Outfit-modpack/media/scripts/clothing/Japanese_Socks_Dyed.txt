@@ -1,0 +1,25 @@
+module Base
+{
+
+    item Japanese_Socks-Dyed
+    {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Traditional Japanese Tabi (Dyed),
+        ClothingItem = Japanese_Socks-Dyed,
+        BodyLocation = Socks,
+        BloodLocation = Shoes,
+        IconsForTexture = Japanese_Socks-Black,
+
+        StompPower = 1,
+        ScratchDefense = 15,
+        BiteDefense = 10,
+        Insulation = 0.4,
+        WindResistance = 0.4,
+        WaterResistance = 0.4,
+        Weight = 0.3,
+        FabricType = Cotton,
+
+        WorldStaticModel = Japanese_Socks_Ground,
+    }
+}

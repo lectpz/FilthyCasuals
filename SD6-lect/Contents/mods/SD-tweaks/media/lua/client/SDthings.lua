@@ -132,3 +132,62 @@ local function onItemFall(item)
 end
 
 Events.onItemFall.Add(onItemFall)
+
+require "DAMN_Armor_Shared";
+
+DAMN = DAMN or {};
+DAMN.Armor = DAMN.Armor or {};
+
+DAMN.Armor["partUpdateInterval"] = 2000;
+--[[
+local maintXPswing
+local isHittingZombie = true
+local function OnWeaponSwing(character, handWeapon)
+	if not isHittingZombie then
+		if handWeapon:getType() == "BareHands" then
+			maintXPswing = character:getXp():getXP(Perks.Maintenance);
+			--print("maintXPswing: " .. tostring(maintXPswing))
+		end
+	end
+end
+Events.OnWeaponSwing.Add(OnWeaponSwing)
+
+local function OnPlayerAttackFinished(character, handWeapon)
+	if not isHittingZombie then
+		local perk = Perks.Maintenance
+	
+		if handWeapon:getType() == "BareHands" then
+			local maintXPnew = character:getXp():getXP(perk);
+			--print("maintXPnew: " .. tostring(maintXPnew))
+			local maintXPdelta = maintXPswing - maintXPnew
+			--print("maintXPdelta: " .. tostring(maintXPdelta))
+			
+			local maintmulti = character:getXp():getPerkBoost(perk)/2; --+2 maint, this is 100% so 4x, +1maint would be 75% so 3x
+			if maintmulti > 3.5 then maintmulti = 3.5 end
+			local maint_var = ((3-maintmulti)*2+2)/3
+			
+			local maint_experience = maintXPdelta / 0.25 / (maintmulti/0.25* maint_var )
+			
+			if not type(maint_experience) == "number" then maint_experience = -10 end
+			
+			character:getXp():AddXP( perk, maint_experience );--0.25 = 4x more xp removed, 100% = 16xp removed
+			--local maintXP = character:getXp():getXP(perk);
+			--print("resetXP: " .. tostring(maintXP))
+		end
+		
+		local info = character:getPerkInfo(perk);
+		if info then
+			local level = info:getLevel()
+			if level >= 1 and level <= 10 and character:getXp():getXP(perk) < PerkFactory.getPerk(perk):getTotalXpForLevel(level) then
+				character:LoseLevel(perk);
+			end
+		end
+	end
+	isHittingZombie = false
+end
+Events.OnPlayerAttackFinished.Add(OnPlayerAttackFinished)
+
+local function OnWeaponHitXp(player, handWeapon, character, damageSplit)
+	isHittingZombie = true
+end
+Events.OnWeaponHitXp.Add(OnWeaponHitXp)]]

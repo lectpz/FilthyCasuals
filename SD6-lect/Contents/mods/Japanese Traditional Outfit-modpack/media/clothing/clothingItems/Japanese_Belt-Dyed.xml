@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<clothingItem>
+	<m_MaleModel>Skinned\Belt\M_Japanese_Belt</m_MaleModel>
+	<m_FemaleModel>Skinned\Belt\F_Japanese_Belt</m_FemaleModel>
+	<m_GUID>17a488c7-e08c-4774-9d00-534c55b0e23c</m_GUID>
+	<m_Static>false</m_Static>
+	<m_AllowRandomHue>false</m_AllowRandomHue>
+	<m_AllowRandomTint>true</m_AllowRandomTint>
+	<m_MasksFolder></m_MasksFolder>
+	<m_AttachBone></m_AttachBone>
+	<textureChoices>Clothes\Japanese\Belt\Japanese_Belt-White</textureChoices>
+</clothingItem>

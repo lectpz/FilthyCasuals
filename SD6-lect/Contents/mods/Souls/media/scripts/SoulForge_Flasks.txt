@@ -328,11 +328,13 @@ module SoulForge {
 		DisplayName			=		Flask of Stored Souls,
 		Icon				=		WhiteBot,
 		Weight				=		1.0,
-		ReplaceOnDeplete 	=		EmptySoulFlaskWhite,
+		WeightEmpty			=		0.3,
+		KeepOnDeplete 		= 		TRUE,
 		UseDelta 			=		0.001,
 		UseWhileEquipped  	=		FALSE,
 		StaticModel			=		static_WhiteBot,
 		WorldStaticModel	=		world_WhiteBot,
+		cantBeConsolided 	= 		TRUE,
 	}
 
 	item ContainerSoulsDisposable

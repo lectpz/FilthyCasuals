@@ -1,4 +1,4 @@
-local DAMN = DAMN or {}
+--[[local DAMN = DAMN or {}
 original_DAMN_inVehicleUpdateTask = DAMN.inVehicleUpdateTask
 local tick = 0
 function DAMN.inVehicleUpdateTask(player)
@@ -7,4 +7,4 @@ function DAMN.inVehicleUpdateTask(player)
 		original_DAMN_inVehicleUpdateTask(player)
 		tick = 0
 	end
-end
+end]]

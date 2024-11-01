@@ -1,5 +1,15 @@
 module SoulForge {
 
+	item SoulCrystalT5
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	0.2,
+		Type 				= 	Normal,
+		DisplayName 		= 	Soul Crystal [T5],
+		Icon 				= 	PrismCrystal,
+		WorldStaticModel 	= 	PrismCrystal,
+	}
+
 	item SoulCrystalT4
 	{
 		DisplayCategory 	= 	SoulForge,
@@ -40,4 +50,53 @@ module SoulForge {
 		WorldStaticModel 	= 	GreenCrystal,
 	}
 
+	item SoulShardT5
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	0.02,
+		Type 				= 	Normal,
+		DisplayName 		= 	Soul Crystal Shard [T5],
+		Icon 				= 	PrismCrystalShard,
+		WorldStaticModel 	= 	PrismCrystalShard,
+	}
+
+	item SoulShardT4
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	0.02,
+		Type 				= 	Normal,
+		DisplayName 		= 	Soul Crystal Shard [T4],
+		Icon 				= 	RedCrystalShard,
+		WorldStaticModel 	= 	RedCrystalShard,
+	}
+
+	item SoulShardT3
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	0.02,
+		Type 				= 	Normal,
+		DisplayName 		= 	Soul Crystal Shard [T3],
+		Icon 				= 	OrangeCrystalShard,
+		WorldStaticModel 	= 	OrangeCrystalShard,
+	}
+
+	item SoulShardT2
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	0.02,
+		Type 				= 	Normal,
+		DisplayName 		= 	Soul Crystal Shard [T2],
+		Icon 				= 	YellowCrystalShard,
+		WorldStaticModel 	= 	YellowCrystalShard,
+	}
+	
+	item SoulShardT1
+	{
+		DisplayCategory 	= 	SoulForge,
+		Weight 				= 	0.02,
+		Type 				= 	Normal,
+		DisplayName 		= 	Soul Crystal Shard [T1],
+		Icon 				= 	GreenCrystalShard,
+		WorldStaticModel 	= 	GreenCrystalShard,
+	}
 }

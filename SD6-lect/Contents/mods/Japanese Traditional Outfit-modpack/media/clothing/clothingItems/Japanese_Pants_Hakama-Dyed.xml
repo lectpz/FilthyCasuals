@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<clothingItem>
+	<m_MaleModel>Skinned\Pants\M_Japanese_Pants_Hakama</m_MaleModel>
+	<m_FemaleModel>Skinned\Pants\F_Japanese_Pants_Hakama</m_FemaleModel>
+	<m_GUID>84007278-d2b7-44fa-af47-5dbfec960090</m_GUID>
+	<m_Static>false</m_Static>
+	<m_AllowRandomHue>false</m_AllowRandomHue>
+	<m_AllowRandomTint>true</m_AllowRandomTint>
+	<m_AttachBone></m_AttachBone>
+	<m_Masks>14</m_Masks>
+	<m_Masks>15</m_Masks>
+	<m_Masks>7</m_Masks>
+	<m_Masks>9</m_Masks>
+	<m_MasksFolder></m_MasksFolder>
+	<textureChoices>Clothes\Japanese\Pants\Japanese_Pants_Hakama-White</textureChoices>
+</clothingItem>

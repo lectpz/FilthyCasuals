@@ -24,6 +24,10 @@ function Commands.sdLogger.LogNormalDeath(player, args)
     print("[sdLogger] Player [" .. args.player_name .. "] died at (" .. args.player_x .. "," .. args.player_y .. ") in " .. args.zonename .." [T" .. args.zonetier .. "] with " .. args.z_vis .. " visible zombies, " .. args.z_chase .. " chasing zombies, " .. args.z_close .. " very close zombies. Hours Survived = " .. args.player_hrs .. ", Zombies Killed = " .. args.player_kc)
 end
 
+function Commands.sdLogger.VehicleSkinChange(player, args)
+    print("[sdLogger] Player [" .. args.player_name .. "] changed vehicle skin of " .. args.vehicle .. "(ID=" .. args.vehicleID .. ") at (" .. args.player_x .. "," .. args.player_y)
+end
+
 function Commands.sdLogger.OpenCache(player, args)
     print("[sdLogger] Player [" .. args.player_name .. "] opened a [" .. string.upper(args.cachetype) .. "] at (" .. args.player_x .. "," .. args.player_y .. ") in " .. args.zonename .. " [T" .. args.zonetier .. "]")
     for key, value in pairs(args) do
@@ -63,7 +67,15 @@ function Commands.sdLogger.RerollWeapon(player, args)
 end
 
 function Commands.sdLogger.onItemFall(player, args)
-    print("[sdLogger] Player [" .. args.player_name .. "] was forced to drop [" ..args.item .. " (ID=" .. (args.itemID) .. ")] at (" .. args.player_x .. "," .. args.player_y .. "," .. args.player_z .. ") in " .. args.zonename .. " [T" .. args.zonetier .. "]")
+    print("[sdLogger] Player [" .. args.player_name .. "] was forced to drop [" .. args.item .. " (ID=" .. (args.itemID) .. ")] at (" .. args.player_x .. "," .. args.player_y .. "," .. args.player_z .. ") in " .. args.zonename .. " [T" .. args.zonetier .. "]")
+end
+
+function Commands.sdLogger.modBagCap(player, args)
+    print("[sdLogger] Player [" .. args.player_name .. "] modified bag capacity [" .. args.item .. " (ID=" .. (args.itemID) .. ")] to " .. args.modBagCap)
+end
+
+function Commands.sdLogger.modBagRedux(player, args)
+    print("[sdLogger] Player [" .. args.player_name .. "] modified bag reduction [" .. args.item .. " (ID=" .. (args.itemID) .. ")] to " .. args.modBagRedux)
 end
 
 function Commands.sdLogger.ClaimReward(player, args)

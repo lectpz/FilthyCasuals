@@ -1,0 +1,54 @@
+module Base
+{
+
+     item Japanese_Jacket_Undershirt-Beige
+    {
+        DisplayCategory = Clothing,
+	Type = Clothing,
+        DisplayName = Traditional Japanese Jiban Shitagi,
+        ClothingItem = Japanese_Jacket_Undershirt-Beige,
+        BodyLocation = Sweater,
+        BloodLocation = Jacket,
+        IconsForTexture = Japanese_Jacket_Undershirt-Beige;Japanese_Jacket_Undershirt-Black;Japanese_Jacket_Undershirt-Blue;Japanese_Jacket_Undershirt-Brown;Japanese_Jacket_Undershirt-Red;Japanese_Jacket_Undershirt-White,
+
+    	ScratchDefense = 50,
+    	BiteDefense = 25,
+    	Insulation = 0.25,
+    	WindResistance = 0.5,
+    	WaterResistance = 0.6,
+	Weight = 0.5,
+        FabricType = Cotton,
+	NeckProtectionModifier = 0.5,
+
+        ClothingItemExtra =  Japanese_Jacket_Undershirt-Beige_Tuck,
+        ClothingItemExtraOption = JacketTuck,
+        ClothingExtraSubmenu = PutOn,
+        WorldStaticModel = Japanese_Jacket_Undershirt_Ground,
+    }
+
+     item Japanese_Jacket_Undershirt-Beige_Tuck
+    {
+        DisplayCategory = Clothing,
+	Type = Clothing,
+        DisplayName = Traditional Japanese Jiban Shitagi,
+        ClothingItem = Japanese_Jacket_Undershirt-Beige_Tuck,
+        BodyLocation = Sweater,
+        BloodLocation = Jacket,
+        IconsForTexture = Japanese_Jacket_Undershirt-Beige;Japanese_Jacket_Undershirt-Black;Japanese_Jacket_Undershirt-Blue;Japanese_Jacket_Undershirt-Brown;Japanese_Jacket_Undershirt-Red;Japanese_Jacket_Undershirt-White,
+
+    	ScratchDefense = 50,
+    	BiteDefense = 25,
+    	Insulation = 0.25,
+    	WindResistance = 0.5,
+    	WaterResistance = 0.6,
+	Weight = 0.5,
+        FabricType = Cotton,
+	NeckProtectionModifier = 0.5,
+
+        ClothingItemExtra = Japanese_Jacket_Undershirt-Beige,
+        ClothingItemExtraOption = PutOn,
+        ClothingExtraSubmenu = JacketTuck,
+        WorldStaticModel = Japanese_Jacket_Undershirt_Ground,
+    }
+
+}

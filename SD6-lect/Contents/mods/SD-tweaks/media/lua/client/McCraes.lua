@@ -19,7 +19,9 @@ function ISTakeCarBatteryChargerAction:perform()
 	local y2 = SandboxVars.McCraes.Y+1
 	
 	if args.x >= x1 and args.y >= y1 and args.x <= x2 and args.y <= y2 then
-		processGeneralMessage(McCraes[ZombRand(#McCraes)+1])
+		local rng = ZombRand(#McCraes)+1
+		processSayMessage(McCraes[rng])
+		getSoundManager():PlayWorldSoundImpl("McCraes"..rng, false, self.character:getX(), self.character:getY(), self.character:getZ(), 0.2, 10, 0.05, false) ;
 		return
 	end
 	self:o_perform()

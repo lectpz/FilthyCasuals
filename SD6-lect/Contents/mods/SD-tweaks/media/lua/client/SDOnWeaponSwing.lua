@@ -115,7 +115,7 @@ local function SDOnWeaponSwing(character, handWeapon)
 		end
 	elseif tierzone and handWeapon:isRanged() then
 		initRangedStats(modData, inventoryItem, character)
-		local rangedmulti = 1.1
+		local rangedmulti = 1.0
 		
 		if character:HasTrait("Brave")			then rangedmulti = rangedmulti - 0.125 end
 		if character:HasTrait("Desensitized")	then rangedmulti = rangedmulti - 0.25 end
@@ -124,6 +124,8 @@ local function SDOnWeaponSwing(character, handWeapon)
 		if character:HasTrait("EagleEyed")		then rangedmulti = rangedmulti - 0.1 end
 
 		rangedmulti = rangedmulti - character:getPerkLevel(Perks.Aiming)/20
+		
+		--if character:isSeatedInVehicle() then rangedmulti = 2.0 end
 		
 		inventoryItem:setAimingTime(modData.AimingTime * (localdmgmulti/tierzone) ^ rangedmulti)
 		--inventoryItem:setReloadTime(modData.ReloadTime * localdmgmulti ^ rangedmulti)
@@ -203,6 +205,74 @@ local function SDWeaponCheck(character, inventoryItem)
 		--inventoryItem:setRecoilDelay(modData.RecoilDelay)
 		--inventoryItem:setReloadTime(modData.ReloadTime)
 		inventoryItem:setName(modData.Name)
+		Events.OnPlayerUpdate.Add(worseVehicleRanged)
 	end
 end
 Events.OnEquipPrimary.Add(SDWeaponCheck)
+
+local tick = 0
+local function worseVehicleRanged(player)
+	tick = tick + 1
+	if tick < 100 then return end
+	tick = 0
+	local inventoryItem = player:getPrimaryHandItem()
+	--check for bare hands or not a weapon or not a ranged weapon
+	if 	inventoryItem == nil then 
+		--player:Say("Not handweapon")
+		Events.OnPlayerUpdate.Remove(worseVehicleRanged)
+		return 
+	end
+	
+	--if ranged weapon (need to check in case of weapon swap in car)
+	if inventoryItem:IsWeapon() and inventoryItem:isRanged() then
+		local scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
+		if player:isSeatedInVehicle() then
+			--player:Say("I'm in a vehicle")
+			local z_chase = player:getStats():getNumChasingZombies() or 0
+			local z_close = player:getStats():getNumVeryCloseZombies() or 0
+			
+			local n_z = 25--SandboxVars.SDOnWeaponSwing.numberzombies or 15--number of zombies
+			
+			local function checkZ(n_z, zchase, zclose)
+				return z_chase > math.floor(n_z*zchase) or z_close > math.floor(n_z*zclose)
+			end
+			
+			local slice = { 1, 0.8, 0.6, 0.4, 0.2, 0 }
+			
+			if 		checkZ(n_z, slice[1], slice[2]) then
+				inventoryItem:setMaxHitCount(math.max(1,scriptItem:getMaxHitCount()-3))
+				inventoryItem:setMinAngle(0.995)
+				--player:Say("Hitcount and minangle:"..math.max(1,scriptItem:getMaxHitCount()-3) .. ", " .. 0.995)
+			elseif 	checkZ(n_z, slice[2], slice[3]) then
+				inventoryItem:setMaxHitCount(math.max(1,scriptItem:getMaxHitCount()-2))
+				inventoryItem:setMinAngle(0.99)
+				--player:Say("Hitcount and minangle:"..math.max(1,scriptItem:getMaxHitCount()-2) .. ", " .. 0.99)
+			elseif 	checkZ(n_z, slice[3], slice[4]) then
+				inventoryItem:setMaxHitCount(math.max(1,scriptItem:getMaxHitCount()-1))
+				inventoryItem:setMinAngle(0.975)
+				--player:Say("Hitcount and minangle:"..math.max(1,scriptItem:getMaxHitCount()-1) .. ", " .. 0.975)
+			else
+				inventoryItem:setMaxHitCount(scriptItem:getMaxHitCount())
+				inventoryItem:setMinAngle(scriptItem:getMinAngle())
+				--player:Say("Nothing")
+			end
+		else--not in vehicle, restore item stats
+			inventoryItem:setMaxHitCount(scriptItem:getMaxHitCount())
+			inventoryItem:setMinAngle(scriptItem:getMinAngle())
+			Events.OnPlayerUpdate.Remove(worseVehicleRanged)--outside of vehicle, end hook
+			--player:Say("Event hook removed")
+		end
+	end
+end
+Events.OnPlayerUpdate.Add(worseVehicleRanged)
+--Events.EveryOneMinute.Add(worseVehicleRanged)
+
+local function OnEnterVehicle(character)
+	Events.OnPlayerUpdate.Add(worseVehicleRanged)
+end
+Events.OnEnterVehicle.Add(OnEnterVehicle)
+
+local function OnExitVehicle(character)
+	Events.OnPlayerUpdate.Add(worseVehicleRanged)
+end
+Events.OnExitVehicle.Add(OnExitVehicle)
