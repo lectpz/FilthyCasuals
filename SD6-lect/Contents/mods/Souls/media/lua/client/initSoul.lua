@@ -16,6 +16,24 @@ local function initSoul(character, inventoryItem)
 			modData.KillCount = 0
 		end
 		modData.PlayerKills = KillCount(character)
+		
+		if not modData.Tier then
+			local o_scriptItem = ScriptManager.instance:getItem(weapon:getFullType())
+			if not weaponModData.Tier then
+				local maxDmg = o_scriptItem:getMaxDamage()
+				if maxDmg >= 5.25 then
+					weaponModData.Tier = 5
+				elseif maxDmg >= 4.375 then
+					weaponModData.Tier = 4
+				elseif maxDmg >= 3.5 then
+					weaponModData.Tier = 3
+				elseif maxDmg >= 2.625 then
+					weaponModData.Tier = 2
+				else
+					weaponModData.Tier = 1
+				end
+			end
+		end
 	end
 end
 

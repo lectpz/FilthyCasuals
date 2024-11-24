@@ -17,11 +17,11 @@ Zone = {
 		["LouisvilleMallArea"] = {12700, 1200, 15000, 1950, SandboxVars.SDZones.LouisvilleMallArea, nil, nil},
 		["Louisville"] = {11700, 900, 15000, 4200, SandboxVars.SDZones.Louisville, "Nested", nil},
 		["CC"] = {10800, 8750, 11332, 9072, SandboxVars.SDZones.CC, nil, nil},
-		["Muldraugh"] = {9900, 8400, 12300, 11400, SandboxVars.SDZones.Muldraugh, nil, nil},
+		["Muldraugh"] = {9900, 8400, 10800, 11400, SandboxVars.SDZones.Muldraugh, nil, nil},
 		["WestPointWest"] = {10220, 6600, 11850, 7800, SandboxVars.SDZones.WestPointWest, nil, nil},
 		["WestPointEast"] = {11850, 6600, 12900, 7800, SandboxVars.SDZones.WestPointEast, nil, nil},
 		["Riverside"] = {5400, 5100, 7800, 6300, SandboxVars.SDZones.Riverside, nil, nil},
-		["Rosewood"] = {7500, 10800, 9300, 12600, SandboxVars.SDZones.Rosewood, nil, nil},
+		["Rosewood"] = {7500, 11400, 9300, 12600, SandboxVars.SDZones.Rosewood, nil, nil},
 		["MarchRidge"] = {9600, 12300, 10500, 13500, SandboxVars.SDZones.MarchRidge, nil, nil},
 		["InsidePetro"] = {10930, 11740, 11110, 12330, SandboxVars.SDZones.InsidePetro, nil, nil},
 		["Petroville"] = {10500, 11400, 11400, 13500, SandboxVars.SDZones.Petroville, "Nested", nil},
@@ -53,7 +53,7 @@ Zone = {
 		["LVairport"] = {12750, 4200, 13500, 4800, SandboxVars.SDZones.LVairport, nil, nil},
 		["OaksdaleU"] = {12000, 11314, 12810, 12050, SandboxVars.SDZones.OaksdaleU, nil, nil},
 		["Nettle"] = {6470, 8880, 7280, 9700, SandboxVars.SDZones.Nettle, nil, nil},
-		["RosewoodX"] = {7970, 10820, 8790, 11410, SandboxVars.SDZones.RosewoodX, nil, nil},
+		["RosewoodX"] = {7970, 10820, 8790, 11400, SandboxVars.SDZones.RosewoodX, nil, nil},
 	}
 }
 

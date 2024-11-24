@@ -78,10 +78,11 @@ local function SDOnWeaponSwing(character, handWeapon)
 		local hasSouls = modData.KillCount or false
 		local augmentMulti = modData.Augments or 0
 		local addMaxDmg, addCritChance, addCritMulti = 0, 0, 0
+		local o_scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
 		if isSoulForged and hasSouls then
 			local weaponMaxCond = inventoryItem:getConditionMax()
 			local weaponCondLowerChance = inventoryItem:getConditionLowerChance()
-			local soulsRequired = weaponMaxCond * weaponCondLowerChance * 3
+			local soulsRequired = weaponMaxCond * weaponCondLowerChance * o_scriptItem:getMinDamage()
 			local soulsFreed = modData.KillCount or nil
 			local soulPower = math.min(soulsFreed / soulsRequired, 1)
 			addMaxDmg = soulPower * 1 * augmentMulti/4
@@ -99,12 +100,13 @@ local function SDOnWeaponSwing(character, handWeapon)
 		local soulForgeEnduranceMod = modData.EnduranceMod or 1
 		local soulForgeMaxCondition = modData.MaxCondition or nil
 		local soulForgeMaxHitCount = modData.MaxHitCount or nil
+		local soulWrought = weaponModData.SoulWrought or ""
 		
 		inventoryItem:setCriticalChance(((basecritrate + addCritChance) * localcritrate) * modeMultiplier * soulForgeCritRate)
 		inventoryItem:setCritDmgMultiplier(((basecritmulti + addCritMulti) * localcritmulti) * modeMultiplier * soulForgeCritMulti)
 		inventoryItem:setMinDamage((basemindmg * localdmgmulti) * modeMultiplier * soulForgeMinDmgMulti)
 		inventoryItem:setMaxDamage(((basemaxdmg + addMaxDmg) * localdmgmulti) * modeMultiplier * soulForgeMaxDmgMulti)
-		inventoryItem:setName(basename .. " [T" .. tostring(tierzone) .. "]")
+		inventoryItem:setName(soulWrought..basename .. " [T" .. tostring(tierzone) .. "]")
 
 		if soulForgeConditionLowerChance then inventoryItem:setConditionLowerChance(scriptItem:getConditionLowerChance() * soulForgeConditionLowerChance) end
 		if soulForgeMaxCondition then inventoryItem:setConditionMax(scriptItem:getConditionMax() * soulForgeMaxCondition) end
@@ -164,10 +166,11 @@ local function SDWeaponCheck(character, inventoryItem)
 		local hasSouls = modData.KillCount or false
 		local augmentMulti = modData.Augments or 0
 		local addMaxDmg, addCritChance, addCritMulti = 0, 0, 0
+		local o_scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
 		if isSoulForged and hasSouls then
 			local weaponMaxCond = inventoryItem:getConditionMax()
 			local weaponCondLowerChance = inventoryItem:getConditionLowerChance()
-			local soulsRequired = weaponMaxCond * weaponCondLowerChance * 3
+			local soulsRequired = weaponMaxCond * weaponCondLowerChance * o_scriptItem:getMinDamage()
 			local soulsFreed = modData.KillCount or nil
 			local soulPower = math.min(soulsFreed / soulsRequired, 1)
 			addMaxDmg = soulPower * 1 * augmentMulti/4
@@ -185,12 +188,13 @@ local function SDWeaponCheck(character, inventoryItem)
 		local soulForgeEnduranceMod = modData.EnduranceMod or 1
 		local soulForgeMaxCondition = modData.MaxCondition or nil
 		local soulForgeMaxHitCount = modData.MaxHitCount or nil
+		local soulWrought = weaponModData.SoulWrought or ""
 		
 		inventoryItem:setCriticalChance((basecritrate + addCritChance) * soulForgeCritRate)
 		inventoryItem:setCritDmgMultiplier((basecritmulti + addCritMulti) * soulForgeCritMulti)
 		inventoryItem:setMinDamage(basemindmg * soulForgeMinDmgMulti)
 		inventoryItem:setMaxDamage((basemaxdmg + addMaxDmg) * soulForgeMaxDmgMulti)
-		inventoryItem:setName(basename)
+		inventoryItem:setName(soulWrought..basename)
 		
 		if soulForgeMaxHitCount then inventoryItem:setMaxHitCount(math.max(soulForgeMaxHitCount-math.floor(tierzone/4),1)) end
 		if soulForgeConditionLowerChance then inventoryItem:setConditionLowerChance(scriptItem:getConditionLowerChance() * soulForgeConditionLowerChance) end

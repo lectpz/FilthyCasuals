@@ -269,6 +269,20 @@ function PZwaystone.mainpanel:shtp()
 
 end
 
+function PZwaystone.mainpanel:cctp()
+
+	local playerObj = self.character
+
+	local x,y,z = 11072, 8851, 0
+	playerObj:setX(x)
+	playerObj:setY(y)
+	playerObj:setZ(z)
+	playerObj:setLx(x)
+	playerObj:setLy(y)
+	playerObj:setLz(z)
+
+end
+
 function PZwaystone.mainpanel:eventreward()
 
 	local eventx = SandboxVars.PZwaystonepanel.Xcoord
@@ -424,6 +438,16 @@ function PZwaystone.mainpanel:createChildren()
     self:addChild(self.buttonshtp);
 	
 	buttonnewy = buttonnewy + buttonheight + emptyhight
+    self.buttoncctp = ISButton:new(3*emptyhight, buttonnewy  ,buttonwidth,buttonheight , getText("IGUI_PZwscctp"), self, self.cctp);
+    self.buttoncctp.anchorTop = false
+    self.buttoncctp.anchorBottom = false
+    self.buttoncctp:initialise();
+    self.buttoncctp:instantiate();
+    self.buttoncctp.borderColor = {r=1, g=1, b=1, a=0.5};
+    --self.buttoncctp:setEnabled(false);
+    self:addChild(self.buttoncctp);
+	
+	buttonnewy = buttonnewy + buttonheight + emptyhight
     self.buttoneventreward = ISButton:new(3*emptyhight, buttonnewy  ,buttonwidth,buttonheight , getText("IGUI_PZwseventreward"), self, self.eventreward);
     self.buttoneventreward.anchorTop = false
     self.buttoneventreward.anchorBottom = false
@@ -453,7 +477,8 @@ end
 
 
 
-
+local tickCount = 500
+local l_items = {}
 function PZwaystone.mainpanel:prerender()
 
     if not self.stoneobject or not self.character then
@@ -492,7 +517,7 @@ function PZwaystone.mainpanel:prerender()
     local stoney = self.stoneobject:getY()
     local stonez = self.stoneobject:getZ()
 	
-	if listselect > 0  and isClient() and isAdmin() then
+	if listselect > 0 and (isAdmin() or isDebugEnabled()) then
         local listitems = self.scrolllist.items[self.scrolllist.selected]
         if listitems then
             stringposselect = listitems.stringpos
@@ -503,7 +528,7 @@ function PZwaystone.mainpanel:prerender()
 			self.buttonnew:setVisible(true)
 		end
 	else
-        if isClient() and isAdmin() then
+        if isAdmin() or isDebugEnabled() then
 			self.buttonnew:setVisible(true)
 		else
 			--self.buttonnew:setEnabled(false)
@@ -513,9 +538,9 @@ function PZwaystone.mainpanel:prerender()
         self.buttondelete:setVisible(false)
     end
 
-    if self.scrolllist.selected > 0 and  stringposselect~= stringpos then
+    if self.scrolllist.selected > 0 and  stringposselect ~= stringpos then
 --		if Safehouse.isSafeHouse(instance.stoneobject:IsoGridSquare.getGridSquare(stonex, stoney, stonez)) then
-		local zonetier, zonename, x, y = checkZone()
+		--local zonetier, zonename, x, y = checkZone()
 		--if zonename == "CC" then 
 			self.buttonteleport:setVisible(true)
 			--self.buttonshtp:setEnabled(false)
@@ -539,6 +564,7 @@ function PZwaystone.mainpanel:prerender()
 	if not (x >= x1 and y >= y1 and x <= x2 and y <= y2) then
 		self.buttoneventreward:setVisible(false)
 		self.buttonshtp:setVisible(false)
+		self.buttoncctp:setVisible(false)
 	elseif not claimed then
 		if SandboxVars.PZwaystonepanel.allowreward then
 			self.buttoneventreward:setVisible(true)
@@ -551,8 +577,10 @@ function PZwaystone.mainpanel:prerender()
 		if SandboxVars.PZwaystonepanel.allowshtp then
 			local safehouse = SafeHouse.hasSafehouse(player)
 			if safehouse then self.buttonshtp:setVisible(true) else self.buttonshtp:setVisible(false) end
+			self.buttoncctp:setVisible(true)
 		else
 			self.buttonshtp:setVisible(false)
+			self.buttoncctp:setVisible(false)
 		end
 	end
 	
@@ -567,28 +595,53 @@ function PZwaystone.mainpanel:prerender()
     end
 
     local l_conut = 0
-    local l_items = {}
+    l_items = l_items or {}
+	
+	if tickCount < 150 then
+		tickCount = tickCount + 1
+		--print(tickCount)
+	else
+		l_items = {}
+		tickCount = 0
+		local plzonetier, plzonename = checkZone()
+		--local getOnlineUsername =getOnlineUsername()
+		for k,v in pairs(getGameTime():getModData().PZwaystone) do
+			local i={}
 
 
+			local dist = PZwaystone.getposdist(v.postion,{self.stoneobject:getX(),self.stoneobject:getY()})
 
-    for k,v in pairs(getGameTime():getModData().PZwaystone) do
-        local i={}
-
-
-        local dist = PZwaystone.getposdist(v.postion,{self.stoneobject:getX(),self.stoneobject:getY()})
-
-        i.water = dist/55000
-        i.hunger = dist/55000
-        i.text=v.name .. "         "..getText("IGUI_jvli")..tostring(math.floor(dist))
-        i.item=v
-        i.tooltip = getText("IGUI_zuobiao")..tostring(v.postion[1])..","..tostring(v.postion[2])..","..tostring(v.postion[3]) .."\n"..getText("IGUI_xiaohaoshiwu")..math.floor(i.hunger*100).."\n" ..getText("IGUI_shuixiaohao")..math.floor(i.water*100)
-        i.itemindex = l_conut+1
-        l_conut = l_conut+1
-        i.height = self.scrolllist.itemheight
-        i.stringpos = k
-        table.insert(l_items, i);
-    end
-    self.scrolllist.items = l_items
+			--i.water = dist/55000
+			--i.hunger = dist/55000
+			i.text=v.name .. "         "..getText("IGUI_jvli")..tostring(math.floor(dist))
+			i.item=v
+			i.tooltip = getText("IGUI_zuobiao")..tostring(v.postion[1])..","..tostring(v.postion[2])..","..tostring(v.postion[3])-- .."\n"..getText("IGUI_xiaohaoshiwu")..math.floor(i.hunger*100).."\n" ..getText("IGUI_shuixiaohao")..math.floor(i.water*100)
+			i.itemindex = l_conut+1
+			l_conut = l_conut+1
+			i.height = self.scrolllist.itemheight
+			i.stringpos = k
+			local tpzonetier, tpzonename = checkZoneAtXY(v.postion[1], v.postion[2]) 
+		
+			if isAdmin() or isDebugEnabled() then
+				table.insert(l_items, i);
+			elseif string.match(string.lower(v.name), "event") then
+				table.insert(l_items, i);
+				--self.character:Say("event")
+			elseif string.match(string.lower(v.name), string.lower(getOnlineUsername())) and string.match(string.lower(v.name), "moving") then
+				table.insert(l_items, i);
+				--self.character:Say("moving")
+			elseif not string.match(string.lower(v.name), string.lower(getOnlineUsername())) and string.match(string.lower(v.name), "moving") then
+				--print("doesn't match player name")	
+				--self.character:Say("not matched name")
+			elseif plzonename == "CC" then
+				if tpzonename == "CC" then
+					table.insert(l_items, i);
+					--self.character:Say("cc")
+				end
+			end
+		end
+	end
+	self.scrolllist.items = l_items
     
     -- print(self.scrolllist.selected)
 

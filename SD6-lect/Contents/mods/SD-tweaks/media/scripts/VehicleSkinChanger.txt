@@ -9,4 +9,24 @@ module Base
         Icon            = BusTicket,
 		WorldStaticModel = PaperNapkins_Ground,
     }
+	
+	item bagCapacityTicket
+    {
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = SD Bag Capacity Upgrade Ticket,
+        DisplayCategory = Junk,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
+
+	item bagWeightTicket
+    {
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = SD Bag Weight Reduction Upgrade Ticket,
+        DisplayCategory = Junk,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
 }

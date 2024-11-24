@@ -99,4 +99,54 @@ module SoulForge {
 		Icon 				= 	GreenCrystalShard,
 		WorldStaticModel 	= 	GreenCrystalShard,
 	}
+	
+    item MinDmgTicket
+    {
+        DisplayCategory 	= 	SoulForge,
+		Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Augment Minimum Damage,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
+	
+	item MaxDmgTicket
+    {
+        DisplayCategory 	= 	SoulForge,
+		Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Augment Maximum Damage,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
+	
+	item CritChanceTicket
+    {
+        DisplayCategory 	= 	SoulForge,
+		Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Augment Critical Chance,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
+	
+	item CritMultiTicket
+    {
+        DisplayCategory 	= 	SoulForge,
+		Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Augment Critical Multiplier,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
+	
+	item EnduranceModTicket
+    {
+        DisplayCategory 	= 	SoulForge,
+		Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Augment Endurance Modifier,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
 }

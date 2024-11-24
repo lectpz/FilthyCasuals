@@ -159,4 +159,14 @@ module Base
         Prop2					: Source=1,
 		CanBeDoneFromFloor      : TRUE,
     }
+	
+	item BusPass
+    {
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Bus Pass,
+        DisplayCategory = Junk,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
 }

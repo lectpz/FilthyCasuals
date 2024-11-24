@@ -14,5 +14,16 @@ module SD6_NPCS {
         Map = SundayDriversNPC_CY,
         WorldStaticModel = Map,
     }
+	
+	item SundayDriversNPC_JC
+    {
+        DisplayCategory = Cartography,
+        Type = Map,
+        DisplayName = Jennifer C.,
+        Icon = Map,
+        Weight = 100.0,
+        Map = SundayDriversNPC_JC,
+        WorldStaticModel = Map,
+    }
 }
 

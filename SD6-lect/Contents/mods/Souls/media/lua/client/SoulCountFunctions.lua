@@ -373,10 +373,33 @@ function OnCreate_unforgeMainHand(items, result, player)
 	local returnSoulForge = false
 	local returnAugments = false
 	
-	if soulForged then returnSoulForge = true end
+	if soulForged then 
+		returnSoulForge = true
+		if not weaponModData.Tier then
+			local o_scriptItem = ScriptManager.instance:getItem(weapon:getFullType())
+			if not weaponModData.Tier then
+				local maxDmg = o_scriptItem:getMaxDamage()
+				if maxDmg >= 5.25 then
+					weaponModData.Tier = 5
+				elseif maxDmg >= 4.375 then
+					weaponModData.Tier = 4
+				elseif maxDmg >= 3.5 then
+					weaponModData.Tier = 3
+				elseif maxDmg >= 2.625 then
+					weaponModData.Tier = 2
+				else
+					weaponModData.Tier = 1
+				end
+			end
+		end
+	end
+	
 	if augments then returnAugments = true end
 	
+	
 	if returnAugments then
+		
+		local wTier = weaponModData.Tier
 		
 		for i=1,augments do
 			local returnBrokenWeapon = InventoryItemFactory.CreateItem(weapon:getFullType())
@@ -390,32 +413,34 @@ function OnCreate_unforgeMainHand(items, result, player)
 		local s2_desc = weaponModData.s2_desc or nil
 		
 		if p1_desc then 
-			playerInv:AddItem("SoulForge.SoulCrystalT1")
-			playerInv:AddItem("SoulForge.SoulCrystalT2")
-			playerInv:AddItem("SoulForge.SoulCrystalT3")
+			if wTier >= 1 then playerInv:AddItem("SoulForge.SoulCrystalT1") end
+			if wTier >= 2 then playerInv:AddItem("SoulForge.SoulCrystalT2") end
+			if wTier >= 3 then playerInv:AddItem("SoulForge.SoulCrystalT3") end
 			--playerInv:AddItem("SoulForge.SoulCrystalT4")
 		end
 		if p2_desc then 
-			playerInv:AddItem("SoulForge.SoulCrystalT1")
-			playerInv:AddItem("SoulForge.SoulCrystalT2")
-			playerInv:AddItem("SoulForge.SoulCrystalT3")
-			playerInv:AddItem("SoulForge.SoulCrystalT4")
+			if wTier >= 1 then playerInv:AddItem("SoulForge.SoulCrystalT1") end
+			if wTier >= 2 then playerInv:AddItem("SoulForge.SoulCrystalT2") end
+			if wTier >= 3 then playerInv:AddItem("SoulForge.SoulCrystalT3") end
+			if wTier >= 4 then playerInv:AddItem("SoulForge.SoulCrystalT4") end
 		end
 		if s1_desc then 
-			playerInv:AddItem("SoulForge.SoulCrystalT1")
-			playerInv:AddItem("SoulForge.SoulCrystalT2")
-			playerInv:AddItem("SoulForge.SoulCrystalT3")
+			if wTier >= 1 then playerInv:AddItem("SoulForge.SoulCrystalT1") end
+			if wTier >= 2 then playerInv:AddItem("SoulForge.SoulCrystalT2") end
+			if wTier >= 3 then playerInv:AddItem("SoulForge.SoulCrystalT3") end
 			--playerInv:AddItem("SoulForge.SoulCrystalT4")
 		end
 		if s2_desc then 
-			playerInv:AddItem("SoulForge.SoulCrystalT1")
-			playerInv:AddItem("SoulForge.SoulCrystalT2")
-			playerInv:AddItem("SoulForge.SoulCrystalT3")
-			playerInv:AddItem("SoulForge.SoulCrystalT4")
+			if wTier >= 1 then playerInv:AddItem("SoulForge.SoulCrystalT1") end
+			if wTier >= 2 then playerInv:AddItem("SoulForge.SoulCrystalT2") end
+			if wTier >= 3 then playerInv:AddItem("SoulForge.SoulCrystalT3") end
+			if wTier >= 4 then playerInv:AddItem("SoulForge.SoulCrystalT4") end
 		end
 	end
 		
 	if returnSoulForge then
+		local wTier = weaponModData.Tier
+	
 		local o_weaponRepair = weapon:getHaveBeenRepaired()
 		playerInv:Remove(weapon)
 		player:setPrimaryHandItem(nil)
@@ -425,10 +450,10 @@ function OnCreate_unforgeMainHand(items, result, player)
 		returnBrokenWeapon:setHaveBeenRepaired(o_weaponRepair)
 		
 		playerInv:AddItem(returnBrokenWeapon)
-		playerInv:AddItem("SoulForge.SoulCrystalT1")
-		playerInv:AddItem("SoulForge.SoulCrystalT2")
-		playerInv:AddItem("SoulForge.SoulCrystalT3")
-		playerInv:AddItem("SoulForge.SoulCrystalT4")
+		if wTier >= 1 then playerInv:AddItem("SoulForge.SoulCrystalT1") end
+		if wTier >= 2 then playerInv:AddItem("SoulForge.SoulCrystalT2") end
+		if wTier >= 3 then playerInv:AddItem("SoulForge.SoulCrystalT3") end
+		if wTier >= 4 then playerInv:AddItem("SoulForge.SoulCrystalT4") end
 	end
 	Events.OnPlayerUpdate.Add(waitToUnforge)
 end

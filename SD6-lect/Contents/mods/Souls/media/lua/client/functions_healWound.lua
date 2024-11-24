@@ -1,19 +1,16 @@
 local function mendWound(bodyPart, player)
 	local bD = player:getBodyDamage();
-	if bD:IsInfected() == false then
-		bodyPart:RestoreToFullHealth()
-	else
-		getInfectionMortalityDuration 	= bD:getInfectionMortalityDuration();
-		getInfectionTime 				= bD:getInfectionTime();
-		getInfectionLevel 				= bD:getInfectionLevel();
-		
-		bodyPart:RestoreToFullHealth()
-		
-		bD:setInfected(true);
-		bD:setInfectionMortalityDuration(getInfectionMortalityDuration);
-		bD:setInfectionTime(getInfectionTime);
-		bD:setInfectionLevel(getInfectionLevel);
-	end
+
+	getInfectionMortalityDuration 	= bD:getInfectionMortalityDuration();
+	getInfectionTime 				= bD:getInfectionTime();
+	getInfectionLevel 				= bD:getInfectionLevel();
+	
+	bodyPart:RestoreToFullHealth()
+	
+	if bD:IsInfected() then bD:setInfected(true) end
+	bD:setInfectionMortalityDuration(getInfectionMortalityDuration);
+	bD:setInfectionTime(getInfectionTime);
+	bD:setInfectionLevel(getInfectionLevel);
 
 	if bodyPart:getStiffness() > 0 then
 		bodyPart:setStiffness(0)

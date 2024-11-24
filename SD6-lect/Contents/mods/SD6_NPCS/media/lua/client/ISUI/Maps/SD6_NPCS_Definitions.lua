@@ -45,6 +45,7 @@ SD6_NPCS_LootMaps.Init = LootMaps.Init or {}
 local sd6_mapAPI
 local sd6_mapUI
 local sd6_NPC = ""
+local CY_counter = 0
 
 SD6_NPCS_LootMaps.Init.SundayDriversNPC_CY = function(mapUI)
 	local mapAPI = mapUI.javaObject:getAPIv1()
@@ -54,36 +55,70 @@ SD6_NPCS_LootMaps.Init.SundayDriversNPC_CY = function(mapUI)
 	SD6_NPCS_overlayPNG(mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_BackGround.png", 1.0)
 	SD6_NPCS_overlayPNG(mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_CY.png", 1.0)
 	SD6_NPCS_overlayPNG(mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_TextBox.png", 1.0)
-	SD6_NPCS_overlayPNG(mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_Text0.png", 1.0)
+	SD6_NPCS_overlayPNG(mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_CYText0.png", 1.0)
 	--SD6_NPCS_overlayPNG(mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_Text1.png", 1.0)
-	--self.mapAPI:getSymbolsAPI():
 	sd6_mapAPI = mapAPI
 	sd6_mapUI = mapUI
 	sd6_NPC = "SundayDriversNPC_CY"
+	CY_counter = 0
 end
 
---[[ISMap.o_onMouseDown = ISMap.onMouseDown
-function ISMap:onMouseDown(x, y)
-	local npc = "SD6_NPCS.SundayDriversNPC_CY"
-	local npcName = "test"
-	local mapUI = sd6_mapUI
-	
-	local player = 0
-	local context = ISContextMenu.get(player, x + self:getAbsoluteX(), y + self:getAbsoluteY())
-	
-	map = InventoryItemFactory.CreateItem(npc)
-	
-	--context:addOption(npcName, map, SD6_NPCS_LootMaps.openNPC, player, npc);--map is Type
-	if not (sd6_NPC == "SundayDriversNPC_CY") then 
-		SD6_NPCS_LootMaps.openNPC(map, player, npc) 
-	else 
-		--SD6_NPCS_overlayPNG(mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_TextBox.png", 1.0)
-		--SD6_NPCS_overlayPNG(mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_Text2.png", 1.0)
-	end
-	self:o_onMouseDown(x,y)
+SD6_NPCS_LootMaps.Init.SundayDriversNPC_JC = function(mapUI)
+	local mapAPI = mapUI.javaObject:getAPIv1()
 
-	if not (sd6_NPC == "SundayDriversNPC_CY") then self.wrap:close() end
-end]]
+	SD6_NPCS.initDirectoryMapData(mapUI, 'media/maps/Muldraugh, KY')
+	mapAPI:setBoundsInSquares(0, 0, 1600, 1000)
+	SD6_NPCS_overlayPNG(mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_BackGround.png", 1.0)
+	SD6_NPCS_overlayPNG(mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_JC.png", 1.0)
+	SD6_NPCS_overlayPNG(mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_TextBox.png", 1.0)
+	SD6_NPCS_overlayPNG(mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_JCText0.png", 1.0)
+	--SD6_NPCS_overlayPNG(mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_Text1.png", 1.0)
+	sd6_mapAPI = mapAPI
+	sd6_mapUI = mapUI
+	sd6_NPC = "SundayDriversNPC_JC"
+	JC_counter = 0
+end
+
+
+ISMap.o_onMouseDown = ISMap.onMouseDown
+function ISMap:onMouseDown(x, y)
+	if self.character:getInventory():contains(self.mapObj, true) then 
+		o_onMouseDown(self, x, y)
+		return
+	end
+	
+	if CY_counter == 4 then
+		--getSoundManager():stop()
+		self.character:getEmitter():stopAll()
+		self.wrap:close()
+		CY_counter = 0
+		return
+	elseif sd6_NPC == "SundayDriversNPC_CY" then 
+		CY_counter = CY_counter + 1
+		SD6_NPCS_overlayPNG(sd6_mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_TextBox.png", 1.0)
+		SD6_NPCS_overlayPNG(sd6_mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_CYText" .. CY_counter ..".png", 1.0)
+		--getSoundManager():stop()
+		--getSoundManager():PlayWorldSoundImpl("CY"..CY_counter, false, self.character:getX(), self.character:getY(), self.character:getZ(), 0.2, 10, 0.05, false) ;
+		self.character:getEmitter():stopAll()
+		self.character:getEmitter():playSoundImpl("CY"..CY_counter, nil)
+	end
+	
+	if JC_counter == 1 then
+		self.character:getEmitter():stopAll()
+		self.wrap:close()
+		JC_counter = 0
+		return
+	elseif sd6_NPC == "SundayDriversNPC_JC" then 
+		JC_counter = JC_counter + 1
+		self.wrap:close()
+		--SD6_NPCS_overlayPNG(sd6_mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_TextBox.png", 1.0)
+		--SD6_NPCS_overlayPNG(sd6_mapUI, 0, 0, 1, "SD6_NPCS_PNG", "media/ui/LootableMaps/SundayDriversNPC_CYText" .. CY_counter ..".png", 1.0)
+		self.character:getEmitter():stopAll()
+		self.character:getEmitter():playSoundImpl("JC"..JC_counter, nil)
+	end
+
+	--if not (sd6_NPC == "SundayDriversNPC_CY") then self.wrap:close() end
+end
 
 SD6_NPCS_LootMaps.openNPC = function(map, player, npc)
 	local playerObj = getSpecificPlayer(player)
@@ -123,8 +158,16 @@ local function SD6_NPC_CY_onClick(v, player)
 	SD6_NPCS_LootMaps.openNPC(map, player, npc) 
 end
 
+local function SD6_NPC_JC_onClick(v, player)
+	local npc = "SD6_NPCS.SundayDriversNPC_JC"
+	--local player = 0
+	
+	map = InventoryItemFactory.CreateItem(npc)
+	
+	SD6_NPCS_LootMaps.openNPC(map, player, npc) 
+end
+
 local function SD6_NPC_CY(player, context, worldobjects, test)
-	--for _,v in ipairs(worldobjects) do
 	for i=1,#worldobjects do
 		v = worldobjects[i]
 		if v:getSprite() then
@@ -134,7 +177,9 @@ local function SD6_NPC_CY(player, context, worldobjects, test)
 			end
 			if spriteName == 'LC_SD_Lect_01_42' or spriteName == 'LC_SD_Lect_01_43' then
 				local submenu = context:addOption("Try To Wake Her Up...", v, SD6_NPC_CY_onClick, player)
-				--local submenu = context:insertOptionAfter(getText("ContextMenu_SitGround"), "Take me to the event!!!", SDevent_teleport,v,playerObj,sq)
+				return
+			elseif spriteName == 'LC_SD_Lect_01_18' or spriteName == 'LC_SD_Lect_01_19' then
+				local submenu = context:addOption("Approach warily...", v, SD6_NPC_JC_onClick, player)
 				return
 			end
 		end

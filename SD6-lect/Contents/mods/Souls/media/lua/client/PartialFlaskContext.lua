@@ -26,8 +26,8 @@ local function PartialFlaskContext(player, context, items)
 			playerItems = playerInv:getItems()
 			for j=1,playerItems:size() do
 				local invItem = playerItems:get(j-1)
-				isBroken = invItem:isBroken()
-				if isBroken then 
+				isBrokenWeapon = invItem:isBroken() and invItem:IsWeapon()
+				if isBrokenWeapon then 
 					--print("invItem:" .. invItem:getName() .. " is broken")
 					local weaponModData = invItem:getModData()
 					local soulsFreed = weaponModData.KillCount or 0

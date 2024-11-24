@@ -73,7 +73,7 @@ local function zPerks(player, tierzone, zombieSprinterValue)
 end
 
 function OnZombieDeadItemDrop(zombie)
-	player = getSpecificPlayer(0)
+	local player = getSpecificPlayer(0)
 	if player:isSeatedInVehicle() then 
 		if ZombRand(8) == 0 then zombie:addLineChatElement("Lousy... Sunday... Drivers...") end
 		return 
@@ -88,6 +88,9 @@ function OnZombieDeadItemDrop(zombie)
 	local toxicMod = 0
 	if control then controlMod = 50 end
 	if toxic  then toxicMod = 50 end
+	
+	local pMD = player:getModData()
+	local luckValue = pMD.luckValue or 0
 	
 --	define table 1 for common loot. examples are from Riku's melee weapon mod which are used exclusively on PARP, Sunday Drivers, and Filthy Casuals servers.
 --	local table1 = {RMWeapons.club1 RMWeapons.club2 RMWeapons.beardedaxe RMWeapons.MightCleaver RMWeapons.tanto RMWeapons.Thawk RMWeapons.bonkhammer RMWeapons.ScrapMace1 RMWeapons.spikedleg RMWeapons.TrenchShovel}
@@ -135,15 +138,15 @@ function OnZombieDeadItemDrop(zombie)
 	end
 	--adjust zombrand by subtracting sprinter zone values.
 
-	local t1roll = ZombRand(math.max(SandboxVars.OZD.roll1 - math.floor(zombieSprinterValue*0.25) - controlMod - toxicMod, 1))--ZombRand(SandboxVars.OZD.roll1) -- rolls an integer between 0-roll1
+	local t1roll = ZombRand(math.max(SandboxVars.OZD.roll1 - math.floor(zombieSprinterValue*0.25) - 0.25*(controlMod + toxicMod + luckValue), 1))--ZombRand(SandboxVars.OZD.roll1) -- rolls an integer between 0-roll1
 	--player:Say(tostring(SandboxVars.OZD.roll1))
-	local t2roll = ZombRand(math.max(SandboxVars.OZD.roll2 - math.floor(zombieSprinterValue*0.5) - controlMod - toxicMod, 1)) -- rolls an integer between 0-roll2 
+	local t2roll = ZombRand(math.max(SandboxVars.OZD.roll2 - math.floor(zombieSprinterValue*0.5) - 0.5*(controlMod + toxicMod + luckValue), 1)) -- rolls an integer between 0-roll2 
 	--player:Say(tostring(SandboxVars.OZD.roll2))
-	local t3roll = ZombRand(math.max(SandboxVars.OZD.roll3 - math.floor(zombieSprinterValue*1.25) - controlMod - toxicMod, 1)) -- rolls an integer between 0-roll3 
+	local t3roll = ZombRand(math.max(SandboxVars.OZD.roll3 - math.floor(zombieSprinterValue*1.25) - controlMod - toxicMod - luckValue, 1)) -- rolls an integer between 0-roll3 
 	--player:Say(tostring(SandboxVars.OZD.roll3))
-	local t4roll = ZombRand(math.max(SandboxVars.OZD.roll4 - math.floor(zombieSprinterValue*2) - controlMod - toxicMod, 1))
+	local t4roll = ZombRand(math.max(SandboxVars.OZD.roll4 - math.floor(zombieSprinterValue*2) - controlMod - toxicMod - luckValue, 1))
 	--player:Say(tostring(SandboxVars.OZD.roll4))
-	local t5roll = ZombRand(math.max(SandboxVars.OZD.roll5 - math.floor(zombieSprinterValue*2.5) - controlMod - toxicMod, 1))
+	local t5roll = ZombRand(math.max(SandboxVars.OZD.roll5 - math.floor(zombieSprinterValue*2.5) - controlMod - toxicMod - luckValue, 1))
 	
 -- function to add item
 	local function itemdrop(item)
@@ -160,13 +163,15 @@ function OnZombieDeadItemDrop(zombie)
 		local x2 = SandboxVars.SDevents.Xcoord2
 		local y2 = SandboxVars.SDevents.Ycoord2
 		if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
-			t1roll = ZombRand(math.max(SandboxVars.SDevents.roll1 - math.floor(zombieSprinterValue*0.25) - controlMod - toxicMod, 1))
-			t2roll = ZombRand(math.max(SandboxVars.SDevents.roll2 - math.floor(zombieSprinterValue*0.5) - controlMod - toxicMod, 1))
-			t3roll = ZombRand(math.max(SandboxVars.SDevents.roll3 - math.floor(zombieSprinterValue*1.25) - controlMod - toxicMod, 1))
-			t4roll = ZombRand(math.max(SandboxVars.SDevents.roll4 - math.floor(zombieSprinterValue*2) - controlMod - toxicMod, 1))
-			t5roll = ZombRand(math.max(SandboxVars.SDevents.roll5 - math.floor(zombieSprinterValue*2.5) - controlMod - toxicMod, 1))
+			t1roll = ZombRand(math.max(SandboxVars.SDevents.roll1 - math.floor(zombieSprinterValue*0.25) - 0.25*(controlMod + toxicMod + luckValue), 1))
+			t2roll = ZombRand(math.max(SandboxVars.SDevents.roll2 - math.floor(zombieSprinterValue*0.5) - 0.5*(controlMod + toxicMod + luckValue), 1))
+			t3roll = ZombRand(math.max(SandboxVars.SDevents.roll3 - math.floor(zombieSprinterValue*1.25) - controlMod - toxicMod - luckValue, 1))
+			t4roll = ZombRand(math.max(SandboxVars.SDevents.roll4 - math.floor(zombieSprinterValue*2) - controlMod - toxicMod - luckValue, 1))
+			t5roll = ZombRand(math.max(SandboxVars.SDevents.roll5 - math.floor(zombieSprinterValue*2.5) - controlMod - toxicMod - luckValue, 1))
 		end
 	end
+	
+	--if isDebugEnabled() then player:Say("luck value: " .. luckValue) end
 	
 	if tierzone == 5 then
 		--player:Say("Tier 4! 1 / " .. tostring(t4roll))

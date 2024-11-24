@@ -216,9 +216,9 @@ local function negDesc(statName)
 end
 
 local pref1_args = {
-	Brave = getStat("Prefix", "Brave", "getMinDamage", 1.1, posDesc("getMinDamage")),
+	Brave = getStat("Prefix", "Brave", "getMinDamage", 1.2, posDesc("getMinDamage")),
 	Cromulent = getStat("Prefix", "Cromulent", "getConditionLowerChance", 1.1, posDesc("getConditionLowerChance")),
-	Desensitized = getStat("Prefix", "Desensitized", "getCriticalChance", 1.1, posDesc("getCriticalChance")),
+	Desensitized = getStat("Prefix", "Desensitized", "getCriticalChance", 1.15, posDesc("getCriticalChance")),
 	Embiggened = getStat("Prefix", "Embiggened", "getCritDmgMultiplier", 1.1, posDesc("getCritDmgMultiplier")),
 	Enraged = getStat("Prefix", "Enraged", "getMaxDamage", 1.1, posDesc("getMaxDamage")),
 	Nonplussed = getStat("Prefix", "Nonplussed", "getConditionMax", 1.1, posDesc("getConditionMax")),
@@ -235,11 +235,11 @@ local pref1_setstat = {
 
 local suff1_args = {
 	Careful = getStat("Suffix", "Careful", "getConditionLowerChance", 1.1, posDesc("getConditionLowerChance")),
-	Dedicated = getStat("Suffix", "Dedicated", "getMinDamage", 1.1, posDesc("getMinDamage")),
+	Dedicated = getStat("Suffix", "Dedicated", "getMinDamage", 1.2, posDesc("getMinDamage")),
 	Enlightened = getStat("Suffix", "Enlightened", "getMaxDamage", 1.1, posDesc("getMaxDamage")),
 	Indifferent = getStat("Suffix", "Indifferent", "getConditionMax", 1.1, posDesc("getConditionMax")),
 	Malding = getStat("Suffix", "Malding", "getCritDmgMultiplier", 1.1, posDesc("getCritDmgMultiplier")),
-	Savage = getStat("Suffix", "Savage", "getCriticalChance", 1.1, posDesc("getCriticalChance")),
+	Savage = getStat("Suffix", "Savage", "getCriticalChance", 1.15, posDesc("getCriticalChance")),
 }
 
 local suff1_setstat = {
@@ -256,15 +256,11 @@ local pref2_args = {
     Absolutionist =	function(item)
 						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
 						
-						local sm1, sm2, sm3 = 1.1, 1.1, 1
+						local sm1, sm2, sm3 = 1.1, 1.15, 1
 						
 						local maxDamage = sm1
 						local minDamage = sm2
 						local maxCondition = sm3
-						
-						--print("Absolutionist arg: maxDamage = " .. maxDamage)
-						--print("Absolutionist arg: minDamage = " .. minDamage)
-						--print("Absolutionist arg: maxCondition = " .. maxCondition)
 
 						local description = gold .. "Prefix Modifer: Absolutionist" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Maximum Damage" ..
@@ -280,65 +276,76 @@ local pref2_args = {
 						local maxDamage = sm1
 						local conditionLowerChance = sm2
 						local maxCondition = sm3
-						
-						--print("Decimator arg: maxDamage = " .. maxDamage)
-						--print("Decimator arg: conditionLowerChance = " .. conditionLowerChance)
-						--print("Decimator arg: maxCondition = " .. maxCondition)
 
 						local description = gold .. "Prefix Modifer: Decimator" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Maximum Damage" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm2*100-100))  .. "% More Weapon Condition Lower Chance <LINE> "
 						return description, scriptItem, maxDamage, conditionLowerChance, maxCondition
 					end,
-	
+
+	Deviant 	=	function(item)
+						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
+						
+						local sm1, sm2, sm3 = 1.2, 1.1, 1
+						
+						local soulForgeCritRate = sm1
+						local maxDamage = sm2
+						local conditionLowerChance = sm3
+
+						local description = gold .. "Prefix Modifer: Deviant" ..
+								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Critical Chance" ..
+								green .. " <LINE> " .. string.format("%.0f", (sm2*100-100))  .. "% More Maximum Damage <LINE> "
+						return description, scriptItem, soulForgeCritRate, maxDamage, conditionLowerChance
+					end,
+					
 	Perfectionist =	function(item)
 						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
 						
-						local sm1, sm2, sm3 = 1.1, 1.1, 1
+						local sm1, sm2, sm3 = 1.1, 1.15, 1
 						
 						local maxCondition = sm1
 						local minDamage = sm2
 						local maxDamage = sm3
-						
-						--print("Perfectionist arg: maxCondition = " .. maxCondition)
-						--print("Perfectionist arg: minDamage = " .. minDamage)
-						--print("Perfectionist arg: maxDamage = " .. maxDamage)
 
 						local description = gold .. "Prefix Modifer: Perfectionist" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Maximum Weapon Condition" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm2*100-100))  .. "% More Minimum Damage <LINE> "
-								--orange .. " <LINE> " .. string.format("%.0f", (100-sm3*100))  .. "% Less Maximum Damage <LINE> "
 						return description, scriptItem, maxCondition, minDamage, maxDamage
 					end,
 	
 	Reaver 		=	function(item)
 						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
 						
-						local sm1, sm2, sm3 = 1.2, 1.05, 1
+						local sm1, sm2, sm3 = 1.2, 1.1, 1
 						
 						local maxDamage = sm1
 						local minDamage = sm2
 						local conditionLowerChance = sm3
-						
-						--print("Reaver arg: maxDamage = " .. maxDamage)
-						--print("Reaver arg: minDamage = " .. minDamage)
-						--print("Reaver arg: conditionLowerChance = " .. conditionLowerChance)
 
 						local description = gold .. "Prefix Modifer: Reaver" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Maximum Damage" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm2*100-100))  .. "% More Minimum Damage <LINE> "
-								--orange .. " <LINE> " .. string.format("%.0f", (100-sm3*100))  .. "% Less Weapon Condition Lower Chance <LINE> "
 						return description, scriptItem, maxDamage, minDamage, conditionLowerChance
 					end,
+	
+	Zealot 		=	function(item)
+						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
+						
+						local sm1, sm2, sm3 = 1.2, 1.2, 1
+						
+						local soulForgeCritRate = sm1
+						local soulForgeCritMulti = sm2
+						local conditionLowerChance = sm3
 
+						local description = gold .. "Prefix Modifer: Zealot" ..
+								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Critical Chance" ..
+								green .. " <LINE> " .. string.format("%.0f", (sm2*100-100))  .. "% More Critical Damage Multiplier <LINE> "
+						return description, scriptItem, soulForgeCritRate, soulForgeCritMulti, conditionLowerChance
+					end,
 }
 
 local pref2_setstat = {
     Absolutionist =	function(item, description, scriptItem, maxDamage, minDamage, maxCondition)
-						
-						--print("Absolutionist arg: maxDamage = " .. maxDamage)
-						--print("Absolutionist arg: minDamage = " .. minDamage)
-						--print("Absolutionist arg: maxCondition = " .. maxCondition)
 						
 						
 						if weaponModData.soulForgeMinDmgMulti ~= nil then
@@ -371,11 +378,7 @@ local pref2_setstat = {
 					end,
 
     Decimator =	function(item, description, scriptItem, maxDamage, conditionLowerChance, maxCondition)
-						
-						--print("Decimator setstat: maxDamage = " .. maxDamage)
-						--print("Decimator setstat: conditionLowerChance = " .. conditionLowerChance)
-						--print("Decimator setstat: maxCondition = " .. maxCondition)
-						
+												
 						if weaponModData.soulForgeMaxDmgMulti ~= nil then
 							weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti * maxDamage
 						else
@@ -400,20 +403,47 @@ local pref2_setstat = {
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.p2_desc = description
-						
-						--print("weapon condition lower chance :" .. weaponModData.ConditionLowerChance)
-						--print("weapon condition max :" .. weaponModData.MaxCondition)
+
 						item:setConditionLowerChance(scriptItem:getConditionLowerChance() * weaponModData.ConditionLowerChance)
 						item:setConditionMax(scriptItem:getConditionMax() * weaponModData.MaxCondition)
 						item:setName(weaponModData.Name)
 					end,
 
+    Deviant =	function(item, description, scriptItem, soulForgeCritRate, maxDamage, conditionLowerChance)
+												
+						if weaponModData.soulForgeCritRate ~= nil then
+							weaponModData.soulForgeCritRate = weaponModData.soulForgeCritRate * soulForgeCritRate
+						else
+							weaponModData.soulForgeCritRate = soulForgeCritRate -- Set the default value if nil
+						end
+						
+						if weaponModData.soulForgeMaxDmgMulti ~= nil then
+							weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti * maxDamage
+						else
+							weaponModData.soulForgeMaxDmgMulti = maxDamage -- Set the default value if nil
+						end
+						
+
+						if weaponModData.ConditionLowerChance ~= nil then
+							weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance * conditionLowerChance
+						else
+							weaponModData.ConditionLowerChance = conditionLowerChance
+						end
+						
+
+						weaponModData.prefix2 = "Deviant"
+						
+						isAugmented()
+						
+						weaponModData.Name = weaponName(weaponModData, scriptItem)
+						weaponModData.p2_desc = description
+
+						item:setConditionLowerChance(scriptItem:getConditionLowerChance() * weaponModData.ConditionLowerChance)
+						item:setName(weaponModData.Name)
+					end,
+
     Perfectionist =	function(item, description, scriptItem, maxCondition, minDamage, maxDamage)
-						
-						--print("Perfectionist setstat: maxCondition = " .. maxCondition)
-						--print("Perfectionist setstat: minDamage = " .. minDamage)
-						--print("Perfectionist setstat: maxDamage = " .. maxDamage)
-						
+												
 						if weaponModData.MaxCondition ~= nil then
 							weaponModData.MaxCondition = weaponModData.MaxCondition * maxCondition
 						else
@@ -438,18 +468,13 @@ local pref2_setstat = {
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.p2_desc = description
-						
-						print("weapon condition max :" .. weaponModData.MaxCondition)
+
 						item:setConditionMax(scriptItem:getConditionMax() * weaponModData.MaxCondition)
 						item:setName(weaponModData.Name)
 					end,
 					
     Reaver =	function(item, description, scriptItem, maxDamage, minDamage, conditionLowerChance)
-						
-						--print("Reaver setstat: maxDamage = " .. maxDamage)
-						--print("Reaver setstat: minDamage = " .. minDamage)
-						--print("Reaver setstat: conditionLowerChance = " .. conditionLowerChance)
-						
+												
 						if weaponModData.soulForgeMinDmgMulti ~= nil then
 							weaponModData.soulForgeMinDmgMulti = weaponModData.soulForgeMinDmgMulti * minDamage
 						else
@@ -475,8 +500,37 @@ local pref2_setstat = {
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.p2_desc = description
 						
-						print("weapon condition lower chance :" .. weaponModData.ConditionLowerChance)
 						item:setConditionLowerChance(scriptItem:getConditionLowerChance() * weaponModData.ConditionLowerChance)
+						item:setName(weaponModData.Name)
+					end,
+	
+	Zealot =	function(item, description, scriptItem, soulForgeCritRate, soulForgeCritMulti, conditionLowerChance)
+												
+						if weaponModData.soulForgeCritRate ~= nil then
+							weaponModData.soulForgeCritRate = weaponModData.soulForgeCritRate * soulForgeCritRate
+						else
+							weaponModData.soulForgeCritRate = soulForgeCritRate -- Set the default value if nil
+						end
+						
+						if weaponModData.soulForgeCritMulti ~= nil then
+							weaponModData.soulForgeCritMulti = weaponModData.soulForgeCritMulti * soulForgeCritMulti
+						else
+							weaponModData.soulForgeCritMulti = soulForgeCritMulti -- Set the default value if nil
+						end
+						
+						if weaponModData.ConditionLowerChance ~= nil then
+							weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance * conditionLowerChance
+						else
+							weaponModData.ConditionLowerChance = conditionLowerChance
+						end
+						
+						weaponModData.prefix2 = "Zealot"
+						
+						isAugmented()
+						
+						weaponModData.Name = weaponName(weaponModData, scriptItem)
+						weaponModData.p2_desc = description
+						
 						item:setName(weaponModData.Name)
 					end,
 }
@@ -485,16 +539,12 @@ local suff2_args = {
     SundayDriver =	function(item)
 						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
 						
-						local sm1, sm2, sm3 = 1, 1.1, 1
+						local sm1, sm2, sm3 = 1, 1.15, 1
 						
 						local maxHitCount = scriptItem:getMaxHitCount() + sm1
 						local minDamage = sm2
 						local EnduranceMod = scriptItem:getEnduranceMod() * sm3
 						
-						--print("Sunday Driver arg: maxHitCount = " .. maxHitCount)
-						--print("Sunday Driver arg: minDamage = " .. minDamage)
-						--print("Sunday Driver arg: conditionLowerChance = " .. conditionLowerChance)
-
 						local description = gold .. "Suffix Modifer: Sunday Driver" ..
 								green .. " <LINE> Max Hit Count +" .. sm1 ..
 								green .. " <LINE> " .. string.format("%.0f", (sm2*100-100)) .. "% More Minimum Damage <LINE> "
@@ -504,19 +554,14 @@ local suff2_args = {
     FilthyCasual =	function(item)
 						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
 						
-						local sm1, sm2, sm3 = 1, 1, 1.1
+						local sm1, sm2, sm3 = 1, 1, 1.15
 						
 						local maxHitCount = scriptItem:getMaxHitCount() + sm1
 						local EnduranceMod = scriptItem:getEnduranceMod() * sm2
 						local maxDamage = sm3
 						
-						--print("Filthy Casual arg: EnduranceMod = " .. EnduranceMod)
-						--print("Filthy Casual arg: minDamage = " .. minDamage)
-						--print("Filthy Casual arg: maxDamage = " .. maxDamage)
-
 						local description = gold .. "Suffix Modifer: Filthy Casual" ..
 								green .. " <LINE> Max Hit Count +" .. sm1 ..
-								--orange .. " <LINE> " .. string.format("%.0f", (sm2*100-100))  .. "% More Endurance Used" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm3*100-100))  .. "% More Maximum Damage <LINE> "
 						return description, scriptItem, maxHitCount, EnduranceMod, maxDamage
 					end,
@@ -530,14 +575,9 @@ local suff2_args = {
 						local maxCondition = sm2
 						local conditionLowerChance = sm3
 						
-						--print("Apocalypse Enjoyer arg: maxDamage = " .. maxDamage)
-						--print("Apocalypse Enjoyer arg: maxCondition = " .. maxCondition)
-						--print("Apocalypse Enjoyer arg: conditionLowerChance = " .. conditionLowerChance)
-
 						local description = gold .. "Suffix Modifer: Apocalypse Enjoyer" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Maximum Damage" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm2*100-100))  .. "% More Maximum Weapon Condition <LINE> "
-								--orange .. " <LINE> " .. string.format("%.0f", (100-sm3*100))  .. "% Less Weapon Condition Lower Chance <LINE> "
 						return description, scriptItem, maxDamage, maxCondition, conditionLowerChance
 					end,
 					
@@ -550,25 +590,46 @@ local suff2_args = {
 						local minDamage = sm2
 						local conditionLowerChance = sm3
 						
-						--print("Ascended Path arg: maxDamage = " .. maxDamage)
-						--print("Ascended Path arg: minDamage = " .. minDamage)
-						--print("Ascended Path arg: conditionLowerChance = " .. conditionLowerChance)
-
 						local description = gold .. "Suffix Modifer: Ascended Path" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Maximum Damage" ..
-								--orange .. " <LINE> " .. string.format("%.0f", (100-sm2*100))  .. "% Less Minimum Damage" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm3*100-100))  .. "% More Weapon Condition Lower Chance <LINE> "
 						return description, scriptItem, maxDamage, minDamage, conditionLowerChance
+					end,
+	
+	ToxicProgenitor=function(item)
+						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
+						
+						local sm1, sm2, sm3 = 1.15, 1, 1.2
+						
+						local maxDamage = sm1
+						local minDamage = sm2
+						local soulForgeCritRate = sm3
+						
+						local description = gold .. "Suffix Modifer: Toxic Progenitor" ..
+								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Maximum Damage" ..
+								green .. " <LINE> " .. string.format("%.0f", (sm3*100-100))  .. "% More Critical Chance <LINE> "
+						return description, scriptItem, maxDamage, minDamage, soulForgeCritRate
+					end,
+					
+	UnhingedTryhard=function(item)
+						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
+						
+						local sm1, sm2, sm3 = 1, 1, 1.2
+						
+						local maxHitCount = scriptItem:getMaxHitCount() + sm1
+						local minDamage = sm2
+						local soulForgeCritRate = sm3
+						
+						local description = gold .. "Suffix Modifer: Unhinged Tryhard" ..
+								green .. " <LINE> Max Hit Count +" .. sm1 ..
+								green .. " <LINE> " .. string.format("%.0f", (sm3*100-100))  .. "% More Critical Chance <LINE> "
+						return description, scriptItem, maxHitCount, minDamage, soulForgeCritRate
 					end,
 }
 
 local suff2_setstat = {
     SundayDriver =	function(item, description, scriptItem, maxHitCount, minDamage, EnduranceMod)
-						
-						--print("Sunday Driver setstat: maxHitCount = " .. maxHitCount)
-						--print("Sunday Driver setstat: minDamage = " .. minDamage)
-						--print("Sunday Driver setstat: conditionLowerChance = " .. conditionLowerChance)
-						
+												
 						weaponModData.MaxHitCount = maxHitCount
 						
 						if weaponModData.soulForgeMinDmgMulti ~= nil then
@@ -596,11 +657,7 @@ local suff2_setstat = {
 					end,
 
     FilthyCasual =	function(item, description, scriptItem, maxHitCount, EnduranceMod, maxDamage)
-						
-						--print("Filthy Casual setstat: EnduranceMod = " .. EnduranceMod)
-						--print("Filthy Casual setstat: minDamage = " .. minDamage)
-						--print("Filthy Casual setstat: maxDamage = " .. maxDamage)
-						
+												
 						weaponModData.MaxHitCount = maxHitCount
 						
 						local isEnduranceMod = weaponModData.EnduranceMod or nil
@@ -610,7 +667,6 @@ local suff2_setstat = {
 							weaponModData.EnduranceMod = scriptItem:getEnduranceMod()
 						end
 						
-						--weaponModData.EnduranceMod = item:setEnduranceMod(EnduranceMod)
 						
 						if weaponModData.soulForgeMaxDmgMulti ~= nil then
 							weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti * maxDamage
@@ -631,11 +687,7 @@ local suff2_setstat = {
 					end,
 
     ApocalypseEnjoyer =	function(item, description, scriptItem, maxDamage, maxCondition, conditionLowerChance)
-						
-						--print("Apocalypse Enjoyer setstat: maxDamage = " .. maxDamage)
-						--print("Apocalypse Enjoyer setstat: maxCondition = " .. maxCondition)
-						--print("Apocalypse Enjoyer setstat: conditionLowerChance = " .. conditionLowerChance)
-						
+												
 						if weaponModData.soulForgeMaxDmgMulti ~= nil then
 							weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti * maxDamage
 						else
@@ -660,20 +712,14 @@ local suff2_setstat = {
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.s2_desc = description
-						
-						print("weapon condition lower chance :" .. weaponModData.ConditionLowerChance)
-						print("weapon condition max :" .. weaponModData.MaxCondition)
+
 						item:setConditionMax(scriptItem:getConditionMax() * weaponModData.MaxCondition)
 						item:setConditionLowerChance(scriptItem:getConditionLowerChance() * weaponModData.ConditionLowerChance)
 						item:setName(weaponModData.Name)
 					end,
 					
     AscendedPath =	function(item, description, scriptItem, maxDamage, minDamage, conditionLowerChance)
-						
-						--print("Ascended Path setstat: maxDamage = " .. maxDamage)
-						--print("Ascended Path setstat: minDamage = " .. minDamage)
-						--print("Ascended Path setstat: conditionLowerChance = " .. conditionLowerChance)
-						
+												
 						if weaponModData.soulForgeMaxDmgMulti ~= nil then
 							weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti * maxDamage
 						else
@@ -698,8 +744,61 @@ local suff2_setstat = {
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.s2_desc = description
 						
-						print("weapon condition lower chance :" .. weaponModData.ConditionLowerChance)
 						item:setConditionLowerChance(scriptItem:getConditionLowerChance() * weaponModData.ConditionLowerChance)
+						item:setName(weaponModData.Name)
+					end,
+	
+	ToxicProgenitor=function(item, description, scriptItem, maxHitCount, minDamage, soulForgeCritRate)
+												
+						if weaponModData.soulForgeMaxDmgMulti ~= nil then
+							weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti * maxDamage
+						else
+							weaponModData.soulForgeMaxDmgMulti = maxDamage -- Set the default value if nil
+						end
+						
+						if weaponModData.soulForgeMinDmgMulti ~= nil then
+							weaponModData.soulForgeMinDmgMulti = weaponModData.soulForgeMinDmgMulti * minDamage
+						else
+							weaponModData.soulForgeMinDmgMulti = minDamage -- Set the default value if nil
+						end
+						
+						if weaponModData.soulForgeCritRate ~= nil then
+							weaponModData.soulForgeCritRate = weaponModData.soulForgeCritRate * soulForgeCritRate
+						else
+							weaponModData.soulForgeCritRate = soulForgeCritRate
+						end
+						weaponModData.suffix2 = "Toxic Progenitor"
+						
+						isAugmented()
+						
+						weaponModData.Name = weaponName(weaponModData, scriptItem)
+						weaponModData.s2_desc = description
+						
+						item:setName(weaponModData.Name)
+					end,
+					
+	UnhingedTryhard=function(item, description, scriptItem, maxHitCount, minDamage, soulForgeCritRate)
+												
+						weaponModData.MaxHitCount = maxHitCount
+						
+						if weaponModData.soulForgeMinDmgMulti ~= nil then
+							weaponModData.soulForgeMinDmgMulti = weaponModData.soulForgeMinDmgMulti * minDamage
+						else
+							weaponModData.soulForgeMinDmgMulti = minDamage -- Set the default value if nil
+						end
+						
+						if weaponModData.soulForgeCritRate ~= nil then
+							weaponModData.soulForgeCritRate = weaponModData.soulForgeCritRate * soulForgeCritRate
+						else
+							weaponModData.soulForgeCritRate = soulForgeCritRate
+						end
+						weaponModData.suffix2 = "Unhinged Tryhard"
+						
+						isAugmented()
+						
+						weaponModData.Name = weaponName(weaponModData, scriptItem)
+						weaponModData.s2_desc = description
+						
 						item:setName(weaponModData.Name)
 					end,
 }
@@ -710,8 +809,22 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 	items = ISInventoryPane.getActualItems(items); -- Get table of inventory items (will not be module.item, just item)
 	for _, item in ipairs(items) do -- Check every item in inventory array
 		if item:IsWeapon() and not item:isRanged() then
-			local o_scriptItem = ScriptManager.instance:getItem(item:getFullType())
 			weaponModData = item:getModData()
+			local o_scriptItem = ScriptManager.instance:getItem(item:getFullType())
+			if not weaponModData.Tier then
+				local maxDmg = o_scriptItem:getMaxDamage()
+				if maxDmg >= 5.25 then
+					weaponModData.Tier = 5
+				elseif maxDmg >= 4.375 then
+					weaponModData.Tier = 4
+				elseif maxDmg >= 3.5 then
+					weaponModData.Tier = 3
+				elseif maxDmg >= 2.625 then
+					weaponModData.Tier = 2
+				else
+					weaponModData.Tier = 1
+				end
+			end
 			weaponMaxCond = o_scriptItem:getConditionMax()
 			weaponCondLowerChance = o_scriptItem:getConditionLowerChance()
 			weaponRepairedStack = item:getHaveBeenRepaired()
@@ -731,7 +844,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 				tooltip.description = tooltip.description .. green .. "Extra Base Maximum Condition: +" .. baseMaxCond .. "% <LINE> "
 				tooltip.description = tooltip.description .. green .. "Extra Base Condition Lower Chance: +" .. baseMaxCond .. "% <LINE> "
 				
-				--tooltip.description = tooltip.description .. white .. " <LINE> DEBUG - Endurance Mod: " .. math.ceil(item:getEnduranceMod()*100)/100
+				tooltip.description = tooltip.description .. white .. " <LINE> DEBUG - Endurance Mod: " .. math.ceil(item:getEnduranceMod()*100)/100
 				
 				local isAugmented = weaponModData.Augments or nil
 				
@@ -762,7 +875,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 				if soulsFreed < soulsRequired then
 					soulsContext.notAvailable = true;
 					tooltip = ISWorldObjectContextMenu.addToolTip();
-					tooltip.description = tooltip.description .. "You need to free more souls."
+					tooltip.description = tooltip.description .. "You need to free more souls. <LINE> "
 					soulsContext.toolTip = tooltip
 					if weaponModData.SoulForged then itemStats() end
 				else
@@ -881,6 +994,9 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 					local function soulForgeWeapon(item, player)
 						--print(item)
 						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
+						
+						local weaponTier = weaponModData.Tier
+						
 						weaponModData.Name = "Soul Forged " .. scriptItem:getDisplayName()
 						
 						if weaponModData.MaxCondition ~= nil then
@@ -902,10 +1018,10 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 						--weaponModData.MinDamage = scriptItem:getMinDamage()
 						--weaponModData.MaxDamage = scriptItem:getMaxDamage()
 						weaponModData.SoulForged = true
-						playerInv:RemoveOneOf("SoulForge.SoulCrystalT1")
-						playerInv:RemoveOneOf("SoulForge.SoulCrystalT2")
-						playerInv:RemoveOneOf("SoulForge.SoulCrystalT3")
-						playerInv:RemoveOneOf("SoulForge.SoulCrystalT4")
+						if weaponTier >= 1 then playerInv:RemoveOneOf("SoulForge.SoulCrystalT1") end
+						if weaponTier >= 2 then playerInv:RemoveOneOf("SoulForge.SoulCrystalT2") end
+						if weaponTier >= 3 then playerInv:RemoveOneOf("SoulForge.SoulCrystalT3") end
+						if weaponTier >= 4 then playerInv:RemoveOneOf("SoulForge.SoulCrystalT4") end
 						--removeWeaponsNotEquipped(playerObj, item)
 						--removeWeaponsNotEquipped(playerObj, item)
 						item:setName(weaponModData.Name)
@@ -968,11 +1084,14 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 							local option_sm11_upgrade = submenu11:addOption(option, item, 
 																		function ()
 																			if _fix == pref2_setstat or _fix == suff2_setstat then _fix[option](item, description, scriptItem, new_stat, neg1, neg2) else _fix[option](item, description, scriptItem, new_stat) end
-																			playerInv:RemoveOneOf("SoulForge.SoulCrystalT1")
-																			playerInv:RemoveOneOf("SoulForge.SoulCrystalT2")
-																			playerInv:RemoveOneOf("SoulForge.SoulCrystalT3")
-																			if _fix == pref2_setstat or _fix == suff2_setstat then playerInv:RemoveOneOf("SoulForge.SoulCrystalT4") end
+																			local wTier = weaponModData.Tier
 																			
+																			if wTier >= 1 then playerInv:RemoveOneOf("SoulForge.SoulCrystalT1") end
+																			if wTier >= 2 then playerInv:RemoveOneOf("SoulForge.SoulCrystalT2") end
+																			if wTier >= 3 then playerInv:RemoveOneOf("SoulForge.SoulCrystalT3") end
+																			if _fix == pref2_setstat or _fix == suff2_setstat then 
+																				if wTier >= 4 then playerInv:RemoveOneOf("SoulForge.SoulCrystalT4") end
+																			end
 																			removeWeaponsNotEquipped(playerObj, item)
 																			--[[if _fix == pref2_setstat or _fix == suff2_setstat then removeWeaponsNotEquipped(playerObj, item) end]]
 																		end, player)
@@ -982,11 +1101,14 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 							tooltip.description = tooltip.description .. description .. " <LINE> "
 							tooltip.description = tooltip.description .. "Materials required: <LINE> "
 							option_sm11_upgrade.toolTip = tooltip
+							local wTier = weaponModData.Tier
 							
-							itemToolTipMats("SoulForge.SoulCrystalT1", option_sm11_upgrade)
-							itemToolTipMats("SoulForge.SoulCrystalT2", option_sm11_upgrade)
-							itemToolTipMats("SoulForge.SoulCrystalT3", option_sm11_upgrade)
-							if _fix == pref2_setstat or _fix == suff2_setstat  then itemToolTipMats("SoulForge.SoulCrystalT4", option_sm11_upgrade) end
+							if wTier >= 1 then itemToolTipMats("SoulForge.SoulCrystalT1", option_sm11_upgrade) end
+							if wTier >= 2 then itemToolTipMats("SoulForge.SoulCrystalT2", option_sm11_upgrade) end
+							if wTier >= 3 then itemToolTipMats("SoulForge.SoulCrystalT3", option_sm11_upgrade) end
+							if _fix == pref2_setstat or _fix == suff2_setstat  then 
+								if wTier >= 5 then itemToolTipMats("SoulForge.SoulCrystalT4", option_sm11_upgrade) end
+							end
 							
 							--if _fix == pref2_setstat or _fix == suff2_setstat  then
 								count = countWeapons(playerObj, item)
@@ -1000,10 +1122,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 							--end
 						end
 						
-						if weaponModData.Augments and weaponModData.Augments >= 4 then
-							submenu:removeOptionByName("Upgrade Soul Forged Weapon")
-						else
-							
+						if (weaponModData.Augments and weaponModData.Augments < 4) or not weaponModData.Augments then
 							check_prefix1 = weaponModData.prefix1 or nil
 							check_prefix2 = weaponModData.prefix2 or nil
 							check_suffix1 = weaponModData.suffix1 or nil
@@ -1028,11 +1147,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 								submenu1:addSubMenu(submenu11_prefix1, submenu11)
 								
 								sortAndAddOptions("prefix1", pref1_args)
-								--[[addUpgradeOptions("prefix1", "Brave")
-								addUpgradeOptions("prefix1", "Cromulent")
-								addUpgradeOptions("prefix1", "Desensitized")
-								addUpgradeOptions("prefix1", "Enraged")
-								addUpgradeOptions("prefix1", "Nonplussed")]]
+
 							end
 							
 							if not check_prefix2 then
@@ -1042,10 +1157,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 								submenu1:addSubMenu(submenu11_prefix2, submenu11)
 								
 								sortAndAddOptions("prefix2", pref2_args)
-								--[[addUpgradeOptions("prefix2", "Absolutionist")
-								addUpgradeOptions("prefix2", "Decimator")
-								addUpgradeOptions("prefix2", "Perfectionist")
-								addUpgradeOptions("prefix2", "Reaver")]]
+
 							end
 							
 							if not check_suffix1 then
@@ -1055,11 +1167,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 								submenu1:addSubMenu(submenu11_suffix1, submenu11)
 								
 								sortAndAddOptions("suffix1", suff1_args)
-								--[[addUpgradeOptions("suffix1", "Careful")
-								addUpgradeOptions("suffix1", "Enlightened")
-								addUpgradeOptions("suffix1", "Indifferent")
-								addUpgradeOptions("suffix1", "Malding")
-								addUpgradeOptions("suffix1", "Savage")]]
+
 							end
 							
 							if not check_suffix2 then
@@ -1069,12 +1177,141 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 								submenu1:addSubMenu(submenu11_suffix2, submenu11)
 								
 								sortAndAddOptions("suffix2", suff2_args)
-								--[[addUpgradeOptions("suffix2", "SundayDriver")
-								addUpgradeOptions("suffix2", "FilthyCasual")
-								addUpgradeOptions("suffix2", "ApocalypseEnjoyer")
-								addUpgradeOptions("suffix2", "AscendedPath")]]
-							end
 
+							end
+						elseif weaponModData.Augments and weaponModData.Augments >= 4 and not weaponModData.SoulWrought then
+							submenu:removeOptionByName("Upgrade Soul Forged Weapon")
+							submenu1_soulWroughtWeaponUpgrades = submenu:addOption("Upgrade to Soul-Wrought Weapon", item, 	function()
+																																local weaponFT = item:getFullType()
+																																local weapon = item
+																																local scriptItem = ScriptManager.instance:getItem(weaponFT)
+																																local weaponModData = weapon:getModData()
+																																weaponModData.SoulWrought = "Soul-Wrought "
+																																weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance/1.1*1.5 -- set to 50% more
+																																weaponModData.MaxCondition = weaponModData.MaxCondition/1.1*1.5 -- set to 50% more
+																																weapon:setName(weaponModData.SoulWrought .. weaponModData.Name)
+																																weapon:setConditionLowerChance(scriptItem:getConditionLowerChance() * weaponModData.ConditionLowerChance)
+																																weapon:setConditionMax(scriptItem:getConditionMax() * weaponModData.MaxCondition)
+																																end, player)
+							--submenu1_soulWroughtWeaponUpgrades.notAvailable = true
+							tooltip = ISWorldObjectContextMenu.addToolTip();
+							tooltip.description = tooltip.description .. white .. "Materials required: <LINE> "
+							--submenu1_soulWroughtWeaponUpgrades.toolTip = tooltip
+							local wTier = weaponModData.Tier
+							
+							if wTier >= 1 then itemToolTipMats("SoulForge.SoulCrystalT1", submenu1_soulWroughtWeaponUpgrades) end
+							if wTier >= 2 then itemToolTipMats("SoulForge.SoulCrystalT2", submenu1_soulWroughtWeaponUpgrades) end
+							if wTier >= 3 then itemToolTipMats("SoulForge.SoulCrystalT3", submenu1_soulWroughtWeaponUpgrades) end
+							if wTier >= 4 then itemToolTipMats("SoulForge.SoulCrystalT4", submenu1_soulWroughtWeaponUpgrades) end
+							itemToolTipMats("SoulForge.SoulCrystalT5", submenu1_soulWroughtWeaponUpgrades)
+							
+							local count = countWeapons(playerObj, item)
+							local scriptItem = ScriptManager.instance:getItem(item:getFullType())
+							if count < 1 then
+								submenu1_soulWroughtWeaponUpgrades.notAvailable = true;
+								tooltip.description = tooltip.description .. red .. " <LINE> " .. scriptItem:getDisplayName() .. " 0/1" ;
+							elseif count >= 1 then
+								tooltip.description = tooltip.description .. green .. " <LINE> " .. scriptItem:getDisplayName() .. " " .. count .. "/1" ;
+							end
+							submenu1_soulWroughtWeaponUpgrades.toolTip = tooltip
+						elseif weaponModData.Augments and weaponModData.Augments >= 4 and weaponModData.SoulWrought then
+							submenu:removeOptionByName("Upgrade Soul Forged Weapon")
+							
+							submenu1_soulWroughtUpgrades = submenu:addOption("Upgrade Soul-Wrought Weapon", item, nil, player)
+							submenu2 = ISContextMenu:getNew(submenu)
+							submenu:addSubMenu(submenu1_soulWroughtUpgrades, submenu2)
+							
+							local function countItems(playerObj, item)
+								local inv = playerObj:getInventory()
+								local items = inv:getItemsFromFullType(item, false)
+								local count = 0
+								for i=1,items:size() do
+									local invItem = items:get(i-1)
+									if not instanceof(invItem, "InventoryContainer") or item:getInventory():getItems():isEmpty() then
+										count = count + 1
+									end
+								end
+								return count
+							end
+							
+							local function sw_itemToolTipMats(tooltip, material, option, quantity)
+								local playerObj = getSpecificPlayer(0)
+								local playerInv = playerObj:getInventory()
+								local scriptItem = ScriptManager.instance:getItem(material)
+								local itemdisplayname = scriptItem:getDisplayName()
+								--print(scriptItem)
+								tooltip.description = tooltip.description .. " <LINE> "
+								if countItems(playerObj, material) < quantity then
+									count = countItems(playerObj, material)
+									option.notAvailable = true;
+									--tooltip = ISWorldObjectContextMenu.addToolTip();
+									tooltip.description = tooltip.description .. red .. itemdisplayname .. " " .. count .. "/" .. quantity ;
+								else
+									--count = playerInv:getCountTypeRecurse(material)
+									count = countItems(playerObj, material)
+									tooltip.description = tooltip.description .. green .. itemdisplayname .. " " .. count .. "/" .. quantity ;
+								end
+							end
+							
+							local shard = { "SoulForge.SoulShardT1", "SoulForge.SoulShardT2", "SoulForge.SoulShardT3", "SoulForge.SoulShardT4", "SoulForge.SoulShardT5" }
+							
+							local function sw_upgrade(upgrade_no, upgrade_mats, sw_ticket)
+								tooltip = ISWorldObjectContextMenu.addToolTip();
+								tooltip.description = tooltip.description .. " <LINE> " .. gold .. "Materials required:"
+								for i=1,#upgrade_mats do
+									sw_itemToolTipMats(tooltip, shard[i], upgrade_no, upgrade_mats[i])
+								end
+								sw_itemToolTipMats(tooltip, sw_ticket, upgrade_no, 1)
+								upgrade_no.toolTip = tooltip
+							end
+							
+							local function remove_swMats(mats)
+								for i=1,#mats do
+									for j=1,mats[i] do
+										playerInv:RemoveOneOf(shards[i])
+									end
+								end
+							end
+							
+							local Upgrade1MatNo = {6,4,3,2,1}
+							local swUpgrade1 = submenu2:addOption("Add +1% to Minimum Damage Modifier", item, function()
+																										weaponModData.soulForgeMinDmgMulti = weaponModData.soulForgeMinDmgMulti + 0.01
+																										remove_swMats(Upgrade1MatNo)
+																										playerInv:RemoveOneOf("SoulForge.MinDmgTicket")
+																										end, player)
+							sw_upgrade(swUpgrade1, Upgrade1MatNo, "SoulForge.MinDmgTicket")
+																										
+							local Upgrade2MatNo = {8,6,5,3,1}
+							local swUpgrade2 = submenu2:addOption("Add +1% to Maximum Damage Modifier", item, function()
+																										weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti + 0.01
+																										remove_swMats(Upgrade2MatNo)
+																										playerInv:RemoveOneOf("SoulForge.MaxDmgTicket")
+																										end, player)
+							sw_upgrade(swUpgrade2, Upgrade2MatNo, "SoulForge.MaxDmgTicket")
+																										
+							local Upgrade3MatNo = {7,5,3,2,1}
+							local swUpgrade3 = submenu2:addOption("Add +1% to Critical Chance Modifier", item, function()
+																										weaponModData.soulForgeCritRate = weaponModData.soulForgeCritRate + 0.01
+																										remove_swMats(Upgrade3MatNo)
+																										playerInv:RemoveOneOf("SoulForge.CritChanceTicket")
+																										end, player)
+							sw_upgrade(swUpgrade3, Upgrade3MatNo, "SoulForge.CritChanceTicket")
+																										
+							local Upgrade4MatNo = {5,4,3,2,1}
+							local swUpgrade4 = submenu2:addOption("Add +1% to Critical Damage Multiplier Modifier", item, function()
+																													weaponModData.soulForgeCritMulti = weaponModData.soulForgeCritMulti + 0.01
+																													remove_swMats(Upgrade4MatNo)
+																													playerInv:RemoveOneOf("SoulForge.CritMultiTicket")
+																													end, player)
+							sw_upgrade(swUpgrade4, Upgrade4MatNo, "SoulForge.CritMultiTicket")
+																													
+							local Upgrade5MatNo = {8,7,6,5,2}
+							local swUpgrade5 = submenu2:addOption("Add -0.1% to Endurance Usage Modifier", item, function()
+																											weaponModData.EnduranceMod = weaponModData.EnduranceMod - 0.001
+																											remove_swMats(Upgrade5MatNo)
+																											playerInv:RemoveOneOf("SoulForge.EnduranceModTicket")
+																											end, player)
+							sw_upgrade(swUpgrade5, Upgrade5MatNo, "SoulForge.EnduranceModTicket")
 						end
 						
 					elseif (weaponCurrentCondition < (weaponMaxCond*soulForgeMaxCondition) or soulsFreed < soulsRequired) then
@@ -1089,11 +1326,12 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 						tooltip = ISWorldObjectContextMenu.addToolTip();
 						tooltip.description = tooltip.description .. white .. "Materials required: <LINE> "
 						option_soulForgeWeapon.toolTip = tooltip
+						local wTier = weaponModData.Tier
 						
-						itemToolTipMats("SoulForge.SoulCrystalT1", option_soulForgeWeapon)
-						itemToolTipMats("SoulForge.SoulCrystalT2", option_soulForgeWeapon)
-						itemToolTipMats("SoulForge.SoulCrystalT3", option_soulForgeWeapon)
-						itemToolTipMats("SoulForge.SoulCrystalT4", option_soulForgeWeapon)
+						if wTier >= 1 then itemToolTipMats("SoulForge.SoulCrystalT1", option_soulForgeWeapon) end
+						if wTier >= 2 then itemToolTipMats("SoulForge.SoulCrystalT2", option_soulForgeWeapon) end
+						if wTier >= 3 then itemToolTipMats("SoulForge.SoulCrystalT3", option_soulForgeWeapon) end
+						if wTier >= 4 then itemToolTipMats("SoulForge.SoulCrystalT4", option_soulForgeWeapon) end
 						
 						--[[count = countWeapons(playerObj, item)
 						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
@@ -1119,6 +1357,7 @@ Events.OnFillInventoryObjectContextMenu.Add(SoulContextSD) -- everytime you righ
 function SoulCountSD(character, handWeapon)
 
 	local player = character
+	local pMD = player:getModData()
 	local tierzone = checkZone()
 
 	if player ~= nil and handWeapon ~= nil and not handWeapon:isRanged() and player:getPrimaryHandItem() ~= nil then
@@ -1145,7 +1384,14 @@ function SoulCountSD(character, handWeapon)
 		--character:Say("kill diff: " .. killDiff)
 		
 		if killDiff > 0 then
-			weaponModData.KillCount = weaponSouls + killDiff + math.floor(tierzone/2) --calculate and set new kill counter on weapon, 
+			local SoulThirstValue = pMD.SoulThirstValue
+			local SoulThirst = 0
+			if SoulThirstValue and SoulThirstValue > 0 then
+				if ZombRand(0,100) <= SoulThirstValue then
+					SoulThirst = 1
+				end
+			end
+			weaponModData.KillCount = weaponSouls + killDiff + math.floor(tierzone/2) + SoulThirst--calculate and set new kill counter on weapon, 
 			weaponModData.PlayerKills = n_killcount --update player kill counter on weapon
 			--character:Say("new kills: " .. weaponModData.KillCount)
 			--character:Say("new player kills: " .. weaponModData.PlayerKills)

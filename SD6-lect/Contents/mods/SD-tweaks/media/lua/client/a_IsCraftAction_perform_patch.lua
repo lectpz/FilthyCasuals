@@ -10,7 +10,14 @@ function ISCraftAction:perform()
 	self.container:setDrawDirty(true);
 	self.item:setJobDelta(0.0);
 	
-	local chefPower = math.max(self.character:getPerkLevel(Perks.Cooking)/4,1) -- scale cooking recipes based on cook level
+	local pMD = self.character:getModData()
+	local IronChef = pMD.IronChefValue
+	local IronChefPower = 1
+	if IronChef and IronChef > 1 then
+		IronChefPower = pMD.IronChefValue
+	end
+		
+	local chefPower = math.max(self.character:getPerkLevel(Perks.Cooking)/4,1) * IronChefPower -- scale cooking recipes based on cook level
 	
 	local resultItemCreated = RecipeManager.PerformMakeItem(self.recipe, self.item, self.character, self.containers);
 
@@ -21,6 +28,7 @@ function ISCraftAction:perform()
 							or resultItemCreated:isAlcoholic()
 							or string.contains(resultItemCreated:getDisplayName(), "Jar of") 
 							or resultItemCreated:getType() == "FishFillet" 
+							or resultItemCreated:getType() == "Sugar"
 							--or (resultItemCreated:getOnEat() or nil)
 
 	

@@ -72,6 +72,96 @@ function SD6_containers.bag_mod:weight()
     modal:addToUIManager()
 end
 
+function SD6_containers.bag_mod:modal1(button, player)
+	if button.internal ~= "YES" then return end
+	
+	local player = getSpecificPlayer(0)
+	local playerInv = player:getInventory()
+	
+	local iFT = bag:getFullType()
+	local itemID = bag:getID()
+	
+	args.player_name = getOnlineUsername()
+	args.item = iFT
+	args.itemID = itemID
+	
+	if modcap1 then
+		modcap1 = false
+		local bagCapacityTicket = playerInv:getItemsFromFullType("Base.bagCapacityTicket", false)
+		if not bagCapacityTicket then
+			self.character:Say("I cannot do that.")
+			return
+		end
+		
+		local bagCap = bag:getCapacity()
+		local newBag = InventoryItemFactory.CreateItem(iFT)
+		local scriptCap = newBag:getCapacity()
+		
+		if bagCap >= math.min(35, math.floor(scriptCap*1.5)) then
+			player:Say("This bag is already at maximum carry capacity.")
+			return
+		else
+			bagCap = bagCap + 1
+		end
+		bag:setCapacity(bagCap)
+		args.modBagCap = bagCap
+		
+		bag = nil
+		sendClientCommand(player, 'sdLogger', 'modBagCap', args);
+		
+		local playerInv = player:getInventory()
+		playerInv:RemoveOneOf("Base.bagCapacityTicket")
+		return
+	end
+		
+	if modredux1 then
+		modredux1 = false
+		local bagWeightTicket = playerInv:getItemsFromFullType("Base.bagWeightTicket", false)
+		if not bagWeightTicket then
+			player:Say("I cannot do that.")
+			return
+		end
+		
+		local bagWeight = bag:getWeightReduction()
+		if bagWeight >= 95 then
+			player:Say("This bag is already at maximum weight reduction.")
+			return
+		else
+			bagWeight = bagWeight + 1
+		end
+		bag:setWeightReduction(bagWeight)
+		args.modBagRedux = bagWeight
+		
+		bag = nil
+		sendClientCommand(player, 'sdLogger', 'modBagRedux', args);
+		playerInv:RemoveOneOf("Base.bagWeightTicket")
+		return
+	end
+end
+
+function SD6_containers.bag_mod:capacity1()
+	modcap1 = true
+	local player = 0
+	local width = 350;
+	local x = getPlayerScreenLeft(player) + (getPlayerScreenWidth(player) - width) / 2
+	local height = 120;
+	local y = getPlayerScreenTop(player) + (getPlayerScreenHeight(player) - height) / 2
+	local modal1 = ISModalDialog:new(x,y, width, height, "Add 1 to bag capacity?", true, self, SD6_containers.bag_mod.modal1, player);
+	modal1:initialise()
+	modal1:addToUIManager()
+end
+
+function SD6_containers.bag_mod:weight1()
+	modredux1 = true
+	local player = 0
+	local width = 350;
+	local x = getPlayerScreenLeft(player) + (getPlayerScreenWidth(player) - width) / 2
+	local height = 120;
+	local y = getPlayerScreenTop(player) + (getPlayerScreenHeight(player) - height) / 2
+	local modal1 = ISModalDialog:new(x,y, width, height, "Add 1% to bag weight reducton?", true, self, SD6_containers.bag_mod.modal1, player);
+	modal1:initialise()
+	modal1:addToUIManager()
+end
 --************************************************************************--
 --** ISPanel:render
 --************************************************************************--
@@ -195,3 +285,37 @@ local function SD6_bag_modification(player, context, items) -- # When an invento
 end
 
 Events.OnPreFillInventoryObjectContextMenu.Add(SD6_bag_modification)
+
+local function SD6_bag_modification_ticket(player, context, items) -- # When an inventory item context menu is opened
+	local playerObj = getSpecificPlayer(player)
+	local playerInv = playerObj:getInventory()
+	local bagCapacityTicket = playerInv:getItemsFromFullType("Base.bagCapacityTicket", false)
+	local bagWeightTicket = playerInv:getItemsFromFullType("Base.bagWeightTicket", false)
+	
+	if bagCapacityTicket then
+		items = ISInventoryPane.getActualItems(items)
+		for i=1, #items do
+			item = items[i]
+			if instanceof(item, "InventoryContainer") then
+				bag = item
+				context:addOption("Add +1 Bag Capacity", item, SD6_containers.bag_mod.capacity1, playerObj)
+				--context:addOption("Add +1% Weight Reduction", item, SD6_containers.bag_mod.weight1, playerObj)
+				break
+			end
+		end
+	end
+	
+	if bagWeightTicket then
+		items = ISInventoryPane.getActualItems(items)
+		for i=1, #items do
+			item = items[i]
+			if instanceof(item, "InventoryContainer") then
+				bag = item
+				--context:addOption("Add +1 Bag Capacity", item, SD6_containers.bag_mod.capacity1, playerObj)
+				context:addOption("Add +1 Weight Reduction", item, SD6_containers.bag_mod.weight1, playerObj)
+				break
+			end
+		end
+	end
+end
+Events.OnPreFillInventoryObjectContextMenu.Add(SD6_bag_modification_ticket)

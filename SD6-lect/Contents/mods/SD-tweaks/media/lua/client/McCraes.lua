@@ -4,6 +4,9 @@ local McCraes = {
     "Need a charge? Get a full charge... at no charge... at McCrae's!",
     "Lost your battery charger?  Well, now you have found bargains... at McCrae's!",
     "In the market for criminal intent? The only things criminal here... are the low prices... at McCrae's!",
+	"Charge and go... but don’t charge off with our charger! At McCrae's!",
+	"Hey, that’s McCrae's property! Look but don’t take advantage... of anything but our offers inside, of course!",
+	"If you need a jolt, try our electrifying discounts, not our battery charger! Powerfully affordable... at McCrae's!"
 }
 
 ISTakeCarBatteryChargerAction.o_perform = ISTakeCarBatteryChargerAction.perform
