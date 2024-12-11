@@ -26,10 +26,85 @@ Sandbox_EN = {
 	Sandbox_SDRandomZombies_PinpointDefault = "Default Pinpoint % ",
 	Sandbox_SDRandomZombies_PinpointDefault_tooltip = "Pinpoint % at Default",
 
+	Sandbox_SDRandomZombies_DirkerCityT3N = "DirkerCityT3N Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT3N_tooltip = "Percentage of Sprinters present at DirkerCityT3N",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT3N = "DirkerCityT3N Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT3N_tooltip = "Pinpoint % at DirkerCityT3N",
+
+	Sandbox_SDRandomZombies_DirkerCityT3South = "DirkerCityT3South Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT3South_tooltip = "Percentage of Sprinters present at DirkerCityT3South",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT3South = "DirkerCityT3South Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT3South_tooltip = "Pinpoint % at DirkerCityT3South",
+
+	Sandbox_SDRandomZombies_DirkerCityT3West = "DirkerCityT3West Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT3West_tooltip = "Percentage of Sprinters present at DirkerCityT3West",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT3West = "DirkerCityT3West Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT3West_tooltip = "Pinpoint % at DirkerCityT3West",
+
+	Sandbox_SDRandomZombies_DirkerCityT4E = "DirkerCityT4E Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT4E_tooltip = "Percentage of Sprinters present at DirkerCityT4E",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4E = "DirkerCityT4E Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4E_tooltip = "Pinpoint % at DirkerCityT4E",
+
+	Sandbox_SDRandomZombies_DirkerCityT4EE = "DirkerCityT4EE Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT4EE_tooltip = "Percentage of Sprinters present at DirkerCityT4EE",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4EE = "DirkerCityT4EE Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4EE_tooltip = "Pinpoint % at DirkerCityT4EE",
+
+	Sandbox_SDRandomZombies_DirkerCityT4N = "DirkerCityT4N Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT4N_tooltip = "Percentage of Sprinters present at DirkerCityT4N",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4N = "DirkerCityT4N Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4N_tooltip = "Pinpoint % at DirkerCityT4N",
+
+	Sandbox_SDRandomZombies_DirkerCityT4NE = "DirkerCityT4NE Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT4NE_tooltip = "Percentage of Sprinters present at DirkerCityT4NE",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4NE = "DirkerCityT4NE Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4NE_tooltip = "Pinpoint % at DirkerCityT4NE",
+
+	Sandbox_SDRandomZombies_DirkerCityT4NW = "DirkerCityT4NW Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT4NW_tooltip = "Percentage of Sprinters present at DirkerCityT4NW",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4NW = "DirkerCityT4NW Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4NW_tooltip = "Pinpoint % at DirkerCityT4NW",
+
+	Sandbox_SDRandomZombies_DirkerCityT4S = "DirkerCityT4S Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT4S_tooltip = "Percentage of Sprinters present at DirkerCityT4S",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4S = "DirkerCityT4S Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4S_tooltip = "Pinpoint % at DirkerCityT4S",
+
+	Sandbox_SDRandomZombies_DirkerCityT4SE = "DirkerCityT4SE Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT4SE_tooltip = "Percentage of Sprinters present at DirkerCityT4SE",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4SE = "DirkerCityT4SE Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4SE_tooltip = "Pinpoint % at DirkerCityT4SE",
+
+	Sandbox_SDRandomZombies_DirkerCityT4SW = "DirkerCityT4SW Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT4SW_tooltip = "Percentage of Sprinters present at DirkerCityT4SW",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4SW = "DirkerCityT4SW Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4SW_tooltip = "Pinpoint % at DirkerCityT4SW",
+
+	Sandbox_SDRandomZombies_DirkerCityT4W = "DirkerCityT4W Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT4W_tooltip = "Percentage of Sprinters present at DirkerCityT4W",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4W = "DirkerCityT4W Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT4W_tooltip = "Pinpoint % at DirkerCityT4W",
+
+	Sandbox_SDRandomZombies_DirkerCityT5E = "DirkerCityT5E Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT5E_tooltip = "Percentage of Sprinters present at DirkerCityT5E",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT5E = "DirkerCityT5E Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT5E_tooltip = "Pinpoint % at DirkerCityT5E",
+
+	Sandbox_SDRandomZombies_DirkerCityT5W = "DirkerCityT5W Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerCityT5W_tooltip = "Percentage of Sprinters present at DirkerCityT5W",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT5W = "DirkerCityT5W Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerCityT5W_tooltip = "Pinpoint % at DirkerCityT5W",
+
 	Sandbox_SDRandomZombies_DirkerEasy = "DirkerEasy Sprinters % ",
 	Sandbox_SDRandomZombies_DirkerEasy_tooltip = "Percentage of Sprinters present at DirkerEasy",
 	Sandbox_SDRandomZombies_PinpointDirkerEasy = "DirkerEasy Pinpoint % ",
 	Sandbox_SDRandomZombies_PinpointDirkerEasy_tooltip = "Pinpoint % at DirkerEasy",
+
+	Sandbox_SDRandomZombies_DirkerEncampment = "DirkerEncampment Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerEncampment_tooltip = "Percentage of Sprinters present at DirkerEncampment",
+	Sandbox_SDRandomZombies_PinpointDirkerEncampment = "DirkerEncampment Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerEncampment_tooltip = "Pinpoint % at DirkerEncampment",
 
 	Sandbox_SDRandomZombies_DirkerHard = "DirkerHard Sprinters % ",
 	Sandbox_SDRandomZombies_DirkerHard_tooltip = "Percentage of Sprinters present at DirkerHard",
@@ -40,6 +115,36 @@ Sandbox_EN = {
 	Sandbox_SDRandomZombies_DirkerMed_tooltip = "Percentage of Sprinters present at DirkerMed",
 	Sandbox_SDRandomZombies_PinpointDirkerMed = "DirkerMed Pinpoint % ",
 	Sandbox_SDRandomZombies_PinpointDirkerMed_tooltip = "Pinpoint % at DirkerMed",
+
+	Sandbox_SDRandomZombies_DirkerTownNorthWestT3 = "DirkerTownNorthWestT3 Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerTownNorthWestT3_tooltip = "Percentage of Sprinters present at DirkerTownNorthWestT3",
+	Sandbox_SDRandomZombies_PinpointDirkerTownNorthWestT3 = "DirkerTownNorthWestT3 Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerTownNorthWestT3_tooltip = "Pinpoint % at DirkerTownNorthWestT3",
+
+	Sandbox_SDRandomZombies_DirkerTownNorthWestT4 = "DirkerTownNorthWestT4 Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerTownNorthWestT4_tooltip = "Percentage of Sprinters present at DirkerTownNorthWestT4",
+	Sandbox_SDRandomZombies_PinpointDirkerTownNorthWestT4 = "DirkerTownNorthWestT4 Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerTownNorthWestT4_tooltip = "Pinpoint % at DirkerTownNorthWestT4",
+
+	Sandbox_SDRandomZombies_DirkerTownSouthEastT3 = "DirkerTownSouthEastT3 Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerTownSouthEastT3_tooltip = "Percentage of Sprinters present at DirkerTownSouthEastT3",
+	Sandbox_SDRandomZombies_PinpointDirkerTownSouthEastT3 = "DirkerTownSouthEastT3 Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerTownSouthEastT3_tooltip = "Pinpoint % at DirkerTownSouthEastT3",
+
+	Sandbox_SDRandomZombies_DirkerTownSouthEastT4 = "DirkerTownSouthEastT4 Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerTownSouthEastT4_tooltip = "Percentage of Sprinters present at DirkerTownSouthEastT4",
+	Sandbox_SDRandomZombies_PinpointDirkerTownSouthEastT4 = "DirkerTownSouthEastT4 Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerTownSouthEastT4_tooltip = "Pinpoint % at DirkerTownSouthEastT4",
+
+	Sandbox_SDRandomZombies_DirkerTownSouthT3 = "DirkerTownSouthT3 Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerTownSouthT3_tooltip = "Percentage of Sprinters present at DirkerTownSouthT3",
+	Sandbox_SDRandomZombies_PinpointDirkerTownSouthT3 = "DirkerTownSouthT3 Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerTownSouthT3_tooltip = "Pinpoint % at DirkerTownSouthT3",
+
+	Sandbox_SDRandomZombies_DirkerTownSouthT4 = "DirkerTownSouthT4 Sprinters % ",
+	Sandbox_SDRandomZombies_DirkerTownSouthT4_tooltip = "Percentage of Sprinters present at DirkerTownSouthT4",
+	Sandbox_SDRandomZombies_PinpointDirkerTownSouthT4 = "DirkerTownSouthT4 Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointDirkerTownSouthT4_tooltip = "Pinpoint % at DirkerTownSouthT4",
 
 	Sandbox_SDRandomZombies_EerieCapitol = "EerieCapitol Sprinters % ",
 	Sandbox_SDRandomZombies_EerieCapitol_tooltip = "Percentage of Sprinters present at EerieCapitol",
@@ -100,6 +205,16 @@ Sandbox_EN = {
 	Sandbox_SDRandomZombies_LCDowntown_tooltip = "Percentage of Sprinters present at LCDowntown",
 	Sandbox_SDRandomZombies_PinpointLCDowntown = "LCDowntown Pinpoint % ",
 	Sandbox_SDRandomZombies_PinpointLCDowntown_tooltip = "Pinpoint % at LCDowntown",
+
+	Sandbox_SDRandomZombies_LCSouth1 = "LCSouth1 Sprinters % ",
+	Sandbox_SDRandomZombies_LCSouth1_tooltip = "Percentage of Sprinters present at LCSouth1",
+	Sandbox_SDRandomZombies_PinpointLCSouth1 = "LCSouth1 Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointLCSouth1_tooltip = "Pinpoint % at LCSouth1",
+
+	Sandbox_SDRandomZombies_LCSouth2 = "LCSouth2 Sprinters % ",
+	Sandbox_SDRandomZombies_LCSouth2_tooltip = "Percentage of Sprinters present at LCSouth2",
+	Sandbox_SDRandomZombies_PinpointLCSouth2 = "LCSouth2 Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointLCSouth2_tooltip = "Pinpoint % at LCSouth2",
 
 	Sandbox_SDRandomZombies_LVairport = "LVairport Sprinters % ",
 	Sandbox_SDRandomZombies_LVairport_tooltip = "Percentage of Sprinters present at LVairport",
@@ -195,6 +310,11 @@ Sandbox_EN = {
 	Sandbox_SDRandomZombies_Taylorsville_tooltip = "Percentage of Sprinters present at Taylorsville",
 	Sandbox_SDRandomZombies_PinpointTaylorsville = "Taylorsville Pinpoint % ",
 	Sandbox_SDRandomZombies_PinpointTaylorsville_tooltip = "Pinpoint % at Taylorsville",
+
+	Sandbox_SDRandomZombies_ValleyStreamMall = "ValleyStreamMall Sprinters % ",
+	Sandbox_SDRandomZombies_ValleyStreamMall_tooltip = "Percentage of Sprinters present at ValleyStreamMall",
+	Sandbox_SDRandomZombies_PinpointValleyStreamMall = "ValleyStreamMall Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointValleyStreamMall_tooltip = "Pinpoint % at ValleyStreamMall",
 
 	Sandbox_SDRandomZombies_WestPointEast = "WestPointEast Sprinters % ",
 	Sandbox_SDRandomZombies_WestPointEast_tooltip = "Percentage of Sprinters present at WestPointEast",

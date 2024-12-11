@@ -1,6 +1,6 @@
 version=1
 id=3334410587
 title=SD6-lect
-description=SD6
-tags=
+description=SD6-lect
+tags=Build 41
 visibility=unlisted

@@ -250,7 +250,7 @@ module SoulForge {
 		OnTest:OnTest_dontDestroySouls,
 		InSameInventory:true,
 		NoBrokenItems:false,
-		Result:SoulShardT5=2,
+		Result:SoulShardT5=4,
 		Time:100.0,
 	}
 	
@@ -427,7 +427,7 @@ module SoulForge {
 	recipe Fuse Tier 5 Soul Crystal
 	{
 		CanBeDoneFromFloor:false,
-		SoulCrystalT4=5,
+		SoulCrystalT4=6,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,
@@ -485,7 +485,7 @@ module SoulForge {
 	
 	recipe Unforge Weapon
 	{
-		StoredSouls=1000,
+		StoredSouls=500,
 		SoulShardT1=8,
 		SoulShardT2=6,
 		SoulShardT3=4,

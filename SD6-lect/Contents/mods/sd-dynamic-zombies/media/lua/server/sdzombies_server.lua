@@ -223,6 +223,8 @@ local SDzones = {
 	"InsidePetro",
 	"LCBunker",
 	"LCDowntown",
+	"LCSouth1",
+	"LCSouth2",
 	"RavenCreekPDMilitaryHospital",
 	"RavenCreekEntrance",
 	"EeriePowerPlant",
@@ -250,15 +252,34 @@ local SDzones = {
 	"LC",
 	"Taylorsville",
 	"Grapeseed",
-	"DirkerHard",
-	"DirkerMed",
-	"DirkerEasy",
 	"OldStPaulo",
 	"LVshipping",
 	"LVairport",
 	"OaksdaleU",
 	"Nettle",
 	"RosewoodX",
+	"DirkerCityT5W",
+	"DirkerCityT5E",
+	"DirkerTownSouthT4",
+	"DirkerTownSouthT3",
+	"DirkerTownSouthEastT4",
+	"DirkerTownSouthEastT3",
+	"DirkerCityT4NW",
+	"DirkerCityT4N",
+	"DirkerCityT4NE",
+	"DirkerCityT4W",
+	"DirkerCityT4E",
+	"DirkerCityT4SW",
+	"DirkerCityT4S",
+	"DirkerCityT4SE",
+	"DirkerCityT4EE",
+	"DirkerCityT3N",
+	"DirkerCityT3West",
+	"DirkerCityT3South",
+	"DirkerTownNorthWestT4",
+	"DirkerTownNorthWestT3",
+	"DirkerEncampment",
+	"ValleyStreamMall",
 }
 
 local function isInsideZone(zone, x, y)
@@ -300,7 +321,7 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
     -- see IsoZombie::resetForReuse and VirtualZombieManager::createRealZombieAlways for more info
     local shouldSkip = speedTypeVal == modData.SDspeed and cognitionVal == modData.SDcog and hearingVal ==
                            modData.SDhearing and crawlingVal == modData.SDcrawl and math.abs(squareXVal - modData.SDx) <=
-                           50 and math.abs(squareYVal - modData.SDy) <= 50
+                           35 and math.abs(squareYVal - modData.SDy) <= 35
 						   
 --lect
 	local zombieSprinterZoneValue = modData.SDSprinterZoneValue or nil --call the modData for sprinterzone % associated with the zombie, or nil if it doesn't exist. if it does exist, its because it was written at the end of updateZombie
@@ -417,7 +438,7 @@ local function updateAllZombies()
 	zCounter = zCounter + 1
 	sandboxOpts = getSandboxOptions()
 	--print("update zombie counter... " .. zCounter*5 .. " seconds passed!")
-	if zCounter >=3 then
+	if zCounter >=1 then
 		removeEventUpdate() -- lect -- remove the event update, dont want this overlapping
 		--local startTime = getTimestampMs()
 		local zs = getCell():getZombieList()

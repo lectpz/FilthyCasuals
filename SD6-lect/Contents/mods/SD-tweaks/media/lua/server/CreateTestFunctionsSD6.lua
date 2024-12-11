@@ -7,3 +7,10 @@ function Recipe.OnTest.checkFullUseDelta(item)
 		return true
 	end
 end
+
+function DeconstructGun_OnCreate(items, result, player)
+    --player:getInventory():AddItem("Base.LeadPipe")
+	player:getInventory():AddItem("Base.ScrapMetal")
+	player:getInventory():AddItem("Base.ScrapMetal")
+	player:getInventory():AddItem("Base.ScrapMetal")
+end

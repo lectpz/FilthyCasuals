@@ -4,7 +4,37 @@
 --Free to use with permission-----------------
 ----------------------------------------------
 
-require "SDZoneCheck"
+--require "SDZoneCheck"
+
+local VAitems = {
+				"HS_VenenosusAer.VA_Charcoal_Tablets", "HS_VenenosusAer.VA_Filter_LowGrade", "HS_VenenosusAer.VA_Filter_MediumGrade", "HS_VenenosusAer.VA_Filter_HighGrade",
+				"Packing.5pkVA_Charcoal_Tablets", "Packing.5pkVA_Filter_LowGrade", "Packing.5pkVA_Filter_MediumGrade", "Packing.5pkVA_Filter_HighGrade", 
+				"Packing.10pkVA_Charcoal_Tablets", "Packing.10pkVA_Filter_LowGrade", "Packing.10pkVA_Filter_MediumGrade", "Packing.10pkVA_Filter_HighGrade", 
+				}
+
+local VAweight = {  
+				9, 27, 18, 9,
+				3, 9, 6, 3,
+				1, 3, 2, 1,
+				}
+
+local function getTotalTableWeight(_table)
+	local count = 0
+	for i=1,#_table do
+		count = count + _table[i]
+	end
+	return count
+end
+
+local function getWeightedItem(tableno, tableweight, rollvalue)
+	local countnext = 0
+	for i=1,#tableweight do
+		countnext = countnext + tableweight[i]
+		if rollvalue <= countnext then
+			return tableno[i]
+		end
+	end
+end
 
 -- function to split the sandbox string into a table. my brute force way to bypass the limitations of sandbox var string delimiter. parses the input string and pulls out the everything between spaces.
 local function splitString(sandboxvar, delimiter)
@@ -254,7 +284,7 @@ function MedicalCacheSD(items, result, player)
 	local medicalitems = splitString("HS_VenenosusAer.VA_Charcoal_Tablets HS_VenenosusAer.VA_Filter_LowGrade HS_VenenosusAer.VA_Filter_MediumGrade HS_VenenosusAer.VA_Filter_HighGrade CDCRR.Zedalis CDCRR.Zomboflex CDCRR.Bitezapro CDCRR.Salivix CDCRR.Viazom CDCRR.Fevarax CDCRR.Humanox CanteensAndBottles.GymBottleSpiffoade SapphCooking.ThermosCoffee CanteensAndBottles.MedicinalCanteenGreenWhiteSerum CanteensAndBottles.MedicinalCanteenWhiteGreenSerum")
 		
 	local zoneroll = 12-zonetier
-
+	
 	args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "Medical Cache",
@@ -267,6 +297,9 @@ function MedicalCacheSD(items, result, player)
 	if zonetier == 5 then
 		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
 		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		addItemToPlayer(getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
@@ -274,21 +307,26 @@ function MedicalCacheSD(items, result, player)
 	elseif zonetier == 4 then
 		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
 		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 3 then
 		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 	elseif zonetier == 2 then
 		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 	elseif zonetier == 1 then
 		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
@@ -378,21 +416,33 @@ function ArmorCachePatriotSD(items, result, player)
 		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+2, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+1, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 4 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+4, "Base.Military_MaskHelmet_GasMask-M80")
 		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+2, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 3 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 2 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 1 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 end
@@ -422,23 +472,36 @@ function ArmorCacheDefenderSD(items, result, player)
 		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+2, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+1, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 4 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+4, "Base.Military_MaskHelmet_GasMask-M80")
 		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+2, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 3 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 2 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 1 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	
 end
 
 function ArmorCacheVanguardSD(items, result, player)
@@ -466,21 +529,33 @@ function ArmorCacheVanguardSD(items, result, player)
 		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+2, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+1, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 4 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+4, "Base.Military_MaskHelmet_GasMask-M80")
 		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+2, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 3 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 2 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 1 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
+		
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 end

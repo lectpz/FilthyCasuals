@@ -25,5 +25,38 @@ module SD6_NPCS {
         Map = SundayDriversNPC_JC,
         WorldStaticModel = Map,
     }
+	
+	item SundayDriversNPC_VW_Argus
+    {
+        DisplayCategory = Cartography,
+        Type = Map,
+        DisplayName = Argus,
+        Icon = Map,
+        Weight = 100.0,
+        Map = SundayDriversNPC_VW_Argus,
+        WorldStaticModel = Map,
+    }
+	
+	item SundayDriversNPC_Cog_Lt_BA
+    {
+        DisplayCategory = Cartography,
+        Type = Map,
+        DisplayName = Lieutenant Bryce Archer,
+        Icon = Map,
+        Weight = 100.0,
+        Map = SundayDriversNPC_Cog_Lt_BA,
+        WorldStaticModel = Map,
+    }
+	
+	item SundayDriversNPC_Ranger_JG
+    {
+        DisplayCategory = Cartography,
+        Type = Map,
+        DisplayName = Ranger Joshua Greene,
+        Icon = Map,
+        Weight = 100.0,
+        Map = SundayDriversNPC_Ranger_JG,
+        WorldStaticModel = Map,
+    }
 }
 

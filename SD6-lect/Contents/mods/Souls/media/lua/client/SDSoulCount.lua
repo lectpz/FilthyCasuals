@@ -4,7 +4,7 @@
 --Free to use with permission-----------------
 ----------------------------------------------
 
-require "SDZoneCheck"
+--require "SDZoneCheck"
 
 local function KillCountSD(player)
 	return player:getZombieKills()
@@ -932,7 +932,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 					end
 					
 					if weaponRepairedStack >= 5 then
-						option_weaponCondition = submenu:addOption("Repair weapon to: " .. weaponNewCondition .. "/" .. weaponMaxCond .. " (-" .. soulDiff .. " souls.) New Soul Power: " .. n_soulsFreed .. "/" .. soulsRequired, item, new_weaponCondition, player)
+						option_weaponCondition = submenu:addOption("Repair weapon to: " .. weaponNewCondition .. "/" .. math.floor(weaponMaxCond*soulForgeMaxCondition + 0.5) .. " (-" .. soulDiff .. " souls.) New Soul Power: " .. n_soulsFreed .. "/" .. soulsRequired, item, new_weaponCondition, player)
 					else
 						option_weaponCondition = submenu:addOption("Requires repair stacks of 4x or greater to repair with souls.", item, nil, player)
 					end
@@ -1186,12 +1186,19 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 																																local weapon = item
 																																local scriptItem = ScriptManager.instance:getItem(weaponFT)
 																																local weaponModData = weapon:getModData()
+																																local wTier = weaponModData.Tier
 																																weaponModData.SoulWrought = "Soul-Wrought "
 																																weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance/1.1*1.5 -- set to 50% more
 																																weaponModData.MaxCondition = weaponModData.MaxCondition/1.1*1.5 -- set to 50% more
 																																weapon:setName(weaponModData.SoulWrought .. weaponModData.Name)
 																																weapon:setConditionLowerChance(scriptItem:getConditionLowerChance() * weaponModData.ConditionLowerChance)
 																																weapon:setConditionMax(scriptItem:getConditionMax() * weaponModData.MaxCondition)
+																																if wTier >= 1 then playerInv:RemoveOneOf("SoulForge.SoulCrystalT1") end
+																																if wTier >= 2 then playerInv:RemoveOneOf("SoulForge.SoulCrystalT2") end
+																																if wTier >= 3 then playerInv:RemoveOneOf("SoulForge.SoulCrystalT3") end
+																																if wTier >= 4 then playerInv:RemoveOneOf("SoulForge.SoulCrystalT4") end
+																																playerInv:RemoveOneOf("SoulForge.SoulCrystalT5")
+																																removeWeaponsNotEquipped(playerObj, item)
 																																end, player)
 							--submenu1_soulWroughtWeaponUpgrades.notAvailable = true
 							tooltip = ISWorldObjectContextMenu.addToolTip();
@@ -1266,50 +1273,58 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 							end
 							
 							local function remove_swMats(mats)
+								local playerObj = getSpecificPlayer(0)
+								local playerInv = playerObj:getInventory()
 								for i=1,#mats do
 									for j=1,mats[i] do
-										playerInv:RemoveOneOf(shards[i])
+										playerInv:RemoveOneOf(shard[i])
 									end
 								end
 							end
+
 							
 							local Upgrade1MatNo = {6,4,3,2,1}
 							local swUpgrade1 = submenu2:addOption("Add +1% to Minimum Damage Modifier", item, function()
-																										weaponModData.soulForgeMinDmgMulti = weaponModData.soulForgeMinDmgMulti + 0.01
+																										if not weaponModData.soulForgeMinDmgMulti then weaponModData.soulForgeMinDmgMulti = 1 end
 																										remove_swMats(Upgrade1MatNo)
 																										playerInv:RemoveOneOf("SoulForge.MinDmgTicket")
+																										weaponModData.soulForgeMinDmgMulti = weaponModData.soulForgeMinDmgMulti + 0.01
 																										end, player)
 							sw_upgrade(swUpgrade1, Upgrade1MatNo, "SoulForge.MinDmgTicket")
 																										
 							local Upgrade2MatNo = {8,6,5,3,1}
 							local swUpgrade2 = submenu2:addOption("Add +1% to Maximum Damage Modifier", item, function()
-																										weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti + 0.01
+																										if not weaponModData.soulForgeMaxDmgMulti then weaponModData.soulForgeMaxDmgMulti = 1 end
 																										remove_swMats(Upgrade2MatNo)
 																										playerInv:RemoveOneOf("SoulForge.MaxDmgTicket")
+																										weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti + 0.01
 																										end, player)
 							sw_upgrade(swUpgrade2, Upgrade2MatNo, "SoulForge.MaxDmgTicket")
 																										
 							local Upgrade3MatNo = {7,5,3,2,1}
 							local swUpgrade3 = submenu2:addOption("Add +1% to Critical Chance Modifier", item, function()
-																										weaponModData.soulForgeCritRate = weaponModData.soulForgeCritRate + 0.01
+																										if not weaponModData.soulForgeCritRate then weaponModData.soulForgeCritRate = 1 end
 																										remove_swMats(Upgrade3MatNo)
 																										playerInv:RemoveOneOf("SoulForge.CritChanceTicket")
+																										weaponModData.soulForgeCritRate = weaponModData.soulForgeCritRate + 0.01
 																										end, player)
 							sw_upgrade(swUpgrade3, Upgrade3MatNo, "SoulForge.CritChanceTicket")
 																										
 							local Upgrade4MatNo = {5,4,3,2,1}
 							local swUpgrade4 = submenu2:addOption("Add +1% to Critical Damage Multiplier Modifier", item, function()
-																													weaponModData.soulForgeCritMulti = weaponModData.soulForgeCritMulti + 0.01
+																													if not weaponModData.soulForgeCritMulti then weaponModData.soulForgeCritMulti = 1 end
 																													remove_swMats(Upgrade4MatNo)
 																													playerInv:RemoveOneOf("SoulForge.CritMultiTicket")
+																													weaponModData.soulForgeCritMulti = weaponModData.soulForgeCritMulti + 0.01
 																													end, player)
 							sw_upgrade(swUpgrade4, Upgrade4MatNo, "SoulForge.CritMultiTicket")
 																													
 							local Upgrade5MatNo = {8,7,6,5,2}
 							local swUpgrade5 = submenu2:addOption("Add -0.1% to Endurance Usage Modifier", item, function()
-																											weaponModData.EnduranceMod = weaponModData.EnduranceMod - 0.001
+																											if not weaponModData.EnduranceMod then weaponModData.EnduranceMod = o_scriptItem:getEnduranceMod() end
 																											remove_swMats(Upgrade5MatNo)
 																											playerInv:RemoveOneOf("SoulForge.EnduranceModTicket")
+																											weaponModData.EnduranceMod = weaponModData.EnduranceMod - 0.001
 																											end, player)
 							sw_upgrade(swUpgrade5, Upgrade5MatNo, "SoulForge.EnduranceModTicket")
 						end
@@ -1356,6 +1371,8 @@ Events.OnFillInventoryObjectContextMenu.Add(SoulContextSD) -- everytime you righ
 
 function SoulCountSD(character, handWeapon)
 
+	if handWeapon:getType() == "BareHands" then return end
+
 	local player = character
 	local pMD = player:getModData()
 	local tierzone = checkZone()
@@ -1389,11 +1406,13 @@ function SoulCountSD(character, handWeapon)
 			if SoulThirstValue and SoulThirstValue > 0 then
 				if ZombRand(0,100) <= SoulThirstValue then
 					SoulThirst = 1
+					HaloTextHelper.addTextWithArrow(character, "+" .. math.floor(killDiff*(math.floor(SoulThirst+1.25))+0.5) .. " Additional Souls Gained", true, HaloTextHelper.getColorGreen());
 				end
 			end
-			weaponModData.KillCount = weaponSouls + killDiff + math.floor(tierzone/2) + SoulThirst--calculate and set new kill counter on weapon, 
+			weaponModData.KillCount = weaponSouls + killDiff*(math.floor(SoulThirst+1.25)) + math.floor(tierzone/2+0.25) --calculate and set new kill counter on weapon, 
 			weaponModData.PlayerKills = n_killcount --update player kill counter on weapon
 			--character:Say("new kills: " .. weaponModData.KillCount)
+			
 			--character:Say("new player kills: " .. weaponModData.PlayerKills)
 		end
 	

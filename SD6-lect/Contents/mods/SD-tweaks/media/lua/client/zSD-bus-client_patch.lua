@@ -6,11 +6,15 @@ local tp_loc = {
 	["ivy"] = { 8778, 9760, 1},
 	["rw"] = { 8256, 11886, 0},
 	["lv"] = { 13240, 3508, 0},
+	["lv_central"] = { 13386, 2373, 0 },
 	["rc"] = { 5210, 10645, 0},
 	["ec"] = { 10457, 17218, 0},
 	["bbl"] = { 7015, 7574, 0},
 	["lc"] = { 15444, 6521, 0},
 	["old_rw"] = { 8819, 11897, 0},
+	["DD_entrance"] = { 9737, 6275, 0 },
+	["DD_outpost1"] = { 8816, 4531, 0 },
+	["DD_outpost2"] = { 2918, 2483, 0 },
 }
 
 local stopName = {
@@ -21,11 +25,15 @@ local stopName = {
 	["ivy"] = "Ivy Lake",
 	["rw"] = "Rosewood",
 	["lv"] = "Louisville",
+	["lv_central"] = "Louisville Central",
 	["rc"] = "Raven Creek",
 	["ec"] = "Eerie County",
 	["bbl"] = "Big Bear Lake",
 	["lc"] = "Lake Cumberland",
 	["old_rw"] = "Old Rosewood Bus Stop",
+	["DD_entrance"] = "Dirkerdam FOB",
+	["DD_outpost1"] = "Dirkerdam South City Outpost",
+	["DD_outpost2"] = "Dirkerdam North-West Outpost",
 }
 
 local function playSoundWhenMoveFrom(playerObj,x,y)

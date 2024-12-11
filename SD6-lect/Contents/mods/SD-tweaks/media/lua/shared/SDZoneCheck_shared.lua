@@ -23,7 +23,7 @@ Zone = {
 		["Riverside"] = {5400, 5100, 7800, 6300, SandboxVars.SDZones.Riverside, nil, nil},
 		["Rosewood"] = {7500, 11400, 9300, 12600, SandboxVars.SDZones.Rosewood, nil, nil},
 		["MarchRidge"] = {9600, 12300, 10500, 13500, SandboxVars.SDZones.MarchRidge, nil, nil},
-		["InsidePetro"] = {10930, 11740, 11110, 12330, SandboxVars.SDZones.InsidePetro, nil, nil},
+		["InsidePetro"] = {10930, 11740, 11400, 12330, SandboxVars.SDZones.InsidePetro, nil, nil},
 		["Petroville"] = {10500, 11400, 11400, 13500, SandboxVars.SDZones.Petroville, "Nested", nil},
 		["LakeIvy"] = {8700, 9300, 9600, 10800, SandboxVars.SDZones.LakeIvy, nil, nil},
 		["FortRedstone"] = {5400, 11700, 6000, 12300, SandboxVars.SDZones.FortRedstone, nil, nil},
@@ -42,28 +42,54 @@ Zone = {
 		["Chestown"] = {4500, 6600, 4800, 6900, SandboxVars.SDZones.Chestown, nil, nil},
 		["LCBunker"] = {17400, 6300, 18300, 6900, SandboxVars.SDZones.LCBunker, nil, nil},
 		["LCDowntown"] = {16800, 6300, 17400, 6900, SandboxVars.SDZones.LCDowntown, nil, nil},
+		["LCSouth1"] = {15783, 7420, 16103, 7994, SandboxVars.SDZones.LCSouth1, nil, nil},
+		["LCSouth2"] = {16475, 7190, 17013, 7653, SandboxVars.SDZones.LCSouth2, nil, nil},
 		["LC"] = {15000, 6300, 18300, 8100, SandboxVars.SDZones.LC, "Nested", nil},
 		["Taylorsville"] = {9000, 6300, 10220, 7200, SandboxVars.SDZones.Taylorsville, nil, nil},
 		["Grapeseed"] = {7200, 11100, 7500, 11400, SandboxVars.SDZones.Grapeseed, nil, nil},
-		["DirkerHard"] = {1500, 1800, 7658, 4807, SandboxVars.SDZones.DirkerHard, nil, "Toxic"},
-		["DirkerMed"] = {7659, 1800, 10498, 4025, SandboxVars.SDZones.DirkerMed, nil, "Toxic"},
-		["DirkerEasy"] = {7659, 4025, 10498, 5012, SandboxVars.SDZones.DirkerEasy, nil, "Toxic"},
+	--	["DirkerHard"] = {1500, 1800, 7658, 4807, SandboxVars.SDZones.DirkerHard, nil, "Toxic"},
+	--	["DirkerMed"] = {7659, 1800, 10498, 4025, SandboxVars.SDZones.DirkerMed, nil, "Toxic"},
+	--	["DirkerEasy"] = {7659, 4025, 10498, 5012, SandboxVars.SDZones.DirkerEasy, nil, "Toxic"},
 		["OldStPaulo"] = {3350, 7610, 4800, 10450, SandboxVars.SDZones.OldStPaulo, nil, nil},
 		["LVshipping"] = {12250, 4500, 12750, 4950, SandboxVars.SDZones.LVshipping, nil, nil},
 		["LVairport"] = {12750, 4200, 13500, 4800, SandboxVars.SDZones.LVairport, nil, nil},
 		["OaksdaleU"] = {12000, 11314, 12810, 12050, SandboxVars.SDZones.OaksdaleU, nil, nil},
 		["Nettle"] = {6470, 8880, 7280, 9700, SandboxVars.SDZones.Nettle, nil, nil},
 		["RosewoodX"] = {7970, 10820, 8790, 11400, SandboxVars.SDZones.RosewoodX, nil, nil},
+		["DirkerTownSouthT3"] = {8869, 5662, 9256, 5961, SandboxVars.SDZones.DirkerTownSouthT3, "Nested", "Toxic"},
+		["DirkerTownSouthT4"] = {8940, 5700, 9075, 5825, SandboxVars.SDZones.DirkerTownSouthT4, nil, "Toxic"},
+		["DirkerTownSouthEastT3"] = {8990, 4680, 9389, 4869, SandboxVars.SDZones.DirkerTownSouthEastT3, "Nested", "Toxic"},
+		["DirkerTownSouthEastT4"] = {9050, 4770, 9279, 4839, SandboxVars.SDZones.DirkerTownSouthEastT4, nil, "Toxic"},
+		["DirkerCityT3N"] = {6400, 2100, 8800, 2648, SandboxVars.SDZones.DirkerCityT3N, nil, "Toxic"},
+		["DirkerCityT3West"] = {6400, 2648, 6770, 4156, SandboxVars.SDZones.DirkerCityT3West, nil, "Toxic"},
+		["DirkerCityT3South"] = {6400, 4156, 8800, 5100, SandboxVars.SDZones.DirkerCityT3South, nil, "Toxic"},
+		["DirkerCityT4NW"] = {6770, 2648, 7150, 3150, SandboxVars.SDZones.DirkerCityT4NW, nil, "Toxic"},
+		["DirkerCityT4N"] = {7150, 2648, 8150, 3150, SandboxVars.SDZones.DirkerCityT4N, nil, "Toxic"},
+		["DirkerCityT4NE"] = {8150, 2648, 8800, 3150, SandboxVars.SDZones.DirkerCityT4NE, nil, "Toxic"},
+		["DirkerCityT4W"] = {6770, 3150, 7150, 3650, SandboxVars.SDZones.DirkerCityT4W, nil, "Toxic"},
+		["DirkerCityT4E"] = {8150, 3150, 8800, 3650, SandboxVars.SDZones.DirkerCityT4E, nil, "Toxic"},
+		["DirkerCityT4SW"] = {6770, 3650, 7150, 4156, SandboxVars.SDZones.DirkerCityT4SW, nil, "Toxic"},
+		["DirkerCityT4S"] = {7150, 3650, 8150, 4156, SandboxVars.SDZones.DirkerCityT4S, nil, "Toxic"},
+		["DirkerCityT4SE"] = {8150, 3650, 8800, 4156, SandboxVars.SDZones.DirkerCityT4SE, nil, "Toxic"},
+		["DirkerCityT4EE"] = {8800, 3150, 9270, 3650, SandboxVars.SDZones.DirkerCityT4EE, nil, "Toxic"},
+		["DirkerCityT5W"] = {7150, 3150, 7650, 3650, SandboxVars.SDZones.DirkerCityT5W, nil, "Toxic"},
+		["DirkerCityT5E"] = {7650, 3150, 8150, 3650, SandboxVars.SDZones.DirkerCityT5E, nil, "Toxic"},
+		["DirkerTownNorthWestT3"] = {2100, 2450, 2900, 3100, SandboxVars.SDZones.DirkerTownNorthWestT3, "Nested", "Toxic"},
+		["DirkerTownNorthWestT4"] = {2300, 2650, 2700, 2900, SandboxVars.SDZones.DirkerTownNorthWestT4, nil, "Toxic"},
+		["DirkerEncampment"] = {9812, 3304, 10277, 3630, SandboxVars.SDZones.DirkerEncampment, nil, "Toxic"},
+		["ValleyStreamMall"] = {13491, 5598, 14103, 5985, SandboxVars.SDZones.ValleyStreamMall, nil, nil},
 	}
 }
 
 NestedZone = {
 	list = {
-		["InsidePetro"] = {10930, 11740, 11110, 12330, SandboxVars.SDZones.InsidePetro, nil, nil},
+		["InsidePetro"] = {10930, 11740, 11400, 12330, SandboxVars.SDZones.InsidePetro, nil, nil},
 		["LouisvillePD"] = {12000, 1200, 12700, 1950, SandboxVars.SDZones.LouisvillePD, nil, nil},
 		["LouisvilleMallArea"] = {12700, 1200, 15000, 1950, SandboxVars.SDZones.LouisvilleMallArea, nil, nil},
 		["LCBunker"] = {17400, 6300, 18300, 6900, SandboxVars.SDZones.LCBunker, nil, nil},
 		["LCDowntown"] = {16800, 6300, 17400, 6900, SandboxVars.SDZones.LCDowntown, nil, nil},
+		["LCSouth1"] = {15783, 7420, 16103, 7994, SandboxVars.SDZones.LCSouth1, nil, nil},
+		["LCSouth2"] = {16475, 7190, 17013, 7653, SandboxVars.SDZones.LCSouth2, nil, nil},
 		["RavenCreekPDMilitaryHospital"] = {3000, 11100, 3670, 11950, SandboxVars.SDZones.RavenCreekPDMilitaryHospital, nil, nil},
 		["RavenCreekEntrance"] = {3670, 11100, 4183, 11900, SandboxVars.SDZones.RavenCreekEntrance, nil, nil},
 		["EeriePowerPlant"] = {9900, 13879, 10966, 15292, SandboxVars.SDZones.EeriePowerPlant, nil, nil},
@@ -73,6 +99,9 @@ NestedZone = {
 		["BigBearLakeMili"] = {4800, 6900, 5556, 7160, SandboxVars.SDZones.BigBearLakeMili, nil, nil},
 		["BigBearLakeWest"] = {5000, 7800, 5700, 8200, SandboxVars.SDZones.BigBearLakeWest, nil, nil},
 		["BigBearLakeEast"] = {6535, 7690, 6611, 7855, SandboxVars.SDZones.BigBearLakeEast, nil, nil},
+		["DirkerTownSouthT4"] = {8940, 5700, 9075, 5825, SandboxVars.SDZones.DirkerTownSouthT4, nil, "Toxic"},
+		["DirkerTownSouthEastT4"] = {9050, 4770, 9279, 4839, SandboxVars.SDZones.DirkerTownSouthEastT4, nil, "Toxic"},
+		["DirkerTownNorthWestT4"] = {2300, 2650, 2700, 2900, SandboxVars.SDZones.DirkerTownNorthWestT4, nil, "Toxic"},
 	}
 }
 
@@ -93,7 +122,7 @@ NestedZoneNo = #NestedZoneNames
 --------------------------------------------------------------
 --------------------------------------------------------------
 local ZoneOverride = {}
-if isClient() then
+if not isServer() then
 	if ModData.exists("FactionControlledZones") then ModData.remove("FactionControlledZones") end
 	if ModData.exists("zonesData") then ModData.remove("zonesData") end
 end
@@ -116,14 +145,14 @@ local function OnReceiveGlobalModData(key, modData)
 		zonesGMD = modData
 	end
 end
---Events.OnReceiveGlobalModData.Add(OnReceiveGlobalModData)
+if not isServer() then Events.OnReceiveGlobalModData.Add(OnReceiveGlobalModData) end
 
 local function FactionControlledZones()
 	ModData.request("FactionControlledZones")
 	--ModData.request("zoneOverride")
 end
---Events.OnInitGlobalModData.Add(FactionControlledZones)
---Events.EveryTenMinutes.Add(FactionControlledZones)
+if not isServer() then Events.OnInitGlobalModData.Add(FactionControlledZones) end
+if not isServer() then Events.EveryTenMinutes.Add(FactionControlledZones) end
 
 --------------------------------------------------------------
 --------------------------------------------------------------
@@ -179,14 +208,15 @@ end
 
 local function getControl(zone, player)
 	local faction
-	if Faction.getPlayerFaction(player) then 
-		faction = Faction.getPlayerFaction(player):getName()
+	local pMD = player:getModData()
+	if pMD.faction then 
+		faction = pMD.faction
 	else
 		faction = nil
 	end
 	if not controlledZones[zone] or not faction then return nil end
 	if controlledZones[zone] == faction then
-		if isDebugEnabled() then player:Say("DEBUG: Controlled Zone: " .. zone .. " by Faction: " .. faction) end
+		--if isDebugEnabled() then player:Say("DEBUG: Controlled Zone: " .. zone .. " by Faction: " .. faction) end
 		return "control"
 	else
 		return nil
@@ -207,6 +237,7 @@ function checkZone()
 		local y2 = SandboxVars.SDevents.Ycoord2
 		local toxicevent = SandboxVars.SDevents.toxic or nil
 		if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
+			local control = nil
 			return SandboxVars.SDevents.EventTier, "Event Zone", x, y, control, toxicevent
 		end
 	end
@@ -275,7 +306,7 @@ function checkZoneAtXY(x, y)
 			if not Zone.list[ZoneNames[i]][6] then 
 				--print(ZoneNames[i])
 				updateZoneTier(ZoneNames[i], overrideZone(ZoneNames[i]))
-				--local control = getControl(ZoneNames[i], player) or nil
+				local control = nil
 				return Zone.list[ZoneNames[i]][5], ZoneNames[i], x, y, control, Zone.list[ZoneNames[i]][7]
 			else
 				for j = 1, NestedZoneNo do
@@ -292,7 +323,7 @@ function checkZoneAtXY(x, y)
 				end
 				--print(ZoneNames[i])
 				updateZoneTier(ZoneNames[i], overrideZone(ZoneNames[i]), "Nested")
-				--local control = getControl(ZoneNames[i], player) or nil
+				local control = nil
 				return Zone.list[ZoneNames[i]][5], ZoneNames[i], x, y, control, Zone.list[ZoneNames[i]][7]
 			end
 		end

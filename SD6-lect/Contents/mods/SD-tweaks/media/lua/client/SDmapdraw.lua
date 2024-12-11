@@ -139,34 +139,6 @@ function addMapSymbol(worldX, worldY, tier, mapAPI)
 	textureSymbol:setScale(ISMap.SCALE*2.5*0.666)-- 3 seems to be a good multiplier. a range between 3-6 is ok, depending on how crisp you want the boundary to look. setting it lower may lead to gaps and might be harder to see.
 end
 
---draw map on render, add a mod data parameter and set to true if map is drawn. that way it's not drawing the boundaries every tick (can take half a sec or so with ~50,000 points, computational overhead seems high so lets avoid).
-local ISWorldMap_render = ISWorldMap.render
-function ISWorldMap:render()
-	ISWorldMap_render(self)
-	local ModDataMapDrawTierZones = ModData.getOrCreate("MapDrawTierZones")
-
-	local drawonce = ModDataMapDrawTierZones[getCurrentUserSteamID()] or false
-
-	if not drawonce then
-		--for _, zoneName in ipairs(ZoneNames) do
-		for i=1,#ZoneNames do
-			zoneName = ZoneNames[i]
-			--zoneName = "Southwood"
-			--print("drew rectangle for zone:", zoneName)
-			drawHatchedRectangleForZone(self, zoneName, 1.0, 750, mapAPI)--750 is hatch spacing, does nothing at the moment. passing down the mapAPI isn't necessary and is back when i was trying to use mousemove to pass down the api to my functions. not necessary, but doesn't do anything atm either.
-		end
-
-		--for _, nestedZoneName in ipairs(NestedZoneNames) do
-		for j=1, #NestedZoneNames do
-			nestedZoneName = NestedZoneNames[i]
-			--print("drew rectangle for nestedzone:", nestedZoneName)
-			drawHatchedRectangleForNestedZone(self, nestedZoneName, 1.0, 750, mapAPI)--750 is hatch spacing, does nothing, does nothing at the moment
-		end
-		ModDataMapDrawTierZones[getCurrentUserSteamID()] = true
-		--print("map tier boundaries drawn, setting true")
-		return
-	end
-end
 
 ---------------------------------------------------------
 -- Function to add a coordinate pair to the table. KILLS PERFORMANCE. just clear the map of symbols instead (rip to all player annotations though)
@@ -216,6 +188,21 @@ function ISWorldMap:onRightMouseUp(x, y)
 		local option = context:addOption("Redraw Tier Zone Boundary Lines", self,
 		function()
 			ModDataMapDrawTierZones[getCurrentUserSteamID()] = false
+			for i=1,#ZoneNames do
+				zoneName = ZoneNames[i]
+				--zoneName = "Southwood"
+				--print("drew rectangle for zone:", zoneName)
+				drawHatchedRectangleForZone(self, zoneName, 1.0, 750, mapAPI)--750 is hatch spacing, does nothing at the moment. passing down the mapAPI isn't necessary and is back when i was trying to use mousemove to pass down the api to my functions. not necessary, but doesn't do anything atm either.
+			end
+
+			--for _, nestedZoneName in ipairs(NestedZoneNames) do
+			for j=1, #NestedZoneNames do
+				nestedZoneName = NestedZoneNames[i]
+				--print("drew rectangle for nestedzone:", nestedZoneName)
+				drawHatchedRectangleForNestedZone(self, nestedZoneName, 1.0, 750, mapAPI)--750 is hatch spacing, does nothing, does nothing at the moment
+			end
+			ModDataMapDrawTierZones[getCurrentUserSteamID()] = true
+			--print("map tier boundaries drawn, setting true")
 		end)
 	end
 end

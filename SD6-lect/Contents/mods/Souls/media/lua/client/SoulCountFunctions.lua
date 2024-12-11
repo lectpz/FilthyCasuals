@@ -369,9 +369,11 @@ function OnCreate_unforgeMainHand(items, result, player)
 	local weapon = player:getPrimaryHandItem()
 	local weaponModData = weapon:getModData()
 	local soulForged = weaponModData.SoulForged or false
+	local soulWrought = weaponModData.SoulWrought or false
 	local augments = weaponModData.Augments
 	local returnSoulForge = false
 	local returnAugments = false
+	local returnSoulWrought = false
 	
 	if soulForged then 
 		returnSoulForge = true
@@ -396,6 +398,7 @@ function OnCreate_unforgeMainHand(items, result, player)
 	
 	if augments then returnAugments = true end
 	
+	if soulWrought then returnSoulWrought = true end
 	
 	if returnAugments then
 		
@@ -454,6 +457,18 @@ function OnCreate_unforgeMainHand(items, result, player)
 		if wTier >= 2 then playerInv:AddItem("SoulForge.SoulCrystalT2") end
 		if wTier >= 3 then playerInv:AddItem("SoulForge.SoulCrystalT3") end
 		if wTier >= 4 then playerInv:AddItem("SoulForge.SoulCrystalT4") end
+		
+		if returnSoulWrought then
+			local returnBrokenWeapon_sw = InventoryItemFactory.CreateItem(weapon:getFullType())
+			returnBrokenWeapon_sw:setCondition(0)
+			returnBrokenWeapon_sw:setHaveBeenRepaired(o_weaponRepair)
+			playerInv:AddItem(returnBrokenWeapon_sw)
+			if wTier >= 1 then playerInv:AddItem("SoulForge.SoulCrystalT1") end
+			if wTier >= 2 then playerInv:AddItem("SoulForge.SoulCrystalT2") end
+			if wTier >= 3 then playerInv:AddItem("SoulForge.SoulCrystalT3") end
+			if wTier >= 4 then playerInv:AddItem("SoulForge.SoulCrystalT4") end
+			playerInv:AddItem("SoulForge.SoulCrystalT5")
+		end
 	end
 	Events.OnPlayerUpdate.Add(waitToUnforge)
 end

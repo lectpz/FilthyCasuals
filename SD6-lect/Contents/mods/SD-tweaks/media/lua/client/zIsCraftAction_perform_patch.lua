@@ -5,10 +5,11 @@ function ISCraftAction:perform()
 	local x = player:getX()
 	local y = player:getY()
 	local coords = {
-		--11107, 8773, 11239, 8942,
-		11121, 8884, 11279, 8990,
-		11202, 8824, 11279, 8990,
-		11109, 8775, 11240, 8831,
+		11200, 8806, 11280, 8883,--east shops
+		11108, 8778, 11152, 8810,--north shops
+		11165, 8775, 11233, 8796,--north shops 2
+		11120, 8885, 11139, 8933,--south shops 1
+		11139, 8885, 11280, 8991,--south shops 2
 	}
 	local sqObj = getCell():getOrCreateGridSquare(x,y,0);
 	

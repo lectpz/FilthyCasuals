@@ -133,14 +133,77 @@ Sandbox_EN = {
 	Sandbox_SDZones_Chestown = "Chestown Tier Zone",
 	Sandbox_SDZones_Chestown_tooltip = "e.g. 2",
 
+	Sandbox_SDZones_DirkerCityT3N = "DirkerCityT3N Tier Zone",
+	Sandbox_SDZones_DirkerCityT3N_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_DirkerCityT3South = "DirkerCityT3South Tier Zone",
+	Sandbox_SDZones_DirkerCityT3South_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_DirkerCityT3West = "DirkerCityT3West Tier Zone",
+	Sandbox_SDZones_DirkerCityT3West_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_DirkerCityT4E = "DirkerCityT4E Tier Zone",
+	Sandbox_SDZones_DirkerCityT4E_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_DirkerCityT4EE = "DirkerCityT4EE Tier Zone",
+	Sandbox_SDZones_DirkerCityT4EE_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_DirkerCityT4N = "DirkerCityT4N Tier Zone",
+	Sandbox_SDZones_DirkerCityT4N_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_DirkerCityT4NE = "DirkerCityT4NE Tier Zone",
+	Sandbox_SDZones_DirkerCityT4NE_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_DirkerCityT4NW = "DirkerCityT4NW Tier Zone",
+	Sandbox_SDZones_DirkerCityT4NW_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_DirkerCityT4S = "DirkerCityT4S Tier Zone",
+	Sandbox_SDZones_DirkerCityT4S_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_DirkerCityT4SE = "DirkerCityT4SE Tier Zone",
+	Sandbox_SDZones_DirkerCityT4SE_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_DirkerCityT4SW = "DirkerCityT4SW Tier Zone",
+	Sandbox_SDZones_DirkerCityT4SW_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_DirkerCityT4W = "DirkerCityT4W Tier Zone",
+	Sandbox_SDZones_DirkerCityT4W_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_DirkerCityT5E = "DirkerCityT5E Tier Zone",
+	Sandbox_SDZones_DirkerCityT5E_tooltip = "e.g. 5",
+
+	Sandbox_SDZones_DirkerCityT5W = "DirkerCityT5W Tier Zone",
+	Sandbox_SDZones_DirkerCityT5W_tooltip = "e.g. 5",
+
 	Sandbox_SDZones_DirkerEasy = "DirkerEasy Tier Zone",
 	Sandbox_SDZones_DirkerEasy_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_DirkerEncampment = "DirkerEncampment Tier Zone",
+	Sandbox_SDZones_DirkerEncampment_tooltip = "e.g. 3",
 
 	Sandbox_SDZones_DirkerHard = "DirkerHard Tier Zone",
 	Sandbox_SDZones_DirkerHard_tooltip = "e.g. 5",
 
 	Sandbox_SDZones_DirkerMed = "DirkerMed Tier Zone",
 	Sandbox_SDZones_DirkerMed_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_DirkerTownNorthWestT3 = "DirkerTownNorthWestT3 Tier Zone",
+	Sandbox_SDZones_DirkerTownNorthWestT3_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_DirkerTownNorthWestT4 = "DirkerTownNorthWestT4 Tier Zone",
+	Sandbox_SDZones_DirkerTownNorthWestT4_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_DirkerTownSouthEastT3 = "DirkerTownSouthEastT3 Tier Zone",
+	Sandbox_SDZones_DirkerTownSouthEastT3_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_DirkerTownSouthEastT4 = "DirkerTownSouthEastT4 Tier Zone",
+	Sandbox_SDZones_DirkerTownSouthEastT4_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_DirkerTownSouthT3 = "DirkerTownSouthT3 Tier Zone",
+	Sandbox_SDZones_DirkerTownSouthT3_tooltip = "e.g. 3",
+
+	Sandbox_SDZones_DirkerTownSouthT4 = "DirkerTownSouthT4 Tier Zone",
+	Sandbox_SDZones_DirkerTownSouthT4_tooltip = "e.g. 4",
 
 	Sandbox_SDZones_EerieCapitol = "EerieCapitol Tier Zone",
 	Sandbox_SDZones_EerieCapitol_tooltip = "e.g. 4",
@@ -174,6 +237,12 @@ Sandbox_EN = {
 
 	Sandbox_SDZones_LCDowntown = "LCDowntown Tier Zone",
 	Sandbox_SDZones_LCDowntown_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_LCSouth1 = "LCSouth1 Tier Zone",
+	Sandbox_SDZones_LCSouth1_tooltip = "e.g. 4",
+
+	Sandbox_SDZones_LCSouth2 = "LCSouth2 Tier Zone",
+	Sandbox_SDZones_LCSouth2_tooltip = "e.g. 4",
 
 	Sandbox_SDZones_LVairport = "LVairport Tier Zone",
 	Sandbox_SDZones_LVairport_tooltip = "e.g. 2",
@@ -232,6 +301,9 @@ Sandbox_EN = {
 	Sandbox_SDZones_Taylorsville = "Taylorsville Tier Zone",
 	Sandbox_SDZones_Taylorsville_tooltip = "e.g. 2",
 
+	Sandbox_SDZones_ValleyStreamMall = "ValleyStreamMall Tier Zone",
+	Sandbox_SDZones_ValleyStreamMall_tooltip = "e.g. 3",
+	
 	Sandbox_SDZones_WestPointEast = "WestPointEast Tier Zone",
 	Sandbox_SDZones_WestPointEast_tooltip = "e.g. 2",
 

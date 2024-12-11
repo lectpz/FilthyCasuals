@@ -352,12 +352,132 @@ option SDZones.Chestown
     translation = SDZones_Chestown,
 }
 
+option SDZones.DirkerCityT3N
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_DirkerCityT3N,
+}
+
+option SDZones.DirkerCityT3South
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_DirkerCityT3South,
+}
+
+option SDZones.DirkerCityT3West
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_DirkerCityT3West,
+}
+
+option SDZones.DirkerCityT4E
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_DirkerCityT4E,
+}
+
+option SDZones.DirkerCityT4EE
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_DirkerCityT4EE,
+}
+
+option SDZones.DirkerCityT4N
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_DirkerCityT4N,
+}
+
+option SDZones.DirkerCityT4NE
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_DirkerCityT4NE,
+}
+
+option SDZones.DirkerCityT4NW
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_DirkerCityT4NW,
+}
+
+option SDZones.DirkerCityT4S
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_DirkerCityT4S,
+}
+
+option SDZones.DirkerCityT4SE
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_DirkerCityT4SE,
+}
+
+option SDZones.DirkerCityT4SW
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_DirkerCityT4SW,
+}
+
+option SDZones.DirkerCityT4W
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_DirkerCityT4W,
+}
+
+option SDZones.DirkerCityT5E
+{
+    type = integer,
+    min = 1, max = 5, default = 5,
+    page = SDZones,
+    translation = SDZones_DirkerCityT5E,
+}
+
+option SDZones.DirkerCityT5W
+{
+    type = integer,
+    min = 1, max = 5, default = 5,
+    page = SDZones,
+    translation = SDZones_DirkerCityT5W,
+}
+
 option SDZones.DirkerEasy
 {
     type = integer,
     min = 1, max = 5, default = 3,
     page = SDZones,
     translation = SDZones_DirkerEasy,
+}
+
+option SDZones.DirkerEncampment
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_DirkerEncampment,
 }
 
 option SDZones.DirkerHard
@@ -374,6 +494,54 @@ option SDZones.DirkerMed
     min = 1, max = 5, default = 4,
     page = SDZones,
     translation = SDZones_DirkerMed,
+}
+
+option SDZones.DirkerTownNorthWestT3
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_DirkerTownNorthWestT3,
+}
+
+option SDZones.DirkerTownNorthWestT4
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_DirkerTownNorthWestT4,
+}
+
+option SDZones.DirkerTownSouthEastT3
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_DirkerTownSouthEastT3,
+}
+
+option SDZones.DirkerTownSouthEastT4
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_DirkerTownSouthEastT4,
+}
+
+option SDZones.DirkerTownSouthT3
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_DirkerTownSouthT3,
+}
+
+option SDZones.DirkerTownSouthT4
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_DirkerTownSouthT4,
 }
 
 option SDZones.EerieCapitol
@@ -462,6 +630,22 @@ option SDZones.LCDowntown
     min = 1, max = 5, default = 4,
     page = SDZones,
     translation = SDZones_LCDowntown,
+}
+
+option SDZones.LCSouth1
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_LCSouth1,
+}
+
+option SDZones.LCSouth2
+{
+    type = integer,
+    min = 1, max = 5, default = 4,
+    page = SDZones,
+    translation = SDZones_LCSouth2,
 }
 
 option SDZones.LVairport
@@ -614,6 +798,14 @@ option SDZones.Taylorsville
     min = 1, max = 5, default = 2,
     page = SDZones,
     translation = SDZones_Taylorsville,
+}
+
+option SDZones.ValleyStreamMall
+{
+    type = integer,
+    min = 1, max = 5, default = 3,
+    page = SDZones,
+    translation = SDZones_ValleyStreamMall,
 }
 
 option SDZones.WestPointEast

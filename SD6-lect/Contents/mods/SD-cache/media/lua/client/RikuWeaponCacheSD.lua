@@ -19,11 +19,13 @@ end
 
 local args = {}
 
-local function addToArgs(item, amount)
+local function addToArgs(item, amount, soulforged)
 	amount = amount or 1
     local newItemKey = "item" .. (#args + 1) 
-    args[newItemKey] = args[newItemKey] or {}  
-    table.insert(args[newItemKey], amount .. "x " .. item) 
+    args[newItemKey] = args[newItemKey] or {} 
+	local sf_txt = ""
+	if soulforged == "SoulForged" then sf_txt = "SoulForged " end
+    table.insert(args[newItemKey], amount .. "x " .. sf_txt .. item) 
 end
 
 local function addItemToPlayer(loot)
@@ -38,9 +40,36 @@ local function randomrollSD(zoneroll, loot)
 	end
 end
 
+local function addSoulForgedWeaponToPlayer(loot)
+	local weaponFT = loot
+	local scriptItem = ScriptManager.instance:getItem(weaponFT)
+	local weapon = InventoryItemFactory.CreateItem(weaponFT)
+	local weaponModData = weapon:getModData()
+	local playerObj = getSpecificPlayer(0)
+	
+	weaponModData.KillCount = 0
+	weaponModData.SoulForged = true
+	weaponModData.PlayerKills = playerObj:getZombieKills()
+	weaponModData.ConditionLowerChance = 1.1
+	weaponModData.MaxCondition = 1.1
+	weaponModData.CriticalChance	= weapon:getCriticalChance()
+	weaponModData.CritDmgMultiplier	= weapon:getCritDmgMultiplier()
+	weaponModData.MinDamage			= weapon:getMinDamage()
+	weaponModData.MaxDamage			= weapon:getMaxDamage()
+	weaponModData.MaxHitCount		= weapon:getMaxHitCount()
+	weaponModData.Name = "Soul Forged " .. scriptItem:getDisplayName()
+	
+	weapon:setName(weaponModData.Name)
+	weapon:setConditionLowerChance(scriptItem:getConditionLowerChance() * weaponModData.ConditionLowerChance)
+	weapon:setConditionMax(scriptItem:getConditionMax() * weaponModData.MaxCondition)
+
+	playerObj:getInventory():AddItem(weapon)
+	addToArgs(loot, 1, "SoulForged")
+end
+
 function RikuWeaponCacheSD(items, result, player)
 
-	local zonetier, zonename, x, y = checkZone()
+	local zonetier, zonename, x, y, control, toxic = checkZone()
 
 --	define table 1 for common loot. examples are from Riku's melee weapon mod which are used exclusively on PARP, Sunday Drivers, and Filthy Casuals servers.
 --	local table1 = {RMWeapons.club1 RMWeapons.club2 RMWeapons.beardedaxe RMWeapons.MightCleaver RMWeapons.tanto RMWeapons.Thawk RMWeapons.bonkhammer RMWeapons.ScrapMace1 RMWeapons.spikedleg RMWeapons.TrenchShovel}
@@ -79,21 +108,50 @@ function RikuWeaponCacheSD(items, result, player)
 	  zonetier = zonetier,
 	}
 	
+	local function isToxicControl()
+		if toxic then return true end
+		if control then return true end
+		return false
+	end
+	
 -- tiered rolling, checks zone and adds item
-	--if zonetier == 5 then
-	--	addItemToPlayer(table5[t5])
+	if zonetier == 5 and isToxicControl() and ZombRand(3) == 0 then
+		if ZombRand(10) == 0 then
+			addSoulForgedWeaponToPlayer(table5[t5])
+		else
+			addItemToPlayer(table5[t5])
+		end
+		sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+		return
+	end
 	--elseif zonetier == 4 then
 	if zonetier >= 4 then
-		addItemToPlayer(table4[t4])
+		if isToxicControl() and ZombRand(10) == 0 then
+			addSoulForgedWeaponToPlayer(table4[t4])
+		else
+			addItemToPlayer(table4[t4])
+		end
 		addItemToPlayer("EmptyWeaponCacheT4");
 	elseif zonetier == 3 then
-		addItemToPlayer(table3[t3])
+		if isToxicControl() and ZombRand(10) == 0 then
+			addSoulForgedWeaponToPlayer(table3[t3])
+		else
+			addItemToPlayer(table3[t3])
+		end
 		addItemToPlayer("EmptyWeaponCacheT3");
 	elseif zonetier == 2 then
-		addItemToPlayer(table2[t2])
+		if isToxicControl() and ZombRand(10) == 0 then
+			addSoulForgedWeaponToPlayer(table2[t2])
+		else
+			addItemToPlayer(table2[t2])
+		end
 		addItemToPlayer("EmptyWeaponCacheT2");
 	elseif zonetier == 1 then
-		addItemToPlayer(table1[t1])
+		if isToxicControl() and ZombRand(10) == 0 then
+			addSoulForgedWeaponToPlayer(table1[t1])
+		else
+			addItemToPlayer(table1[t1])
+		end
 		addItemToPlayer("EmptyWeaponCacheT1");
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
@@ -102,7 +160,13 @@ end
 
 function RikuWeaponCacheUpgradeSD(items, result, player)
 
-	local zonetier, zonename, x, y = checkZone()
+	local zonetier, zonename, x, y, control, toxic = checkZone()
+	
+	local function isToxicControl()
+		if toxic then return true end
+		if control then return true end
+		return false
+	end
 	
 --	define table 1 for common loot. examples are from Riku's melee weapon mod which are used exclusively on PARP, Sunday Drivers, and Filthy Casuals servers.
 --	local table1 = {RMWeapons.club1 RMWeapons.club2 RMWeapons.beardedaxe RMWeapons.MightCleaver RMWeapons.tanto RMWeapons.Thawk RMWeapons.bonkhammer RMWeapons.ScrapMace1 RMWeapons.spikedleg RMWeapons.TrenchShovel}
@@ -144,16 +208,32 @@ function RikuWeaponCacheUpgradeSD(items, result, player)
 	}
 	
 	if zonetier == 5 then
-		addItemToPlayer(table5[t5])
+		if isToxicControl() and ZombRand(10) == 0 then
+			addSoulForgedWeaponToPlayer(table5[t5])
+		else
+			addItemToPlayer(table5[t5])
+		end
 		getSpecificPlayer(0):Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier + 1) .. "!")
 	elseif zonetier == 3 then
-		addItemToPlayer(table4[t4])
+		if isToxicControl() and ZombRand(10) == 0 then
+			addSoulForgedWeaponToPlayer(table4[t4])
+		else
+			addItemToPlayer(table4[t4])
+		end
 		getSpecificPlayer(0):Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier + 1) .. "!")
 	elseif zonetier == 2 then
-		addItemToPlayer(table3[t3])
+		if isToxicControl() and ZombRand(10) == 0 then
+			addSoulForgedWeaponToPlayer(table3[t3])
+		else
+			addItemToPlayer(table3[t3])
+		end
 		getSpecificPlayer(0):Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier + 1) .. "!")
 	elseif zonetier == 1 then
-		addItemToPlayer(table2[t2])
+		if isToxicControl() and ZombRand(10) == 0 then
+			addSoulForgedWeaponToPlayer(table2[t2])
+		else
+			addItemToPlayer(table2[t2])
+		end
 		getSpecificPlayer(0):Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier + 1) .. "!")
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);

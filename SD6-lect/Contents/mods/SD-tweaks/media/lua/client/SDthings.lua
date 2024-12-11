@@ -139,55 +139,56 @@ DAMN = DAMN or {};
 DAMN.Armor = DAMN.Armor or {};
 
 DAMN.Armor["partUpdateInterval"] = 2000;
---[[
-local maintXPswing
-local isHittingZombie = true
-local function OnWeaponSwing(character, handWeapon)
-	if not isHittingZombie then
-		if handWeapon:getType() == "BareHands" then
-			maintXPswing = character:getXp():getXP(Perks.Maintenance);
-			--print("maintXPswing: " .. tostring(maintXPswing))
-		end
-	end
-end
-Events.OnWeaponSwing.Add(OnWeaponSwing)
 
-local function OnPlayerAttackFinished(character, handWeapon)
-	if not isHittingZombie then
-		local perk = Perks.Maintenance
+local function getFaction(player)
+	local pMD = player:getModData()
+	local faction = pMD.faction
+
+	if faction == "COG" then
+		MF.getMoodle("COG"):setValue(1.0)
+		MF.getMoodle("Ranger"):setValue(0.5)
+		MF.getMoodle("VW"):setValue(0.5)
+	elseif faction == "Ranger" then
+		MF.getMoodle("COG"):setValue(0.5)
+		MF.getMoodle("Ranger"):setValue(1.0)
+		MF.getMoodle("VW"):setValue(0.5)
+	elseif faction == "VoidWalker" then
+		MF.getMoodle("COG"):setValue(0.5)
+		MF.getMoodle("Ranger"):setValue(0.5)
+		MF.getMoodle("VW"):setValue(1.0)
+	else
+		MF.getMoodle("COG"):setValue(0.5)
+		MF.getMoodle("Ranger"):setValue(0.5)
+		MF.getMoodle("VW"):setValue(0.5)
+	end
 	
-		if handWeapon:getType() == "BareHands" then
-			local maintXPnew = character:getXp():getXP(perk);
-			--print("maintXPnew: " .. tostring(maintXPnew))
-			local maintXPdelta = maintXPswing - maintXPnew
-			--print("maintXPdelta: " .. tostring(maintXPdelta))
-			
-			local maintmulti = character:getXp():getPerkBoost(perk)/2; --+2 maint, this is 100% so 4x, +1maint would be 75% so 3x
-			if maintmulti > 3.5 then maintmulti = 3.5 end
-			local maint_var = ((3-maintmulti)*2+2)/3
-			
-			local maint_experience = maintXPdelta / 0.25 / (maintmulti/0.25* maint_var )
-			
-			if not type(maint_experience) == "number" then maint_experience = -10 end
-			
-			character:getXp():AddXP( perk, maint_experience );--0.25 = 4x more xp removed, 100% = 16xp removed
-			--local maintXP = character:getXp():getXP(perk);
-			--print("resetXP: " .. tostring(maintXP))
-		end
-		
-		local info = character:getPerkInfo(perk);
-		if info then
-			local level = info:getLevel()
-			if level >= 1 and level <= 10 and character:getXp():getXP(perk) < PerkFactory.getPerk(perk):getTotalXpForLevel(level) then
-				character:LoseLevel(perk);
-			end
-		end
+	if faction then
+		local gmd_faction = ModData.getOrCreate(faction)
+		gmd_faction[getOnlineUsername()] = true
+		ModData.transmit(faction)
+		ModData.remove(faction)
 	end
-	isHittingZombie = false
+	
+	Events.OnPlayerUpdate.Remove(getFaction)
 end
-Events.OnPlayerAttackFinished.Add(OnPlayerAttackFinished)
+Events.OnPlayerUpdate.Add(getFaction)
 
-local function OnWeaponHitXp(player, handWeapon, character, damageSplit)
-	isHittingZombie = true
+local Commands = {}
+Commands.SDthings = {}
+
+function Commands.SDthings.OnWeaponHitThumpable(args)
+	local player = getSpecificPlayer(0)
+	if args.player_username ~= player:getUsername() then return end
+	if isDebugEnabled() then print(args.player_username, player:getUsername()) end
+	player:setPrimaryHandItem(nil)
+	player:setSecondaryHandItem(nil)
+	player:getInventory():setDrawDirty(true)
 end
-Events.OnWeaponHitXp.Add(OnWeaponHitXp)]]
+
+local function onServerCommand(module, command, args)
+    if Commands[module] and Commands[module][command] then
+		if args.player_username ~= getSpecificPlayer(0):getUsername() then return end
+        Commands[module][command](args)
+    end
+end
+Events.OnServerCommand.Add(onServerCommand)

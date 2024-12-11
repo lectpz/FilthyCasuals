@@ -11,10 +11,11 @@ local SDeventTP = {}
 SDeventTP.teleport = ISPanel:derive("SDeventTP.teleport")
 
 local coords = {
-	--11107, 8773, 11239, 8942,
-	11121, 8884, 11279, 8990,
-	11202, 8824, 11279, 8990,
-	11109, 8775, 11240, 8831,
+	11200, 8806, 11280, 8883,--east shops
+	11108, 8778, 11152, 8810,--north shops
+	11165, 8775, 11233, 8796,--north shops 2
+	11120, 8885, 11139, 8933,--south shops 1
+	11139, 8885, 11280, 8991,--south shops 2
 }
 
 local function checkCCshopCoords(x, y, coords)
@@ -161,7 +162,7 @@ end
 function SDeventTP.teleport:shopteleport()
 	local tier, zone = checkZone()
 	if zone ~= "CC" then
-		self.character:Say("I need to be in CC to use this.")
+		getSpecificPlayer(0):Say("I need to be in CC to use this.")
 		return
 	end
 	shoptp = true

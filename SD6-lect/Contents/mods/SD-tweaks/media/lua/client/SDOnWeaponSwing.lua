@@ -20,13 +20,15 @@ local function initMeleeStats(modData, inventoryItem, character)
 		modData.MaxDamage			= inventoryItem:getMaxDamage()
 		modData.MaxHitCount			= inventoryItem:getMaxHitCount()
 		modData.Name				= character:getPrimaryHandItem():getName()
-		modData.SD6_1				= true
-	elseif not modData.SD6_1 then
+		modData.SD6_2				= true
+	elseif not modData.SD6_2 then
 		scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
+
+		inventoryItem:setMaxRange(scriptItem:getMaxRange())
 		
 		modData.MinDamage 			= scriptItem:getMinDamage()
 		modData.MaxDamage 			= scriptItem:getMaxDamage()
-		modData.SD6_1 				= true
+		modData.SD6_2 				= true
 	end
 end
 
@@ -100,7 +102,7 @@ local function SDOnWeaponSwing(character, handWeapon)
 		local soulForgeEnduranceMod = modData.EnduranceMod or 1
 		local soulForgeMaxCondition = modData.MaxCondition or nil
 		local soulForgeMaxHitCount = modData.MaxHitCount or nil
-		local soulWrought = weaponModData.SoulWrought or ""
+		local soulWrought = modData.SoulWrought or ""
 		
 		inventoryItem:setCriticalChance(((basecritrate + addCritChance) * localcritrate) * modeMultiplier * soulForgeCritRate)
 		inventoryItem:setCritDmgMultiplier(((basecritmulti + addCritMulti) * localcritmulti) * modeMultiplier * soulForgeCritMulti)
@@ -188,7 +190,7 @@ local function SDWeaponCheck(character, inventoryItem)
 		local soulForgeEnduranceMod = modData.EnduranceMod or 1
 		local soulForgeMaxCondition = modData.MaxCondition or nil
 		local soulForgeMaxHitCount = modData.MaxHitCount or nil
-		local soulWrought = weaponModData.SoulWrought or ""
+		local soulWrought = modData.SoulWrought or ""
 		
 		inventoryItem:setCriticalChance((basecritrate + addCritChance) * soulForgeCritRate)
 		inventoryItem:setCritDmgMultiplier((basecritmulti + addCritMulti) * soulForgeCritMulti)

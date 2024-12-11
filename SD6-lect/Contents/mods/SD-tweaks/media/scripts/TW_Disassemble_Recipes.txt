@@ -25,9 +25,10 @@ module TW
 	NeedToBeLearn			: true,
 	Override:true,
     }
+	
 	recipe Disassamble Gun
     {
-	[Recipe.GetItemTypes.Gun]/VarmintRifle/HuntingRifle/Shotgun/DoubleBarrelShotgun/ShotgunSawnoff/Pistol/Pistol2/Pistol3/Revolver/Revolver_Long/Revolver_Short/AssaultRifle/AssaultRifle2/HKUSP/UMP/KrissVector/AKMCAMO/SCARH/SCARH2/SCARH3/SCARH4/SCARH5/SCARH6/SCARH7/SCARH8/MAS36/FNFAL/RSX1/DeadlyHeadhunterRifle/HeadhunterRifle/AK74U/AK74U_Folded/FranchiLF57/FranchiLF57_Folded/AK103/AK74/M4A1/FiveSeven/Glock/PLR16/Luger/Makarov/MosinNagant/MosinNagantObrez/GrozaOTs14/PM3RAK/PM3RAK_Extended/PM3RAK_GripExtended/PM3RAK_Grip/Remington1100/SVDragunov/StG44/WaltherPPk/ColtCavalryRevolver/BarrettM82A1/HenryRepeatingBigBoy,
+	[Recipe.GetItemTypes.Gun]/PM3RAK/SVDragunov/HeadhunterRifle/DeadlyHeadhunterRifle/VarmintRifle/HuntingRifle/AssaultRifle/AssaultRifle2/AK103/AK74/HenryRepeatingBigBoy/GrozaOTs14/M1918BAR/M1Garand/SIG550/StG44/MosinNagant/L2A1/EM2/L85A1/ASVal/BarrettM82A1/SVDDragunov/Galil/VSSVintorez/TheNailGun/AK74U/FranchiLF57/MiniUzi/P90/PM63RAK/MP28/TrenchGun/Pistol/Pistol2/Pistol3/Revolver_Short/Revolver/Revolver_Long/Shotgun/DoubleBarrelShotgun/ShotgunSawnoff/DoubleBarrelShotgunSawnoff/Glock/FiveSeven/Luger/WaltherPPK/Makarov/Derringer/PLR16/MosinNagantObrez/OA93/ColtCavalryRevolver/CrossbowCompound/M4A1/Remington1100/BeckerRevolver/PM3RAK/SVDragunov,
 		keep MetalWorkbench,
 	
 	NoBrokenItems			: False,
@@ -35,7 +36,7 @@ module TW
 	Result 					: GunParts,
 	OnTest:Recipe.OnTest.IsFavorite,
 	Sound 					: GunDissasembly,
-	Time 					: 50.0,
+	Time 					: 5.0,
 	Category 				: Scrapping,
 	SkillRequired 			: MetalWelding=4,
 	OnCreate                : DeconstructGun_OnCreate,
@@ -48,16 +49,17 @@ module TW
 	OnTest:Recipe.OnTest.IsFavorite,
 	Override:true,
     }
-        recipe Disassemble Gun Magazine
+	
+    recipe Disassemble Gun Magazine
     {
-    	[Recipe.GetItemTypes.GunMagazine]/M14Clip/556Clip/308Clip/223Clip/44Clip/45Clip/9mmClip/545Clip/762Clip/9mmBoxClip/ScarHMag/FNFALMag/USPMag/UMPMag/VectorMag/223Clip10/9mmClip8/45Clip13/792x33Clip/50BMGClip/57Clip/380Clip/762x54rStripperClip,
+    	[Recipe.GetItemTypes.GunMagazine]/M14Clip/556Clip/308Clip/223Clip/44Clip/45Clip/9mmClip/545Clip/762Clip/9mmBoxClip/ScarHMag/FNFALMag/USPMag/UMPMag/VectorMag/223Clip10/9mmClip8/45Clip13/792x33Clip/50BMGClip/57Clip/380Clip/762x54rStripperClip/PM63RAK_Extended/PM63RAK_GripExtended/PM63RAK_Extended_Melee/Mag9ExtSm/Mag9ExtLg/Mag57ExtLg/MagLugerExtSm/MagLugerExtLg/Mag380ExtSm/Mag380ExtLg/Mag44ExtSm/Mag44ExtLg/Mag45ExtSm/Mag45ExtLg/Mag223ExtLg/MagMosinNagantExtSm/MagPM63RAKExtLg/MagM1GarandExtSm/Mag3006ExtLg/Mag308ExtSm/MagSVDExtSm/Mag50BMGExtSm/MagMP28ExtLg/Mag9x39ExtLg/,
 		keep MetalWorkbench,
 		
 	NoBrokenItems			: False,
 	AllowDestroyedItem      : true,
         Result           	: Spring,
         OnTest:Recipe.OnTest.IsFavorite,
-        Time             		: 30.0,
+        Time             		: 5.0,
 	    Sound 					: ScrapStuff,
 		OnGiveXP 				: Give10MWXP,
 		Category 		        : Scrapping,
@@ -81,7 +83,7 @@ module TW
 		AllowDestroyedItem      : true,
         Result           		: MetalParts=15,
         OnTest:Recipe.OnTest.IsFavorite,
-        Time             		: 200.0,
+        Time             		: 25.0,
 	    Sound 					: ScrapStuff,
 		OnGiveXP 				: Give10MWXP,
 		Category 		        : Scrapping,

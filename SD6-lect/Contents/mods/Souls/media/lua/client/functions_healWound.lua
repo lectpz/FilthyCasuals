@@ -1,21 +1,55 @@
-local function mendWound(bodyPart, player)
+local dbgTick = 0
+local function dbgWnd(player)
+	if dbgTick < 50 then
+		dbgTick = dbgTick + 1
+		return
+	end
+	dbgTick = 0
+	Events.OnPlayerUpdate.Remove(dbgWnd)
 	local bD = player:getBodyDamage();
-
+		
 	getInfectionMortalityDuration 	= bD:getInfectionMortalityDuration();
 	getInfectionTime 				= bD:getInfectionTime();
 	getInfectionLevel 				= bD:getInfectionLevel();
 	
-	bodyPart:RestoreToFullHealth()
+	if bD:IsInfected() == true then
+		player:Say("I am still infected with the zombie virus.")
+		player:Say("I have " ..
+					math.floor((getInfectionMortalityDuration - getInfectionLevel*getInfectionMortalityDuration/100)+0.5) ..
+					" hours left to live.")
+	else
+		player:Say("There is no zombie infection detected.")
+	end
 	
-	if bD:IsInfected() then bD:setInfected(true) end
-	bD:setInfectionMortalityDuration(getInfectionMortalityDuration);
-	bD:setInfectionTime(getInfectionTime);
-	bD:setInfectionLevel(getInfectionLevel);
+	if isDebugEnabled() then player:Say("Debug: Infection Time = " .. math.floor(bD:getInfectionLevel()*100+0.5)/100 .." | Infection Mortality Duration = " .. 
+									math.floor((bD:getInfectionMortalityDuration()+0.5)) .. " | Infection Level = " .. 
+									math.floor(bD:getInfectionLevel()*100+0.5)/100) end
+end
+
+local function mendWound(bodyPart, player)
+	local bD = player:getBodyDamage();
 
 	if bodyPart:getStiffness() > 0 then
 		bodyPart:setStiffness(0)
 		player:getFitness():removeStiffnessValue(BodyPartType.ToString(bodyPart:getType()))
 	end
+		
+	if bD:IsInfected() == true then 
+		if bodyPart:IsInfected() == true then
+			bodyPart:RestoreToFullHealth() 
+			bodyPart:SetInfected(true)
+		else
+			bodyPart:RestoreToFullHealth() 
+		end
+		bD:setInfected(true);
+		bD:setInfectionLevel(0);-- 0 will set infection level to 0, this is default in BodyDamage class when restoring to full health
+		bD:setInfectionTime(-1);-- -1 will reset infection timer, this is default in BodyDamage class when restoring to full health
+		bD:setInfectionMortalityDuration(-1);-- -1 will set to sandbox settings, this is default in BodyDamage class when restoring to full health
+	else
+		bodyPart:RestoreToFullHealth() 
+	end
+
+	Events.OnPlayerUpdate.Add(dbgWnd)
 end
 
 local woundCheck = {
