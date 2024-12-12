@@ -1406,7 +1406,7 @@ function SoulCountSD(character, handWeapon)
 			if SoulThirstValue and SoulThirstValue > 0 then
 				if ZombRand(0,100) <= SoulThirstValue then
 					SoulThirst = 1
-					HaloTextHelper.addTextWithArrow(character, "+" .. math.floor(killDiff*(math.floor(SoulThirst+1.25))+0.5) .. " Additional Souls Gained", true, HaloTextHelper.getColorGreen());
+					HaloTextHelper.addTextWithArrow(character, "+" .. math.floor(killDiff*(math.floor(SoulThirst+1.25))-killDiff+0.5) .. " Additional Souls Gained", true, HaloTextHelper.getColorGreen());
 				end
 			end
 			weaponModData.KillCount = weaponSouls + killDiff*(math.floor(SoulThirst+1.25)) + math.floor(tierzone/2+0.25) --calculate and set new kill counter on weapon, 

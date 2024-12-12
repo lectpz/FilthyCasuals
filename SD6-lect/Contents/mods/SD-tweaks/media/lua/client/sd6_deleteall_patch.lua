@@ -5,9 +5,9 @@ function ISInventoryPage:onBackpackRightMouseDown(x, y)
 	o_onBackpackRightMouseDown(self, x, y)
 	local page = self.parent
 	local container = self.inventory
-	--local item = container:getContainingItem()
+	local item = container:getContainingItem()
 	local context = ISContextMenu.get(page.player, getMouseX(), getMouseY())
-	--[[if item then
+	if item then
 		context = ISInventoryPaneContextMenu.createMenu(page.player, page.onCharacter, {item}, getMouseX(), getMouseY())
 		if context and context.numOptions > 1 and JoypadState.players[page.player+1] then
 			context.origin = page
@@ -15,15 +15,17 @@ function ISInventoryPage:onBackpackRightMouseDown(x, y)
 			setJoypadFocus(page.player, context)
 		end
 		return
-	end]]
+	end
 
 	local playerObj = getSpecificPlayer(page.player)
 	
 	local function addDeleteContext()
 		if not instanceof(container:getParent(), "BaseVehicle") 
-		and not (container:getType() == "inventorymale" or container:getType() == "inventoryfemale" or container:getType() == "local" or container:getType() == "floor") then
+		and not (container:getType() == "inventorymale" or container:getType() == "inventoryfemale" or container:getType() == "floor" or container:getType() == "local") then
 		--and not container:getParent():getModData().owner then
-			local containerModData = container:getParent():getModData().owner or nil
+			local containerParent = container:getParent() or nil
+			if not containerParent then o_onBackpackRightMouseDown(self, x, y) return end
+			local containerModData = containerParent:getModData().owner or nil
 			if not containerModData then 
 				context:addOption("Delete all items", container, 
 				function(container, playerObj)
