@@ -10,8 +10,10 @@ local function getFormattedTime()
     local day = gameTime:getDay()
     local hour = gameTime:getHour()
     local minute = gameTime:getMinutes()
+    local temperature = math.floor(getClimateManager():getTemperature() * 10) / 10
     
-    return string.format("%d-%02d-%02d %02d:%02d", year, month, day, hour, minute)
+    return string.format("%d-%02d-%02d %02d:%02d %.1f°F", 
+        year, month, day, hour, minute, temperature)
 end
 
 local function writeTimeToFile()
