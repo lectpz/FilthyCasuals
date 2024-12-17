@@ -311,6 +311,12 @@ local function SD6_bag_modification_ticket(player, context, items) -- # When an 
 			item = items[i]
 			if instanceof(item, "InventoryContainer") then
 				bag = item
+				
+				if bag:getClothingItemExtra() then
+					context:addOption("This bag cannot receive upgrades.", item, nil, playerObj)
+					break
+				end
+				
 				local iFT = bag:getFullType()
 				local bagCap = bag:getCapacity()
 				local newBag = InventoryItemFactory.CreateItem(iFT)
@@ -318,6 +324,7 @@ local function SD6_bag_modification_ticket(player, context, items) -- # When an 
 				
 				if bagCap >= math.min(35, math.floor(scriptCap*1.5)) then
 					context:addOption("Bag has reached maximum capacity.", item, nil, playerObj)
+					break
 				else
 					context:addOption("Add +1 Bag Capacity (Max. Cap = "..math.min(35, math.floor(scriptCap*1.5))..")", item, SD6_containers.bag_mod.capacity1, playerObj)
 					--context:addOption("Add +1% Weight Reduction", item, SD6_containers.bag_mod.weight1, playerObj)
@@ -333,18 +340,19 @@ local function SD6_bag_modification_ticket(player, context, items) -- # When an 
 			item = items[i]
 			if instanceof(item, "InventoryContainer") then
 				bag = item
-				local bagWeightTicket = countItems(playerObj, "Base.bagWeightTicket")--playerInv:getItemsFromFullType("Base.bagWeightTicket", false)
-				if bagWeightTicket < 1 then
-					player:Say("I cannot do that.")
-					return
+				
+				if bag:getClothingItemExtra() then
+					context:addOption("This bag cannot receive upgrades.", item, nil, playerObj)
+					break
 				end
 				
 				local bagWeight = bag:getWeightReduction()
 				if bagWeight >= 95 then
 					context:addOption("Bag has reached maximum weight reduction.", item, nil, playerObj)
+					break
 				else
 					--context:addOption("Add +1 Bag Capacity", item, SD6_containers.bag_mod.capacity1, playerObj)
-					context:addOption("Add +1 Weight Reduction", item, SD6_containers.bag_mod.weight1, playerObj)
+					context:addOption("Add +1 Weight Reduction. (Max. Reduction = 95)", item, SD6_containers.bag_mod.weight1, playerObj)
 					break
 				end
 			end

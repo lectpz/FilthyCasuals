@@ -6,4 +6,4 @@ local function SDI_disable()
 	end
 end
 
-Events.OnGameStart.Add(SDI_disable)
+--Events.OnGameStart.Add(SDI_disable)

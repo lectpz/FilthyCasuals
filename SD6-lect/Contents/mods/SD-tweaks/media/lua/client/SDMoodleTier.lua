@@ -20,6 +20,39 @@ MF.createMoodle("COG");
 MF.createMoodle("VW");
 MF.createMoodle("Ranger");
 
+local infusions = { "alertness", "IronChef", "fortitude", "luck", "SoulSmith", "SoulThirst" }
+
+for i=1,#infusions do
+	MF.createMoodle(infusions[i])
+end
+
+local function setInfusionMoodle(timer, infusion)
+	if not timer then return end
+	if timer and timer == 0 then
+		MF.getMoodle(infusion):setValue(0.5)
+		return
+	end
+	
+	if timer and timer > 39 then
+		MF.getMoodle(infusion):setValue(0.9)--level4
+	elseif timer and timer > 33 then
+		MF.getMoodle(infusion):setValue(0.8)--level3
+	elseif timer and timer > 26 then
+		MF.getMoodle(infusion):setValue(0.7)--level2
+	elseif timer and timer > 20 then
+		MF.getMoodle(infusion):setValue(0.6)--level1
+	elseif timer and timer > 13 then
+		MF.getMoodle(infusion):setValue(0.4)--level1
+	elseif timer and timer > 7 then
+		MF.getMoodle(infusion):setValue(0.3)--level2
+	elseif timer and timer > 1 then
+		MF.getMoodle(infusion):setValue(0.2)--level3
+	elseif timer and timer <= 1 then
+		MF.getMoodle(infusion):setValue(0.1)--level4
+		MF.getMoodle(infusion):doWiggle();
+	end
+end
+
 local function setTierMoodle(moodleno, strength)
 	for i=1,5 do
 		if i == moodleno then
@@ -56,13 +89,10 @@ local function EveryOneMinuteSD()
 		
 		local pMD = player:getModData()
 		local faction = pMD.faction
-		--[[if faction == "COG" then
-			local gmd_faction = ModData.getOrCreate("COG")
-			--gmd_facton[getOnlineUsername()] = true
-			gmd_faction["lect"] = true
-			ModData.transmit("COG")
-			ModData.remove("COG")
-		end]]
+		local DD_Faction = ModData.getOrCreate("DD_Faction")
+
+		if faction then DD_Faction["Faction"] = faction end--compatibility so existing players save their faction pmd to gmd
+		if not faction and type(DD_Faction["Faction"])=="string" then faction = DD_Faction["Faction"] end--make factions persist on death
 
 		if faction == "COG" then
 			MF.getMoodle("COG"):setValue(1.0)
@@ -80,6 +110,10 @@ local function EveryOneMinuteSD()
 			MF.getMoodle("COG"):setValue(0.5)
 			MF.getMoodle("Ranger"):setValue(0.5)
 			MF.getMoodle("VW"):setValue(0.5)
+		end
+		
+		for i=1,#infusions do
+			setInfusionMoodle(pMD[infusions[i].."Timer"], infusions[i])
 		end
 		
 	end

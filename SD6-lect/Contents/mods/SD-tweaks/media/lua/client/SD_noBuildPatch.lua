@@ -38,8 +38,8 @@ local function canBuild()
     if isOwnSafeHouse then
         local shx1 = isOwnSafeHouse:getX()-15
         local shy1 = isOwnSafeHouse:getY()-15
-        local shx2 = isOwnSafeHouse:getW() + shx1 +15
-        local shy2 = isOwnSafeHouse:getH() + shy1 +15
+        local shx2 = isOwnSafeHouse:getW() + shx1 + 30
+        local shy2 = isOwnSafeHouse:getH() + shy1 + 30
 
         if x >= shx1 and y >= shy1 and x <= shx2 and y <= shy2 then
             isInSafeHouse = true
@@ -83,10 +83,10 @@ local function noBuild_contextmenu(player, context, worldobjects, test)
 
     local isOwnSafeHouse = SafeHouse.hasSafehouse(playerObj)
     if isOwnSafeHouse then
-        local shx1 = isOwnSafeHouse:getX()
-        local shy1 = isOwnSafeHouse:getY()
-        local shx2 = isOwnSafeHouse:getW() + shx1
-        local shy2 = isOwnSafeHouse:getH() + shy1
+        local shx1 = isOwnSafeHouse:getX()-15
+        local shy1 = isOwnSafeHouse:getY()-15
+        local shx2 = isOwnSafeHouse:getW() + shx1 + 30
+        local shy2 = isOwnSafeHouse:getH() + shy1 + 30
 
         if x >= shx1 and y >= shy1 and x <= shx2 and y <= shy2 then isInSafeHouse = true return end
     end

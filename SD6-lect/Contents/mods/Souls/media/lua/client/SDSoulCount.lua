@@ -844,7 +844,8 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 				tooltip.description = tooltip.description .. green .. "Extra Base Maximum Condition: +" .. baseMaxCond .. "% <LINE> "
 				tooltip.description = tooltip.description .. green .. "Extra Base Condition Lower Chance: +" .. baseMaxCond .. "% <LINE> "
 				
-				tooltip.description = tooltip.description .. white .. " <LINE> DEBUG - Endurance Mod: " .. math.ceil(item:getEnduranceMod()*100)/100
+				tooltip.description = tooltip.description .. white .. " <LINE> Base Endurance Mod: " .. math.ceil(item:getEnduranceMod()*100)/100
+				if weaponModData.EnduranceMod then tooltip.description = tooltip.description .. white .. " <LINE> SoulForged Endurance Modifier: " .. weaponModData.EnduranceMod end
 				
 				local isAugmented = weaponModData.Augments or nil
 				

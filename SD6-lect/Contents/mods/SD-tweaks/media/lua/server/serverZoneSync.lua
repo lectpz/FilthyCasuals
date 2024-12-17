@@ -61,7 +61,7 @@ local function countDaysPassed()
 		if daysPassed["count"] > ZombRand(24,48) then
 			ModData.remove("zonesData")
 			ModData.remove("FactionControlledZones")
-			ModData.remove("countDaysPassed")
+			daysPassed["count"] = 0
 		else
 			daysPassed["count"] = daysPassed["count"] + 1
 		end

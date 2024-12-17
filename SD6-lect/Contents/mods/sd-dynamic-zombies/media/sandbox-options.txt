@@ -26,6 +26,32 @@ option SDRandomZombies.PinpointBigBearLakeWest
 	translation = SDRandomZombies_PinpointBigBearLakeWest,
 }
 
+option SDRandomZombies.BigBearLakeEast
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_BigBearLakeEast,
+}
+option SDRandomZombies.PinpointBigBearLakeEast
+{
+	type = double, min = 0, max = 100, default = 20,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointBigBearLakeEast,
+}
+
+option SDRandomZombies.BigBearLakeMili
+{
+	type = double, min = 0, max = 100, default = 25,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_BigBearLakeMili,
+}
+option SDRandomZombies.PinpointBigBearLakeMili
+{
+	type = double, min = 0, max = 100, default = 25,
+	page = SDRandomZombies,
+	translation = SDRandomZombies_PinpointBigBearLakeMili,
+}
+
 option SDRandomZombies.CC
 {
 	type = double, min = 0, max = 100, default = 0,

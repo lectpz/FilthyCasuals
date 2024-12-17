@@ -10,6 +10,16 @@ Sandbox_EN = {
 	Sandbox_SDRandomZombies_BigBearLakeWest_tooltip = "Percentage of Sprinters present at BigBearLakeWest",
 	Sandbox_SDRandomZombies_PinpointBigBearLakeWest = "BigBearLakeWest Pinpoint % ",
 	Sandbox_SDRandomZombies_PinpointBigBearLakeWest_tooltip = "Pinpoint % at BigBearLakeWest",
+	
+	Sandbox_SDRandomZombies_BigBearLakeEast = "BigBearLakeEast Sprinters % ",
+	Sandbox_SDRandomZombies_BigBearLakeEast_tooltip = "Percentage of Sprinters present at BigBearLakeEast",
+	Sandbox_SDRandomZombies_PinpointBigBearLakeEast = "BigBearLakeEast Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointBigBearLakeEast_tooltip = "Pinpoint % at BigBearLakeEast",
+	
+	Sandbox_SDRandomZombies_BigBearLakeMili = "BigBearLakeMili Sprinters % ",
+	Sandbox_SDRandomZombies_BigBearLakeMili_tooltip = "Percentage of Sprinters present at BigBearLakeMili",
+	Sandbox_SDRandomZombies_PinpointBigBearLakeMili = "BigBearLakeMili Pinpoint % ",
+	Sandbox_SDRandomZombies_PinpointBigBearLakeMili_tooltip = "Pinpoint % at BigBearLakeMili",
 
 	Sandbox_SDRandomZombies_CC = "CC Sprinters % ",
 	Sandbox_SDRandomZombies_CC_tooltip = "Percentage of Sprinters present at CC",

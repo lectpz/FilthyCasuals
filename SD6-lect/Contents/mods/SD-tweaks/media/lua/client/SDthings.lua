@@ -143,6 +143,10 @@ DAMN.Armor["partUpdateInterval"] = 2000;
 local function getFaction(player)
 	local pMD = player:getModData()
 	local faction = pMD.faction
+	local DD_Faction = ModData.getOrCreate("DD_Faction")
+	
+	if faction then DD_Faction["Faction"] = faction end--compatibility so existing players save their faction pmd to gmd
+	if not faction and type(DD_Faction)=="string" then faction = DD_Faction["Faction"] end--make factions persist on death
 
 	if faction == "COG" then
 		MF.getMoodle("COG"):setValue(1.0)
@@ -172,6 +176,7 @@ local function getFaction(player)
 	Events.OnPlayerUpdate.Remove(getFaction)
 end
 Events.OnPlayerUpdate.Add(getFaction)
+--Events.OnCreatePlayer.Add(getFaction)
 
 local Commands = {}
 Commands.SDthings = {}

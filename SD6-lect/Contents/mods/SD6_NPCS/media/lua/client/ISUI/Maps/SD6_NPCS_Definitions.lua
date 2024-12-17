@@ -232,6 +232,7 @@ function ISMap:onRightMouseDown(x, y)
 		local option = context:addOption("I'm another Cog in the wheel! (Join the Cogs)", self,
 		function()
 			getSpecificPlayer(0):getModData().faction = "COG"
+			ModData.getOrCreate("DD_Faction")["Faction"] = "COG"
 			resetCounters()
 			self.wrap:close()
 			self.character:getEmitter():stopAll()
@@ -255,6 +256,7 @@ function ISMap:onRightMouseDown(x, y)
 		local option = context:addOption("This seems right. (I want to become a Ranger)", self,
 		function()
 			getSpecificPlayer(0):getModData().faction = "Ranger"
+			ModData.getOrCreate("DD_Faction")["Faction"] = "Ranger"
 			resetCounters()
 			self.wrap:close()
 			self.character:getEmitter():stopAll()
@@ -278,6 +280,7 @@ function ISMap:onRightMouseDown(x, y)
 		local option = context:addOption("I cannot resist the call of the Void. (Join the Void Walkers)", self,
 		function()
 			getSpecificPlayer(0):getModData().faction = "VoidWalker"
+			ModData.getOrCreate("DD_Faction")["Faction"] = "VoidWalker"
 			resetCounters()
 			self.wrap:close()
 			self.character:getEmitter():stopAll()

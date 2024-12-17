@@ -117,6 +117,7 @@ local function SDOnWeaponSwing(character, handWeapon)
 			local mhc = math.max(soulForgeMaxHitCount-math.floor(tierzone/4),1)
 			if mhc ~= inventoryItem:getMaxHitCount() then inventoryItem:setMaxHitCount(mhc) end
 		end
+		if soulForgeEnduranceMod then inventoryItem:setEnduranceMod(soulForgeEnduranceMod) end
 	elseif tierzone and handWeapon:isRanged() then
 		initRangedStats(modData, inventoryItem, character)
 		local rangedmulti = 1.0
@@ -201,6 +202,7 @@ local function SDWeaponCheck(character, inventoryItem)
 		if soulForgeMaxHitCount then inventoryItem:setMaxHitCount(math.max(soulForgeMaxHitCount-math.floor(tierzone/4),1)) end
 		if soulForgeConditionLowerChance then inventoryItem:setConditionLowerChance(scriptItem:getConditionLowerChance() * soulForgeConditionLowerChance) end
 		if soulForgeMaxCondition then inventoryItem:setConditionMax(scriptItem:getConditionMax() * soulForgeMaxCondition) end
+		if soulForgeEnduranceMod then inventoryItem:setEnduranceMod(soulForgeEnduranceMod) end
 	elseif inventoryItem:IsWeapon() and inventoryItem:isRanged() then
 		initRangedStats(modData, inventoryItem, character)
 		

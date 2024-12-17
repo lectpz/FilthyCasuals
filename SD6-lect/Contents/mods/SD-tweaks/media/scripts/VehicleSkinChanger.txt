@@ -15,7 +15,7 @@ module Base
         Type            = Normal,
         Weight          = 0.01,
         DisplayName     = SD Bag Capacity Upgrade Ticket,
-        DisplayCategory = Junk,
+        DisplayCategory = SoulForge,
         Icon            = BusTicket,
 		WorldStaticModel = PaperNapkins_Ground,
     }
@@ -25,7 +25,7 @@ module Base
         Type            = Normal,
         Weight          = 0.01,
         DisplayName     = SD Bag Weight Reduction Upgrade Ticket,
-        DisplayCategory = Junk,
+        DisplayCategory = SoulForge,
         Icon            = BusTicket,
 		WorldStaticModel = PaperNapkins_Ground,
     }
