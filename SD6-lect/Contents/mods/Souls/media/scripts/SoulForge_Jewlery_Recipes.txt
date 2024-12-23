@@ -1,0 +1,269 @@
+module SoulForge
+{
+    recipe Soul Forge Necklace
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+        Result:SoulForgedNecklace,
+        Sound:Sawing,
+        Time:100,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+        CanBeDoneFromFloor 		: True,
+    }
+
+    recipe Soul Forge Choker
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+        Result:SoulForgedChoker,
+        Sound:Sawing,
+        Time:100,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+    }
+
+    recipe Soul Forge Long Necklace
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+
+        Result:SoulForgedLongNecklace,
+        Sound:Sawing,
+        Time:100,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+    }
+
+    recipe Soul Forge Nose Ring
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+
+        Result:SoulForgedNoseRing,
+        Sound:Sawing,
+        Time:100,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+    }
+
+    recipe Soul Forge Earrings
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+
+        Result:SoulForgedEarrings,
+        Sound:Sawing,
+        Time:100,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+    }
+
+    recipe Soul Forge Ear Cuff
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+
+        Result:SoulForgedEarTop,
+        Sound:Sawing,
+        Time:100,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+    }
+
+    recipe Soul Forge Belly Button Ring
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+
+        Result:SoulForgedBellyButton,
+        Sound:Sawing,
+        Time:100,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+    }
+
+    recipe Soul Forge Right Middle Ring
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+        Result:SoulForgedRightMiddleRing,
+        Sound:Sawing,
+        Time:100,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+    }
+
+    recipe Soul Forge Left Middle Ring
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+        Result:SoulForgedLeftMiddleRing,
+        Sound:Sawing,
+        Time:100,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+    }
+
+    recipe Soul Forge Right Ring Finger Ring
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+        Result:SoulForgedRightRingFingerRing,
+        Sound:Sawing,
+        Time:100,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+    }
+
+    recipe Soul Forge Left Ring Finger Ring
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+        Result:SoulForgedLeftRingFingerRing,
+        Sound:Sawing,
+        Time:100,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+    }
+
+    item SoulForgedNecklace
+    {
+        DisplayCategory = SoulForge,
+        Cosmetic = true,
+        Weight = 0.1,
+        DisplayName = Soul Forged Necklace,
+        Icon = Necklace_Gold,
+        ClothingItem = Necklace_Gold,
+        WorldStaticModel = Necklace_Ground,
+        CanBeBloody = false,
+        CanHaveHoles = false,
+        CanBeEquipped = true,
+        type = Clothing,
+        BodyLocation = Neck
+    }
+
+    item SoulForgedChoker
+    {
+        DisplayCategory = SoulForge,
+        Cosmetic = true,
+        Weight = 0.1,
+        DisplayName = Soul Forged Choker,
+        Icon = Necklace_Choker,
+        ClothingItem = Necklace_Choker_Sapphire,
+        WorldStaticModel = Necklace_Ground,
+        CanBeBloody = false,
+        CanHaveHoles = false,
+        CanBeEquipped = true,
+        type = Clothing,
+        BodyLocation = Necklace
+    }
+
+    item SoulForgedLongNecklace
+    {
+        DisplayCategory = SoulForge,
+        Cosmetic = true,
+        Weight = 0.1,
+        DisplayName = Soul Forged Long Necklace,
+        Icon = Necklace_Gold,
+        ClothingItem = Necklace_Long,
+        WorldStaticModel = Necklace_Ground,
+        CanBeBloody = false,
+        CanHaveHoles = false,
+        CanBeEquipped = true,
+        type = Clothing,
+        BodyLocation = Necklace_Long
+    }
+
+    item SoulForgedNoseRing
+    {
+        DisplayCategory = SoulForge,
+        Cosmetic = true,
+        Weight = 0.1,
+        DisplayName = Soul Forged Nose Ring,
+        Icon = NoseRing_Gold,
+        ClothingItem = NoseRing_Gold,
+        WorldStaticModel = Ring_Ground,
+        CanBeBloody = false,
+        CanHaveHoles = false,
+        CanBeEquipped = true,
+        type = Clothing,
+        BodyLocation = Nose
+    }
+
+    item SoulForgedEarrings
+    {
+        DisplayCategory = SoulForge,
+        Cosmetic = true,
+        Weight = 0.1,
+        DisplayName = Soul Forged Earrings,
+        Icon = NoseRing_Gold,
+        ClothingItem = Earring_Gold,
+        WorldStaticModel = Earring_Ground,
+        CanBeBloody = false,
+        CanHaveHoles = false,
+        CanBeEquipped = true,
+        type = Clothing,
+        BodyLocation = Ears
+    }
+
+    item SoulForgedEarTop
+    {
+        DisplayCategory = SoulForge,
+        Cosmetic = true,
+        Weight = 0.1,
+        DisplayName = Soul Forged Ear Cuff,
+        Icon = NoseRing_Gold,
+        ClothingItem = EarTop_Gold,
+        WorldStaticModel = Earring_Ground,
+        CanBeBloody = false,
+        CanHaveHoles = false,
+        CanBeEquipped = true,
+        type = Clothing,
+        BodyLocation = EarTop
+    }
+
+    item SoulForgedBellyButton
+    {
+        DisplayCategory = SoulForge,
+        Cosmetic = true,
+        Weight = 0.1,
+        DisplayName = Soul Forged Belly Button Ring,
+        Icon = NoseRing_Gold,
+        ClothingItem = BellyButton_RingGold,
+        WorldStaticModel = Ring_Ground,
+        CanBeBloody = false,
+        CanHaveHoles = false,
+        CanBeEquipped = true,
+        type = Clothing,
+        BodyLocation = BellyButton
+    }
+
+    item SoulForgedRightMiddleRing
+    {
+        DisplayCategory = SoulForge,
+        Cosmetic = true,
+        Weight = 0.1,
+        DisplayName = Soul Forged Right Middle Ring,
+        Icon = Ring_Gold,
+        ClothingItem = Ring_Gold,
+        WorldStaticModel = Ring_Ground,
+        CanBeBloody = false,
+        CanHaveHoles = false,
+        CanBeEquipped = true,
+        type = Clothing,
+        BodyLocation = Right_MiddleFinger
+    }  
+}
+
