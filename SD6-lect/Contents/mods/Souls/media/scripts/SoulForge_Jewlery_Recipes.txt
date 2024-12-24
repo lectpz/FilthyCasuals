@@ -99,10 +99,45 @@ module SoulForgeJewelery
     recipe Soul Forge Right Middle Ring
     {
         SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
-        PropaneTank/5,
+        PropaneTank/5, 
         ScrapMetal=15,
         Result:SoulForgedRightMiddleRing,
-        Sound:Sawing,
+        Time:100,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+        OnTest:OnTest_CheckInInventory
+    }
+
+    recipe Soul Forge Left Middle Ring 
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15, 
+        Result:SoulForgedLeftMiddleRing,
+        Time:100,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+        OnTest:OnTest_CheckInInventory
+    }
+
+    recipe Soul Forge Right Ring Finger
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+        Result:SoulForgedRightRingFinger,
+        Time:100,
+        Category:Crafting, 
+        OnCreate:SoulForgedJewelryOnCreate,
+        OnTest:OnTest_CheckInInventory
+    }
+
+    recipe Soul Forge Left Ring Finger
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+        Result:SoulForgedLeftRingFinger, 
         Time:100,
         Category:Crafting,
         OnCreate:SoulForgedJewelryOnCreate,
@@ -148,7 +183,7 @@ module SoulForgeJewelery
         Weight = 0.1,
         DisplayName = Soul Forged Long Necklace,
         Icon = Necklace_Gold,
-        ClothingItem = Necklace_Long,
+        ClothingItem = Necklace_Choker_Sapphire,
         WorldStaticModel = Necklace_Ground,
         CanBeBloody = false,
         CanHaveHoles = false,
@@ -164,7 +199,7 @@ module SoulForgeJewelery
         Weight = 0.1,
         DisplayName = Soul Forged Nose Ring,
         Icon = NoseRing_Gold,
-        ClothingItem = NoseRing_Gold,
+        ClothingItem = Necklace_Choker_Sapphire,
         WorldStaticModel = Ring_Ground,
         CanBeBloody = false,
         CanHaveHoles = false,
@@ -180,7 +215,7 @@ module SoulForgeJewelery
         Weight = 0.1,
         DisplayName = Soul Forged Earrings,
         Icon = NoseRing_Gold,
-        ClothingItem = Earring_Gold,
+        ClothingItem = Necklace_Choker_Sapphire,
         WorldStaticModel = Earring_Ground,
         CanBeBloody = false,
         CanHaveHoles = false,
@@ -196,7 +231,7 @@ module SoulForgeJewelery
         Weight = 0.1,
         DisplayName = Soul Forged Ear Cuff,
         Icon = NoseRing_Gold,
-        ClothingItem = EarTop_Gold,
+        ClothingItem = Necklace_Choker_Sapphire,
         WorldStaticModel = Earring_Ground,
         CanBeBloody = false,
         CanHaveHoles = false,
@@ -219,6 +254,70 @@ module SoulForgeJewelery
         CanBeEquipped = true,
         type = Clothing,
         BodyLocation = BellyButton,
+    }
+
+    item SoulForgedRightMiddleRing
+    {
+        DisplayCategory = SoulForge,
+        Cosmetic = true,
+        Weight = 0.1,
+        DisplayName = Soul Forged Right Middle Ring,
+        Icon = Ring_Gold,
+        ClothingItem = BellyButton_RingGold,
+        WorldStaticModel = Ring_Ground,
+        CanBeBloody = false,
+        CanHaveHoles = false,
+        CanBeEquipped = true,
+        type = Clothing,
+        BodyLocation = Right_MiddleFinger,
+    }
+
+    item SoulForgedLeftMiddleRing 
+    {
+        DisplayCategory = SoulForge,
+        Cosmetic = true, 
+        Weight = 0.1,
+        DisplayName = Soul Forged Left Middle Ring,
+        Icon = Ring_Gold,
+        ClothingItem = BellyButton_RingGold,
+        WorldStaticModel = Ring_Ground,
+        CanBeBloody = false,
+        CanHaveHoles = false,
+        CanBeEquipped = true,
+        type = Clothing,
+        BodyLocation = Left_MiddleFinger,
+    }
+
+    item SoulForgedRightRingFinger
+    {
+        DisplayCategory = SoulForge,
+        Cosmetic = true,
+        Weight = 0.1, 
+        DisplayName = Soul Forged Right Ring Finger,
+        Icon = Ring_Gold,
+        ClothingItem = BellyButton_RingGold,
+        WorldStaticModel = Ring_Ground,
+        CanBeBloody = false,
+        CanHaveHoles = false,
+        CanBeEquipped = true,
+        type = Clothing,
+        BodyLocation = Right_RingFinger,
+    }
+
+    item SoulForgedLeftRingFinger
+    {
+        DisplayCategory = SoulForge,
+        Cosmetic = true,
+        Weight = 0.1,
+        DisplayName = Soul Forged Left Ring Finger,
+        Icon = Ring_Gold, 
+        ClothingItem = BellyButton_RingGold,
+        WorldStaticModel = Ring_Ground,
+        CanBeBloody = false,
+        CanHaveHoles = false,
+        CanBeEquipped = true,
+        type = Clothing,
+        BodyLocation = Left_RingFinger,
     }
 }
 

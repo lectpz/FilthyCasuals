@@ -1,14 +1,14 @@
 local soulForgeBuffWeights = {
-    ["luck"] = 1,
-    ["SoulSmith"] = 1,
-    ["SoulThirst"] = 1,
+    ["luck"] = 5,
+    ["SoulSmith"] = 5,
+    ["SoulThirst"] = 5,
     ["SoulStrength"] = 1,
     ["SoulDexterity"] = 1,
-    ["MaxCondition"] = 1,
-    ["ConditionLowerChance"] = 1,
-    ["CritRate"] = 1,
-    ["CritMulti"] = 1,
-    ["MaxDmg"] = 1
+    ["MaxCondition"] = 10,
+    ["ConditionLowerChance"] = 10,
+    ["CritRate"] = 10,
+    ["CritMulti"] = 20,
+    ["MaxDmg"] = 15,
  }
  
  local tierBuffs = {
@@ -48,8 +48,8 @@ local soulForgeBuffWeights = {
     },
     SoulDexterity = {
         format = "+%d%% Transfer Speed",
-        getDisplayValue = function(tier) return 2 * tier end,
-        getBonus = function(tier) return 0.02 * tier end,
+        getDisplayValue = function(tier) return 1.6 * tier end,
+        getBonus = function(tier) return 0.016 * tier end,
         modData = "PermaSoulForgeDexterityBonus"
     },
     SoulSmith = {
@@ -149,6 +149,21 @@ local soulForgeBuffWeights = {
  
  function OnTest_CheckInInventory(item)
     local player = getSpecificPlayer(0)
+
+    local isOwnSafeHouse = SafeHouse.hasSafehouse(player)
+    local x = player:getX()
+    local y = player:getY()
+
+    if isOwnSafeHouse then
+        local shx1 = isOwnSafeHouse:getX()
+        local shy1 = isOwnSafeHouse:getY()-15
+        local shx2 = isOwnSafeHouse:getW() + shx1
+        local shy2 = isOwnSafeHouse:getH() + shy1
+
+        if x >= shx1 and y >= shy1 and x <= shx2 and y <= shy2 then
+            return true
+        end
+    end
     
     if not item:isInPlayerInventory() then return false end
 
@@ -244,13 +259,13 @@ end
         player:getModData()[buff.modData] = 0
     end
     player:setMaxWeightBase(player:getModData().originalMaxWeightBase)
- 
-    local inventory = player:getInventory()
-    local equipped = inventory:getItems()
-    
-    for i = 0, equipped:size()-1 do
-        local item = equipped:get(i)
-        if string.find(item:getFullType(), "SoulForgeJewelery") and item:isEquipped() then
+
+    local playerWornItems = getPlayer():getWornItems()
+    for i=0,playerWornItems:size()-1 do 
+        local item = playerWornItems:get(i):getItem()
+        local itemFT = item:getFullType()
+
+        if string.find(itemFT, "SoulForgeJewelery") then
             local modData = item:getModData()
             local buff = modData.SoulBuff
             
