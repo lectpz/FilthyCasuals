@@ -9,17 +9,17 @@ local soulForgeBuffWeights = {
     ["CritRate"] = 1,
     ["CritMulti"] = 1,
     ["MaxDmg"] = 1
-}
-
-local tierBuffs = {
+ }
+ 
+ local tierBuffs = {
     T1 = {"CritMulti", "SoulDexterity"},
     T2 = {"CritMulti", "SoulDexterity", "SoulThirst", "SoulSmith"},
     T3 = {"CritMulti", "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "MaxCondition"},
     T4 = {"CritMulti", "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "MaxCondition", "ConditionLowerChance", "CritRate"},
     T5 = {"CritMulti", "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "MaxCondition", "ConditionLowerChance", "CritRate", "SoulStrength", "MaxDmg"}
-}
-
-local buffDisplayNames = {
+ }
+ 
+ local buffDisplayNames = {
     luck = "Luck",
     SoulSmith = "Soul Smith",
     SoulThirst = "Soul Thirst",
@@ -30,18 +30,96 @@ local buffDisplayNames = {
     CritRate = "Critical Chance",
     CritMulti = "Critical Multiplier",
     MaxDmg = "Maximum Damage"
-}
-
--- Utility functions
-local function getTierNumber(item)
-    return tonumber(string.match(item:getModData().Tier or "T1", "T(%d)")) or 1
+ }
+ 
+ local BUFF_CALCULATIONS = {
+    SoulStrength = {
+        format = "+%d Strength",
+        getValue = function(tier) return 1 end,
+        getBonus = function(tier) return 1 end,
+        modData = "PermaSoulForgeStrengthBonus",
+        apply = function(player, value, isEquipping)
+            if isEquipping and not player:getModData().originalMaxWeightBase then
+                player:getModData().originalMaxWeightBase = player:getMaxWeightBase()
+            end
+            local originalWeight = player:getModData().originalMaxWeightBase or player:getMaxWeightBase()
+            player:setMaxWeightBase(originalWeight + (player:getModData().PermaSoulForgeStrengthBonus or 0))
+        end
+    },
+    SoulDexterity = {
+        format = "+%d%% Transfer Speed",
+        getValue = function(tier) return 2 * tier end,
+        getBonus = function(tier) return 0.02 * tier end,
+        modData = "PermaSoulForgeDexterityBonus"
+    },
+    SoulSmith = {
+        format = "+%d%% Soul Smith Bonus",
+        getValue = function(tier) return 5 * tier end,
+        getBonus = function(tier) return 5 * tier end,
+        modData = "PermaSoulSmithValue"
+    },
+    SoulThirst = {
+        format = "+%d%% Soul Thirst Bonus",
+        getValue = function(tier) return 10 * tier end,
+        getBonus = function(tier) return 0.1 * tier end,
+        modData = "PermaSoulThirstValue"
+    },
+    MaxCondition = {
+        format = "+%d Durability",
+        getValue = function(tier) return math.ceil(0.5 * tier) end,
+        getBonus = function(tier) return math.ceil(0.5 * tier) end,
+        modData = "PermaMaxConditionBonus"
+    },
+    luck = {
+        format = "+%d Luck",
+        getValue = function(tier) return 10 * tier end,
+        getBonus = function(tier) return 10 * tier end,
+        modData = "PermaSoulForgeLuckBonus"
+    },
+    ConditionLowerChance = {
+        format = "+%d Condition Resilience",
+        getValue = function() return 2 end,
+        getBonus = function() return 2 end,
+        modData = "PermaSoulForgeConditionBonus"
+    },
+    CritRate = {
+        format = "+%.1f%% Critical Strike Chance",
+        getValue = function(tier) return 2 * tier end,
+        getBonus = function(tier) return 0.02 * tier end,
+        modData = "PermaSoulForgeCritRateBonus"
+    },
+    CritMulti = {
+        format = "+%.1f%% Critical Strike Multiplier",
+        getValue = function(tier) return 3 * tier end,
+        getBonus = function(tier) return 0.03 * tier end,
+        modData = "PermaSoulForgeCritMultiBonus"
+    },
+    MaxDmg = {
+        format = "+%.1f%% Maximum Damage",
+        getValue = function(tier) return 2 * tier end,
+        getBonus = function(tier) return 0.02 * tier end,
+        modData = "PermaSoulForgeMaxDmgBonus"
+    }
+ }
+ 
+ -- Utility functions
+ local function getTierNumber(item)
+    local modData = item:getModData()
+    if not modData or not modData.Tier then return 1 end
+    
+    if type(modData.Tier) == "number" then
+        return modData.Tier
+    end
+    
+    return tonumber(string.match(modData.Tier, "%d") or 1)
 end
-
-local function getWeightedBuff(tier)
-    local availableBuffs = tierBuffs[tier]
+ 
+ local function getWeightedBuff(tier)
+    local tierKey = "T" .. tier
+    local availableBuffs = tierBuffs[tierKey]
     local totalWeight = 0
     local buffWeights = {}
-
+ 
     for _, buff in ipairs(availableBuffs) do
         local weight = soulForgeBuffWeights[buff] or 0
         totalWeight = totalWeight + weight
@@ -50,166 +128,64 @@ local function getWeightedBuff(tier)
             weight = weight
         })
     end
-
+ 
     local roll = ZombRand(totalWeight)
     local currentWeight = 0
-
+ 
     for _, buffData in ipairs(buffWeights) do
         currentWeight = currentWeight + buffData.weight
         if roll < currentWeight then
             return buffData.buff
         end
     end
-
+ 
     return buffWeights[1].buff
-end
+ end
+ 
+ function OnTest_CheckInInventory(item)
+    local player = getSpecificPlayer(0)
 
-function ApplyBaseItemProperties(result, baseItem, selectedBuff)
-    if not baseItem then return end
-
-    if baseItem:getTexture() then
-        result:setTexture(baseItem:getTexture())
-        if baseItem:getIconsForTexture() then
-            result:setIconsForTexture(baseItem:getIconsForTexture())
-        end
-    end
+    if not item:isInPlayerInventory() then return false end
+    
+    return true
+ end
+ 
+ function ApplyBaseItemProperties(result)
+    if not result then return end
+    local modData = result:getModData()
+    local selectedBuff = getWeightedBuff(tier)
+ 
+    if not modData.BaseItem then return end
+ 
+    local baseItem = InventoryItemFactory.CreateItem(modData.BaseItem)
     
     local displayBuffName = buffDisplayNames[selectedBuff] or selectedBuff
-    local itemName = "Soul Forged " .. baseItem:getName() .. " of " .. displayBuffName
-
+    local itemName = result:getName() .. " of " .. displayBuffName
+ 
     result:setName(itemName)
-end
-
--- Stat modifiers
-local function modifyStrength(player, item, isEquipping)
-    local strength = 1
-    local currentBaseWeight = player:getMaxWeightBase()
-    local pMD = player:getModData();
+ end
+ 
+ local function modifyBuff(player, item, isEquipping, buffType)
+    local buff = BUFF_CALCULATIONS[buffType]
+    if not buff then return end
     
-    if isEquipping then
-        if not player:getModData().originalMaxWeightBase then
-            player:getModData().originalMaxWeightBase = currentBaseWeight
-        end
-        player:getModData().PermaSoulForgeStrengthBonus = (player:getModData().PermaSoulForgeStrengthBonus or 0) + strength
-    else
-        player:getModData().PermaSoulForgeStrengthBonus = (player:getModData().PermaSoulForgeStrengthBonus or 0) - strength
-    end
-    
-    local originalWeight = player:getModData().originalMaxWeightBase or currentBaseWeight
-    local newWeight = originalWeight + player:getModData().PermaSoulForgeStrengthBonus
-
-    player:setMaxWeightBase(newWeight)
-end
-
-local function modifyDexterity(player, item, isEquipping)
     local tier = getTierNumber(item)
-    local dexterityBonus = 0.05 * tier -- 10% faster transfer speed per tier
-    local pMD = player:getModData()
-        
-    if isEquipping then
-        pMD.PermaSoulForgeDexterityBonus = (pMD.PermaSoulForgeDexterityBonus or 0) + dexterityBonus
-    else
-        pMD.PermaSoulForgeDexterityBonus = (pMD.PermaSoulForgeDexterityBonus or 0) - dexterityBonus
-    end
-end
-
-local function modifySoulSmith(player, item, isEquipping)
-    local tier = getTierNumber(item)
-    local soulSmithBonus = 5 * tier -- 5% per tier
-    local pMD = player:getModData();
-    
-    if isEquipping then
-        pMD.PermaSoulSmithValue = (pMD.PermaSoulSmithValue or 0) + soulSmithBonus
-    else
-        pMD.PermaSoulSmithValue = (pMD.PermaSoulSmithValue or 0) - soulSmithBonus
-    end
-end
-
-local function modifySoulThirst(player, item, isEquipping)
-    local tier = getTierNumber(item) or 1
-    local soulThirstBonus = 0.1 * tier
-    local pMD = player:getModData();
-    
-    if isEquipping then
-        pMD.PermaSoulThirstValue = (pMD.PermaSoulThirstValue or 0) + soulThirstBonus
-    else
-        pMD.PermaSoulThirstValue = (pMD.PermaSoulThirstValue or 0) - soulThirstBonus
-    end
-end
-
-local function modifyMaxCondition(player, item, isEquipping)
-    local tier = getTierNumber(item)
-    local maxConditionBonus = math.ceil(0.5 * tier)
-    local pMD = player:getModData();
-    
-    if isEquipping then
-        pMD.PermaMaxConditionBonus = (pMD.PermaMaxConditionBonus or 0) + maxConditionBonus
-    else
-        pMD.PermaMaxConditionBonus = (pMD.PermaMaxConditionBonus or 0) - maxConditionBonus
-    end
-end
-
-local function modifyLuck(player, item, isEquipping)
-    local tier = getTierNumber(item)
-    local luckBonus = 10 * tier
+    local value = buff.getBonus(tier)
     local pMD = player:getModData()
     
     if isEquipping then
-        pMD.PermaSoulForgeLuckBonus = (pMD.PermaSoulForgeLuckBonus or 0) + luckBonus
+        pMD[buff.modData] = (pMD[buff.modData] or 0) + value
     else
-        pMD.PermaSoulForgeLuckBonus = (pMD.PermaSoulForgeLuckBonus or 0) - luckBonus
+        pMD[buff.modData] = (pMD[buff.modData] or 0) - value
     end
-end
-
-local function modifyConditionLowerChance(player, item, isEquipping)
-    local conditionBonus = 2
-    local pMD = player:getModData()
     
-    if isEquipping then
-        pMD.PermaSoulForgeConditionBonus = (pMD.PermaSoulForgeConditionBonus or 0) + conditionBonus
-    else
-        pMD.PermaSoulForgeConditionBonus = (pMD.PermaSoulForgeConditionBonus or 0) - conditionBonus
+    if buff.apply then
+        buff.apply(player, value, isEquipping)
     end
-end
-
-local function modifyCritRate(player, item, isEquipping)
-    local tier = getTierNumber(item)
-    local critRateBonus = 0.02 * tier
-    local pMD = player:getModData()
-    
-    if isEquipping then
-        pMD.PermaSoulForgeCritRateBonus = (pMD.PermaSoulForgeCritRateBonus or 0) + critRateBonus
-    else
-        pMD.PermaSoulForgeCritRateBonus = (pMD.PermaSoulForgeCritRateBonus or 0) - critRateBonus
-    end
-end
-
-local function modifyCritMulti(player, item, isEquipping)
-    local tier = getTierNumber(item)
-    local critMultiBonus = 0.1 * tier
-    local pMD = player:getModData()
-    
-    if isEquipping then
-        pMD.PermaSoulForgeCritMultiBonus = (pMD.PermaSoulForgeCritMultiBonus or 0) + critMultiBonus
-    else
-        pMD.PermaSoulForgeCritMultiBonus = (pMD.PermaSoulForgeCritMultiBonus or 0) - critMultiBonus
-    end
-end
-
-local function modifyMaxDmg(player, item, isEquipping)
-    local tier = getTierNumber(item)
-    local damageBonus = 0.05 * tier
-    local pMD = player:getModData()
-    
-    if isEquipping then
-        pMD.PermaSoulForgeMaxDmgBonus = (pMD.PermaSoulForgeMaxDmgBonus or 0) + damageBonus
-    else
-        pMD.PermaSoulForgeMaxDmgBonus = (pMD.PermaSoulForgeMaxDmgBonus or 0) - damageBonus
-    end
-end
-
--- Event watchers
-function SoulForgedJewelryOnCreate(items, result, player)
+ end
+ 
+ -- Event watchers
+ function SoulForgedJewelryOnCreate(items, result, player)
     if not result then return end
     if not items then return end
     
@@ -237,7 +213,7 @@ function SoulForgedJewelryOnCreate(items, result, player)
     
     for i=0, allItems:size()-1 do
         local itemType = allItems:get(i)
-        if string.find(itemType:getBodyLocation(), resultBodyLocation) then
+        if itemType:getBodyLocation() == resultBodyLocation then
             table.insert(validItems, itemType:getFullName())
         end
     end
@@ -245,92 +221,115 @@ function SoulForgedJewelryOnCreate(items, result, player)
     if #validItems > 0 then
         local randomIndex = ZombRand(1, #validItems + 1)
         local selectedJewelry = validItems[randomIndex]
+        result:getModData().BaseItem = selectedJewelry
+        result:getModData().SoulBuff = selectedBuff
+        result:getModData().Tier = tier
         
-        local tempItem = InventoryItemFactory.CreateItem(selectedJewelry)
-        if tempItem then
-            result:getModData().BaseItem = selectedJewelry
-            result:getModData().SoulBuff = selectedBuff
-            result:getModData().Tier = tier
-            
-            ApplyBaseItemProperties(result, tempItem, selectedBuff)
-        end
+        ApplyBaseItemProperties(result)
     end
-end
-
-local function OnClothingUpdated(player)
-    
-    local buffHandlers = {
-        SoulStrength = modifyStrength,
-        SoulDexterity = modifyDexterity,
-        SoulSmith = modifySoulSmith,
-        SoulThirst = modifySoulThirst,
-        MaxCondition = modifyMaxCondition,
-        luck = modifyLuck,
-        ConditionLowerChance = modifyConditionLowerChance,
-        CritRate = modifyCritRate,
-        CritMulti = modifyCritMulti,
-        MaxDmg = modifyMaxDmg
-    }
-
-    local inventory = player:getInventory()
-    local equipped = inventory:getItems()
+ end
+ 
+ local function OnClothingUpdated(player)
     
     if not player:getModData().originalMaxWeightBase then
         player:getModData().originalMaxWeightBase = player:getMaxWeightBase()
     end
     
+    for _, buff in pairs(BUFF_CALCULATIONS) do
+        player:getModData()[buff.modData] = 0
+    end
     player:setMaxWeightBase(player:getModData().originalMaxWeightBase)
-    player:getModData().PermaSoulForgeStrengthBonus = 0
-    player:getModData().PermaSoulSmithValue = 0
-    player:getModData().PermaSoulThirstValue = 0
-    player:getModData().PermaSoulForgeDexterityBonus = 0
-    player:getModData().PermaSoulForgeLuckBonus = 0
-    player:getModData().PermaSoulForgeConditionBonus = 0
-    player:getModData().PermaSoulForgeCritRateBonus = 0
-    player:getModData().PermaSoulForgeCritMultiBonus = 0
-    player:getModData().PermaSoulForgeMaxDmgBonus = 0
-
+ 
+    local inventory = player:getInventory()
+    local equipped = inventory:getItems()
+    
     for i = 0, equipped:size()-1 do
         local item = equipped:get(i)
-        
-        if string.find(item:getFullType(), "SoulForged") and item:isEquipped() then
-            local buff = item:getModData().SoulBuff
-
-            if buff and buffHandlers[buff] then
-                buffHandlers[buff](player, item, true)
+        if string.find(item:getFullType(), "SoulForgeJewelery") and item:isEquipped() then
+            local modData = item:getModData()
+            local buff = modData.SoulBuff
+            
+            if buff and BUFF_CALCULATIONS[buff] then
+                modifyBuff(player, item, true, buff)
             end
         end
     end
-end
-
-
-local function SoulForgedJewelryOnLoad(item)
-    if not item then return end
-    
-    local modData = item:getModData()
-    if modData.BaseItem then
-        local baseItem = InventoryItemFactory.CreateItem(modData.BaseItem)
-        if baseItem then
-            ApplyBaseItemProperties(item, baseItem, modData.SoulBuff)
-        end
-    end
-end
-
--- Overwrites
-local original_new = ISInventoryTransferAction.new
-
-function ISInventoryTransferAction:new(character, item, srcContainer, destContainer, time)
+ end
+ 
+ -- OverWrites
+ local original_new = ISInventoryTransferAction.new
+ function ISInventoryTransferAction:new(character, item, srcContainer, destContainer, time)
     local o = original_new(self, character, item, srcContainer, destContainer, time)
-    local dexterityBonus = character:getModData().PermaSoulForgeDexterityBonus or 0
+    local dexterityBonus = math.min(0.25, character:getModData().PermaSoulForgeDexterityBonus or 0)
     
     if o and dexterityBonus > 0 then
         o.maxTime = o.maxTime - (o.maxTime * dexterityBonus);
     end
     
     return o
-end
-
-Events.OnClothingUpdated.Add(OnClothingUpdated)
-Events.OnGameStart.Add(function()
+ end
+ 
+ 
+ -- Tooltip logic
+ local callback_render = ISToolTipInv.render;
+ 
+ local bg = {a=1, r=1, g=0.8, b=1};
+ local bg_green = {a=1, r=0, g=0.8, b=0};
+ local bg_red = {a=1, r=0.8, g=0, b=0};
+ 
+ function createTooltip(item)
+    if not item then return "" end
+    
+    local modData = item:getModData()
+    if not modData or not modData.SoulBuff then return "" end
+    
+    local buff = modData.SoulBuff
+    local tier = getTierNumber(item)
+    
+    local buffCalc = BUFF_CALCULATIONS[buff]
+    if not buffCalc then return "Invalid Buff" end
+    
+    local value = buffCalc.getValue(tier)
+    return string.format(buffCalc.format, value)
+ end
+ 
+ local function draw_remaining(tooltip, pos_y, value, font)
+    local selected_bg = bg_green;
+    tooltip:drawText(value, 16, pos_y, selected_bg.r, selected_bg.g, selected_bg.b, selected_bg.a, font);
+ end
+ 
+ function drawTooltip(tooltip, modData)
+    local font = getCore():getOptionTooltipFont();
+    local drawFont = UIFont.Medium;
+    if font == "Large" then drawFont = UIFont.Large; elseif font == "Small" then drawFont = UIFont.Small; end;
+ 
+    local toolwidth = tooltip:getWidth();
+    local toolheight = tooltip:getHeight();
+    local draw_height = getTextManager():MeasureStringY(drawFont, "XYZ");
+ 
+    local box_height = draw_height + 16;
+ 
+    tooltip:drawRect(0, toolheight - 1, toolwidth, box_height, tooltip.backgroundColor.a, tooltip.backgroundColor.r, tooltip.backgroundColor.g, tooltip.backgroundColor.b);
+    tooltip:drawRectBorder(0, toolheight - 1, toolwidth, box_height, tooltip.borderColor.a, tooltip.borderColor.r, tooltip.borderColor.g, tooltip.borderColor.b);
+ 
+    local tooltipContent = createTooltip(tooltip.item);
+ 
+    draw_remaining(tooltip, toolheight + 4, tooltipContent, drawFont);
+ end
+ 
+ function ISToolTipInv:render()
+    if not ISContextMenu.instance or not ISContextMenu.instance.visibleCheck then
+        local itemObj = self.item;
+        local modData = self.item:getModData()
+        if itemObj and modData.SoulBuff then
+            drawTooltip(self, modData)
+        end
+    end
+ 
+    return callback_render(self);
+ end
+ 
+ -- Event bindings
+ Events.EveryOneMinute.Add(function()
     OnClothingUpdated(getPlayer())
-end)
+ end)
