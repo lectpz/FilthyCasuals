@@ -280,7 +280,7 @@ end
  local original_new = ISInventoryTransferAction.new
  function ISInventoryTransferAction:new(character, item, srcContainer, destContainer, time)
     local o = original_new(self, character, item, srcContainer, destContainer, time)
-    local dexterityBonus = math.min(0.25, character:getModData().PermaSoulForgeDexterityBonus or 0)
+    local dexterityBonus = character:getModData().PermaSoulForgeDexterityBonus or 0
     
     if o and dexterityBonus > 0 then
         o.maxTime = o.maxTime - (o.maxTime * dexterityBonus);
