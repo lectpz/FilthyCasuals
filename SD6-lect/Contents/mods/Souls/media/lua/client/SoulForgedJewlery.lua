@@ -54,8 +54,8 @@ local soulForgeBuffWeights = {
     },
     SoulSmith = {
         format = "+%d%% Soul Smith Bonus",
-        getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return 1 * tier end,
+        getDisplayValue = function(tier) return .01 * tier end,
+        getBonus = function(tier) return .0002 * tier end,
         modData = "PermaSoulSmithValue"
     },
     SoulThirst = {
