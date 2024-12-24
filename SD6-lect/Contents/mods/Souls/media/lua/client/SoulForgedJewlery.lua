@@ -54,14 +54,14 @@ local soulForgeBuffWeights = {
     },
     SoulSmith = {
         format = "+%d%% Soul Smith Bonus",
-        getDisplayValue = function(tier) return 5 * tier end,
-        getBonus = function(tier) return 5 * tier end,
+        getDisplayValue = function(tier) return 1 * tier end,
+        getBonus = function(tier) return 1 * tier end,
         modData = "PermaSoulSmithValue"
     },
     SoulThirst = {
         format = "+%d%% Soul Thirst Bonus",
-        getDisplayValue = function(tier) return 10 * tier end,
-        getBonus = function(tier) return 0.1 * tier end,
+        getDisplayValue = function(tier) return 5 * tier end,
+        getBonus = function(tier) return 0.05 * tier end,
         modData = "PermaSoulThirstValue"
     },
     MaxCondition = {
@@ -72,8 +72,8 @@ local soulForgeBuffWeights = {
     },
     luck = {
         format = "+%d Luck",
-        getDisplayValue = function(tier) return 10 * tier end,
-        getBonus = function(tier) return 10 * tier end,
+        getDisplayValue = function(tier) return 1 * tier end,
+        getBonus = function(tier) return .01 * tier end,
         modData = "PermaSoulForgeLuckBonus"
     },
     ConditionLowerChance = {
