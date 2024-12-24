@@ -35,7 +35,7 @@ local soulForgeBuffWeights = {
  local BUFF_CALCULATIONS = {
     SoulStrength = {
         format = "+%d Strength",
-        getValue = function(tier) return 1 end,
+        getDisplayValue = function(tier) return 1 end,
         getBonus = function(tier) return 1 end,
         modData = "PermaSoulForgeStrengthBonus",
         apply = function(player, value, isEquipping)
@@ -48,55 +48,55 @@ local soulForgeBuffWeights = {
     },
     SoulDexterity = {
         format = "+%d%% Transfer Speed",
-        getValue = function(tier) return 2 * tier end,
+        getDisplayValue = function(tier) return 2 * tier end,
         getBonus = function(tier) return 0.02 * tier end,
         modData = "PermaSoulForgeDexterityBonus"
     },
     SoulSmith = {
         format = "+%d%% Soul Smith Bonus",
-        getValue = function(tier) return 5 * tier end,
+        getDisplayValue = function(tier) return 5 * tier end,
         getBonus = function(tier) return 5 * tier end,
         modData = "PermaSoulSmithValue"
     },
     SoulThirst = {
         format = "+%d%% Soul Thirst Bonus",
-        getValue = function(tier) return 10 * tier end,
+        getDisplayValue = function(tier) return 10 * tier end,
         getBonus = function(tier) return 0.1 * tier end,
         modData = "PermaSoulThirstValue"
     },
     MaxCondition = {
         format = "+%d Durability",
-        getValue = function(tier) return math.ceil(0.5 * tier) end,
+        getDisplayValue = function(tier) return math.ceil(0.5 * tier) end,
         getBonus = function(tier) return math.ceil(0.5 * tier) end,
         modData = "PermaMaxConditionBonus"
     },
     luck = {
         format = "+%d Luck",
-        getValue = function(tier) return 10 * tier end,
+        getDisplayValue = function(tier) return 10 * tier end,
         getBonus = function(tier) return 10 * tier end,
         modData = "PermaSoulForgeLuckBonus"
     },
     ConditionLowerChance = {
         format = "+%d Condition Resilience",
-        getValue = function() return 2 end,
+        getDisplayValue = function() return 2 end,
         getBonus = function() return 2 end,
         modData = "PermaSoulForgeConditionBonus"
     },
     CritRate = {
         format = "+%.1f%% Critical Strike Chance",
-        getValue = function(tier) return 2 * tier end,
+        getDisplayValue = function(tier) return 2 * tier end,
         getBonus = function(tier) return 0.02 * tier end,
         modData = "PermaSoulForgeCritRateBonus"
     },
     CritMulti = {
         format = "+%.1f%% Critical Strike Multiplier",
-        getValue = function(tier) return 3 * tier end,
+        getDisplayValue = function(tier) return 3 * tier end,
         getBonus = function(tier) return 0.03 * tier end,
         modData = "PermaSoulForgeCritMultiBonus"
     },
     MaxDmg = {
         format = "+%.1f%% Maximum Damage",
-        getValue = function(tier) return 2 * tier end,
+        getDisplayValue = function(tier) return 2 * tier end,
         getBonus = function(tier) return 0.02 * tier end,
         modData = "PermaSoulForgeMaxDmgBonus"
     }
@@ -105,18 +105,23 @@ local soulForgeBuffWeights = {
  -- Utility functions
  local function getTierNumber(item)
     local modData = item:getModData()
-    if not modData or not modData.Tier then return 1 end
     
+    if not modData.Tier then 
+        print("getTierNumber: modData.Tier is nil")
+        return 1 
+    end
+ 
     if type(modData.Tier) == "number" then
         return modData.Tier
     end
     
-    return tonumber(string.match(modData.Tier, "%d") or 1)
-end
+    local tierMatch = string.match(modData.Tier, "T(%d)")
+    
+    return tonumber(tierMatch) or 1
+ end
  
  local function getWeightedBuff(tier)
-    local tierKey = "T" .. tier
-    local availableBuffs = tierBuffs[tierKey]
+    local availableBuffs = tierBuffs[tier]
     local totalWeight = 0
     local buffWeights = {}
  
@@ -144,26 +149,23 @@ end
  
  function OnTest_CheckInInventory(item)
     local player = getSpecificPlayer(0)
-
-    if not item:isInPlayerInventory() then return false end
-    
     return true
  end
  
  function ApplyBaseItemProperties(result)
     if not result then return end
     local modData = result:getModData()
-    local selectedBuff = getWeightedBuff(tier)
- 
+    local selectedBuff = modData.SoulBuff
+
     if not modData.BaseItem then return end
- 
+
     local baseItem = InventoryItemFactory.CreateItem(modData.BaseItem)
     
     local displayBuffName = buffDisplayNames[selectedBuff] or selectedBuff
     local itemName = result:getName() .. " of " .. displayBuffName
- 
+
     result:setName(itemName)
- end
+end
  
  local function modifyBuff(player, item, isEquipping, buffType)
     local buff = BUFF_CALCULATIONS[buffType]
@@ -289,7 +291,7 @@ end
     local buffCalc = BUFF_CALCULATIONS[buff]
     if not buffCalc then return "Invalid Buff" end
     
-    local value = buffCalc.getValue(tier)
+    local value = buffCalc.getDisplayValue(tier)
     return string.format(buffCalc.format, value)
  end
  
