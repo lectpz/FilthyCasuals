@@ -10,7 +10,7 @@ module SoulForgeJewelery
         Time:100,
         Category:Crafting,
         OnCreate:SoulForgedJewelryOnCreate,
-        CanBeDoneFromFloor 		: True,
+        OnTest:OnTest_CheckInInventory
     }
 
     recipe Soul Forge Choker

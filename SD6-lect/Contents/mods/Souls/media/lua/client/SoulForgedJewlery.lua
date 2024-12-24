@@ -149,6 +149,9 @@ local soulForgeBuffWeights = {
  
  function OnTest_CheckInInventory(item)
     local player = getSpecificPlayer(0)
+    
+    if not item:isInPlayerInventory() then return false end
+
     return true
  end
  
