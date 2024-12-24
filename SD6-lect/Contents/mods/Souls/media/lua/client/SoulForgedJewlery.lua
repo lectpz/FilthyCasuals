@@ -84,8 +84,8 @@ local soulForgeBuffWeights = {
     },
     CritRate = {
         format = "+%.1f%% Critical Strike Chance",
-        getDisplayValue = function(tier) return 2 * tier end,
-        getBonus = function(tier) return 0.02 * tier end,
+        getDisplayValue = function(tier) return 1 * tier end,
+        getBonus = function(tier) return 0.01 * tier end,
         modData = "PermaSoulForgeCritRateBonus"
     },
     CritMulti = {
