@@ -23,9 +23,11 @@ Sandbox_EN = {
 	Sandbox_PZwaystonepanel_eventreward2_tooltip = "e.g. Base.EventWeaponCacheT3",
 	
 	Sandbox_PZwaystonepanel_eventreward3 = "Base.Item single reward only",
-	Sandbox_PZwaystonepanel_eventreward3_tooltip = "e.g. Base.XCoin",
+	Sandbox_PZwaystonepanel_eventreward3_tooltip = "e.g. Base.ScrapMetal",
 	
 	Sandbox_PZwaystonepanel_eventreward4 = "Base.Item single reward only",
-	Sandbox_PZwaystonepanel_eventreward4_tooltip = "e.g. Base.XCoin",
+	Sandbox_PZwaystonepanel_eventreward4_tooltip = "e.g. Base.ScrapMetal",
 	
+	Sandbox_PZwaystonepanel_eventreward5 = "Custom Multiple Reward",
+	Sandbox_PZwaystonepanel_eventreward5_tooltip = "e.g. Base.ScrapMetal;Base.ScrapMetal;Base.ScrapMetal;Base.ScrapMetal;Base.ScrapMetal;",
 }

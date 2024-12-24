@@ -203,6 +203,19 @@ local function SDWeaponCheck(character, inventoryItem)
 		if soulForgeConditionLowerChance then inventoryItem:setConditionLowerChance(scriptItem:getConditionLowerChance() * soulForgeConditionLowerChance) end
 		if soulForgeMaxCondition then inventoryItem:setConditionMax(scriptItem:getConditionMax() * soulForgeMaxCondition) end
 		if soulForgeEnduranceMod then inventoryItem:setEnduranceMod(soulForgeEnduranceMod) end
+		
+		local args = {}
+		args.critrate = soulForgeCritRate
+		args.critmulti = soulForgeCritMulti
+		args.mindmg = soulForgeMinDmgMulti
+		args.maxdmg = soulForgeMaxDmgMulti
+		args.name = soulWrought..basename
+		args.endurancemod = soulForgeEnduranceMod
+		args.hassouls = hasSouls
+		args.player_name = getOnlineUsername()
+		args.itemID = inventoryItem:getID()
+		
+		if isSoulForged then sendClientCommand(character, 'sdLogger', 'SoulForgeEquip', args) end
 	elseif inventoryItem:IsWeapon() and inventoryItem:isRanged() then
 		initRangedStats(modData, inventoryItem, character)
 		

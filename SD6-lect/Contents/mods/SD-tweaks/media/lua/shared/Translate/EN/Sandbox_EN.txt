@@ -328,4 +328,9 @@ Sandbox_EN = {
 	
 	Sandbox_SDVehicleReroll_Vanilla = "Vanilla spawn chance (n/100)",
 	Sandbox_SDVehicleReroll_Vanilla_tooltip = "e.g. 50",
+	
+	Sandbox_TilePicker = "SD Tile Picker Cache",
+
+	Sandbox_TilePicker_RegularCache= "Tile Picker Cache (Regular)",
+	Sandbox_TilePicker_RegularCache_tooltip = "e.g. sprite_name_01:Tile Name:Tile Description",
 }

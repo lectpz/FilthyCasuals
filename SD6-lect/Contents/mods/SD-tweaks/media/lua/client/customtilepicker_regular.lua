@@ -511,6 +511,30 @@ local function tilePicker(item, player, tileSpriteTable, tileNameTable, tileDesc
 	end
 end
 
+local function splitString(sandboxvar, delimiter)
+	local ztable = {}
+	local pattern = "[^;]+"
+
+	for match in sandboxvar:gmatch(pattern) do
+		table.insert(ztable, match)
+	end
+	return ztable
+end
+
+local function splitTable(sandboxvar, delimiter)
+	local ztable = {}
+	local pattern = "[^:]+"
+
+	for match in sandboxvar:gmatch(pattern) do
+		table.insert(ztable, match)
+	end
+	return ztable
+end
+
+local sandboxTiles = {}
+local sandboxTileNames = {}
+local sandboxTileDescriptions = {}
+
 local function tileSubMenu(tileContext, context, submenuname, item, player, tileSpriteTable, tileNameTable, tileDescription)
 	--submenu = ISContextMenu:getNew(context)
 	--context:addSubMenu(tileContext, submenu)
@@ -522,13 +546,32 @@ local function tileSubMenu(tileContext, context, submenuname, item, player, tile
 	tilePicker(item, player, tileSpriteTable, tileNameTable, tileDescription, SubMenu)
 end
 
+
 local function tileBoxContext(player, context, items) -- # When an inventory item context menu is opened
 	playerObj = getSpecificPlayer(player)
 	playerInv = playerObj:getInventory()
 	items = ISInventoryPane.getActualItems(items); -- Get table of inventory items (will not be module.item, just item)
+	local sandboxTiles = {}
+	local sandboxTileNames = {}
+	local sandboxTileDescriptions = {}
 	for _, item in ipairs(items) do -- Check every item in inventory array
 		if not item:isInPlayerInventory() then return end
 		if item:getFullType() == "Base.TileCacheRegular" then
+			
+			local stringVal = splitString(SandboxVars.TilePicker.RegularCache)
+			for i=1, #stringVal do
+				--print(stringVal[i])
+				local stringTable = splitTable(stringVal[i])
+				for k=1,#stringTable do
+					if k==1 then table.insert(sandboxTiles, stringTable[k]) end
+					if k==2 then table.insert(sandboxTileNames, stringTable[k]) end
+				end
+				if #stringTable == 3 then 
+					table.insert(sandboxTileDescriptions, stringTable[3])
+				else
+					table.insert(sandboxTileDescriptions, "")
+				end
+			end
 
 			tileContext = context:addOption("Tile Picker", item, nil, player)
 			
@@ -545,6 +588,12 @@ local function tileBoxContext(player, context, items) -- # When an inventory ite
 			tileSubMenu(tileContext, context, "Plants (2/2)", item, player, planttiles2, planttilenames2)
 			tileSubMenu(tileContext, context, "Seating", item, player, seatingtiles, seatingtilenames)
 			tileSubMenu(tileContext, context, "Tables", item, player, tabletiles, tabletilenames)
+			
+			if #sandboxTiles == #sandboxTileNames then
+				if #sandboxTileDescriptions == 0 then sandboxTileDescriptions = "" end
+				tileSubMenu(tileContext, context, "Custom Tiles", item, player, sandboxTiles, sandboxTileNames, sandboxTileDescriptions)
+			end
+			
 			break
 		end
 	end

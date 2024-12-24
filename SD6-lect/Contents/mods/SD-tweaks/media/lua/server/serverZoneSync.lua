@@ -9,10 +9,7 @@ local function OnInitGlobalModData()
 		local zonesGMD = ModData.create("zonesData")
 		zonesGMD = {}
 	else
-		--local zonesGMD = ModData.getOrCreate("zonesData")
-		
-		--
---		if ModData.exists("FactionControlledZones") then ModData.remove("FactionControlledZones") end
+
 		local FactionControlledZones = ModData.getOrCreate("FactionControlledZones")
 		local zonesGMD = ModData.getOrCreate("zonesData") or {}
 		
@@ -21,8 +18,6 @@ local function OnInitGlobalModData()
 			for zone, factions in pairs(t) do
 				local factionData = {}
 				for faction, killCount in pairs(factions) do
-					--print("DEBUG: FACTION - ",faction)
-					--print("DEBUG: KILLCOUNT - ",killCount)
 					table.insert(factionData, {faction = faction, killCount = killCount})
 				end
 				table.sort(factionData, function(a, b) return a.killCount > b.killCount end)
@@ -31,14 +26,6 @@ local function OnInitGlobalModData()
 		end
 		
 		sortData(zonesGMD)
-		
-		--[[for zone, _ in pairs(sortedData) do
-			for k, v in pairs(sortedData[zone]) do
-				zonesGMD[zone][v.faction] = math.floor(killCount * 0.9)
-				break
-			end
-		end]]
-		--
 		
 		for zone, factions in pairs(zonesGMD) do
 			for factionName, killCount in pairs(factions) do
@@ -69,7 +56,39 @@ local function countDaysPassed()
 end
 Events.EveryDays.Add(countDaysPassed)
 
+--local clientKills = {}
+local zonesGMD = {}
+local function OnServerStarted()
+	zonesGMD = ModData.getOrCreate("zonesData")
+end
+Events.OnServerStarted.Add(OnServerStarted)
+
 local function OnReceiveGlobalModData(key, modData)
+	if key == "clientKillTally" and modData and type(modData) == "table" then
+		local zoneKillCount = modData
+		
+		for zone, factions in pairs(zoneKillCount) do
+			for factionName, kills in pairs(factions) do
+				if not zonesGMD[zone] then zonesGMD[zone] = {} end
+				if not zonesGMD[zone][factionName] then zonesGMD[zone][factionName] = 0 end
+				zonesGMD[zone][factionName] = zonesGMD[zone][factionName] + zoneKillCount[zone][factionName]
+			end
+		end
+	end
+end
+
+--[[local zonesGMD = ModData.getOrCreate("zonesData") or {}
+for steamID, zoneKillCount in pairs(clientKills) do
+	for zone, factions in pairs(zoneKillCount) do
+		for factionName, kills in pairs(factions) do
+			if not zonesGMD[zone] then zonesGMD[zone] = {} end
+			if not zonesGMD[zone][factionName] then zonesGMD[zone][factionName] = 0 end
+			zonesGMD[zone][factionName] = zonesGMD[zone][factionName] + zoneKillCount[zone][factionName]
+		end
+	end
+end]]
+
+--[[local function OnReceiveGlobalModData(key, modData)
 	if key == "clientKillTally" and modData and type(modData) == "table" then
 		local zoneKillCount = modData
 		local zonesGMD = ModData.getOrCreate("zonesData") or {}
@@ -82,21 +101,18 @@ local function OnReceiveGlobalModData(key, modData)
 			end
 		end
 	end
-end
+end]]
 Events.OnReceiveGlobalModData.Add(OnReceiveGlobalModData)
 
 local function syncKills()
 	if ModData.exists("FactionControlledZones") then ModData.remove("FactionControlledZones") end
 	local FactionControlledZones = ModData.getOrCreate("FactionControlledZones")
-	local zonesGMD = ModData.getOrCreate("zonesData") or {}
-	
+
 	local sortedData = {}
 	local function sortData(t)
 		for zone, factions in pairs(t) do
 			local factionData = {}
 			for faction, killCount in pairs(factions) do
-				--print("DEBUG: FACTION - ",faction)
-				--print("DEBUG: KILLCOUNT - ",killCount)
 				table.insert(factionData, {faction = faction, killCount = killCount})
 			end
 			table.sort(factionData, function(a, b) return a.killCount > b.killCount end)
@@ -110,13 +126,8 @@ local function syncKills()
 		FactionControlledZones[zone] = FactionControlledZones[zone] or {}
 		for k, v in pairs(sortedData[zone]) do
 			FactionControlledZones[zone] = v.faction
-			--print(zone, " - Controlling faction : ",v.faction)
 			break
 		end
-		--[[for k, v in pairs(sortedData[zone]) do
-			print("Faction: ", v.faction)
-			print("Kills: ",v.killCount)
-		end]]
 	end
 end
 Events.EveryTenMinutes.Add(syncKills)

@@ -87,3 +87,12 @@ option PZwaystonepanel.eventreward4
 	page = PZwaystonepanel,
 	translation = PZwaystonepanel_eventreward4,
 }
+
+option PZwaystonepanel.eventreward5
+{
+	type = string,
+	default = Base.ScrapMetal;Base.ScrapMetal;Base.ScrapMetal;Base.ScrapMetal;Base.ScrapMetal;,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward5,
+}
