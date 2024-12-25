@@ -1,6 +1,6 @@
 module SoulForgeJewelery
 {
-    recipe Soul Forge Necklace
+    recipe Soul Forge Jewelry
     {
         SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
         PropaneTank/5,
@@ -11,142 +11,7 @@ module SoulForgeJewelery
         Time:100,
         Category:Crafting,
         OnCreate:SoulForgedJewelryOnCreate,
-        OnTest:OnTest_CheckInInventory
-    }
-
-    recipe Soul Forge Choker
-    {
-        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
-        PropaneTank/5,
-        ScrapMetal=15,
-        StoredSouls=100,
-        Result:SoulForgedChoker,
-        Sound:Sawing,
-        Time:100,
-        Category:Crafting,
-        OnCreate:SoulForgedJewelryOnCreate,
-        OnTest:OnTest_CheckInInventory
-    }
-
-    recipe Soul Forge Long Necklace
-    {
-        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
-        PropaneTank/5,
-        ScrapMetal=15,
-        StoredSouls=100,
-        Result:SoulForgedLongNecklace,
-        Sound:Sawing,
-        Time:100,
-        Category:Crafting,
-        OnCreate:SoulForgedJewelryOnCreate,
-        OnTest:OnTest_CheckInInventory
-    }
-
-    recipe Soul Forge Nose Ring
-    {
-        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
-        PropaneTank/5,
-        ScrapMetal=15,
-        StoredSouls=100,
-        Result:SoulForgedNoseRing,
-        Sound:Sawing,
-        Time:100,
-        Category:Crafting,
-        OnCreate:SoulForgedJewelryOnCreate,
-        OnTest:OnTest_CheckInInventory
-    }
-
-    recipe Soul Forge Earrings
-    {
-        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
-        PropaneTank/5,
-        ScrapMetal=15,
-        StoredSouls=100,
-        Result:SoulForgedEarrings,
-        Sound:Sawing,
-        Time:100,
-        Category:Crafting,
-        OnCreate:SoulForgedJewelryOnCreate,
-        OnTest:OnTest_CheckInInventory
-    }
-
-    recipe Soul Forge Ear Cuff
-    {
-        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
-        PropaneTank/5,
-        ScrapMetal=15,
-        StoredSouls=100,
-        Result:SoulForgedEarTop,
-        Sound:Sawing,
-        Time:100,
-        Category:Crafting,
-        OnCreate:SoulForgedJewelryOnCreate,
-        OnTest:OnTest_CheckInInventory
-    }
-
-    recipe Soul Forge Belly Button Ring
-    {
-        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
-        PropaneTank/5,
-        ScrapMetal=15,
-        StoredSouls=100,
-        Result:SoulForgedBellyButton,
-        Sound:Sawing,
-        Time:100,
-        Category:Crafting,
-        OnCreate:SoulForgedJewelryOnCreate,
-        OnTest:OnTest_CheckInInventory
-    }
-
-    recipe Soul Forge Right Middle Ring
-    {
-        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
-        PropaneTank/5, 
-        ScrapMetal=15,
-        StoredSouls=100,
-        Result:SoulForgedRightMiddleRing,
-        Time:100,
-        Category:Crafting,
-        OnCreate:SoulForgedJewelryOnCreate,
-        OnTest:OnTest_CheckInInventory
-    }
-
-    recipe Soul Forge Left Middle Ring 
-    {
-        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
-        PropaneTank/5,
-        ScrapMetal=15,
-        StoredSouls=100, 
-        Result:SoulForgedLeftMiddleRing,
-        Time:100,
-        Category:Crafting,
-        OnCreate:SoulForgedJewelryOnCreate,
-        OnTest:OnTest_CheckInInventory
-    }
-
-    recipe Soul Forge Right Ring Finger
-    {
-        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
-        PropaneTank/5,
-        ScrapMetal=15,
-        StoredSouls=100,
-        Result:SoulForgedRightRingFinger,
-        Time:100,
-        Category:Crafting, 
-        OnCreate:SoulForgedJewelryOnCreate,
-        OnTest:OnTest_CheckInInventory
-    }
-
-    recipe Soul Forge Left Ring Finger
-    {
-        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
-        PropaneTank/5,
-        ScrapMetal=15,
-        StoredSouls=100,
-        Result:SoulForgedLeftRingFinger, 
-        Time:100,
-        Category:Crafting,
-        OnCreate:SoulForgedJewelryOnCreate,
+		RemoveResultItem:true,
         OnTest:OnTest_CheckInInventory
     }
 
@@ -326,4 +191,3 @@ module SoulForgeJewelery
         BodyLocation = Left_RingFinger,
     }
 }
-
