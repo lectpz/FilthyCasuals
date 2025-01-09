@@ -1404,6 +1404,11 @@ function SoulCountSD(character, handWeapon)
 		if killDiff > 0 then
 			local SoulThirstValue = pMD.SoulThirstValue
 			local SoulThirst = 0
+			
+			if pMD.PermaSoulThirstValue then
+				SoulThirstValue = SoulThirstValue + pMD.PermaSoulThirstValue
+			end
+
 			if SoulThirstValue and SoulThirstValue > 0 then
 				if ZombRand(0,100) <= SoulThirstValue then
 					SoulThirst = 1
