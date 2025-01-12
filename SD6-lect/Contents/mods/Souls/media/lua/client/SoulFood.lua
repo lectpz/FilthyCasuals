@@ -226,8 +226,19 @@ function OnEat_Luck(food, character, percent)
 end
 
 function SoulSmithOnWeaponHitXP(player, handWeapon, character, damageSplit)
+--soul-forged-jewlery
+	if handWeapon:getType() == "BareHands" then return end
+	local pMD = player:getModData();
+	local SoulSmithValue = pMD.SoulSmithValue;
+
+	if pMD.PermaSoulSmithValue then
+		SoulSmithValue = SoulSmithValue + pMD.PermaSoulSmithValue;
+	end
+
+--
 	if handWeapon:getType() == "BareHands" or handWeapon:isRanged() then return end
 	local SoulSmithValue = player:getModData().SoulSmithValue
+-- main
 	if SoulSmithValue then
 		if ZombRand(0,100) < SoulSmithValue then
 			local weapRestore = ZombRand(2)+1

@@ -180,6 +180,18 @@ local function SDWeaponCheck(character, inventoryItem)
 			addCritChance = soulPower * 5 * augmentMulti/4
 			addCritMulti = soulPower * 0.5 * augmentMulti/4
 		end
+
+		if modData.SoulBuff then
+			if modData.PermaSoulForgeMaxDmgBonus then
+				addMaxDmg = addMaxDmg + modData.PermaSoulForgeMaxDmgBonus
+			end
+			if modData.PermaSoulForgeCritRateBonus then  
+				addCritChance = addCritChance + modData.PermaSoulForgeCritRateBonus
+			end
+			if modData.PermaSoulForgeCritMultiBonus then
+				addCritMulti = addCritMulti + modData.PermaSoulForgeCritMultiBonus
+			end
+		 end
 		
 		local basecritrate, basecritmulti, basemindmg, basemaxdmg, basename = modData.CriticalChance, modData.CritDmgMultiplier, modData.MinDamage, modData.MaxDamage, modData.Name
 		
@@ -192,6 +204,15 @@ local function SDWeaponCheck(character, inventoryItem)
 		local soulForgeMaxCondition = modData.MaxCondition or nil
 		local soulForgeMaxHitCount = modData.MaxHitCount or nil
 		local soulWrought = modData.SoulWrought or ""
+
+		if pMD.PermaMaxConditionBonus then
+			soulForgeMaxCondition = soulForgeMaxCondition + pMD.PermaMaxConditionBonus
+		end
+		
+		if pMD.PermaSoulForgeConditionBonus then
+			soulForgeConditionLowerChance = soulForgeConditionLowerChance + pMD.PermaSoulForgeConditionBonus
+		end
+
 		
 		inventoryItem:setCriticalChance((basecritrate + addCritChance) * soulForgeCritRate)
 		inventoryItem:setCritDmgMultiplier((basecritmulti + addCritMulti) * soulForgeCritMulti)

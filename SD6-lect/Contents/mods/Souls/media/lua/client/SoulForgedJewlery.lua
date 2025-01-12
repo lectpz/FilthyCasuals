@@ -103,6 +103,17 @@ local soulForgeBuffWeights = {
  }
  
  -- Utility functions
+local function findUnmodifiedSoulBuffJewlery(inventory, itemType)
+    local items = inventory:getItems()
+    for i=0, items:size()-1 do
+        local item = items:get(i)
+        if not item:getModData().SoulBuff and item:getFullType() == itemType then
+            return item
+        end
+    end
+    return nil
+ end
+
  local function getTierNumber(item)
     local modData = item:getModData()
     
@@ -170,17 +181,13 @@ local soulForgeBuffWeights = {
     return true
  end
  
- function ApplyBaseItemProperties(result)
+ function SetResultName(result)
     if not result then return end
     local modData = result:getModData()
     local selectedBuff = modData.SoulBuff
-
-    if not modData.BaseItem then return end
-
-    local baseItem = InventoryItemFactory.CreateItem(modData.BaseItem)
     
     local displayBuffName = buffDisplayNames[selectedBuff] or selectedBuff
-    local itemName = result:getName() .. " of " .. displayBuffName
+    local itemName = "Soul Forged " .. result:getName() .. " of " .. displayBuffName
 
     result:setName(itemName)
 end
@@ -203,49 +210,73 @@ end
         buff.apply(player, value, isEquipping)
     end
  end
- 
+
+
+ local function getRandomAccessoryForSlots()
+    local AccessorySlots = {
+        "Right_MiddleFinger",
+        "Left_MiddleFinger", 
+        "Right_RingFinger",
+        "Left_RingFinger",
+        "BellyButton",
+        "Neck",
+        "Necklace",
+        "Necklace_Long",
+        "Nose",
+        "Ears",
+        "EarTop"
+    }
+
+    local randomIndex = ZombRand(1, #AccessorySlots + 1)
+    local selectedSlot = AccessorySlots[randomIndex]  -- Use array indexing instead of :get()
+
+    local allItems = getAllItems()
+    local validItems = {}
+
+    for i=0, allItems:size()-1 do
+        local itemType = allItems:get(i)
+        if string.find(itemType:getBodyLocation(), selectedSlot) then
+            table.insert(validItems, itemType:getFullName())
+        end
+    end
+
+    return validItems[ZombRand(1, #validItems + 1)]  -- Use array indexing here too
+end
+
  -- Event watchers
  function SoulForgedJewelryOnCreate(items, result, player)
     if not result then return end
     if not items then return end
     
-    local tier = 1
-    for i=0, items:size()-1 do
-        local itemType = items:get(i):getFullType()
-        if itemType == "SoulForge.SoulShardT5" then 
-            tier = 5
-            break
-        elseif itemType == "SoulForge.SoulShardT4" then 
-            tier = 4
-        elseif itemType == "SoulForge.SoulShardT3" then 
-            tier = 3
-        elseif itemType == "SoulForge.SoulShardT2" then 
-            tier = 2
+    local rolledItem = getRandomAccessoryForSlots()
+
+    local inventory = player:getInventory()
+    inventory:AddItems(rolledItem, 1)
+
+    local createdItem = findUnmodifiedSoulBuffJewlery(inventory, rolledItem)
+
+    if createdItem then
+        local tier = 1
+        for i=0, items:size()-1 do
+            local itemType = items:get(i):getFullType()
+            if itemType == "SoulForge.SoulShardT5" then 
+                tier = 5
+                break
+            elseif itemType == "SoulForge.SoulShardT4" then 
+                tier = 4
+            elseif itemType == "SoulForge.SoulShardT3" then 
+                tier = 3
+            elseif itemType == "SoulForge.SoulShardT2" then 
+                tier = 2
+            end
         end
-    end
-    
-    local selectedBuff = getWeightedBuff("T" .. tier)
-    
-    local resultBodyLocation = result:getBodyLocation()
-    
-    local allItems = getAllItems()
-    local validItems = {}
-    
-    for i=0, allItems:size()-1 do
-        local itemType = allItems:get(i)
-        if itemType:getBodyLocation() == resultBodyLocation then
-            table.insert(validItems, itemType:getFullName())
-        end
-    end
-    
-    if #validItems > 0 then
-        local randomIndex = ZombRand(1, #validItems + 1)
-        local selectedJewelry = validItems[randomIndex]
-        result:getModData().BaseItem = selectedJewelry
-        result:getModData().SoulBuff = selectedBuff
-        result:getModData().Tier = tier
         
-        ApplyBaseItemProperties(result)
+        local selectedBuff = getWeightedBuff("T" .. tier)
+
+        createdItem:getModData().SoulBuff = selectedBuff
+        createdItem:getModData().Tier = tier
+        
+        SetResultName(createdItem)
     end
  end
  
@@ -263,10 +294,9 @@ end
     local playerWornItems = getPlayer():getWornItems()
     for i=0,playerWornItems:size()-1 do 
         local item = playerWornItems:get(i):getItem()
-        local itemFT = item:getFullType()
+        local modData = item:getModData()
 
-        if string.find(itemFT, "SoulForgeJewelery") then
-            local modData = item:getModData()
+        if modData.SoulBuff then
             local buff = modData.SoulBuff
             
             if buff and BUFF_CALCULATIONS[buff] then
