@@ -863,3 +863,12 @@ option SDVehicleReroll.Vanilla
     page = SDVehicleReroll,
     translation = SDVehicleReroll_Vanilla,
 }
+
+option TilePicker.RegularCache
+{
+	type = string,
+	default = rugs_Simon_MD_33:Bear Rug 1/7;rugs_Simon_MD_34:Bear Rug 2/7;rugs_Simon_MD_35:Bear Rug 3/7;rugs_Simon_MD_36:Bear Rug 4/7;rugs_Simon_MD_37:Bear Rug 5/7;rugs_Simon_MD_38:Bear Rug 6/7;rugs_Simon_MD_39:Bear Rug 7/7;,
+
+	page = TilePicker,
+	translation = TilePicker_RegularCache,
+}

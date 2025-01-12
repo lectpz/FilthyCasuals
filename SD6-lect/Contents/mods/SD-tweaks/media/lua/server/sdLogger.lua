@@ -70,6 +70,10 @@ function Commands.sdLogger.onItemFall(player, args)
     print("[sdLogger] Player [" .. args.player_name .. "] was forced to drop [" .. args.item .. " (ID=" .. (args.itemID) .. ")] at (" .. args.player_x .. "," .. args.player_y .. "," .. args.player_z .. ") in " .. args.zonename .. " [T" .. args.zonetier .. "]")
 end
 
+function Commands.sdLogger.SoulForgeEquip(player, args)
+    print("[sdLogger] Player [" .. args.player_name .. "] equipped a SoulForged item: [" .. args.name .. " (ID=".. args.itemID .. "]) with critrate mod: " .. args.critrate .. ", with critmulti mod: " .. args.critmulti .. ", with min dmg mod: " .. args.mindmg .. ", with max dmg mod: " .. args.maxdmg .. ", with endurance mod: " .. args.endurancemod .. ", with # of souls: " .. args.hassouls)
+end
+
 function Commands.sdLogger.modBagCap(player, args)
     print("[sdLogger] Player [" .. args.player_name .. "] modified bag capacity [" .. args.item .. " (ID=" .. (args.itemID) .. ")] to " .. args.modBagCap)
 end

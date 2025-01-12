@@ -21,6 +21,15 @@ local function addItemToPlayer(loot)
 	addToArgs(loot)
 end
 
+local function splitString(sandboxvar)
+	local ztable = {}
+	local pattern = "[^;]+"
+
+	for match in sandboxvar:gmatch(pattern) do
+		table.insert(ztable, match)
+	end
+	return ztable
+end
 
 --************************************************************************--
 --** ISPanel:initialise
@@ -304,6 +313,7 @@ function PZwaystone.mainpanel:eventreward()
 	local eventreward2 = SandboxVars.PZwaystonepanel.eventreward2
 	local eventreward3 = SandboxVars.PZwaystonepanel.eventreward3
 	local eventreward4 = SandboxVars.PZwaystonepanel.eventreward4
+	local eventreward5 = splitString(SandboxVars.PZwaystonepanel.eventreward5)
 
 	local ModDataSD = ModData.getOrCreate("SD5_EventReward")
 	-- Try to get the value, and if it's nil, set it to false
@@ -330,6 +340,11 @@ function PZwaystone.mainpanel:eventreward()
 			addItemToPlayer(eventreward2)
 			addItemToPlayer(eventreward3)
 			addItemToPlayer(eventreward4)
+			for i=1,#eventreward5 do
+				item = eventreward5[i]
+				addItemToPlayer(item)
+			end
+			
 			--sendClientCommand(player, 'sdLogger', 'ClaimReward', args);
 			--pzInv:AddItem(eventreward1);
 			--pzInv:AddItem(eventreward2);
