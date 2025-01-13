@@ -11,9 +11,18 @@ function patchEmptyPropaneTank(items, result, player)
     playerInv:AddItem(newtank)
 end
 
+function OnTest_sellValuables(item)
+	local iMD = item:getModData()
+	if iMD.SoulBuff == true then 
+		return false
+	else
+		return true
+	end
+end
+
 function SD6_sellValuables(items, result, player)
     local playerInv = player:getInventory()
-    playerInv:AddItems("Base.ScrapMetalBits", 4)
+    playerInv:AddItems("Base.ScrapMetalBits", 3)
 	--playerInv:AddItem("Base.ScrapMetalBits")
 end
 
@@ -38,6 +47,7 @@ local function patch_recipes()
             elseif name == "Sell Valuables" then
                 recipe:setRemoveResultItem(true)
 				recipe:setCanBeDoneFromFloor(true)
+				recipe:setLuaTest("OnTest_sellValuables")
 				recipe:setLuaCreate("SD6_sellValuables")
                 patched = patched + 1
                 print ("Patched \""..name.."\"..")

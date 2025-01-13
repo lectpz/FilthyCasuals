@@ -190,7 +190,7 @@ function OnZombieDeadItemDrop(zombie)
 			itemdrop(table1[t1])
 		end
 
-		if ZombRand(8-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
+		if ZombRand(7-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
 
 	elseif tierzone == 4 then
 		--player:Say("Tier 4! 1 / " .. tostring(t4roll))
@@ -205,7 +205,7 @@ function OnZombieDeadItemDrop(zombie)
 			itemdrop(table1[t1])
 		end
 
-		if ZombRand(8-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
+		if ZombRand(7-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
 
 	elseif tierzone == 3 then
 		--player:Say("Tier 3! 1 / " .. tostring(t3roll))
@@ -218,7 +218,7 @@ function OnZombieDeadItemDrop(zombie)
 			itemdrop(table1[t1])
 		end
 
-		if ZombRand(8-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
+		if ZombRand(7-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
 
 	elseif tierzone == 2 then
 		--player:Say("Tier 2! 1 / " .. tostring(t2roll))
@@ -229,7 +229,7 @@ function OnZombieDeadItemDrop(zombie)
 			itemdrop(table1[t1])
 		end
 
-		if ZombRand(8-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
+		if ZombRand(7-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
 
 	elseif tierzone == 1 then
 		--player:Say("Tier 1! 1 / " .. tostring(t1roll))
@@ -238,7 +238,7 @@ function OnZombieDeadItemDrop(zombie)
 			itemdrop(table1[t1])
 		end
 
-		if ZombRand(8-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
+		if ZombRand(7-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
 
 	end
 end
