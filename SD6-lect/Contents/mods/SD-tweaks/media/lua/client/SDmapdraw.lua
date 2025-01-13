@@ -24,11 +24,11 @@ function drawHatchedRectangleForZone(self, zoneName, spacingFactor, hatchSpacing
 		local startX, startY = zoneCoordinates[1], zoneCoordinates[2]
 		local endX, endY = zoneCoordinates[3], zoneCoordinates[4]
 
-		local tier = SandboxVars.SDZones[zoneName]
+		local tier = zoneCoordinates[5] --SandboxVars.SDZones[zoneName]
 		
 		local mapAPI = self.mapAPI
 
-		if tier ~= 1 then drawHatchedRectangle(self, startX, startY, endX, endY, spacingFactor, hatchSpacing, tier, mapAPI) end
+		if tier then drawHatchedRectangle(self, startX, startY, endX, endY, spacingFactor, hatchSpacing, tier, mapAPI) end
 	end
 end
 
@@ -120,32 +120,6 @@ local function isZoneNested(nested)
 	end
 end
 
-function ISWorldMap:modalTier(button)
-	if button.internal ~= "OK" then return end
-	zoneTier = tonumber(button.parent.entry:getText())
-end
-
-function ISWorldMap:modalName(button)
-	if button.internal ~= "OK" then return end
-	zoneName = button.parent.entry:getText()
-end
-
-function ISWorldMap:modalNested(button)
-	if button.internal == "YES" then
-		zoneNested = "Nested"
-	else
-		zoneNested = nil
-	end
-end
-
-function ISWorldMap:modalCenter(button)
-	if button.internal ~= "OK" then return end
-	local text = splitString(button.parent.entry:getText())
-	local x, y = tonumber(text[1]), tonumber(text[2])
-	modalMapAPI:centerOn(x, y)
-	modalMapAPI = nil
-end
-
 local ModDataMapDrawTierZones = ModData.getOrCreate("MapDrawTierZones")
 
 local ISWorldMap_onRightMouseUp = ISWorldMap.onRightMouseUp
@@ -157,7 +131,7 @@ function ISWorldMap:onRightMouseUp(x, y)
 	ISWorldMap_onRightMouseUp(self, x, y)
 	
 	local mapAPI = self.mapAPI
-	
+
 	context:addOptionOnTop("Center on Coordinate X,Y", self, 
 	function()
 		local modal = ISTextBox:new(0, 0, 280, 180, "Center Map on X,Y", "11072, 8851", nil, self.modalCenter, nil, 1,1,self)
@@ -167,68 +141,91 @@ function ISWorldMap:onRightMouseUp(x, y)
 	end)
 	
 	if isAdmin() or isDebugEnabled() then
-		newmapzone 	= context:addOptionOnTop("Draw new map zone:", self, nil)
-		submenu 	= ISContextMenu:getNew(context)
+		local newmapzone 	= context:addOptionOnTop("Draw new map zone:", self, nil)
+		local submenu 	= ISContextMenu:getNew(context)
 		context:addSubMenu(newmapzone, submenu)
 		
 		submenu:addOption("Define Zone Corner: " .. isTopLeft(zoneX1, zoneY1), self,
 			function()
 				zoneX1 = math.floor(self.mapAPI:uiToWorldX(x, y))
 				zoneY1 = math.floor(self.mapAPI:uiToWorldY(x, y))
+				addMapSymbol(zoneX1, zoneY1, 0, mapAPI)
+				if zoneX2 then addMapSymbol(zoneX2, zoneY1, 0, mapAPI) end
+				if zoneY2 then addMapSymbol(zoneX1, zoneY2, 0, mapAPI) end
 			end)
 			
 		submenu:addOption("Define Zone Corner: " .. isBottomRight(zoneX2, zoneY2), self,
 			function()
 				zoneX2 = math.floor(self.mapAPI:uiToWorldX(x, y))
 				zoneY2 = math.floor(self.mapAPI:uiToWorldY(x, y))
+				addMapSymbol(zoneX2, zoneY2, 0, mapAPI)
+				if zoneX1 then addMapSymbol(zoneX1, zoneY2, 0, mapAPI) end
+				if zoneY1 then addMapSymbol(zoneX2, zoneY1, 0, mapAPI) end
 			end)
 		
-		submenu:addOption("Define Zone Tier: " .. isZoneTier(zoneTier), self,
-			function()
-				local modal = ISTextBox:new(0, 0, 280, 180, "Define Zone Tier", "2", nil, self.modalTier, nil, 1,1,self)
-				modal:initialise()
-				modal:addToUIManager()
-			end)
-			
-		submenu:addOption("Define Zone Name: " .. isZoneName(zoneName), self,
-			function()
-				local modal = ISTextBox:new(0, 0, 280, 180, "Define Zone Name", "Zone #" .. ZombRand(1,10000), nil, self.modalName, nil, 1,1,self)
-				modal:initialise()
-				modal:addToUIManager()
-			end)
-		
-		submenu:addOption("Is Zone Nested - " .. isZoneNested(zoneNested), self,
-			function()
-				local player = 0
-				local width = 350;
-				local x = getPlayerScreenLeft(player) + (getPlayerScreenWidth(player) - width) / 2
-				local height = 120;
-				local y = getPlayerScreenTop(player) + (getPlayerScreenHeight(player) - height) / 2
-				local modal1 = ISModalDialog:new(x,y, width, height, "Nest this zone?", true, self, self.modalNested, player);
-				modal1:initialise()
-				modal1:addToUIManager()
-			end)	
-		
-		if zoneX1 and zoneY1 and zoneX2 and zoneY2 and zoneTier then
-			context:addOptionOnTop("Draw Zone: [T"..zoneTier.."] ("..zoneX1..","..zoneY1..","..zoneX2..","..zoneY2..") on map", self,
+		if zoneX1 and zoneY1 and zoneX2 and zoneY2 then
+			submenu:addOption("Define Zone Parameters", self, 
 				function()
-					drawHatchedRectangle(self, zoneX1, zoneY1, zoneX2, zoneY2, 1.0, 750, zoneTier, mapAPI)
+					local MapPanel = SDmap.CreateNewZone:new(getMouseX(), getMouseY(), 250, 250, zoneX1, zoneY1, zoneX2, zoneY2, self.mapAPI);
+					MapPanel:initialise();
+					MapPanel:addToUIManager();
+					zoneX1, zoneY1, zoneX2, zoneY2 = nil, nil, nil, nil
 				end)
 		end
-		
-		if zoneX1 and zoneY1 and zoneX2 and zoneY2 and zoneTier and zoneName and zoneNested then
-			context:addOption("Add " .. isZoneNested(zoneNested) .. "Zone: [T"..zoneTier.."] "..zoneName.." ("..zoneX1..","..zoneY1..","..zoneX2..","..zoneY2..") to zones table", self,
+
+		if self.zone and self.zone[6] ~= "Default" then
+
+			local _zoneinfo = self.zone[3]
+			local _zonename = self.zone[6]
+			local _zone = Zone.list[_zonename]
+			local zx1, zy1, zx2, zy2, ztier = _zone[1], _zone[2], _zone[3], _zone[4], _zone[5]
+			local zinfo = "[T" .. ztier .. "] " .. _zonename
+			
+			local d_zone 	= context:addOptionOnTop("Delete zone: " .. zinfo, self, nil)
+			submenu1 		= ISContextMenu:getNew(context)
+			context:addSubMenu(d_zone, submenu1)
+			
+			local _confirm 	= submenu1:addOption("CONFIRM DELETION OF: " .. zinfo, self, nil)
+			submenu2 		= ISContextMenu:getNew(submenu1)
+			submenu1:addSubMenu(_confirm, submenu2)
+			
+			submenu2:addOptionOnTop("DELETE: " .. zinfo, self,
 				function()
 					local zonesGMD = ModData.getOrCreate("MoreDifficultZones")
-					zonesGMD[zoneName] = { zoneX1, zoneY1, zoneX2, zoneY2, zoneTier, zoneNested }
-					ModData.transmit("MoreDifficultZones")
+					zonesGMD[_zonename] = "DELETE"
+					Zone.list[_zonename] = nil
+					NestedZone.list[_zonename] = nil
+					ZoneNames = getZoneNames(Zone.list)
+					NestedZoneNames = getZoneNames(NestedZone.list)
 					zoneX1, zoneY1, zoneX2, zoneY2, zoneTier, zoneName, zoneNested = nil, nil, nil, nil, nil, nil, nil
+					
+					local symbolsAPI = self.mapAPI:getSymbolsAPI()
+					for i=symbolsAPI:getSymbolCount()-1, 0, -1 do
+						local symbol = symbolsAPI:getSymbolByIndex(i)
+						if symbol:getSymbolID() == "Asterisk" then
+							symbolsAPI:removeSymbolByIndex(i)
+						end
+					end
+					
+					for i=1,#ZoneNames do
+						drawHatchedRectangleForZone(self, ZoneNames[i], 1.0, 750, self.mapAPI)
+					end
+
+					ModDataMapDrawTierZones[getCurrentUserSteamID()] = false
+					ModData.transmit("MoreDifficultZones")
 				end)
-		end		
-		
+			
+			local e_zone 	= context:addOptionOnTop("Edit " .. self.zone[3], self, 
+									function()
+										local MapPanel = SDmap.MapPanel:new(getMouseX(), getMouseY(), 250, 250, self.zone, self.mapAPI);
+										MapPanel:initialise();
+										MapPanel:addToUIManager();
+									end)
+		end
 	end
 end
 ---------------------------------------------------------
+
 
 local original_close = ISWorldMap.close
 function ISWorldMap:close()
@@ -245,6 +242,9 @@ function ISWorldMap:render()
 		self:drawText(zoneTally, x, y-95, 0.1, 0.1, 0.1, 1, UIFont.Title)
         self:drawText(zoneinfo, x, y-65, 0.1, 0.1, 0.1, 1, UIFont.Title)
 		self:drawText(zoneXY, x, y-35, 0.1, 0.1, 0.1, 1, UIFont.Title)
+		--[[self.tooltip.description = 	zoneTally .. "\n" ..
+									zoneinfo ..  "\n" ..
+									zoneXY]]
     end
 	if ModDataMapDrawTierZones[getCurrentUserSteamID()] then
 		local symbolsAPI = self.mapAPI:getSymbolsAPI()
@@ -263,7 +263,6 @@ function ISWorldMap:render()
 	end
 end
 
-
 local original_onMouseMove = ISWorldMap.onMouseMove
 function ISWorldMap:onMouseMove(dx, dy)
     original_onMouseMove(self, dx, dy)
@@ -274,11 +273,12 @@ function ISWorldMap:onMouseMove(dx, dy)
     local worldX = math.floor(self.mapAPI:uiToWorldX(mouseX, mouseY))
     local worldY = math.floor(self.mapAPI:uiToWorldY(mouseX, mouseY))
 
-    local tier, zonename, x, y, control, toxic = checkZoneAtXY(worldX, worldY)
+    local tier, zonename, x, y, control, toxic, sprinter, pinpoint, cognition = checkZoneAtXY(worldX, worldY)
 	
 	if zonename == "Unnamed Zone" then zonename = "Default" end
-	local sprinter = SandboxVars.SDRandomZombies[zonename] 
-	local pinpoint = SandboxVars.SDRandomZombies["Pinpoint"..zonename]
+	sprinter = sprinter or 0 
+	pinpoint = pinpoint or 0
+	cognition = cognition or 0
 	
 	local controlText = ""
 	local toxicText = ""
@@ -302,10 +302,10 @@ function ISWorldMap:onMouseMove(dx, dy)
 		end
 	end
 	
-	local zoneinfo = toxicText .. "[T"..tier.."] " .. zonename .. " - Sprinter="..sprinter.. "% Pinpoint="..pinpoint.."%"
+	local zoneinfo = toxicText .. "[T"..tier.."] " .. zonename .. " - Sprinter="..sprinter.. "% Pinpoint="..pinpoint.. "% Cognition="..cognition.."%"
 	local zoneXY = "("..worldX..","..worldY..") Controlled by:" .. controlText
 	
-	self.zone = { mouseX, mouseY, zoneinfo, zoneXY , zonesTally}
+	self.zone = { mouseX, mouseY, zoneinfo, zoneXY , zonesTally, zonename, zonetier}
 end
 
 local function zonesData()

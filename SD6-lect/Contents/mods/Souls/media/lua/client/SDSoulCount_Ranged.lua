@@ -70,20 +70,18 @@ local function isAugmented()
 end
 
 local function checkStatName(scriptItem, statName, multiplier)
-	if statName 	== "getMinDamage" then 
+	if statName 	== "getAmmoPerShoot" then 
 		return multiplier
-	elseif statName == "getMaxDamage" then 
+	elseif statName == "getAimingPerkCritModifier" then 
 		return multiplier
-	elseif statName == "getCriticalChance" then
+	elseif statName == "getAimingPerkHitChanceModifier" then
 		return multiplier
-	elseif statName == "getCritDmgMultiplier" then
+	elseif statName == "getAimingTime" then
 		return multiplier
-	elseif statName == "getConditionMax" then
+	elseif statName == "getAimingPerkRangeModifier" then
 		return multiplier
-	elseif statName == "getConditionLowerChance" then
-		return multiplier
-	elseif statName == "getEnduranceMod" then
-		return (scriptItem:getEnduranceMod() * multiplier)
+	elseif statName == "getProjectileCount" then
+		return (scriptItem:getProjectileCount() + multiplier)
 	elseif statName == "getMaxHitCount" then
 		return (scriptItem:getMaxHitCount() + multiplier)
 	end
@@ -123,49 +121,49 @@ local function setStat(upgradeName, statName, descno, description, scriptItem, n
             return
         end
 		
-		if statName == "getMinDamage" then
-			if weaponModData.soulForgeMinDmgMulti ~= nil then
-				weaponModData.soulForgeMinDmgMulti = weaponModData.soulForgeMinDmgMulti * n_stat
+		if statName == "getAmmoPerShoot" then
+			if weaponModData.soulForgeAmmoPerShoot ~= nil then
+				weaponModData.soulForgeAmmoPerShoot = true
 			else
-				weaponModData.soulForgeMinDmgMulti = n_stat -- Set the default value if nil
+				weaponModData.soulForgeAmmoPerShoot = true -- Set the default value if nil
 			end
-		elseif statName == "getMaxDamage" then
-			if weaponModData.soulForgeMaxDmgMulti ~= nil then
-				weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti * n_stat
+		elseif statName == "getAimingPerkCritModifier" then
+			if weaponModData.soulForgeAimingPerkCrit ~= nil then
+				weaponModData.soulForgeAimingPerkCrit = weaponModData.soulForgeAimingPerkCrit * n_stat
 			else
-				weaponModData.soulForgeMaxDmgMulti = n_stat
+				weaponModData.soulForgeAimingPerkCrit = n_stat
 			end
-		elseif statName == "getCriticalChance" then
-			if weaponModData.soulForgeCritRate ~= nil then
-				weaponModData.soulForgeCritRate = weaponModData.soulForgeCritRate * n_stat
+		elseif statName == "getAimingPerkHitChanceModifier" then
+			if weaponModData.soulForgeAimingPerkHitChance ~= nil then
+				weaponModData.soulForgeAimingPerkHitChance = weaponModData.soulForgeAimingPerkHitChance * n_stat
 			else
-				weaponModData.soulForgeCritRate = n_stat
+				weaponModData.soulForgeAimingPerkHitChance = n_stat
 			end
-		elseif statName == "getCritDmgMultiplier" then
-			if weaponModData.soulForgeCritMulti ~= nil then
-				weaponModData.soulForgeCritMulti = weaponModData.soulForgeCritMulti * n_stat
+		elseif statName == "getAimingTime" then
+			if weaponModData.soulForgeAimingTime ~= nil then
+				weaponModData.soulForgeAimingTime = weaponModData.soulForgeAimingTime * n_stat
 			else
-				weaponModData.soulForgeCritMulti = n_stat
+				weaponModData.soulForgeAimingTime = n_stat
 			end
-		elseif statName == "getConditionMax" then
-			if weaponModData.MaxCondition ~= nil then
-				weaponModData.MaxCondition = weaponModData.MaxCondition * n_stat
+		elseif statName == "getAimingPerkRangeModifier" then
+			if weaponModData.soulForgeAimingPerkRange ~= nil then
+				weaponModData.soulForgeAimingPerkRange = weaponModData.soulForgeAimingPerkRange * n_stat
 			else
-				weaponModData.MaxCondition = n_stat
+				weaponModData.soulForgeAimingPerkRange = n_stat
 			end
 			--print("Max Condition modifier: " .. weaponModData.MaxCondition)
 			item:setConditionMax(scriptItem:getConditionMax() * weaponModData.MaxCondition)
-		elseif statName == "getConditionLowerChance" then
-			if weaponModData.ConditionLowerChance ~= nil then
-				weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance * n_stat
+		elseif statName == "getProjectileCount" then
+			if weaponModData.soulForgeProjectileCount ~= nil then
+				weaponModData.soulForgeProjectileCount = n_stat
 			else
-				weaponModData.ConditionLowerChance = n_stat
+				weaponModData.soulForgeProjectileCount = n_stat
 			end
 			--print("Condition Lower Chance modifier: " .. weaponModData.ConditionLowerChance)
 			item:setConditionLowerChance(scriptItem:getConditionLowerChance() * weaponModData.ConditionLowerChance)
-		elseif statName == "getEnduranceMod" then
-			weaponModData.EnduranceMod = item:setEnduranceMod(n_stat)
-			item:setEnduranceMod(n_stat)
+		elseif statName == "getMaxHitCount" then
+			weaponModData.soulForgeMaxHitCount = item:getMaxHitCount() + n_stat
+			item:setMaxHitCount(weaponModData.soulForgeMaxHitCount)
 		end
 
         isAugmented()
@@ -1368,7 +1366,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 	end
 end
 
-Events.OnFillInventoryObjectContextMenu.Add(SoulContextSD) -- everytime you rightclick an object in your inventory it will trigger this check to add a teleport option
+--Events.OnFillInventoryObjectContextMenu.Add(SoulContextSD) -- everytime you rightclick an object in your inventory it will trigger this check to add a teleport option
 
 function SoulCountSD(character, handWeapon)
 
@@ -1424,4 +1422,4 @@ function SoulCountSD(character, handWeapon)
 
 end
 
-Events.OnPlayerAttackFinished.Add(SoulCountSD)
+--Events.OnPlayerAttackFinished.Add(SoulCountSD)

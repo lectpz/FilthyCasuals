@@ -69,7 +69,7 @@ local function checkTimestamp(buff)
 end
 
 function decayAlertness()
-	if not checkTimestamp("Alert") then return end
+	--if not checkTimestamp("Alert") then return end
 	local pMD = getSpecificPlayer(0):getModData()
 	local alertnessValue = pMD.alertnessValue or 0
 	if not pMD.alertnessTimer or not pMD.alertnessValue then 
@@ -104,13 +104,13 @@ function OnEat_Alert(food, character, percent)
 		pMD.alertnessTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
 		Events.EveryTenMinutes.Add(decayAlertness)
 		HaloTextHelper.addTextWithArrow(character, "Alert Buff Active. ", true, HaloTextHelper.getColorGreen());
-		buffTimer["Alert"] = getTimestamp()
+		--bufftimer["Alert"] = getTimestamp()
 	end
 	dPr("Alert Eat")
 end
 
 function decayFortitude()
-	if not checkTimestamp("Fortitude") then return end
+	--if not checkTimestamp("Fortitude") then return end
 	local pMD = getSpecificPlayer(0):getModData()
 	local fortitudeValue = pMD.fortitudeValue or 0
 	if not pMD.fortitudeTimer or not pMD.fortitudeValue then 
@@ -145,13 +145,13 @@ function OnEat_Fortitude(food, character, percent)
 		pMD.fortitudeTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
 		Events.EveryTenMinutes.Add(decayFortitude)
 		HaloTextHelper.addTextWithArrow(character, "Fortitude Buff Active. ", true, HaloTextHelper.getColorGreen());
-		buffTimer["Fortitude"] = getTimestamp()
+		--bufftimer["Fortitude"] = getTimestamp()
 	end
 	dPr("Fortitude Eat")
 end
 
 function decayIronChef()
-	if not checkTimestamp("IronChef") then return end
+	--if not checkTimestamp("IronChef") then return end
 	local pMD = getSpecificPlayer(0):getModData()
 	if not pMD.IronChefTimer or not pMD.IronChefValue then 
 		pMD.IronChefTimer = 0
@@ -182,13 +182,13 @@ function OnEat_IronChef(food, character, percent)
 		pMD.IronChefTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
 		Events.EveryTenMinutes.Add(decayIronChef)
 		HaloTextHelper.addTextWithArrow(character, "Iron Chef Buff Active. ", true, HaloTextHelper.getColorGreen());
-		buffTimer["IronChef"] = getTimestamp()
+		--bufftimer["IronChef"] = getTimestamp()
 	end
 	dPr("IronChef Eat")
 end
 
 function decayLuck()
-	if not checkTimestamp("Luck") then return end
+	--if not checkTimestamp("Luck") then return end
 	local pMD = getSpecificPlayer(0):getModData()
 	if not pMD.luckTimer or not pMD.luckValue then 
 		pMD.luckTimer = 0
@@ -220,25 +220,17 @@ function OnEat_Luck(food, character, percent)
 		
 		Events.EveryTenMinutes.Add(decayLuck)
 		HaloTextHelper.addTextWithArrow(character, "Luck Buff Active. ", true, HaloTextHelper.getColorGreen());
-		buffTimer["Luck"] = getTimestamp()
+		--bufftimer["Luck"] = getTimestamp()
 	end
 	dPr("Luck Eat")
 end
 
 function SoulSmithOnWeaponHitXP(player, handWeapon, character, damageSplit)
---soul-forged-jewlery
-	if handWeapon:getType() == "BareHands" then return end
-	local pMD = player:getModData();
-	local SoulSmithValue = pMD.SoulSmithValue;
-
-	if pMD.PermaSoulSmithValue then
-		SoulSmithValue = SoulSmithValue + pMD.PermaSoulSmithValue;
-	end
-
---
 	if handWeapon:getType() == "BareHands" or handWeapon:isRanged() then return end
-	local SoulSmithValue = player:getModData().SoulSmithValue
--- main
+	local pMD = getSpecificPlayer(0):getModData()
+	local permaSoulSmithValue = pMD.PermaSoulSmithValue
+	local SoulSmithValue = pMD.SoulSmithValue
+	if permaSoulSmithValue and permaSoulSmithValue > 0 then SoulSmithValue = SoulSmithValue + permaSoulSmithValue end
 	if SoulSmithValue then
 		if ZombRand(0,100) < SoulSmithValue then
 			local weapRestore = ZombRand(2)+1
@@ -250,8 +242,9 @@ function SoulSmithOnWeaponHitXP(player, handWeapon, character, damageSplit)
 end
 
 function decaySoulSmith()
-	if not checkTimestamp("SoulSmith") then return end
+	--if not checkTimestamp("SoulSmith") then return end
 	local pMD = getSpecificPlayer(0):getModData()
+	local permaSoulSmith = pMD.PermaSoulSmithValue
 	if not pMD.SoulSmithTimer or not pMD.SoulSmithValue then 
 		pMD.SoulSmithTimer = 0
 		pMD.SoulSmithValue = 0
@@ -262,8 +255,10 @@ function decaySoulSmith()
 	if pMD.SoulSmithTimer <= 0 then
 		Events.EveryTenMinutes.Remove(decaySoulSmith)
 		pMD.SoulSmithValue = 0
-		Events.OnWeaponHitXp.Remove(SoulSmithOnWeaponHitXP)
-		HaloTextHelper.addTextWithArrow(getSpecificPlayer(0), "Soul Smith Buff Removed. ", false, HaloTextHelper.getColorRed());
+		if not permaSoulSmith and not (permaSoulSmith > 0) then 
+			Events.OnWeaponHitXp.Remove(SoulSmithOnWeaponHitXP)
+			HaloTextHelper.addTextWithArrow(getSpecificPlayer(0), "Soul Smith Buff Removed. ", false, HaloTextHelper.getColorRed());
+		end
 	end
 	dPr("Soul Smith Decay - " .. pMD.SoulSmithTimer)
 end
@@ -273,6 +268,7 @@ function OnEat_SoulSmith(food, character, percent)
 	if percent == 1 then
 		local hunger = food:getModData().hungerChange
 		local pMD = character:getModData()
+		local permaSoulSmith = pMD.PermaSoulSmithValue
 		
 		if pMD.SoulSmithTimer and pMD.SoulSmithTimer > 0 then
 			Events.EveryTenMinutes.Remove(decaySoulSmith) --remove previous hook
@@ -283,14 +279,27 @@ function OnEat_SoulSmith(food, character, percent)
 		pMD.SoulSmithTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
 		
 		Events.EveryTenMinutes.Add(decaySoulSmith)
-		Events.OnWeaponHitXp.Add(SoulSmithOnWeaponHitXP)
-		HaloTextHelper.addTextWithArrow(character, "Soul Smith Buff Active. ", true, HaloTextHelper.getColorGreen());
-		buffTimer["SoulSmith"] = getTimestamp()
+		if not permaSoulSmith and not (permaSoulSmith > 0) then 
+			Events.OnWeaponHitXp.Add(SoulSmithOnWeaponHitXP)
+			HaloTextHelper.addTextWithArrow(character, "Soul Smith Buff Active. ", true, HaloTextHelper.getColorGreen());
+		end
+		--bufftimer["SoulSmith"] = getTimestamp()
 	end
 end
 
+local function initSoulSmith(player)
+	local pMD = player:getModData()
+	local permaSoulSmith = pMD.PermaSoulSmithValue
+	if permaSoulSmith and permaSoulSmith > 0 then
+		Events.OnWeaponHitXp.Add(SoulSmithOnWeaponHitXP)
+		HaloTextHelper.addTextWithArrow(character, "Soul Smith Active. ", true, HaloTextHelper.getColorGreen());
+	end
+	Events.OnPlayerMove.Remove(initSoulSmith)
+end
+Events.OnPlayerMove.Add(initSoulSmith)
+
 function decaySoulThirst()
-	if not checkTimestamp("SoulThirst") then return end
+	--if not checkTimestamp("SoulThirst") then return end
 	local pMD = getSpecificPlayer(0):getModData()
 	if not pMD.SoulThirstTimer or not pMD.SoulThirstValue then 
 		pMD.SoulThirstTimer = 0
@@ -322,7 +331,7 @@ function OnEat_SoulThirst(food, character, percent)
 		
 		Events.EveryTenMinutes.Add(decaySoulThirst)
 		HaloTextHelper.addTextWithArrow(character, "Soul Thirst Buff Active. ", true, HaloTextHelper.getColorGreen());
-		buffTimer["SoulThirst"] = getTimestamp()
+		--bufftimer["SoulThirst"] = getTimestamp()
 	end
 end
 
@@ -431,6 +440,7 @@ local function soulInfuse(player, context, _items)
 
 	for i=1, #items do
 		item = items[i]
+		if not item:isInPlayerInventory() then return end
 		if instanceof(item, "Food") then
 			local iMD = item:getModData()
 			--dPr("Hunger Change value: " .. item:getHungerChange())

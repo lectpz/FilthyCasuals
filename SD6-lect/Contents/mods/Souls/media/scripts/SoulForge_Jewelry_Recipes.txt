@@ -1,0 +1,34 @@
+module SoulForgeJewelery
+{
+    item SoulForgedNecklace
+    {
+        DisplayCategory = SoulForge,
+        Cosmetic = true,
+        Weight = 0.1,
+        DisplayName = Soul Forged Necklace,
+        Icon = Necklace_Gold,
+        ClothingItem = Necklace_Gold,
+        WorldStaticModel = Necklace_Ground,
+        CanBeBloody = false,
+        CanHaveHoles = false,
+        CanBeEquipped = true,
+        type = Clothing,
+        BodyLocation = Neck,
+    }
+
+    recipe Soul Forge Jewelry
+    {
+        SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
+        PropaneTank/5,
+        ScrapMetal=15,
+        StoredSouls=100,
+        Result:SoulForgedNecklace,
+        Sound:Hammering,
+        Time:100.0,
+        Category:Crafting,
+        OnCreate:SoulForgedJewelryOnCreate,
+		RemoveResultItem:true,
+        OnTest:OnTest_CheckInInventory
+    }
+}
+

@@ -20,15 +20,15 @@ local function initMeleeStats(modData, inventoryItem, character)
 		modData.MaxDamage			= inventoryItem:getMaxDamage()
 		modData.MaxHitCount			= inventoryItem:getMaxHitCount()
 		modData.Name				= character:getPrimaryHandItem():getName()
-		modData.SD6_2				= true
-	elseif not modData.SD6_2 then
+		modData.SD7_0				= true
+	elseif not modData.SD7_0 then
 		scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
 
 		inventoryItem:setMaxRange(scriptItem:getMaxRange())
 		
 		modData.MinDamage 			= scriptItem:getMinDamage()
 		modData.MaxDamage 			= scriptItem:getMaxDamage()
-		modData.SD6_2 				= true
+		modData.SD7_0 				= true
 	end
 end
 
@@ -104,6 +104,15 @@ local function SDOnWeaponSwing(character, handWeapon)
 		local soulForgeMaxHitCount = modData.MaxHitCount or nil
 		local soulWrought = modData.SoulWrought or ""
 		
+		local pMD = character:getModData()
+		local permaCritRate = pMD.PermaSoulForgeCritRateBonus 
+		local permaCritMulti = pMD.PermaSoulForgeCritMultiBonus
+		local permaMaxDmg = pMD.PermaSoulForgeMaxDmgBonus
+		
+		if permaCritRate then soulForgeCritRate = soulForgeCritRate * permaCritRate end
+		if permaCritMulti then soulForgeCritMulti = soulForgeCritMulti * permaCritMulti end
+		if permaMaxDmg then soulForgeMaxDmgMulti = soulForgeMaxDmgMulti * permaMaxDmg end
+		
 		inventoryItem:setCriticalChance(((basecritrate + addCritChance) * localcritrate) * modeMultiplier * soulForgeCritRate)
 		inventoryItem:setCritDmgMultiplier(((basecritmulti + addCritMulti) * localcritmulti) * modeMultiplier * soulForgeCritMulti)
 		inventoryItem:setMinDamage((basemindmg * localdmgmulti) * modeMultiplier * soulForgeMinDmgMulti)
@@ -118,7 +127,7 @@ local function SDOnWeaponSwing(character, handWeapon)
 			if mhc ~= inventoryItem:getMaxHitCount() then inventoryItem:setMaxHitCount(mhc) end
 		end
 		if soulForgeEnduranceMod then inventoryItem:setEnduranceMod(soulForgeEnduranceMod) end
-	elseif tierzone and handWeapon:isRanged() then
+	elseif tierzone and handWeapon:isRanged() and handWeapon:getSwingAnim() ~= "Handgun" then
 		initRangedStats(modData, inventoryItem, character)
 		local rangedmulti = 1.0
 		
@@ -180,18 +189,6 @@ local function SDWeaponCheck(character, inventoryItem)
 			addCritChance = soulPower * 5 * augmentMulti/4
 			addCritMulti = soulPower * 0.5 * augmentMulti/4
 		end
-
-		if modData.SoulBuff then
-			if modData.PermaSoulForgeMaxDmgBonus then
-				addMaxDmg = addMaxDmg + modData.PermaSoulForgeMaxDmgBonus
-			end
-			if modData.PermaSoulForgeCritRateBonus then  
-				addCritChance = addCritChance + modData.PermaSoulForgeCritRateBonus
-			end
-			if modData.PermaSoulForgeCritMultiBonus then
-				addCritMulti = addCritMulti + modData.PermaSoulForgeCritMultiBonus
-			end
-		 end
 		
 		local basecritrate, basecritmulti, basemindmg, basemaxdmg, basename = modData.CriticalChance, modData.CritDmgMultiplier, modData.MinDamage, modData.MaxDamage, modData.Name
 		
@@ -204,15 +201,15 @@ local function SDWeaponCheck(character, inventoryItem)
 		local soulForgeMaxCondition = modData.MaxCondition or nil
 		local soulForgeMaxHitCount = modData.MaxHitCount or nil
 		local soulWrought = modData.SoulWrought or ""
-
-		if pMD.PermaMaxConditionBonus then
-			soulForgeMaxCondition = soulForgeMaxCondition + pMD.PermaMaxConditionBonus
-		end
 		
-		if pMD.PermaSoulForgeConditionBonus then
-			soulForgeConditionLowerChance = soulForgeConditionLowerChance + pMD.PermaSoulForgeConditionBonus
-		end
-
+		local pMD = character:getModData()
+		local permaCritRate = pMD.PermaSoulForgeCritRateBonus 
+		local permaCritMulti = pMD.PermaSoulForgeCritMultiBonus
+		local permaMaxDmg = pMD.PermaSoulForgeMaxDmgBonus
+		
+		if permaCritRate then soulForgeCritRate = soulForgeCritRate * permaCritRate end
+		if permaCritMulti then soulForgeCritMulti = soulForgeCritMulti * permaCritMulti end
+		if permaMaxDmg then soulForgeMaxDmgMulti = soulForgeMaxDmgMulti * permaMaxDmg end
 		
 		inventoryItem:setCriticalChance((basecritrate + addCritChance) * soulForgeCritRate)
 		inventoryItem:setCritDmgMultiplier((basecritmulti + addCritMulti) * soulForgeCritMulti)
@@ -237,7 +234,7 @@ local function SDWeaponCheck(character, inventoryItem)
 		args.itemID = inventoryItem:getID()
 		
 		if isSoulForged then sendClientCommand(character, 'sdLogger', 'SoulForgeEquip', args) end
-	elseif inventoryItem:IsWeapon() and inventoryItem:isRanged() then
+	elseif inventoryItem:IsWeapon() and inventoryItem:isRanged() and inventoryItem:getSwingAnim() ~= "Handgun" then
 		initRangedStats(modData, inventoryItem, character)
 		
 		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier)

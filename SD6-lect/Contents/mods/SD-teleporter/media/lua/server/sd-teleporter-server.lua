@@ -67,10 +67,12 @@ end
 -- Fix for 41.78 TiS garbage: send list of players online
 -- Thanks bikinihorst!
 local tpList = {}
+sd_bID = {}
 function broadcastPlayersOnline()
 
     print("Broadcasting players online...")
 	tpList = {}
+	sd_bID = {}
 
 	local online_players = getOnlinePlayers();
 	local players_online = {};
@@ -86,6 +88,12 @@ function broadcastPlayersOnline()
 				local playerName = player:getUsername()
 				table.insert(players_online, playerName);
 				tpList[playerName] = player
+				local sq = player:getCurrentSquare()
+				local bldg
+				local bID
+				if sq then bldg = sq:getBuilding() end
+				if bldg then bID = bldg:getID() end
+				if bID then sd_bID[bID] = true end
 				--print(player:getX(), player:getY(), player:getZ())
 				--tier,zone,x,y,control,toxic = checkZoneAtXY(player:getX(),player:getY())
 				--print(tier,zone,x,y,control,toxic)

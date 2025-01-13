@@ -20,8 +20,7 @@ local function initKills()
 	local faction = pMD.faction
 	local DD_Faction = ModData.getOrCreate("DD_Faction")
 	
-	if faction then DD_Faction["Faction"] = faction end--compatibility so existing players save their faction pmd to gmd
-	if not faction and type(DD_Faction)=="string" then faction = DD_Faction["Faction"] end--make factions persist on death
+	faction = DD_Faction["Faction"]
 	
 	playerKillCount = player:getZombieKills()
 	--playerFaction = "KEK"

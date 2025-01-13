@@ -1,6 +1,4 @@
 --
-require "SDZoneCheck" --lect
-
 local Lib = SDRandomZombies
 
 local SDZ_UPDATE_FREQUENTY = 1000
@@ -25,10 +23,6 @@ function Lib.findField(o, fname)
 end
 
 function Lib.makeDistribution()
-    if not SandboxVars.SDRandomZombies then
-        error("no SDRandomZombies key in config")
-    end
-
     local distribution = {}
     distribution.Crawler = 0
     distribution.Shambler = 0
@@ -205,92 +199,26 @@ local function updateSpeedAndHearing(zombie, targetSpeed, actualSpeed, targetHea
     return didChange
 end
 
---lect
---link to SDZoneCheck and pull the coordinates from the global table.concat
---write the coordinates locally so we're not calling the global table thousands of times each update
-local Coords = {}
-
-for zoneName, coordinates in pairs(Zone.list) do
-    Coords[zoneName] = {
-        x1 = coordinates[1],
-        y1 = coordinates[2],
-        x2 = coordinates[3],
-        y2 = coordinates[4]
-    }
+local function updateCognition(zombie, targetCognition, actualCognition)
+	local didChange = false
+	
+	if actualCognition ~= targetCognition then
+		--print(targetCognition)
+		didChange = true
+		sandboxOpts:set("ZombieLore.Cognition", targetCognition)
+		zombie:DoZombieStats()
+		sandboxOpts:set("ZombieLore.Cognition", COGNITION_DEFAULT)
+		--print("changed cognition")
+	end
+	return didChange
 end
 
-local SDzones = {
-	"InsidePetro",
-	"LCBunker",
-	"LCDowntown",
-	"LCSouth1",
-	"LCSouth2",
-	"RavenCreekPDMilitaryHospital",
-	"RavenCreekEntrance",
-	"EeriePowerPlant",
-	"EerieCapitol",
-	"EerieMilitaryBase",
-	"EerieIrvington",
-	"BigBearLakeWest",
-	"LouisvillePD",
-	"LouisvilleMallArea",
-	"Louisville",
-	"CC",
-	"Muldraugh",
-	"WestPointWest",
-	"WestPointEast",
-	"Riverside",
-	"Rosewood",
-	"MarchRidge",
-	"Petroville",
-	"LakeIvy",
-	"FortRedstone",
-	"RavenCreek",
-	"EerieCountry",
-	"BigBearLake",
-	"Chestown",
-	"LC",
-	"Taylorsville",
-	"Grapeseed",
-	"OldStPaulo",
-	"LVshipping",
-	"LVairport",
-	"OaksdaleU",
-	"Nettle",
-	"RosewoodX",
-	"DirkerCityT5W",
-	"DirkerCityT5E",
-	"DirkerTownSouthT4",
-	"DirkerTownSouthT3",
-	"DirkerTownSouthEastT4",
-	"DirkerTownSouthEastT3",
-	"DirkerCityT4NW",
-	"DirkerCityT4N",
-	"DirkerCityT4NE",
-	"DirkerCityT4W",
-	"DirkerCityT4E",
-	"DirkerCityT4SW",
-	"DirkerCityT4S",
-	"DirkerCityT4SE",
-	"DirkerCityT4EE",
-	"DirkerCityT3N",
-	"DirkerCityT3West",
-	"DirkerCityT3South",
-	"DirkerTownNorthWestT4",
-	"DirkerTownNorthWestT3",
-	"DirkerEncampment",
-	"ValleyStreamMall",
-}
-
-local function isInsideZone(zone, x, y)
-  return x >= Coords[zone].x1 and y >= Coords[zone].y1 and x < Coords[zone].x2 and y < Coords[zone].y2
-end
-
-local function SDDistribution(zone)
-	d_Local = 100 * SandboxVars.SDRandomZombies[zone]
-	d_Hearing = 100 * SandboxVars.SDRandomZombies["Pinpoint" .. zone]
+local function SDDistribution(zone, sprinterValue, pinpointValue, cognitionValue)
+	d_Local = 100 * sprinterValue--* SandboxVars.SDRandomZombies[zone]
+	d_Hearing = 100 * pinpointValue--* SandboxVars.SDRandomZombies["Pinpoint" .. zone]
 	d_Zone = zone
-	return d_Local, d_Hearing, d_Zone
+	d_Cog = 100 * cognitionValue
+	return d_Local, d_Hearing, d_Zone, d_Cog
 end
 --lect
 
@@ -324,55 +252,41 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
                            35 and math.abs(squareYVal - modData.SDy) <= 35
 						   
 --lect
+	local tier, zone, x, y, control, toxic, sprinterValue, pinpointValue, cognitionValue = checkZoneAtXY(squareXVal, squareYVal)
+	if zone == "Unnamed Zone" then zone = "Default" end
+	distributionZone, distributionLocal, distributionHearing, distributionCognition = zone, 100 * sprinterValue, 100 * pinpointValue, 100 * cognitionValue
+	
 	local zombieSprinterZoneValue = modData.SDSprinterZoneValue or nil --call the modData for sprinterzone % associated with the zombie, or nil if it doesn't exist. if it does exist, its because it was written at the end of updateZombie
 	local zombieSprinterZone = modData.SDSprinterZone or nil --call the modData for sprinterzone name associated with the zombie, or nil if it doesn't exist. if it does exist, its because it was written at the end of updateZombie
-	--(note) avoiding the sprinterzonecheck because it can get quite heavy to iterate ontick for each zombie. instead, log the sprinter zone name onto the zombie mod data, then check do one additional check to check if the sprinter% for that zone matches the sprinter% logged onto the zombie
+	local zombieCognitionValue = modData.SDCognitionValue or nil --call the modData for sprinterzone name associated with the zombie, or nil if it doesn't exist. if it does exist, its because it was written at the end of updateZombie
 --lect
     -- NOTE(belette) we check for square to avoid crash in Java engine postupdate calls later
     if shouldSkip or (not square) then
-		if zombieSprinterZoneValue and zombieSprinterZone then
-			if zombieSprinterZoneValue == SandboxVars.SDRandomZombies[zombieSprinterZone] then--lect
+		if zombieSprinterZoneValue and zombieSprinterZone then--and zombieCognitionValue then
+			if zombieSprinterZoneValue == sprinterValue then--and zombieCognitionValue == cognitionValue then--lect
 				return true
 			end
 		end
     end
-
+	
     local zid = zombieID(zombie)
     local slice = hashToSlice(zid)
 
     if slice < 0 then
         slice = 0
     end
-	
---lect
-	local event_x1 = SandboxVars.SDevents.Xcoord1 or 1
-	local event_y1 = SandboxVars.SDevents.Ycoord1 or 1
-	local event_x2 = SandboxVars.SDevents.Xcoord2 or 1
-	local event_y2 = SandboxVars.SDevents.Ycoord2 or 1
-
-	if squareXVal >= event_x1 and squareYVal >= event_y1 and squareXVal < event_x2 and squareYVal < event_y2 and SandboxVars.SDevents.enabled then
-		distributionLocal, distributionHearing, distributionZone = SDDistribution("EventZone")
-	else
-		for i=1,#SDzones+1 do
-			if i <= #SDzones then
-				if isInsideZone(SDzones[i], squareXVal, squareYVal) then
-					distributionLocal, distributionHearing, distributionZone = SDDistribution(SDzones[i])
-					break
-				end
-			elseif i == #SDzones+1 then
-				distributionLocal, distributionHearing, distributionZone = SDDistribution("Default")
-			end
-		end
-	end
---lect
 
     if distributionLocal <= 100 then distributionLocal = 0 end
 
     local targetSpeed = (slice < distributionLocal) and SPEED_SPRINTER or SPEED_FAST_SHAMBLER
     local targetHearing = (slice < distributionHearing) and HEARING_PINPOINT or HEARING_NORMAL
+	--lect
+	local targetCognition = (slice < distributionCognition) and COGNITION_SMART or COGNITION_DEFAULT
+	--lect
 
     -- local function updateSpeedAndHearing(zombie, targetSpeed, actualSpeed, targetHearing, actualHearing)
     updateSpeedAndHearing(zombie, targetSpeed, speedTypeVal, targetHearing, hearingVal)
+	updateCognition(zombie, targetCognition, cognitionVal)
 
     if zombie:isCrawling() and shouldBeStanding(zombie) then
         zombie:toggleCrawling()
@@ -386,95 +300,28 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
     modData.SDx = squareXVal
     modData.SDy = squareYVal
 	modData.SDSprinterZone = distributionZone--log the sprinterzone name
-	modData.SDSprinterZoneValue = SandboxVars.SDRandomZombies[distributionZone]--sandbox zone sprinter %
+	modData.SDSprinterZoneValue = sprinterValue--sandbox zone sprinter %
+	modData.SDCognitionValue = cognitionValue--sandbox zone sprinter %
 
-    -- return shouldSkip
     return false
 end
 
-local zCounter = 0
-
-local function addEventUpdate()
-	Events.EveryOneMinute.Add(updateAllZombies)
-	--print("Events.EveryOneMinute.Add(updateAllZombies) executed!")
-end
-
-local function removeEventUpdate()
-	Events.EveryOneMinute.Remove(updateAllZombies)
-	--print("Events.EveryOneMinute.Remove(updateAllZombies) executed!")
-end
-
---[[
-local tickFrequency = 10
-local lastTicks = {16, 16, 16, 16, 16}
-local lastTicksIdx = 1
-local last = getTimestampMs()
-local tickCount = 0]]
 local function updateAllZombies()
---[[tickCount = tickCount + 1
-    if tickCount % tickFrequency ~= 1 then
-        return
-    end
-    tickCount = 1
-
-    local now = getTimestampMs()
-    local diff = now - last
-    last = now
-
-    local tickMs = diff / tickFrequency
-    lastTicks[lastTicksIdx] = tickMs
-    lastTicksIdx = (lastTicksIdx % 5) + 1
-    local totalTicks = 0
-    local sumTicks = 0
-    for _, v in ipairs(lastTicks) do
-        sumTicks = sumTicks + v
-        totalTicks = totalTicks + 1
-    end
-
-    local avgTickMs = sumTicks / totalTicks
-    -- NOTE: needs to be at least 2 for modulo check to pass
-    tickFrequency = math.max(2, math.ceil(SDZ_UPDATE_FREQUENTY / avgTickMs))
-]]
-	zCounter = zCounter + 1
 	sandboxOpts = getSandboxOptions()
-	--print("update zombie counter... " .. zCounter*5 .. " seconds passed!")
-	if zCounter >=1 then
-		removeEventUpdate() -- lect -- remove the event update, dont want this overlapping
-		--local startTime = getTimestampMs()
-		local zs = getCell():getZombieList()
-		local sz = zs:size()
-
-		-- Lib.time("update_" .. sz, function ()
-		local distribution = Lib.makeDistribution()
-		local bob = IsoZombie.new(nil)
-		local cognition = Lib.findField(bob, "public int zombie.characters.IsoZombie.cognition")
-		local speedType = Lib.findField(bob, "public int zombie.characters.IsoZombie.speedType")
-		local hearing = Lib.findField(bob, "public int zombie.characters.IsoZombie.hearing")
-		local client = isClient()
-		for i = 0, sz - 1 do
-			local z = zs:get(i)
-			if not (client and z:isRemoteZombie()) then
-				updateZombie(z, distribution, speedType, cognition, hearing)
-			end
+	local zs = getCell():getZombieList()
+	local sz = zs:size()
+	local distribution = Lib.makeDistribution()
+	local bob = IsoZombie.new(nil)
+	local cognition = Lib.findField(bob, "public int zombie.characters.IsoZombie.cognition")
+	local speedType = Lib.findField(bob, "public int zombie.characters.IsoZombie.speedType")
+	local hearing = Lib.findField(bob, "public int zombie.characters.IsoZombie.hearing")
+	local client = isClient()
+	for i = 0, sz - 1 do
+		local z = zs:get(i)
+		if not (client and z:isRemoteZombie()) then
+			updateZombie(z, distribution, speedType, cognition, hearing)
 		end
-		-- end)
-		--print("zombies updated! total zombies updated: " .. sz)
-		addEventUpdate() -- lect -- re-add event update after all zombies have been updated.
-		--local timeElapsed = getTimestampMs() - startTime
-		--print("It took " .. timeElapsed .. "ms to complete zombie update!")
-		zCounter = 0
 	end
 end
 
-function Lib.enable()
-    --local prevTickMs = lastTicks[((lastTicksIdx + 3) % 5) + 1]
-    --last = getTimestampMs() - prevTickMs * tickCount
-    --Events.OnTick.Add(updateAllZombies)
-end
-
-function Lib.disable()
-    Events.OnTick.Remove(updateAllZombies)
-end
-
---Lib.enable()
 Events.EveryOneMinute.Add(updateAllZombies)

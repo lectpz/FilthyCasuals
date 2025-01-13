@@ -91,10 +91,8 @@ function OnZombieDeadItemDrop(zombie)
 	
 	local pMD = player:getModData()
 	local luckValue = pMD.luckValue or 0
-
-	if pMD.PermaSoulForgeLuckBonus then 
-		luckValue = luckValue + pMD.PermaSoulForgeLuckBonus
-	end
+	local permaLuck = pMD.PermaSoulForgeLuckBonus 
+	if permaLuck then luckValue = luckValue + permaLuck end
 	
 --	define table 1 for common loot. examples are from Riku's melee weapon mod which are used exclusively on PARP, Sunday Drivers, and Filthy Casuals servers.
 --	local table1 = {RMWeapons.club1 RMWeapons.club2 RMWeapons.beardedaxe RMWeapons.MightCleaver RMWeapons.tanto RMWeapons.Thawk RMWeapons.bonkhammer RMWeapons.ScrapMace1 RMWeapons.spikedleg RMWeapons.TrenchShovel}
