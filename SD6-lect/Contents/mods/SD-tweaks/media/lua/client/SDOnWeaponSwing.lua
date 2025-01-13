@@ -108,10 +108,14 @@ local function SDOnWeaponSwing(character, handWeapon)
 		local permaCritRate = pMD.PermaSoulForgeCritRateBonus 
 		local permaCritMulti = pMD.PermaSoulForgeCritMultiBonus
 		local permaMaxDmg = pMD.PermaSoulForgeMaxDmgBonus
+		local permaMaxCondition = pMD.PermaMaxConditionBonus
+		local permaConditionLowerChance = pMD.PermaSoulForgeConditionBonus
 		
-		if permaCritRate then soulForgeCritRate = soulForgeCritRate * permaCritRate end
-		if permaCritMulti then soulForgeCritMulti = soulForgeCritMulti * permaCritMulti end
-		if permaMaxDmg then soulForgeMaxDmgMulti = soulForgeMaxDmgMulti * permaMaxDmg end
+		if permaCritRate then soulForgeCritRate = soulForgeCritRate * math.max(permaCritRate,1) end
+		if permaCritMulti then soulForgeCritMulti = soulForgeCritMulti * math.max(permaCritMulti,1) end
+		if permaMaxDmg then soulForgeMaxDmgMulti = soulForgeMaxDmgMulti * math.max(permaMaxDmg,1) end
+		if permaMaxCondition then soulForgeMaxCondition = soulForgeMaxCondition * math.max(permaMaxCondition, 1) end
+		if permaConditionLowerChance then soulForgeConditionLowerChance = soulForgeConditionLowerChance * math.max(permaConditionLowerChance, 1) end
 		
 		inventoryItem:setCriticalChance(((basecritrate + addCritChance) * localcritrate) * modeMultiplier * soulForgeCritRate)
 		inventoryItem:setCritDmgMultiplier(((basecritmulti + addCritMulti) * localcritmulti) * modeMultiplier * soulForgeCritMulti)
@@ -206,10 +210,14 @@ local function SDWeaponCheck(character, inventoryItem)
 		local permaCritRate = pMD.PermaSoulForgeCritRateBonus 
 		local permaCritMulti = pMD.PermaSoulForgeCritMultiBonus
 		local permaMaxDmg = pMD.PermaSoulForgeMaxDmgBonus
+		local permaMaxCondition = pMD.PermaMaxConditionBonus
+		local permaConditionLowerChance = pMD.PermaSoulForgeConditionBonus
 		
-		if permaCritRate then soulForgeCritRate = soulForgeCritRate * permaCritRate end
-		if permaCritMulti then soulForgeCritMulti = soulForgeCritMulti * permaCritMulti end
-		if permaMaxDmg then soulForgeMaxDmgMulti = soulForgeMaxDmgMulti * permaMaxDmg end
+		if permaCritRate then soulForgeCritRate = soulForgeCritRate * math.max(permaCritRate,1) end
+		if permaCritMulti then soulForgeCritMulti = soulForgeCritMulti * math.max(permaCritMulti,1) end
+		if permaMaxDmg then soulForgeMaxDmgMulti = soulForgeMaxDmgMulti * math.max(permaMaxDmg,1) end
+		if permaMaxCondition then soulForgeMaxCondition = soulForgeMaxCondition * math.max(permaMaxCondition, 1) end
+		if permaConditionLowerChance then soulForgeConditionLowerChance = soulForgeConditionLowerChance * math.max(permaConditionLowerChance, 1) end
 		
 		inventoryItem:setCriticalChance((basecritrate + addCritChance) * soulForgeCritRate)
 		inventoryItem:setCritDmgMultiplier((basecritmulti + addCritMulti) * soulForgeCritMulti)
