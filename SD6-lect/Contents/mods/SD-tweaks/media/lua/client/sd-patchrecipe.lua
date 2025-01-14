@@ -3,6 +3,9 @@ local recipesToPatch = {}
 recipesToPatch["Create Propane tank"] = true
 recipesToPatch["Sell Valuables"] = true
 recipesToPatch["Make Box of Nails"] = true
+recipesToPatch["Make Small Metal Sheet Mold"] = true
+recipesToPatch["Make Metal Bar Mold"] = true
+recipesToPatch["Make Metal Pipe Mold"] = true
 
 function patchEmptyPropaneTank(items, result, player)
     local newtank = InventoryItemFactory.CreateItem("Base.PropaneTank")
@@ -31,6 +34,21 @@ function SD6_makeNails(items, result, player)
 	playerInv:AddItem("Base.NailsBox")
 end
 
+function SD6_addSmallMetalSheet(items, result, player)
+    local playerInv = player:getInventory()
+	playerInv:AddItem("Base.SmallSheetMetal")
+end
+
+function SD6_addMetalPipe(items, result, player)
+    local playerInv = player:getInventory()
+	playerInv:AddItem("Base.MetalPipe")
+end
+
+function SD6_addMetalBar(items, result, player)
+    local playerInv = player:getInventory()
+	playerInv:AddItem("Base.MetalBar")
+end
+
 local function patch_recipes()
     local patched = 0
     local start = Calendar.getInstance():getTimeInMillis()
@@ -54,6 +72,18 @@ local function patch_recipes()
 			elseif name == "Make Box of Nails" then
                 --recipe:setRemoveResultItem(true)
 				recipe:setLuaCreate("SD6_makeNails")
+                patched = patched + 1
+                print ("Patched \""..name.."\"..")
+			elseif name == "Make Small Metal Sheet Mold" then
+				recipe:setLuaCreate("SD6_addSmallMetalSheet")
+                patched = patched + 1
+                print ("Patched \""..name.."\"..")
+			elseif name == "Make Metal Bar Mold" then
+				recipe:setLuaCreate("SD6_addMetalBar")
+                patched = patched + 1
+                print ("Patched \""..name.."\"..")
+			elseif name == "Make Metal Pipe Mold" then
+				recipe:setLuaCreate("SD6_addMetalPipe")
                 patched = patched + 1
                 print ("Patched \""..name.."\"..")
             end

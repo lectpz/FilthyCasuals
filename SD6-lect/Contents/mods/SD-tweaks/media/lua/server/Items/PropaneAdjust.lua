@@ -2,7 +2,7 @@ local function PropaneAdjust()
 
 	local item = ScriptManager.instance:getItem("Base.BlowTorch")
 	if item then
-		item:DoParam("UseDelta = 0.04")
+		item:DoParam("UseDelta = 0.03125")
 		item:DoParam("cantBeConsolided = false")
 		item:DoParam("ConsolidateOption = ContextMenu_Merge")
 	end
