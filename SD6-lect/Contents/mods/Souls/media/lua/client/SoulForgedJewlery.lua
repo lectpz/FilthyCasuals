@@ -87,7 +87,7 @@ local soulForgeBuffWeights = {
     CritMulti = {
         format = "+%.1f%% Critical Strike Multiplier",
         getDisplayValue = function(tier) return 2 * tier end,
-        getBonus = function(tier) return (0.02 * tier) end,
+        getBonus = function(tier) return (0.01 * tier) end,
         modData = "PermaSoulForgeCritMultiBonus",
         defaultValue = 1
     },
@@ -101,7 +101,7 @@ local soulForgeBuffWeights = {
     SoulSmith = {
         format = "+%d%% Soul Smith Bonus",
         getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return (.02 * tier) end,
+        getBonus = function(tier) return (.01 * tier) end,
         modData = "PermaSoulSmithValue",
         defaultValue = 1
     },
@@ -190,11 +190,16 @@ local function findUnmodifiedSoulBuffJewlery(inventory, itemType)
     if not result then return end
     local modData = result:getModData()
     local selectedBuff = modData.SoulBuff
+    if not selectedBuff then return end
+    
+    if result:getName():find("Soul Forged") then return end
     
     local displayBuffName = buffDisplayNames[selectedBuff] or selectedBuff
-    local itemName = "Soul Forged " .. result:getName() .. " of " .. displayBuffName
-
-    result:setName(itemName)
+    local newItemName = displayBuffName .. " Soul Forged " .. result:getName()
+    
+    if result:getName() ~= newItemName then
+        result:setName(newItemName)
+    end
 end
  
  local function modifyBuff(player, item, isEquipping, buffType)
@@ -287,7 +292,6 @@ end
  end
  
  local function OnClothingUpdated(player)
-    
     if not player:getModData().originalMaxWeightBase then
         player:getModData().originalMaxWeightBase = player:getMaxWeightBase()
     end
@@ -307,6 +311,7 @@ end
             
             if buff and BUFF_CALCULATIONS[buff] then
                 modifyBuff(player, item, true, buff)
+                SetResultName(item)
             end
         end
     end
