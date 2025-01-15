@@ -52,12 +52,6 @@ local soulForgeBuffWeights = {
         getBonus = function(tier) return 0.016 * tier end,
         modData = "PermaSoulForgeDexterityBonus"
     },
-    SoulSmith = {
-        format = "+%d%% Soul Smith Bonus",
-        getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return (.02 * tier) + 1 end,
-        modData = "PermaSoulSmithValue"
-    },
     SoulThirst = {
         format = "+%d%% Soul Thirst Bonus",
         getDisplayValue = function(tier) return 2 * tier end,
@@ -79,27 +73,38 @@ local soulForgeBuffWeights = {
     ConditionLowerChance = {
         format = "+%d Condition Resilience",
         getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return (0.01 * tier) + 1 end,
-        modData = "PermaSoulForgeConditionBonus"
+        getBonus = function(tier) return (0.01 * tier) end,
+        modData = "PermaSoulForgeConditionBonus",
+        defaultValue = 1
     },
     CritRate = {
         format = "+%.1f%% Critical Strike Chance",
         getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return (0.01 * tier) + 1 end,
-        modData = "PermaSoulForgeCritRateBonus"
+        getBonus = function(tier) return (0.01 * tier) end,
+        modData = "PermaSoulForgeCritRateBonus",
+        defaultValue = 1
     },
     CritMulti = {
         format = "+%.1f%% Critical Strike Multiplier",
         getDisplayValue = function(tier) return 2 * tier end,
-        getBonus = function(tier) return (0.02 * tier) + 1 end,
-        modData = "PermaSoulForgeCritMultiBonus"
+        getBonus = function(tier) return (0.02 * tier) end,
+        modData = "PermaSoulForgeCritMultiBonus",
+        defaultValue = 1
     },
     MaxDmg = {
         format = "+%.1f%% Maximum Damage",
         getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return (0.01 * tier) + 1 end,
-        modData = "PermaSoulForgeMaxDmgBonus"
-    }
+        getBonus = function(tier) return (0.001 * tier) end,
+        modData = "PermaSoulForgeMaxDmgBonus",
+        defaultValue = 1
+    },
+    SoulSmith = {
+        format = "+%d%% Soul Smith Bonus",
+        getDisplayValue = function(tier) return 1 * tier end,
+        getBonus = function(tier) return (.02 * tier) end,
+        modData = "PermaSoulSmithValue",
+        defaultValue = 1
+    },
  }
  
  -- Utility functions
@@ -235,7 +240,8 @@ end
 
     for i=0, allItems:size()-1 do
         local itemType = allItems:get(i)
-        if string.find(itemType:getBodyLocation(), selectedSlot) then
+        
+        if itemType:getBodyLocation() == selectedSlot and not itemType:getFabricType() then
             table.insert(validItems, itemType:getFullName())
         end
     end
@@ -287,7 +293,7 @@ end
     end
     
     for _, buff in pairs(BUFF_CALCULATIONS) do
-        player:getModData()[buff.modData] = 0
+        player:getModData()[buff.modData] = buff.defaultValue or 0
     end
     player:setMaxWeightBase(player:getModData().originalMaxWeightBase)
 
