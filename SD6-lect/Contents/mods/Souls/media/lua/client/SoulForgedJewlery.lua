@@ -54,12 +54,12 @@ local soulForgeBuffWeights = {
     },
     SoulThirst = {
         format = "+%d%% Soul Thirst Bonus",
-        getDisplayValue = function(tier) return 2 * tier end,
+        getDisplayValue = function(tier) return 4 * tier end,
         getBonus = function(tier) return 0.4 * tier end,
         modData = "PermaSoulThirstValue"
     },
     MaxCondition = {
-        format = "+%d Durability",
+        format = "+%d%% Durability",
         getDisplayValue = function(tier) return 1 * tier end,
         getBonus = function(tier) return math.ceil(0.01 * tier) end,
         modData = "PermaMaxConditionBonus"
@@ -87,13 +87,13 @@ local soulForgeBuffWeights = {
     CritMulti = {
         format = "+%.1f%% Critical Strike Multiplier",
         getDisplayValue = function(tier) return 2 * tier end,
-        getBonus = function(tier) return (0.01 * tier) end,
+        getBonus = function(tier) return (0.02 * tier) end,
         modData = "PermaSoulForgeCritMultiBonus",
         defaultValue = 1
     },
     MaxDmg = {
         format = "+%.1f%% Maximum Damage",
-        getDisplayValue = function(tier) return 1 * tier end,
+        getDisplayValue = function(tier) return .1 * tier end,
         getBonus = function(tier) return (0.001 * tier) end,
         modData = "PermaSoulForgeMaxDmgBonus",
         defaultValue = 1
