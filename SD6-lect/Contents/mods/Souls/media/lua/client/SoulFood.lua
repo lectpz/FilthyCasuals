@@ -226,11 +226,12 @@ function OnEat_Luck(food, character, percent)
 end
 
 function SoulSmithOnWeaponHitXP(player, handWeapon, character, damageSplit)
+	if player ~= getSpecificPlayer(0) then return end
 	if handWeapon:getType() == "BareHands" or handWeapon:isRanged() then return end
 	local pMD = getSpecificPlayer(0):getModData()
 	local permaSoulSmithValue = pMD.PermaSoulSmithValue
 	local SoulSmithValue = pMD.SoulSmithValue
-	if permaSoulSmithValue and permaSoulSmithValue > 0 then SoulSmithValue = SoulSmithValue + permaSoulSmithValue end
+	if SoulSmithValue and permaSoulSmithValue and permaSoulSmithValue > 1 then SoulSmithValue = SoulSmithValue + permaSoulSmithValue end
 	if SoulSmithValue then
 		if ZombRand(0,100) < SoulSmithValue then
 			local weapRestore = ZombRand(2)+1
@@ -290,9 +291,9 @@ end
 local function initSoulSmith(player)
 	local pMD = player:getModData()
 	local permaSoulSmith = pMD.PermaSoulSmithValue
-	if permaSoulSmith and permaSoulSmith > 0 then
+	if permaSoulSmith and permaSoulSmith > 1 then
 		Events.OnWeaponHitXp.Add(SoulSmithOnWeaponHitXP)
-		HaloTextHelper.addTextWithArrow(character, "Soul Smith Active. ", true, HaloTextHelper.getColorGreen());
+		HaloTextHelper.addTextWithArrow(player, "Soul Smith Active. ", true, HaloTextHelper.getColorGreen());
 	end
 	Events.OnPlayerMove.Remove(initSoulSmith)
 end

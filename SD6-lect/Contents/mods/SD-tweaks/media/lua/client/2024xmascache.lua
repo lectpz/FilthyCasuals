@@ -30,12 +30,12 @@ function request_XMAS2024reward(player)
 	ModData.request("XMAS2024reward")
 	Events.OnPlayerMove.Remove(request_XMAS2024reward)
 end
-Events.OnInitGlobalModData.Add(	function()
+--[[Events.OnInitGlobalModData.Add(	function()
 									local gmd_xmas2024 = ModData.getOrCreate("transmit_XMAS2024reward")	
 									if not gmd_xmas2024[getCurrentUserSteamID()] then 
 										Events.OnPlayerMove.Add(request_XMAS2024reward)
 									end
-								end)
+								end)]]
 
 function XMAS2024_GMD(key, modData)
 	if key == "XMAS2024reward" then

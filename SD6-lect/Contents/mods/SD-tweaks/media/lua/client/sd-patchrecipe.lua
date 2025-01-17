@@ -6,6 +6,7 @@ recipesToPatch["Make Box of Nails"] = true
 recipesToPatch["Make Small Metal Sheet Mold"] = true
 recipesToPatch["Make Metal Bar Mold"] = true
 recipesToPatch["Make Metal Pipe Mold"] = true
+recipesToPatch["Make 97 Bushmaster Seat"] = true
 
 function patchEmptyPropaneTank(items, result, player)
     local newtank = InventoryItemFactory.CreateItem("Base.PropaneTank")
@@ -16,7 +17,7 @@ end
 
 function OnTest_sellValuables(item)
 	local iMD = item:getModData()
-	if iMD.SoulBuff == true then 
+	if iMD.SoulBuff then 
 		return false
 	else
 		return true
@@ -47,6 +48,10 @@ end
 function SD6_addMetalBar(items, result, player)
     local playerInv = player:getInventory()
 	playerInv:AddItem("Base.MetalBar")
+end
+
+function getYeetedToHell()
+	return false
 end
 
 local function patch_recipes()
@@ -84,6 +89,11 @@ local function patch_recipes()
                 print ("Patched \""..name.."\"..")
 			elseif name == "Make Metal Pipe Mold" then
 				recipe:setLuaCreate("SD6_addMetalPipe")
+                patched = patched + 1
+                print ("Patched \""..name.."\"..")
+			elseif name == "Make 97 Bushmaster Seat" then
+				recipe:setIsHidden(true)
+				recipe:setCanPerform("getYeetedToHell")
                 patched = patched + 1
                 print ("Patched \""..name.."\"..")
             end

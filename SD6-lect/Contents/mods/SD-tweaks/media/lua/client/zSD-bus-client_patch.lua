@@ -1,7 +1,7 @@
 local tp_loc = {
 	["cc"] = { 11072, 8851, 0 },
 	["cc_shops"] = { 11250, 8903, 0 },
-	["rs"] = { 5964, 5276, 0 },
+--[[	["rs"] = { 5964, 5276, 0 },
 	["wp"] = { 12074, 7235, 0},
 	["ivy"] = { 8778, 9760, 1},
 	["rw"] = { 8256, 11886, 0},
@@ -11,16 +11,15 @@ local tp_loc = {
 	["ec"] = { 10457, 17218, 0},
 	["bbl"] = { 7015, 7574, 0},
 	["lc"] = { 15444, 6521, 0},
-	["old_rw"] = { 8819, 11897, 0},
 	["DD_entrance"] = { 9737, 6275, 0 },
 	["DD_outpost1"] = { 8816, 4531, 0 },
-	["DD_outpost2"] = { 2918, 2483, 0 },
+	["DD_outpost2"] = { 2918, 2483, 0 },]]
 }
 
 local stopName = {
 	["cc"] = "Muldraugh Community Center",
 	["cc_shops"] = "Community Center Shops (East)",
-	["rs"] = "Riverside",
+--[[	["rs"] = "Riverside",
 	["wp"] = "West Point Outpost",
 	["ivy"] = "Ivy Lake",
 	["rw"] = "Rosewood",
@@ -30,10 +29,9 @@ local stopName = {
 	["ec"] = "Eerie County",
 	["bbl"] = "Big Bear Lake",
 	["lc"] = "Lake Cumberland",
-	["old_rw"] = "Old Rosewood Bus Stop",
 	["DD_entrance"] = "Dirkerdam FOB",
 	["DD_outpost1"] = "Dirkerdam South City Outpost",
-	["DD_outpost2"] = "Dirkerdam North-West Outpost",
+	["DD_outpost2"] = "Dirkerdam North-West Outpost",]]
 }
 
 local function playSoundWhenMoveFrom(playerObj,x,y)

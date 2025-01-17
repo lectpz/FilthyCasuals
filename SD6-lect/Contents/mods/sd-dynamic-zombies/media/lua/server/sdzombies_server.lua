@@ -287,12 +287,16 @@ local function updateZombie(zombie, distribution, speedType, cognition, hearing)
     -- local function updateSpeedAndHearing(zombie, targetSpeed, actualSpeed, targetHearing, actualHearing)
     updateSpeedAndHearing(zombie, targetSpeed, speedTypeVal, targetHearing, hearingVal)
 	updateCognition(zombie, targetCognition, cognitionVal)
+	
+	if not zombie:getAttackedBy() then
+		zombie:setHealth(2.1)
+    end
 
     if zombie:isCrawling() and shouldBeStanding(zombie) then
         zombie:toggleCrawling()
         zombie:setCanWalk(true);
     end
-
+	
     modData.SDspeed = getClassFieldVal(zombie, speedType)
     modData.SDcog = getClassFieldVal(zombie, cognition)
     modData.SDhearing = getClassFieldVal(zombie, hearing)

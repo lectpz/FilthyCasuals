@@ -1371,6 +1371,7 @@ end
 Events.OnFillInventoryObjectContextMenu.Add(SoulContextSD) -- everytime you rightclick an object in your inventory it will trigger this check to add a teleport option
 
 function SoulCountSD(character, handWeapon)
+	if character ~= getSpecificPlayer(0) then return end
 
 	if handWeapon:getType() == "BareHands" then return end
 
