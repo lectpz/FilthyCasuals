@@ -366,7 +366,7 @@ end
     tooltip:drawText(value, 16, pos_y, selected_bg.r, selected_bg.g, selected_bg.b, selected_bg.a, font);
  end
  
- function drawTooltip(tooltip, modData)
+ function drawTooltipJewelry(tooltip, modData)
     local font = getCore():getOptionTooltipFont();
     local drawFont = UIFont.Medium;
     if font == "Large" then drawFont = UIFont.Large; elseif font == "Small" then drawFont = UIFont.Small; end;
@@ -390,7 +390,7 @@ end
         local itemObj = self.item;
         local modData = self.item:getModData()
         if itemObj and modData.SoulBuff then
-            drawTooltip(self, modData)
+            drawTooltipJewelry(self, modData)
         end
     end
  
