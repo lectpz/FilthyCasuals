@@ -39,13 +39,6 @@ local soulForgeBuffWeights = {
         getBonus = function(tier) return 1 end,
         modData = "PermaSoulForgeStrengthBonus",
         apply = function(player, value, isEquipping)
-            if player:HasTrait("StrongBack") then
-                    player:setMaxWeightBase(9);
-                elseif player:HasTrait("WeakBack") then
-                    player:setMaxWeightBase(7);
-                else
-                    player:setMaxWeightBase(8);
-            end
             if isEquipping and not player:getModData().originalMaxWeightBase then
                 player:getModData().originalMaxWeightBase = player:getMaxWeightBase()
             end
@@ -299,6 +292,13 @@ end
  end
  
  local function OnClothingUpdated(player)
+    if player:HasTrait("StrongBack") then
+            player:setMaxWeightBase(9);
+        elseif player:HasTrait("WeakBack") then
+            player:setMaxWeightBase(7);
+        else
+            player:setMaxWeightBase(8);
+    end
     if not player:getModData().originalMaxWeightBase then
         player:getModData().originalMaxWeightBase = player:getMaxWeightBase()
     end
