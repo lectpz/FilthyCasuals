@@ -32,6 +32,8 @@ local soulForgeBuffWeights = {
     MaxDmg = "Maximum Damage"
  }
  
+ local validZones = {1, 2, 3, 4, 5}
+
  local BUFF_CALCULATIONS = {
     SoulStrength = {
         format = "+%d Strengther",
@@ -39,11 +41,7 @@ local soulForgeBuffWeights = {
         getBonus = function(tier) return 1 end,
         modData = "PermaSoulForgeStrengthBonus",
         apply = function(player, value, isEquipping)
-            if isEquipping and not player:getModData().originalMaxWeightBase then
-                player:getModData().originalMaxWeightBase = player:getMaxWeightBase()
-            end
-            local originalWeight = player:getModData().originalMaxWeightBase or player:getMaxWeightBase()
-            player:setMaxWeightBase(originalWeight + (player:getModData().PermaSoulForgeStrengthBonus or 0))
+            player:setMaxWeightBase(player:getMaxWeightBase() + (player:getModData().PermaSoulForgeStrengthBonus or 0))
         end
     },
     SoulDexterity = {
@@ -256,7 +254,6 @@ end
 
  -- Event watchers
  function SoulForgedJewelryOnCreate(items, result, player)
-    if not result then return end
     if not items then return end
     
     local rolledItem = getRandomAccessoryForSlots()
@@ -290,6 +287,37 @@ end
         SetResultName(createdItem)
     end
  end
+
+ local function getTierSoulShard()
+    local tier = checkZone()
+    local items = ArrayList.new()
+    
+    local soulShard = InventoryItemFactory.CreateItem("SoulForge.SoulShardT" .. tier)
+    if soulShard then
+        items:add(soulShard)
+    end
+    
+    return items
+end
+
+local function isValidZone(zone)
+    for _, validZone in ipairs(validZones) do
+        if zone == validZone then
+            return true
+        end
+    end
+    return false
+end
+
+ function SoulForgedZombieKill(zombie)
+    local tierZone = checkZone()
+    if ZombRand(299) == 0 and isValidZone(tierZone)  then
+        local items = getTierSoulShard()
+        local result = nil
+        
+        SoulForgedJewelryOnCreate(items, result, zombie)
+    end
+ end
  
  local function OnClothingUpdated(player)
     if player:HasTrait("StrongBack") then
@@ -299,14 +327,10 @@ end
         else
             player:setMaxWeightBase(8);
     end
-    if not player:getModData().originalMaxWeightBase then
-        player:getModData().originalMaxWeightBase = player:getMaxWeightBase()
-    end
     
     for _, buff in pairs(BUFF_CALCULATIONS) do
         player:getModData()[buff.modData] = buff.defaultValue or 0
     end
-    player:setMaxWeightBase(player:getModData().originalMaxWeightBase)
 
     local playerWornItems = getPlayer():getWornItems()
     for i=0,playerWornItems:size()-1 do 
@@ -401,3 +425,5 @@ end
  Events.EveryOneMinute.Add(function()
     OnClothingUpdated(getPlayer())
  end)
+
+ Events.OnZombieDead.Add(SoulForgedZombieKill)
