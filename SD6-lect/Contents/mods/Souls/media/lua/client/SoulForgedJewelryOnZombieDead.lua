@@ -1,5 +1,5 @@
-local EventHandlers = require('SoulForgedJeweleryEventHandlers')
-local ItemGenerator = require('SoulForgedJeweleryItemGeneration')
+local EventHandlers = require('SoulForgedJewelryEventHandlers')
+local ItemGenerator = require('SoulForgedJewelryItemGeneration')
 local validZones = {1, 2, 3, 4, 5}
 
 local function isValidZone(zone)

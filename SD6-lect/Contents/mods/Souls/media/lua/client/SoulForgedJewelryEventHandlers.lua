@@ -1,7 +1,7 @@
 local EventHandlers = {}
-local Config = require('SoulForgedJeweleryConfig')
-local BuffSystem = require('SoulForgedJeweleryBuffs')
-local ItemGenerator = require('SoulForgedJeweleryItemGeneration')
+local Config = require('SoulForgedJewelryConfig')
+local BuffSystem = require('SoulForgedJewelryBuffs')
+local ItemGenerator = require('SoulForgedJewelryItemGeneration')
 
 function EventHandlers.OnTest_CheckInInventory(item)
     local player = getSpecificPlayer(0)

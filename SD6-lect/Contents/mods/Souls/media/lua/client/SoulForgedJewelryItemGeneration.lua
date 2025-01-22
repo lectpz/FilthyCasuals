@@ -1,6 +1,6 @@
 local ItemGenerator = {}
-local Config = require('SoulForgedJeweleryConfig')
-local BuffSystem = require('SoulForgedJeweleryBuffs')
+local Config = require('SoulForgedJewelryConfig')
+local BuffSystem = require('SoulForgedJewelryBuffs')
 
 function ItemGenerator.findUnmodifiedSoulBuffJewlery(inventory, itemType)
     local items = inventory:getItems()

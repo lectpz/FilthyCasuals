@@ -1,9 +1,9 @@
 local BuffSystem = {}
-local Config = require('SoulForgedJeweleryConfig')
+local Config = require('SoulForgedJewelryConfig')
 
 BuffSystem.BUFF_CALCULATIONS = {
     SoulStrength = {
-        format = "+%d Strengther",
+        format = "Strengther",
         getDisplayValue = function(tier) return 1 end,
         getBonus = function(tier) return 1 end,
         modData = "PermaSoulForgeStrengthBonus",
@@ -11,60 +11,60 @@ BuffSystem.BUFF_CALCULATIONS = {
             player:setMaxWeightBase(player:getMaxWeightBase() + (player:getModData().PermaSoulForgeStrengthBonus or 0))
         end
     },
+    luck = {
+        format = "Luck",
+        getDisplayValue = function(tier) return 1 * tier end,
+        getBonus = function(tier) return 1 * tier end,
+        modData = "PermaSoulForgeLuckBonus"
+    },
     SoulDexterity = {
-        format = "+%d%% Transfer Speed",
+        format = "Transfer Speed",
         getDisplayValue = function(tier) return 1.6 * tier end,
         getBonus = function(tier) return 0.016 * tier end,
         modData = "PermaSoulForgeDexterityBonus"
     },
     SoulThirst = {
-        format = "+%d%% Soul Thirst Bonus",
+        format = "Soul Thirst Bonus",
         getDisplayValue = function(tier) return 4 * tier end,
         getBonus = function(tier) return 0.4 * tier end,
         modData = "PermaSoulThirstValue"
     },
     MaxCondition = {
-        format = "+%d%% Durability",
+        format = "Durability",
         getDisplayValue = function(tier) return 1 * tier end,
         getBonus = function(tier) return math.ceil(0.01 * tier) end,
         modData = "PermaMaxConditionBonus"
     },
-    luck = {
-        format = "+%d Luck",
-        getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return 1 * tier end,
-        modData = "PermaSoulForgeLuckBonus"
-    },
     ConditionLowerChance = {
-        format = "+%d Condition Resilience",
+        format = "Condition Resilience",
         getDisplayValue = function(tier) return 1 * tier end,
         getBonus = function(tier) return (0.01 * tier) end,
         modData = "PermaSoulForgeConditionBonus",
         defaultValue = 1
     },
     CritRate = {
-        format = "+%.1f%% Critical Strike Chance",
+        format = "Crit Chance",
         getDisplayValue = function(tier) return 1 * tier end,
         getBonus = function(tier) return (0.01 * tier) end,
         modData = "PermaSoulForgeCritRateBonus",
         defaultValue = 1
     },
     CritMulti = {
-        format = "+%.1f%% Critical Strike Multiplier",
+        format = "Crit Multiplier",
         getDisplayValue = function(tier) return 2 * tier end,
         getBonus = function(tier) return (0.02 * tier) end,
         modData = "PermaSoulForgeCritMultiBonus",
         defaultValue = 1
     },
     MaxDmg = {
-        format = "+%.1f%% Maximum Damage",
+        format = "Maximum Damage",
         getDisplayValue = function(tier) return .1 * tier end,
         getBonus = function(tier) return (0.001 * tier) end,
         modData = "PermaSoulForgeMaxDmgBonus",
         defaultValue = 1
     },
     SoulSmith = {
-        format = "+%d%% Soul Smith Bonus",
+        format = "Soul Smith Bonus",
         getDisplayValue = function(tier) return 1 * tier end,
         getBonus = function(tier) return (.01 * tier) end,
         modData = "PermaSoulSmithValue",

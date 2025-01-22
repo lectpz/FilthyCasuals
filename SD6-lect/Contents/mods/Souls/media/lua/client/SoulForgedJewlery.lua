@@ -1,8 +1,9 @@
-local Config = require('SoulForgedJeweleryConfig')
-local BuffSystem = require('SoulForgedJeweleryBuffs')
-local ItemGenerator = require('SoulForgedJeweleryItemGeneration')
-local EventHandlers = require('SoulForgedJeweleryEventHandlers')
-local TooltipSystem = require('SoulForgedJeweleryTooltips')
+local Config = require('SoulForgedJewelryConfig')
+local BuffSystem = require('SoulForgedJewelryBuffs')
+local ItemGenerator = require('SoulForgedJewelryItemGeneration')
+local EventHandlers = require('SoulForgedJewelryEventHandlers')
+local TooltipSystem = require('SoulForgedJewelryTooltips')
+local EventHandlers = require('SoulForgedJewelryEventHandlers')
 
 -- Initialize tooltip system
 TooltipSystem.setupTooltipRenderer()
@@ -43,3 +44,4 @@ function ISInventoryTransferAction:new(character, item, srcContainer, destContai
     return o
 end
 
+SoulForgedJewelryOnCreate = EventHandlers.SoulForgedJewelryOnCreate
