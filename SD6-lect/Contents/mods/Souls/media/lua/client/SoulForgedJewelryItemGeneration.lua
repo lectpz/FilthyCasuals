@@ -22,9 +22,12 @@ function ItemGenerator.getRandomAccessoryForSlots()
 
     for i=0, allItems:size()-1 do
         local itemType = allItems:get(i)
+        local fullName = itemType:getFullName()
         
-        if itemType:getBodyLocation() == selectedSlot and not itemType:getFabricType() then
-            table.insert(validItems, itemType:getFullName())
+        if itemType:getBodyLocation() == selectedSlot 
+            and not itemType:getFabricType()
+            and not string.find(string.lower(fullName), "kp") then
+            table.insert(validItems, fullName)
         end
     end
 
