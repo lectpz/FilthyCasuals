@@ -14,8 +14,6 @@ end
 Events.OnZombieDead.Add(function(zombie)
     local tierZone = checkZone()
 
-    print("Rolling zombie kill")
-
     if ZombRand(299) == 0 and isValidZone(tierZone) then
         local items = ItemGenerator.getTierSoulShard()
         local result = nil
