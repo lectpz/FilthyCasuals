@@ -64,7 +64,7 @@ function XMAS2024_GMD(key, modData)
 		Events.OnReceiveGlobalModData.Remove(XMAS2024_GMD)
 	end
 end
-Events.OnReceiveGlobalModData.Add(XMAS2024_GMD)
+--Events.OnReceiveGlobalModData.Add(XMAS2024_GMD)
 
 
 function OnCanPerform_2024xmascache(recipe, playerObj)

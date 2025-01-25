@@ -6,7 +6,7 @@ module SoulForgeJewelery
         PropaneTank/5,
         ScrapMetal=15,
         StoredSouls=100,
-        Result:Base.Necklace_Gold,
+        Result:Base.Dice,
         Sound:Hammering,
         Time:100.0,
         Category:Crafting,

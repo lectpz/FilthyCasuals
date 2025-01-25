@@ -485,10 +485,10 @@ module SoulForge {
 	
 	recipe Unforge Weapon
 	{
-		StoredSouls=500,
-		SoulShardT1=8,
+		StoredSouls=400,
+		SoulShardT1=7,
 		SoulShardT2=6,
-		SoulShardT3=4,
+		SoulShardT3=3,
 		AnimNode:Loot,
 		Prop1: Source=1,
 		Result:EmptySoulFlaskWhite,

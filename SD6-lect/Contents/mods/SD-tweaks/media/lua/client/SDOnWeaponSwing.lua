@@ -128,6 +128,7 @@ local function SDOnWeaponSwing(character, handWeapon)
 		
 		if soulForgeMaxHitCount then
 			local mhc = math.max(soulForgeMaxHitCount-math.floor(tierzone/4),1)
+			if inventoryItem:getSwingAnim() == "Heavy" then mhc = soulForgeMaxHitCount end
 			if mhc ~= inventoryItem:getMaxHitCount() then inventoryItem:setMaxHitCount(mhc) end
 		end
 		if soulForgeEnduranceMod then inventoryItem:setEnduranceMod(soulForgeEnduranceMod) end
@@ -225,7 +226,11 @@ local function SDWeaponCheck(character, inventoryItem)
 		inventoryItem:setMaxDamage((basemaxdmg + addMaxDmg) * soulForgeMaxDmgMulti)
 		inventoryItem:setName(soulWrought..basename)
 		
-		if soulForgeMaxHitCount then inventoryItem:setMaxHitCount(math.max(soulForgeMaxHitCount-math.floor(tierzone/4),1)) end
+		if soulForgeMaxHitCount then
+			local mhc = math.max(soulForgeMaxHitCount-math.floor(tierzone/4),1)
+			if inventoryItem:getSwingAnim() == "Heavy" then mhc = soulForgeMaxHitCount end
+			if mhc ~= inventoryItem:getMaxHitCount() then inventoryItem:setMaxHitCount(mhc) end
+		end
 		if soulForgeConditionLowerChance then inventoryItem:setConditionLowerChance(scriptItem:getConditionLowerChance() * soulForgeConditionLowerChance) end
 		if soulForgeMaxCondition then inventoryItem:setConditionMax(scriptItem:getConditionMax() * soulForgeMaxCondition) end
 		if soulForgeEnduranceMod then inventoryItem:setEnduranceMod(soulForgeEnduranceMod) end

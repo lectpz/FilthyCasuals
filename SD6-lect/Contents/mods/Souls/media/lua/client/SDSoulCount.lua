@@ -1284,7 +1284,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 							end
 
 							
-							local Upgrade1MatNo = {6,4,3,2,1}
+							local Upgrade1MatNo = {6,4,3,2,2}
 							local swUpgrade1 = submenu2:addOption("Add +1% to Minimum Damage Modifier", item, function()
 																										if not weaponModData.soulForgeMinDmgMulti then weaponModData.soulForgeMinDmgMulti = 1 end
 																										remove_swMats(Upgrade1MatNo)
@@ -1293,7 +1293,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 																										end, player)
 							sw_upgrade(swUpgrade1, Upgrade1MatNo, "SoulForge.MinDmgTicket")
 																										
-							local Upgrade2MatNo = {8,6,5,3,1}
+							local Upgrade2MatNo = {8,6,5}
 							local swUpgrade2 = submenu2:addOption("Add +1% to Maximum Damage Modifier", item, function()
 																										if not weaponModData.soulForgeMaxDmgMulti then weaponModData.soulForgeMaxDmgMulti = 1 end
 																										remove_swMats(Upgrade2MatNo)
@@ -1302,7 +1302,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 																										end, player)
 							sw_upgrade(swUpgrade2, Upgrade2MatNo, "SoulForge.MaxDmgTicket")
 																										
-							local Upgrade3MatNo = {7,5,3,2,1}
+							local Upgrade3MatNo = {7,5,3,2}
 							local swUpgrade3 = submenu2:addOption("Add +1% to Critical Chance Modifier", item, function()
 																										if not weaponModData.soulForgeCritRate then weaponModData.soulForgeCritRate = 1 end
 																										remove_swMats(Upgrade3MatNo)
@@ -1311,7 +1311,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 																										end, player)
 							sw_upgrade(swUpgrade3, Upgrade3MatNo, "SoulForge.CritChanceTicket")
 																										
-							local Upgrade4MatNo = {5,4,3,2,1}
+							local Upgrade4MatNo = {5,4,3}
 							local swUpgrade4 = submenu2:addOption("Add +1% to Critical Damage Multiplier Modifier", item, function()
 																													if not weaponModData.soulForgeCritMulti then weaponModData.soulForgeCritMulti = 1 end
 																													remove_swMats(Upgrade4MatNo)

@@ -1,0 +1,19 @@
+VERSION = 1,
+
+option Shops.PurchaseLog
+{
+	type = boolean,
+	default = false,
+
+	page = Shops,
+	translation = Shops_PurchaseLog,
+}
+
+option Shops.SellLog
+{
+	type = boolean,
+	default = false,
+
+	page = Shops,
+	translation = Shops_SellLog,
+}

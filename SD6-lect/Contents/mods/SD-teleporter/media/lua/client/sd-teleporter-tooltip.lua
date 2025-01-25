@@ -43,7 +43,7 @@ local function draw_remaining(tooltip, label, pos_y, remaining, font)
 
 end
 
-function drawTooltip(tooltip)
+local function drawTooltip(tooltip)
     local font = getCore():getOptionTooltipFont();
     local drawFont = UIFont.Medium;
     if font == "Large" then drawFont = UIFont.Large; elseif font == "Small" then drawFont = UIFont.Small; end;

@@ -1,0 +1,9 @@
+IGUI_EN = {
+    IGUI_Tab_Meds = "Meds",
+    IGUI_Tab_Vehicles = "Vehicles and Parts",
+    IGUI_Tab_GearSets = "Gear Sets",,
+    IGUI_Tab_Event = "Event Rewards",
+    IGUI_Tab_Misc = "Misc Items",
+	IGUI_Tab_KP = "KP Armor",
+	IGUI_Tab_PawLow = "PawLow Armor",
+}

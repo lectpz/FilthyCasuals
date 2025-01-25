@@ -20,7 +20,8 @@ local function initKills()
 	local faction = pMD.faction
 	local DD_Faction = ModData.getOrCreate("DD_Faction")
 	
-	faction = DD_Faction["Faction"]
+	pMD.faction = DD_Faction["Faction"]
+	faction = pMD.faction
 	
 	playerKillCount = player:getZombieKills()
 	--playerFaction = "KEK"

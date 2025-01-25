@@ -82,7 +82,7 @@ local function EveryOneMinuteSD()
 		elseif tier_no == 3 then
 			setTierMoodle(tier_no, 0.4)
 		elseif tier_no == 2 then
-			setTierMoodle(tier_no, 0.7)
+			setTierMoodle(tier_no, 0.6)
 		elseif tier_no == 1 then
 			setTierMoodle(tier_no, 1.0)
 		end
@@ -92,7 +92,10 @@ local function EveryOneMinuteSD()
 		local DD_Faction = ModData.getOrCreate("DD_Faction")
 
 		if faction then DD_Faction["Faction"] = faction end--compatibility so existing players save their faction pmd to gmd
-		if not faction and type(DD_Faction["Faction"])=="string" then faction = DD_Faction["Faction"] end--make factions persist on death
+		if not faction and type(DD_Faction["Faction"])=="string" then
+			faction = DD_Faction["Faction"] 
+			pMD.faction = DD_Faction["Faction"] 
+		end--make factions persist on death
 
 		if faction == "COG" then
 			MF.getMoodle("COG"):setValue(1.0)

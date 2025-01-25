@@ -3,43 +3,39 @@ module SoulForge {
 	recipe Create Soul Infused Binding (Laceration)
 	{
 		CanBeDoneFromFloor:false,
-		destroy SoulCrystalT1,
+		SoulShardT1=3,
 		Base.AlcoholBandage=2,
 		destroy Base.SutureNeedle,
-		Base.PlantainCataplasm=1,
-		Base.WildGarlicCataplasm=1,
 		Base.Thread=3,
 		Base.Pills=3,
 		Base.Disinfectant=3,
 		Base.Antibiotics=1,
 		AnimNode:Loot,
 		Result:SoulForge.LacerationHealing,
-		Time:500.0,
+		Time:200.0,
 		OnTest:OnTest_isInPlayerInventory,
 	}
 
 	recipe Create Soul Infused Binding (Deep Wound)
 	{
 		CanBeDoneFromFloor:false,
-		destroy SoulCrystalT2,
+		SoulShardT2=3,
 		Base.AlcoholBandage=2,
 		destroy Base.SutureNeedle,
-		Base.PlantainCataplasm=1,
-		Base.WildGarlicCataplasm=1,
 		Base.Thread=3,
 		Base.Pills=3,
 		Base.Disinfectant=3,
 		Base.Antibiotics=1,
 		AnimNode:Loot,
 		Result:SoulForge.DeepWoundHealing,
-		Time:500.0,
+		Time:200.0,
 		OnTest:OnTest_isInPlayerInventory,
 	}
 
 	recipe Create Soul Infused Binding (Bite)
 	{
 		CanBeDoneFromFloor:false,
-		destroy SoulCrystalT3,
+		SoulShardT3=4,
 		Base.AlcoholBandage=3,
 		destroy Base.SutureNeedle,
 		Base.PlantainCataplasm=1,
@@ -50,14 +46,14 @@ module SoulForge {
 		Base.Antibiotics=1,
 		AnimNode:Loot,
 		Result:SoulForge.BiteHealing,
-		Time:500.0,
+		Time:200.0,
 		OnTest:OnTest_isInPlayerInventory,
 	}
 
 	recipe Create Soul Infused Binding (Fracture)
 	{
 		CanBeDoneFromFloor:false,
-		destroy SoulCrystalT3,
+		SoulShardT3=2,
 		Base.AlcoholBandage=2,
 		Base.Splint=2,
 		Base.ComfreyCataplasm=1,
@@ -65,14 +61,14 @@ module SoulForge {
 		Base.Pills=10,
 		AnimNode:Loot,
 		Result:SoulForge.FractureHealing,
-		Time:500.0,
+		Time:200.0,
 		OnTest:OnTest_isInPlayerInventory,
 	}
 	
 	recipe Create Soul Infused Binding (Burn)
 	{
 		CanBeDoneFromFloor:false,
-		destroy SoulCrystalT2,
+		SoulShardT2=3,
 		Base.AlcoholBandage=2,
 		Base.PlantainCataplasm=1,
 		Base.WildGarlicCataplasm=1,
@@ -82,7 +78,7 @@ module SoulForge {
 		Base.Antibiotics=1,
 		AnimNode:Loot,
 		Result:SoulForge.BurnHealing,
-		Time:500.0,
+		Time:200.0,
 		OnTest:OnTest_isInPlayerInventory,
 	}
 
@@ -93,7 +89,7 @@ module SoulForge {
 		AnimNode:Loot,
 		Prop1: Source=1,
 		Result:Base.BandageDirty,
-		Time:500.0,
+		Time:200.0,
 		OnTest:OnTest_isInPlayerInventory,
 		OnCanPerform:OnCanPerform_healWound_cut,
 		OnCreate:OnCreate_healWound_cut,
@@ -106,7 +102,7 @@ module SoulForge {
 		AnimNode:Loot,
 		Prop1: Source=1,
 		Result:Base.BandageDirty,
-		Time:500.0,
+		Time:200.0,
 		OnTest:OnTest_isInPlayerInventory,
 		OnCanPerform:OnCanPerform_healWound_deepWound,
 		OnCreate:OnCreate_healWound_deepWound,
@@ -119,7 +115,7 @@ module SoulForge {
 		AnimNode:Loot,
 		Prop1: Source=1,
 		Result:Base.BandageDirty,
-		Time:500.0,
+		Time:200.0,
 		OnTest:OnTest_isInPlayerInventory,
 		OnCanPerform:OnCanPerform_healWound_bite,
 		OnCreate:OnCreate_healWound_bite,
@@ -132,7 +128,7 @@ module SoulForge {
 		AnimNode:Loot,
 		Prop1: Source=1,
 		Result:Base.BandageDirty,
-		Time:500.0,
+		Time:200.0,
 		OnTest:OnTest_isInPlayerInventory,
 		OnCanPerform:OnCanPerform_healWound_fracture,
 		OnCreate:OnCreate_healWound_fracture,
@@ -145,7 +141,7 @@ module SoulForge {
 		AnimNode:Loot,
 		Prop1: Source=1,
 		Result:Base.BandageDirty,
-		Time:500.0,
+		Time:200.0,
 		OnTest:OnTest_isInPlayerInventory,
 		OnCanPerform:OnCanPerform_healWound_burned,
 		OnCreate:OnCreate_healWound_burned,
