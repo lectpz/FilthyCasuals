@@ -32,7 +32,7 @@ BuffSystem.BUFF_CALCULATIONS = {
     MaxCondition = {
         format = "Durability",
         getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return math.ceil(0.01 * tier) end,
+        getBonus = function(tier) return (0.01 * tier) end,
         modData = "PermaMaxConditionBonus",
         defaultValue = 1
     },

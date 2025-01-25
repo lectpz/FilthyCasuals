@@ -45,3 +45,12 @@ function ISInventoryTransferAction:new(character, item, srcContainer, destContai
 end
 
 SoulForgedJewelryOnCreate = EventHandlers.SoulForgedJewelryOnCreate
+function SoulForgedJewelryOnCreateCache(items, result, player)
+    local cacheItem = items:get(0)
+    local tier = tonumber(string.match(cacheItem:getType(), "T(%d+)"))
+    
+    for i=1,3 do
+        items = ItemGenerator.getTierSoulShardExplicit(tier)
+        SoulForgedJewelryOnCreate(items, result, player)
+    end
+end
