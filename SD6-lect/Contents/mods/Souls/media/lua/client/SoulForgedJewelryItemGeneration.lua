@@ -62,4 +62,15 @@ function ItemGenerator.getTierSoulShard()
     return items
 end
 
+function ItemGenerator.getTierSoulShardExplicit(tier)
+    local items = ArrayList.new()
+    
+    local soulShard = InventoryItemFactory.CreateItem("SoulForge.SoulShardT" .. tier)
+    if soulShard then
+        items:add(soulShard)
+    end
+    
+    return items
+end
+
 return ItemGenerator
