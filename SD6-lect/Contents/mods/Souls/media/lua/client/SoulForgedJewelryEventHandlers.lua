@@ -55,6 +55,7 @@ function EventHandlers.SoulForgedJewelryOnCreate(items, result, player)
 
         createdItem:getModData().SoulBuff = selectedBuff
         createdItem:getModData().Tier = tier
+        createdItem:setDisplayCategory('SoulForge')
         
         ItemGenerator.SetResultName(createdItem)
     end
@@ -84,6 +85,7 @@ function EventHandlers.OnClothingUpdated(player)
             if buff and BuffSystem.BUFF_CALCULATIONS[buff] then
                 BuffSystem.modifyBuff(player, item, true, buff)
                 ItemGenerator.SetResultName(item)
+                item:setDisplayCategory('SoulForge')
             end
         end
     end
