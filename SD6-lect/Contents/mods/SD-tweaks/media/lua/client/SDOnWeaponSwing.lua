@@ -98,9 +98,9 @@ local function SDOnWeaponSwing(character, handWeapon)
 		local soulForgeMaxDmgMulti = modData.soulForgeMaxDmgMulti or 1
 		local soulForgeCritRate = modData.soulForgeCritRate or 1
 		local soulForgeCritMulti = modData.soulForgeCritMulti or 1
-		local soulForgeConditionLowerChance = modData.ConditionLowerChance or nil
+		local soulForgeConditionLowerChance = modData.ConditionLowerChance or 1
 		local soulForgeEnduranceMod = modData.EnduranceMod or 1
-		local soulForgeMaxCondition = modData.MaxCondition or nil
+		local soulForgeMaxCondition = modData.MaxCondition or 1
 		local soulForgeMaxHitCount = modData.MaxHitCount or nil
 		local soulWrought = modData.SoulWrought or ""
 		
