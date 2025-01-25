@@ -197,3 +197,18 @@ local function onServerCommand(module, command, args)
     end
 end
 Events.OnServerCommand.Add(onServerCommand)
+
+Events.OnFillInventoryObjectContextMenu.Add(function(player, context, items)
+												items = ISInventoryPane.getActualItems(items)
+												for i=1, #items do
+													item = items[i]
+													if instanceof(item, "InventoryContainer") then
+														if item:getClothingItemExtra() and item:isEquipped() then
+															context:removeOptionByName(getText("ContextMenu_Wear"))
+															context:removeOptionByName(getText("ContextMenu_Equip_Primary"))
+															context:removeOptionByName(getText("ContextMenu_Equip_Secondary"))
+															break
+														end
+													end
+												end
+											end)
