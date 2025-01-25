@@ -26,7 +26,7 @@ function ItemGenerator.getRandomAccessoryForSlots()
         
         if itemType:getBodyLocation() == selectedSlot 
             and not itemType:getFabricType()
-            and not string.find(string.lower(fullName), "kp") then
+            and not string.find(string.lower(itemType:getDisplayName()), "kp") then
             table.insert(validItems, fullName)
         end
     end
