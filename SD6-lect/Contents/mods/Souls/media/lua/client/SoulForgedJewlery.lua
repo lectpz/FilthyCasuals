@@ -49,6 +49,8 @@ function SoulForgedJewelryOnCreateCache(items, result, player)
     local cacheItem = items:get(0)
     local tier = tonumber(string.match(cacheItem:getType(), "T(%d+)"))
     
-    items = ItemGenerator.getTierSoulShardExplicit(tier)
-    EventHandlers.SoulForgedJewelryOnCreate(items, result, player)
+    for i=1,3 do
+        items = ItemGenerator.getTierSoulShardExplicit(tier)
+        SoulForgedJewelryOnCreate(items, result, player)
+    end
 end
