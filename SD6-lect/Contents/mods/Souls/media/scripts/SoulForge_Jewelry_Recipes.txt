@@ -1,5 +1,10 @@
 module SoulForgeJewelery
 {
+	imports
+	{
+		Base
+	}
+
     recipe Soul Forge Jewelry
     {
         SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
@@ -14,5 +19,71 @@ module SoulForgeJewelery
 		RemoveResultItem:true,
         OnTest:OnTest_CheckInInventory
     }
+
+	recipe Open Jewelry Cache
+	{
+		CanBeDoneFromFloor:true,
+		EventJewelryCacheT1/EventJewelryCacheT2/EventJewelryCacheT3/EventJewelryCacheT4/EventJewelryCacheT5,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+        Result:Base.Necklace_Gold,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:SoulForgedJewelryOnCreateCache,
+	}
+	
+	item EventJewelryCacheT1
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tier 1 Event Jewelry Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EventJewelryCacheT2
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tier 2 Event Jewelry Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EventJewelryCacheT3
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tier 3 Event Jewelry Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EventJewelryCacheT4
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tier 4 Event Jewelry Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus
+	}
+	
+	item EventJewelryCacheT5
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tier 5 Event Jewelry Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus
+	}
 }
 
