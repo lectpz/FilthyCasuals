@@ -25,7 +25,7 @@ BuffSystem.BUFF_CALCULATIONS = {
     },
     SoulThirst = {
         format = "Soul Thirst Bonus",
-        getDisplayValue = function(tier) return 4 * tier end,
+        getDisplayValue = function(tier) return .4 * tier end,
         getBonus = function(tier) return 0.4 * tier end,
         modData = "PermaSoulThirstValue"
     },
