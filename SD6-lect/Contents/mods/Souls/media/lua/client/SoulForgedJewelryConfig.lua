@@ -47,7 +47,9 @@ Config.AccessorySlots = {
     "Necklace_Long",
     "Nose",
     "Ears",
-    "EarTop"
+    "EarTop",
+    "RightWrist",
+    "LeftWrist"
 }
 
 return Config
