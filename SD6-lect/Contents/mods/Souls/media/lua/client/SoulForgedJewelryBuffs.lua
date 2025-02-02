@@ -13,8 +13,8 @@ BuffSystem.BUFF_CALCULATIONS = {
     },
     luck = {
         format = "Luck",
-        getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return 1 * tier end,
+        getDisplayValue = function(tier) return 1.5 * tier end,
+        getBonus = function(tier) return 1.5 * tier end,
         modData = "PermaSoulForgeLuckBonus"
     },
     SoulDexterity = {
@@ -59,8 +59,8 @@ BuffSystem.BUFF_CALCULATIONS = {
     },
     MaxDmg = {
         format = "Maximum Damage",
-        getDisplayValue = function(tier) return .1 * tier end,
-        getBonus = function(tier) return (0.001 * tier) end,
+        getDisplayValue = function(tier) return .5 * tier end,
+        getBonus = function(tier) return (0.005 * tier) end,
         modData = "PermaSoulForgeMaxDmgBonus",
         defaultValue = 1
     },
