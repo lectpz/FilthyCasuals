@@ -513,4 +513,88 @@ module SoulForge {
 		OnTest:OnTest_checkMainHand,
 		OnCreate:OnCreate_unforgeMainHand,
 	}
+	
+	recipe Reroll Augment Ticket
+	{
+		CanBeDoneFromFloor:false,
+		MaxDmgTicket=3,
+		Base.ScrapMetal=25,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:SoulForgeReroll.MaxDmgTicket,
+		Result:Base.Dice,
+		RemoveResultItem:true,
+		Time:100.0,
+	}
+	
+	recipe Reroll Augment Ticket
+	{
+		CanBeDoneFromFloor:false,
+		CritChanceTicket=3,
+		Base.ScrapMetal=25,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:SoulForgeReroll.CritChanceTicket,
+		Result:Base.Dice,
+		RemoveResultItem:true,
+		Time:100.0,
+	}
+	
+	recipe Reroll Augment Ticket
+	{
+		CanBeDoneFromFloor:false,
+		CritMultiTicket=3,
+		Base.ScrapMetal=25,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:SoulForgeReroll.CritMultiTicket,
+		Result:Base.Dice,
+		RemoveResultItem:true,
+		Time:100.0,
+	}
+	
+	recipe Reroll Augment Ticket
+	{
+		CanBeDoneFromFloor:false,
+		EnduranceModTicket=3,
+		Base.ScrapMetal=25,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:SoulForgeReroll.EnduranceModTicket,
+		Result:Base.Dice,
+		RemoveResultItem:true,
+		Time:100.0,
+	}
+	
+	recipe Reroll Augment Ticket
+	{
+		CanBeDoneFromFloor:false,
+		bagCapacityTicket=3,
+		Base.ScrapMetal=25,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:SoulForgeReroll.bagCapacityTicket,
+		Result:Base.Dice,
+		RemoveResultItem:true,
+		Time:100.0,
+	}
+	
+	recipe Reroll Augment Ticket
+	{
+		CanBeDoneFromFloor:false,
+		bagWeightTicket=3,
+		Base.ScrapMetal=25,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:SoulForgeReroll.bagWeightTicket,
+		Result:Base.Dice,
+		RemoveResultItem:true,
+		Time:100.0,
+	}
 }

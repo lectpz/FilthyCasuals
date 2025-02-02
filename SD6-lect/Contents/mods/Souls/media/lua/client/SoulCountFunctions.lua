@@ -480,3 +480,132 @@ function OnCreate_unforgeMainHand(items, result, player)
 	end
 	Events.OnPlayerUpdate.Add(waitToUnforge)
 end
+
+--------------------------------------------------------------------------------------------------------
+--reroll augments
+
+
+local function getTotalTableWeight(_table)
+	local count = 0
+	for i=1,#_table do
+		count = count + _table[i]
+	end
+	return count
+end
+
+local function getWeightedItem(tableno, tableweight, rollvalue)
+	local countnext = 0
+	for i=1,#tableweight do
+		countnext = countnext + tableweight[i]
+		if rollvalue <= countnext then
+			return tableno[i]
+		end
+	end
+end
+
+SoulForgeReroll = {}
+
+SoulForgeReroll.MinDmgTicket = function(items, result, player)
+	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
+	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
+
+	for i=1, #augments do
+		if augments[i] == "SoulForge.MinDmgTicket" then
+			table.remove(augments, i)
+			table.remove(augmentsweight, i)
+			break
+		end
+	end
+
+	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+end
+
+SoulForgeReroll.MaxDmgTicket = function(items, result, player)
+	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
+	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
+	
+	for i=1, #augments do
+		if augments[i] == "SoulForge.MaxDmgTicket" then
+			table.remove(augments, i)
+			table.remove(augmentsweight, i)
+			break
+		end
+	end
+
+	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+end
+
+SoulForgeReroll.CritChanceTicket = function(items, result, player)
+	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
+	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
+	
+	for i=1, #augments do
+		if augments[i] == "SoulForge.CritChanceTicket" then
+			table.remove(augments, i)
+			table.remove(augmentsweight, i)
+			break
+		end
+	end
+
+	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+end
+
+SoulForgeReroll.CritMultiTicket = function(items, result, player)
+	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
+	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
+	
+	for i=1, #augments do
+		if augments[i] == "SoulForge.CritMultiTicket" then
+			table.remove(augments, i)
+			table.remove(augmentsweight, i)
+			break
+		end
+	end
+
+	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+end
+
+SoulForgeReroll.EnduranceModTicket = function(items, result, player)
+	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
+	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
+	
+	for i=1, #augments do
+		if augments[i] == "SoulForge.EnduranceModTicket" then
+			table.remove(augments, i)
+			table.remove(augmentsweight, i)
+			break
+		end
+	end
+
+	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+end
+
+SoulForgeReroll.bagCapacityTicket = function(items, result, player)
+	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
+	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
+	
+	for i=1, #augments do
+		if augments[i] == "SoulForge.bagCapacityTicket" then
+			table.remove(augments, i)
+			table.remove(augmentsweight, i)
+			break
+		end
+	end
+
+	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+end
+
+SoulForgeReroll.bagWeightTicket = function(items, result, player)
+	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
+	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
+	
+	for i=1, #augments do
+		if augments[i] == "SoulForge.bagWeightTicket" then
+			table.remove(augments, i)
+			table.remove(augmentsweight, i)
+			break
+		end
+	end
+
+	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+end

@@ -170,7 +170,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:RikuWeaponCacheSD,
 	}
 	
@@ -183,7 +183,7 @@ module Base
 		Result:EmptyWeaponCache,
 		OnTest:OnTest_isInPlayerInventory,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:RikuRewardsT3,
 	}
 	
@@ -196,7 +196,7 @@ module Base
 		Result:EmptyWeaponCache,
 		OnTest:OnTest_isInPlayerInventory,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:RikuRewardsT4,
 	}
 	
@@ -209,7 +209,7 @@ module Base
 		Result:EmptyWeaponCache,
 		OnTest:OnTest_isInPlayerInventory,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:RikuRewardsT5,
 	}
 	
@@ -222,7 +222,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCanPerform:onTestTier5CheckSD,
 		OnCreate:RikuWeaponCacheUpgradeSD,
 	}
@@ -236,7 +236,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCanPerform:onTestTier3CheckSD,
 		OnCreate:RikuWeaponCacheUpgradeSD,
 	}
@@ -250,7 +250,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCanPerform:onTestTier2CheckSD,
 		OnCreate:RikuWeaponCacheUpgradeSD,
 	}
@@ -264,7 +264,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCanPerform:onTestTier1CheckSD,
 		OnCreate:RikuWeaponCacheUpgradeSD,
 	}
@@ -277,7 +277,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyMechanicCache,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:MechCacheSD,
 	}
 
@@ -289,7 +289,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyMetalworkCache,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:MetalworkCacheSD,
 	}
 	
@@ -301,7 +301,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyMedicalCache,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:MedicalCacheSD,
 	}
 
@@ -334,7 +334,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyAmmoCache,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:AmmoCacheSD,
 	}
 	
@@ -367,7 +367,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyArmorCachePatriot,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:ArmorCachePatriotSD,
 	}
 	
@@ -400,7 +400,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyArmorCacheDefender,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:ArmorCacheDefenderSD,
 	}
 	
@@ -433,7 +433,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyArmorCacheVanguard,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:ArmorCacheVanguardSD,
 	}
 	
@@ -466,7 +466,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptySpiffoCache,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:SpiffoCacheSD,
 	}
 	
@@ -489,7 +489,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptySpiffoCache,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:EventSpiffoCacheSD,
 	}
 	
@@ -525,7 +525,7 @@ module Base
 		AnimNode:Loot,
 		Result:boosterpack_trash,
 		RemoveResultItem:true,
-		Time:500.0,
+		Time:100.0,
 		OnCreate:PokemonCacheSD,
 	}
 	
@@ -534,9 +534,9 @@ module Base
 		[Recipe.GetItemTypes.PokemonCards001_049]=3,
 		[Recipe.GetItemTypes.PokemonCards050_099]=3,
 		[Recipe.GetItemTypes.PokemonCards100_151]=3,
-		ScrapMetal=8,
+		ScrapMetal=4,
 		Result:pkmncards.boosterpack,
-		Time:100.0,
+		Time:25.0,
 	}
 	
 	recipe Reroll Pokemon Jungle Booster Pack
@@ -544,9 +544,9 @@ module Base
 		[Recipe.GetItemTypes.PokemonCards001_049]=3,
 		[Recipe.GetItemTypes.PokemonCards050_099]=3,
 		[Recipe.GetItemTypes.PokemonCards100_151]=3,
-		ScrapMetal=8,
+		ScrapMetal=4,
 		Result:pkmncards.boosterpackjungle,
-		Time:100.0,
+		Time:25.0,
 	}
 	
 	recipe Reroll Pokemon Fossil Booster Pack
@@ -554,9 +554,9 @@ module Base
 		[Recipe.GetItemTypes.PokemonCards001_049]=3,
 		[Recipe.GetItemTypes.PokemonCards050_099]=3,
 		[Recipe.GetItemTypes.PokemonCards100_151]=3,
-		ScrapMetal=8,
+		ScrapMetal=4,
 		Result:pkmncards.boosterpackfossil,
-		Time:100.0,
+		Time:25.0,
 	}
 
 }
