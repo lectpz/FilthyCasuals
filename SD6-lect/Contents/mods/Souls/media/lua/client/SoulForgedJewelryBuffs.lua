@@ -24,8 +24,8 @@ BuffSystem.BUFF_CALCULATIONS = {
         modData = "PermaSoulForgeDexterityBonus"
     },
     SoulThirst = {
-        format = "Soul Thirst Bonus Chance",
-        getDisplayValue = function(tier) return 4 * tier end,
+        format = "Soul Thirst Bonus",
+        getDisplayValue = function(tier) return .4 * tier end,
         getBonus = function(tier) return 0.4 * tier end,
         modData = "PermaSoulThirstValue"
     },
