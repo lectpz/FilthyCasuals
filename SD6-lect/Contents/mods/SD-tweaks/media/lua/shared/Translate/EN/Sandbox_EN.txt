@@ -333,4 +333,12 @@ Sandbox_EN = {
 
 	Sandbox_TilePicker_RegularCache= "Tile Picker Cache (Regular)",
 	Sandbox_TilePicker_RegularCache_tooltip = "e.g. sprite_name_01:Tile Name:Tile Description",
+	
+	Sandbox_SDbus = "SD Bus System",
+	
+	Sandbox_SDbus_vanillaBusEnabled = "Enable Vanilla Town Bus Stops",
+	Sandbox_SDbus_vanillaBusEnabled_tooltip = "Check to enable, uncheck to disable",
+	
+	Sandbox_SDbus_otherBusEnabled = "Enable Modded Town Bus Stops",
+	Sandbox_SDbus_otherBusEnabled_tooltip = "Check to enable, uncheck to disable",
 }

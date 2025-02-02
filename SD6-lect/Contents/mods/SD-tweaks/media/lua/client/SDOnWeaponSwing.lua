@@ -136,13 +136,13 @@ local function SDOnWeaponSwing(character, handWeapon)
 		initRangedStats(modData, inventoryItem, character)
 		local rangedmulti = 1.0
 		
-		if character:HasTrait("Brave")			then rangedmulti = rangedmulti - 0.125 end
-		if character:HasTrait("Desensitized")	then rangedmulti = rangedmulti - 0.25 end
-		if character:HasTrait("Cowardly")		then rangedmulti = rangedmulti + 0.15 end
-		if character:HasTrait("ShortSighted")	then rangedmulti = rangedmulti + 0.1 end
+		if character:HasTrait("Brave")			then rangedmulti = rangedmulti - 0.1 end
+		if character:HasTrait("Desensitized")	then rangedmulti = rangedmulti - 0.2 end
+		if character:HasTrait("Cowardly")		then rangedmulti = rangedmulti + 0.1 end
 		if character:HasTrait("EagleEyed")		then rangedmulti = rangedmulti - 0.1 end
-
-		rangedmulti = rangedmulti - character:getPerkLevel(Perks.Aiming)/20
+		if character:HasTrait("ShortSighted")	then rangedmulti = rangedmulti + 0.05 end
+		
+		rangedmulti = rangedmulti - character:getPerkLevel(Perks.Aiming)/14.28571429
 		
 		--if character:isSeatedInVehicle() then rangedmulti = 2.0 end
 		

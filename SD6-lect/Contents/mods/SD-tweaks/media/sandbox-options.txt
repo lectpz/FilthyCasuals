@@ -872,3 +872,21 @@ option TilePicker.RegularCache
 	page = TilePicker,
 	translation = TilePicker_RegularCache,
 }
+
+option SDbus.vanillaBusEnabled
+{
+	type = boolean,
+	default = false,
+
+	page = SDbus,
+	translation = SDbus_vanillaBusEnabled,
+}
+
+option SDbus.otherBusEnabled
+{
+	type = boolean,
+	default = false,
+
+	page = SDbus,
+	translation = SDbus_otherBusEnabled,
+}

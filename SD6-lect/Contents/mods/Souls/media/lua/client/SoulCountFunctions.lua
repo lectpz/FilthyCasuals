@@ -33,7 +33,15 @@ function checkSoulCount(item)
 	end
 end
 
+local function splitString(sandboxvar, delimiter)
+	local ztable = {}
+	local pattern = "[^ %;,]+"
 
+	for match in sandboxvar:gmatch(pattern) do
+		table.insert(ztable, match)
+	end
+	return ztable
+end
 
 function OnTest_hasSoulCount(item)
 
@@ -191,7 +199,7 @@ function OnTest_isInPlayerInventory(item)
 end
 
 function OnCreate_RerollT3(items, result, player)
-	local t3weaps = { "RMWeapons.MorningStar", "RMWeapons.LastHope", "RMWeapons.MadamScythe", "RMWeapons.KineticHammer", "RMWeapons.Shaxe", "RMWeapons.TreeHugger", "RMWeapons.bladebat", "RMWeapons.sawbat1", "RMWeapons.gnbat", "RMWeapons.RebarClub", "RMWeapons.CatnipCrusher", "RMWeapons.MandateofHeaven", "RMWeapons.steinsword", "RMWeapons.CrimsonLance", "RMWeapons.MoonlightGS", "RMWeapons.waraxe", "RMWeapons.BigBertha" }
+	local t3weaps = splitString(SandboxVars.OZD.table3)
 	local rn = ZombRand(#t3weaps)+1
 	local weapon = t3weaps[rn]
 	
@@ -212,7 +220,7 @@ function OnCreate_RerollT3(items, result, player)
 end
 
 function OnCreate_RerollT4(items, result, player)
-	local t4weaps = { "RMWeapons.ArcSpear", "RMWeapons.SealingStaff2", "RMWeapons.LanceofLonginus", "RMWeapons.JadeSword", "RMWeapons.bassax", "RMWeapons.EyeStaff", "RMWeapons.themauler", "RMWeapons.Nikabo", "RMWeapons.FallenCross", "RMWeapons.warhammer40k", "RMWeapons.DreamAxe", "RMWeapons.RoyalGreatsword", "RMWeapons.crabspear", "RMWeapons.MizutsuneGlaive", "RMWeapons.SwordofSolitude", "RMWeapons.firelink" }
+	local t4weaps = splitString(SandboxVars.OZD.table4)
 	local rn = ZombRand(#t4weaps)+1
 	local weapon = t4weaps[rn]
 	
@@ -233,7 +241,7 @@ function OnCreate_RerollT4(items, result, player)
 end
 
 function OnCreate_RerollT5(items, result, player)
-	local t5weaps = { "RMWeapons.MedSword", "RMWeapons.PochitaSword", "RMWeapons.NulBlade", "RMWeapons.CavAxe", "RMWeapons.MizutsuneSword", "RMWeapons.ApostateAxe", "RMWeapons.RefudClaws", "RMWeapons.mace1", "RMWeapons.RockstarGuitar", "RMWeapons.VampClaymore" }
+	local t5weaps = splitString(SandboxVars.OZD.table5)
 	local rn = ZombRand(#t5weaps)+1
 	local weapon = t5weaps[rn]
 	

@@ -520,7 +520,7 @@ module Base
 		CanBeDoneFromFloor:true,
 		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackjungle,
 		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackjungle,
-		destroy Base.TileCachePremium,
+		destroy Base.TileCacheRegular,
 		Sound:s_pokemon,
 		AnimNode:Loot,
 		Result:boosterpack_trash,
@@ -531,27 +531,30 @@ module Base
 	
 	recipe Reroll Pokemon Booster Pack
 	{
-		[Recipe.GetItemTypes.PokemonCards001_049]=5,
-		[Recipe.GetItemTypes.PokemonCards050_099]=5,
-		[Recipe.GetItemTypes.PokemonCards100_151]=5,
+		[Recipe.GetItemTypes.PokemonCards001_049]=3,
+		[Recipe.GetItemTypes.PokemonCards050_099]=3,
+		[Recipe.GetItemTypes.PokemonCards100_151]=3,
+		ScrapMetal=8,
 		Result:pkmncards.boosterpack,
 		Time:100.0,
 	}
 	
 	recipe Reroll Pokemon Jungle Booster Pack
 	{
-		[Recipe.GetItemTypes.PokemonCards001_049]=5,
-		[Recipe.GetItemTypes.PokemonCards050_099]=5,
-		[Recipe.GetItemTypes.PokemonCards100_151]=5,
+		[Recipe.GetItemTypes.PokemonCards001_049]=3,
+		[Recipe.GetItemTypes.PokemonCards050_099]=3,
+		[Recipe.GetItemTypes.PokemonCards100_151]=3,
+		ScrapMetal=8,
 		Result:pkmncards.boosterpackjungle,
 		Time:100.0,
 	}
 	
 	recipe Reroll Pokemon Fossil Booster Pack
 	{
-		[Recipe.GetItemTypes.PokemonCards001_049]=5,
-		[Recipe.GetItemTypes.PokemonCards050_099]=5,
-		[Recipe.GetItemTypes.PokemonCards100_151]=5,
+		[Recipe.GetItemTypes.PokemonCards001_049]=3,
+		[Recipe.GetItemTypes.PokemonCards050_099]=3,
+		[Recipe.GetItemTypes.PokemonCards100_151]=3,
+		ScrapMetal=8,
 		Result:pkmncards.boosterpackfossil,
 		Time:100.0,
 	}

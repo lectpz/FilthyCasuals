@@ -169,4 +169,13 @@ module Base
         Icon            = BusTicket,
 		WorldStaticModel = PaperNapkins_Ground,
     }
+
+	recipe Redeem Reward From Full Pokemon Binder
+	{
+		pkmncards.cardbinder_full,
+		Result:CDCRR.CDCRedAirdrop,
+        OnCreate:PokemonFullAlbumRedemption,
+		Time:150.0,
+		Category:Survivalist,
+	}
 }

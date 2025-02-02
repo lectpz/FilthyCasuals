@@ -250,7 +250,7 @@ function ISWorldMap:render()
 		local symbolsAPI = self.mapAPI:getSymbolsAPI()
 		for i=symbolsAPI:getSymbolCount()-1, 0, -1 do
 			local symbol = symbolsAPI:getSymbolByIndex(i)
-			if symbol:getSymbolID() == "Asterisk" or symbol:getSymbolID() == "square" then
+			if symbol:getSymbolID() == "Asterisk" then
 				symbolsAPI:removeSymbolByIndex(i)
 			end
 		end

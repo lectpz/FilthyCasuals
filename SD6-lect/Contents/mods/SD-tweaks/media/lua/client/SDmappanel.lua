@@ -50,10 +50,11 @@ function SDmap.MapPanel:drawzone()
 	--print(x1, y1, x2, y2, tier, nested, toxic, sprinter, pinpoint, cognition)
 	--print(zonename)
 	local MDZ = ModData.getOrCreate("MoreDifficultZones")
-	MDZ[self.zone[6]] = nil
+	MDZ[self.zone[6]] = "DELETE"
+	MDZ[_zname] = nil
 	Zone.list[self.zone[6]] = nil
 	NestedZone.list[self.zone[6]] = nil
-	if not MDZ[_zname] then MDZ[_zname] = {} end
+	--if not MDZ[_zname] then MDZ[_zname] = {} end
 	MDZ[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition }
 	Zone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition }
 	if _nested == "Subnested" then

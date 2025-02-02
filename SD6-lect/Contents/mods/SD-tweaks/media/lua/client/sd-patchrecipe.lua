@@ -7,6 +7,13 @@ recipesToPatch["Make Small Metal Sheet Mold"] = true
 recipesToPatch["Make Metal Bar Mold"] = true
 recipesToPatch["Make Metal Pipe Mold"] = true
 recipesToPatch["Make 97 Bushmaster Seat"] = true
+recipesToPatch["Make Bucket Of Concrete"] = true
+recipesToPatch["Redeem CDC Red Package"] = true
+
+function patchConcreteBucket(items, result, player)
+    local playerInv = player:getInventory()
+    playerInv:AddItem("Base.BucketConcreteFull")
+end
 
 function patchEmptyPropaneTank(items, result, player)
     local newtank = InventoryItemFactory.CreateItem("Base.PropaneTank")
@@ -54,6 +61,15 @@ function getYeetedToHell()
 	return false
 end
 
+function PokemonFullAlbumRedemption(items, result, player)
+    local args = {}
+    sendClientCommand(player, 'Adjustments', "RedeemFullAlbum", args);
+    print(player:getUsername() .. " redeemed a full pkmn album");
+	local playerInv = player:getInventory()
+	playerInv:AddItem("Base.EventWeaponCacheT5")
+	playerInv:AddItem("SoulForgeJewelery.EventJewelryCacheT5")
+end
+
 local function patch_recipes()
     local patched = 0
     local start = Calendar.getInstance():getTimeInMillis()
@@ -65,6 +81,16 @@ local function patch_recipes()
             if name == "Create Propane tank" then
                 recipe:setRemoveResultItem(true)
                 recipe:setLuaCreate("patchEmptyPropaneTank")
+                patched = patched + 1
+                print ("Patched \""..name.."\"..")
+			elseif name == "Redeem CDC Red Package" then
+				recipe:setIsHidden(true)
+				recipe:setCanPerform("getYeetedToHell")
+                patched = patched + 1
+                print ("Patched \""..name.."\"..")
+			elseif name == "Make Bucket Of Concrete" then
+                recipe:setRemoveResultItem(true)
+                recipe:setLuaCreate("patchConcreteBucket")
                 patched = patched + 1
                 print ("Patched \""..name.."\"..")
             elseif name == "Sell Valuables" then
@@ -92,10 +118,12 @@ local function patch_recipes()
                 patched = patched + 1
                 print ("Patched \""..name.."\"..")
 			elseif name == "Make 97 Bushmaster Seat" then
-				recipe:setIsHidden(true)
-				recipe:setCanPerform("getYeetedToHell")
-                patched = patched + 1
-                print ("Patched \""..name.."\"..")
+				if recipe:getResult():getType() == "97BushmasterGunnerSeat" then 
+					recipe:setIsHidden(true)
+					recipe:setCanPerform("getYeetedToHell")
+					patched = patched + 1
+					print ("Patched \""..name.."\"..")
+				end
             end
         end
     end

@@ -1,38 +1,118 @@
 local tp_loc = {
-	["cc"] = { 11072, 8851, 0 },
+--[[	["cc"] = { 11072, 8851, 0 },
 	["cc_shops"] = { 11250, 8903, 0 },
 	["rs"] = { 5964, 5276, 0 },
 	["wp"] = { 12074, 7235, 0},
 	["ivy"] = { 8778, 9760, 0},
 	["rw"] = { 8256, 11886, 0},
---[[	["lv"] = { 13240, 3508, 0},
+	["lv"] = { 13240, 3508, 0},
 	["rc"] = { 5210, 10645, 0},
 	["ec"] = { 10457, 17218, 0},
 	["bbl"] = { 6543, 8182, 0},
 	["lc"] = { 14778, 6517, 0},
 	["Elroy"] = { 3768, 7639, 0},
 	["OakdaleU"] = { 12390, 11228, 0},
+	["DD_entrance"] = { 9737, 6275, 0 },
 	["DD_outpost1"] = { 8816, 4531, 0 },
 	["DD_outpost2"] = { 2918, 2483, 0 },]]
 }
 
 local stopName = {
-	["cc"] = "Muldraugh Community Center",
+--[[	["cc"] = "Muldraugh Community Center",
 	["cc_shops"] = "Community Center Shops (East)",
 	["rs"] = "Riverside",
 	["wp"] = "West Point Outpost",
 	["ivy"] = "Ivy Lake",
 	["rw"] = "Rosewood",
---[[	["lv"] = "Louisville",
+	["lv"] = "Louisville",
 	["rc"] = "Raven Creek / Redstone / Wilbore",
 	["ec"] = "Eerie County",
 	["bbl"] = "Big Bear Lake / Nettle Township",
 	["lc"] = "Lake Cumberland / Shortrest City",
 	["Elroy"] = "Cathaya Valley / Elroy",
 	["OakdaleU"] = "Oakdale",
+	["DD_entrance"] = "Dirkerdam Entrance / Taylorsville",
 	["DD_outpost1"] = "Dirkerdam South City Outpost",
 	["DD_outpost2"] = "Dirkerdam North-West Outpost",]]
 }
+
+local vanilla_tp_loc = {
+	["cc"] = { 11072, 8851, 0 },
+	["cc_shops"] = { 11250, 8903, 0 },
+	["rs"] = { 5964, 5276, 0 },
+	["wp"] = { 12074, 7235, 0},
+	["ivy"] = { 8778, 9760, 0},
+	["rw"] = { 8256, 11886, 0},
+}
+
+local vanilla_stopName = {
+	["cc"] = "Muldraugh Community Center",
+	["cc_shops"] = "Community Center Shops (East)",
+	["rs"] = "Riverside",
+	["wp"] = "West Point Outpost",
+	["ivy"] = "Ivy Lake",
+	["rw"] = "Rosewood",
+}
+
+local other_tp_loc = {
+	["lv"] = { 13240, 3508, 0},
+	["rc"] = { 5210, 10645, 0},
+	["ec"] = { 10457, 17218, 0},
+	["bbl"] = { 6543, 8182, 0},
+	["lc"] = { 14778, 6517, 0},
+	["Elroy"] = { 3768, 7639, 0},
+	["OakdaleU"] = { 12390, 11228, 0},
+	["DD_entrance"] = { 9737, 6275, 0 },
+	["DD_outpost1"] = { 8816, 4531, 0 },
+	["DD_outpost2"] = { 2918, 2483, 0 },
+}
+
+local other_stopName = {
+	["lv"] = "Louisville",
+	["rc"] = "Raven Creek / Redstone / Wilbore",
+	["ec"] = "Eerie County",
+	["bbl"] = "Big Bear Lake / Nettle Township",
+	["lc"] = "Lake Cumberland / Shortrest City",
+	["Elroy"] = "Cathaya Valley / Elroy",
+	["OakdaleU"] = "Oakdale",
+	["DD_entrance"] = "Dirkerdam Entrance / Taylorsville",
+	["DD_outpost1"] = "Dirkerdam South City Outpost",
+	["DD_outpost2"] = "Dirkerdam North-West Outpost",
+}
+
+local function initBusStop()
+	if SandboxVars.SDbus.vanillaBusEnabled and not SandboxVars.SDbus.otherBusEnabled then
+		tp_loc = {}
+		stopName = {}
+		for k,v in pairs(vanilla_tp_loc) do
+			tp_loc[k] = v
+		end
+		for k,v in pairs(vanilla_stopName) do
+			stopName[k] = v
+		end
+	end
+	if SandboxVars.SDbus.vanillaBusEnabled and SandboxVars.SDbus.otherBusEnabled then
+		tp_loc = {}
+		stopName = {}
+		for k,v in pairs(vanilla_tp_loc) do
+			tp_loc[k] = v
+		end
+		for k,v in pairs(vanilla_stopName) do
+			stopName[k] = v
+		end
+		for k,v in pairs(other_tp_loc) do
+			tp_loc[k] = v
+		end
+		for k,v in pairs(other_stopName) do
+			stopName[k] = v
+		end
+	end
+	if (not SandboxVars.SDbus.vanillaBusEnabled and not SandboxVars.SDbus.otherBusEnabled) or (not SandboxVars.SDbus.vanillaBusEnabled and SandboxVars.SDbus.otherBusEnabled) then
+		tp_loc = {}
+		stopName = {}
+	end
+end
+--Events.OnInitGlobalModData.Add(initBusStop)
 
 local function playSoundWhenMoveFrom(playerObj,x,y)
 
@@ -121,7 +201,7 @@ PublicTransportationContextMenuObjectName.onTakingTheBus = function(item, destin
 end
 
 -- Thanks bikinihorst!
-local function HasZombiesNearby(player,x,y)
+local function HasZombiesChasing(player,x,y)
 --[[    local zombies = player:getCell():getZombieList()
     local zCount = zombies:size()
 
@@ -144,7 +224,7 @@ local function HasZombiesNearby(player,x,y)
     end
 
     return result]]
-	return player:getStats():getNumVisibleZombies()
+	return player:getStats():getNumChasingZombies()
 
 end
 
@@ -159,17 +239,17 @@ SD6_PublicTransportationContextMenuObjectName.doMenu = function(player, context,
         end
         if item:getType() then
             if item:getType() == "BusTicket" or item:getType() == "BusPass" then
-
+				initBusStop()
                 local option_bus = context:addOption("Take the Bus", item, nil, player);
                 local x = math.floor(playerObj:getX())
                 local y = math.floor(playerObj:getY())
 
-                local total_zombies = HasZombiesNearby(playerObj,x,y)
+                local total_zombies = HasZombiesChasing(playerObj,x,y)
 
                 if total_zombies > 0 then
                     option_bus.notAvailable = true
                     local tooltip = ISWorldObjectContextMenu.addToolTip();
-                    tooltip.description = tooltip.description .. "There are " .. total_zombies .. " zombie(s) nearby, the bus won't stop here."
+                    tooltip.description = tooltip.description .. "There are " .. total_zombies .. " zombie(s) chasing you, the bus won't stop here."
                     option_bus.toolTip = tooltip
                 else
                     local location = getLocation(x,y)

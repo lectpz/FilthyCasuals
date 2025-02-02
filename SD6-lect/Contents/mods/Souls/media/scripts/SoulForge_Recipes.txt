@@ -441,34 +441,48 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy [Recipe.GetItemTypes.T3Weapons],
-		SoulCrystalT3=4,
+		SoulCrystalT3=1,
+		SoulCrystalT2=1,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		Prop2: Source=2,
 		OnTest:OnTest_dontDestroySouls,
 		InSameInventory:true,
 		NoBrokenItems:false,
-		Result:SoulCrystalT3,
-		RemoveResultItem:true,
+		Result:EventWeaponCacheT3,
 		Time:100.0,
-		OnCreate:OnCreate_RerollT3,
 	}
 	
 	recipe Reroll Tier 4 Weapons
 	{
 		CanBeDoneFromFloor:false,
 		destroy [Recipe.GetItemTypes.T4Weapons],
-		SoulCrystalT4=3,
+		SoulCrystalT4=1,
+		SoulCrystalT3=1,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		Prop2: Source=2,
 		OnTest:OnTest_dontDestroySouls,
 		InSameInventory:true,
 		NoBrokenItems:false,
-		Result:SoulCrystalT4,
-		RemoveResultItem:true,
+		Result:EventWeaponCacheT4,
 		Time:100.0,
-		OnCreate:OnCreate_RerollT4,
+	}
+
+	recipe Reroll Tier 5 Weapons
+	{
+		CanBeDoneFromFloor:false,
+		destroy [Recipe.GetItemTypes.T5Weapons],
+		SoulCrystalT5=1,
+		SoulCrystalT4=1,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		Prop2: Source=2,
+		OnTest:OnTest_dontDestroySouls,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:EventWeaponCacheT5,
+		Time:100.0,
 	}
 	
 	recipe Create Container of 1000 Souls (Single Use)

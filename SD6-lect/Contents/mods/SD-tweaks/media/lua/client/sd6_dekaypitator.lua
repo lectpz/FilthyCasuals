@@ -12,7 +12,7 @@ local function convertDeKaypitator(item, playerObj)
 end
 
 local function Kays_custom_weapon(player, context, items)
-	if getOnlineUsername() == "Helldiver" then
+	if getOnlineUsername() == "Beast" then
 		local playerObj = getSpecificPlayer(player)
 		items = ISInventoryPane.getActualItems(items)
 	

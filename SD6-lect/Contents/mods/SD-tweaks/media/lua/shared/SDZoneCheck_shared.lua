@@ -130,6 +130,22 @@ NestedZoneNames = {}
 function populateZoneNames()
 	local MDZ = ModData.getOrCreate("MoreDifficultZones")
 	for k,v in pairs(MDZ) do
+		if v == "DELETE" then
+			Zone.list[k] = nil
+			NestedZone.list[k] = nil
+		else
+			Zone.list[k] = v
+			if v[6] == "Subnested" then
+				NestedZone.list[k] = v
+			end
+		end
+	end
+	ZoneNames = getZoneNames(Zone.list)
+	NestedZoneNames = getZoneNames(NestedZone.list)
+end
+function initZoneNames()
+	local MDZ = ModData.getOrCreate("MoreDifficultZones")
+	for k,v in pairs(MDZ) do
 		if not Zone.list[k] and v == "DELETE" then
 			MDZ[k] = nil
 		elseif v == "DELETE" then
@@ -145,8 +161,8 @@ function populateZoneNames()
 	ZoneNames = getZoneNames(Zone.list)
 	NestedZoneNames = getZoneNames(NestedZone.list)
 end
-Events.OnGameStart.Add(populateZoneNames)
-Events.OnServerStarted.Add(populateZoneNames)
+Events.OnGameStart.Add(initZoneNames)
+Events.OnServerStarted.Add(initZoneNames)
 
 --------------------------------------------------------------
 --------------------------------------------------------------
@@ -158,6 +174,11 @@ if not isServer() then
 end
 
 local controlledZones = {}
+
+function tick_populateZoneNames()
+	Events.OnPlayerUpdate.Remove(tick_populateZoneNames)
+	populateZoneNames()
+end
 
 local function OnReceiveGlobalModData(key, modData)
 	if key == "zoneOverride" then
@@ -176,7 +197,7 @@ local function OnReceiveGlobalModData(key, modData)
 	
 	if key == "MoreDifficultZones" and modData and type(modData) == "table" then
 		ModData.add("MoreDifficultZones", modData)
-		populateZoneNames()
+		Events.OnPlayerUpdate.Add(tick_populateZoneNames)
 	end
 end
 if not isServer() then Events.OnReceiveGlobalModData.Add(OnReceiveGlobalModData) end

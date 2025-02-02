@@ -1318,4 +1318,729 @@ module Packing
 		Result:5pkUniversalPipe=2,
 		Time:30.0,
 	}
+
+	/** Glass Pane 1.0 **/
+	item 100pkGlassPane
+	{
+		Weight			= 35.0,
+		Type			= Normal,
+		DisplayName		= 100 x GlassPane,
+		DisplayCategory = Material,
+		Icon			= GlassPane,
+	}
+	item 50pkGlassPane
+	{
+		Weight			= 25.0,
+		Type			= Normal,
+		DisplayName		= 50 x GlassPane,
+		DisplayCategory = Material,
+		Icon			= GlassPane,
+	}
+	item 10pkGlassPane
+	{
+		Weight			= 5.0,
+		Type			= Normal,
+		DisplayName		= 10 x GlassPane,
+		DisplayCategory = Material,
+		Icon			= GlassPane,
+	}
+	item 5pkGlassPane
+	{
+		Weight			= 3.5,
+		Type			= Normal,
+		DisplayName		= 5 x GlassPane,
+		DisplayCategory = Material,
+		Icon			= GlassPane,
+	}
+	recipe Pack 100
+	{
+		destroy GlassPane=100,
+		
+		Result:100pkGlassPane,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:150.0,
+		Category:Storage,
+	}
+	recipe Unpack 100
+	{
+		destroy 100pkGlassPane,
+		
+		Result:GlassPane=100,
+		Time:100.0,
+		Category:Storage,
+	}
+	recipe Pack 50
+	{
+		destroy GlassPane=50,
+		
+		Result:50pkGlassPane,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:100.0,
+		Category:Storage,
+	}
+	recipe Unpack 50
+	{
+		destroy 50pkGlassPane,
+		
+		Result:GlassPane=50,
+		Time:75.0,
+		Category:Storage,
+	}
+	recipe Pack 10
+	{
+		destroy GlassPane=10,
+		
+		Result:10pkGlassPane,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	recipe Unpack 10
+	{
+		destroy 10pkGlassPane,
+		
+		Result:GlassPane=10,
+		Time:50.0,
+		Category:Storage,
+	}
+	recipe Pack 5
+	{
+		destroy GlassPane=5,
+		
+		Result:5pkGlassPane,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:50.0,
+		Category:Storage,
+	}
+	recipe Unpack 5
+	{
+		destroy 5pkGlassPane,
+		
+		Result:GlassPane=5,
+		Time:25.0,
+		Category:Storage,
+	}
+
+	recipe Put Together
+	{
+		50pkGlassPane=2,
+		
+		Result:100pkGlassPane=1,
+		Time:50.0,
+	}
+	recipe Put Together
+	{
+		10pkGlassPane=5,
+		
+		Result:50pkGlassPane=1,
+		Time:40.0,
+	}
+	recipe Put Together
+	{
+		5pkGlassPane=2,
+		
+		Result:10pkGlassPane=1,
+		Time:30.0,
+	}
+	recipe Split in Two
+	{
+		100pkGlassPane=1,
+		
+		Result:50pkGlassPane=2,
+		Time:50.0,
+	}
+	recipe Split in Five
+	{
+		50pkGlassPane=1,
+		
+		Result:10pkGlassPane=5,
+		Time:40.0,
+	}
+	recipe Split in Two
+	{
+		10pkGlassPane=1,
+		
+		Result:5pkGlassPane=2,
+		Time:30.0,
+	}
+	/** Suture Needle 0.1 **/
+	item 100pkSutureNeedle
+	{
+		Weight			= 3.5,
+		Type			= Normal,
+		DisplayName		= 100 x SutureNeedle,
+		DisplayCategory = FirstAid,
+		Icon			= SutureNeedle,
+	}
+	item 50pkSutureNeedle
+	{
+		Weight			= 2.5,
+		Type			= Normal,
+		DisplayName		= 50 x SutureNeedle,
+		DisplayCategory = FirstAid,
+		Icon			= SutureNeedle,
+	}
+	item 10pkSutureNeedle
+	{
+		Weight			= 0.5,
+		Type			= Normal,
+		DisplayName		= 10 x SutureNeedle,
+		DisplayCategory = FirstAid,
+		Icon			= SutureNeedle,
+	}
+	item 5pkSutureNeedle
+	{
+		Weight			= 0.3,
+		Type			= Normal,
+		DisplayName		= 5 x SutureNeedle,
+		DisplayCategory = FirstAid,
+		Icon			= SutureNeedle,
+	}
+	recipe Pack 100
+	{
+		destroy SutureNeedle=100,
+		
+		Result:100pkSutureNeedle,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:150.0,
+		Category:Storage,
+	}
+	recipe Unpack 100
+	{
+		destroy 100pkSutureNeedle,
+		
+		Result:SutureNeedle=100,
+		Time:100.0,
+		Category:Storage,
+	}
+	recipe Pack 50
+	{
+		destroy SutureNeedle=50,
+		
+		Result:50pkSutureNeedle,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:100.0,
+		Category:Storage,
+	}
+	recipe Unpack 50
+	{
+		destroy 50pkSutureNeedle,
+		
+		Result:SutureNeedle=50,
+		Time:75.0,
+		Category:Storage,
+	}
+	recipe Pack 10
+	{
+		destroy SutureNeedle=10,
+		
+		Result:10pkSutureNeedle,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	recipe Unpack 10
+	{
+		destroy 10pkSutureNeedle,
+		
+		Result:SutureNeedle=10,
+		Time:50.0,
+		Category:Storage,
+	}
+	recipe Pack 5
+	{
+		destroy SutureNeedle=5,
+		
+		Result:5pkSutureNeedle,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:50.0,
+		Category:Storage,
+	}
+	recipe Unpack 5
+	{
+		destroy 5pkSutureNeedle,
+		
+		Result:SutureNeedle=5,
+		Time:25.0,
+		Category:Storage,
+	}
+
+	recipe Put Together
+	{
+		50pkSutureNeedle=2,
+		
+		Result:100pkSutureNeedle=1,
+		Time:50.0,
+	}
+	recipe Put Together
+	{
+		10pkSutureNeedle=5,
+		
+		Result:50pkSutureNeedle=1,
+		Time:40.0,
+	}
+	recipe Put Together
+	{
+		5pkSutureNeedle=2,
+		
+		Result:10pkSutureNeedle=1,
+		Time:30.0,
+	}
+	recipe Split in Two
+	{
+		100pkSutureNeedle=1,
+		
+		Result:50pkSutureNeedle=2,
+		Time:50.0,
+	}
+	recipe Split in Five
+	{
+		50pkSutureNeedle=1,
+		
+		Result:10pkSutureNeedle=5,
+		Time:40.0,
+	}
+	recipe Split in Two
+	{
+		10pkSutureNeedle=1,
+		
+		Result:5pkSutureNeedle=2,
+		Time:30.0,
+	}
+
+	/** Plantain Poultice 0.2 **/
+	item 100pkPlantainCataplasm
+	{
+		Weight			= 7.0,
+		Type			= Normal,
+		DisplayName		= 100 x Plantain Poultice,
+		DisplayCategory = FirstAid,
+		Icon			= MashedHerbs,
+	}
+	item 50pkPlantainCataplasm
+	{
+		Weight			= 5.0,
+		Type			= Normal,
+		DisplayName		= 50 x Plantain Poultice,
+		DisplayCategory = FirstAid,
+		Icon			= MashedHerbs,
+	}
+	item 10pkPlantainCataplasm
+	{
+		Weight			= 1.0,
+		Type			= Normal,
+		DisplayName		= 10 x Plantain Poultice,
+		DisplayCategory = FirstAid,
+		Icon			= MashedHerbs,
+	}
+	item 5pkPlantainCataplasm
+	{
+		Weight			= 0.6,
+		Type			= Normal,
+		DisplayName		= 5 x Plantain Poultice,
+		DisplayCategory = FirstAid,
+		Icon			= MashedHerbs,
+	}
+	recipe Pack 100
+	{
+		destroy PlantainCataplasm=100,
+		
+		Result:100pkPlantainCataplasm,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:150.0,
+		Category:Storage,
+	}
+	recipe Unpack 100
+	{
+		destroy 100pkPlantainCataplasm,
+		
+		Result:PlantainCataplasm=100,
+		Time:100.0,
+		Category:Storage,
+	}
+	recipe Pack 50
+	{
+		destroy PlantainCataplasm=50,
+		
+		Result:50pkPlantainCataplasm,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:100.0,
+		Category:Storage,
+	}
+	recipe Unpack 50
+	{
+		destroy 50pkPlantainCataplasm,
+		
+		Result:PlantainCataplasm=50,
+		Time:75.0,
+		Category:Storage,
+	}
+	recipe Pack 10
+	{
+		destroy PlantainCataplasm=10,
+		
+		Result:10pkPlantainCataplasm,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	recipe Unpack 10
+	{
+		destroy 10pkPlantainCataplasm,
+		
+		Result:PlantainCataplasm=10,
+		Time:50.0,
+		Category:Storage,
+	}
+	recipe Pack 5
+	{
+		destroy PlantainCataplasm=5,
+		
+		Result:5pkPlantainCataplasm,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:50.0,
+		Category:Storage,
+	}
+	recipe Unpack 5
+	{
+		destroy 5pkPlantainCataplasm,
+		
+		Result:PlantainCataplasm=5,
+		Time:25.0,
+		Category:Storage,
+	}
+
+	recipe Put Together
+	{
+		50pkPlantainCataplasm=2,
+		
+		Result:100pkPlantainCataplasm=1,
+		Time:50.0,
+	}
+	recipe Put Together
+	{
+		10pkPlantainCataplasm=5,
+		
+		Result:50pkPlantainCataplasm=1,
+		Time:40.0,
+	}
+	recipe Put Together
+	{
+		5pkPlantainCataplasm=2,
+		
+		Result:10pkPlantainCataplasm=1,
+		Time:30.0,
+	}
+	recipe Split in Two
+	{
+		100pkPlantainCataplasm=1,
+		
+		Result:50pkPlantainCataplasm=2,
+		Time:50.0,
+	}
+	recipe Split in Five
+	{
+		50pkPlantainCataplasm=1,
+		
+		Result:10pkPlantainCataplasm=5,
+		Time:40.0,
+	}
+	recipe Split in Two
+	{
+		10pkPlantainCataplasm=1,
+		
+		Result:5pkPlantainCataplasm=2,
+		Time:30.0,
+	}
+
+	/** Comfrey Poultice 0.2 **/
+	item 100pkComfreyCataplasm
+	{
+		Weight			= 7.0,
+		Type			= Normal,
+		DisplayName		= 100 x Comfrey Poultice,
+		DisplayCategory = FirstAid,
+		Icon			= MashedHerbs,
+	}
+	item 50pkComfreyCataplasm
+	{
+		Weight			= 5.0,
+		Type			= Normal,
+		DisplayName		= 50 x Comfrey Poultice,
+		DisplayCategory = FirstAid,
+		Icon			= MashedHerbs,
+	}
+	item 10pkComfreyCataplasm
+	{
+		Weight			= 1.0,
+		Type			= Normal,
+		DisplayName		= 10 x Comfrey Poultice,
+		DisplayCategory = FirstAid,
+		Icon			= MashedHerbs,
+	}
+	item 5pkComfreyCataplasm
+	{
+		Weight			= 0.6,
+		Type			= Normal,
+		DisplayName		= 5 x Comfrey Poultice,
+		DisplayCategory = FirstAid,
+		Icon			= MashedHerbs,
+	}
+	recipe Pack 100
+	{
+		destroy ComfreyCataplasm=100,
+		
+		Result:100pkComfreyCataplasm,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:150.0,
+		Category:Storage,
+	}
+	recipe Unpack 100
+	{
+		destroy 100pkComfreyCataplasm,
+		
+		Result:ComfreyCataplasm=100,
+		Time:100.0,
+		Category:Storage,
+	}
+	recipe Pack 50
+	{
+		destroy ComfreyCataplasm=50,
+		
+		Result:50pkComfreyCataplasm,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:100.0,
+		Category:Storage,
+	}
+	recipe Unpack 50
+	{
+		destroy 50pkComfreyCataplasm,
+		
+		Result:ComfreyCataplasm=50,
+		Time:75.0,
+		Category:Storage,
+	}
+	recipe Pack 10
+	{
+		destroy ComfreyCataplasm=10,
+		
+		Result:10pkComfreyCataplasm,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	recipe Unpack 10
+	{
+		destroy 10pkComfreyCataplasm,
+		
+		Result:ComfreyCataplasm=10,
+		Time:50.0,
+		Category:Storage,
+	}
+	recipe Pack 5
+	{
+		destroy ComfreyCataplasm=5,
+		
+		Result:5pkComfreyCataplasm,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:50.0,
+		Category:Storage,
+	}
+	recipe Unpack 5
+	{
+		destroy 5pkComfreyCataplasm,
+		
+		Result:ComfreyCataplasm=5,
+		Time:25.0,
+		Category:Storage,
+	}
+
+	recipe Put Together
+	{
+		50pkComfreyCataplasm=2,
+		
+		Result:100pkComfreyCataplasm=1,
+		Time:50.0,
+	}
+	recipe Put Together
+	{
+		10pkComfreyCataplasm=5,
+		
+		Result:50pkComfreyCataplasm=1,
+		Time:40.0,
+	}
+	recipe Put Together
+	{
+		5pkComfreyCataplasm=2,
+		
+		Result:10pkComfreyCataplasm=1,
+		Time:30.0,
+	}
+	recipe Split in Two
+	{
+		100pkComfreyCataplasm=1,
+		
+		Result:50pkComfreyCataplasm=2,
+		Time:50.0,
+	}
+	recipe Split in Five
+	{
+		50pkComfreyCataplasm=1,
+		
+		Result:10pkComfreyCataplasm=5,
+		Time:40.0,
+	}
+	recipe Split in Two
+	{
+		10pkComfreyCataplasm=1,
+		
+		Result:5pkComfreyCataplasm=2,
+		Time:30.0,
+	}
+
+	/** Wild Garlic Poultice 0.2 **/
+	item 100pkWildGarlicCataplasm
+	{
+		Weight			= 7.0,
+		Type			= Normal,
+		DisplayName		= 100 x Wild Garlic Poultice,
+		DisplayCategory = FirstAid,
+		Icon			= MashedHerbs,
+	}
+	item 50pkWildGarlicCataplasm
+	{
+		Weight			= 5.0,
+		Type			= Normal,
+		DisplayName		= 50 x Wild Garlic Poultice,
+		DisplayCategory = FirstAid,
+		Icon			= MashedHerbs,
+	}
+	item 10pkWildGarlicCataplasm
+	{
+		Weight			= 1.0,
+		Type			= Normal,
+		DisplayName		= 10 x Wild Garlic Poultice,
+		DisplayCategory = FirstAid,
+		Icon			= MashedHerbs,
+	}
+	item 5pkWildGarlicCataplasm
+	{
+		Weight			= 0.6,
+		Type			= Normal,
+		DisplayName		= 5 x Wild Garlic Poultice,
+		DisplayCategory = FirstAid,
+		Icon			= MashedHerbs,
+	}
+	recipe Pack 100
+	{
+		destroy WildGarlicCataplasm=100,
+		
+		Result:100pkWildGarlicCataplasm,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:150.0,
+		Category:Storage,
+	}
+	recipe Unpack 100
+	{
+		destroy 100pkWildGarlicCataplasm,
+		
+		Result:WildGarlicCataplasm=100,
+		Time:100.0,
+		Category:Storage,
+	}
+	recipe Pack 50
+	{
+		destroy WildGarlicCataplasm=50,
+		
+		Result:50pkWildGarlicCataplasm,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:100.0,
+		Category:Storage,
+	}
+	recipe Unpack 50
+	{
+		destroy 50pkWildGarlicCataplasm,
+		
+		Result:WildGarlicCataplasm=50,
+		Time:75.0,
+		Category:Storage,
+	}
+	recipe Pack 10
+	{
+		destroy WildGarlicCataplasm=10,
+		
+		Result:10pkWildGarlicCataplasm,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	recipe Unpack 10
+	{
+		destroy 10pkWildGarlicCataplasm,
+		
+		Result:WildGarlicCataplasm=10,
+		Time:50.0,
+		Category:Storage,
+	}
+	recipe Pack 5
+	{
+		destroy WildGarlicCataplasm=5,
+		
+		Result:5pkWildGarlicCataplasm,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:50.0,
+		Category:Storage,
+	}
+	recipe Unpack 5
+	{
+		destroy 5pkWildGarlicCataplasm,
+		
+		Result:WildGarlicCataplasm=5,
+		Time:25.0,
+		Category:Storage,
+	}
+
+	recipe Put Together
+	{
+		50pkWildGarlicCataplasm=2,
+		
+		Result:100pkWildGarlicCataplasm=1,
+		Time:50.0,
+	}
+	recipe Put Together
+	{
+		10pkWildGarlicCataplasm=5,
+		
+		Result:50pkWildGarlicCataplasm=1,
+		Time:40.0,
+	}
+	recipe Put Together
+	{
+		5pkWildGarlicCataplasm=2,
+		
+		Result:10pkWildGarlicCataplasm=1,
+		Time:30.0,
+	}
+	recipe Split in Two
+	{
+		100pkWildGarlicCataplasm=1,
+		
+		Result:50pkWildGarlicCataplasm=2,
+		Time:50.0,
+	}
+	recipe Split in Five
+	{
+		50pkWildGarlicCataplasm=1,
+		
+		Result:10pkWildGarlicCataplasm=5,
+		Time:40.0,
+	}
+	recipe Split in Two
+	{
+		10pkWildGarlicCataplasm=1,
+		
+		Result:5pkWildGarlicCataplasm=2,
+		Time:30.0,
+	}
+
 }
