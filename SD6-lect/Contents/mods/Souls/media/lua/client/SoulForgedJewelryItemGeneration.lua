@@ -19,12 +19,12 @@ Config.AccessoryBlacklist = {
     "SWSuits.SuitFeelsGoodMan"
 }
 
-function ItemGenerator.getRandomAccessoryForSlots()
-    local randomIndex = ZombRand(1, #Config.AccessorySlots + 1)
-    local selectedSlot = Config.AccessorySlots[randomIndex]
+function ItemGenerator.getValidItems(checkAllSlots)
+    local validItems = {}
+    
+    local slotsToCheck = checkAllSlots and Config.AccessorySlots or {Config.AccessorySlots[ZombRand(1, #Config.AccessorySlots + 1)]}
 
     local allItems = getAllItems()
-    local validItems = {}
 
     for i=0, allItems:size()-1 do
         local itemType = allItems:get(i)
@@ -38,7 +38,15 @@ function ItemGenerator.getRandomAccessoryForSlots()
             end
         end
         
-        if itemType:getBodyLocation() == selectedSlot 
+        local validSlot = false
+        for _, slot in ipairs(slotsToCheck) do
+            if itemType:getBodyLocation() == slot then
+                validSlot = true
+                break
+            end
+        end
+        
+        if validSlot 
             and not itemType:getFabricType()
             and not string.find(string.lower(itemType:getDisplayName()), "kp")
             and not isBlacklisted then
@@ -49,6 +57,12 @@ function ItemGenerator.getRandomAccessoryForSlots()
     if #validItems == 0 then
         return nil
     end
+
+    return validItems
+end
+
+function ItemGenerator.getRandomAccessoryForSlots()
+    local validItems = ItemGenerator.getValidItems(false)
 
     return validItems[ZombRand(1, #validItems + 1)]
 end
