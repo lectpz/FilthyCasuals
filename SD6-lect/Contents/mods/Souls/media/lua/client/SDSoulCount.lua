@@ -922,6 +922,9 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 					--weapon condition option
 					------------------------------------------------------------------------------------------------------
 					local soulForgeMaxCondition = weaponModData.MaxCondition or 1.0
+					local pMD = playerObj:getModData()
+					local permaMaxCondition = pMD.PermaMaxConditionBonus
+					if soulForgeMaxCondition and permaMaxCondition and permaMaxCondition > 1 then soulForgeMaxCondition = soulForgeMaxCondition * permaMaxCondition end
 					weaponCurrentCondition = item:getCondition()
 					weaponCondRepairAmount = math.ceil(weaponMaxCond/4 * soulForgeMaxCondition)
 					weaponNewCondition = math.floor(math.min((weaponCurrentCondition + weaponCondRepairAmount), weaponMaxCond*soulForgeMaxCondition)+0.5)
@@ -1330,7 +1333,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 							sw_upgrade(swUpgrade5, Upgrade5MatNo, "SoulForge.EnduranceModTicket")
 						end
 						
-					elseif (weaponCurrentCondition < (weaponMaxCond*soulForgeMaxCondition) or soulsFreed < soulsRequired) then
+					elseif (weaponCurrentCondition < (weaponMaxCond) or soulsFreed < soulsRequired) then
 						--print("elseif")
 						option_soulForgeWeapon.notAvailable = true;
 						tooltip = ISWorldObjectContextMenu.addToolTip();
@@ -1399,7 +1402,7 @@ function SoulCountSD(character, handWeapon)
 		local n_killcount = KillCountSD(player) --updated kill count
 
 		
-		local killDiff = n_killcount - weaponPlayerKC -- calculate difference in kill count
+		local killDiff = math.floor(n_killcount - weaponPlayerKC + 0.5) -- calculate difference in kill count
 		--character:Say("kill diff: " .. killDiff)
 		
 		if killDiff > 0 then
@@ -1407,7 +1410,7 @@ function SoulCountSD(character, handWeapon)
 			local SoulThirst = 0
 			local pMD = player:getModData();
 			local permaSoulThirst = pMD.PermaSoulThirstValue
-			if permaSoulThirst then SoulThirstValue = SoulThirstValue + permaSoulThirst end
+			if permaSoulThirst then SoulThirstValue = math.floor(SoulThirstValue + permaSoulThirst + 0.5) end
 			if SoulThirstValue and SoulThirstValue > 0 then
 				if ZombRand(0,100) <= SoulThirstValue then
 					SoulThirst = 1

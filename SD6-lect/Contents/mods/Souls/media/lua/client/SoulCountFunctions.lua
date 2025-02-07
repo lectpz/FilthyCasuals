@@ -54,7 +54,7 @@ function OnTest_hasSoulCount(item)
 		local weaponModData = weapon:getModData() or nil
 		local soulsFreed = weaponModData.KillCount or nil
 		
-		if item:getUsedDelta() < 1 then return false end
+		if math.floor(item:getUsedDelta()*1000+0.5) < 1 then return false end
 		
 		if soulsFreed then
 			--hasSoulCount_counter = item:getUsedDelta() -- if there are souls in the weapon, set soulcount counter variable to pass down to onCreate
@@ -74,61 +74,58 @@ function OnCreate_addFullSoulCount(items, result, player)
 	local soulsFreed = weaponModData.KillCount or nil
 	weaponModData.KillCount = soulsFreed + 1000 -- add souls from destroyed soul counter
 	soulsFreed = weaponModData.KillCount
-	result:setUsedDelta(0)
+	--result:setUsedDelta(0)
 end
-
---[[
-
-local partiallyFilledFlask= nil
-
-
-function OnTest_checkFilledFlask(item)
-	local player = getSpecificPlayer(0)
-	if player:getPrimaryHandItem() ~= nil then
-		local weapon = player:getPrimaryHandItem()
-		local weaponModData = weapon:getModData()
-		local soulsFreed = weaponModData.KillCount or nil
-		
-		if soulsFreed then
-			if item:getUsedDelta() == 1 then 
-				return false
-			else 
-				partiallyFilledFlask = item -- pass flask item down after on test
-				return true
-			end
-		else
-			return false
-		end
-	end
-end
-]]--
-
---[[
-function OnCreate_fillSoulFlask(items, result, player)
-
-	local fillSoulFlaskItem = partiallyFilledFlask
-
+function OnCreate_addGiantFullSoulCount(items, result, player)
 	local weapon = player:getPrimaryHandItem()
 	local weaponModData = weapon:getModData()
 	local soulsFreed = weaponModData.KillCount or nil
-	
-	fillSoulFlaskItem:setUsedDelta(fillSoulFlaskItem:getUsedDelta() - 1/1000) -- add souls to flask
-	weaponModData.KillCount = soulsFreed + 1 -- deduct souls from soul counter
-	soulsFreed = weaponModData.KillCount -- set soulsFreed
-	
-    while fillSoulFlaskItem:getUsedDelta() < 1 and soulsFreed > 0 do
-		fillSoulFlaskItem:setUsedDelta(fillSoulFlaskItem:getUsedDelta() - 1/1000) -- add souls to flask
-		weaponModData.KillCount = soulsFreed + 1 -- deduct souls from soul counter
-		soulsFreed = weaponModData.KillCount -- set soulsFreed
-    end
-
-    if fillSoulFlaskItem:getUsedDelta() >= 1 then
-        fillSoulFlaskItem:setUsedDelta(1);
-    end
+	weaponModData.KillCount = soulsFreed + 10000 -- add souls from destroyed soul counter
+	soulsFreed = weaponModData.KillCount
+	--result:setUsedDelta(0)
 end
-]]--
 
+function OnCreate_transferSoulCount(items, result, player)
+	local weapon = player:getPrimaryHandItem()
+	local weaponModData = weapon:getModData()
+	--weaponModData.KillCount = weaponModData.KillCount + 1000
+	--result:setUsedDelta(0)
+	local flask = nil
+    for i=0, items:size()-1 do
+       if items:get(i):getFullType() == "SoulForge.StoredSoulsSD_new" then
+           flask = items:get(i)
+		   break
+       end
+    end
+	local flaskCharges = 10000
+	result:setUsedDelta((math.floor(flask:getUsedDelta()*flaskCharges+0.5)-1)/flaskCharges)
+	weaponModData.KillCount = weaponModData.KillCount + 1
+	
+	while math.floor(result:getUsedDelta()*flaskCharges+0.5) > 0 do
+		result:setUsedDelta((math.floor(result:getUsedDelta()*flaskCharges+0.5)-1)/flaskCharges)
+		weaponModData.KillCount = weaponModData.KillCount + 1
+	end
+end
 
+function OnCreate_convertSoulFlask(items, result, player)
+	local flask = nil
+    for i=0, items:size()-1 do
+       if items:get(i):getFullType() == "SoulForge.StoredSouls" then
+           flask = items:get(i)
+		   break
+       end
+    end
+	local oldflaskCharges = 1000
+	
+	local newFlask = InventoryItemFactory.CreateItem("SoulForge.StoredSoulsSD_new")
+	local newflaskCharges = 10000
+	
+	result:setUsedDelta((math.floor(flask:getUsedDelta()*oldflaskCharges+0.5))/newflaskCharges)
+end
+
+function OnCreate_convertSoulFlask_new(items, result, player)
+	result:setUsedDelta(0.1)
+end
 
 function OnTest_checkEmptyFlask(item)
 	local player = getSpecificPlayer(0)
@@ -153,18 +150,20 @@ function OnCreate_fillEmptySoulFlask(items, result, player)
 	local weapon = player:getPrimaryHandItem()
 	local weaponModData = weapon:getModData()
 	local soulsFreed = weaponModData.KillCount or nil
-	local filledFlask = InventoryItemFactory.CreateItem("SoulForge.StoredSouls")
-		
-	if soulsFreed < 1000 then
+	local filledFlask = InventoryItemFactory.CreateItem("SoulForge.StoredSoulsSD_new")
+	
+	local flaskCharges = 10000
+	
+	if soulsFreed < flaskCharges then
 		--return
-		local addSouls = math.floor(soulsFreed)
-		filledFlask:setUsedDelta(addSouls/1000)
+		local addSouls = math.floor(soulsFreed+0.5)
+		filledFlask:setUsedDelta(addSouls/flaskCharges)
 		player:getInventory():AddItem(filledFlask)
 		weaponModData.KillCount = soulsFreed - addSouls -- deduct souls from soul counter
-	elseif soulsFreed >= 1000 then
+	elseif soulsFreed >= flaskCharges then
 		filledFlask:setUsedDelta(1)
 		player:getInventory():AddItem(filledFlask)
-		weaponModData.KillCount = soulsFreed - 1000 -- deduct souls from soul counter
+		weaponModData.KillCount = soulsFreed - flaskCharges -- deduct souls from soul counter
 	end
 	
 end
@@ -266,7 +265,7 @@ function OnTest_checkSoulFlask(item)
 	
 	if not item:isInPlayerInventory() then return false end
 	
-	if item:getFullType() == "SoulForge.StoredSouls" then
+	if item:getFullType() == "SoulForge.StoredSoulsSD_new" then
         if item:getUsedDelta() == 1 then return false; end
     end
 	
@@ -293,17 +292,18 @@ function OnCreate_fillSoulFlask(items, result, player)
 
     local previousFlask = nil;
     for i=0, items:size()-1 do
-       if items:get(i):getFullType() == "SoulForge.StoredSouls" then
+       if items:get(i):getFullType() == "SoulForge.StoredSoulsSD_new" then
            previousFlask = items:get(i);
 		   break
        end
     end
-
+	
+	local flaskCharges = 10000
 	local previousFlaskCharge = previousFlask:getUsedDelta()
-	local flaskChargeRemaining = 1000 - math.floor(previousFlaskCharge*1000+0.5) -- get flask charge remaining integer value
+	local flaskChargeRemaining = flaskCharges - math.floor(previousFlaskCharge*flaskCharges+0.5) -- get flask charge remaining integer value
 
 	if soulsFreed < flaskChargeRemaining then -- if # of souls cannot fill flask
-		local addSouls = math.floor(soulsFreed+0.5)/1000 -- addSouls is in units of 0.001
+		local addSouls = math.floor(soulsFreed+0.5)/flaskCharges -- addSouls is in units of 0.001
 		result:setUsedDelta(previousFlaskCharge+addSouls);
 		weaponModData.KillCount = 0
 	elseif soulsFreed == flaskChargeRemaining then -- if # of souls is equal to flask delta
@@ -322,7 +322,7 @@ function OnTest_checkEmptySoulFlask(item)
 	
 	if not item:isInPlayerInventory() then return false end
 	
-	if item:getFullType() == "SoulForge.StoredSouls" then
+	if item:getFullType() == "SoulForge.StoredSoulsSD_new" then
         if item:getUsedDelta() == 0 then return true; end
     elseif item:getFullType() == "Base.LeatherStrips" then 
 		return true 
@@ -332,7 +332,7 @@ function OnTest_checkEmptySoulFlask(item)
 end
 
 function OnCreate_EmptySoulFlask(items, result, player)
-	local soulFlask = InventoryItemFactory.CreateItem("SoulForge.StoredSouls")
+	local soulFlask = InventoryItemFactory.CreateItem("SoulForge.StoredSoulsSD_new")
 	soulFlask:setUsedDelta(0)
 	playerObj:getInventory():AddItem(soulFlask)
 end

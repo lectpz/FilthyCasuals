@@ -325,7 +325,7 @@ module SoulForge {
 	{
 		DisplayCategory 	= 		SoulForge,
 		Type				=		Drainable,
-		DisplayName			=		Flask of Stored Souls,
+		DisplayName			=		Flask of Stored Souls (Deprecated),
 		Icon				=		WhiteBot,
 		Weight				=		1.0,
 		WeightEmpty			=		0.3,
@@ -336,17 +336,62 @@ module SoulForge {
 		WorldStaticModel	=		world_WhiteBot,
 		cantBeConsolided 	= 		TRUE,
 	}
-
+	
+	item StoredSoulsSD
+	{
+		DisplayCategory 	= 		SoulForge,
+		Type				=		Drainable,
+		DisplayName			=		Flask of Stored Souls,
+		Icon				=		WhiteBot,
+		Weight				=		1.0,
+		WeightEmpty			=		0.3,
+		KeepOnDeplete 		= 		TRUE,
+		UseDelta 			=		0.0001,
+		UseWhileEquipped  	=		FALSE,
+		StaticModel			=		static_WhiteBot,
+		WorldStaticModel	=		world_WhiteBot,
+		cantBeConsolided 	= 		TRUE,
+	}
+	
+	item StoredSoulsSD_new
+	{
+		DisplayCategory 	= 		SoulForge,
+		Type				=		Drainable,
+		DisplayName			=		Flask of Stored Souls,
+		Icon				=		WhiteBot,
+		Weight				=		1.0,
+		WeightEmpty			=		0.3,
+		KeepOnDeplete 		= 		TRUE,
+		UseDelta 			=		0.0001,
+		UseWhileEquipped  	=		FALSE,
+		StaticModel			=		static_WhiteBot,
+		WorldStaticModel	=		world_WhiteBot,
+		cantBeConsolided 	= 		TRUE,
+	}
+	
 	item ContainerSoulsDisposable
 	{
 		DisplayCategory 	= 		SoulForge,
 		Type				=		Drainable,
 		DisplayName			=		Container of 1000 Souls (Single Use),
-		Icon				=		CyanBot,
+		Icon				=		WhiteBot,
 		Weight				=		5.0,
 		UseDelta 			=		0.001,
 		UseWhileEquipped  	=		FALSE,
-		StaticModel			=		static_CyanBot,
-		WorldStaticModel	=		world_CyanBot,
+		StaticModel			=		static_WhiteBot,
+		WorldStaticModel	=		world_WhiteBot,
+	}
+	
+	item ContainerSoulsDisposableGiant
+	{
+		DisplayCategory 	= 		SoulForge,
+		Type				=		Drainable,
+		DisplayName			=		Container of 10000 Souls (Single Use),
+		Icon				=		GiantWhiteBot,
+		Weight				=		5.0,
+		UseDelta 			=		0.001,
+		UseWhileEquipped  	=		FALSE,
+		StaticModel			=		static_GiantWhiteBot,
+		WorldStaticModel	=		world_GiantWhiteBot,
 	}
 }

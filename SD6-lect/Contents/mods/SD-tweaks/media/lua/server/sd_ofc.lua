@@ -1,3 +1,5 @@
+if not isServer() then return end
+
 local proceduralContainer = {}
 
 local function initProceduralContainer()
@@ -73,6 +75,45 @@ local function delimit(_string)
 	return ztable
 end
 
+local ofc_bID = {}
+local bID_flag = false
+
+local function getPlayerBIDS()
+	ofc_bID = {}
+	local online_players = getOnlinePlayers();
+	local players_online = {};
+
+	if online_players
+	then
+		for i = 0, online_players:size() - 1
+		do
+			local player = online_players:get(i);
+
+			if player
+			then
+				local playerName = player:getUsername()
+				table.insert(players_online, playerName);
+				local sq = player:getCurrentSquare()
+				local bldg
+				local bID
+				if sq then bldg = sq:getBuilding() end
+				if bldg then bID = bldg:getID() end
+				if bID then ofc_bID[bID] = true end
+			end
+		end
+	end
+end
+
+local clearCounter = 0
+local function clearFlag()
+	clearCounter = clearCounter + 1
+	if clearCounter > 1 then
+		clearCounter = 0
+		bID_flag = false
+	end
+end
+Events.EveryOneMinute.Add(clearFlag)
+
 local function onFillContainer(_roomName, _containerType, container)
 	if instanceof(container:getParent(), "BaseVehicle") then return end
 	
@@ -87,6 +128,12 @@ local function onFillContainer(_roomName, _containerType, container)
 	if not sq_room then return end
 	
 	if sd_bID[sq:getBuilding():getID()] then return end
+	
+	if not bID_flag then
+		getPlayerBIDS()
+		bID_flag = true
+	end
+	if ofc_bID[sq:getBuilding():getID()] then return end
 	
 	local sq_roomDef = sq_room:getRoomDef()
 	if not sq_roomDef then return end

@@ -559,4 +559,49 @@ module Base
 		Time:25.0,
 	}
 
+	item JewelryCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = SoulForge Jewelry Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache6,
+        WorldStaticModel        = cache6,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open Jewelry Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy JewelryCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:Base.Dice,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:OnCreate_JewelryCache,
+	}
+	
+	item SoulForgeCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = SoulForge Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache6,
+        WorldStaticModel        = cache6,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open SoulForge Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy SoulForgeCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:Base.Dice,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:OnCreate_SoulForgeCache,
+	}
 }

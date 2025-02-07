@@ -149,4 +149,44 @@ module SoulForge {
         Icon            = BusTicket,
 		WorldStaticModel = PaperNapkins_Ground,
     }
+	
+	item WeightedDiceT5
+	{
+		DisplayName = SoulForged Dice [T5],
+		DisplayCategory = SoulForge,
+		Type = Normal,
+		Weight = 5,
+		Icon = Dice,
+		WorldStaticModel = Dice,
+	}
+	
+	item WeightedDiceT4
+	{
+		DisplayName = SoulForged Dice [T4],
+		DisplayCategory = SoulForge,
+		Type = Normal,
+		Weight = 4,
+		Icon = Dice,
+		WorldStaticModel = Dice,
+	}
+	
+	item WeightedDiceT3
+	{
+		DisplayName = SoulForged Dice [T3],
+		DisplayCategory = SoulForge,
+		Type = Normal,
+		Weight = 3,
+		Icon = Dice,
+		WorldStaticModel = Dice,
+	}
+	
+	item WeightedDiceT2
+	{
+		DisplayName = SoulForged Dice [T2],
+		DisplayCategory = SoulForge,
+		Type = Normal,
+		Weight = 2,
+		Icon = Dice,
+		WorldStaticModel = Dice,
+	}
 }

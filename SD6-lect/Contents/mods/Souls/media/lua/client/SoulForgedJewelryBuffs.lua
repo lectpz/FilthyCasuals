@@ -69,7 +69,6 @@ BuffSystem.BUFF_CALCULATIONS = {
         getDisplayValue = function(tier) return 1 * tier end,
         getBonus = function(tier) return (.01 * tier) end,
         modData = "PermaSoulSmithValue",
-        defaultValue = 1
     },
  }
 

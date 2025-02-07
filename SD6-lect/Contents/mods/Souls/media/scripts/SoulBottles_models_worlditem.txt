@@ -7,6 +7,13 @@ module Base
         scale = 0.35,
 	}
 	
+	model world_GiantWhiteBot
+	{
+		mesh = SoulBottle,
+        texture = GiantWhiteBot,
+        scale = 0.65,
+	}
+	
 	model world_BlackBot
 	{
 		mesh = SoulBottle,
@@ -54,6 +61,13 @@ module Base
 		mesh = SoulBottle,
         texture = CyanBot,
         scale = 0.35,
+	}
+	
+	model world_GiantCyanBot
+	{
+		mesh = SoulBottle,
+        texture = GiantCyanBot,
+        scale = 0.65,
 	}
 	
 	model world_BlueBot

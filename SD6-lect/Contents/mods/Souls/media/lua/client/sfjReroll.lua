@@ -57,9 +57,10 @@ local function sfjReroll(player, items, sfjTier)
 	
 	for i=1, #items do
 		local item = items[i]
-		if not item:isInPlayerInventory() or item:isEquipped() or item:isFavorite() then return end -- item must be in inventory
+		if not item:isInPlayerInventory() or item:isEquipped() or item:isFavorite() or item:getContainer():getType() ~= "none" then return end -- item must be in inventory
 		local iTier = item:getModData().Tier
-		if iTier then table.insert(cachedItems[iTier], item:getID()) end -- populate cached items table
+		local iBuff = item:getModData().SoulBuff
+		if iTier and iBuff then table.insert(cachedItems[iTier], item:getID()) end -- populate cached items table
 	end
 	
 	for tier,v in pairs(cachedItems) do
@@ -101,16 +102,17 @@ local function sfjContext(player, context, items)
 	
 	for i=1, #_items do
 		local item = _items[i]
-		if not item:isInPlayerInventory() or item:isEquipped() or item:isFavorite() then return end -- item must be in inventory
+		if not item:isInPlayerInventory() or item:isEquipped() or item:isFavorite() or item:getContainer():getType() ~= "none" then return end -- item must be in inventory
 		local iTier = item:getModData().Tier
-		if iTier then table.insert(cachedItems[iTier], item:getID()) end -- populate cached items table
+		local iBuff = item:getModData().SoulBuff
+		if iTier and iBuff then table.insert(cachedItems[iTier], item:getID()) end -- populate cached items table
 	end
 	
 	for tier,v in pairs(cachedItems) do
 		local _v = math.floor(#v/3) 
 		if _v >=1 then
 			local sfj_recomb = context:addOption("Recombine [T" .. tier .. "] SoulForged Jewelry (" .. _v .. " rerolls)", player, sfjReroll, _items, tier)
-			tooltip = ISWorldObjectContextMenu.addToolTip();
+			local tooltip = ISWorldObjectContextMenu.addToolTip();
 			tooltip.description = gold .. "Scrap Metal required (" .. tier^2 .. " per reroll):"
 			itemToolTipMats(tooltip, "Base.ScrapMetal", sfj_recomb, _v*tier^2)
 			sfj_recomb.toolTip = tooltip
@@ -118,3 +120,50 @@ local function sfjContext(player, context, items)
 	end
 end
 Events.OnPreFillInventoryObjectContextMenu.Add(sfjContext)
+
+local function upgradeTier(name)
+	local new_name = string.gsub(name, "%[T(%d+)%]", 	function(match)
+															local num = tonumber(match)
+															if num then
+																return "[T" .. (num + 1) .. "]"
+															end
+														end)
+    return new_name
+end
+
+local function sfjUpgrade(player, item, tier)
+	local playerInv = getSpecificPlayer(0):getInventory()
+	item:getModData().Tier = tier
+	item:setName(upgradeTier(item:getName()))
+	for i=1, 2 do
+		playerInv:RemoveOneOf("SoulForge.SoulShardT"..tier)
+	end
+	playerInv:RemoveOneOf("SoulForge.WeightedDiceT"..tier)
+	for i=1,tier^2 do
+		playerInv:RemoveOneOf("Base.ScrapMetal")
+	end
+end
+
+local function sfjUpgradeContext(player, context, items)
+    local playerObj = getSpecificPlayer(0)
+    local playerInv = playerObj:getInventory()
+	local _items = ISInventoryPane.getActualItems(items)
+	
+	for i=1, #_items do
+		local item = _items[i]
+		if not item:isInPlayerInventory() or item:isEquipped() or item:isFavorite() or item:getContainer():getType() ~= "none" then return end -- item must be in inventory
+		local iTier = item:getModData().Tier
+		local iBuff = item:getModData().SoulBuff
+		if iTier and iTier < 5 and iBuff then 
+			local sfj_upgrade = context:addOption("Upgrade [T" .. iTier .. "] SoulForged Jewelry to [T" .. iTier+1 .. "]", player, sfjUpgrade, item, iTier+1)
+			local tooltip = ISWorldObjectContextMenu.addToolTip();
+			tooltip.description = gold .. "Material required for upgrade:"
+			itemToolTipMats(tooltip, "Base.ScrapMetal", sfj_upgrade, (iTier+1)^2)
+			itemToolTipMats(tooltip, "SoulForge.WeightedDiceT"..iTier+1, sfj_upgrade, iTier)
+			itemToolTipMats(tooltip, "SoulForge.SoulShardT"..iTier+1, sfj_upgrade, iTier)
+			sfj_upgrade.toolTip = tooltip
+			break
+		end
+	end
+end
+Events.OnPreFillInventoryObjectContextMenu.Add(sfjUpgradeContext)

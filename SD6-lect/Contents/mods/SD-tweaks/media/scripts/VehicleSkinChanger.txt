@@ -29,4 +29,14 @@ module Base
         Icon            = BusTicket,
 		WorldStaticModel = PaperNapkins_Ground,
     }
+	
+	item EngraveKit
+    {
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = SD Weapon Engraving Kit,
+        DisplayCategory = SoulForge,
+        Icon            = Pen,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
 }

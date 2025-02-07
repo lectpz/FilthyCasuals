@@ -23,7 +23,7 @@ function Lib.findField(o, fname)
 end
 
 function Lib.findFields(o)
-	local cogField, speedField, hearField
+	local speedField, hearField, cogField
     for i = 0, getNumClassFields(o) - 1 do
         local f = getClassField(o, i)
 		local fString = tostring(f)
@@ -34,9 +34,9 @@ function Lib.findFields(o)
 		elseif fString == "public int zombie.characters.IsoZombie.hearing" then
             hearField = f
         end
-		if cogField and speedField and hearField then break end
+		if speedField and hearField and cogField then break end
     end
-	return cogField, speedField, hearField
+	return speedField, hearField, cogField
 end
 
 -- NOTE: we implement our own since
@@ -139,9 +139,9 @@ local function updateZombie(zombie, speedType, cognition, hearing)
     -- from _intended_ default state (i.e. RZ happened to assign it to default bucket) to _unintended_
     -- default state (i.e. RZ would not assign it to the default bucket, even though it's the same zombie)
     -- see IsoZombie::resetForReuse and VirtualZombieManager::createRealZombieAlways for more info
-    local shouldSkip = speedTypeVal == modData.SDspeed and cognitionVal == modData.SDcog and hearingVal ==
-                           modData.SDhearing and crawlingVal == modData.SDcrawl and math.abs(squareXVal - modData.SDx) <=
-                           50 and math.abs(squareYVal - modData.SDy) <= 50
+    local shouldSkip = speedTypeVal == modData.SDspeed --and cognitionVal == modData.SDcog 
+						and hearingVal == modData.SDhearing and crawlingVal == modData.SDcrawl and 
+						math.abs(squareXVal - modData.SDx) <=50 and math.abs(squareYVal - modData.SDy) <= 50
 						   
 --lect
 	local tier, zone, x, y, control, toxic, sprinterValue, pinpointValue, cognitionValue = checkZoneAtXY(squareXVal, squareYVal)
@@ -200,15 +200,16 @@ local function updateZombie(zombie, speedType, cognition, hearing)
 end
 
 local tick = 0
+local tickMax = 1
 local function updateAllZombies()
 	tick = tick + 1
-	if tick > 2 then
+	if tick > tickMax then
 		local startTime = getTimestampMs()
 		sandboxOpts = getSandboxOptions()
 		local zs = getCell():getZombieList()
 		local sz = zs:size()
-		local bob = IsoZombie.new(nil)	
-		local cognition, speedType, hearing = Lib.findFields(bob)
+		local bob = IsoZombie.new(nil)
+		local speedType, hearing, cognition = Lib.findFields(bob)
 		local client = isClient()
 		for i = 0, sz - 1 do
 			local z = zs:get(i)
@@ -219,6 +220,21 @@ local function updateAllZombies()
 		local timeElapsed = getTimestampMs() - startTime
 		print("[sdLogger] It took " .. timeElapsed .. "ms to complete zombie update for " .. sz .. " zombies!")
 		tick = 0
+		if timeElapsed > 1500 then 
+			tickMax = 7
+		elseif timeElapsed > 1250 then 
+			tickMax = 6
+		elseif timeElapsed > 1000 then 
+			tickMax = 5
+		elseif timeElapsed > 750 then 
+			tickMax = 4
+		elseif timeElapsed > 500 then 
+			tickMax = 3
+		elseif timeElapsed > 350 then 
+			tickMax = 2
+		else
+			tickMax = 1
+		end
 	end
 end
 

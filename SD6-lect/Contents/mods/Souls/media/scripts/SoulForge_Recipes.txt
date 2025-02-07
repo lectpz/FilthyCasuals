@@ -16,7 +16,7 @@ module SoulForge {
 	recipe Convert Soul Flask Into A Water Container
 	{
 		CanBeDoneFromFloor:true,
-		destroy StoredSouls,
+		destroy StoredSoulsSD_new,
 		Base.LeatherStrips=1,
 		AnimNode:Loot,
 		Prop1: Source=1,
@@ -32,7 +32,7 @@ module SoulForge {
 		Base.LeatherStrips=1,
 		AnimNode:Loot,
 		Prop1: Source=1,
-		Result:StoredSouls,
+		Result:StoredSoulsSD_new,
 		RemoveResultItem:true,
 		Time:50.0,
 		OnCreate:OnCreate_EmptySoulFlask,
@@ -44,7 +44,7 @@ module SoulForge {
 		destroy EmptySoulFlaskWhite,
 		AnimNode:Loot,
 		Prop1: Source=1,
-		Result:StoredSouls,
+		Result:StoredSoulsSD_new,
 		RemoveResultItem:true,
 		Time:50.0,
 		OnTest:OnTest_checkEmptyFlask,
@@ -54,10 +54,10 @@ module SoulForge {
 	recipe Fill Soul Flask
 	{
 		CanBeDoneFromFloor:true,
-		destroy StoredSouls,
+		destroy StoredSoulsSD_new,
 		AnimNode:Loot,
 		Prop1: Source=1,
-		Result:StoredSouls,
+		Result:StoredSoulsSD_new,
 		Time:50.0,
 		OnTest:OnTest_checkSoulFlask,
 		OnCreate:OnCreate_fillSoulFlask,
@@ -69,24 +69,36 @@ module SoulForge {
 		destroy ContainerSoulsDisposable,
 		AnimNode:Loot,
 		Prop1: Source=1,
-		Result:StoredSouls,
+		Result:StoredSoulsSD_new,
 		RemoveResultItem:true,
 		Time:50.0,
 		OnTest:OnTest_hasSoulCount,
 		OnCreate:OnCreate_addFullSoulCount,
 	}
 	
-	recipe Infuse Souls Into Weapon
+	recipe Infuse Souls Into Weapon (Single Use)
 	{
 		CanBeDoneFromFloor:true,
-		StoredSouls=1000,
+		destroy ContainerSoulsDisposableGiant,
 		AnimNode:Loot,
 		Prop1: Source=1,
-		Result:StoredSouls,
+		Result:StoredSoulsSD_new,
 		RemoveResultItem:true,
 		Time:50.0,
 		OnTest:OnTest_hasSoulCount,
-		OnCreate:OnCreate_addFullSoulCount,
+		OnCreate:OnCreate_addGiantFullSoulCount,
+	}
+	
+	recipe Infuse Souls Into Weapon
+	{
+		CanBeDoneFromFloor:true,
+		destroy StoredSoulsSD_new,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:StoredSoulsSD_new,
+		Time:50.0,
+		OnTest:OnTest_hasSoulCount,
+		OnCreate:OnCreate_transferSoulCount,
 	}
 	
 	recipe Paint Soul Flask White
@@ -183,7 +195,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy [Recipe.GetItemTypes.T1Weapons],
-		StoredSouls=100,
+		StoredSoulsSD_new=100,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		Prop2: Source=2,
@@ -198,7 +210,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy [Recipe.GetItemTypes.T2Weapons],
-		StoredSouls=300,
+		StoredSoulsSD_new=300,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		Prop2: Source=2,
@@ -213,7 +225,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy [Recipe.GetItemTypes.T3Weapons],
-		StoredSouls=600,
+		StoredSoulsSD_new=600,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		Prop2: Source=2,
@@ -228,7 +240,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy [Recipe.GetItemTypes.T4Weapons],
-		StoredSouls=1000,
+		StoredSoulsSD_new=1000,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		Prop2: Source=2,
@@ -243,7 +255,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy [Recipe.GetItemTypes.T5Weapons],
-		StoredSouls=1000,
+		StoredSoulsSD_new=1000,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		Prop2: Source=2,
@@ -488,7 +500,7 @@ module SoulForge {
 	recipe Create Container of 1000 Souls (Single Use)
 	{
 		CanBeDoneFromFloor:true,
-		StoredSouls=1000,
+		StoredSoulsSD_new=1000,
 		destroy Base.WaterBottleEmpty/Base.PopBottleEmpty,
 		AnimNode:Loot,
 		Prop1: Source=1,
@@ -497,9 +509,21 @@ module SoulForge {
 		InSameInventory:true,
 	}
 	
+	recipe Create Container of 10000 Souls (Single Use)
+	{
+		CanBeDoneFromFloor:true,
+		StoredSoulsSD_new=10000,
+		destroy CanteensAndBottles.GiantWaterBottleEmpty,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:ContainerSoulsDisposableGiant,
+		Time:50.0,
+		InSameInventory:true,
+	}
+	
 	recipe Unforge Weapon
 	{
-		StoredSouls=400,
+		StoredSoulsSD_new=400,
 		SoulShardT1=7,
 		SoulShardT2=6,
 		SoulShardT3=3,
@@ -596,5 +620,65 @@ module SoulForge {
 		Result:Base.Dice,
 		RemoveResultItem:true,
 		Time:100.0,
+	}
+	
+	recipe Combine Weighted Dice
+	{
+		CanBeDoneFromFloor:false,
+		WeightedDiceT2=3,
+		StoredSoulsSD_new=150,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		Result:WeightedDiceT3,
+		Time:100.0,
+	}
+	
+	recipe Combine Weighted Dice
+	{
+		CanBeDoneFromFloor:false,
+		WeightedDiceT3=3,
+		StoredSoulsSD_new=400,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		Result:WeightedDiceT4,
+		Time:100.0,
+	}
+	
+	recipe Combine Weighted Dice
+	{
+		CanBeDoneFromFloor:false,
+		WeightedDiceT4=3,
+		StoredSoulsSD_new=1000,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		Result:WeightedDiceT5,
+		Time:100.0,
+	}
+	
+	recipe Convert Soul Flask
+	{
+		CanBeDoneFromFloor:false,
+		destroy StoredSouls,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		Result:StoredSoulsSD_new,
+		Time:100.0,
+		OnCreate:OnCreate_convertSoulFlask,
+	}
+	
+	recipe Convert Soul Flask
+	{
+		CanBeDoneFromFloor:false,
+		destroy StoredSoulsSD,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		Result:StoredSoulsSD_new,
+		Time:100.0,
+		OnCreate:OnCreate_convertSoulFlask_new,
 	}
 }

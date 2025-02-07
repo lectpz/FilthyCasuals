@@ -6,6 +6,9 @@
 
 --require "SDZoneCheck"
 
+local ItemGenerator = require('SoulForgedJewelryItemGeneration')
+local EventHandlers = require('SoulForgedJewelryEventHandlers')
+
 local VAitems = {
 				"HS_VenenosusAer.VA_Charcoal_Tablets", "HS_VenenosusAer.VA_Filter_LowGrade", "HS_VenenosusAer.VA_Filter_MediumGrade", "HS_VenenosusAer.VA_Filter_HighGrade",
 				"Packing.5pkVA_Charcoal_Tablets", "Packing.5pkVA_Filter_LowGrade", "Packing.5pkVA_Filter_MediumGrade", "Packing.5pkVA_Filter_HighGrade", 
@@ -752,5 +755,127 @@ function PokemonCacheSD(items, result, player)
 	loot = "Aza_01_" .. randompokemon
 	addPokemonTileToPlayer(loot, loot)
 	
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+end
+
+local function rollJewelry(tier, playerObj)
+	shard = ItemGenerator.getTierSoulShardExplicit(tier)
+	SoulForgedJewelryOnCreate(shard, "Base.Dice", playerObj)
+end
+
+function OnCreate_JewelryCache(items, result, player)
+	local zonetier, zonename, x, y = checkZone()
+	local zoneroll = 8-zonetier
+	
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Jewelry Cache",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+	
+	if zonetier == 5 then
+		for i=1,zonetier do
+			if ZombRand(zoneroll) == 0 then
+				rollJewelry(zonetier, player)
+			end
+		end
+		rollJewelry(zonetier, player)
+	elseif zonetier == 4 then
+		for i=1,zonetier do
+			if ZombRand(zoneroll) == 0 then
+				rollJewelry(zonetier, player)
+			end
+		end
+		rollJewelry(zonetier, player)
+	elseif zonetier == 3 then
+		for i=1,zonetier do
+			if ZombRand(zoneroll) == 0 then
+				rollJewelry(zonetier, player)
+			end
+		end
+		rollJewelry(zonetier, player)
+	elseif zonetier == 2 then
+		for i=1,zonetier do
+			if ZombRand(zoneroll) == 0 then
+				rollJewelry(zonetier, player)
+			end
+		end
+		rollJewelry(zonetier, player)
+	elseif zonetier == 1 then
+		for i=1,zonetier do
+			if ZombRand(zoneroll) == 0 then
+				rollJewelry(zonetier, player)
+			end
+		end
+		rollJewelry(zonetier, player)
+	end
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+end
+
+function OnCreate_SoulForgeCache(items, result, player)
+-- tiered rolling, checks zone and adds item
+	local zonetier, zonename, x, y = checkZone()
+	local zoneroll = 8-zonetier
+	
+	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
+	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
+	
+	local soulFlask = InventoryItemFactory.CreateItem("SoulForge.StoredSoulsSD_new")
+	
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "SoulForge Cache",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+
+	if zonetier == 5 then
+		soulFlask:setUsedDelta(math.min(scaledNormal()/10, zonetier/50))
+		randomrollSD(10, soulFlask, "SoulForge.StoredSoulsSD_new")
+		for i=1,3 do
+			randomrollSD(zoneroll, "SoulForge.SoulShardT"..zonetier)
+			randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+		end
+		addItemToPlayer(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+		addItemToPlayer("SoulForge.WeightedDiceT"..zonetier)
+	elseif zonetier == 4 then
+		soulFlask:setUsedDelta(math.min(scaledNormal()/10, zonetier/50))
+		randomrollSD(10, soulFlask, "SoulForge.StoredSoulsSD_new")
+		for i=1,3 do
+			randomrollSD(zoneroll, "SoulForge.SoulShardT"..zonetier)
+			randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+		end
+		addItemToPlayer(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+		addItemToPlayer("SoulForge.WeightedDiceT"..zonetier)
+	elseif zonetier == 3 then
+		soulFlask:setUsedDelta(math.min(scaledNormal()/10, zonetier/50))
+		randomrollSD(10, soulFlask, "SoulForge.StoredSoulsSD_new")
+		for i=1,3 do
+			randomrollSD(zoneroll, "SoulForge.SoulShardT"..zonetier)
+			randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+		end
+		randomrollSD(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+		addItemToPlayer("SoulForge.WeightedDiceT"..zonetier)
+	elseif zonetier == 2 then
+		soulFlask:setUsedDelta(math.min(scaledNormal()/10, zonetier/50))
+		randomrollSD(10, soulFlask, "SoulForge.StoredSoulsSD_new")
+		for i=1,3 do
+			randomrollSD(zoneroll, "SoulForge.SoulShardT"..zonetier)
+		end
+		randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+		addItemToPlayer("SoulForge.WeightedDiceT"..zonetier)
+	elseif zonetier == 1 then
+		soulFlask:setUsedDelta(math.min(scaledNormal()/10, zonetier/50))
+		randomrollSD(10, soulFlask, "SoulForge.StoredSoulsSD_new")
+		for i=1,3 do
+			randomrollSD(zoneroll, "SoulForge.SoulShardT"..zonetier)
+		end
+		randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 end

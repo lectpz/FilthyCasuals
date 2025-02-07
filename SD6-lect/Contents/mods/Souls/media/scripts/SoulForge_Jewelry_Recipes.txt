@@ -10,7 +10,7 @@ module SoulForgeJewelery
         SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
         PropaneTank/5,
         ScrapMetal=15,
-        StoredSouls=100,
+        StoredSoulsSD_new=100,
         Result:Base.Dice,
         Sound:Hammering,
         Time:100.0,

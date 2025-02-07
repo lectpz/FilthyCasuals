@@ -60,7 +60,7 @@ local buffTimer = {}
 
 local function checkTimestamp(buff)
 	local timestamp = getTimestamp()
-	if buffTimer[buff] and (timestamp-buffTimer[buff] < 5) then
+	if buffTimer[buff] and (timestamp-buffTimer[buff] < 10) then
 		buffTimer[buff] = timestamp
 		return false
 	end
@@ -231,15 +231,15 @@ function SoulSmithOnWeaponHitXP(player, handWeapon, character, damageSplit)
 	local pMD = getSpecificPlayer(0):getModData()
 	local permaSoulSmithValue = pMD.PermaSoulSmithValue
 	local SoulSmithValue = pMD.SoulSmithValue
-	if SoulSmithValue and permaSoulSmithValue and permaSoulSmithValue > 1 then SoulSmithValue = SoulSmithValue + permaSoulSmithValue end
-	if SoulSmithValue then
+	if SoulSmithValue and permaSoulSmithValue and permaSoulSmithValue > 0 then SoulSmithValue = SoulSmithValue + permaSoulSmithValue end
+	if SoulSmithValue and SoulSmithValue > 0 then
 		if ZombRand(0,100) < SoulSmithValue then
 			local weapRestore = ZombRand(2)+1
 			handWeapon:setCondition(math.floor(handWeapon:getCondition() + weapRestore + 0.5))
 			HaloTextHelper.addTextWithArrow(player, "+" .. weapRestore .. " weapon condition restored.", true, HaloTextHelper.getColorGreen());
+			dPr("Soul Smith Hit")
 		end
 	end
-	dPr("Soul Smith Hit")
 end
 
 function decaySoulSmith()
@@ -256,10 +256,10 @@ function decaySoulSmith()
 	if pMD.SoulSmithTimer <= 0 then
 		Events.EveryTenMinutes.Remove(decaySoulSmith)
 		pMD.SoulSmithValue = 0
-		if not permaSoulSmith and not (permaSoulSmith > 0) then 
-			Events.OnWeaponHitXp.Remove(SoulSmithOnWeaponHitXP)
-			HaloTextHelper.addTextWithArrow(getSpecificPlayer(0), "Soul Smith Buff Removed. ", false, HaloTextHelper.getColorRed());
-		end
+		--if not permaSoulSmith and not (permaSoulSmith > 0) then 
+			--Events.OnWeaponHitXp.Remove(SoulSmithOnWeaponHitXP)
+			HaloTextHelper.addTextWithArrow(getSpecificPlayer(0), "Soul Smith Food Buff Removed. ", false, HaloTextHelper.getColorRed());
+		--end
 	end
 	dPr("Soul Smith Decay - " .. pMD.SoulSmithTimer)
 end
@@ -273,17 +273,15 @@ function OnEat_SoulSmith(food, character, percent)
 		
 		if pMD.SoulSmithTimer and pMD.SoulSmithTimer > 0 then
 			Events.EveryTenMinutes.Remove(decaySoulSmith) --remove previous hook
-			Events.OnWeaponHitXp.Remove(SoulSmithOnWeaponHitXP)
+			--Events.OnWeaponHitXp.Remove(SoulSmithOnWeaponHitXP)
 		end
 		
 		pMD.SoulSmithValue = hunger/SoulSmithDenom
 		pMD.SoulSmithTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
 		
 		Events.EveryTenMinutes.Add(decaySoulSmith)
-		if not permaSoulSmith and not (permaSoulSmith > 0) then 
-			Events.OnWeaponHitXp.Add(SoulSmithOnWeaponHitXP)
-			HaloTextHelper.addTextWithArrow(character, "Soul Smith Buff Active. ", true, HaloTextHelper.getColorGreen());
-		end
+		--Events.OnWeaponHitXp.Add(SoulSmithOnWeaponHitXP)
+		HaloTextHelper.addTextWithArrow(character, "Soul Smith Food Buff Active. ", true, HaloTextHelper.getColorGreen());
 		buffTimer["SoulSmith"] = getTimestamp()
 	end
 end
@@ -291,9 +289,9 @@ end
 local function initSoulSmith(player)
 	local pMD = player:getModData()
 	local permaSoulSmith = pMD.PermaSoulSmithValue
-	if permaSoulSmith and permaSoulSmith > 1 then
-		Events.OnWeaponHitXp.Add(SoulSmithOnWeaponHitXP)
-		HaloTextHelper.addTextWithArrow(player, "Soul Smith Active. ", true, HaloTextHelper.getColorGreen());
+	Events.OnWeaponHitXp.Add(SoulSmithOnWeaponHitXP)
+	if (permaSoulSmith and permaSoulSmith > 0) or (pMD.SoulSmithTimer and pMD.SoulSmithTimer > 0) then
+		HaloTextHelper.addTextWithArrow(player, "Soul Smith Active.", true, HaloTextHelper.getColorGreen());
 	end
 	Events.OnPlayerMove.Remove(initSoulSmith)
 end
@@ -349,6 +347,7 @@ Events.OnGameStart.Add(infuseOnGameStart)
 
 function infuseAlert(item, playerObj)
 	local itemModData = item:getModData()
+	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_Alert")
 	itemModData.setOnEat = "OnEat_Alert"
 	itemModData.hungerChange = item:getHungerChange() * -1
@@ -362,6 +361,7 @@ end
 
 function infuseFortitude(item, playerObj)
 	local itemModData = item:getModData()
+	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_Fortitude")
 	itemModData.setOnEat = "OnEat_Fortitude"
 	itemModData.hungerChange = item:getHungerChange() * -1
@@ -374,6 +374,7 @@ end
 
 function infuseIronChef(item, playerObj)
 	local itemModData = item:getModData()
+	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_IronChef")
 	itemModData.setOnEat = "OnEat_IronChef"
 	itemModData.hungerChange = item:getHungerChange() * -1
@@ -386,6 +387,7 @@ end
 
 function infuseLuck(item, playerObj)
 	local itemModData = item:getModData()
+	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_Luck")
 	itemModData.setOnEat = "OnEat_Luck"
 	itemModData.hungerChange = item:getHungerChange() * -1
@@ -402,6 +404,7 @@ end
 
 function infuseSoulSmith(item, playerObj)
 	local itemModData = item:getModData()
+	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_SoulSmith")
 	itemModData.setOnEat = "OnEat_SoulSmith"
 	itemModData.hungerChange = item:getHungerChange() * -1
@@ -419,6 +422,7 @@ end
 
 function infuseSoulThirst(item, playerObj)
 	local itemModData = item:getModData()
+	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_SoulThirst")
 	itemModData.setOnEat = "OnEat_SoulThirst"
 	itemModData.hungerChange = item:getHungerChange() * -1
@@ -441,7 +445,7 @@ local function soulInfuse(player, context, _items)
 
 	for i=1, #items do
 		item = items[i]
-		if not item:isInPlayerInventory() then return end
+		--if not item:isInPlayerInventory() then return end
 		if instanceof(item, "Food") then
 			local iMD = item:getModData()
 			--dPr("Hunger Change value: " .. item:getHungerChange())
@@ -481,7 +485,8 @@ local function soulInfuse(player, context, _items)
 				end
 				break
 			end
-			if not item:getOnEat() then
+
+			if not item:getOnEat() and item:isInPlayerInventory() then
 				infuseCtx 	= context:addOption("Infuse Food with Souls", item, nil, playerObj)
 				submenu 	= ISContextMenu:getNew(context)
 				context:addSubMenu(infuseCtx, submenu)

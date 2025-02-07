@@ -117,11 +117,18 @@ local function SDOnWeaponSwing(character, handWeapon)
 		if soulForgeMaxCondition and permaMaxCondition and permaMaxCondition > 1 then soulForgeMaxCondition = soulForgeMaxCondition * permaMaxCondition end
 		if soulForgeConditionLowerChance and permaConditionLowerChance and permaConditionLowerChance > 1 then soulForgeConditionLowerChance = soulForgeConditionLowerChance * permaConditionLowerChance end
 		
+		local engravedName = modData.EngravedName
+		
 		inventoryItem:setCriticalChance(((basecritrate + addCritChance) * localcritrate) * modeMultiplier * soulForgeCritRate)
 		inventoryItem:setCritDmgMultiplier(((basecritmulti + addCritMulti) * localcritmulti) * modeMultiplier * soulForgeCritMulti)
 		inventoryItem:setMinDamage((basemindmg * localdmgmulti) * modeMultiplier * soulForgeMinDmgMulti)
 		inventoryItem:setMaxDamage(((basemaxdmg + addMaxDmg) * localdmgmulti) * modeMultiplier * soulForgeMaxDmgMulti)
-		inventoryItem:setName(soulWrought..basename .. " [T" .. tostring(tierzone) .. "]")
+		
+		if engravedName then
+			inventoryItem:setName(engravedName .. " [T" .. tostring(tierzone) .. "]")
+		else
+			inventoryItem:setName(soulWrought..basename .. " [T" .. tostring(tierzone) .. "]")
+		end
 
 		if soulForgeConditionLowerChance then inventoryItem:setConditionLowerChance(scriptItem:getConditionLowerChance() * soulForgeConditionLowerChance) end
 		if soulForgeMaxCondition then inventoryItem:setConditionMax(scriptItem:getConditionMax() * soulForgeMaxCondition) end
@@ -220,11 +227,17 @@ local function SDWeaponCheck(character, inventoryItem)
 		if soulForgeMaxCondition and permaMaxCondition and permaMaxCondition > 1 then soulForgeMaxCondition = soulForgeMaxCondition * permaMaxCondition end
 		if soulForgeConditionLowerChance and permaConditionLowerChance and permaConditionLowerChance > 1 then soulForgeConditionLowerChance = soulForgeConditionLowerChance * permaConditionLowerChance end
 		
+		local engravedName = modData.EngravedName
+		
 		inventoryItem:setCriticalChance((basecritrate + addCritChance) * soulForgeCritRate)
 		inventoryItem:setCritDmgMultiplier((basecritmulti + addCritMulti) * soulForgeCritMulti)
 		inventoryItem:setMinDamage(basemindmg * soulForgeMinDmgMulti)
 		inventoryItem:setMaxDamage((basemaxdmg + addMaxDmg) * soulForgeMaxDmgMulti)
-		inventoryItem:setName(soulWrought..basename)
+		if engravedName then 
+			inventoryItem:setName(engravedName)
+		else
+			inventoryItem:setName(soulWrought..basename)
+		end
 		
 		if soulForgeMaxHitCount then
 			local mhc = math.max(soulForgeMaxHitCount-math.floor(tierzone/4),1)

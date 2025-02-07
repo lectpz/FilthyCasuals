@@ -6,6 +6,13 @@ module Base
         texture = WhiteBot,
         scale = 0.35,
 	}
+
+	model static_GiantWhiteBot
+	{
+		mesh = SoulBottleFlip,
+        texture = GiantWhiteBot,
+        scale = 0.65,
+	}
 	
 	model static_BlackBot
 	{
@@ -54,6 +61,13 @@ module Base
 		mesh = SoulBottleFlip,
         texture = CyanBot,
         scale = 0.35,
+	}
+	
+	model static_GiantCyanBot
+	{
+		mesh = SoulBottleFlip,
+        texture = GiantCyanBot,
+        scale = 0.65,
 	}
 	
 	model static_BlueBot

@@ -14,7 +14,7 @@ end
 Events.OnZombieDead.Add(function(zombie)
     local tierZone = checkZone()
 
-    if ZombRand(299) == 0 and isValidZone(tierZone) then
+    if ZombRand(tierZone*125) == 0 and isValidZone(tierZone) then
         local items = ItemGenerator.getTierSoulShard()
         local result = nil
         EventHandlers.SoulForgedJewelryOnCreate(items, result, zombie)

@@ -150,6 +150,8 @@ local function preDistributionMergeSD5()
 	for distribution, chance in pairs(medData) do
 		table.insert(ProceduralDistributions.list[distribution].items, "MedicalCache")
 		table.insert(ProceduralDistributions.list[distribution].items, chance)
+		--table.insert(ProceduralDistributions.list[distribution].items, "SoulForgeCache")
+		--table.insert(ProceduralDistributions.list[distribution].items, chance)
 	end
 ----------------------------------------------------------------------------------------		
 	local armorCacheData = {	
@@ -176,20 +178,37 @@ local function preDistributionMergeSD5()
 		table.insert(ProceduralDistributions.list[distribution].items, chance)
 	end
 ----------------------------------------------------------------------------------------		
-	local toyData = {
-		CrateToys = 0.01,
-		GigamartToys = 0.01,
-		WardrobeChild = 0.01,
-		Hobbies = 0.01,
-		Gifts = 0.01,
-		DaycareShelves = 0.01,
-		DaycareDesk = 0.01,
-		DaycareCounter = 0.01,
-		CrateToys = 0.01,
+	local jewelryData = {
+		DepartmentStoreJewelry = 0.001,
+		DepartmentStoreWatches = 0.001,
+		JewelryGems = 0.001,
+		JewelryGold = 0.001,
+		JewelryNavelRings = 0.001,
+		JewelryOthers = 0.001,
+		JewelrySilver = 0.001,
+		JewelryStorageAll = 0.001,
+		JewelryWeddingRings = 0.001,
+		JewelryWrist = 0.001,
 	}
 	
-	for distribution, chance in pairs(toyData) do
-		table.insert(ProceduralDistributions.list[distribution].items, "SpiffoCache")
+	for distribution, chance in pairs(jewelryData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "JewelryCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+
+	end
+----------------------------------------------------------------------------------------	
+	local barData = {
+		StoreShelfWhiskey = 0.000001,
+		BarCounterWeapon = 0.0001,
+		BarCounterLiquor = 0.0001,
+		BarShelfLiquor = 0.0001,
+		WhiskeyBottlingFull = 0.0000001,
+		JanitorMisc = 0.000001,
+		PrisonCellRandom = 0.0001,
+	}
+	
+	for distribution, chance in pairs(jewelryData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "SoulForgeCache")
 		table.insert(ProceduralDistributions.list[distribution].items, chance)
 	end
 ----------------------------------------------------------------------------------------		
@@ -340,7 +359,7 @@ local function editDistributions()
 	-- Set rolls to 1 for food containers
 	--setRollValue(foodContainers, 1)
 	-- Set rolls to 2 for gun/ammo/weapon containers
-	setRollValue(gunContainers, 2)
+	--setRollValue(gunContainers, 2)
 	
 	local yeetBool = SandboxVars.SpawnChanceModifier.yeetBool
 	local yeetItems = getSandboxItems(SandboxVars.SpawnChanceModifier.yeetItems)
@@ -372,7 +391,7 @@ local function editDistributions()
 	local skillbooks5 = {"BookTrapping5", "BookFishing5", "BookCarpentry5", "BookMechanic5", "BookFirstAid5", "BookBlacksmith5", "BookMetalWelding5", "BookElectrician5", "BookCooking5", "BookFarming5", "BookForaging5", "BookTailoring5"}	
 	
 	--foods
-	local baseFoods = {"Base.Lard", "Base.Pasta", "Base.DriedKidneyBeans", "Base.Margarine", "Base.Butter", "Base.DriedBlackBeans", "Base.DriedLentils", "Base.Rice", "Base.DriedChickpeas", "Base.DriedWhiteBeans", "Base.PeanutButter", "Base.OilOlive", "Base.Cereal", "Base.DriedSplitPeas", "Base.OilVegetable", "Base.WhiskeyFull", "Base.OatsRaw", "Base.Ketchup", "Base.MapleSyrup", "Base.Chocolate", "Base.CannedCornedBeef", "Base.Crisps", "Base.Crisps2", "Base.Crisps3", "Base.Crisps4", "Base.Macandcheese", "Base.TVDinner", "Base.Honey", "Base.JamFruit", "Base.JamMarmalade", "Base.CannedBolognese", "Base.DoughRolled", "Base.Wine2", "Base.Mustard", "Base.CandyPackage", "Base.Dogfood", "Base.Wine", "Base.CannedMilk", "Base.Hotsauce", "Base.TortillaChips", "Base.PopBottle", "Base.Sugar", "Base.TunaTin", "Base.Marinara", "Base.CinnamonRoll", "Base.SugarBrown", "Base.CannedCorn", "Base.CannedPeas", "Base.CannedChili", "Base.CannedFruitCocktail", "Base.CannedFruitBeverage", "Base.CannedPeaches", "Base.CannedPineapple"}
+	local baseFoods = {"Lard", "Pasta", "DriedKidneyBeans", "Margarine", "Butter", "DriedBlackBeans", "DriedLentils", "Rice", "DriedChickpeas", "DriedWhiteBeans", "PeanutButter", "OilOlive", "Cereal", "DriedSplitPeas", "OilVegetable", "OatsRaw", "Ketchup", "MapleSyrup", "Chocolate", "CannedCornedBeef", "Crisps", "Crisps2", "Crisps3", "Crisps4", "Macandcheese", "TVDinner", "Honey", "JamFruit", "JamMarmalade", "CannedBolognese", "DoughRolled", "Wine2", "Mustard", "CandyPackage", "Dogfood", "Wine", "CannedMilk", "Hotsauce", "TortillaChips", "PopBottle", "Sugar", "TunaTin", "Marinara", "CinnamonRoll", "SugarBrown", "CannedCorn", "CannedPeas", "CannedChili", "CannedFruitCocktail", "CannedFruitBeverage", "CannedPeaches", "CannedPineapple"}
 	local sapphFoods = {"SapphCooking.Tortellini", "SapphCooking.ArborioRice", "SapphCooking.BrownRice", "SapphCooking.PeanutOil", "SapphCooking.CanolaOil", "SapphCooking.AvocadoOil", "SapphCooking.ChocolateEgg_Large", "SapphCooking.WhiteChocolate", "SapphCooking.ChickenBroth", "SapphCooking.BeefBroth", "SapphCooking.VegetableBroth", "SapphCooking.Syrup_Chocolate", "SapphCooking.Syrup_Strawberry", "SapphCooking.Syrup_Caramel", "SapphCooking.PastaSheets", "SapphCooking.PastryDough", "SapphCooking.CachacaFull", "SapphCooking.RolledPastaDough", "SapphCooking.FilledMeatPastaDough", "SapphCooking.Gingerbread_House", "SapphCooking.BananaBread_Dough", "SapphCooking.ColaBottle", "SapphCooking.CannedBread", "SapphCooking.PipingBag_PastryDough", "SapphCooking.Vermouth", "SapphCooking.WokPan_YakisobaEvolved", "SapphCooking.GinFull", "SapphCooking.TequilaFull", "SapphCooking.VodkaFull", "SapphCooking.SapphDoughnutChocolate", "SapphCooking.ChocolateEgg_Medium", "SapphCooking.SapphTortillaChips", "SapphCooking.CannedSausages", "SapphCooking.CannedBacon", "SapphCooking.CanofBeets", "SapphCooking.BagofFlourTortillas"}
 	
 	for i=1,#kattaj do
@@ -391,9 +410,9 @@ local function editDistributions()
 		end
 	end
 	
-	for i=1,#baseFoods do
-		modifyItemWeight(baseFoods[i], 0.15)
-	end
+	--for i=1,#baseFoods do
+		--modifyItemWeight(baseFoods[i], 0.5)
+	--end
 	
 	for i=1,#sapphFoods do
 		modifyItemWeight(sapphFoods[i], 0.15)
@@ -407,14 +426,14 @@ local function editDistributions()
 		modifyItemWeight(skillbooks5[i], 0.02)
 	end
 
-	findItemInDistribution("PropaneTank")
-	findItemInDistribution("TW.LargePropaneTank")
-	findItemInDistribution("Biofuel.IndustrialPropaneTank")
+	--findItemInDistribution("PropaneTank")
+	--findItemInDistribution("TW.LargePropaneTank")
+	--findItemInDistribution("Biofuel.IndustrialPropaneTank")
 
 	modifyItemWeight("Book", 0.125)
-	modifyItemWeight("MetalworkCache", 2.5)
-	modifyItemWeight("MechanicCache", 2.5)
-	modifyItemWeight("MedicalCache", 2.0)
+	modifyItemWeight("MetalworkCache", 2)
+	modifyItemWeight("MechanicCache", 2)
+	modifyItemWeight("MedicalCache", 2.5)
 	yeetItem("PropaneTank")
 	yeetItem("TW.LargePropaneTank")
 	yeetItem("Biofuel.IndustrialPropaneTank")
