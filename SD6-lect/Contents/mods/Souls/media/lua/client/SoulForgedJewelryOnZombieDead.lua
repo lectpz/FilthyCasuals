@@ -13,8 +13,11 @@ end
 
 Events.OnZombieDead.Add(function(zombie)
     local tierZone = checkZone()
+	local pMD = getSpecificPlayer(0):getModData()
+    local luck = math.min(math.max((pMD.luckValue or 0) + (pMD.PermaSoulForgeLuckBonus or 0), 0), 150)
 
-    if ZombRand(tierZone*125) == 0 and isValidZone(tierZone) then
+
+    if ZombRand(tierZone*150 - luck) == 0 and isValidZone(tierZone) then
         local items = ItemGenerator.getTierSoulShard()
         local result = nil
         EventHandlers.SoulForgedJewelryOnCreate(items, result, zombie)
