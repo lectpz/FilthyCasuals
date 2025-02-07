@@ -14,11 +14,11 @@ Config.soulForgeBuffWeights = {
 }
 
 Config.tierBuffs = {
-    T1 = {"CritMulti", "SoulDexterity"},
-    T2 = {"CritMulti", "SoulDexterity", "SoulThirst", "SoulSmith"},
-    T3 = {"CritMulti", "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "MaxCondition"},
-    T4 = {"CritMulti", "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "MaxCondition", "ConditionLowerChance", "CritRate"},
-    T5 = {"CritMulti", "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "MaxCondition", "ConditionLowerChance", "CritRate", "SoulStrength", "MaxDmg"}
+    T1 = { "CritMulti", "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "MaxCondition", "ConditionLowerChance", "CritRate", "SoulStrength", "MaxDmg" }
+    T2 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "MaxCondition", "ConditionLowerChance", "CritRate", "SoulStrength", "MaxDmg" }
+    T3 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "ConditionLowerChance", "CritRate", "SoulStrength", "MaxDmg" }
+    T4 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "CritRate", "SoulStrength", "MaxDmg" }
+    T5 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "CritRate", "SoulStrength" }
 }
 
 Config.buffDisplayNames = {

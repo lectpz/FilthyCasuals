@@ -13,23 +13,56 @@ function ItemGenerator.findUnmodifiedSoulBuffJewlery(inventory, itemType)
     return nil
 end
 
-function ItemGenerator.getRandomAccessoryForSlots()
-    local randomIndex = ZombRand(1, #Config.AccessorySlots + 1)
-    local selectedSlot = Config.AccessorySlots[randomIndex]
+Config.AccessoryBlacklist = {
+    "Base.SpookySuit",
+    "SWSuits.MaskFeelsGoodMan",
+    "SWSuits.SuitFeelsGoodMan"
+}
+
+function ItemGenerator.getValidItems(checkAllSlots)
+    local validItems = {}
+    
+    local slotsToCheck = checkAllSlots and Config.AccessorySlots or {Config.AccessorySlots[ZombRand(1, #Config.AccessorySlots + 1)]}
 
     local allItems = getAllItems()
-    local validItems = {}
 
     for i=0, allItems:size()-1 do
         local itemType = allItems:get(i)
         local fullName = itemType:getFullName()
         
-        if itemType:getBodyLocation() == selectedSlot 
+        local isBlacklisted = false
+        for _, blacklistedItem in ipairs(Config.AccessoryBlacklist) do
+            if fullName == blacklistedItem then
+                isBlacklisted = true
+                break
+            end
+        end
+        
+        local validSlot = false
+        for _, slot in ipairs(slotsToCheck) do
+            if itemType:getBodyLocation() == slot then
+                validSlot = true
+                break
+            end
+        end
+        
+        if validSlot 
             and not itemType:getFabricType()
-            and not string.find(string.lower(itemType:getDisplayName()), "kp") then
+            and not string.find(string.lower(itemType:getDisplayName()), "kp")
+            and not isBlacklisted then
             table.insert(validItems, fullName)
         end
     end
+
+    if #validItems == 0 then
+        return nil
+    end
+
+    return validItems
+end
+
+function ItemGenerator.getRandomAccessoryForSlots()
+    local validItems = ItemGenerator.getValidItems(false)
 
     return validItems[ZombRand(1, #validItems + 1)]
 end

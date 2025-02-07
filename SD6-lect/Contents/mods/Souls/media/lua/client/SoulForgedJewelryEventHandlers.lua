@@ -34,6 +34,7 @@ function EventHandlers.SoulForgedJewelryOnCreate(items, result, player)
     inventory:AddItems(rolledItem, 1)
 
     local createdItem = ItemGenerator.findUnmodifiedSoulBuffJewlery(inventory, rolledItem)
+    createdItem:setDisplayCategory('SoulForge')
 
     if createdItem then
         local tier = 1

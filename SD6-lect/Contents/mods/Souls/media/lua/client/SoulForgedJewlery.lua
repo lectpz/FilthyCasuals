@@ -54,3 +54,18 @@ function SoulForgedJewelryOnCreateCache(items, result, player)
         SoulForgedJewelryOnCreate(items, result, player)
     end
 end
+
+function getSoulForgedValidItems()
+    local validItems = ItemGenerator.getValidItems()
+    
+    print("Valid Soulforged Items:")
+    print("----------------------")
+    
+    table.sort(validItems)
+    
+    for i, itemName in ipairs(validItems) do
+        print(string.format("%d. %s", i, itemName))
+    end
+    
+    print(string.format("\nTotal valid items: %d", #validItems))
+end
