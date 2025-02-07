@@ -232,8 +232,9 @@ function SoulSmithOnWeaponHitXP(player, handWeapon, character, damageSplit)
 	local permaSoulSmithValue = pMD.PermaSoulSmithValue
 	local SoulSmithValue = pMD.SoulSmithValue
 	if SoulSmithValue and permaSoulSmithValue and permaSoulSmithValue > 0 then SoulSmithValue = SoulSmithValue + permaSoulSmithValue end
+	SoulSmithValue = SoulSmithValue * 100
 	if SoulSmithValue and SoulSmithValue > 0 then
-		if ZombRand(0,100) < SoulSmithValue then
+		if ZombRand(0,10000) < SoulSmithValue then
 			local weapRestore = ZombRand(2)+1
 			handWeapon:setCondition(math.floor(handWeapon:getCondition() + weapRestore + 0.5))
 			HaloTextHelper.addTextWithArrow(player, "+" .. weapRestore .. " weapon condition restored.", true, HaloTextHelper.getColorGreen());
