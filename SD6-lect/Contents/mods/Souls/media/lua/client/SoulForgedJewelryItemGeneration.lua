@@ -13,6 +13,12 @@ function ItemGenerator.findUnmodifiedSoulBuffJewlery(inventory, itemType)
     return nil
 end
 
+Config.AccessoryBlacklist = {
+    "Base.SpookySuit",
+    "SWSuits.MaskFeelsGoodMan",
+    "SWSuits.SuitFeelsGoodMan"
+}
+
 function ItemGenerator.getRandomAccessoryForSlots()
     local randomIndex = ZombRand(1, #Config.AccessorySlots + 1)
     local selectedSlot = Config.AccessorySlots[randomIndex]
@@ -24,11 +30,24 @@ function ItemGenerator.getRandomAccessoryForSlots()
         local itemType = allItems:get(i)
         local fullName = itemType:getFullName()
         
+        local isBlacklisted = false
+        for _, blacklistedItem in ipairs(Config.AccessoryBlacklist) do
+            if fullName == blacklistedItem then
+                isBlacklisted = true
+                break
+            end
+        end
+        
         if itemType:getBodyLocation() == selectedSlot 
             and not itemType:getFabricType()
-            and not string.find(string.lower(itemType:getDisplayName()), "kp") then
+            and not string.find(string.lower(itemType:getDisplayName()), "kp")
+            and not isBlacklisted then
             table.insert(validItems, fullName)
         end
+    end
+
+    if #validItems == 0 then
+        return nil
     end
 
     return validItems[ZombRand(1, #validItems + 1)]
