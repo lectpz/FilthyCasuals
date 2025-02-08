@@ -535,7 +535,7 @@ local function soulInfuse(player, context, _items)
 				itemToolTipMats(lucktooltip, "Base.ScrapMetal", Luck, LuckMatNo[3])
 				Luck.toolTip = lucktooltip
 
-				local SoulSmithMatNo = {4,4,4,15}
+				local SoulSmithMatNo = {4,4,5,25}
 				soulsmithtooltip = ISWorldObjectContextMenu.addToolTip();
 				soulsmithtooltip.description = soulsmithtooltip.description .. green .. "Eating this infused food will give you a " .. math.floor(-1*item:getHungerChange()/SoulSmithDenom*100)/100 .. "% chance to repair your weapon with each successful hit for 45 minutes. <LINE> "
 				soulsmithtooltip.description = soulsmithtooltip.description .. " <LINE> " .. gold .. "Materials required to infuse SoulSmith:"

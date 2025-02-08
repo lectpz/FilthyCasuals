@@ -1412,7 +1412,7 @@ function SoulCountSD(character, handWeapon)
 			local permaSoulThirst = pMD.PermaSoulThirstValue
 			if permaSoulThirst then SoulThirstValue = math.floor(SoulThirstValue + permaSoulThirst + 0.5) end
 			if SoulThirstValue and SoulThirstValue > 0 then
-				if ZombRand(0,100) <= SoulThirstValue then
+				if ZombRand(0,10000) <= SoulThirstValue*100 then
 					SoulThirst = 1
 					HaloTextHelper.addTextWithArrow(character, "+" .. math.floor(killDiff*(math.floor(SoulThirst+1.25))-killDiff+0.5) .. " Additional Souls Gained", true, HaloTextHelper.getColorGreen());
 				end

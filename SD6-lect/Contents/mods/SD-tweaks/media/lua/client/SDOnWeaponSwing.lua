@@ -49,6 +49,7 @@ local function initRangedStats(modData, inventoryItem, character)
 		--modData.RecoilDelay				= inventoryItem:getRecoilDelay()
 		modData.Name						= character:getPrimaryHandItem():getName()
 	end
+	if modData.SoulForged then modData.MeleeSwap = nil end
 end
 
 local function SDOnWeaponSwing(character, handWeapon)

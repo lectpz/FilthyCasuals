@@ -10,5 +10,15 @@ function ISInventoryTransferAction:isValid()
             return (valid and isOwner)
         end
     end
-    return valid
+    
+	if not self.item then return false end
+	if isAdmin() or isDebugEnabled() then return valid end
+	if self.destContainer then
+		local parent = self.destContainer:getParent()
+		if parent and parent:getModData().owner and not instanceof(parent, "BaseVehicle") and not self.item:getModData().price then
+			self.character:Say("I cannot place unpriced items into a shop container.")
+			return false
+		end
+	end	
+	return valid
 end

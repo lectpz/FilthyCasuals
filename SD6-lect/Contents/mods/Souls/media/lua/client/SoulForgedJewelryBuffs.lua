@@ -45,8 +45,8 @@ BuffSystem.BUFF_CALCULATIONS = {
     },
     CritRate = {
         format = "Crit Chance",
-        getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return (0.01 * tier) end,
+        getDisplayValue = function(tier) return 1*1.5 * tier end,
+        getBonus = function(tier) return (0.01*1.5 * tier) end,
         modData = "PermaSoulForgeCritRateBonus",
         defaultValue = 1
     },
@@ -59,8 +59,8 @@ BuffSystem.BUFF_CALCULATIONS = {
     },
     MaxDmg = {
         format = "Maximum Damage",
-        getDisplayValue = function(tier) return .5 * tier end,
-        getBonus = function(tier) return (0.005 * tier) end,
+        getDisplayValue = function(tier) return .5*2 * tier end,
+        getBonus = function(tier) return (0.005*2 * tier) end,
         modData = "PermaSoulForgeMaxDmgBonus",
         defaultValue = 1
     },
