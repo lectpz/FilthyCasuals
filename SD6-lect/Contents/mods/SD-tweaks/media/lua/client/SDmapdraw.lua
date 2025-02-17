@@ -166,7 +166,7 @@ function ISWorldMap:onRightMouseUp(x, y)
 		if zoneX1 and zoneY1 and zoneX2 and zoneY2 then
 			submenu:addOption("Define Zone Parameters", self, 
 				function()
-					local MapPanel = SDmap.CreateNewZone:new(getMouseX(), getMouseY(), 250, 250, zoneX1, zoneY1, zoneX2, zoneY2, self.mapAPI);
+					local MapPanel = SDmap.CreateNewZone:new(getMouseX(), getMouseY(), 250, 325, zoneX1, zoneY1, zoneX2, zoneY2, self.mapAPI);
 					MapPanel:initialise();
 					MapPanel:addToUIManager();
 					zoneX1, zoneY1, zoneX2, zoneY2 = nil, nil, nil, nil
@@ -217,7 +217,7 @@ function ISWorldMap:onRightMouseUp(x, y)
 			
 			local e_zone 	= context:addOptionOnTop("Edit " .. self.zone[3], self, 
 									function()
-										local MapPanel = SDmap.MapPanel:new(getMouseX(), getMouseY(), 250, 250, self.zone, self.mapAPI);
+										local MapPanel = SDmap.MapPanel:new(getMouseX(), getMouseY(), 250, 325, self.zone, self.mapAPI);
 										MapPanel:initialise();
 										MapPanel:addToUIManager();
 									end)
@@ -239,9 +239,9 @@ function ISWorldMap:render()
     if self.zone then
         local x, y, zoneinfo, zoneXY, zoneTally = self.zone[1], self.zone[2], self.zone[3], self.zone[4], self.zone[5]
 		
-		self:drawText(zoneTally, x, y-95, 0.1, 0.1, 0.1, 1, UIFont.Title)
-        self:drawText(zoneinfo, x, y-65, 0.1, 0.1, 0.1, 1, UIFont.Title)
-		self:drawText(zoneXY, x, y-35, 0.1, 0.1, 0.1, 1, UIFont.Title)
+		self:drawText(zoneTally, x, y-95, 0.1, 0.1, 0.1, 1, UIFont.Large)
+        self:drawText(zoneinfo, x, y-65, 0.1, 0.1, 0.1, 1, UIFont.Large)
+		self:drawText(zoneXY, x, y-35, 0.1, 0.1, 0.1, 1, UIFont.Large)
 		--[[self.tooltip.description = 	zoneTally .. "\n" ..
 									zoneinfo ..  "\n" ..
 									zoneXY]]
@@ -273,7 +273,7 @@ function ISWorldMap:onMouseMove(dx, dy)
     local worldX = math.floor(self.mapAPI:uiToWorldX(mouseX, mouseY))
     local worldY = math.floor(self.mapAPI:uiToWorldY(mouseX, mouseY))
 
-    local tier, zonename, x, y, control, toxic, sprinter, pinpoint, cognition = checkZoneAtXY(worldX, worldY)
+    local tier, zonename, x, y, control, toxic, sprinter, pinpoint, cognition, zhealth = checkZoneAtXY(worldX, worldY)
 	
 	if zonename == "Unnamed Zone" then zonename = "Default" end
 	sprinter = sprinter or 0 
@@ -302,7 +302,8 @@ function ISWorldMap:onMouseMove(dx, dy)
 		end
 	end
 	
-	local zoneinfo = toxicText .. "[T"..tier.."] " .. zonename .. " - Sprinter="..sprinter.. "% Pinpoint="..pinpoint.. "% Cognition="..cognition.."%"
+	local zhealth = zhealth or 2.1
+	local zoneinfo = toxicText .. "[T"..tier.."] " .. zonename .. " - Sprinter="..sprinter.. "% Pinpoint="..pinpoint.. "% Cognition="..cognition.."%" .. " ZombieHealth=" .. math.floor(zhealth/1.7*100+0.5) .. "%"
 	local zoneXY = "("..worldX..","..worldY..") Controlled by:" .. controlText
 	
 	self.zone = { mouseX, mouseY, zoneinfo, zoneXY , zonesTally, zonename, zonetier}

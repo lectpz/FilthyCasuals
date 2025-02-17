@@ -1,0 +1,384 @@
+VERSION = 1,
+
+
+option HFO.Loot
+{
+	type = enum,
+	default = 1,
+	numValues = 5,
+	page = HFO_Loot,
+	translation = HFO_LootGeneral,
+}
+
+option HFO.RemoveVanillaFirearms
+{
+	type = boolean,
+	default = false,
+	page = HFO_Loot,
+	translation = HFO_RemoveVanillaFirearms,
+}
+
+option HFO.RemoveVanillaAccessories
+{
+	type = boolean,
+	default = false,
+	page = HFO_Loot,
+	translation = HFO_RemoveVanillaAccessories,
+}
+
+option HFO.RemoveVanillaAmmo
+{
+	type = boolean,
+	default = false,
+	page = HFO_Loot,
+	translation = HFO_RemoveVanillaAmmo,
+}
+
+option HFO.AddFirearms
+{
+	type = boolean,
+	default = false,
+	page = HFO_Loot,
+	translation = HFO_AddFirearms,
+}
+
+option HFO.Firearms
+{
+	type = integer,
+	default = 2,
+	min = 1,
+	max = 10,
+	page = HFO_Loot,
+	translation = HFO_Firearms,
+}
+
+option HFO.FirearmsHandgunsRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFO_Loot,
+	translation = HFO_FirearmsHandgunsRates,
+}
+
+option HFO.FirearmsRiflesRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFO_Loot,
+	translation = HFO_FirearmsRiflesRates,
+}
+
+option HFO.FirearmsShotgunsRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFO_Loot,
+	translation = HFO_FirearmsShotgunsRates,
+}
+
+option HFO.Ammo
+{
+	type = integer,
+	default = 2,
+	min = 1,
+	max = 10,
+	page = HFO_Loot,
+	translation = HFO_Ammo,
+}
+
+option HFO.AmmoHandgunsRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFO_Loot,
+	translation = HFO_AmmoHandgunsRates,
+}
+
+option HFO.AmmoRiflesRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFO_Loot,
+	translation = HFO_AmmoRiflesRates,
+}
+
+option HFO.AmmoShotgunsRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFO_Loot,
+	translation = HFO_AmmoShotgunsRates,
+}
+
+option HFO.Accessories
+{
+	type = integer,
+	default = 2,
+	min = 1,
+	max = 10,
+	page = HFO_Loot,
+	translation = HFO_Accessories,
+}
+
+option HFO.AccessoriesScopesRates
+{
+	type = integer,
+	default = 30,
+	min = 1,
+	max = 100,
+	page = HFO_Loot,
+	translation = HFO_AccessoriesScopesRates,
+}
+
+option HFO.AccessoriesOtherRates
+{
+	type = integer,
+	default = 40,
+	min = 1,
+	max = 100,
+	page = HFO_Loot,
+	translation = HFO_AccessoriesOtherRates,
+}
+
+option HFO.AddAccessories
+{
+	type = boolean,
+	default = false,
+	page = HFO_Loot,
+	translation = HFO_AddAccessories,
+}
+
+option HFO.Cleaning
+{
+	type = boolean,
+	default = True,
+	page = HFO_Loot,
+	translation = HFO_Cleaning,
+}
+
+option HFO.RepairKits
+{
+	type = boolean,
+	default = True,
+	page = HFO_Loot,
+	translation = HFO_RepairKits,
+}
+
+option HFO.CleanRepairSpawns
+{
+	type = integer,
+	default = 2,
+	min = 1,
+	max = 10,
+	page = HFO_Loot,
+	translation = HFO_CleanRepairSpawns,
+}
+
+option HFO.CleaningFail
+{
+	type = integer,
+	default = 0,
+	min = 0,
+	max = 80,
+	page = HFO_Loot,
+	translation = HFO_CleaningFail,
+}
+
+option HFO.CleaningStats
+{
+	type = integer,
+	default = 0,
+	min = 0,
+	max = 10,
+	page = HFO_Loot,
+	translation = HFO_CleaningStats,
+}
+
+option HFO.CleaningRepairRate
+{
+	type = integer,
+	default = 4,
+	min = 1,
+	max = 7,
+	page = HFO_Loot,
+	translation = HFO_CleaningRepairRate,
+}
+
+option HFO.FirearmSkins
+{
+	type = boolean,
+	default = false,
+	page = HFO_Loot,
+	translation = HFO_FirearmSkins,
+}
+
+option HFO.FirearmSkinSpawns
+{
+	type = integer,
+	default = 2,
+	min = 1,
+	max = 10,
+	page = HFO_Loot,
+	translation = HFO_FirearmSkinSpawns,
+}
+
+option HFO.JamChance
+{
+	type = enum,
+	default = 1,
+	numValues = 5,
+	page = HFO_Loot,
+	translation = HFO_JamChance,
+}
+
+option HFO.DamageStats
+{
+	type = integer,
+	default = 10,
+	min = 1,
+	max = 20,
+	page = HFO_Loot,
+	translation = HFO_DamageStats,
+}
+
+option HFO.RangeStats
+{
+	type = integer,
+	default = 10,
+	min = 1,
+	max = 20,
+	page = HFO_Loot,
+	translation = HFO_RangeStats,
+}
+
+option HFO.HitChanceStats
+{
+	type = integer,
+	default = 10,
+	min = 1,
+	max = 20,
+	page = HFO_Loot,
+	translation = HFO_HitChanceStats,
+}
+
+option HFO.CritChanceStats
+{
+	type = integer,
+	default = 10,
+	min = 1,
+	max = 20,
+	page = HFO_Loot,
+	translation = HFO_CritChanceStats,
+}
+
+option HFO.AimingStats
+{
+	type = integer,
+	default = 10,
+	min = 1,
+	max = 20,
+	page = HFO_Loot,
+	translation = HFO_AimingStats,
+}
+
+option HFO.RecoilStats
+{
+	type = integer,
+	default = 10,
+	min = 1,
+	max = 20,
+	page = HFO_Loot,
+	translation = HFO_RecoilStats,
+}
+
+option HFO.AngleStats
+{
+	type = integer,
+	default = 10,
+	min = 1,
+	max = 20,
+	page = HFO_Loot,
+	translation = HFO_AngleStats,
+}
+
+option HFO.ConditionStats
+{
+	type = integer,
+	default = 10,
+	min = 1,
+	max = 20,
+	page = HFO_Loot,
+	translation = HFO_ConditionStats,
+}
+
+option HFO.SoundStats
+{
+	type = integer,
+	default = 10,
+	min = 1,
+	max = 20,
+	page = HFO_Loot,
+	translation = HFO_SoundStats,
+}
+
+option HFO.MeleeDamageStats
+{
+	type = integer,
+	default = 0,
+	min = 0,
+	max = 50,
+	page = HFO_Loot,
+	translation = HFO_MeleeDamageStats,
+}
+
+option HFO.SuppressorBreak
+{
+	type = integer,
+	default = 20,
+	min = 1,
+	max = 20,
+	page = HFO_Loot,
+	translation = HFO_SuppressorBreak,
+}
+
+option HFO.PistolSuppressionLevels
+{
+    type = integer,
+    default = 10,
+    min = 0,
+    max = 100,
+    page = HFO_Loot,
+    translation = HFO_PistolSuppressionLevels,
+}
+
+option HFO.RifleSuppressionLevels
+{
+    type = integer,
+    default = 15,
+    min = 0,
+    max = 100,
+    page = HFO_Loot,
+    translation = HFO_RifleSuppressionLevels,
+}
+
+option HFO.SniperSuppressionLevels
+{
+    type = integer,
+    default = 25,
+    min = 0,
+    max = 100,
+    page = HFO_Loot,
+    translation = HFO_SniperSuppressionLevels,
+}

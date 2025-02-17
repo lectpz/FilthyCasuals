@@ -1,0 +1,11 @@
+-- Encode this file as UTF-8
+UI_EN = {
+
+UI_optionscreen_binding_HFO = "HFO - Hayes Firearms Overhaul",
+UI_optionscreen_binding_MeleeMode = "Melee Mode",
+UI_optionscreen_binding_FoldUnfold = "Fold or Unfold",
+UI_optionscreen_binding_Integrated = "Integrated Attachment",
+UI_optionscreen_binding_FireMode = "Fire Mode",
+UI_optionscreen_binding_WeaponLight = "Weapon Light",
+UI_optionscreen_binding_SwapMagazine = "Swap Magazine",
+}

@@ -1,0 +1,1388 @@
+module Base
+{
+   /****************************** CLEANING FIREARMS ******************************/
+
+   recipe Clean Pistol
+   {
+      Glock,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : Glock,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Pistol
+   {
+      FiveSeven,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : FiveSeven,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Pistol
+   {
+      Luger,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : Luger,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Pistol
+   {
+      WaltherPPK,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : WaltherPPK,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Pistol
+   {
+      Makarov,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : Makarov,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Pistol
+   {
+      Derringer,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : Derringer,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Pistol
+   {
+      PLR16,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : PLR16,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Pistol
+   {
+      MosinNagantObrez,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : MosinNagantObrez,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Pistol
+   {
+      OA93,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : OA93,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Pistol
+   {
+      ColtCavalryRevolver,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : ColtCavalryRevolver,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Submachine Gun
+   {
+      AK74U,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : AK74U,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Submachine Gun
+   {
+      AK74U_Folded,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : AK74U_Folded,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Submachine Gun
+   {
+      FranchiLF57,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : FranchiLF57,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Submachine Gun
+   {
+      FranchiLF57_Folded,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : FranchiLF57_Folded,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Submachine Gun
+   {
+      MiniUzi,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : MiniUzi,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Submachine Gun
+   {
+      MiniUzi_Folded,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : MiniUzi_Folded,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Submachine Gun
+   {
+      P90,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : P90,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Submachine Gun
+   {
+      PM63RAK,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : PM63RAK,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Submachine Gun
+   {
+      PM63RAK_Grip,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : PM63RAK_Grip,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Submachine Gun
+   {
+      PM63RAK_Extended,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : PM63RAK_Extended,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Submachine Gun
+   {
+      PM63RAK_GripExtended,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : PM63RAK_GripExtended,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Submachine Gun
+   {
+      MP28,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : MP28,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Rifle
+   {
+      AK103,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : AK103,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      AK74,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : AK74,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      HenryRepeatingBigBoy,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : HenryRepeatingBigBoy,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      GrozaOTs14,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : GrozaOTs14,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      M1918BAR,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : M1918BAR,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      M1Garand,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : M1Garand,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      SIG550,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : SIG550,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      StG44,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : StG44,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      MosinNagant,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : MosinNagant,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      ASVal_Folded,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : ASVal_Folded,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      ASVal,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : ASVal,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      L85A1,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : L85A1,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      EM2,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : EM2,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      L2A1,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : L2A1,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      L2A1_Bipod,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : L2A1_Bipod,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      FG42,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : FG42,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Rifle
+   {
+      M4A1,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : M4A1,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Firearm
+   {
+      MG42,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : MG42,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Sniper Rifle
+   {
+      BarrettM82A1,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : BarrettM82A1,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=5,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Sniper Rifle
+   {
+      BarrettM82A1_Bipod,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : BarrettM82A1_Bipod,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=5,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Sniper Rifle
+   {
+      SVDDragunov,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : SVDDragunov,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=5,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Sniper Rifle
+   {
+      Galil,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : Galil,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=5,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Sniper Rifle
+   {
+      Galil_Bipod,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : Galil_Bipod,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=5,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Sniper Rifle
+   {
+      VSSVintorez,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : VSSVintorez,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=5,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning, 
+   }
+
+   recipe Clean Shotgun
+   {
+      Remington1100,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : Remington1100,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,
+   }
+
+   recipe Clean Shotgun
+   {
+      BeckerRevolver,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : BeckerRevolver,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,
+   }
+
+   recipe Clean Shotgun
+   {
+      TrenchGun,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : TrenchGun,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,
+   }
+
+   recipe Clean Nail Gun
+   {
+      TheNailGun,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : TheNailGun,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Crossbow
+   {
+      CrossbowCompound,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : CrossbowCompound,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   /****************************** FIXING FIREARMS ******************************/
+
+   fixing Fix Glock
+   {
+      Require  : Glock,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : Glock; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix FiveSeven
+   {
+      Require  : FiveSeven,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : FiveSeven; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix Luger
+   {
+      Require  : Luger,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : Luger; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix WaltherPPK
+   {
+      Require  : WaltherPPK,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : WaltherPPK; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix Makarov
+   {
+      Require  : Makarov,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : Makarov; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix Derringer
+   {
+      Require  : Derringer,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : Derringer; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix PLR16
+   {
+      Require  : PLR16,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : Pistol; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix MosinNagantObrez
+   {
+      Require  : MosinNagantObrez,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : MosinNagantObrez; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix MosinNagantObrez
+   {
+      Require  : MosinNagantObrez,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : MosinNagantObrez; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix OA93
+   {
+      Require  : OA93,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : OA93; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix AK74U_Folded
+   {
+      Require  : AK74U_Folded,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : AK74U_Folded; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix FranchiLF57
+   {
+      Require  : FranchiLF57,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : FranchiLF57; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix FranchiLF57_Folded
+   {
+      Require  : FranchiLF57_Folded,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : FranchiLF57_Folded; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix MiniUzi
+   {
+      Require  : MiniUzi,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : MiniUzi; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix MiniUzi_Folded
+   {
+      Require  : MiniUzi_Folded,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : MiniUzi_Folded; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix P90
+   {
+      Require  : P90,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : P90; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix PM63RAK
+   {
+      Require  : PM63RAK,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : PM63RAK; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix PM63RAK_Grip
+   {
+      Require  : PM63RAK_Grip,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : PM63RAK_Grip; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix PM63RAK_Extended
+   {
+      Require  : PM63RAK_Extended,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : PM63RAK_Extended; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix PM63RAK_GripExtended
+   {
+      Require  : PM63RAK_GripExtended,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : PM63RAK_GripExtended; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix MP28
+   {
+      Require  : MP28,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : MP28; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix AK103
+   {
+      Require  : AK103,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : AK103; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix AK74
+   {
+      Require  : AK74,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : AK74; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix HenryRepeatingBigBoy
+   {
+      Require  : HenryRepeatingBigBoy,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : HenryRepeatingBigBoy; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix GrozaOTs14
+   {
+      Require  : GrozaOTs14,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : GrozaOTs14; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix M1918BAR
+   {
+      Require  : M1918BAR,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : M1918BAR; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix M1Garand
+   {
+      Require  : M1Garand,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : M1Garand; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix SIG550
+   {
+      Require  : SIG550,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : SIG550; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix StG44
+   {
+      Require  : StG44,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : StG44; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix MosinNagant
+   {
+      Require  : MosinNagant,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : MosinNagant; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix ASVal_Folded
+   {
+      Require  : ASVal_Folded,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : ASVal_Folded; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix ASVal
+   {
+      Require  : ASVal,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : ASVal; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix L85A1
+   {
+      Require  : L85A1,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : L85A1; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix EM2
+   {
+      Require  : EM2,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : EM2; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix L2A1
+   {
+      Require  : L2A1,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : L2A1; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix L2A1_Bipod
+   {
+      Require  : L2A1_Bipod,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : L2A1_Bipod; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix BarrettM82A1
+   {
+      Require  : BarrettM82A1,
+
+      Fixer    : FirearmRepairKit; Aiming=7,
+      Fixer    : BarrettM82A1; Aiming=5,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix BarrettM82A1_Bipod
+   {
+      Require  : BarrettM82A1_Bipod,
+
+      Fixer    : FirearmRepairKit; Aiming=7,
+      Fixer    : BarrettM82A1_Bipod; Aiming=5,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }   
+
+   fixing Fix SVDDragunov
+   {
+      Require  : SVDDragunov,
+
+      Fixer    : FirearmRepairKit; Aiming=7,
+      Fixer    : SVDDragunov; Aiming=5,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }  
+
+   fixing Fix Galil
+   {
+      Require  : Galil,
+
+      Fixer    : FirearmRepairKit; Aiming=7,
+      Fixer    : Galil; Aiming=5,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }  
+
+   fixing Fix Galil_Bipod
+   {
+      Require  : Galil_Bipod,
+
+      Fixer    : FirearmRepairKit; Aiming=7,
+      Fixer    : Galil_Bipod; Aiming=5,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }  
+
+   fixing Fix VSSVintorez
+   {
+      Require  : VSSVintorez,
+
+      Fixer    : FirearmRepairKit; Aiming=7,
+      Fixer    : VSSVintorez; Aiming=5,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }  
+
+   fixing Fix Remington1100
+   {
+      Require  : Remington1100,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : Remington1100; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix TrenchGun
+   {
+      Require  : TrenchGun,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : TrenchGun; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix TrenchGun
+   {
+      Require  : BeckerRevolver,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : BeckerRevolver; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix TheNailGun
+   {
+      Require  : TheNailGun,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : TheNailGun; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix FG42
+   {
+      Require  : FG42,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : FG42; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix MG42
+   {
+      Require  : MG42,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : MG42; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix M4A1
+   {
+      Require  : M4A1,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : M4A1; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix Colt Cavalry Revolver
+   {
+      Require  : ColtCavalryRevolver,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : ColtCavalryRevolver; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix CrossbowCompound
+   {
+      Require  : CrossbowCompound,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : CrossbowCompound; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+      Fixer    : DuctTape=3,
+      Fixer    : ScrapMetal=3,
+   }
+}

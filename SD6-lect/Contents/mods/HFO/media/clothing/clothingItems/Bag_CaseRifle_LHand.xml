@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<clothingItem>
+	<m_MaleModel>skinned\Backpacks\RifleCase_Lhand</m_MaleModel>
+	<m_FemaleModel>skinned\Backpacks\RifleCase_Lhand</m_FemaleModel>
+	<m_GUID>d17f4a00-658f-44ba-825e-ea1e00e1fb6e</m_GUID>
+	<m_Static>false</m_Static>
+	<m_AllowRandomHue>false</m_AllowRandomHue>
+	<m_AllowRandomTint>false</m_AllowRandomTint>
+	<m_AttachBone></m_AttachBone>
+	<textureChoices>clothes\bag\RifleCase</textureChoices>
+</clothingItem>

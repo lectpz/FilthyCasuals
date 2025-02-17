@@ -1,0 +1,396 @@
+module Base
+{
+
+    /****************************** CLEANING FIREARMS ******************************/
+
+   recipe Clean Pistol
+   {
+      Pistol,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : Pistol,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Pistol
+   {
+      Pistol2,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : Pistol2,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Pistol
+   {
+      Pistol3,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : Pistol3,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+   }
+
+   recipe Clean Revolver
+   {
+      Revolver,
+      RippedSheets,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+
+      Result               : Revolver,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,
+   }
+
+   recipe Clean Revolver
+   {
+      Revolver_Long,
+      RippedSheets,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+
+      Result               : Revolver_Long,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,
+   }
+
+   recipe Clean Revolver
+   {
+      Revolver_Short,
+      RippedSheets,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+
+      Result               : Revolver_Short,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,
+   }
+
+   recipe Clean Rifle
+   {
+      VarmintRifle,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : VarmintRifle,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,   
+   }
+
+   recipe Clean Rifle
+   {
+      HuntingRifle,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : HuntingRifle,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,   
+   }
+
+   recipe Clean Rifle
+   {
+      AssaultRifle,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : AssaultRifle,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,   
+   }
+
+   recipe Clean Rifle
+   {
+      AssaultRifle2,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : AssaultRifle2,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=4,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,   
+   }
+
+   recipe Clean Shotgun
+   {
+      Shotgun,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : Shotgun,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,
+   }
+
+   recipe Clean Shotgun
+   {
+      ShotgunSawnoff,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : ShotgunSawnoff,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,
+   }
+
+   recipe Clean Shotgun
+   {
+      DoubleBarrelShotgun,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : DoubleBarrelShotgun,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,
+   }
+
+   recipe Clean Shotgun
+   {
+      DoubleBarrelShotgunSawnoff,
+      FirearmLubricant;1,
+      keep FirearmCleaningKit,
+      RippedSheets,
+	
+      Result               : DoubleBarrelShotgunSawnoff,
+      Time                 : 400.0,
+      Category             : Firearms,
+      Prop2                : Source=1,
+      AnimNode             : InsertBullets,
+      StopOnWalk           : True,
+      CanBeDoneFromFloor   : False,
+      SkillRequired        : Aiming=3,
+      OnCreate             : Recipe.OnCreate.FirearmCleaning,
+      IsHidden             : True,
+   }
+
+    /****************************** FIXING FIREARMS ******************************/
+
+   fixing Fix Pistol
+   {
+      Require  : Pistol,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : Pistol; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix Pistol2
+   {
+      Require  : Pistol2,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : Pistol2; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix Pistol3
+   {
+      Require  : Pistol3,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : Pistol3; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix Revolver
+   {
+      Require  : Revolver,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : Revolver; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix Revolver_Long
+   {
+      Require  : Revolver_Long,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : Revolver_Long; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix Revolver_Short
+   {
+      Require  : Revolver_Short,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : Revolver_Short; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix Hunting Rifle
+   {
+      Require  : HuntingRifle,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : HuntingRifle; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix Varmint Rifle
+   {
+      Require  : VarmintRifle,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : VarmintRifle; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix Assault Rifle
+   {
+      Require  : AssaultRifle,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : AssaultRifle; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix AssaultRifle2
+   {
+      Require : AssaultRifle2,
+
+      Fixer    : FirearmRepairKit; Aiming=6,
+      Fixer    : AssaultRifle2; Aiming=4,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix Shotgun
+   {
+      Require  : Shotgun,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : Shotgun; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix DoubleBarrelShotgun
+   {
+      Require  : DoubleBarrelShotgun,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : DoubleBarrelShotgun; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix ShotgunSawnoff
+   {
+      Require  : ShotgunSawnoff,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : ShotgunSawnoff; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+
+   fixing Fix DoubleBarrelShotgunSawnoff
+   {
+      Require  : DoubleBarrelShotgunSawnoff,
+
+      Fixer    : FirearmRepairKit; Aiming=5,
+      Fixer    : DoubleBarrelShotgunSawnoff; Aiming=3,
+      Fixer    : FirearmLubricant; Aiming=2,
+   }
+}

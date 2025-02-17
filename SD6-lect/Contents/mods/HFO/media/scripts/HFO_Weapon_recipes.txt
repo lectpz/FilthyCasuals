@@ -1,0 +1,260 @@
+module Base
+{
+    /****************************** AMMO BOX RECIPES ******************************/
+
+    recipe Open Box of 9mm Bullets
+    {
+        Bullets9mmBox,
+
+        Result              : Bullets9mm=6,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+		IsHidden            : True,
+    }
+
+    recipe Open Box of .45 Auto Bullets
+    {
+        Bullets45Box,
+
+        Result              : Bullets45=6,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of .38 Special Bullets
+    {
+        Bullets38Box,
+
+        Result              : Bullets38=6,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of .44 Magnum Bullets
+    {
+        Bullets44Box,
+
+        Result              : Bullets44=4,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of .223 Ammo
+    {
+        223Box,
+
+        Result              : 223Bullets=8,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of .308 Ammo
+    {
+        308Box,
+
+        Result              : 308Bullets=8,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of .556 Ammo
+    {
+        556Box,
+
+        Result              : 556Bullets=12,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of Shotgun Shells
+    {
+        ShotgunShellsBox,
+
+        Result              : ShotgunShells=4,
+        Sound               : BoxOfShellsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Place 9mm Bullets in Box
+    {
+        Bullets9mm=30,
+
+        Result              : Bullets9mmBox,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Place .45 Auto Bullets in Box
+    {
+        Bullets45=30,
+
+        Result              : Bullets45Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Place .38 Speciam Bullets in Box
+    {
+        Bullets38=30,
+
+        Result              : Bullets38Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Place .44 Magnum Bullets in Box
+    {
+        Bullets44=24,
+
+        Result              : Bullets44Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Place .556 Ammo in Box
+    {
+        556Bullets=60,
+
+        Result              : 556Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Place .223 Ammo in Box
+    {
+        223Bullets=40,
+
+        Result              : 223Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Place .308 Ammo in Box
+    {
+        308Bullets=40,
+
+        Result              : 308Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+    recipe Place Shotgun Shells in Box
+    {
+        ShotgunShells=24,
+
+        Result              : ShotgunShellsBox,
+        Sound               : BoxOfShellsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        Override            : True,
+        IsHidden            : True,
+    }
+
+	/****************************** TRANSFORM RECIPES ******************************/
+
+	recipe Saw Off Shotgun
+	{
+        Shotgun,
+	   keep [Recipe.GetItemTypes.Saw],
+
+        Result              : ShotgunSawnoff,
+        Sound               : Sawing,
+        Time                : 200.0,
+        Category            : Firearms,
+        StopOnWalk          : True,
+        CanBeDoneFromFloor  : False,
+        Override            : True,
+        Obsolete            : True,
+        OnCreate            : ShotgunSawnoff_OnCreate,
+	}
+
+	recipe Saw Off Double Barrel Shotgun
+	{
+        DoubleBarrelShotgun,
+	   keep [Recipe.GetItemTypes.Saw],
+
+        Result              : DoubleBarrelShotgunSawnoff,
+        Sound               : Sawing,
+        Time                : 200.0,
+        Category            : Firearms,
+        StopOnWalk          : True,
+        CanBeDoneFromFloor  : False,
+        Override            : True,
+        Obsolete            : True,
+        OnCreate            : DblBarrelhotgunSawnoff_OnCreate,
+	}
+    
+    /****************************** CACHE RECIPES ******************************/
+
+    recipe Open Ammo Can
+    {
+        AmmoCanUnopened,
+
+        Result              : AmmoCan,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 100.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        OnCreate            : Recipe.OnCreate.OpenAmmoCan,
+    }
+ }

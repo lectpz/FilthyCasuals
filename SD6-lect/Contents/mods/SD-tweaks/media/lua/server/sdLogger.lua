@@ -43,6 +43,14 @@ function Commands.sdLogger.ItemTransfer(player, args)
     print("[sdLogger] Player [" .. args.player_name .. "] moved items at (" .. args.player_x .. "," .. args.player_y .. "," .. args.player_z .. ") in " .. args.zonename .. " [T" .. args.zonetier .. "]: " .. args.itemString[1])
 end
 
+function Commands.sdLogger.prevOwnerSFJTransfer(player, args)
+    print("[sdLogger] Player [" .. args.player_name .. "] looted SoulForge Jewelry item from player corpse (" .. args.prevOwner .. ") at (" .. args.player_x .. "," .. args.player_y .. "," .. args.player_z .. ") in " .. args.zonename .. " [T" .. args.zonetier .. "]: " .. args.item .. " (ID=" .. args.itemID .. ", Buff=" .. args.SoulBuff .. ", Tier=" .. args.Tier .. ")")
+end
+
+function Commands.sdLogger.prevOwnerItemTransfer(player, args)
+    print("[sdLogger] Player [" .. args.player_name .. "] looted item from player corpse (" .. args.prevOwner .. ") at (" .. args.player_x .. "," .. args.player_y .. "," .. args.player_z .. ") in " .. args.zonename .. " [T" .. args.zonetier .. "]: " .. args.item .. " (ID=" .. args.itemID .. ")")
+end
+
 function Commands.sdLogger.ItemTransferSH(player, args)
     print("[sdLogger] Player [" .. args.player_name .. "] tried to move items from " .. args.SafeHouseOwner .. "'s Safehouse (" .. args.player_x .. "," .. args.player_y .. "," .. args.player_z .. ")")
 end

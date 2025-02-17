@@ -358,36 +358,42 @@ function AmmoCacheSD(items, result, player)
 	
 	if zonetier == 5 then
 		gunpowder:setUsedDelta(math.min(1, scaledNormal()))
+		randomrollSD(1, gunpowder, "Base.GunPowder")
 		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
 		addItemToPlayer(ammo[ZombRand(#ammo)+1])
-		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 	elseif zonetier == 4 then
 		gunpowder:setUsedDelta(math.min(0.9, scaledNormal()))
+		randomrollSD(1, gunpowder, "Base.GunPowder")
 		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
 		addItemToPlayer(ammo[ZombRand(#ammo)+1])
-		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
-		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 	elseif zonetier == 3 then
 		gunpowder:setUsedDelta(math.min(0.8, scaledNormal()))
+		randomrollSD(1, gunpowder, "Base.GunPowder")
 		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
 		addItemToPlayer(ammo[ZombRand(#ammo)+1])
-		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 	elseif zonetier == 2 then
 		gunpowder:setUsedDelta(math.min(0.7, scaledNormal()))
 		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
+		randomrollSD(1, gunpowder, "Base.GunPowder")
 		addItemToPlayer(ammo[ZombRand(#ammo)+1])
-		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 	elseif zonetier == 1 then
 		gunpowder:setUsedDelta(math.min(0.6, scaledNormal()))
 		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
+		randomrollSD(1, gunpowder, "Base.GunPowder")
 		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 	end
@@ -755,6 +761,104 @@ function PokemonCacheSD(items, result, player)
 	loot = "Aza_01_" .. randompokemon
 	addPokemonTileToPlayer(loot, loot)
 	
+	if zonetier == 5 then
+		addItemToPlayer("pkmncards.boosterpackfossil")
+		addItemToPlayer("pkmncards.boosterpackjungle")
+		addItemToPlayer("pkmncards.boosterpack")
+		for i=1, tier-3 do
+			randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
+			randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
+			randomrollSD(zoneroll, "pkmncards.boosterpack")
+		end
+	elseif zonetier == 4 then
+		addItemToPlayer("pkmncards.boosterpackfossil")
+		addItemToPlayer("pkmncards.boosterpackjungle")
+		addItemToPlayer("pkmncards.boosterpack")
+		for i=1, tier-3 do
+			randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
+			randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
+			randomrollSD(zoneroll, "pkmncards.boosterpack")
+		end
+	elseif zonetier == 3 then
+		addItemToPlayer("pkmncards.boosterpackfossil")
+		addItemToPlayer("pkmncards.boosterpackjungle")
+		addItemToPlayer("pkmncards.boosterpack")
+		randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
+		randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
+		randomrollSD(zoneroll, "pkmncards.boosterpack")
+	elseif zonetier == 2 then
+		randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
+		randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
+		randomrollSD(zoneroll, "pkmncards.boosterpack")
+	elseif zonetier == 1 then
+		randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
+		randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
+		randomrollSD(zoneroll, "pkmncards.boosterpack")
+	end
+
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+end
+
+function ShinyPokemonCacheSD(items, result, player)
+	
+	local zonetier, zonename, x, y = checkZone()
+	
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Shiny Pokemon Cache",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+	
+	local startno = 432
+	local endno = 583 --432 to 583 gives shinies
+	
+	local randompokemon = ZombRand(endno - startno + 1) + startno
+	local loot = "Aza_01_" .. randompokemon
+	addPokemonTileToPlayer(loot, loot)
+	
+--	for i = startno, endno do
+--		local loot = "Aza_01_" .. i
+--		addPokemonTileToPlayer(loot, loot)
+--	end
+	
+	if zonetier == 5 then
+		addItemToPlayer("pkmncards.boosterpackfossil")
+		addItemToPlayer("pkmncards.boosterpackjungle")
+		addItemToPlayer("pkmncards.boosterpack")
+		for i=1, tier-3 do
+			randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
+			randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
+			randomrollSD(zoneroll, "pkmncards.boosterpack")
+		end
+	elseif zonetier == 4 then
+		addItemToPlayer("pkmncards.boosterpackfossil")
+		addItemToPlayer("pkmncards.boosterpackjungle")
+		addItemToPlayer("pkmncards.boosterpack")
+		for i=1, tier-3 do
+			randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
+			randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
+			randomrollSD(zoneroll, "pkmncards.boosterpack")
+		end
+	elseif zonetier == 3 then
+		addItemToPlayer("pkmncards.boosterpackfossil")
+		addItemToPlayer("pkmncards.boosterpackjungle")
+		addItemToPlayer("pkmncards.boosterpack")
+		randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
+		randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
+		randomrollSD(zoneroll, "pkmncards.boosterpack")
+	elseif zonetier == 2 then
+		randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
+		randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
+		randomrollSD(zoneroll, "pkmncards.boosterpack")
+	elseif zonetier == 1 then
+		randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
+		randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
+		randomrollSD(zoneroll, "pkmncards.boosterpack")
+	end
+	
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 end
 
@@ -859,7 +963,7 @@ function OnCreate_SoulForgeCache(items, result, player)
 			randomrollSD(zoneroll, "SoulForge.SoulShardT"..zonetier)
 			randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
 		end
-		randomrollSD(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+		randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
 		addItemToPlayer("SoulForge.WeightedDiceT"..zonetier)
 	elseif zonetier == 2 then
 		soulFlask:setUsedDelta(math.min(scaledNormal()/10, zonetier/50))

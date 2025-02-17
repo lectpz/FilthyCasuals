@@ -1,0 +1,344 @@
+module Base
+{
+	model Rounds9mm
+    {
+		mesh = weapons/ammo/Rounds9mm,
+		texture = weapons/ammo/Rounds9mm
+	}
+	model Rounds45
+    {
+		mesh = weapons/ammo/Rounds45,
+		texture = weapons/ammo/Rounds45,
+	}
+	model Rounds44
+    {
+		mesh = weapons/ammo/RoundsMagnum,
+		texture = weapons/ammo/Rounds44,
+	}
+	model Rounds38
+    {
+		mesh = weapons/ammo/RoundsMagnum,
+		texture = weapons/ammo/Rounds38,
+	}
+	model Rounds223
+    {
+		mesh = weapons/ammo/RoundsRifleVanilla,
+		texture = weapons/ammo/Rounds223,
+	}
+	model Rounds308
+    {
+		mesh = weapons/ammo/RoundsRifleVanilla,
+		texture = weapons/ammo/Rounds308,
+	}
+	model Rounds556
+    {
+		mesh = weapons/ammo/RoundsRifleVanilla,
+		texture = weapons/ammo/Rounds556,
+	}
+	model Rounds12GaugeBuck
+    {
+		mesh = weapons/ammo/Rounds12Gauge,
+		texture = weapons/ammo/Rounds12GaugeBuck,
+	}
+	model AmmoBox9mm
+    {
+		mesh = weapons/ammo/AmmoBoxHandgun,
+		texture = weapons/ammo/AmmoBox9mm,
+	}
+	model AmmoBox45
+    {
+		mesh = weapons/ammo/AmmoBoxHandgun,
+		texture = weapons/ammo/AmmoBox45,
+	}
+	model AmmoBox44
+    {
+		mesh = weapons/ammo/AmmoBoxHandgun,
+		texture = weapons/ammo/AmmoBox44,
+	}
+	model AmmoBox38
+    {
+		mesh = weapons/ammo/AmmoBoxHandgun,
+		texture = weapons/ammo/AmmoBox38,
+	}
+	model AmmoBox223
+    {
+		mesh = weapons/ammo/AmmoBoxRifle,
+		texture = weapons/ammo/AmmoBox223,
+	}
+	model AmmoBox308
+    {
+		mesh = weapons/ammo/AmmoBoxRifle,
+		texture = weapons/ammo/AmmoBox308,
+	}
+	model AmmoBox556
+    {
+		mesh = weapons/ammo/AmmoBoxRifle,
+		texture = weapons/ammo/AmmoBox556,
+	}
+	model AmmoBox12GaugeBuck
+    {
+		mesh = weapons/ammo/AmmoBoxShotgun,
+		texture = weapons/ammo/AmmoBox12GaugeBuck,
+	}
+	model AmmoCan
+    {
+		mesh = weapons/ammo/AmmoCan,
+		texture = weapons/ammo/AmmoCan,
+	}
+	model Mag9mm
+    {
+		mesh = weapons/ammo/Mag9mm,
+		texture = weapons/ammo/Mag9mm,
+	}
+	model Mag45
+    {
+		mesh = weapons/ammo/Mag45,
+		texture = weapons/ammo/Mag45,
+	}
+	model Mag44
+    {
+		mesh = weapons/ammo/Mag44,
+		texture = weapons/ammo/Mag44,
+	}
+	model Mag700Series
+    {
+		mesh = weapons/ammo/Mag700Series,
+		texture = weapons/ammo/Mag700Series,
+	}
+	model MagM14
+    {
+		mesh = weapons/ammo/MagM14,
+		texture = weapons/ammo/MagM14,
+	}
+	model Mag556
+    {
+		mesh = weapons/ammo/Mag556,
+		texture = weapons/ammo/Mag556,
+	}
+	model Bayonnet
+	{
+		mesh = weapons/parts/Rifle_Bayonet,
+		texture = weapons/parts/Rifle_ImpBayonet,
+	}
+	model Rifle_Bayonet_Ground
+    {
+		mesh = weapons/parts/Rifle_Bayonet,
+		texture = weapons/parts/Rifle_ImpBayonet,
+    }
+	model BayonetImprovised
+	{
+		mesh = weapons/parts/BayonetImprovised,
+		texture = weapons/parts/BayonetImprovised,
+	}
+	model Choke
+    {
+        mesh = weapons/parts/Choke,
+	    texture = weapons/parts/Choke,
+    }
+	model ChokeFull
+    {
+        mesh = weapons/parts/ChokeFull,
+	    texture = weapons/parts/ChokeFull,
+    }
+	model GunLight
+    {
+        mesh = weapons/parts/Handgun_Light,
+	    texture = weapons/parts/Handgun_Light,
+    }
+	model Handgun_Light_Ground
+    {
+        mesh = weapons/parts/Handgun_Light,
+	    texture = weapons/parts/Handgun_Light,
+    }
+	model Laser
+	{
+		mesh = weapons/parts/Handgun_Laser,
+	    texture = weapons/parts/Handgun_Laser,
+	}
+	model Handgun_Laser_Ground
+    {
+		mesh = weapons/parts/Handgun_Laser,
+	    texture = weapons/parts/Handgun_Laser,
+    }
+	model RedDot
+	{
+	    mesh = weapons/parts/Handgun_RedDotScope,
+	    texture = weapons/parts/Handgun_RedDotScope,
+	}
+	model Handgun_RedDotScope_Ground
+    {
+	    mesh = weapons/parts/Handgun_RedDotScope,
+	    texture = weapons/parts/Handgun_RedDotScope,
+    }
+	model IronSight
+	{
+		mesh = weapons/parts/Rifle_IronSights,
+		texture = weapons/parts/Rifle_IronSights,
+	}
+	model Rifle_IronSights_Ground
+    {
+		mesh = weapons/parts/Rifle_IronSights,
+        texture = weapons/parts/Rifle_IronSights,
+    }
+	model x2Scope
+    {
+        mesh = weapons/parts/Rifle_2XScope,
+        texture = weapons/parts/Rifle_2XScope,
+    }
+	model x4Scope
+    {
+        mesh = weapons/parts/Rifle_4XScope,
+        texture = weapons/parts/Rifle_4XScope,
+    }
+	model x8Scope
+    {
+        mesh = weapons/parts/Rifle_8XScope,
+        texture = weapons/parts/Rifle_8XScope,
+    }
+	model Rifle_2XScope_Ground
+    {
+        mesh = weapons/parts/Rifle_2XScope,
+        texture = weapons/parts/Rifle_2XScope,
+    }
+	model Rifle_4XScope_Ground
+    {
+        mesh = weapons/parts/Rifle_4XScope,
+        texture = weapons/parts/Rifle_4XScope,
+    }
+	model Rifle_8XScope_Ground
+    {
+        mesh = weapons/parts/Rifle_8XScope,
+        texture = weapons/parts/Rifle_8XScope,
+    }
+	model AmmoStrap_Ground
+    {
+        mesh = WorldItems/AmmoStrap,
+        texture = WorldItems/AmmoStrap_Shells,
+        scale = 0.4,
+    }
+	model Fiberglass_Stock
+    {
+        mesh = weapons/parts/Fiberglass_Stock,
+        texture = weapons/parts/Fiberglass_Stock,
+    }
+	model RecoilPad
+    {
+        mesh = weapons/parts/Rifle_RecoilPad,
+        texture = weapons/parts/Rifle_RecoilPad,
+    }
+	model Rifle_RecoilPad_Ground
+    {
+        mesh = weapons/parts/Rifle_RecoilPad,
+        texture = weapons/parts/Rifle_RecoilPad,
+    }
+	model PlatingGold
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingGold,
+    }
+	model PlatingBlue
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingBlue,
+    }
+	model CherryWood
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/CherryWood,
+    }
+	model ProOpticScope
+    {
+        mesh = weapons/parts/ProOpticScope,
+        texture = weapons/parts/ProOpticScope,
+    }
+	model HoloSight
+    {
+        mesh = weapons/parts/HoloSight,
+        texture = weapons/parts/HoloSight,
+    }
+	model ReflexSight
+    {
+        mesh = weapons/parts/ReflexSight,
+        texture = weapons/parts/ReflexSight,
+    }
+	model WeaponLight
+    {
+        mesh = weapons/parts/WeaponLight,
+        texture = weapons/parts/WeaponLight,
+    }
+	model WeaponLightMedium
+	{
+		mesh = weapons/parts/WeaponLightMedium,
+		texture = weapons/parts/WeaponLightMedium,
+	}
+	model TacLaserGreen
+    {
+        mesh = weapons/parts/LaserLight,
+        texture = weapons/parts/LaserGreen,
+    }
+	model VertGrip
+    {
+        mesh = weapons/parts/VertGrip,
+        texture = weapons/Parts/VertGrip,
+    }
+	model SuppressorRifle
+	{
+		mesh = weapons/parts/Suppressor,
+		texture = weapons/Parts/Suppressor,
+	}
+	model Compensator
+    {
+        mesh = weapons/parts/Compensator,
+        texture = weapons/Parts/Compensator,
+    }
+	model CarryHandle
+	{
+		mesh = weapons/parts/CarryHandle,
+		texture = weapons/Parts/CarryHandle,
+	}
+	model RifleCase
+	{
+        mesh = WorldItems/RifleCase,
+		texture = WorldItems/RifleCase,
+	}
+	model PistolCase
+	{
+        mesh = WorldItems/PistolCase,
+		texture = WorldItems/PistolCase,
+	}
+	model PistolCase_Bag
+	{
+        mesh = WorldItems/PistolCase_Bag,
+		texture = WorldItems/PistolCase,
+	}
+	model ShotgunCase
+	{
+        mesh = WorldItems/ShotgunCase,
+		texture = WorldItems/ShotgunCase,
+	}
+	model FirearmLubricant
+	{
+        mesh = WorldItems/FirearmLubricant,
+        texture = WorldItems/FirearmLubricant,
+    }
+	model FirearmCleaningKit
+	{
+        mesh = WorldItems/FirearmCleaningKit,
+        texture = WorldItems/FirearmCleaningKit,
+    }
+	model FirearmRepairKit
+	{
+        mesh = WorldItems/FirearmRepairKit,
+        texture = WorldItems/FirearmRepairKit,
+    }
+	model FirearmCleaningKit_Bag
+	{
+        mesh = WorldItems/FirearmCleaningKit_Bag,
+        texture = WorldItems/FirearmCleaningKit,
+    }
+	model FirearmRepairKit_Bag
+	{
+        mesh = WorldItems/FirearmRepairKit_Bag,
+        texture = WorldItems/FirearmRepairKit,
+    }
+}

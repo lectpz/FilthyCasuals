@@ -1,0 +1,26 @@
+module Base
+{
+	imports
+	{
+		Base
+	}
+
+	model AmmoCan
+	{
+		mesh=AmmoCan,
+		texture=AmmoCan,
+	}
+	
+	model AmmoCanSmall
+	{
+		mesh=AmmoCanSmall,
+		texture=AmmoCan,
+	}
+	
+	model ScrapMetalBits
+	{
+		mesh = WorldItems/ScrapMetal,
+		texture = WorldItems/ScrapMetal,
+		scale = 0.1,
+	}
+}

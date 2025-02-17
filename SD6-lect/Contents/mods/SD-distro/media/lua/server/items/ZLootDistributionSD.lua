@@ -207,11 +207,32 @@ local function preDistributionMergeSD5()
 		PrisonCellRandom = 0.0001,
 	}
 	
-	for distribution, chance in pairs(jewelryData) do
+	for distribution, chance in pairs(barData) do
 		table.insert(ProceduralDistributions.list[distribution].items, "SoulForgeCache")
 		table.insert(ProceduralDistributions.list[distribution].items, chance)
 	end
-----------------------------------------------------------------------------------------		
+----------------------------------------------------------------------------------------
+	local toyData = {
+		CrateToys = 0.001,
+		GigamartToys = 0.001,
+		WardrobeChild = 0.001,
+		Hobbies = 0.001,
+		Gifts = 0.001,
+		DaycareShelves = 0.001,
+		DaycareDesk = 0.001,
+		DaycareCounter = 0.001,
+		CrateToys = 0.001,
+	}
+	
+	for distribution, chance in pairs(toyData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "SpiffoCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+		table.insert(ProceduralDistributions.list[distribution].items, "PokemonCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+		table.insert(ProceduralDistributions.list[distribution].items, "ShinyPokemonCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+	end		
+----------------------------------------------------------------------------------------
 end
 	
 Events.OnPreDistributionMerge.Add(preDistributionMergeSD5)

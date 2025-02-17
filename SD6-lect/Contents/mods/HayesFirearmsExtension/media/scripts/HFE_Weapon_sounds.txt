@@ -1,0 +1,365 @@
+module Base
+{
+
+	sound BarrettShot
+	{
+		category 				= Item,
+		loop					= false,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+		clip
+		{
+			file 				= media/sound/BarrettShot.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 140,
+			reverbMaxRange 		= 140,
+			reverbFactor 		= 0.2,
+			volume 				= 1,
+		}
+	}
+
+	sound BarrettRack
+	{
+		category 				= Item,
+		loop					= false,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+		clip
+		{
+			file 				= media/sound/BarrettRack.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 5,
+			volume 				= 0.1,
+		}
+	}
+
+	sound BarrettInsert
+	{
+		category 				= Item,
+		loop					= false,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+		clip
+		{
+			file 				= media/sound/BarrettInsert.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 5,
+			volume 				= 0.1,
+		}
+	}
+
+	sound BarrettEject
+	{
+		category 				= Item,
+		loop					= false,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+		clip
+		{
+			file 				= media/sound/BarrettEject.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 5,
+			volume 				= 0.1,
+		}
+	}
+
+	sound SuppressorSniper
+	{
+		category 				= Item,
+		loop					= false,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+		clip
+		{
+			file 				= media/sound/SuppressorSniper.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 120,
+			reverbMaxRange 		= 120,
+			reverbFactor 		= 0.1,
+			volume 				= 1.0,
+		}
+	}
+
+	sound SuppressorRifle
+	{
+		category 				= Item,
+		loop					= false,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+		clip
+		{
+			file 				= media/sound/SuppressorRifle.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 100,
+			reverbMaxRange 		= 100,
+			reverbFactor 		= 0.1,
+			volume 				= 1.0,
+		}
+	}
+
+	sound SuppressorPistol
+	{
+		category 				= Item,
+		loop					= false,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+		clip
+		{
+			file 				= media/sound/SuppressorPistol.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 80,
+			reverbMaxRange 		= 80,
+			reverbFactor 		= 0.1,
+			volume 				= 0.5,
+		}
+	}
+
+
+	sound SuppressorValVSS
+	{
+		category 				= Item,
+		loop					= false,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+		clip
+		{
+			file 				= media/sound/SuppressorValVSS.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 100,
+			reverbMaxRange 		= 100,
+			reverbFactor 		= 0.1,
+			volume 				= 1.0,
+		}
+	}
+
+	sound M1Eject
+	{	
+		category 				= World,
+		loop					= false,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+		clip
+		{
+			file 				= media/sound/M1Eject.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 60,
+			reverbMaxRange 		= 60,
+			reverbFactor 		= 0.1,
+			volume 				= 0.8,
+		}	
+	}
+
+	sound NailgunShoot
+	{
+		category 				= Item,
+		loop					= false,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+
+		clip
+		{
+			file = media/sound/TheNailGunShoot.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 35,
+			reverbMaxRange 		= 35,
+			reverbFactor 		= 0.1,
+			volume 				= 0.8,
+		}
+	}
+
+	sound M4A1Shot
+	{
+		category 				= Item,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+		clip
+		{
+			file 				= media/sound/M4A1Shot.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 80,
+			reverbMaxRange 		= 20,
+			reverbFactor 		= 0.5,
+			volume 				= 0.7,
+		}
+	}
+
+	sound M4A1Rack
+	{
+		category 				= Item,
+		clip
+		{
+			file 				= media/sound/FG42Rack.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 5,
+			volume 				= 0.3,
+		}
+	}
+
+	sound M4A1Eject
+	{
+		category 				= Item,
+		clip
+		{
+			file 				= media/sound/M4A1Eject.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 5,
+			volume 				= 0.3,
+		}
+	}
+
+	sound M4A1Insert
+	{
+		category 				= Item,
+		clip
+		{
+			file 				= media/sound/M4A1Insert.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 5,
+			volume 				= 0.3,
+		}
+	}
+
+	sound FG42Shot
+	{
+		category 				= Item,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+		clip
+		{
+			file 				= media/sound/FG42Shot.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 80,
+			reverbMaxRange 		= 20,
+			reverbFactor 		= 0.5,
+			volume 				= 0.6,
+		}
+	}
+
+	sound FG42Rack
+	{
+		category 				= Item,
+		clip
+		{
+			file 				= media/sound/FG42Rack.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 5,
+			volume 				= 0.3,
+		}
+	}
+
+	sound MG42Shot
+	{
+		category 				= Item,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+		clip
+		{
+			file 				= media/sound/MG42Shot.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 95,
+			reverbMaxRange 		= 30,
+			reverbFactor 		= 0.8,
+			volume 				= 0.6,
+		}
+	}
+
+	sound MG42Rack
+	{
+		category 				= Item,
+		clip
+		{
+			file 				= media/sound/MG42Rack.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 5,
+			volume 				= 0.3,
+		}
+	}
+
+	sound MG42Insert
+	{
+		category 				= Item,
+		clip
+		{
+			file 				= media/sound/MG42Insert.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 5,
+			volume 				= 0.3,
+		}
+	}
+
+	sound MG42Eject
+	{
+		category 				= Item,
+		clip
+		{
+			file 				= media/sound/MG42Eject.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 5,
+			volume 				= 0.3,
+		}
+	}
+
+	sound MG42MoveAmmo
+	{
+		category 				= Item,
+		clip
+		{
+			file 				= media/sound/MG42MoveAmmo.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 5,
+			volume 				= 0.3,
+		}
+	}
+
+	sound CCShot
+	{
+		category 				= Item,
+		is3D 					= true,
+		maxInstancesPerEmitter 	= 2,
+		clip
+		{
+			file 				= media/sound/CCShot.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 10,
+			reverbMaxRange 		= 15,
+			reverbFactor 		= 0.5,
+			volume 				= 0.6,
+		}
+	}
+
+	sound CCReload
+	{
+		category 				= Item,
+		clip
+		{
+			file 				= media/sound/CCReload.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 3,
+			volume 				= 0.5,
+		}
+	}
+
+	sound CCEject
+	{
+		category 				= Item,
+		clip
+		{
+			file 				= media/sound/CCEject.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 3,
+			volume 				= 0.5,
+		}
+	}
+
+	sound CCInsert
+	{
+		category 				= Item,
+		clip
+		{
+			file 				= media/sound/CCInsert.ogg,
+			distanceMin 		= 0,
+			distanceMax 		= 3,
+			volume 				= 0.5,
+		}
+	}
+}

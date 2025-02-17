@@ -18,4 +18,7 @@ function ISDropWorldItemAction:perform()
 
 	self:o_perform()
 	sendClientCommand(self.character, 'sdLogger', 'ItemPlaced', args);
+	if self.item:getType() == "SkillRecoveryBoundJournal" then
+		self.character:Say("If this journal disappears because I placed it instead of properly storing it in a container, I promise I won't make a ticket about it.")
+	end
 end

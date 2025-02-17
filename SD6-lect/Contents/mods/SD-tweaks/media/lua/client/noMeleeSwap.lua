@@ -3,7 +3,7 @@ function ISFirearmRadialMenu:getWeapon()
 	local weapon = self.character:getPrimaryHandItem()
 	if weapon and instanceof(weapon, "HandWeapon") and (weapon:isAimedFirearm() or weapon:isRanged()) then
 		local wMD = weapon:getModData()
-		if wMD.SoulForged then wMD.MeleeSwap = nil end
+		wMD.MeleeSwap = nil
 		return weapon
 	end
 	ISFirearmRadialMenu_getWeapon(self)
@@ -14,7 +14,7 @@ local function noMeleeInit(player)
 	local weapon = player:getPrimaryHandItem()
 	if weapon and instanceof(weapon, "HandWeapon") and (weapon:isAimedFirearm() or weapon:isRanged()) then
 		local wMD = weapon:getModData()
-		if wMD.SoulForged then wMD.MeleeSwap = nil end
+		wMD.MeleeSwap = nil
 		return weapon
 	end
 end

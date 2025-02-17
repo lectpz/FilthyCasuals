@@ -14,21 +14,23 @@ local function initMeleeStats(modData, inventoryItem, character)
 		modData.MaxHitCount			== nil and
 		modData.Name				== nil then
 		
-		modData.CriticalChance		= inventoryItem:getCriticalChance()
-		modData.CritDmgMultiplier	= inventoryItem:getCritDmgMultiplier()
-		modData.MinDamage			= inventoryItem:getMinDamage()
-		modData.MaxDamage			= inventoryItem:getMaxDamage()
-		modData.MaxHitCount			= inventoryItem:getMaxHitCount()
+		local newItem = InventoryItemFactory.CreateItem(inventoryItem:getFullType())
+		
+		modData.CriticalChance		= newItem:getCriticalChance()
+		modData.CritDmgMultiplier	= newItem:getCritDmgMultiplier()
+		modData.MinDamage			= newItem:getMinDamage()
+		modData.MaxDamage			= newItem:getMaxDamage()
+		modData.MaxHitCount			= newItem:getMaxHitCount()
 		modData.Name				= character:getPrimaryHandItem():getName()
-		modData.SD7_0				= true
-	elseif not modData.SD7_0 then
+		modData.SD7_1				= true
+	elseif not modData.SD7_1 then
 		scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
 
 		inventoryItem:setMaxRange(scriptItem:getMaxRange())
 		
 		modData.MinDamage 			= scriptItem:getMinDamage()
 		modData.MaxDamage 			= scriptItem:getMaxDamage()
-		modData.SD7_0 				= true
+		modData.SD7_1 				= true
 	end
 end
 
@@ -37,19 +39,35 @@ local function initRangedStats(modData, inventoryItem, character)
 		modData.AimingPerkCritModifier 		== nil and
 		modData.AimingPerkRangeModifier 	== nil and
 		modData.AimingTime 					== nil and
-		--modData.ReloadTime 				== nil and
-		--modData.RecoilDelay				== nil and
-		modData.Name						== nil then
+		modData.ReloadTime 					== nil and
+		modData.RecoilDelay					== nil and
+		modData.Name						== nil and
+		modData.CriticalChance				== nil and
+		modData.CritDmgMultiplier			== nil and
+		modData.MinDamage					== nil and
+		modData.MaxDamage					== nil and
+		modData.MaxHitCount					== nil then
 		
-		modData.AimingPerkHitChanceModifier = inventoryItem:getAimingPerkHitChanceModifier()
-		modData.AimingPerkCritModifier 		= inventoryItem:getAimingPerkCritModifier()
-		modData.AimingPerkRangeModifier 	= inventoryItem:getAimingPerkRangeModifier()
-		modData.AimingTime					= inventoryItem:getAimingTime()
-		--modData.ReloadTime				= inventoryItem:getReloadTime()
-		--modData.RecoilDelay				= inventoryItem:getRecoilDelay()
+		local newItem = InventoryItemFactory.CreateItem(inventoryItem:getFullType())
+		
+		modData.CriticalChance				= newItem:getCriticalChance()
+		modData.CritDmgMultiplier			= newItem:getCritDmgMultiplier()
+		modData.MinDamage					= newItem:getMinDamage()
+		modData.MaxDamage					= newItem:getMaxDamage()
+		modData.AimingPerkHitChanceModifier = newItem:getAimingPerkHitChanceModifier()
+		modData.AimingPerkCritModifier 		= newItem:getAimingPerkCritModifier()
+		modData.AimingPerkRangeModifier 	= newItem:getAimingPerkRangeModifier()
+		modData.AimingTime					= newItem:getAimingTime()
+		modData.ReloadTime					= newItem:getReloadTime()
+		modData.RecoilDelay					= newItem:getRecoilDelay()
 		modData.Name						= character:getPrimaryHandItem():getName()
+		modData.SD7_1						= true
+	elseif not modData.SD7_1 then
+		modData.MinDamage					= inventoryItem:getScriptItem():getMinDamage()
+		modData.MaxDamage					= inventoryItem:getScriptItem():getMaxDamage()
+		modData.SD7_1 						= true
 	end
-	if modData.SoulForged then modData.MeleeSwap = nil end
+	modData.MeleeSwap = nil
 end
 
 local function SDOnWeaponSwing(character, handWeapon)
@@ -105,6 +123,11 @@ local function SDOnWeaponSwing(character, handWeapon)
 		local soulForgeMaxHitCount = modData.MaxHitCount or nil
 		local soulWrought = modData.SoulWrought or ""
 		
+		local mdzMaxDmg = modData.mdzMaxDmg or 1
+		local mdzMinDmg = modData.mdzMinDmg or 1
+		local mdzCriticalChance = modData.mdzCriticalChance or 1
+		local mdzCritDmgMultiplier = modData.mdzCritDmgMultiplier or 1
+		
 		local pMD = character:getModData()
 		local permaCritRate = pMD.PermaSoulForgeCritRateBonus 
 		local permaCritMulti = pMD.PermaSoulForgeCritMultiBonus
@@ -120,10 +143,10 @@ local function SDOnWeaponSwing(character, handWeapon)
 		
 		local engravedName = modData.EngravedName
 		
-		inventoryItem:setCriticalChance(((basecritrate + addCritChance) * localcritrate) * modeMultiplier * soulForgeCritRate)
-		inventoryItem:setCritDmgMultiplier(((basecritmulti + addCritMulti) * localcritmulti) * modeMultiplier * soulForgeCritMulti)
-		inventoryItem:setMinDamage((basemindmg * localdmgmulti) * modeMultiplier * soulForgeMinDmgMulti)
-		inventoryItem:setMaxDamage(((basemaxdmg + addMaxDmg) * localdmgmulti) * modeMultiplier * soulForgeMaxDmgMulti)
+		inventoryItem:setCriticalChance(((basecritrate + addCritChance) * localcritrate) * modeMultiplier * soulForgeCritRate * mdzCriticalChance)
+		inventoryItem:setCritDmgMultiplier(((basecritmulti + addCritMulti) * localcritmulti) * modeMultiplier * soulForgeCritMulti * mdzCritDmgMultiplier)
+		inventoryItem:setMinDamage((basemindmg * localdmgmulti) * modeMultiplier * soulForgeMinDmgMulti * mdzMinDmg)
+		inventoryItem:setMaxDamage(((basemaxdmg + addMaxDmg) * localdmgmulti) * modeMultiplier * soulForgeMaxDmgMulti * mdzMaxDmg)
 		
 		if engravedName then
 			inventoryItem:setName(engravedName .. " [T" .. tostring(tierzone) .. "]")
@@ -153,14 +176,37 @@ local function SDOnWeaponSwing(character, handWeapon)
 		rangedmulti = rangedmulti - character:getPerkLevel(Perks.Aiming)/14.28571429
 		
 		--if character:isSeatedInVehicle() then rangedmulti = 2.0 end
+		local mdzMaxDmg = modData.mdzMaxDmg or 1
+		local mdzMinDmg = modData.mdzMinDmg or 1
+		local mdzAimingTime = modData.mdzAimingTime or 1
+		local mdzReloadTime = modData.mdzReloadTime or 1
+		local mdzRecoilDelay = modData.mdzRecoilDelay or 1
+		local mdzCriticalChance = modData.mdzCriticalChance or 1
+		local mdzCritDmgMultiplier = modData.mdzCritDmgMultiplier or 1
+
+		local soulForgeMinDmgMulti = modData.soulForgeMinDmgMulti or 1
+		local soulForgeMaxDmgMulti = modData.soulForgeMaxDmgMulti or 1
+		local soulForgeCritRate = modData.soulForgeCritRate or 1
+		local soulForgeCritMulti = modData.soulForgeCritMulti or 1
 		
-		inventoryItem:setAimingTime(modData.AimingTime * (localdmgmulti/tierzone) ^ rangedmulti)
-		--inventoryItem:setReloadTime(modData.ReloadTime * localdmgmulti ^ rangedmulti)
-		--inventoryItem:setRecoilDelay(modData.RecoilDelay * localdmgmulti ^ rangedmulti)
+		if modData.CriticalChance then inventoryItem:setCriticalChance(modData.CriticalChance * soulForgeCritRate * mdzCriticalChance) end
+		if modData.CritDmgMultiplier then inventoryItem:setCritDmgMultiplier(modData.CritDmgMultiplier * soulForgeCritMulti * mdzCritDmgMultiplier) end
+		inventoryItem:setMinDamage(modData.MinDamage * soulForgeMinDmgMulti * mdzMinDmg)
+		inventoryItem:setMaxDamage(modData.MaxDamage * soulForgeMaxDmgMulti * mdzMaxDmg)
+		if modData.ReloadTime then inventoryItem:setReloadTime(modData.ReloadTime * mdzReloadTime) end
+		if modData.RecoilDelay then inventoryItem:setRecoilDelay(modData.RecoilDelay * mdzRecoilDelay) end
+		
+		inventoryItem:setAimingTime(modData.AimingTime * mdzAimingTime * (localdmgmulti/tierzone) ^ rangedmulti)
 		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier * (localdmgmulti/tierzone) ^ rangedmulti)
 		inventoryItem:setAimingPerkCritModifier(modData.AimingPerkCritModifier * (localdmgmulti/tierzone) ^ rangedmulti)
 		inventoryItem:setAimingPerkRangeModifier(modData.AimingPerkRangeModifier * (localdmgmulti/tierzone) ^ rangedmulti)
-		inventoryItem:setName(modData.Name .. " [T" .. tostring(tierzone) .. "]")
+		
+		local engravedName = modData.EngravedName
+		if engravedName then 
+			inventoryItem:setName(engravedName)
+		else
+			inventoryItem:setName(modData.mdzPrefix .. " " ..modData.Name .. " [T" .. tostring(tierzone) .. "]")
+		end
 	end
 end
 Events.OnWeaponSwing.Add(SDOnWeaponSwing)
@@ -175,12 +221,6 @@ local function SDWeaponCheck(character, inventoryItem)
 	
 	if inventoryItem:IsWeapon() and not inventoryItem:isRanged() then
 		initMeleeStats(modData, inventoryItem, character)
-		
-		inventoryItem:setCriticalChance(modData.CriticalChance)
-		inventoryItem:setCritDmgMultiplier(modData.CritDmgMultiplier)
-		inventoryItem:setMinDamage(modData.MinDamage)
-		inventoryItem:setMaxDamage(modData.MaxDamage)
-		inventoryItem:setName(modData.Name)
 		
 		local isHardmode = modData.HardcoreMode or nil
 		local modeMultiplier = 1.0
@@ -230,10 +270,15 @@ local function SDWeaponCheck(character, inventoryItem)
 		
 		local engravedName = modData.EngravedName
 		
-		inventoryItem:setCriticalChance((basecritrate + addCritChance) * soulForgeCritRate)
-		inventoryItem:setCritDmgMultiplier((basecritmulti + addCritMulti) * soulForgeCritMulti)
-		inventoryItem:setMinDamage(basemindmg * soulForgeMinDmgMulti)
-		inventoryItem:setMaxDamage((basemaxdmg + addMaxDmg) * soulForgeMaxDmgMulti)
+		local mdzMaxDmg = modData.mdzMaxDmg or 1
+		local mdzMinDmg = modData.mdzMinDmg or 1
+		local mdzCriticalChance = modData.mdzCriticalChance or 1
+		local mdzCritDmgMultiplier = modData.mdzCritDmgMultiplier or 1
+		
+		inventoryItem:setCriticalChance((basecritrate + addCritChance) * soulForgeCritRate * mdzCriticalChance)
+		inventoryItem:setCritDmgMultiplier((basecritmulti + addCritMulti) * soulForgeCritMulti * mdzCritDmgMultiplier)
+		inventoryItem:setMinDamage(basemindmg * soulForgeMinDmgMulti * mdzMinDmg)
+		inventoryItem:setMaxDamage((basemaxdmg + addMaxDmg) * soulForgeMaxDmgMulti * mdzMaxDmg)
 		if engravedName then 
 			inventoryItem:setName(engravedName)
 		else
@@ -264,13 +309,38 @@ local function SDWeaponCheck(character, inventoryItem)
 	elseif inventoryItem:IsWeapon() and inventoryItem:isRanged() and inventoryItem:getSwingAnim() ~= "Handgun" then
 		initRangedStats(modData, inventoryItem, character)
 		
+		local mdzMaxDmg = modData.mdzMaxDmg or 1
+		local mdzMinDmg = modData.mdzMinDmg or 1
+		local mdzAimingTime = modData.mdzAimingTime or 1
+		local mdzReloadTime = modData.mdzReloadTime or 1
+		local mdzRecoilDelay = modData.mdzRecoilDelay or 1
+		local mdzCriticalChance = modData.mdzCriticalChance or 1
+		local mdzCritDmgMultiplier = modData.mdzCritDmgMultiplier or 1
+		
+		local soulForgeMinDmgMulti = modData.soulForgeMinDmgMulti or 1
+		local soulForgeMaxDmgMulti = modData.soulForgeMaxDmgMulti or 1
+		local soulForgeCritRate = modData.soulForgeCritRate or 1
+		local soulForgeCritMulti = modData.soulForgeCritMulti or 1
+		
+		if modData.CriticalChance then inventoryItem:setCriticalChance(modData.CriticalChance * soulForgeCritRate * mdzCriticalChance) end
+		if modData.CritDmgMultiplier then inventoryItem:setCritDmgMultiplier(modData.CritDmgMultiplier * soulForgeCritMulti * mdzCritDmgMultiplier) end
+		inventoryItem:setMinDamage(modData.MinDamage * soulForgeMinDmgMulti * mdzMinDmg)
+		inventoryItem:setMaxDamage(modData.MaxDamage * soulForgeMaxDmgMulti * mdzMaxDmg)
+		if modData.ReloadTime then inventoryItem:setReloadTime(modData.ReloadTime * mdzReloadTime) end
+		if modData.RecoilDelay then inventoryItem:setRecoilDelay(modData.RecoilDelay * mdzRecoilDelay) end
+		
+		inventoryItem:setAimingTime(modData.AimingTime * mdzAimingTime)
 		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier)
 		inventoryItem:setAimingPerkCritModifier(modData.AimingPerkCritModifier)
 		inventoryItem:setAimingPerkRangeModifier(modData.AimingPerkRangeModifier)
-		inventoryItem:setAimingTime(modData.AimingTime)
-		--inventoryItem:setRecoilDelay(modData.RecoilDelay)
-		--inventoryItem:setReloadTime(modData.ReloadTime)
-		inventoryItem:setName(modData.Name)
+		
+		local engravedName = modData.EngravedName
+		if engravedName then 
+			inventoryItem:setName(engravedName)
+		else
+			inventoryItem:setName(modData.mdzPrefix .. " " ..modData.Name)
+		end
+		
 		Events.OnPlayerUpdate.Add(worseVehicleRanged)
 	end
 end

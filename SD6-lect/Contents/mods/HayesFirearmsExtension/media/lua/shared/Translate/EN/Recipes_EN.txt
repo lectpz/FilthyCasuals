@@ -1,0 +1,60 @@
+Recipes_EN = {
+
+    Recipe_Clean_Pistol                             = "Clean Pistol",
+    Recipe_Clean_Submachine_Gun                     = "Clean SMG",
+    Recipe_Clean_Rifle                              = "Clean Rifle",
+    Recipe_Clean_Sniper_Rifle                       = "Clean Sniper Rifle",
+    Recipe_Clean_Shotgun                            = "Clean Shotgun",
+    Recipe_Clean_Nail_Gun                           = "Clean Nail Gun",
+    Recipe_Clean_Crossbow                           = "Clean Crossbow",
+
+	Recipe_Open_Box_of_30-06_SPRG_Ammo              = "Open Box of .30-06 SPRG Rounds",
+	Recipe_Open_Box_of_.380_ACP_Ammo                = "Open Box of .380 ACP Rounds",
+	Recipe_Open_Box_of_5.45_Ammo                    = "Open Box of 5.45 Rounds",
+    Recipe_Open_Box_of_5.7x28_Ammo                  = "Open Box of 5.7x28 Rounds",
+    Recipe_Open_Box_of_7.62_Ammo                    = "Open Box of 7.62 Rounds",
+    Recipe_Open_Box_of_7.62x51_Ammo                 = "Open Box of 7.62x51 Rounds",
+    Recipe_Open_Box_of_7.62x54r_Ammo                = "Open Box of 7.62x54r Rounds",
+    Recipe_Open_Box_of_7.92_Ammo                    = "Open Box of 7.92 Rounds",
+    Recipe_Open_Box_of_7.92x33_Ammo                 = "Open Box of 7.92x33 Rounds",
+    Recipe_Open_Box_of_50BMG_Ammo                   = "Open Box of 50 BMG Rounds",
+    Recipe_Open_Box_of_9x39_Ammo                   = "Open Box of 9x39 Rounds",
+
+	Recipe_Place_30-06_SPRG_Ammo_in_Box             = "Place .30-06 SPRG Rounds in Box",
+	Recipe_Place_.380_ACP_Ammo_in_Box               = "Place .380 ACP Rounds in Box",
+    Recipe_Place_5.45_Ammo_in_Box                   = "Place 5.45 Rounds in Box",
+	Recipe_Place_5.7x28_Ammo_in_Box                 = "Place 5.7x28 Rounds in Box",
+    Recipe_Place_7.62_Ammo_in_Box                   = "Place 7.62 Rounds in Box",
+    Recipe_Place_7.62x51_Ammo_in_Box                = "Place 7.62x51 Rounds in Box",
+    Recipe_Place_7.62x54r_Ammo_in_Box               = "Place 7.62x54r Rounds in Box",
+    Recipe_Place_7.92_Ammo_in_Box                   = "Place 7.92 Rounds in Box",
+    Recipe_Place_7.92x33_Ammo_in_Box                = "Place 7.92x33 Rounds in Box",
+    Recipe_Place_50BMG_Ammo_in_Box                  = "Place 50 BMG Rounds in Box",
+    Recipe_Place_9x39_Ammo_in_Box                   = "Place 9x39 Rounds in Box",
+
+    Recipe_Make_7.62x54r_Stripper_Clip              = "Make into Stripper Clip",
+    Recipe_Make_into_762x54r_Bullets                = "Remove Rounds From Stripper Clip",
+
+    Recipe_Pack_Bundle_of_Crossbow_Bolts            = "Pack Up Crossbow Bolts",
+	Recipe_Unpack_Bundle_of_Crossbow_Bolts          = "Unpack Crossbow Bolts",
+	Recipe_Craft_Crossbow_Bolts                     = "Craft Crossbow Bolts",
+
+    Recipe_Wrap_Sniper_Suppressor_in_Winter_Camo    = "Wrap Suppressor in Winter Camo",
+    Recipe_Wrap_Sniper_Suppressor_in_Desert_Camo    = "Wrap Suppressor in Desert Camo",
+    Recipe_Wrap_Sniper_Suppressor_in_Woodland_Camo  = "Wrap Suppressor in Woodland Camo",
+    Recipe_Unwrap_Sniper_Suppressor                 = "Unwrap Camo from Suppressor",
+
+    Recipe_Open_Firearm_Cache                       = "Open Firearm Cache",
+    Recipe_Saw_Mosin_Nagant                         = "Saw into Obrez Pistol",
+
+    Recipe_Turn_Laser_Red                           = "Switch to Red",
+	Recipe_Turn_Laser_Green                         = "Switch to Green",
+	Recipe_Turn_Laser_Off                           = "Turn Laser Off",
+
+	Recipe_Make_7.92_Ammo                           = "Craft 7.92 Ammo",
+	Recipe_Create_FG_42_Paratrooper_Rifle           = "Repurpose materials and craft FG 42 Paratrooper Rifle",
+	Recipe_Create_Iron_Sights_for_FG_42_Paratrooper_Rifle = "Repurpose materials and craft Iron Sights for FG 42",
+	Recipe_Create_Scope_for_FG_42_Paratrooper_Rifle = "Repurpose materials and craft FG 42 Scope", 
+	Recipe_Create_Magazine_Clip_for_FG_42_Paratrooper_Rifle = "Repurpose materials and craft FG 42 Magazine Clip", 
+
+}

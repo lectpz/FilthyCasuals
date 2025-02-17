@@ -43,9 +43,10 @@ function SDmap.MapPanel:drawzone()
 	if self.zsubnested.selected[1] then _nested = "Subnested" end
 	local _toxic = nil
 	if self.ztoxic.selected[1] then _toxic = "Toxic" end
-	local sprinter = tonumber(self.zsprinter:getInternalText())
-	local pinpoint = tonumber(self.zpinpoint:getInternalText())
-	local cognition = tonumber(self.zcognition:getInternalText())
+	local sprinter = math.max(math.min(tonumber(self.zsprinter:getInternalText()),100),0)
+	local pinpoint = math.max(math.min(tonumber(self.zpinpoint:getInternalText()),100),0)
+	local cognition = math.max(math.min(tonumber(self.zcognition:getInternalText()),100),0)
+	local zombieHealth = math.max(math.min(tonumber(self.zhealth:getInternalText()),30),1.5)
 	local x1, y1, x2, y2 = tonumber(x1y1[1]), tonumber(x1y1[2]), tonumber(x2y2[1]), tonumber(x2y2[2])
 	--print(x1, y1, x2, y2, tier, nested, toxic, sprinter, pinpoint, cognition)
 	--print(zonename)
@@ -55,10 +56,10 @@ function SDmap.MapPanel:drawzone()
 	Zone.list[self.zone[6]] = nil
 	NestedZone.list[self.zone[6]] = nil
 	--if not MDZ[_zname] then MDZ[_zname] = {} end
-	MDZ[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition }
-	Zone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition }
+	MDZ[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth }
+	Zone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth }
 	if _nested == "Subnested" then
-		NestedZone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition }
+		NestedZone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth }
 	end
 	--zonesGMD["test"] = { 9856,3851,10561,4502, 4, nil, nil, 20, 20, 20 }
 	--Zone.list["test"] = { 9856,3851,10561,4502, 4, nil, nil, 20, 20, 20 }
@@ -110,7 +111,7 @@ function SDmap.MapPanel:createChildren()
 	local zl = Zone.list[zonename]
 	local x1, y1, x2, y2, tier = zl[1], zl[2], zl[3], zl[4], zl[5]
 	local nested, toxic = zl[6], zl[7]
-	local sprinter, pinpoint, cognition = zl[8] or 0, zl[9] or 0, zl[10] or 0
+	local sprinter, pinpoint, cognition, z_health = zl[8] or 0, zl[9] or 0, zl[10] or 0, zl[11] or 2.1
 	
     local emptyheight = self.height/80
     local lblheight = self.height/12.5
@@ -124,7 +125,7 @@ function SDmap.MapPanel:createChildren()
     local buttonwidth = self.width - 66*emptyheight
 
 					 --ISButton:new (x, y, width, height, title, clicktarget, onclick, onmousedown, allowMouseUpProcessing)
-    self.buttonclose = ISButton:new(63*emptyheight, self.height -emptyheight -buttonheight-3 ,buttonwidth,buttonheight , "Close", self, self.close);
+    self.buttonclose = ISButton:new(50*emptyheight, self.height -emptyheight -buttonheight-0 ,buttonwidth,buttonheight , "Close", self, self.close);
     self.buttonclose.anchorTop = false
     self.buttonclose.anchorBottom = false
     self.buttonclose:initialise();
@@ -133,10 +134,10 @@ function SDmap.MapPanel:createChildren()
     self:addChild(self.buttonclose);
 	
 	local buttonheight = self.height/12
-    local buttonwidth = self.width - 56*emptyheight
+    local buttonwidth = self.width - 66*emptyheight
 
 					 --ISButton:new (x, y, width, height, title, clicktarget, onclick, onmousedown, allowMouseUpProcessing)
-    self.buttonclose = ISButton:new(3*emptyheight, self.height -emptyheight -buttonheight-3 ,buttonwidth,buttonheight , "Draw Zone", self, self.drawzone);
+    self.buttonclose = ISButton:new(3*emptyheight, self.height -emptyheight -buttonheight-0 ,buttonwidth,buttonheight , "Update", self, self.drawzone);
     self.buttonclose.anchorTop = false
     self.buttonclose.anchorBottom = false
     self.buttonclose:initialise();
@@ -245,6 +246,14 @@ function SDmap.MapPanel:createChildren()
 	self.zcognition:initialise();
 	self.zcognition:instantiate();
 	self:addChild(self.zcognition);
+	
+	buttonnewy = buttonnewy + lblheight
+	self.zhealth = ISTextEntryBox:new(tostring(z_health), buttonoffset+3*emptyheight, buttonnewy, buttonwidth, buttonheight);
+	self.zhealth.anchorTop = false
+    self.zhealth.anchorBottom = false
+	self.zhealth:initialise();
+	self.zhealth:instantiate();
+	self:addChild(self.zhealth);
 
 end
 
@@ -262,7 +271,7 @@ function SDmap.MapPanel:prerender()
 	end
 	
 	local emptyheight = math.floor(2*self.height/50);
-	local lblheight = self.height/10.5
+	local lblheight = self.height/11.5
 	lblheight = emptyheight + lblheight
 	self:drawText("               X1,Y1:", emptyheight, lblheight,1,1,1,1,UIFont.Small);
 	
@@ -290,6 +299,9 @@ function SDmap.MapPanel:prerender()
 	
 	lblheight = 2*emptyheight + lblheight
 	self:drawText("Cognition%:", emptyheight, lblheight,1,1,1,1,UIFont.Small);
+	
+	lblheight = 2*emptyheight + lblheight
+	self:drawText("             Health:", emptyheight, lblheight,1,1,1,1,UIFont.Small);
 
 end
 
@@ -424,9 +436,10 @@ function SDmap.CreateNewZone:drawzone()
 	if self.zsubnested.selected[1] then _nested = "Subnested" end
 	local _toxic = nil
 	if self.ztoxic.selected[1] then _toxic = "Toxic" end
-	local sprinter = tonumber(self.zsprinter:getInternalText())
-	local pinpoint = tonumber(self.zpinpoint:getInternalText())
-	local cognition = tonumber(self.zcognition:getInternalText())
+	local sprinter = math.max(math.min(tonumber(self.zsprinter:getInternalText()),100),0)
+	local pinpoint = math.max(math.min(tonumber(self.zpinpoint:getInternalText()),100),0)
+	local cognition = math.max(math.min(tonumber(self.zcognition:getInternalText()),100),0)
+	local zombieHealth = math.max(math.min(tonumber(self.zhealth:getInternalText()),30),1.5)
 	local x1, y1, x2, y2 = tonumber(x1y1[1]), tonumber(x1y1[2]), tonumber(x2y2[1]), tonumber(x2y2[2])
 	--print(x1, y1, x2, y2, tier, nested, toxic, sprinter, pinpoint, cognition)
 	--print(zonename)
@@ -435,10 +448,10 @@ function SDmap.CreateNewZone:drawzone()
 	Zone.list[_zname] = nil
 	NestedZone.list[_zname] = nil
 	if not MDZ[_zname] then MDZ[_zname] = {} end
-	MDZ[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition }
-	Zone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition }
+	MDZ[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth }
+	Zone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth }
 	if _nested == "Subnested" then
-		NestedZone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition }
+		NestedZone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth }
 	end
 	--zonesGMD["test"] = { 9856,3851,10561,4502, 4, nil, nil, 20, 20, 20 }
 	--Zone.list["test"] = { 9856,3851,10561,4502, 4, nil, nil, 20, 20, 20 }
@@ -501,7 +514,7 @@ function SDmap.CreateNewZone:createChildren()
     local buttonwidth = self.width - 66*emptyheight
 
 					 --ISButton:new (x, y, width, height, title, clicktarget, onclick, onmousedown, allowMouseUpProcessing)
-    self.buttonclose = ISButton:new(63*emptyheight, self.height -emptyheight -buttonheight-3 ,buttonwidth,buttonheight , "Close", self, self.close);
+    self.buttonclose = ISButton:new(50*emptyheight, self.height -emptyheight -buttonheight-0 ,buttonwidth,buttonheight , "Close", self, self.close);
     self.buttonclose.anchorTop = false
     self.buttonclose.anchorBottom = false
     self.buttonclose:initialise();
@@ -510,10 +523,10 @@ function SDmap.CreateNewZone:createChildren()
     self:addChild(self.buttonclose);
 	
 	local buttonheight = self.height/12
-    local buttonwidth = self.width - 56*emptyheight
+    local buttonwidth = self.width - 66*emptyheight
 
 					 --ISButton:new (x, y, width, height, title, clicktarget, onclick, onmousedown, allowMouseUpProcessing)
-    self.buttonclose = ISButton:new(3*emptyheight, self.height -emptyheight -buttonheight-3 ,buttonwidth,buttonheight , "Draw Zone", self, self.drawzone);
+    self.buttonclose = ISButton:new(3*emptyheight, self.height -emptyheight -buttonheight-0 ,buttonwidth,buttonheight , "Draw Zone", self, self.drawzone);
     self.buttonclose.anchorTop = false
     self.buttonclose.anchorBottom = false
     self.buttonclose:initialise();
@@ -619,6 +632,14 @@ function SDmap.CreateNewZone:createChildren()
 	self.zcognition:initialise();
 	self.zcognition:instantiate();
 	self:addChild(self.zcognition);
+	
+	buttonnewy = buttonnewy + lblheight
+	self.zhealth = ISTextEntryBox:new("2.1", buttonoffset+3*emptyheight, buttonnewy, buttonwidth, buttonheight);
+	self.zhealth.anchorTop = false
+    self.zhealth.anchorBottom = false
+	self.zhealth:initialise();
+	self.zhealth:instantiate();
+	self:addChild(self.zhealth);
 
 end
 
@@ -635,7 +656,7 @@ function SDmap.CreateNewZone:prerender()
 	end
 	
 	local emptyheight = math.floor(2*self.height/50);
-	local lblheight = self.height/10.5
+	local lblheight = self.height/11.5
 	lblheight = emptyheight + lblheight
 	self:drawText("               X1,Y1:", emptyheight, lblheight,1,1,1,1,UIFont.Small);
 	
@@ -663,6 +684,9 @@ function SDmap.CreateNewZone:prerender()
 	
 	lblheight = 2*emptyheight + lblheight
 	self:drawText("Cognition%:", emptyheight, lblheight,1,1,1,1,UIFont.Small);
+	
+	lblheight = 2*emptyheight + lblheight
+	self:drawText("      Health:", emptyheight, lblheight,1,1,1,1,UIFont.Small);
 
 end
 

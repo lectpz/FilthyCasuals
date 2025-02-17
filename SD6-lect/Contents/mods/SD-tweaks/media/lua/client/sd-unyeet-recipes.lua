@@ -35,12 +35,19 @@ function yeppers()
 	return true
 end
 
+function OnTest_FirearmCleaning_SD(item)
+	if item:IsWeapon() and item:isRanged() then
+		if item:getHaveBeenRepaired() == 1 then return false end
+	end
+	return true
+end
+
 local function unyeet_recipes()
 	local unyeeted = 0
 	local start = Calendar.getInstance():getTimeInMillis()
 	local recipes = getScriptManager():getAllRecipes()
-	for i = 1, recipes:size() do
-		local recipe = recipes:get(i - 1)
+	for i = 0, recipes:size()-1 do
+		local recipe = recipes:get(i)
 		local name = recipe:getOriginalname()
 		if recipesToUnyeet[name] then
 			if name == "Make Wonton Wrappers Dough" then
@@ -64,10 +71,23 @@ local function unyeet_recipes()
 			unyeeted = unyeeted + 1
 			print ("Unyeeted \""..name.."\"..")
 		end
+		
+		if recipe:getLuaCreate() == "Recipe.OnCreate.FirearmCleaning" then
+			--print(recipe:getLuaCreate())
+			--recipe:setLuaCreate("Recipe.OnCreate.FirearmCleaning")
+			--recipe:setLuaTest("OnTest_FirearmCleaning_SD")
+			recipe:setRemoveResultItem(true)
+			--print("==========GETSOURCE==============")
+			local rSource = recipe:getSource()
+			--for i=0, rSource:size()-1 do
+				print(rSource:get(0):setKeep(true))
+			--end
+			--print("==========GETSOURCE==============")
+		end
 	end
 	local stop = Calendar.getInstance():getTimeInMillis()
 
 	print("Unyeeted "..unyeeted.." recipes in "..(stop - start).."ms!")
 end
 
-Events.OnGameStart.Add(unyeet_recipes)
+Events.OnInitGlobalModData.Add(unyeet_recipes)

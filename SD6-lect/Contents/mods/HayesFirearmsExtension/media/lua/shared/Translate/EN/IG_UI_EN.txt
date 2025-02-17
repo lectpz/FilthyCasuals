@@ -1,0 +1,5 @@
+IGUI_EN = {
+    IGUI_HFA_Bipod = "Toggle Bipod (Open / Close)",
+    IGUI_HFA_LaserGreen = "Toggle Laser Green (On / Off)",
+    IGUI_HFA_LaserRed = "Toggle Laser Red (On / Off)",
+}

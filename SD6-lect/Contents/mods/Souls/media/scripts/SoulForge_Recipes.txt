@@ -485,7 +485,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy [Recipe.GetItemTypes.T5Weapons],
-		SoulCrystalT5=1,
+		SoulShardT5=4,
 		SoulCrystalT4=1,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,

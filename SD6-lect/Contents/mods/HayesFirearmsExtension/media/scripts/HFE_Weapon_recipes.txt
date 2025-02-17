@@ -1,0 +1,588 @@
+module Base
+{
+    /****************************** AMMO BOX RECIPES ******************************/
+
+	recipe Open Box of 30-06 SPRG Ammo
+	{
+		3006Box,
+
+		Result              : 3006Bullets=6,
+		Sound               : PutItemInBag,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+	}
+
+	recipe Place 30-06 SPRG Ammo in Box
+	{
+		3006Bullets=30,
+        
+		Result              : 3006Box,
+		Sound               : PutItemInBag,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+	}
+
+    recipe Open Box of .380 ACP Ammo
+    {
+        380Box,
+
+        Result              : 380Bullets=6,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Place .380 ACP Ammo in Box
+    {
+        380Bullets=30,
+
+        Result              : 380Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of 5.45 Ammo
+    {
+        545Box,
+
+        Result              : 545Bullets=12,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Place 5.45 Ammo in Box
+    {
+        545Bullets=60,
+
+        Result              : 545Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of 5.7x28 Ammo
+    {
+        57Box,
+
+        Result              : 57Bullets=6,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Place 5.7x28 Ammo in Box
+    {
+        57Bullets=30,
+
+        Result              : 57Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of 7.62 Ammo
+    {
+        762Box,
+
+        Result              : 762Bullets=12,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Place 7.62 Ammo in Box
+    {
+        762Bullets=60,
+
+        Result              : 762Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of 7.62x51 Ammo
+    {
+        762x51Box,
+
+        Result              : 762x51Bullets=12,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Place 7.62x51 Ammo in Box
+    {
+        762x51Bullets=60,
+
+        Result              : 762x51Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of 7.62x54r Ammo
+    {
+        762x54rBox,
+
+        Result              : 762x54rBullets=5,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Place 7.62x54r Ammo in Box
+    {
+        762x54rBullets=25,
+
+        Result              : 762x54rBox,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of 7.92 Ammo
+    {
+        792Box,
+
+        Result              : 792Bullets=8,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Place 7.92 Ammo in Box
+    {
+        792Bullets=40,
+
+        Result              : 792Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of 7.92x33 Ammo
+    {
+        792x33Box,
+
+        Result              : 792x33Bullets=12,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Place 7.92x33 Ammo in Box
+    {
+        792x33Bullets=60,
+
+        Result              : 792x33Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Open Box of 50BMG Ammo
+    {
+        50BMGBox,
+
+        Result              : 50BMGBullets=4,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Place 50BMG Ammo in Box
+    {
+        50BMGBullets=24,
+
+        Result              : 50BMGBox,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Make 7.62x54r Stripper Clip
+    {
+        762x54rBullets=5,
+
+        Result              : 762x54rStripperClip,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+        OnCreate            : Recipe.OnCreate.FullyLoaded,
+    }
+
+    recipe Make into 762x54r Bullets
+    {
+        762x54rStripperClip,
+
+        Result              : 762x54rBullets,
+        RemoveResultItem    : True,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+        OnTest	            : FullMag_Test,
+        OnCreate            : Recipe.OnCreate.UndoStripper,
+    }
+
+    recipe Open Box of 9x39 Ammo
+    {
+        9x39Box,
+
+        Result              : 9x39Bullets=6,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+    recipe Place 9x39 Ammo in Box
+    {
+        9x39Bullets=30,
+
+        Result              : 9x39Box,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 25.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        IsHidden            : True,
+    }
+
+	recipe Unpack Bundle of Crossbow Bolts
+	{
+		CrossbowBoltBox,
+
+		Result              : CrossbowBolt=6,
+        Time                : 5,
+		Sound               : PZ_PutInBag,
+		AnimNode            : Craft,
+        IsHidden            : True,
+	}
+
+	recipe Pack Bundle of Crossbow Bolts
+	{
+		CrossbowBolt=30,
+        
+		Result              : CrossbowBoltBox,
+        Time                : 5,
+		Sound               : PZ_PutInBag,
+		AnimNode            : Craft,
+        IsHidden            : True,
+    }
+
+    /****************************** SNIPER SUPPRESSOR WRAP ******************************/
+
+    recipe Wrap Sniper Suppressor in Winter Camo
+    {
+        SuppressorSniper,
+
+        Result              : SuppressorSniperWinter,
+        Time                : 150.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        OnCreate            : Recipe.OnCreate.SuppressorWrap,
+    }
+
+    recipe Wrap Sniper Suppressor in Desert Camo
+    {
+        SuppressorSniper,
+
+        Result              : SuppressorSniperDesert,
+        Time                : 150.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        OnCreate            : Recipe.OnCreate.SuppressorWrap,
+    }
+
+    recipe Wrap Sniper Suppressor in Woodland Camo
+    {
+        SuppressorSniper,
+
+        Result              : SuppressorSniperWoodland,
+        Time                : 150.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        OnCreate            : Recipe.OnCreate.SuppressorWrap,
+    }
+
+    recipe Unwrap Sniper Suppressor
+    {
+        SuppressorSniperWoodland/SuppressorSniperDesert/SuppressorSniperWinter,
+
+        Result              : SuppressorSniper,
+        Time                : 150.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        OnCreate            : Recipe.OnCreate.SuppressorWrap,
+    }
+
+    /****************************** CACHE RECIPES ******************************/
+
+    recipe Open Firearm Cache
+    {
+        FirearmCache,
+
+        Result              : Bullets9mm,
+        Sound               : BoxOfRoundsOpenOne,
+        Time                : 100.0,
+		StopOnWalk          : False,
+      	CanBeDoneFromFloor  : False,
+        OnCreate            : Recipe.OnCreate.OpenFirearmCache,
+    }
+
+    /****************************** TRANSFORM RECIPES ******************************/
+
+    recipe Saw Mosin Nagant
+	{
+        MosinNagant,
+	   keep [Recipe.GetItemTypes.Saw],
+
+        Result              : MosinNagantObrez,
+        Sound               : Sawing,
+        Time                : 200.0,
+        StopOnWalk          : True,
+        CanBeDoneFromFloor  : False,
+        OnCreate            : GeneralSawnWeapon_OnCreate,
+	}
+
+    recipe Turn Laser Red
+    {
+        LaserNoLight/LaserGreen,
+
+        Result              : LaserRed,
+		Time                : 20.0,
+        StopOnWalk          : False,
+		CanBeDoneFromFloor  : true,
+        IsHidden            : true,
+    }
+
+    recipe Turn Laser Green
+    {
+        LaserNoLight/LaserRed,
+
+        Result              : LaserGreen,
+		Time                : 20.0,
+        StopOnWalk          : False,
+		CanBeDoneFromFloor  : true,
+        IsHidden            : true,
+    }
+
+    recipe Turn Laser Off
+    {
+        LaserGreen/LaserRed,
+
+        Result              : LaserNoLight,
+		Time                : 20.0,
+        StopOnWalk          : False,
+		CanBeDoneFromFloor  : true,
+        IsHidden            : true,
+    }
+
+	/****************************** AMMO CREATION RECIPES ******************************/
+    recipe Make 7.92 Ammo
+    {
+        GunPowder=20,
+        SmallSheetMetal=4,
+		ScrapMetal=6,
+
+        Result              : 792Bullets=4,
+	    Sound               : Hammering,
+        Time                : 50.0,
+        Category            : HFA,
+		CanBeDoneFromFloor  : true,
+		NeedToBeLearn       : true,
+    }
+
+    recipe Craft Crossbow Bolts 
+    {
+        ScrapMetal=10,
+        Glue,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        keep [Recipe.GetItemTypes.Hammer],
+
+        Result               : CrossbowBolt=6,
+        Time:600,
+        Sound:Hammering,
+        Category             : HFA,
+        AnimNode             : Disassemble,
+        Prop1                : Hammer,
+        CanBeDoneFromFloor   : false,
+        NeedToBeLearn        : true,
+    }
+/****************************** WEAPON ATTACHMENTS RECIPES ******************************/
+
+    recipe Create Iron Sights for FG 42 Paratrooper Rifle
+    {
+        IronSight,
+        SmallSheetMetal=2,
+        ScrapMetal=2,
+        BlowTorch=4,
+        keep [Recipe.GetItemTypes.Hammer],
+       	keep [Recipe.GetItemTypes.WeldingMask],
+
+        Result              : IronSightsFG42,
+		Time                : 140.0,
+	    Sound               : Hammering,
+       	SkillRequired       : MetalWelding=4,
+	   	Category            : HFA,
+		CanBeDoneFromFloor  : true,
+		NeedToBeLearn       : true,
+    }    
+
+    recipe Create Scope for FG 42 Paratrooper Rifle
+    {
+        x2Scope/x4Scope/x8Scope=2,
+        SmallSheetMetal=6,
+        ScrapMetal=6,
+        BlowTorch=8,
+        keep [Recipe.GetItemTypes.Hammer],
+       	keep [Recipe.GetItemTypes.WeldingMask],
+
+        Result              : ScopeFG42,
+		Time                : 140.0,
+	    Sound               : Hammering,
+       	SkillRequired       : MetalWelding=4,
+	   	Category            : HFA,
+		CanBeDoneFromFloor  : true,
+		NeedToBeLearn       : true,
+    }    
+
+    recipe Create Magazine Clip for FG 42 Paratrooper Rifle
+    {
+        762Clip/223Clip20/308Clip,
+        SmallSheetMetal=4,
+        ScrapMetal=4,
+        BlowTorch=6,
+        keep [Recipe.GetItemTypes.Hammer],
+       	keep [Recipe.GetItemTypes.WeldingMask],
+
+        Result              : 792Clip,
+		Time                : 140.0,
+	    Sound               : Hammering,
+       	SkillRequired       : MetalWelding=4,
+	   	Category            : HFA,
+		CanBeDoneFromFloor  : true,
+		NeedToBeLearn       : true,
+    }   
+
+    recipe Create Drum Magazine for MG42
+    {
+        762Clip/223Clip20/308Clip,
+        SmallSheetMetal=4,
+        ScrapMetal=4,
+        BlowTorch=6,
+        keep [Recipe.GetItemTypes.Hammer],
+       	keep [Recipe.GetItemTypes.WeldingMask],
+
+        Result              : 792Drum,
+		Time                : 140.0,
+	    Sound               : Hammering,
+       	SkillRequired       : MetalWelding=4,
+	   	Category            : HFA,
+		CanBeDoneFromFloor  : true,
+		NeedToBeLearn       : true,
+    } 
+
+    recipe Create Bipod for MG42
+    {
+        Bipod,
+        Screws=2,
+        SmallSheetMetal=2,
+        ScrapMetal=4,
+        BlowTorch=5,
+        keep [Recipe.GetItemTypes.Hammer],
+       	keep [Recipe.GetItemTypes.WeldingMask],
+
+        Result              : BipodMG42,
+		Time                : 140.0,
+	    Sound               : Hammering,
+       	SkillRequired       : MetalWelding=4,
+	   	Category            : HFA,
+		CanBeDoneFromFloor  : true,
+		NeedToBeLearn       : true,
+    }    
+
+	/****************************** CONVERSION OR CREATION RECIPES ******************************/
+    recipe Create FG 42 Paratrooper Rifle
+    {
+        AssaultRifle2/AssaultRifle/HuntingRifle=2,
+        SmallSheetMetal=8,
+        ScrapMetal=20,
+       	BlowTorch=5,
+       	keep [Recipe.GetItemTypes.Hammer],
+       	keep [Recipe.GetItemTypes.WeldingMask],
+
+        Result              : FG42,
+		Time                : 200.0,
+        Sound               : BlowTorch,
+       	SkillRequired       : MetalWelding=4,
+	   	Category            : HFA,
+		CanBeDoneFromFloor  : false,
+		NeedToBeLearn       : True,
+    }
+
+    recipe Create MG42
+    {
+        AssaultRifle2/AssaultRifle/HuntingRifle=2,
+        SmallSheetMetal=8,
+        ScrapMetal=20,
+       	BlowTorch=5,
+       	keep [Recipe.GetItemTypes.Hammer],
+       	keep [Recipe.GetItemTypes.WeldingMask],
+
+        Result              : MG42,
+		Time                : 200.0,
+        Sound               : BlowTorch,
+       	SkillRequired       : MetalWelding=4,
+	   	Category            : HFA,
+		CanBeDoneFromFloor  : false,
+		NeedToBeLearn       : True,
+    }
+
+ }

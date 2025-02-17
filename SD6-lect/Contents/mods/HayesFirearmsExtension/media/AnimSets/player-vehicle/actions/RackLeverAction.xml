@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<animNode x_extends="LoadLeverAction.xml">
+	<m_Name>RackLeverAction</m_Name>
+	<m_AnimName>Lever_Rack</m_AnimName>
+	<m_SpeedScale>1.0</m_SpeedScale>
+	<m_BlendTime>0.10</m_BlendTime>
+	<m_Conditions />
+	<m_Conditions />
+	<m_Conditions>
+		<m_Name>isRacking</m_Name>
+	</m_Conditions>
+	<m_Events>
+		<m_EventName>rackingFinished</m_EventName>
+	</m_Events>
+	<m_Events>
+		<m_Time>Start</m_Time>
+		<m_ParameterValue>rack</m_ParameterValue>
+	</m_Events>
+	<m_Events>
+		<m_EventName>rackBullet</m_EventName>
+		<m_TimePc>0.1</m_TimePc>
+		<m_ParameterValue></m_ParameterValue>
+	</m_Events>
+</animNode>

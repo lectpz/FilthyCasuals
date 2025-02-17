@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fileGuidTable>
+	<files>
+		<path>media/clothing/clothingItems/Bag_CasePistol_LHand.xml</path>
+		<guid>dd5e3acc-57b6-4882-8906-7758cbac990b</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Bag_CasePistol_RHand.xml</path>
+		<guid>49fc6ce4-b40b-4faa-871b-e8648f277fd6</guid>
+	</files>
+    <files>
+		<path>media/clothing/clothingItems/Bag_CaseShotgun_LHand.xml</path>
+		<guid>a87b80d5-9c31-484e-88ef-0e667750ceb0</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Bag_CaseShotgun_RHand.xml</path>
+		<guid>7f4c0e3a-faf4-4a61-9a27-ad61aafbd89e</guid>
+	</files>
+    <files>
+		<path>media/clothing/clothingItems/Bag_CaseRifle_LHand.xml</path>
+		<guid>d17f4a00-658f-44ba-825e-ea1e00e1fb6e</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Bag_CaseRifle_RHand.xml</path>
+		<guid>51b69c9e-d155-47c6-b497-6b13d6fe675d</guid>
+	</files>
+</fileGuidTable>

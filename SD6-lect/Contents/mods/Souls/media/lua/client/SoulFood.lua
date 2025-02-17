@@ -230,12 +230,11 @@ function SoulSmithOnWeaponHitXP(player, handWeapon, character, damageSplit)
 	if handWeapon:getType() == "BareHands" or handWeapon:isRanged() then return end
 	local pMD = getSpecificPlayer(0):getModData()
 	local permaSoulSmithValue = pMD.PermaSoulSmithValue
-	local SoulSmithValue = pMD.SoulSmithValue
+	local SoulSmithValue = pMD.SoulSmithValue or 0
 	if SoulSmithValue and permaSoulSmithValue and permaSoulSmithValue > 0 then SoulSmithValue = SoulSmithValue + permaSoulSmithValue end
-	SoulSmithValue = SoulSmithValue * 100
 	if SoulSmithValue and SoulSmithValue > 0 then
-		if ZombRand(0,10000) < SoulSmithValue then
-			local weapRestore = ZombRand(2)+1
+		if ZombRand(0,10000) < SoulSmithValue*100 then
+			local weapRestore = 1
 			handWeapon:setCondition(math.floor(handWeapon:getCondition() + weapRestore + 0.5))
 			HaloTextHelper.addTextWithArrow(player, "+" .. weapRestore .. " weapon condition restored.", true, HaloTextHelper.getColorGreen());
 			dPr("Soul Smith Hit")

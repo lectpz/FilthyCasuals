@@ -1,0 +1,410 @@
+VERSION = 1,
+
+option HFE.Loot
+{
+	type = enum,
+	default = 1,
+	numValues = 5,
+	page = HFE_Loot,
+	translation = HFE_LootGeneral,
+}
+
+option HFE.AddFirearms
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_AddFirearms,
+}
+
+option HFE.FirearmsHandguns
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_FirearmsHandguns,
+}
+
+option HFE.FirearmsFirearmsSMGs
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_FirearmsSMGs,
+}
+
+option HFE.FirearmsRifles
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_FirearmsRifles,
+}
+
+option HFE.FirearmsSnipers
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_FirearmsSnipers,
+}
+
+option HFE.FirearmsShotguns
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_FirearmsShotguns,
+}
+
+option HFE.FirearmOther
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_FirearmsOther,
+}
+
+option HFE.Firearms
+{
+	type = integer,
+	default = 2,
+	min = 1,
+	max = 10,
+	page = HFE_Loot,
+	translation = HFE_Firearms,
+}
+
+option HFE.FirearmsHandgunsRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_FirearmsHandgunsRates,
+}
+
+option HFE.FirearmsSMGsRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_FirearmsSMGsRates,
+}
+
+option HFE.FirearmsRiflesRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_FirearmsRiflesRates,
+}
+
+option HFE.FirearmsSnipersRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_FirearmsSnipersRates,
+}
+
+option HFE.FirearmsShotgunsRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_FirearmsShotgunsRates,
+}
+
+option HFE.FirearmsOtherRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_FirearmsOtherRates,
+}
+
+option HFE.AddAmmo
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_AddAmmo,
+}
+
+option HFE.AmmoHandguns
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_AmmoHandguns,
+}
+
+option HFE.AmmoRifles
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_AmmoRifles,
+}
+
+option HFE.AmmoShotguns
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_AmmoShotguns,
+}
+
+option HFE.AmmoOther
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_AmmoOther,
+}
+
+option HFE.Ammo
+{
+	type = integer,
+	default = 2,
+	min = 1,
+	max = 10,
+	page = HFE_Loot,
+	translation = HFE_Ammo,
+}
+
+option HFE.AmmoHandgunsRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_AmmoHandgunsRates,
+}
+
+option HFE.AmmoRiflesRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_AmmoRiflesRates,
+}
+
+option HFE.AmmoShotgunsRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_AmmoShotgunsRates,
+}
+
+option HFE.AmmoOtherRates
+{
+	type = integer,
+	default = 50,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_AmmoOtherRates,
+}
+
+option HFE.Extended
+{
+	type = integer,
+	default = 2,
+	min = 1,
+	max = 10,
+	page = HFE_Loot,
+	translation = HFE_Extended,
+}
+
+option HFE.ExtendedRates
+{
+	type = integer,
+	default = 20,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_ExtendedRates,
+}
+
+option HFE.ExtendedSmall
+{
+	type = boolean,
+	default = false,
+	page = HFE_Loot,
+	translation = HFE_ExtendedSmall,
+}
+
+option HFE.ExtendedLarge
+{
+	type = boolean,
+	default = false,
+	page = HFE_Loot,
+	translation = HFE_ExtendedLarge,
+}
+
+option HFE.ExtendedDrum
+{
+	type = boolean,
+	default = false,
+	page = HFE_Loot,
+	translation = HFE_ExtendedDrum,
+}
+
+option HFE.AddAccessories
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_AddAccessories,
+}
+
+option HFE.AccessoriesSuppressors
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_AccessoriesSuppressors,
+}
+
+option HFE.AccessoriesScopes
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_AccessoriesScopes,
+}
+
+option HFE.AccessoriesOther
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_AccessoriesOther,
+}
+
+option HFE.Accessories
+{
+	type = integer,
+	default = 2,
+	min = 1,
+	max = 10,
+	page = HFE_Loot,
+	translation = HFE_Accessories,
+}
+
+option HFE.AccessoriesSuppressorsRates
+{
+	type = integer,
+	default = 20,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_AccessoriesSuppressorsRates,
+}
+
+option HFE.AccessoriesScopesRates
+{
+	type = integer,
+	default = 30,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_AccessoriesScopesRates,
+}
+
+option HFE.AccessoriesOtherRates
+{
+	type = integer,
+	default = 40,
+	min = 1,
+	max = 100,
+	page = HFE_Loot,
+	translation = HFE_AccessoriesOtherRates,
+}
+
+option HFE.AddFirearmCache
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_AddFirearmCache,
+}
+
+option HFE.FirearmCache
+{
+	type = integer,
+	default = 3,
+	min = 1,
+	max = 10,
+	page = HFE_Loot,
+	translation = HFE_FirearmCache,
+}
+
+option HFE.FirearmSkins
+{
+	type = boolean,
+	default = true,
+	page = HFE_Loot,
+	translation = HFE_FirearmSkins,
+}
+
+option HFE.ExclusiveFirearmSkins
+{
+	type = boolean,
+	default = false,
+	page = HFE_Loot,
+	translation = HFE_ExclusiveFirearmSkins,
+}
+
+option HFE.FirearmSkinSpawns
+{
+	type = integer,
+	default = 3,
+	min = 1,
+	max = 10,
+	page = HFE_Loot,
+	translation = HFE_FirearmSkinSpawns,
+}
+
+option HFE.CrossbowAmmoMag
+{
+	type = boolean,
+	default = false,
+	page = HFE_Loot,
+	translation = HFE_CrossbowAmmoMag,
+}
+
+option HFE.FGMG42
+{
+	type = boolean,
+	default = false,
+	page = HFE_Loot,
+	translation = HFE_FGMG42,
+}
+
+option HFE.ColtCavalry
+{
+	type = boolean,
+	default = false,
+	page = HFE_Loot,
+	translation = HFE_ColtCavalry,
+}

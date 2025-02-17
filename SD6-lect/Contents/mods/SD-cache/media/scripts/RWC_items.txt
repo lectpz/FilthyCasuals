@@ -604,4 +604,49 @@ module Base
 		Time:100.0,
 		OnCreate:OnCreate_SoulForgeCache,
 	}
+	
+	item PokemonCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Pokemon Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item ShinyPokemonCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Shiny Pokemon Cache,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+
+	recipe Whos That Pokemon
+	{
+		CanBeDoneFromFloor:true,
+		destroy Base.PokemonCache,
+		Sound:s_pokemon,
+		AnimNode:Loot,
+		Result:boosterpack_trash,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:PokemonCacheSD,
+	}
+
+	recipe Whos That Pokemon
+	{
+		CanBeDoneFromFloor:true,
+		destroy Base.ShinyPokemonCache,
+		Sound:s_pokemon,
+		AnimNode:Loot,
+		Result:boosterpack_trash,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:ShinyPokemonCacheSD,
+	}
 }

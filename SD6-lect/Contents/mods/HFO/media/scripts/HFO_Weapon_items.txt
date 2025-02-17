@@ -1,0 +1,574 @@
+module Base
+{
+    /****************************** ITEM AMMOS ******************************/
+ 
+    item Bullets9mm
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.01,
+        Type	                = Normal,
+        DisplayName	            = 9mm Round,
+        Icon	                = Rounds9mm,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds9mm,
+    }
+
+    item Bullets9mmBox
+    {
+        Weight	                = 0.25,
+        Type	                = Normal,
+        DisplayName	            = Box of 9mm Rounds,
+        DisplayCategory         = Ammo,
+        Icon	                = AmmoBox9mm,
+        MetalValue              = 30,
+        WorldStaticModel        = AmmoBox9mm,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+
+    item Bullets45
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.02,
+        Type	                = Normal,
+        DisplayName	            = .45 ACP Round,
+        Icon	                = Rounds45,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds45,
+    }
+
+    item Bullets45Box
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.5,
+        Type	                = Normal,
+        DisplayName	            = Box of .45 ACP Rounds,
+        Icon	                = AmmoBox45,
+        MetalValue              = 30,
+        WorldStaticModel        = AmmoBox45,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+
+    item Bullets38
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.015,
+        Type	                = Normal,
+        DisplayName	            = .38 Special Round,
+        Icon	                = Rounds38,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds38,
+    }
+
+    item Bullets38Box
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.375,
+        Type	                = Normal,
+        DisplayName	            = Box of .38 Special Rounds,
+        Icon	                = AmmoBox38,
+        MetalValue              = 30,
+        WorldStaticModel        = AmmoBox38,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+
+    item Bullets44
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 6,
+        Weight	                = 0.03,
+        Type	                = Normal,
+        DisplayName	            = .44 Magnum Round,
+        Icon	                = Rounds44,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds44,
+    }
+
+    item Bullets44Box
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.6,
+        Type	                = Normal,
+        DisplayName	            = Box of .44 Magnum Rounds,
+        Icon	                = AmmoBox44,
+        MetalValue              = 30,
+        WorldStaticModel        = AmmoBox44,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+
+	item 223Bullets
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.005,
+        Type	                = Normal,
+        DisplayName	            = .223 Round,
+        Icon	                = Rounds223,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds223,
+    }
+
+    item 223Box
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.175,
+        Type	                = Normal,
+        DisplayName	            = Box of .223 Rounds,
+        Icon	                = AmmoBox223,
+        MetalValue              = 40,
+        WorldStaticModel        = AmmoBox223,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+
+    item 308Bullets
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.015,
+        Type	                = Normal,
+        DisplayName	            = .308 Round,
+        Icon	                = Rounds308,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds308,
+    }
+
+    item 308Box
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.5,
+        Type	                = Normal,
+        DisplayName	            = Box of .308 Rounds,
+        Icon	                = AmmoBox308,
+        MetalValue              = 40,
+        WorldStaticModel        = AmmoBox308,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+
+    item 556Bullets
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.005,
+        Type	                = Normal,
+        DisplayName	            = 5.56 Round,
+        Icon	                = Rounds556,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds556,
+    }
+
+    item 556Box
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.25,
+        Type	                = Normal,
+        DisplayName	            = Box of 5.56 Rounds,
+        Icon	                = AmmoBox556,
+        MetalValue              = 40,
+        WorldStaticModel        = AmmoBox556,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+
+    item ShotgunShells
+	{
+	    DisplayCategory         = Ammo,
+		Count	                = 6,
+		Weight	                = 0.04,
+		Type	                = Normal,
+		DisplayName	            = 12g Shotgun Shells,
+		Icon	                = Rounds12GaugeBuck,
+		MetalValue              = 1,
+		WorldStaticModel        = Rounds12GaugeBuck,
+	}
+
+    item ShotgunShellsBox
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.8,
+        Type	                = Normal,
+        DisplayName	            = Box of 12g Shotgun Shells,
+        Icon	                = AmmoBox12GaugeBuck,
+        MetalValue              = 24,
+        WorldStaticModel        = AmmoBox12GaugeBuck,
+        PlaceOneSound           = BoxOfShellsPlaceOne,
+        PlaceMultipleSound      = BoxOfShellsPlaceAll,
+    }
+
+    item AmmoCanUnopened
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 3.0,
+        Type	                = Normal,
+        DisplayName	            = AmmoCan [Unopened],
+        Icon	                = AmmoCan,
+        MetalValue              = 24,
+        WorldStaticModel        = AmmoCan,
+        Tooltip				    = Tooltip_item_AmmoCanUnopened,
+    }
+
+    item AmmoCan
+    {
+        DisplayCategory         = Container,
+        Weight	                = 0.1,
+        Type	                = Container,
+        DisplayName	            = Ammo Can,
+        Icon	                = AmmoCan,
+        WeightReduction	        = 25,
+        Capacity	            = 4,
+        PutInSound              = PutItemInBag,
+        MetalValue              = 24,
+        WorldStaticModel        = AmmoCan,
+    }
+
+    /****************************** MAGAZINES ******************************/
+
+    item 9mmClip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 9mm Magazine,
+        Icon	                = Mag9mm,
+        MaxAmmo                 = 15,
+        AmmoType                = Base.Bullets9mm,
+        StaticModel             = Mag9mm,
+        GunType                 = Base.Pistol; Base.PM63RAK; Base.PM63RAK_Grip; Base.PM63RAK_Extended; Base.PM63RAK_GripExtended,
+        WorldStaticModel        = Mag9mm,
+    }
+
+    item 45Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = .45 Magazine,
+        Icon	                = Mag45,
+        MaxAmmo                 = 7,
+        AmmoType                = Base.Bullets45,
+        StaticModel             = Mag45,
+        GunType                 = Base.Pistol2,
+        WorldStaticModel        = Mag45,
+    }
+
+    item 44Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = .44 Magazine,
+        Icon	                = Mag44,
+        MaxAmmo                 = 8,
+        AmmoType                = Base.Bullets44,
+        StaticModel             = Mag44,
+        GunType                 = Base.Pistol3,
+        WorldStaticModel        = Mag44,
+    }
+
+    item 223Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = .223 Magazine,
+        Icon	                = Mag700Series,
+        MaxAmmo                 = 3,
+        AmmoType                = Base.223Bullets,
+        StaticModel             = Mag700Series,
+        GunType                 = Base.VarmintRifle; Base.HuntingRifle,
+        WorldStaticModel        = Mag700Series,
+    }
+
+    item 308Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = .308 Magazine,
+        Icon	                = Mag700Series,
+        MaxAmmo                 = 3,
+        AmmoType                = Base.308Bullets,
+        StaticModel             = Mag700Series,
+        GunType                 = Base.VarmintRifle; Base.HuntingRifle,
+        WorldStaticModel        = Mag700Series,
+    }
+
+    item M14Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = M14 Magazine,
+        Icon	                = MagM14,
+        MaxAmmo                 = 20,
+        AmmoType                = Base.308Bullets,
+        StaticModel             = MagM14,
+        GunType                 = Base.AssaultRifle2,
+        WorldStaticModel        = MagM14,
+    }
+
+    item 556Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 5.56 Magazine,
+        Icon	                = Mag556,
+        MaxAmmo                 = 30,
+        AmmoType                = Base.556Bullets,
+        StaticModel             = Mag556,
+        GunType                 = Base.AssaultRifle; Base.M4A1; Base.SIG550,
+        WorldStaticModel        = Mag556,
+    }
+
+    /****************************** FIREARM CASES *******************/
+
+    item RifleCase1
+    {
+        DisplayCategory         = Container,
+        WeightReduction	        = 20,
+        Weight	                = 1,
+        Type	                = Container,
+        Capacity	            = 7,
+        DisplayName	            = Rifle Case,
+        Icon	                = RifleCase,
+        RunSpeedModifier        = 0.97,
+        OpenSound               = OpenBag,
+        CloseSound              = CloseBag,
+        PutInSound              = PutItemInBag,
+        ReplaceInSecondHand     = Bag_CaseRifle_LHand holdingbagleft,
+        ReplaceInPrimaryHand    = Bag_CaseRifle_RHand holdingbagright,
+        WorldStaticModel        = RifleCase,
+    }
+
+    item RifleCase2
+    {
+        DisplayCategory         = Container,
+        WeightReduction	        = 20,
+        Weight	                = 1,
+        Type	                = Container,
+        Capacity	            = 7,
+        DisplayName	            = Rifle Case,
+        Icon	                = RifleCase,
+        RunSpeedModifier        = 0.97,
+        OpenSound               = OpenBag,
+        CloseSound              = CloseBag,
+        PutInSound              = PutItemInBag,
+        ReplaceInSecondHand     = Bag_CaseRifle_LHand holdingbagleft,
+        ReplaceInPrimaryHand    = Bag_CaseRifle_RHand holdingbagright,
+        WorldStaticModel        = RifleCase,
+    }
+
+    item RifleCase3
+    {
+        DisplayCategory         = Container,
+        WeightReduction	        = 20,
+        Weight	                = 1,
+        Type	                = Container,
+        Capacity	            = 7,
+        DisplayName	            = Rifle Case,
+        Icon	                = RifleCase,
+        RunSpeedModifier        = 0.97,
+        OpenSound               = OpenBag,
+        CloseSound              = CloseBag,
+        PutInSound              = PutItemInBag,
+        ReplaceInSecondHand     = Bag_CaseRifle_LHand holdingbagleft,
+        ReplaceInPrimaryHand    = Bag_CaseRifle_RHand holdingbagright,
+        WorldStaticModel        = RifleCase,
+    }
+
+    item ShotgunCase1
+    {
+        DisplayCategory         = Container,
+        WeightReduction	        = 20,
+        Weight	                = 1,
+        Type	                = Container,
+        Capacity	            = 7,
+        DisplayName	            = Gun Case,
+        Icon	                = ShotgunCase,
+        RunSpeedModifier        = 0.97,
+        OpenSound               = OpenBag,
+        CloseSound              = CloseBag,
+        PutInSound              = PutItemInBag,
+        ReplaceInSecondHand     = Bag_CaseShotgun_LHand holdingbagleft,
+        ReplaceInPrimaryHand    = Bag_CaseShotgun_RHand holdingbagright,
+        WorldStaticModel        = ShotgunCase,
+    }
+
+    item ShotgunCase2
+    {
+        DisplayCategory         = Container,
+        WeightReduction	        = 20,
+        Weight	                = 1,
+        Type	                = Container,
+        Capacity	            = 7,
+        DisplayName	            = Gun Case,
+        Icon	                = ShotgunCase,
+        RunSpeedModifier        = 0.97,
+        OpenSound               = OpenBag,
+        CloseSound              = CloseBag,
+        PutInSound              = PutItemInBag,
+        ReplaceInSecondHand     = Bag_CaseShotgun_LHand holdingbagleft,
+        ReplaceInPrimaryHand    = Bag_CaseShotgun_RHand holdingbagright,
+        WorldStaticModel        = ShotgunCase,
+    }
+
+    item PistolCase1
+    {
+        DisplayCategory         = Container,
+        WeightReduction	        = 5,
+        Weight	                = 0.5,
+        Type	                = Container,
+        Capacity	            = 4,
+        DisplayName	            = Pistol Case,
+        Icon	                = PistolCaseNew,
+        RunSpeedModifier        = 0.99,
+        MetalValue              = 15,
+	    AttachmentType          = PistolCase,
+        ReplaceInSecondHand     = Bag_CasePistol_LHand holdingbagleft,
+        ReplaceInPrimaryHand    = Bag_CasePistol_RHand holdingbagright,
+        WorldStaticModel        = PistolCase,
+    }
+    
+    item PistolCase2
+    {
+        DisplayCategory         = Container,
+        WeightReduction	        = 5,
+        Weight	                = 0.5,
+        Type	                = Container,
+        Capacity	            = 4,
+        DisplayName	            = Pistol Case,
+        Icon	                = PistolCaseNew,
+        RunSpeedModifier        = 0.99,
+        MetalValue              = 15,
+	    AttachmentType          = PistolCase,
+        ReplaceInSecondHand     = Bag_CasePistol_LHand holdingbagleft,
+        ReplaceInPrimaryHand    = Bag_CasePistol_RHand holdingbagright,
+        WorldStaticModel        = PistolCase,
+    }
+
+    item PistolCase3
+    {
+        DisplayCategory         = Container,
+        WeightReduction	        = 5,
+        Weight	                = 0.5,
+        Type	                = Container,
+        Capacity	            = 4,
+        DisplayName	            = Pistol Case,
+        Icon	                = PistolCaseNew,
+        RunSpeedModifier        = 0.99,
+        MetalValue              = 15,
+        AttachmentType          = PistolCase,
+        ReplaceInSecondHand     = Bag_CasePistol_LHand holdingbagleft,
+        ReplaceInPrimaryHand    = Bag_CasePistol_RHand holdingbagright,
+        WorldStaticModel        = PistolCase,
+    }
+
+    item RevolverCase1
+    {
+        DisplayCategory         = Container,
+        WeightReduction	        = 5,
+        Weight	                = 0.5,
+        Type	                = Container,
+        Capacity	            = 4,
+        DisplayName	            = Revolver Case,
+        Icon	                = PistolCaseNew,
+        RunSpeedModifier        = 0.99,
+        MetalValue              = 15,
+        AttachmentType          = PistolCase,
+        ReplaceInSecondHand     = Bag_CasePistol_LHand holdingbagleft,
+        ReplaceInPrimaryHand    = Bag_CasePistol_RHand holdingbagright,
+        WorldStaticModel        = PistolCase,
+    }
+
+    item RevolverCase2
+    {
+        DisplayCategory         = Container,
+        WeightReduction	        = 5,
+        Weight	                = 0.5,
+        Type	                = Container,
+        Capacity	            = 4,
+        DisplayName	            = Revolver Case,
+        Icon	                = PistolCaseNew,
+        RunSpeedModifier        = 0.99,
+        MetalValue              = 15,
+        AttachmentType          = PistolCase,
+        ReplaceInSecondHand     = Bag_CasePistol_LHand holdingbagleft,
+        ReplaceInPrimaryHand    = Bag_CasePistol_RHand holdingbagright,
+        WorldStaticModel        = PistolCase,
+    }
+
+    item RevolverCase3
+    {
+        DisplayCategory         = Container,
+        WeightReduction	        = 5,
+        Weight	                = 0.5,
+        Type	                = Container,
+        Capacity	            = 4,
+        DisplayName	            = Revolver Case,
+        Icon	                = PistolCaseNew,
+        RunSpeedModifier        = 0.99,
+        MetalValue              = 15,
+        AttachmentType          = PistolCase,
+        ReplaceInSecondHand     = Bag_CasePistol_LHand holdingbagleft,
+        ReplaceInPrimaryHand    = Bag_CasePistol_RHand holdingbagright,
+        WorldStaticModel        = PistolCase,
+    }
+
+    /****************************** FIREARM MAINTENANCE ITEMS *******************/
+    
+    item FirearmLubricant
+    {
+        DisplayCategory		    = Tool,
+        Weight                  = 0.10,
+        Type                    = Drainable,
+        DisplayName             = Firearm Lubricant,
+        Icon                    = FirearmLubricant,
+        UseWhileEquipped        = FALSE,
+        UseDelta                = 0.1,
+	    WorldStaticModel        = FirearmLubricant,
+        Tooltip				    = Tooltip_item_FirearmLubricant,
+    }
+
+    item FirearmCleaningKit
+    {
+        DisplayCategory		    = Tool,
+        Weight                  = 0.2,
+        Type                    = Normal,
+        DisplayName             = Firearm Cleaning Kit,
+        Icon                    = FirearmCleaningKit,
+	    AttachmentType          = Gear, 
+        StaticModel             = FirearmCleaningKit,
+	    WorldStaticModel        = FirearmCleaningKit,
+        Tooltip				    = Tooltip_item_FirearmCleaningKit,
+    }
+
+    item FirearmRepairKit
+    {
+        DisplayCategory		    = Tool,
+        Weight                  = 0.5,
+        Type                    = Drainable,
+        DisplayName             = Firearm Repair Kit,
+        Icon                    = FirearmRepairKit,
+        UseWhileEquipped        = FALSE,
+        UseDelta                = 0.20,
+	    AttachmentType          = PistolCase,
+	    StaticModel             = FirearmRepairKit,
+	    WorldStaticModel        = FirearmRepairKit,
+        Tooltip				    = Tooltip_item_FirearmRepairKit,
+    }
+}

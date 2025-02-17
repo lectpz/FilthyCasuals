@@ -9,7 +9,7 @@ local function SDcontext(player, context, items) -- # When an inventory item con
 	items = ISInventoryPane.getActualItems(items); -- Get table of inventory items (will not be module.item, just item)
 	for _, item in ipairs(items) do -- Check every item in inventory array
 		local iFT = item:getFullType()
-		if iFT == 'Base.WeaponCache' or iFT == 'Base.MedicalCache' or iFT == 'Base.MechanicCache' or iFT == 'Base.MetalworkCache' or iFT == 'Base.AmmoCache' or iFT == 'Base.ArmorCachePatriot' or iFT == 'Base.ArmorCacheDefender' or iFT == 'Base.ArmorCacheVanguard' or iFT == 'Base.SpiffoCache' or iFT == 'Base.JewelryCache' or iFT == 'Base.SoulForgeCache' then
+		if iFT == 'Base.WeaponCache' or iFT == 'Base.MedicalCache' or iFT == 'Base.MechanicCache' or iFT == 'Base.MetalworkCache' or iFT == 'Base.AmmoCache' or iFT == 'Base.ArmorCachePatriot' or iFT == 'Base.ArmorCacheDefender' or iFT == 'Base.ArmorCacheVanguard' or iFT == 'Base.SpiffoCache' or iFT == 'Base.JewelryCache' or iFT == 'Base.SoulForgeCache' or iFT == 'Base.PokemonCache' or iFT == 'Base.ShinyPokemonCache' then
 			--print(item:getFullType())
 			context:removeOptionByName(getText("ContextMenu_Grab"))
 			context:removeOptionByName(getText("ContextMenu_Grab_one"))

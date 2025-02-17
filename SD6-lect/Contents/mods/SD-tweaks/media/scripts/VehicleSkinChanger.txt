@@ -9,6 +9,16 @@ module Base
         Icon            = BusTicket,
 		WorldStaticModel = PaperNapkins_Ground,
     }
+
+    item VehicleRustChanger
+    {
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = SD Vehicle Rust Changer,
+        DisplayCategory = Junk,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
 	
 	item bagCapacityTicket
     {

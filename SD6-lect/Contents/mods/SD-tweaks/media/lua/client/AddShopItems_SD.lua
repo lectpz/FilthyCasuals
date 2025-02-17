@@ -2,6 +2,7 @@ local function addshopitems()
 	--Shop.Items["SoulForge.EmptySoulFlaskWhite"] = {tab = "Tab.Event", price = 1, specialCoin = true}
 	Shop.Items["Base.EngraveKit"] = {tab = "Tab.Event", price = 1, specialCoin = true}
 	Shop.Items["Base.VehicleSkinChanger"] = {tab = "Tab.Event", price = 1, specialCoin = true}
+	Shop.Items["Base.VehicleRustChanger"] = {tab = "Tab.Event", price = 1, specialCoin = true}
 	Shop.Items["Base.BusPass"] = {tab = "Tab.Event", price = 1, specialCoin = true}
 
 --	Shop.Items["SoulForge.EmptySoulFlaskYellow"] = {tab = "Tab.Event", price = 1, specialCoin = true}

@@ -309,7 +309,7 @@ module SoulForge {
 		Icon 					=	BlueBot,
 		CanStoreWater 			=	TRUE,
 		FillFromDispenserSound 	=	GetWaterFromDispenserGlass,
-		FillFromTapSound 		=	GetWaterFromTapGlass
+		FillFromTapSound 		=	GetWaterFromTapGlass,
 		IsCookable 				=	TRUE,
 		IsWaterSource 			=	TRUE,
 		ReplaceOnDeplete 		=	EmptySoulFlaskBlue,

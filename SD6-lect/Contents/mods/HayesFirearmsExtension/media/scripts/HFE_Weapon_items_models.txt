@@ -1,0 +1,806 @@
+module Base
+{
+	model Rounds3006
+    {
+		mesh = weapons/ammo/RoundsRifleVanilla,
+		texture = weapons/ammo/Rounds3006,
+	}
+	model AmmoBox3006
+    {
+		mesh = weapons/ammo/AmmoBoxRifle,
+		texture = weapons/ammo/AmmoBox3006,
+	}
+	model Rounds380
+    {
+		mesh = weapons/ammo/Rounds45,
+		texture = weapons/ammo/Rounds380,
+	}
+	model AmmoBox380
+    {
+		mesh = weapons/ammo/AmmoBoxHandgun,
+		texture = weapons/ammo/AmmoBox380,
+	}
+	model Rounds545
+    {
+		mesh = weapons/ammo/RoundsRifleVanilla,
+		texture = weapons/ammo/Rounds556,
+	}
+	model AmmoBox545
+    {
+		mesh = weapons/ammo/AmmoBoxRifle,
+		texture = weapons/ammo/AmmoBox545,
+	}
+	model Rounds57
+    {
+		mesh = weapons/ammo/Rounds57,
+		texture = weapons/ammo/Rounds57,
+	}
+	model AmmoBox57
+    {
+		mesh = weapons/ammo/AmmoBoxHandgun,
+		texture = weapons/ammo/AmmoBox57,
+	}
+	model Rounds762
+    {
+		mesh = weapons/ammo/RoundsRifleVanilla,
+		texture = weapons/ammo/Rounds308,
+	}
+	model AmmoBox762
+    {
+		mesh = weapons/ammo/AmmoBoxRifle,
+		texture = weapons/ammo/AmmoBox762,
+	}
+	model Rounds762x51
+    {
+		mesh = weapons/ammo/RoundsRifleVanilla,
+		texture = weapons/ammo/Rounds308,
+	}
+	model AmmoBox762x51
+    {
+		mesh = weapons/ammo/AmmoBoxRifle,
+		texture = weapons/ammo/AmmoBox762x51,
+	}
+	model Rounds762x54r
+    {
+		mesh = weapons/ammo/RoundsRifleVanilla,
+		texture = weapons/ammo/Rounds556,
+	}
+	model AmmoBox762x54r
+    {
+		mesh = weapons/ammo/AmmoBoxRifle,
+		texture = weapons/ammo/AmmoBox762x54r,
+	}
+	model Rounds792x33
+    {
+		mesh = weapons/ammo/RoundsRifleVanilla,
+		texture = weapons/ammo/Rounds223,
+	}
+	model AmmoBox792x33
+    {
+		mesh = weapons/ammo/AmmoBoxRifle,
+		texture = weapons/ammo/AmmoBox792x33,
+	}
+	model Rounds50BMG
+    {
+		mesh = weapons/ammo/Rounds50BMG,
+		texture = weapons/ammo/Rounds308,
+	}
+	model AmmoBox50BMG
+    {
+		mesh = weapons/ammo/AmmoBoxRifle,
+		texture = weapons/ammo/AmmoBox50BMG,
+	}
+	model Rounds9x39
+    {
+		mesh = weapons/ammo/Rounds9mm,
+		texture = weapons/ammo/Rounds9mm
+	}
+	model AmmoBox9x39
+    {
+		mesh = weapons/ammo/AmmoBoxHandgun,
+		texture = weapons/ammo/AmmoBox9x39,
+	}
+	model MagBox9mm
+    {
+		mesh = weapons/ammo/MagBox9mm,
+		texture = weapons/ammo/MagBox9mm,
+	}
+	model Mag9mmx8
+    {
+		mesh = weapons/ammo/Mag9mmx8,
+		texture = weapons/ammo/Mag9mmx8,
+	}
+	model Mag9mmx32
+    {
+		mesh = weapons/ammo/Mag9mmx32,
+		texture = weapons/ammo/Mag9mmx32,
+	}
+	model Mag3006Enbloc
+    {
+		mesh = weapons/ammo/Mag3006Enbloc,
+		texture = weapons/ammo/Mag3006Enbloc,
+	}
+	model Mag3006
+    {
+		mesh = weapons/ammo/Mag3006,
+		texture = weapons/firearm/M1918BAR,
+	}
+	model Mag380
+    {
+		mesh = weapons/ammo/Mag380,
+		texture = weapons/ammo/Mag380,
+	}
+	model MagLugerExtSm
+    {
+		mesh = weapons/parts/MagLugerExtSm,
+		texture = weapons/parts/MagLugerExtSm,
+	}
+	model MagLugerExtLg
+    {
+		mesh = weapons/parts/MagLugerExtLg,
+		texture = weapons/parts/MagLugerExtSm,
+	}
+	model MagLugerDrum
+    {
+		mesh = weapons/parts/MagLugerDrum,
+		texture = weapons/parts/MagLugerDrum,
+	}
+	model MagLugerExtSm_Ground
+    {
+		mesh = WorldItems/MagLugerExtSm_Ground,
+		texture = weapons/parts/MagLugerExtSmGround,
+	}
+	model MagLugerExtLg_Ground
+    {
+		mesh = WorldItems/MagLugerExtLg_Ground,
+		texture = weapons/parts/MagLugerExtSmGround,
+	}
+	model MagLugerDrum_Ground
+    {
+		mesh = WorldItems/MagLugerDrum_Ground,
+		texture = weapons/parts/MagLugerDrum,
+	}
+	model Mag380ExtSm
+    {
+		mesh = weapons/parts/Mag380ExtSm,
+		texture = weapons/parts/Mag380ExtSm,
+	}
+	model Mag380ExtLg
+    {
+		mesh = weapons/parts/Mag380ExtLg,
+		texture = weapons/parts/Mag380ExtSm,
+	}
+	model Mag380Drum
+    {
+		mesh = weapons/parts/Mag380Drum,
+		texture = weapons/parts/Mag380Drum,
+	}
+	model Mag380ExtSm_Ground
+    {
+		mesh = WorldItems/Mag380ExtSm_Ground,
+		texture = weapons/parts/Mag380ExtSm,
+	}
+	model Mag380ExtLg_Ground
+    {
+		mesh = WorldItems/Mag380ExtLg_Ground,
+		texture = weapons/parts/Mag380ExtSm,
+	}
+	model Mag380Drum_Ground
+    {
+		mesh = WorldItems/Mag380Drum_Ground,
+		texture = weapons/parts/Mag380Drum,
+	}
+	model Mag9ExtSm
+    {
+		mesh = weapons/parts/Mag9ExtSm,
+		texture = weapons/parts/Mag9ExtSm,
+	}
+	model Mag9ExtLg
+    {
+		mesh = weapons/parts/Mag9ExtLg,
+		texture = weapons/parts/Mag9ExtLg,
+	}
+	model Mag9Drum
+    {
+		mesh = weapons/parts/Mag45Drum,
+		texture = weapons/parts/Mag45Drum,
+	}
+	model Mag9ExtSm_Ground
+    {
+		mesh = WorldItems/Mag9ExtSm_Ground,
+		texture = weapons/parts/Mag9ExtSm,
+	}
+	model Mag9ExtLg_Ground
+    {
+		mesh = WorldItems/Mag9ExtLg_Ground,
+		texture = weapons/parts/Mag9ExtLg,
+	}
+	model Mag9Drum_Ground
+    {
+		mesh = WorldItems/Mag45Drum_Ground,
+		texture = weapons/parts/Mag45Drum,
+	}
+	model Mag57ExtSm
+    {
+		mesh = weapons/parts/Mag9ExtSm,
+		texture = weapons/parts/Mag57ExtSm,
+	}
+	model Mag57ExtLg
+    {
+		mesh = weapons/parts/Mag9ExtLg,
+		texture = weapons/parts/Mag57ExtLg,
+	}
+	model Mag57Drum
+    {
+		mesh = weapons/parts/Mag45Drum,
+		texture = weapons/parts/Mag57Drum,
+	}
+	model Mag57ExtLg_Ground
+    {
+		mesh = WorldItems/Mag9ExtLg_Ground,
+		texture = weapons/parts/Mag57ExtLg,
+	}
+	model Mag57Drum_Ground
+    {
+		mesh = WorldItems/Mag45Drum_Ground,
+		texture = weapons/parts/Mag57Drum,
+	}
+	model Mag44ExtSm
+    {
+		mesh = weapons/parts/Mag44ExtSm,
+		texture = weapons/parts/Mag44ExtSm,
+	}
+	model Mag44ExtLg
+    {
+		mesh = weapons/parts/Mag44ExtLg,
+		texture = weapons/parts/Mag44ExtLg,
+	}
+	model Mag44ExtSm_Ground
+    {
+		mesh = WorldItems/Mag45ExtSm_Ground,
+		texture = weapons/parts/Mag44ExtSm,
+	}
+	model Mag44ExtLg_Ground
+    {
+		mesh = WorldItems/Mag44ExtLg_Ground,
+		texture = weapons/parts/Mag44ExtLg,
+	}
+	model Mag45ExtSm
+    {
+		mesh = weapons/parts/Mag45ExtSm,
+		texture = weapons/parts/Mag45ExtSm,
+	}
+	model Mag45ExtLg
+    {
+		mesh = weapons/parts/Mag45ExtLg,
+		texture = weapons/parts/Mag45ExtLg,
+	}
+	model Mag45Drum
+    {
+		mesh = weapons/parts/Mag45Drum,
+		texture = weapons/parts/Mag45Drum,
+	}
+	model Mag45ExtSm_Ground
+    {
+		mesh = WorldItems/Mag45ExtSm_Ground,
+		texture = weapons/parts/Mag45ExtSm,
+	}
+	model Mag45ExtLg_Ground
+    {
+		mesh = WorldItems/Mag45ExtLg_Ground,
+		texture = weapons/parts/Mag45ExtLg,
+	}
+	model Mag45Drum_Ground
+    {
+		mesh = WorldItems/Mag45Drum_Ground,
+		texture = weapons/parts/Mag45Drum,
+	}
+	model MagMosinNagantExtSm
+    {
+		mesh = weapons/parts/MagMosinNagantExtSm,
+		texture = weapons/parts/MagMosinNagantExtSm,
+	}
+	model MagMosinNagantExtSm_Ground
+    {
+		mesh = WorldItems/MagMosinNagantExtSm_Ground,
+		texture = weapons/parts/MagMosinNagantExtSm,
+	}
+	model MagPM63RAKExtLg
+    {
+		mesh = weapons/parts/MagPM63RAKExtLg,
+		texture = weapons/parts/MagPM63RAKExtLg,
+	}
+	model MagPM63RAKExtLg_Ground
+    {
+		mesh = WorldItems/MagPM63RAKExtLg_Ground,
+		texture = weapons/parts/MagPM63RAKExtLg,
+	}
+	model Mag223ExtLg
+    {
+		mesh = weapons/parts/Mag223ExtLg,
+		texture = weapons/parts/Mag223ExtLg,
+	}
+	model Mag223ExtLg_Ground
+    {
+		mesh = WorldItems/Mag223ExtLg_Ground,
+		texture = weapons/parts/Mag223ExtLg,
+	}
+	model MagM1GarandExtSm
+    {
+		mesh = weapons/parts/MagM1GarandExtSm,
+		texture = weapons/parts/MagM1GarandExtSm,
+	}
+	model MagM1GarandExtSm_Ground
+    {
+		mesh = WorldItems/MagM1GarandExtSm_Ground,
+		texture = weapons/parts/MagM1GarandExtSm,
+	}
+	model Mag3006ExtLg
+	{
+		mesh = weapons/parts/Mag3006ExtLg,
+		texture = weapons/parts/Mag3006ExtLg,
+	}
+	model Mag3006ExtLg_Ground
+    {
+		mesh = WorldItems/Mag3006ExtLg_Ground,
+		texture = weapons/parts/Mag3006ExtLg,
+	}
+	model Mag308ExtSm
+    {
+		mesh = weapons/parts/Mag308ExtSm,
+		texture = weapons/parts/Mag308ExtSm,
+	}
+	model Mag308ExtSm_Ground
+    {
+		mesh = WorldItems/Mag308ExtSm_Ground,
+		texture = weapons/parts/Mag308ExtSm,
+	}
+	model MagSVDExtSm
+    {
+		mesh = weapons/parts/MagSVDExtSm,
+		texture = weapons/parts/MagSVDExtSm,
+	}
+	model MagSVDExtSm_Ground
+    {
+		mesh = WorldItems/MagSVDExtSm_Ground,
+		texture = weapons/parts/MagSVDExtSm,
+	}
+	model Mag50BMGExtSm
+    {
+		mesh = weapons/parts/Mag50BMGExtSm,
+		texture = weapons/parts/Mag50BMGExtSm,
+	}
+	model Mag50BMGExtSm_Ground
+    {
+		mesh = WorldItems/Mag50BMGExtSm_Ground,
+		texture = weapons/parts/Mag50BMGExtSm,
+	}
+	model Mag545
+    {
+		mesh = weapons/ammo/Mag545,
+		texture = weapons/ammo/Mag545,
+	}
+	model Mag57
+    {
+		mesh = weapons/ammo/Mag57,
+		texture = weapons/ammo/Mag57,
+	}
+	model MagP90
+    {
+		mesh = weapons/ammo/MagP90,
+		texture = weapons/firearm/P90,
+	}
+	model Mag762
+    {
+		mesh = weapons/ammo/Mag762,
+		texture = weapons/ammo/Mag762,
+	}
+	model Mag762x51
+    {
+		mesh = weapons/ammo/Mag762x51,
+		texture = weapons/ammo/Mag762x51,
+	}
+	model Mag762x51ExtSm
+    {
+		mesh = weapons/parts/Mag762x51ExtSm,
+		texture = weapons/parts/Mag762x51ExtSm,
+	}
+	model Mag762x51ExtSm_Ground
+    {
+		mesh = WorldItems/Mag762x51ExtSm_Ground,
+		texture = weapons/parts/Mag762x51ExtSm,
+	}
+	model Mag762x51ExtLg
+    {
+		mesh = weapons/parts/Mag762x51ExtLg,
+		texture = weapons/parts/Mag762x51ExtLg,
+	}
+	model Mag762x51ExtLg_Ground
+    {
+		mesh = WorldItems/Mag762x51ExtLg_Ground,
+		texture = weapons/parts/Mag762x51ExtLg,
+	}
+	model Mag762x54r
+    {
+		mesh = weapons/ammo/Mag762x54r,
+		texture = weapons/ammo/Mag762x54r,
+	}
+	model Mag762x54rStripper
+    {
+		mesh = weapons/ammo/Mag762x54rStripper,
+		texture = weapons/ammo/Mag762x54rStripper,
+	}
+	model Mag792x33
+    {
+		mesh = weapons/ammo/Mag792x33,
+		texture = weapons/ammo/Mag792x33,
+	}
+	model Mag50BMG
+    {
+		mesh = weapons/ammo/Mag50BMG,
+		texture = weapons/ammo/Mag50BMG,
+	}
+	model Mag9x39
+    {
+		mesh = weapons/ammo/Mag9x39,
+		texture = weapons/ammo/Mag9x39,
+	}
+	model Mag9x39ExtSm
+    {
+		mesh = weapons/parts/Mag9x39ExtSm,
+		texture = weapons/parts/Mag9x39ExtSm,
+	}
+	model Mag9x39ExtSm_Ground
+    {
+		mesh = WorldItems/Mag9x39ExtSm_Ground,
+		texture = weapons/parts/Mag9x39ExtSm,
+	}
+	model Mag9x39ExtLg
+    {
+		mesh = weapons/parts/Mag9x39ExtLg,
+		texture = weapons/parts/Mag9x39ExtLg,
+	}
+	model Mag9x39ExtLg_Ground
+    {
+		mesh = WorldItems/Mag9x39ExtLg_Ground,
+		texture = weapons/parts/Mag9x39ExtLg,
+	}
+	model MagMP28ExtLg
+    {
+		mesh = weapons/parts/MagMP28ExtLg,
+		texture = weapons/parts/MagMP28ExtLg,
+	}
+	model MagMP28ExtLg_Ground
+    {
+		mesh = WorldItems/MagMP28ExtLg_Ground,
+		texture = weapons/parts/MagMP28ExtLg,
+	}
+	model MagTheNailGun
+    {
+		mesh = weapons/ammo/MagTheNailGun,
+		texture = weapons/ammo/MagTheNailGun,
+	}
+	model SkeletonizedStock
+    {
+        mesh = weapons/parts/SkeletonizedStock,
+        texture = weapons/parts/SkeletonizedStock,
+    }
+	model SuppressorPistol
+	{
+		mesh = weapons/parts/SuppressorPistol,
+		texture = weapons/Parts/SuppressorPistol,
+	}
+	model SuppressorRifle
+	{
+		mesh = weapons/parts/SuppressorRifle,
+		texture = weapons/Parts/SuppressorRifle,
+	}
+	model SuppressorSniper
+	{
+		mesh = weapons/parts/SuppressorSniper,
+		texture = weapons/Parts/SuppressorSniperWoodland,
+	}
+	model SuppressorSniperWinter
+	{
+		mesh = weapons/parts/SuppressorSniperWrapped,
+		texture = weapons/Parts/SuppressorSniperWinter,
+	}
+	model SuppressorSniperDesert
+	{
+		mesh = weapons/parts/SuppressorSniperWrapped,
+		texture = weapons/Parts/SuppressorSniperDesert,
+	}
+	model SuppressorSniperWoodland
+	{
+		mesh = weapons/parts/SuppressorSniperWrapped,
+		texture = weapons/Parts/SuppressorSniperWoodland,
+	}
+	model PEMScope
+	{
+		mesh = weapons/parts/PEMScope,
+		texture = weapons/Parts/PEMScope,
+	}
+	model PSO1Scope
+	{
+		mesh = weapons/parts/PSO1Scope,
+		texture = weapons/Parts/PSO1Scope,
+	}
+	model UniversalOpticalSight
+	{
+		mesh = weapons/parts/UniversalOpticalSight,
+		texture = weapons/Parts/UniversalOpticalSight,
+	}
+	model CompensatorHandgun
+	{
+		mesh = weapons/parts/CompensatorHandgun,
+		texture = weapons/Parts/CompensatorHandgun,
+	}
+	model MuzzleBrakeHandgun
+	{
+		mesh = weapons/parts/MuzzleBrakeHandgun,
+		texture = weapons/Parts/MuzzleBrakeHandgun,
+	}
+	model TacticalGrip
+	{
+		mesh = weapons/parts/TacticalGrip,
+		texture = weapons/Parts/TacticalGrip,
+	}
+	model VertGrip
+    {
+        mesh = weapons/parts/VertGrip,
+        texture = Weapons/Parts/VertGrip,
+    }
+	model AngleGrip
+	{
+		mesh = weapons/parts/AngleGrip,
+		texture = Weapons/Parts/AngleGrip,
+	}
+	model MuzzleBrake
+	{
+		mesh = weapons/parts/MuzzleBrake,
+		texture = Weapons/Parts/MuzzleBrake,
+	}
+	model Compensator
+    {
+        mesh = weapons/parts/Compensator,
+        texture = Weapons/Parts/Compensator,
+    }
+	model LaserRed
+    {
+        mesh = weapons/parts/LaserLight,
+        texture = Weapons/Parts/LaserRed,
+    }
+	model LaserGreen
+    {
+        mesh = weapons/parts/LaserLight,
+        texture = Weapons/Parts/LaserGreen,
+    }
+	model LaserNoLight
+    {
+        mesh = weapons/parts/LaserNoLight,
+        texture = Weapons/Parts/LaserGreen,
+    }
+	model HoloSight
+    {
+        mesh = weapons/parts/HoloSight,
+        texture = Weapons/Parts/HoloSight,
+    }
+	model ReflexSight
+    {
+        mesh = weapons/parts/ReflexSight,
+        texture = Weapons/Parts/ReflexSight,
+    }
+	model WeaponLight
+    {
+        mesh = weapons/parts/WeaponLight,
+        texture = Weapons/Parts/WeaponLight,
+    }
+	model ProOpticScope
+    {
+        mesh = weapons/parts/ProOpticScope,
+        texture = Weapons/Parts/ProOpticScope,
+    }
+	model CarryHandle
+    {
+        mesh = weapons/parts/CarryHandle,
+        texture = Weapons/Parts/CarryHandle,
+    }
+	model ButtStockWrap
+	{
+		mesh = weapons/parts/ButtStockWrap,
+        texture = Weapons/Parts/ButtStockWrap,
+	}
+	model ShellHolder
+	{
+		mesh = weapons/parts/ShellHolder,
+        texture = Weapons/Parts/ShellHolder,
+	}
+	model PlatingGold
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingGold,
+    }
+	model PlatingRainbow
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingRainbow,
+    }
+	model PlatingTan
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingTan,
+    }
+	model PlatingBlue
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingBlue,
+    }
+	model PlatingRed
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingRed,
+    }
+	model PlatingWhite
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingWhite,
+    }
+	model PlatingBlack
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingBlack,
+    }
+	model PlatingWoodStyled
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/WoodStyledPlating,
+    }
+	model PlatingPink
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingPink,
+    }
+	model PlatingCrabShell
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingCrabShell,
+    }
+	model PlatingYellow
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingYellow,
+    }
+	model PlatingGreen
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingGreen,
+    }
+	model PlatingRedWhite
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingRedWhite,
+    }
+	model PlatingGreenGold
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingGreenGold,
+    }
+	model PlatingSteelDamascus
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingSteelDamascus,
+    }
+	model PlatingSalvagedRage
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingSalvagedRage,
+    }
+	model PlatingZoidbergSpecial
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingZoidbergSpecial,
+    }
+	model PlatingShenron
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingShenron,
+    }
+	model PlatingNerf
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingNerf,
+    }
+	model PlatingSurvivalist
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingSurvivalist,
+    }
+	model PlatingMysteryMachine
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingMysteryMachine,
+    }
+	model PlatingPearl
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingPearl,
+    }
+	model PlatingAztec
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingAztec,
+    }
+	model PlatingBlackIce
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingBlackIce,
+    }
+	model PlatingTBD
+    {
+        mesh = WorldItems/MetalPlating,
+        texture = WorldItems/MetalPlatingTBD,
+    }
+	model FirearmCache
+	{
+        mesh = WorldItems/PistolCase,
+        texture = WorldItems/FirearmCache,
+	}
+	model 792Clip
+	{
+		mesh = weapons/ammo/792Clip,
+		texture = Weapons/Firearm/FG42,
+	}
+	model 792Drum
+	{
+		mesh = weapons/ammo/792Drum,
+		texture = Weapons/Firearm/MG42,
+	}
+	model 792Bullets
+    {
+        mesh = weapons/ammo/792Ammo,
+		texture = weapons/ammo/792Ammo,
+    }
+	model 792Box
+    {
+        mesh = weapons/ammo/792AmmoBox,
+		texture = weapons/ammo/792AmmoBox,
+    }
+	model IronSightsFG42
+    {
+        mesh = weapons/parts/IronSightsFG42,
+        texture = Weapons/Firearm/FG42,
+    }
+	model ScopeFG42
+	{
+		mesh = weapons/parts/ScopeFG42,
+		texture = Weapons/Parts/ScopeFG42,
+	}
+	model CrossbowBolt
+    {
+        mesh = weapons/ammo/CrossbowBolt,
+		texture = Weapons/Firearm/CrossbowCompound,
+    }
+	model CrossbowBoltPack
+    {
+        mesh = weapons/ammo/CrossbowBoltPack,
+		texture = weapons/ammo/CrossbowBoltPack,
+    }
+	model FG42Magazine_Ground
+    {
+        mesh = WorldItems/Magazine,
+        texture = WorldItems/FG42Magazine,
+        scale = 0.4,
+    }
+	model GildedAgeRevolverMagazine_Ground
+    {
+        mesh = WorldItems/Magazine,
+        texture = WorldItems/GildedAgeRevolverMagazine,
+        scale = 0.4,
+    }
+	model CompoundCrossbowMagazine_Ground
+    {
+        mesh = WorldItems/Magazine,
+        texture = WorldItems/CompoundCrossbowMagazine,
+        scale = 0.4,
+    }
+}

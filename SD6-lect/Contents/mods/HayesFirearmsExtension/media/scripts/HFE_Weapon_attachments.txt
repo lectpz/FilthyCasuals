@@ -1,0 +1,1754 @@
+module Base
+{
+    /************************ WEAPON_ATTACHMENTS ************************/
+
+    /************************ CANONS ************************/
+    item SuppressorPistol
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.20,
+        Type                = WeaponPart,
+        DisplayName         = Suppressor [Pistol],
+        Icon                = SuppressorPistol,
+        PartType            = Canon,
+        MountOn             = Pistol; Pistol2; Pistol3; OA93;
+                            Glock; FiveSeven; Luger; WaltherPPK; Makarov; PLR16; MosinNagantObrez;
+                            PM63RAK; PM63RAK_Grip; PM63RAK_Extended; PM63RAK_GripExtended,
+        WeightModifier      = 0.20,
+        DamageModifier      = -0.1,
+        MaxRangeModifier    = -1,
+        HitChanceModifier   = 2,
+        AimingTimeModifier  = -1,
+        MetalValue          = 5,
+        StaticModel         = SuppressorPistol,
+        WorldStaticModel    = SuppressorPistol,
+        Tooltip             = Tooltip_SuppressorPistol,
+    }	
+
+    item SuppressorRifle
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.25,
+        Type                = WeaponPart,
+        DisplayName         = Suppressor [Rifle],
+        Icon                = Suppressor,
+        PartType            = Canon,
+        MountOn             = AssaultRifle; AssaultRifle2; M4A1; EM2; L85A1;
+                            AK103; AK74; AK74U; AK74U_Folded; FranchiLF57; FranchiLF57_Folded;
+                            MiniUzi; MiniUzi_Folded; P90; SIG550; L2A1; L2A1_Bipod;
+                            HenryRepeatingBigBoy; GrozaOTs14; StG44; MosinNagant; 
+                            SVDDragunov,
+        WeightModifier      = 0.25,
+        DamageModifier      = -0.2,
+        MaxRangeModifier    = -2,
+        HitChanceModifier   = 3,
+        RecoilDelayModifier = -1,
+        AimingTimeModifier  = -3,
+        MetalValue          = 5,
+        StaticModel         = SuppressorRifle,
+        WorldStaticModel    = SuppressorRifle,
+        Tooltip             = Tooltip_SuppressorRifle,
+    }
+
+    item SuppressorSniper
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.40,
+        Type                = WeaponPart,
+        DisplayName         = Suppressor [Sniper],
+        Icon                = SuppressorSniper,
+        PartType            = Canon,
+        MountOn             = Galil; Galil_Bipod; SVDDragunov; BarrettM82A1; BarrettM82A1_Bipod,
+        WeightModifier      = 0.4,
+        DamageModifier      = -0.3,
+        MaxRangeModifier    = -3,
+        HitChanceModifier   = 3,
+        RecoilDelayModifier = -3,
+        AimingTimeModifier  = -3,
+        MetalValue          = 5,
+        StaticModel         = SuppressorSniper,
+        WorldStaticModel    = SuppressorSniper,
+        Tooltip             = Tooltip_SuppressorSniper,
+    }	
+
+    item SuppressorSniperWinter
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.40,
+        Type                = WeaponPart,
+        DisplayName         = Suppressor [Sniper Winter Wrap],
+        Icon                = SuppressorSniperWinter,
+        PartType            = Canon,
+        MountOn             = Galil; Galil_Bipod; SVDDragunov; BarrettM82A1; BarrettM82A1_Bipod,
+        WeightModifier      = 0.40,
+        DamageModifier      = -0.3,
+        MaxRangeModifier    = -3,
+        HitChanceModifier   = 3,
+        RecoilDelayModifier = -3,
+        AimingTimeModifier  = -3,
+        MetalValue          = 5,
+        StaticModel         = SuppressorSniperWinter,
+        WorldStaticModel    = SuppressorSniperWinter,
+        Tooltip             = Tooltip_SuppressorSniperWrap,
+    }	
+    
+    item SuppressorSniperDesert
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.40,
+        Type                = WeaponPart,
+        DisplayName         = Suppressor [Sniper Desert Wrap],
+        Icon                = SuppressorSniperDesert,
+        PartType            = Canon,
+        MountOn             = Galil; Galil_Bipod; SVDDragunov; BarrettM82A1; BarrettM82A1_Bipod,
+        WeightModifier      = 0.40,
+        DamageModifier      = -0.3,
+        MaxRangeModifier    = -3,
+        HitChanceModifier   = 3,
+        RecoilDelayModifier = -3,
+        AimingTimeModifier  = -3,
+        MetalValue          = 5,
+        StaticModel         = SuppressorSniperDesert,
+        WorldStaticModel    = SuppressorSniperDesert,
+        Tooltip             = Tooltip_SuppressorSniperWrap,
+    }	
+
+    item SuppressorSniperWoodland
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.40,
+        Type                = WeaponPart,
+        DisplayName         = Suppressor [Sniper Woodland Wrap],
+        Icon                = SuppressorSniperWoodland,
+        PartType            = Canon,
+        MountOn             = Galil; Galil_Bipod; SVDDragunov; BarrettM82A1; BarrettM82A1_Bipod,
+        WeightModifier      = 0.40,
+        DamageModifier      = -0.3,
+        MaxRangeModifier    = -3,
+        HitChanceModifier   = 3,
+        RecoilDelayModifier = -3,
+        AimingTimeModifier  = -3,
+        MetalValue          = 5,
+        StaticModel         = SuppressorSniperWoodland,
+        WorldStaticModel    = SuppressorSniperWoodland,
+        Tooltip             = Tooltip_SuppressorSniperWrap,
+    }	
+
+    item Compensator
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Compensator,
+        Icon                = Compensator,
+        PartType            = Canon,
+        MountOn             = AssaultRifle; M4A1; EM2; L85A1;
+                            AK103; AK74; AK74U; AK74U_Folded; SIG550; OA93; L2A1; L2A1_Bipod;
+                            HenryRepeatingBigBoy; StG44; Galil; Galil_Bipod; SVDDragunov, 
+        WeightModifier      = 0.05,
+        HitChanceModifier   = 3,
+        AimingTimeModifier  = 5,
+        AngleModifier       = -0.025,
+        DamageModifier      = 0.1,
+        MetalValue          = 5,
+        StaticModel         = Compensator,
+        WorldStaticModel    = Compensator,
+        Tooltip             = Tooltip_Compensator,
+    }
+
+    item MuzzleBrake
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.1,
+        Type                = WeaponPart,
+        DisplayName         = Muzzle Brake,
+        Icon                = MuzzleBrake,
+        PartType            = Canon,
+        MountOn             = AssaultRifle; M4A1; EM2; L85A1;
+                            AK103; AK74; AK74U; AK74U_Folded; SIG550; OA93; L2A1; L2A1_Bipod;
+                            HenryRepeatingBigBoy; StG44; Galil; Galil_Bipod; SVDDragunov, 
+        WeightModifier      = 0.1,
+        DamageModifier      = 0.2,
+        HitChanceModifier   = 7,
+        RecoilDelayModifier = -1,
+        MetalValue          = 5,
+        StaticModel         = MuzzleBrake,
+        WorldStaticModel    = MuzzleBrake,
+        Tooltip             = Tooltip_MuzzleBrake,
+    }
+
+    item CompensatorHandgun
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Compensator [Handgun],
+        Icon                = CompensatorHandgun,
+        PartType            = Canon,
+        MountOn             = Pistol; Pistol2; Pistol3; 
+                            Glock; FiveSeven; Luger; WaltherPPK; Makarov; PLR16,
+        WeightModifier      = 0.05,
+        HitChanceModifier   = 3,
+        AimingTimeModifier  = 5,
+        AngleModifier       = -0.025,
+        DamageModifier      = 0.1,
+        MetalValue          = 5,
+        StaticModel         = CompensatorHandgun,
+        WorldStaticModel    = CompensatorHandgun,
+        Tooltip             = Tooltip_CompensatorHandgun,
+    }
+
+    item MuzzleBrakeHandgun
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.08,
+        Type                = WeaponPart,
+        DisplayName         = Muzzle Brake [Handgun],
+        Icon                = MuzzleBrakeHandgun,
+        PartType            = Canon,
+        MountOn             = Pistol; Pistol2; Pistol3;
+                            Glock; FiveSeven; Luger; WaltherPPK; Makarov; PLR16, 
+        WeightModifier      = 0.08,
+        DamageModifier      = 0.2,
+        HitChanceModifier   = 8,
+        RecoilDelayModifier = -1,
+        MetalValue          = 5,
+        StaticModel         = MuzzleBrakeHandgun,
+        WorldStaticModel    = MuzzleBrakeHandgun,
+        Tooltip             = Tooltip_MuzzleBrakeHandgun,
+    }
+
+    /************************ SCOPES ************************/
+    item PEMScope
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.40,
+        Type                = WeaponPart,
+        DisplayName         = PEM Scope,
+        Icon                = PEMScope,
+        PartType            = Scope,
+        MountOn             = MosinNagantObrez; AK103; AK74; HenryRepeatingBigBoy; StG44; M1Garand; L85A1;
+                            MosinNagant; BarrettM82A1; BarrettM82A1_Bipod; Galil; Galil_Bipod; SVDDragunov; 
+                            VarmintRifle; HuntingRifle; AssaultRifle; AssaultRifle2; SIG550; M4A1;
+                            VSSVintorez; ASVal; ASVal_Folded,
+        WeightModifier      = 0.40,	
+        MaxRangeModifier    = 4,
+		HitChanceModifier   = 4,
+        AimingTimeModifier  = -4,
+        MetalValue          = 20,
+        StaticModel         = PEMScope,
+        WorldStaticModel    = PEMScope,
+        Tooltip             = Tooltip_PEMScope,
+    }
+
+    item PSO1Scope
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.50,
+        Type                = WeaponPart,
+        DisplayName         = PSO-1 Scope,
+        Icon                = PSO1Scope,
+        PartType            = Scope,
+        MountOn             = MosinNagantObrez; AK103; AK74; HenryRepeatingBigBoy; StG44; M1Garand; L85A1;
+                            MosinNagant; BarrettM82A1; BarrettM82A1_Bipod; Galil; Galil_Bipod; SVDDragunov; 
+                            VarmintRifle; HuntingRifle; AssaultRifle; AssaultRifle2; SIG550; M4A1;
+                            VSSVintorez; ASVal; ASVal_Folded,
+        WeightModifier      = 0.50,	
+        MaxRangeModifier    = 5,
+		HitChanceModifier   = 5,
+        AimingTimeModifier  = -5,
+        MetalValue          = 20,
+        StaticModel         = PSO1Scope,
+        WorldStaticModel    = PSO1Scope,
+        Tooltip             = Tooltip_PSO1Scope,
+    }
+
+    item UniversalOpticalSight
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.35,
+        Type                = WeaponPart,
+        DisplayName         = Universal Optical Sight,
+        Icon                = UniversalOpticalSight,
+        PartType            = Scope,
+        MountOn             = MosinNagantObrez; AK103; AK74; HenryRepeatingBigBoy; GrozaOTs14; StG44; M1Garand; L85A1;
+                            MosinNagant; BarrettM82A1; BarrettM82A1_Bipod; Galil; Galil_Bipod; SVDDragunov; 
+                            VarmintRifle; HuntingRifle; AssaultRifle; AssaultRifle2; SIG550; M4A1;
+                            VSSVintorez; ASVal; ASVal_Folded; L2A1; L2A1_Bipod; EM2,
+        WeightModifier      = 0.35,	
+        MaxRangeModifier    = 2,
+		HitChanceModifier   = 3,
+        AimingTimeModifier  = 3,
+        AngleModifier       = -0.006,
+        MetalValue          = 12,
+        StaticModel         = UniversalOpticalSight,
+        WorldStaticModel    = UniversalOpticalSight,
+        Tooltip             = Tooltip_UniversalOpticalSight,
+    }
+
+    item HoloSight
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.3,
+        Type                = WeaponPart,
+        DisplayName         = Holo Sight,
+        Icon                = HoloSight,
+        PartType            = Scope,
+        MountOn             = HuntingRifle; VarmintRifle; 
+                            AssaultRifle; AssaultRifle2; M4A1; PLR16; MosinNagantObrez; EM2;
+                            AK103; AK74; AK74U; AK74U_Folded; FranchiLF57; FranchiLF57_Folded;
+                            MiniUzi; MiniUzi_Folded; P90; SIG550; OA93; MP28; L2A1; L2A1_Bipod;
+                            CrossbowCompound; HenryRepeatingBigBoy; M1918BAR; M1Garand; L85A1;
+                            PM63RAK; PM63RAK_Grip; PM63RAK_Extended; PM63RAK_GripExtended;
+                            GrozaOTs14; StG44; MosinNagant; Remington1100; VSSVintorez; ASVal; ASVal_Folded,
+        WeightModifier      = 0.3,
+        HitChanceModifier   = 4,
+        AimingTimeModifier  = 8,
+        AngleModifier       = -0.008,
+        MetalValue          = 22,
+        StaticModel         = HoloSight,
+        WorldStaticModel    = HoloSight,
+        Tooltip             = Tooltip_HoloSight,
+    }
+
+    item ReflexSight
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.35,
+        Type                = WeaponPart,
+        DisplayName         = Reflex Sight,
+        Icon                = ReflexSight,
+        PartType            = Scope,
+        MountOn             = HuntingRifle; VarmintRifle; 
+                            AssaultRifle; AssaultRifle2; M4A1; PLR16; MosinNagantObrez; EM2;
+                            AK103; AK74; AK74U; AK74U_Folded; FranchiLF57; FranchiLF57_Folded;
+                            MiniUzi; MiniUzi_Folded; SIG550; P90; OA93; MP28; L2A1; L2A1_Bipod;
+                            CrossbowCompound; HenryRepeatingBigBoy; M1918BAR; M1Garand; L85A1;
+                            PM63RAK; PM63RAK_Grip; PM63RAK_Extended; PM63RAK_GripExtended;
+                            GrozaOTs14; StG44; MosinNagant; Remington1100; VSSVintorez; ASVal; ASVal_Folded,
+        WeightModifier      = 0.35,	
+        HitChanceModifier   = 5,
+        MaxRangeModifier    = 1,	
+        AimingTimeModifier  = 4,
+        AngleModifier       = -0.004,
+        MetalValue          = 12,
+        StaticModel         = ReflexSight,
+        WorldStaticModel    = ReflexSight,
+        Tooltip             = Tooltip_ReflexSight,
+    }
+    
+    item ProOpticScope
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.45,
+        Type                = WeaponPart,
+        DisplayName         = Pro Optic Scope,
+        Icon                = ProOpticScope,
+        PartType            = Scope,
+        MountOn             = HuntingRifle; VarmintRifle; AssaultRifle; AssaultRifle2; M4A1; EM2;
+                            PLR16; AK103; AK74; AK74U; AK74U_Folded; SIG550; VSSVintorez; L85A1; 
+                            ASVal; ASVal_Folded;CrossbowCompound; HenryRepeatingBigBoy; M1Garand; 
+                            OA93; L2A1; L2A1_Bipod; GrozaOTs14; StG44; MosinNagant; BarrettM82A1; 
+                            BarrettM82A1_Bipod; Galil; Galil_Bipod; SVDDragunov,
+        WeightModifier      = 0.45,	
+        MaxRangeModifier    = 3,
+		AimingTimeModifier  = 3,
+		HitChanceModifier   = 3,
+        MetalValue          = 20,
+        StaticModel         = ProOpticScope,
+        WorldStaticModel    = ProOpticScope,
+        Tooltip             = Tooltip_ProOpticScope,
+    }
+
+    item CarryHandle
+	{
+		DisplayCategory     = WeaponPart,
+        Weight              = 0.1,
+		Type                = WeaponPart,
+		DisplayName         = Carry Handle,
+		Icon                = CarryHandle,
+		PartType            = Scope,
+        MountOn             = AssaultRifle; M4A1; L85A1,
+        WeightModifier      = -0.8,	
+        ReloadTimeModifier  = 3,			
+        AimingTimeModifier  = -3,
+		MetalValue          = 5,
+		StaticModel         = CarryHandle,
+		WorldStaticModel    = CarryHandle,
+        Tooltip             = Tooltip_CarryHandle,
+	}
+
+    item IronSightsFG42
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.1,
+        Type                = WeaponPart,
+        DisplayName         = FG-42 Iron Sights,
+        Icon                = IronSightsFG42,
+        PartType            = Scope,
+        MountOn             = FG42,
+        WeightModifier      = 0.1,
+        HitChanceModifier   = 6,
+        MetalValue          = 18,
+        StaticModel         = IronSightsFG42,
+        WorldStaticModel    = IronSightsFG42,
+        Tooltip             = Tooltip_IronSightsFG42,
+    }
+
+    item ScopeFG42
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = ZFG-42 Type 2 Scope,
+        Icon                = ScopeFG42,
+        PartType            = Scope,
+        MountOn             = FG42,
+        MaxRangeModifier    = 5,
+		AimingTimeModifier  = -3,
+		HitChanceModifier   = 8,
+        MetalValue          = 18,
+        StaticModel         = ScopeFG42,
+        WorldStaticModel    = ScopeFG42,
+        Tooltip             = Tooltip_ScopeFG42,
+    }
+
+    /************************ SLINGS ************************/
+
+    item VertGrip
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.3,
+        Type                = WeaponPart,
+        DisplayName         = Vertical Grip,
+        Icon                = VertGrip,
+        PartType            = Sling,
+        MountOn             = AssaultRifle; M4A1; SIG550; L85A1;
+                            Shotgun; DoubleBarrelShotgun; ShotgunSawnoff; DoubleBarrelShotgunSawnof;
+                            Remington1100; TrenchGun; BeckerRevolver,
+        WeightModifier      = -0.1,
+        HitChanceModifier   = 5,
+        RecoilDelayModifier = -2,								
+        AimingTimeModifier  = 6,
+        MetalValue          = 10,
+        StaticModel         = VertGrip,
+        WorldStaticModel    = VertGrip,
+        Tooltip             = Tooltip_VertGrip,
+    }
+
+    item AngleGrip
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.2,
+        Type                = WeaponPart,
+        DisplayName         = Angle Grip,
+        Icon                = AngleGrip,
+        PartType            = Sling,
+        MountOn             = AssaultRifle; M4A1; SIG550; L85A1,
+        WeightModifier      = 0.1,
+        HitChanceModifier   = 2,								
+        AimingTimeModifier  = 8,
+        MetalValue          = 10,
+        StaticModel         = AngleGrip,
+        WorldStaticModel    = AngleGrip,
+        Tooltip             = Tooltip_AngleGrip,
+    }
+
+    item TacticalGrip
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.04,
+        Type                = WeaponPart,
+        DisplayName         = Tactical Grip,
+        Icon                = TacticalGrip,
+        PartType            = Sling,
+        MountOn             = Pistol; Pistol2; Pistol3;
+                            Revolver; Revolver_Long; Revolver_Short; ColtCavalryRevolver;
+                            Glock; FiveSeven; Luger; WaltherPPK; Makarov; Derringer; PLR16, 
+        WeightModifier      = 0.04,
+        AimingTimeModifier  = 8,
+        RecoilDelayModifier = -1,
+        AngleModifier       = -0.01,
+        WorldStaticModel    = TacticalGrip,
+        Tooltip             = Tooltip_TacticalGrip,
+    }
+		
+    /************************ STOCKS ************************/
+
+    item SkeletonizedStock
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.8,
+        Type                = WeaponPart,
+        DisplayName         = Skeletonized Stock,
+        Icon                = SkeletonizedStock,
+        PartType            = Stock,
+        MountOn             = AK103, 
+        WeightModifier      = -0.6,
+        WorldStaticModel    = SkeletonizedStock,
+        Tooltip             = Tooltip_SkeletonizedStock,
+    }
+
+    item LaserRed
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.2,
+        Type                = WeaponPart,
+        DisplayName         = Tac Laser & Light [Red],
+        Icon                = LaserDual,
+        PartType            = Stock,
+        MountOn             = AssaultRifle; M4A1; MosinNagantObrez; PLR16; EM2; L85A1;
+                            AK103; AK74; AK74U; AK74U_Folded; SIG550; L2A1; L2A1_Bipod;
+                            CrossbowCompound; HenryRepeatingBigBoy; MP28; VSSVintorez; ASVal; ASVal_Folded;
+                            GrozaOTs14; StG44; MosinNagant; Galil; Galil_Bipod; SVDDragunov,
+        WeightModifier      = 0.2,
+        HitChanceModifier   = 5,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = 5,
+        MetalValue          = 15,
+        StaticModel         = LaserRed,
+        WorldStaticModel    = LaserRed,
+        Tooltip             = Tooltip_LaserDual,
+    }
+
+    item LaserGreen
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.2,
+        Type                = WeaponPart,
+        DisplayName         = Tac Laser & Light [Green],
+        Icon                = LaserDual,
+        PartType            = Stock,
+        MountOn             = AssaultRifle; M4A1; MosinNagantObrez; PLR16; EM2; L85A1;
+                            AK103; AK74; AK74U; AK74U_Folded; SIG550; L2A1; L2A1_Bipod;
+                            CrossbowCompound; HenryRepeatingBigBoy; MP28; VSSVintorez; ASVal; ASVal_Folded;
+                            GrozaOTs14; StG44; MosinNagant; Galil; Galil_Bipod; SVDDragunov,
+        WeightModifier      = 0.2,
+        HitChanceModifier   = 5,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = 5,
+        MetalValue          = 15,
+        StaticModel         = LaserGreen,
+        WorldStaticModel    = LaserGreen,
+        Tooltip             = Tooltip_LaserDual,
+    }
+
+    item LaserNoLight
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.2,
+        Type                = WeaponPart,
+        DisplayName         = Tac Laser & Light,
+        Icon                = LaserDual,
+        PartType            = Stock,
+        MountOn             = AssaultRifle; M4A1; MosinNagantObrez; PLR16; EM2; L85A1;
+                            AK103; AK74; AK74U; AK74U_Folded; SIG550; L2A1; L2A1_Bipod;
+                            CrossbowCompound; HenryRepeatingBigBoy; MP28; VSSVintorez; ASVal; ASVal_Folded;
+                            GrozaOTs14; StG44; MosinNagant; Galil; Galil_Bipod; SVDDragunov,
+        WeightModifier      = 0.2,
+        HitChanceModifier   = 5,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = 5,		
+        MetalValue          = 15,
+        StaticModel         = LaserNoLight,
+        WorldStaticModel    = LaserNoLight,
+        Tooltip             = Tooltip_LaserDual,
+    }
+
+    item WeaponLight
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.15,
+        Type                = WeaponPart,
+        DisplayName         = Weapon Light Large,
+        Icon                = WeaponLight,
+        PartType            = Stock,
+        MountOn             = AssaultRifle; M4A1; Shotgun; ShotgunSawnoff; L2A1; L2A1_Bipod; EM2;
+                            Glock; FiveSeven; MosinNagantObrez; PLR16; SIG550; MP28; VSSVintorez; 
+                            ASVal; ASVal_Folded; AK103; AK74; AK74U; AK74U_Folded; FranchiLF57; L85A1;
+                            FranchiLF57_Folded; OA93; MiniUzi; MiniUzi_Folded; P90; CrossbowCompound; 
+                            HenryRepeatingBigBoy; TheNailGun; PM63RAK; PM63RAK_Grip; PM63RAK_Extended; 
+                            PM63RAK_GripExtended; GrozaOTs14; StG44; MosinNagant; BarrettM82A1; 
+                            BarrettM82A1_Bipod; Galil; Galil_Bipod; SVDDragunov; Remington1100,
+        WeightModifier      = 0.15,
+        MaxRangeModifier    = 1,
+        HitChanceModifier   = 4,
+        AimingTimeModifier  = 4,
+        MetalValue          = 15,
+        StaticModel         = WeaponLight,
+        WorldStaticModel    = WeaponLight,
+        Tooltip             = Tooltip_WeaponLight,
+    }
+
+    item WeaponLightMedium
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.1,
+        Type                = WeaponPart,
+        DisplayName         = Weapon Light Medium,
+        Icon                = WeaponLightMedium,
+        PartType            = Stock,
+        MountOn             = AssaultRifle; M4A1; Shotgun; ShotgunSawnoff; VSSVintorez; ASVal; ASVal_Folded;
+                            Glock; FiveSeven; MosinNagantObrez; PLR16; SIG550; OA93; MP28; L2A1; L2A1_Bipod;
+                            AK103; AK74; AK74U; AK74U_Folded; FranchiLF57; FranchiLF57_Folded; EM2; L85A1;
+                            MiniUzi; MiniUzi_Folded; P90; CrossbowCompound; HenryRepeatingBigBoy;
+                            PM63RAK; PM63RAK_Grip; PM63RAK_Extended; PM63RAK_GripExtended;
+                            GrozaOTs14; StG44; MosinNagant; Remington1100,
+        WeightModifier      = 0.1,
+        HitChanceModifier   = 2,
+        AimingTimeModifier  = 2,
+        MetalValue          = 22,
+        StaticModel         = WeaponLightMedium,
+        WorldStaticModel    = WeaponLightMedium,
+        Tooltip             = Tooltip_WeaponLightMedium,
+    }
+
+    item ShellHolder
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.2,
+        Type                = WeaponPart,
+        DisplayName         = Shell Holder,
+        Icon                = ShellHolder,
+        PartType            = Stock,
+        MountOn             = Shotgun; DoubleBarrelShotgun; Remington1100; TrenchGun; BeckerRevolver,  
+        WeightModifier      = 0.2,
+        AimingTimeModifier  = 5,
+        ReloadTimeModifier  = -5,			
+        MetalValue          = 5,
+        StaticModel         = ShellHolder,
+        WorldStaticModel    = ShellHolder,
+        Tooltip             = Tooltip_ShellHolder,
+    }
+
+    /************************ CLIPS ************************/
+
+    item Mag9ExtSm
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = 9mm Extended Magazine [20],
+        Icon                = Mag9ExtSm,
+        MaxAmmo             = 20,
+        AmmoType            = Base.Bullets9mm,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag9ExtSm,
+        GunType             = Base.Pistol, 
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = -3,
+        WorldStaticModel    = Mag9ExtSm_Ground,
+        Tooltip             = Tooltip_Mag9Ext,
+    }
+
+    item Mag9ExtLg
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.6,
+        Type                = WeaponPart,
+        DisplayName         = 9mm Extended Magazine [30],
+        Icon                = Mag9ExtLg,
+        MaxAmmo             = 30,
+        AmmoType            = Base.Bullets9mm,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag9ExtLg,
+        GunType             = Base.Pistol, 
+        WeightModifier      = 0.6,
+        RecoilDelayModifier = 2,
+        AimingTimeModifier  = -5,
+        WorldStaticModel    = Mag9ExtLg_Ground,
+        Tooltip             = Tooltip_Mag9Ext,
+    }
+
+    item Mag9Drum
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.8,
+        Type                = WeaponPart,
+        DisplayName         = 9mm Drum Magazines [50],
+        Icon                = Mag45Drum,
+        MaxAmmo             = 50,
+        AmmoType            = Base.Bullets9mm,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag9Drum,
+        GunType             = Base.Pistol,
+        WeightModifier      = 0.8,
+        RecoilDelayModifier = 3,
+        AimingTimeModifier  = -8,
+        WorldStaticModel    = Mag9Drum_Ground,
+        Tooltip             = Tooltip_Mag9Drum,
+    }
+
+    item Mag57ExtLg
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.6,
+        Type                = WeaponPart,
+        DisplayName         = 5.7x28 Extended Magazine [30],
+        Icon                = Mag57ExtLg,
+        MaxAmmo             = 30,
+        AmmoType            = Base.57Bullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag57ExtLg,
+        GunType             = Base.FiveSeven,    
+        WeightModifier      = 0.6,
+        RecoilDelayModifier = 2,
+        AimingTimeModifier  = -5,
+        WorldStaticModel    = Mag57ExtLg_Ground,
+        Tooltip             = Tooltip_Mag57Ext,
+    }
+
+    item Mag57Drum
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.8,
+        Type                = WeaponPart,
+        DisplayName         = 5.7x28 Drum Magazines [50],
+        Icon                = Mag57Drum,
+        MaxAmmo             = 50,
+        AmmoType            = Base.57Bullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag57Drum,
+        GunType             = Base.FiveSeven,  
+        WeightModifier      = 0.8,
+        RecoilDelayModifier = 3,
+        AimingTimeModifier  = -8,
+        WorldStaticModel    = Mag57Drum_Ground,
+        Tooltip             = Tooltip_Mag57Drum,
+        
+    }
+
+    item MagLugerExtSm
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = 9mm Luger Extended Magazine [20],
+        Icon                = MagLugerExtSm,
+        MaxAmmo             = 20,
+        AmmoType            = Base.Bullets9mm,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = MagLugerExtSm,
+        GunType             = Base.Luger, 
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = -3,
+        WorldStaticModel    = MagLugerExtSm_Ground,
+        Tooltip             = Tooltip_MagLugerExt,
+    }
+
+    item MagLugerExtLg
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.6,
+        Type                = WeaponPart,
+        DisplayName         = 9mm Luger Extended Magazine [30],
+        Icon                = MagLugerExtLg,
+        MaxAmmo             = 30,
+        AmmoType            = Base.Bullets9mm,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = MagLugerExtLg,
+        GunType             = Base.Luger, 
+        WeightModifier      = 0.6,
+        RecoilDelayModifier = 2,
+        AimingTimeModifier  = -5,
+        WorldStaticModel    = MagLugerExtLg_Ground,
+        Tooltip             = Tooltip_MagLugerExt,
+    }
+
+    item MagLugerDrum
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.8,
+        Type                = WeaponPart,
+        DisplayName         = 9mm Luger Drum,
+        Icon                = MagLugerDrum,
+        MaxAmmo             = 50,
+        AmmoType            = Base.Bullets9mm,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = MagLugerDrum,
+        GunType             = Base.Luger, 
+        WeightModifier      = 0.8,
+        RecoilDelayModifier = 3,
+        AimingTimeModifier  = -8,
+        WorldStaticModel    = MagLugerDrum_Ground,
+        Tooltip             = Tooltip_MagLugerDrum,
+    }
+
+    item Mag380ExtSm
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = .380 ACP Extended Magazine [20],
+        Icon                = Mag380ExtSm,
+        MaxAmmo             = 20,
+        AmmoType            = Base.380Bullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag380ExtSm,
+        GunType             = Base.WaltherPPK; Base.Makarov,
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = -3,
+        WorldStaticModel    = Mag380ExtSm_Ground,
+        Tooltip             = Tooltip_Mag380Ext,
+    }
+
+    item Mag380ExtLg
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.6,
+        Type                = WeaponPart,
+        DisplayName         = .380 ACP Extended Magazine [30],
+        Icon                = Mag380ExtLg,
+        MaxAmmo             = 30,
+        AmmoType            = Base.380Bullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag380ExtLg,
+        GunType             = Base.WaltherPPK; Base.Makarov,
+        WeightModifier      = 0.6,
+        RecoilDelayModifier = 2,
+        AimingTimeModifier  = -5,
+        WorldStaticModel    = Mag380ExtLg_Ground,
+        Tooltip             = Tooltip_Mag380Ext,
+    }
+
+    item Mag380Drum
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.8,
+        Type                = WeaponPart,
+        DisplayName         = .380 ACP Drum Magazines [50],
+        Icon                = Mag380Drum,
+        MaxAmmo             = 50,
+        AmmoType            = Base.380Bullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag380Drum,
+        GunType             = Base.WaltherPPK; Base.Makarov, 
+        WeightModifier      = 0.8,
+        RecoilDelayModifier = 3,
+        AimingTimeModifier  = -8,
+        WorldStaticModel    = Mag380Drum_Ground,
+        Tooltip             = Tooltip_Mag380Drum,
+    }
+
+    item Mag44ExtSm
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = .44 Magnum Extended Magazine [30],
+        Icon                = Mag44ExtSm,
+        MaxAmmo             = 20,
+        AmmoType            = Base.Bullets44,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag44ExtSm,
+        GunType             = Base.Pistol3, 
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = -3,
+        WorldStaticModel    = Mag44ExtSm_Ground,
+        Tooltip             = Tooltip_Mag44Ext,
+    }
+
+    item Mag44ExtLg
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.6,
+        Type                = WeaponPart,
+        DisplayName         = .44 Magnum Extended Magazine [30],
+        Icon                = Mag44ExtLg,
+        MaxAmmo             = 30,
+        AmmoType            = Base.Bullets44,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag44ExtLg,
+        GunType             = Base.Pistol3, 
+        WeightModifier      = 0.6,
+        RecoilDelayModifier = 2,
+        AimingTimeModifier  = -5,
+        WorldStaticModel    = Mag44ExtLg_Ground,
+        Tooltip             = Tooltip_Mag44Ext,
+    }
+
+    item Mag45ExtSm
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = .45 ACP Extended Magazine [20],
+        Icon                = Mag45ExtSm,
+        MaxAmmo             = 20,
+        AmmoType            = Base.Bullets45,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag45ExtSm,
+        GunType             = Base.Glock; Base.Pistol2, 
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = -3,
+        WorldStaticModel    = Mag45ExtSm_Ground,
+        Tooltip             = Tooltip_Mag45Ext,
+    }
+
+    item Mag45ExtLg
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.6,
+        Type                = WeaponPart,
+        DisplayName         = .45 ACP Extended Magazine [30],
+        Icon                = Mag45ExtLg,
+        MaxAmmo             = 30,
+        AmmoType            = Base.Bullets45,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag45ExtLg,
+        GunType             = Base.Glock; Base.Pistol2,  
+        WeightModifier      = 0.6,
+        RecoilDelayModifier = 2,
+        AimingTimeModifier  = -5,
+        WorldStaticModel    = Mag45ExtLg_Ground,
+        Tooltip             = Tooltip_Mag45Ext,
+    }
+
+    item Mag45Drum
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.8,
+        Type                = WeaponPart,
+        DisplayName         = .45 ACP Drum Magazines [50],
+        Icon                = Mag45Drum,
+        MaxAmmo             = 50,
+        AmmoType            = Base.Bullets45,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag45Drum,
+        GunType             = Base.Glock; Base.Pistol2,  
+        WeightModifier      = 0.8,
+        RecoilDelayModifier = 3,
+        AimingTimeModifier  = -8,
+        WorldStaticModel    = Mag45Drum_Ground,
+        Tooltip             = Tooltip_Mag45Drum,
+    }
+
+    item Mag223ExtLg
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = .223 Extended Magazine [30],
+        Icon                = Mag223ExtLg,
+        MaxAmmo             = 30,
+        AmmoType            = Base.223Bullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag223ExtLg,
+        GunType             = Base.PLR16,
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 2,
+        AimingTimeModifier  = -5,
+        WorldStaticModel    = Mag223ExtLg_Ground,
+        Tooltip             = Tooltip_Mag223Ext,
+    }
+
+    item MagMosinNagantExtSm
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = Mosin Nagant Extended Magazine [10],
+        Icon                = MagMosinNagantExtSm,
+        MaxAmmo             = 10,
+        AmmoType            = Base.762x54rBullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = MagMosinNagantExtSm,
+        GunType             = Base.MosinNagant; Base.MosinNagantObrez,
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = -3,
+        WorldStaticModel    = MagMosinNagantExtSm_Ground,
+        Tooltip             = Tooltip_MagMosinNagantExt,
+    }
+
+    item MagPM63RAKExtLg
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = PM 63 RAK Extended Magazine [30],
+        Icon                = MagPM63RAKExtLg,
+        MaxAmmo             = 30,
+        AmmoType            = Base.Bullets9mm,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = MagPM63RAKExtLg,
+        GunType             = Base.PM63RAK; Base.PM63RAK_Grip; Base.PM63RAK_Extended; Base.PM63RAK_GripExtended,
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 2,
+        AimingTimeModifier  = -5,
+        WorldStaticModel    = MagPM63RAKExtLg_Ground,
+        Tooltip             = Tooltip_MagPM63RAKExt,
+    }
+
+    item MagM1GarandExtSm
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = M1 Garand Extended Magazine [16],
+        Icon                = MagM1GarandExtSm,
+        MaxAmmo             = 16,
+        AmmoType            = Base.3006Bullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = MagM1GarandExtSm,
+        GunType             = Base.M1Garand,
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = -3,
+        WorldStaticModel    = MagM1GarandExtSm_Ground,
+        Tooltip             = Tooltip_MagM1GarandExt,
+    }
+
+    item Mag3006ExtLg
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = .30-06 SPRG Extended Magazine [30],
+        Icon                = Mag3006ExtLg,
+        MaxAmmo             = 30,
+        AmmoType            = Base.3006Bullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag3006ExtLg,
+        GunType             = Base.M1918BAR,
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 2,
+        AimingTimeModifier  = -5,
+        WorldStaticModel    = Mag3006ExtLg_Ground,
+        Tooltip             = Tooltip_Mag3006Ext,
+    }
+
+    item Mag308ExtSm
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = .308 Extended Magazine [10],
+        Icon                = Mag308ExtSm,
+        MaxAmmo             = 10,
+        AmmoType            = Base.308Bullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag308ExtSm,
+        GunType             = Base.HuntingRifle,
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = -3,
+        WorldStaticModel    = Mag308ExtSm_Ground,
+        Tooltip             = Tooltip_Mag308Ext,
+    }
+
+    item MagSVDExtSm
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = 7.62x54r Extended Magazine [20],
+        Icon                = MagSVDExtSm,
+        MaxAmmo             = 20,
+        AmmoType            = Base.762x54rBullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = MagSVDExtSm,
+        GunType             = Base.SVDDragunov,
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = -3,
+        WorldStaticModel    = MagSVDExtSm_Ground,
+        Tooltip             = Tooltip_MagSVDExt,
+    }
+
+    item Mag762x51ExtSm
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = 7.62x51 Small Magazine [20],
+        Icon                = Mag762x51ExtSm,
+        MaxAmmo             = 20,
+        AmmoType            = Base.762x51Bullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag762x51ExtSm,
+        GunType             = Base.Galil;Base.Galil_Bipod;Base.EM2,
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 2,
+        AimingTimeModifier  = -5,
+        WorldStaticModel    = Mag762x51ExtSm_Ground,
+        Tooltip             = Tooltip_Mag762x51ExtSm,
+    }
+
+    item Mag762x51ExtLg
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = 7.62x51 Large Magazine [30],
+        Icon                = Mag762x51ExtLg,
+        MaxAmmo             = 30,
+        AmmoType            = Base.762x51Bullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag762x51ExtLg,
+        GunType             = Base.EM2; Base.L2A1; Base.L2A1_Bipod,
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = -3,
+        WorldStaticModel    = Mag762x51ExtLg_Ground,
+        Tooltip             = Tooltip_Mag762x51ExtLg,
+    }
+
+    item Mag50BMGExtSm
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = 50 BMG Extended Magazine [20],
+        Icon                = Mag50BMGExtSm,
+        MaxAmmo             = 20,
+        AmmoType            = Base.50BMGBullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag50BMGExtSm,
+        GunType             = Base.BarrettM82A1; Base.BarrettM82A1_Bipod, 
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 1,
+        AimingTimeModifier  = -3,
+        WorldStaticModel    = Mag50BMGExtSm_Ground,
+        Tooltip             = Tooltip_Mag50BMGExt,
+    }
+
+    item MagMP28ExtLg
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.6,
+        Type                = WeaponPart,
+        DisplayName         = .45 ACP Extended Box Magazine [32],
+        Icon                = Mag45ExtLg,
+        MaxAmmo             = 32,
+        AmmoType            = Base.Bullets45,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = MagMP28ExtLg,
+        GunType             = Base.MP28,  
+        WeightModifier      = 0.6,
+        RecoilDelayModifier = 2,
+        AimingTimeModifier  = -5,
+        WorldStaticModel    = MagMP28ExtLg_Ground,
+        Tooltip             = Tooltip_MagMP28ExtLg,
+    }
+
+    item Mag9x39ExtSm
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.4,
+        Type                = WeaponPart,
+        DisplayName         = 9x39 Small Magazine [20],
+        Icon                = Mag9x39ExtSm,
+        MaxAmmo             = 20,
+        AmmoType            = Base.9x39Bullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag9x39ExtSm,
+        GunType             = Base.ASVal;Base.VSSVintorez,
+        WeightModifier      = 0.4,
+        RecoilDelayModifier = 2,
+        AimingTimeModifier  = -5,
+        WorldStaticModel    = Mag9x39ExtSm_Ground,
+        Tooltip             = Tooltip_Mag9x39ExtSm,
+    }
+
+    item Mag9x39ExtLg
+    {
+        DisplayCategory     = Ammo,
+        CanStack	        = FALSE,
+        Weight              = 0.6,
+        Type                = WeaponPart,
+        DisplayName         = 9x39 Extended Magazine [30],
+        Icon                = Mag9x39ExtLg,
+        MaxAmmo             = 30,
+        AmmoType            = Base.9x39Bullets,
+        PartType            = Clip,
+        MountOn             = ,
+        StaticModel         = Mag9x39ExtLg,
+        GunType             = Base.ASVal;Base.VSSVintorez,
+        WeightModifier      = 0.6,
+        RecoilDelayModifier = 2,
+        AimingTimeModifier  = -5,
+        WorldStaticModel    = Mag9x39ExtLg_Ground,
+        Tooltip             = Tooltip_Mag9x39ExtLg,
+    }
+
+    /************************ RECOIL PAD = COLOR SWAPS ************************/
+
+    item ButtStockWrap
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.04,
+        Type                = WeaponPart,
+        DisplayName         = Butt Stock Wrap,
+        Icon                = ButtStockWrap,
+        PartType            = RecoilPad,
+        MountOn             = HuntingRifle; VarmintRifle; AssaultRifle2;
+                            HenryRepeatingBigBoy; M1Garand; MosinNagant; SVDDragunov; BeckerRevolver,
+        WeightModifier      = 0.04,
+        AimingTimeModifier  = 6,
+        RecoilDelayModifier = -1,
+        HitChanceModifier   = 2,
+        AngleModifier       = -0.01,
+        StaticModel         = ButtStockWrap,
+        WorldStaticModel    = ButtStockWrap,
+        Tooltip             = Tooltip_ButtStockWrap,
+    }
+
+    item TanPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Tan Plating for Firearms,
+        Icon                = TanPlating,
+        PartType            = RecoilPad,
+        MountOn             = M4A1,
+        WorldStaticModel    = PlatingTan,
+        Tooltip             = Tooltip_PlatingTan,
+    }
+
+    item BluePlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Blue Plating for Firearms,
+        Icon                = BluePlating,
+        PartType            = RecoilPad,
+        MountOn             = M4A1,
+        WorldStaticModel    = PlatingBlue,
+        Tooltip             = Tooltip_PlatingBlue,
+    }
+
+    item RedPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Red Plating for Firearms,
+        Icon                = RedPlating,
+        PartType            = RecoilPad,
+        MountOn             = M4A1,
+        WorldStaticModel    = PlatingRed,
+        Tooltip             = Tooltip_PlatingRed,
+    }
+
+    item Colt1911PatriotPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Patriot Plating for Colt 1911,
+        Icon                = BluePlating,
+        PartType            = RecoilPad,
+        MountOn             = Pistol2,
+        WorldStaticModel    = PlatingBlue,
+        Tooltip             = Tooltip_Colt1911PatriotPlating,
+    }
+
+    item GoldGunPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Gold Plating for Firearms,
+        Icon                = GoldPlating,
+        PartType            = RecoilPad,
+        MountOn             = Revolver_Long; HenryRepeatingBigBoy; AK103; 
+                            AK74; AK74U; AK74U_Folded; MiniUzi,
+        WorldStaticModel    = PlatingGold,
+        Tooltip             = Tooltip_GoldPlating,
+    }
+
+    item DesertEagleGoldPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Gold Plating for Desert Eagle,
+        Icon                = GoldPlating,
+        PartType            = RecoilPad,
+        MountOn             = Pistol3,
+        WorldStaticModel    = PlatingGold,
+        Tooltip             = Tooltip_DesertEagleGoldPlating,
+    }
+
+    item GoldShotgunPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Gold Plating for Remington 1100,
+        Icon                = GoldPlating,
+        PartType            = RecoilPad,
+        MountOn             = Remington1100,
+        WorldStaticModel    = PlatingGold,
+        Tooltip             = Tooltip_Remington1100GoldPlating,
+    }
+
+    item RainbowPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Rainbow Plating for Firearms,
+        Icon                = RainbowPlating,
+        PartType            = RecoilPad,
+        MountOn             = AK103; AK74; AK74U; AK74U_Folded; MiniUzi,
+        WorldStaticModel    = PlatingRainbow,
+        Tooltip             = Tooltip_RainbowPlating,
+    }
+
+    item RainbowAnodizedPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Rainbow Anodized Plating for Remington 1100,
+        Icon                = RainbowPlating,
+        PartType            = RecoilPad,
+        MountOn             = Remington1100,
+        WorldStaticModel    = PlatingRainbow,
+        Tooltip             = Tooltip_RainbowAnodizedPlating,
+    }
+
+    item DZPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = DZ Plating for Firearms,
+        Icon                = BluePlating,
+        PartType            = RecoilPad,
+        MountOn             = Pistol;
+                            HuntingRifle; VarmintRifle;
+                            FranchiLF57; FranchiLF57_Folded,
+        WorldStaticModel    = PlatingBlue,
+        Tooltip             = Tooltip_DZPlating,
+    }
+
+    item RemingtonRiflesDarkCherryStock
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Dark Cherry Stock for Remington Rifles,
+        Icon                = DarkCherryStock,
+        PartType            = RecoilPad,
+        MountOn             = HuntingRifle; VarmintRifle,
+        WorldStaticModel    = CherryWood,
+        Tooltip             = Tooltip_RemingtonRiflesDarkCherryStock,
+    }
+
+    item WinterCamoPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Winter Camo Plating for Firearms,
+        Icon                = WhitePlating,
+        PartType            = RecoilPad,
+        MountOn             = AK74U; AK74U_Folded; AK74; AK103; SIG550; SVDDragunov; M4A1,
+        WorldStaticModel    = PlatingWhite,
+        Tooltip             = Tooltip_WinterCamoPlating,
+    }
+
+    item MatteBlackPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Matte Black Plating for Firearms,
+        Icon                = BlackPlating,
+        PartType            = RecoilPad,
+        MountOn             = ,
+        WorldStaticModel    = PlatingBlack,
+        Tooltip             = Tooltip_MatteBlackPlating,
+    }
+
+    item WoodStyledPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Wood Style Plating for Firearms,
+        Icon                = WoodStyledPlating,
+        PartType            = RecoilPad,
+        MountOn             = Remington1100,
+        WorldStaticModel    = PlatingWoodStyled,
+        Tooltip             = Tooltip_WoodStyledPlating,
+    }
+
+    item PinkPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Pink Plating for Firearms,
+        Icon                = PinkPlating,
+        PartType            = RecoilPad,
+        MountOn             = Pistol; Revolver; HenryRepeatingBigBoy; Derringer; TrenchGun; P90; SIG550; M4A1,
+        WorldStaticModel    = PlatingPink,
+        Tooltip             = Tooltip_PinkPlating,
+    }
+
+    item CrabShellPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Crab Shell Plating for Firearms,
+        Icon                = CrabShellPlating,
+        PartType            = RecoilPad,
+        MountOn             = StG44; Luger,
+        WorldStaticModel    = PlatingCrabShell,
+        Tooltip             = Tooltip_CrabShellPlating,
+    }
+
+    item YellowPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Yellow Plating for Firearms,
+        Icon                = YellowPlating,
+        PartType            = RecoilPad,
+        MountOn             = TrenchGun,
+        WorldStaticModel    = PlatingYellow,
+        Tooltip             = Tooltip_YellowPlating,
+    }
+
+    item GreenPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Green Plating for Firearms,
+        Icon                = GreenPlating,
+        PartType            = RecoilPad,
+        MountOn             = PM63RAK; PM63RAK_Grip; PM63RAK_Extended; PM63RAK_GripExtended,
+        WorldStaticModel    = PlatingGreen,
+        Tooltip             = Tooltip_GreenPlating,
+    }
+
+    item RedWhitePlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Red White Plating for Firearms,
+        Icon                = RedWhitePlating,
+        PartType            = RecoilPad,
+        MountOn             = CrossbowCompound; Remington1100,
+        WorldStaticModel    = PlatingRedWhite,
+        Tooltip             = Tooltip_RedWhitePlating,
+    }
+
+    item GreenGoldPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Green Gold Plating for Firearms,
+        Icon                = GreenGoldPlating,
+        PartType            = RecoilPad,
+        MountOn             = M1918BAR; M1918BAR_Bipod; SIG550,
+        WorldStaticModel    = PlatingGreenGold,
+        Tooltip             = Tooltip_GreenGoldPlating,
+    }
+
+    item SteelDamascusPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Steel Damascus Plating for Barrett,
+        Icon                = SteelDamascusPlating,
+        PartType            = RecoilPad,
+        MountOn             = BarrettM82A1; BarrettM82A1_Bipod,
+        WorldStaticModel    = PlatingSteelDamascus,
+        Tooltip             = Tooltip_SteelDamascusPlating,
+    }
+
+    item SalvagedRagePlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Salvaged Rage Plating for Barrett,
+        Icon                = SalvagedRagePlating,
+        PartType            = RecoilPad,
+        MountOn             = BarrettM82A1; BarrettM82A1_Bipod,
+        WorldStaticModel    = PlatingSalvagedRage,
+        Tooltip             = Tooltip_SalvagedRagePlating,
+    }
+
+    item ZoidbergSpecialPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Zoidberg Special Plating for Barrett,
+        Icon                = ZoidbergSpecialPlating,
+        PartType            = RecoilPad,
+        MountOn             = BarrettM82A1; BarrettM82A1_Bipod,
+        WorldStaticModel    = PlatingZoidbergSpecial,
+        Tooltip             = Tooltip_ZoidbergSpecialPlating,
+    }
+    
+    item ShenronPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Shenron Plating for SIG SG 550,
+        Icon                = ShenronPlating,
+        PartType            = RecoilPad,
+        MountOn             = SIG550,
+        WorldStaticModel    = PlatingShenron,
+        Tooltip             = Tooltip_ShenronPlating,
+    }
+
+    item NerfPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Nerf Plating for Colt Anaconda,
+        Icon                = NerfPlating,
+        PartType            = RecoilPad,
+        MountOn             = Revolver_Long,
+        WorldStaticModel    = PlatingNerf,
+        Tooltip             = Tooltip_NerfPlating,
+    }
+
+    item BespokeEngravedPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Bespoke Engraved Plating for SPR 220 Shotgun,
+        Icon                = BlackPlating,
+        PartType            = RecoilPad,
+        MountOn             = DoubleBarrelShotgun; DoubleBarrelShotgunSawnoff,
+        WorldStaticModel    = PlatingBlack,
+        Tooltip             = Tooltip_BespokeEngravedPlating,
+    }
+
+    item SurvivalistPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Survivalist Plating for SVD Dragunov,
+        Icon                = SurvivalistPlating,
+        PartType            = RecoilPad,
+        MountOn             = SVDDragunov,
+        WorldStaticModel    = PlatingSurvivalist,
+        Tooltip             = Tooltip_SurvivalistPlating,
+    }
+
+    item MysteryMachinePlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Mystery Machine Plating for Desert Eagle,
+        Icon                = MysteryMachinePlating,
+        PartType            = RecoilPad,
+        MountOn             = Pistol3,
+        WorldStaticModel    = PlatingMysteryMachine,
+        Tooltip             = Tooltip_MysteryMachinePlating,
+    }
+
+    item SalvagedBlackPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Salvaged Black Plating for Desert Eagle,
+        Icon                = SalvagedRagePlating,
+        PartType            = RecoilPad,
+        MountOn             = Pistol3,
+        WorldStaticModel    = PlatingSalvagedRage,
+        Tooltip             = Tooltip_SalvagedBlackPlating,
+    }
+
+    item PearlPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Pearl Plating for Beretta M9,
+        Icon                = PearlPlating,
+        PartType            = RecoilPad,
+        MountOn             = Pistol,
+        WorldStaticModel    = PlatingPearl,
+        Tooltip             = Tooltip_PearlPlating,
+    }
+
+    item AztecPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Aztec Plating for Colt 1911,
+        Icon                = AztecPlating,
+        PartType            = RecoilPad,
+        MountOn             = Pistol2,
+        WorldStaticModel    = PlatingAztec,
+        Tooltip             = Tooltip_AztecPlating,
+    }
+
+    item PlankPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Plank Plating for P90,
+        Icon                = WoodStyledPlating,
+        PartType            = RecoilPad,
+        MountOn             = P90,
+        WorldStaticModel    = PlatingWoodStyled,
+        Tooltip             = Tooltip_PlankPlating,
+    }
+
+    item BlackIcePlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Black Ice Plating for P90,
+        Icon                = BlackIcePlating,
+        PartType            = RecoilPad,
+        MountOn             = P90,
+        WorldStaticModel    = PlatingBlackIce,
+        Tooltip             = Tooltip_BlackIcePlating,
+    }
+
+    item BlackDeathPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Black Death Plating for Colt Calvary Revolver,
+        Icon                = BlackPlating,
+        PartType            = RecoilPad,
+        MountOn             = ColtCavalryRevolver,
+        WorldStaticModel    = PlatingBlack,
+        Tooltip             = Tooltip_BlackDeathPlating,
+    }
+
+    item OrnateIvoryPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Ornate Ivory Plating for Colt Calvary Revolver,
+        Icon                = WhitePlating,
+        PartType            = RecoilPad,
+        MountOn             = ColtCavalryRevolver,
+        WorldStaticModel    = PlatingWhite,
+        Tooltip             = Tooltip_OrnateIvoryPlating,
+    }
+
+    item GildedAgePlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Gilded Age Plating for Colt Calvary Revolver,
+        Icon                = GoldPlating,
+        PartType            = RecoilPad,
+        MountOn             = ColtCavalryRevolver,
+        WorldStaticModel    = PlatingGold,
+        Tooltip             = Tooltip_GildedAgePlating,
+    }
+
+    item TBDPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = TBD Plating for Remington Model 870 Shotgun,
+        Icon                = TBDPlating,
+        PartType            = RecoilPad,
+        MountOn             = Shotgun; ShotgunSawnoff,
+        WorldStaticModel    = PlatingTBD,
+        Tooltip             = Tooltip_TBDPlating,
+    }
+
+    item CannabisPlating
+    {
+        DisplayCategory     = WeaponPart,
+        Weight              = 0.05,
+        Type                = WeaponPart,
+        DisplayName         = Cannabis Plating for M4A1,
+        Icon                = GreenPlating,
+        PartType            = RecoilPad,
+        MountOn             = M4A1,
+        WorldStaticModel    = PlatingGreen,
+        Tooltip             = Tooltip_CannabisPlating,
+    }
+}

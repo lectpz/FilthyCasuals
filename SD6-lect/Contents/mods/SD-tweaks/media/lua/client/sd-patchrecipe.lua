@@ -74,8 +74,8 @@ local function patch_recipes()
     local patched = 0
     local start = Calendar.getInstance():getTimeInMillis()
     local recipes = getScriptManager():getAllRecipes()
-    for i = 1, recipes:size() do
-        local recipe = recipes:get(i - 1)
+    for i = 0, recipes:size()-1 do
+        local recipe = recipes:get(i)
         local name = recipe:getOriginalname()
         if recipesToPatch[name] then
             if name == "Create Propane tank" then
@@ -132,4 +132,4 @@ local function patch_recipes()
     print("Patched "..patched.." recipes in "..(stop - start).."ms!")
 end
 
-Events.OnGameStart.Add(patch_recipes)
+Events.OnInitGlobalModData.Add(patch_recipes)

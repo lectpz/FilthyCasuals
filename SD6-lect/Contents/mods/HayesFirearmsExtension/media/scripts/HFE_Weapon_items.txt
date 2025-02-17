@@ -1,0 +1,677 @@
+module Base
+{
+    /****************************** ITEM AMMOS ******************************/
+
+    item 3006Bullets
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.015,
+        Type	                = Normal,
+        DisplayName	            = .30-06 SPRG Round,
+        Icon	                = Rounds3006,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds3006,
+    }
+
+    item 3006Box
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.375,
+        Type	                = Normal,
+        DisplayName	            = Box of .30-06 SPRG Rounds,
+        Icon	                = AmmoBox3006,
+        MetalValue              = 30,
+        WorldStaticModel        = AmmoBox3006,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+
+    item 3006BlocClip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.1,
+        Type	                = Normal,
+        DisplayName	            = M1 Garand Enbloc,
+        Icon	                = Mag3006Enbloc,
+        MaxAmmo                 = 8,
+        AmmoType                = Base.3006Bullets,
+        StaticModel             = Mag3006Enbloc,
+        GunType                 = Base.M1Garand,
+        WorldStaticModel        = Mag3006Enbloc,
+    }
+
+    item 3006Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = .30-06 SPRG Magazine,
+        Icon	                = Mag3006,
+        MaxAmmo                 = 20,
+        AmmoType                = Base.3006Bullets,
+        StaticModel             = Mag3006,
+        GunType                 = Base.M1918BAR;Base.M1918BAR_Bipod,
+        WorldStaticModel        = Mag3006,
+    }
+
+    item 380Bullets
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.005,
+        Type	                = Normal,
+        DisplayName	            = .380 ACP Round,
+        Icon	                = Rounds380,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds380,
+    }
+
+    item 380Box
+    {
+        Weight	                = 0.14,
+        Type	                = Normal,
+        DisplayName	            = Box of .380 ACP Rounds,
+        DisplayCategory         = Ammo,
+        Icon	                = AmmoBox380,
+        MetalValue              = 30,
+        WorldStaticModel        = AmmoBox380,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+
+    item 380Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = .380 ACP Magazine,
+        Icon	                = Mag380,
+        MaxAmmo                 = 8,
+        AmmoType                = Base.380Bullets,
+        StaticModel             = Mag380,
+        GunType                 = Base.WaltherPPK; Base.Makarov,
+        WorldStaticModel        = Mag380,
+    }
+
+	item 545Bullets
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.005,
+        Type	                = Normal,
+        DisplayName	            = 5.45 Round,
+        Icon	                = Rounds556,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds545,
+    }
+
+    item 545Box
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.35,
+        Type	                = Normal,
+        DisplayName	            = Box of 5.45 Rounds,
+        Icon	                = AmmoBox545,
+        MetalValue              = 40,
+        WorldStaticModel        = AmmoBox545,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+ 
+    item 545Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 5.45 Magazine,
+        Icon	                = Mag545,
+        MaxAmmo                 = 30,
+        AmmoType                = Base.545Bullets,
+        StaticModel             = Mag545,
+        GunType                 = Base.AK74; Base.AK74U; Base.AK74U_Folded,
+        WorldStaticModel        = Mag545,
+    }
+
+    item 57Bullets
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.01,
+        Type	                = Normal,
+        DisplayName	            = 5.7x28 Round,
+        Icon	                = Rounds57,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds57,
+    }
+
+    item 57Box
+    {
+        Weight	                = 0.25,
+        Type	                = Normal,
+        DisplayName	            = Box of 5.7x28 Rounds,
+        DisplayCategory         = Ammo,
+        Icon	                = AmmoBox57,
+        MetalValue              = 30,
+        WorldStaticModel        = AmmoBox57,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+
+    item 57Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 5.7x28 Magazine,
+        Icon	                = Mag57,
+        MaxAmmo                 = 20,
+        AmmoType                = Base.57Bullets,
+        StaticModel             = Mag57,
+        GunType                 = Base.FiveSeven,
+        WorldStaticModel        = Mag57,
+    }
+
+    item P90Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = P90 Magazine,
+        Icon	                = MagP90,
+        MaxAmmo                 = 50,
+        AmmoType                = Base.57Bullets,
+        StaticModel             = MagP90,
+        GunType                 = Base.P90,
+        WorldStaticModel        = MagP90,
+    }
+
+	item 762Bullets
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.01,
+        Type	                = Normal,
+        DisplayName	            = 7.62 Round,
+        Icon	                = Rounds308,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds762,
+    }
+
+    item 762Box
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.5,
+        Type	                = Normal,
+        DisplayName	            = Box of 7.62 Rounds,
+        Icon	                = AmmoBox762,
+        MetalValue              = 40,
+        WorldStaticModel        = AmmoBox762,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+ 
+    item 762Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 7.62 Magazine,
+        Icon	                = Mag762,
+        MaxAmmo                 = 30,
+        AmmoType                = Base.762Bullets,
+        StaticModel             = Mag762,
+        GunType                 = Base.AK103; Base.GrozaOTs14,
+        WorldStaticModel        = Mag762,
+    }
+
+	item 762x51Bullets
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.01,
+        Type	                = Normal,
+        DisplayName	            = 7.62x51 Round,
+        Icon	                = Rounds308,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds762x51,
+    }
+
+    item 762x51Box
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.5,
+        Type	                = Normal,
+        DisplayName	            = Box of 7.62x51 Rounds,
+        Icon	                = AmmoBox762x51,
+        MetalValue              = 40,
+        WorldStaticModel        = AmmoBox762x51,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+ 
+    item 762x51Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 7.62x51 Magazine,
+        Icon	                = Mag762x51,
+        MaxAmmo                 = 10,
+        AmmoType                = Base.762x51Bullets,
+        StaticModel             = Mag762x51,
+        GunType                 = Base.Galil; Base.Galil_Bipod,
+        WorldStaticModel        = Mag762x51,
+    }
+
+    item 762x54rBullets
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.02,
+        Type	                = Normal,
+        DisplayName	            = 7.62x54r Round,
+        Icon	                = Rounds762x54r,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds762x54r,
+    }
+
+    item 762x54rBox
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.4,
+        Type	                = Normal,
+        DisplayName	            = Box of 7.62x54r Rounds,
+        Icon	                = AmmoBox762x54r,
+        MetalValue              = 40,
+        WorldStaticModel        = AmmoBox762x54r,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+ 
+    item 762x54rClip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 7.62x54r Magazine,
+        Icon	                = Mag762x54r,
+        MaxAmmo                 = 10,
+        AmmoType                = Base.762x54rBullets,
+        StaticModel             = Mag762x54r,
+        GunType                 = Base.SVDDragunov,
+        WorldStaticModel        = Mag762x54r,
+    }
+
+    item 762x54rStripperClip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 762x54r Stripper Clip,
+        Icon	                = Mag762x54rStripper,
+        MaxAmmo                 = 5,
+        AmmoType                = Base.762x54rBullets,
+        StaticModel             = Mag762x54rStripper,
+        GunType                 = Base.MosinNagant; Base.MosinNagantObrez,
+        MetalValue              = 0,
+        WorldStaticModel        = Mag762x54rStripper,
+    }
+
+    item 792Clip
+    {
+        DisplayCategory     = Ammo,
+        Weight	            = 0.2,
+        Type	            = Normal,
+        DisplayName	        = 7.92 Magazine,
+        Icon	            = 792Clip,
+        MaxAmmo             = 20,
+        AmmoType            = 792Bullets,
+        GunType             = FG42,
+        CanStack	        = FALSE,
+		StaticModel         = 792Clip,
+        WorldStaticModel    = 792Clip,
+    }
+
+    item 792Drum
+    {
+        DisplayCategory     = Ammo,
+        Weight	            = 1.2,
+        Type	            = Normal,
+        DisplayName	        = 7.92 Drum,
+        Icon	            = 792Drum,
+        MaxAmmo             = 50,
+        AmmoType            = 792Bullets,
+        GunType             = MG42,
+        CanStack	        = FALSE,
+		StaticModel         = 792Drum,
+        WorldStaticModel    = 792Drum,
+    }
+
+    item 792Box
+    {
+        DisplayCategory     = Ammo,
+        Weight	            = 1,
+        Type	            = Normal,
+        DisplayName	        = Box of 7.92 Rounds,
+        Icon	            = 792AmmoBox,
+        MetalValue          = 40,
+        WorldStaticModel    = 792Box,
+        PlaceOneSound       = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound  = BoxOfRoundsPlaceAll,
+    }
+
+    item 792Bullets
+    {
+        DisplayCategory     = Ammo,
+        Weight	            = 0.025,
+        Type	            = Normal,
+        DisplayName	        = 7.92 Rounds,
+        Icon	            = 792ammo,
+        Count	            = 5,
+        MetalValue          = 1,
+        WorldStaticModel    = 792Bullets,
+    }
+
+	item 792x33Bullets
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.01,
+        Type	                = Normal,
+        DisplayName	            = 7.92x33 Round,
+        Icon	                = Rounds792x33,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds792x33,
+    }
+
+    item 792x33Box
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.5,
+        Type	                = Normal,
+        DisplayName	            = Box of 7.92x33 Rounds,
+        Icon	                = AmmoBox792x33,
+        MetalValue              = 40,
+        WorldStaticModel        = AmmoBox792x33,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+ 
+    item 792x33Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 7.92x33 Magazine,
+        Icon	                = Mag792x33,
+        MaxAmmo                 = 30,
+        AmmoType                = Base.792x33Bullets,
+        StaticModel             = Mag792x33,
+        GunType                 = Base.StG44,
+        WorldStaticModel        = Mag792x33,
+    }
+
+    item 50BMGBullets
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 6,
+        Weight	                = 0.065,
+        Type	                = Normal,
+        DisplayName	            = 50 BMG Round,
+        Icon	                = Rounds50BMG,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds50BMG,
+    }
+
+    item 50BMGBox
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 1.3,
+        Type	                = Normal,
+        DisplayName	            = Box of 50 BMG Rounds,
+        Icon	                = AmmoBox50BMG,
+        MetalValue              = 40,
+        WorldStaticModel        = AmmoBox50BMG,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+ 
+    item 50BMGClip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 50 BMG Magazine,
+        Icon	                = Mag50BMG,
+        MaxAmmo                 = 10,
+        AmmoType                = Base.50BMGBullets,
+        StaticModel             = Mag50BMG,
+        GunType                 = Base.BarrettM82A1; Base.BarrettM82A1_Bipod,
+        WorldStaticModel        = Mag50BMG,
+    }
+
+    item 9mmBoxClip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 9mm Box Magazine,
+        Icon	                = MagBox9mm,
+        MaxAmmo                 = 30,
+        AmmoType                = Base.Bullets9mm,
+        StaticModel             = MagBox9mm,
+        GunType                 = Base.FranchiLF57; Base.FranchiLF57_Folded,
+        WorldStaticModel        = MagBox9mm,
+    }
+
+    item 9mmClip8
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 9mm Magazine [8],
+        Icon	                = Mag9mmx8,
+        MaxAmmo                 = 8,
+        AmmoType                = Base.Bullets9mm,
+        StaticModel             = Mag9mmx8,
+        GunType                 = Base.Luger,
+        WorldStaticModel        = Mag9mmx8,
+    }
+
+    item 9mmClip32
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 9mm Magazine [32],
+        Icon	                = MagBox9mm,
+        MaxAmmo                 = 32,
+        AmmoType                = Base.Bullets9mm,
+        StaticModel             = MagBox9mm,
+        GunType                 = Base.MiniUzi,
+        WorldStaticModel        = MagBox9mm,
+    }
+
+	item 9x39Bullets
+    {
+        DisplayCategory         = Ammo,
+        Count	                = 5,
+        Weight	                = 0.01,
+        Type	                = Normal,
+        DisplayName	            = 9x39 Round,
+        Icon	                = Rounds9mm,
+        MetalValue              = 1,
+        WorldStaticModel        = Rounds9x39,
+    }
+
+    item 9x39Box
+    {
+        DisplayCategory         = Ammo,
+        Weight	                = 0.5,
+        Type	                = Normal,
+        DisplayName	            = Box of 9x39 Rounds,
+        Icon	                = AmmoBox9x39,
+        MetalValue              = 30,
+        WorldStaticModel        = AmmoBox9x39,
+        PlaceOneSound           = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound      = BoxOfRoundsPlaceAll,
+    }
+
+    item 9x39Clip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = 9x39 Magazine,
+        Icon	                = Mag9x39,
+        MaxAmmo                 = 10,
+        AmmoType                = Base.9x39Bullets,
+        StaticModel             = Mag9x39,
+        GunType                 = Base.VSSVintorez,
+        WorldStaticModel        = Mag9x39,
+    }
+
+    item 45Clip13
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight                  = 0.2,
+        Type                    = Normal,
+        DisplayName             = .45 ACP Magazine,
+        Icon                    = Mag9mm,
+        MaxAmmo                 = 13,
+        AmmoType                = Base.Bullets45,
+        StaticModel             = Mag9mm,
+        GunType                 = Base.Glock, 
+        WorldStaticModel        = Mag9mm,
+    }
+
+    item 45Clip20
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = .45 ACP Box Magazine [20],
+        Icon	                = MagBox9mm,
+        MaxAmmo                 = 20,
+        AmmoType                = Base.Bullets45,
+        StaticModel             = MagBox9mm,
+        GunType                 = Base.MP28,
+        WorldStaticModel        = MagBox9mm,
+    }
+
+    item 223Clip10
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = .223 Magazine [10],
+        Icon	                = MagM14,
+        MaxAmmo                 = 10,
+        AmmoType                = Base.223Bullets,
+        StaticModel             = MagM14,
+        GunType                 = Base.PLR16,
+        WorldStaticModel        = MagM14,
+    }
+
+    item TheNailGunClip
+    {
+        DisplayCategory         = Ammo,
+        CanStack	            = FALSE,
+        Weight	                = 0.2,
+        Type	                = Normal,
+        DisplayName	            = The Nail Gun Magazine,
+        Icon	                = MagTheNailGun,
+        MaxAmmo                 = 30,
+        AmmoType                = Base.Nails,
+        StaticModel             = MagTheNailGun,
+        GunType                 = Base.TheNailGun,
+        WorldStaticModel        = MagTheNailGun,
+    }
+
+    item CrossbowBoltBox
+    {
+        DisplayCategory     = Ammo,
+        Weight	            = 0.3,
+        Type	            = Normal,
+        DisplayName	        = Pack of Crossbow Bolts,
+        Icon	            = CrossbowBoltPack,
+        MetalValue          = 40,
+        WorldStaticModel    = CrossbowBoltPack,
+        PlaceOneSound       = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound  = BoxOfRoundsPlaceAll,
+    }
+
+    item CrossbowBolt
+    {
+        DisplayCategory     = Ammo,
+        Weight	            = 0.01,
+        Type	            = Normal,
+        DisplayName	        = Crossbow Bolt,
+        Icon	            = CrossbowBolt,
+        Count	            = 5,
+        MetalValue          = 1,
+        WorldStaticModel    = CrossbowBolt,
+    }
+
+    /****************************** FIREARM CACHES *******************/
+
+    item FirearmCache 
+    {
+        DisplayCategory         = Tool,
+        Weight	                = 0.5,
+        Type	                = Normal,
+        DisplayName	            = Firearm Cache,
+        Icon	                = FirearmCache,
+        WorldStaticModel        = FirearmCache,
+        Tooltip                 = Tooltip_FirearmCache,
+    }    
+
+
+    /****************************** RECIPE_MAGAZINES ******************************/
+
+    item FG42RifleItemsMagazine
+	{
+        DisplayCategory     = SkillBook,
+		Weight	            = 0.1,
+        Type	            = Literature,
+		DisplayName	        = FG and MG 42 Recipes,
+		Icon	            = FG42Magazine,
+		TeachedRecipes      = Create FG 42 Paratrooper Rifle;Create Iron Sights for FG 42 Paratrooper Rifle;Create Scope for FG 42 Paratrooper Rifle;Make 7.92 Ammo;Create Magazine Clip for FG 42 Paratrooper Rifle;Create Drum Magazine for MG42;Create MG42,
+		StaticModel         = Magazine,
+		WorldStaticModel    = FG42Magazine_Ground,
+        Tooltip             = Tooltip_item_FG42ItemsMagazine,
+	}
+
+    item CompoundCrossbowMagazine
+	{
+        DisplayCategory     = SkillBook,
+		Weight	            = 0.1,
+        Type	            = Literature,
+		DisplayName	        = Compound Crossbow Recipes,
+		Icon	            = CompoundCrossbowMagazine,
+		TeachedRecipes      = Craft Crossbow Bolts,
+		StaticModel         = Magazine,
+		WorldStaticModel    = CompoundCrossbowMagazine_Ground,
+        Tooltip             = Tooltip_item_CompoundCrossbowMagazine,
+	}
+}

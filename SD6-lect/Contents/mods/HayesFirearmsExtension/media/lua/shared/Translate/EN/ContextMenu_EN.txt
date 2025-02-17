@@ -1,0 +1,6 @@
+ContextMenu_EN = 
+{
+	ContextMenu_FireMode_SMGFullAuto = "Full Auto [SMG]",
+	ContextMenu_FireMode_FullAuto = "Full Auto",
+	ContextMenu_FireMode_Auto = "Semi Auto",
+}

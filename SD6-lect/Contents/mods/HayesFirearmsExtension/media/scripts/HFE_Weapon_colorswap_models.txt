@@ -1,0 +1,7119 @@
+module Base
+{
+
+	model LugerCrabShell
+	{
+		mesh = Weapons/Firearm/Luger,
+		texture = Weapons/Firearm/LugerCrabShell,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.1630 -0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0010 0.1570 -0.0190,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment grip
+		{
+			offset = 0.0010 0.0010 -0.0090,
+			rotate = 17.0000 0.0000 0.0000,
+		}
+
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+
+	model LugerCrabShellNoMag
+	{
+		mesh = Weapons/Firearm/LugerNoMag,
+		texture = Weapons/Firearm/LugerCrabShell,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.1630 -0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0010 0.1570 -0.0190,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment grip
+		{
+			offset = 0.0010 0.0010 -0.0090,
+			rotate = 17.0000 0.0000 0.0000,
+		}
+
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+
+	model LugerCrabShellMelee
+	{
+		mesh = Weapons/Firearm/LugerMelee,
+		texture = Weapons/Firearm/LugerCrabShell,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0050 -0.0560 0.0470,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0050 -0.0390 0.0350,
+			rotate = 68.0000 0.0000 0.0000,
+		}
+
+		attachment grip
+		{
+			offset = 0.0060 0.1030 -0.0300,
+			rotate = 177.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0050 0.0990 -0.0400,
+			rotate = 162.0000 1.0000 0.0000,
+		}
+	}
+
+	model DerringerUWU
+	{
+		mesh = Weapons/Firearm/Derringer,
+		texture = Weapons/Firearm/DerringerUWU,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.1090 -0.0170,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment grip
+		{
+			offset = 0.0000 -0.0120 -0.0050,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+
+	model DerringerUWU_OPEN
+	{
+		mesh = Weapons/Firearm/Derringer_OPEN,
+		texture = Weapons/Firearm/DerringerUWU,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.1090 -0.0170,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment grip
+		{
+			offset = 0.0000 0.0040 -0.0250,
+			rotate = 30.0000 0.0000 0.0000,
+		}
+	}
+
+	model DerringerUWU_Melee
+	{
+		mesh = Weapons/Firearm/DerringerMelee,
+		texture = Weapons/Firearm/DerringerUWU,
+		
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.1090 -0.0170,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment grip
+		{
+			offset = 0.0060 0.1150 -0.0320,
+			rotate = 156.0000 0.0000 0.0000,
+		}
+	}
+
+	model AK74UWinter
+	{
+		mesh = Weapons/Firearm/AK74U,
+		texture = Weapons/Firearm/AK74UWinter,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.5740 -0.0270,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0040 0.2850 0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0040 0.2280 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0040 0.1100 0.0470,
+			rotate = -65.0000 90.0000 155.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0140 0.1360 0.0180,
+			rotate = 179.0000 0.0000 -89.0000,
+		}
+	}
+	model AK74UWinterNoMag
+	{
+		mesh = Weapons/Firearm/AK74UNoMag,
+		texture = Weapons/Firearm/AK74UWinter,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.5740 -0.0270,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0040 0.2850 0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0040 0.2280 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0040 0.1100 0.0470,
+			rotate = -65.0000 90.0000 155.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0140 0.1360 0.0180,
+			rotate = 179.0000 0.0000 -89.0000,
+		}
+	}
+	model AK74UWinter_Folded
+	{
+		mesh = Weapons/Firearm/AK74U_Folded,
+		texture = Weapons/Firearm/AK74UWinter,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.5740 -0.0270,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0040 0.2850 0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0040 0.2280 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0040 0.1100 0.0470,
+			rotate = -65.0000 90.0000 155.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0140 0.1360 0.0180,
+			rotate = 179.0000 0.0000 -89.0000,
+		}
+	}
+	model AK74UWinterNoMag_Folded
+	{
+		mesh = Weapons/Firearm/AK74UNoMag_Folded,
+		texture = Weapons/Firearm/AK74UWinter,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.5740 -0.0270,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0040 0.2850 0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0040 0.2280 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0040 0.1100 0.0470,
+			rotate = -65.0000 90.0000 155.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0140 0.1360 0.0180,
+			rotate = 179.0000 0.0000 -89.0000,
+		}
+	}
+	model AK74UGold
+	{
+		mesh = Weapons/Firearm/AK74U,
+		texture = Weapons/Firearm/AK74UGold,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.5740 -0.0270,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0040 0.2850 0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0040 0.2280 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0040 0.1100 0.0470,
+			rotate = -65.0000 90.0000 155.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0140 0.1360 0.0180,
+			rotate = 179.0000 0.0000 -89.0000,
+		}
+	}
+	model AK74UGoldNoMag
+	{
+		mesh = Weapons/Firearm/AK74UNoMag,
+		texture = Weapons/Firearm/AK74UGold,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.5740 -0.0270,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0040 0.2850 0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0040 0.2280 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0040 0.1100 0.0470,
+			rotate = -65.0000 90.0000 155.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0140 0.1360 0.0180,
+			rotate = 179.0000 0.0000 -89.0000,
+		}
+	}
+	model AK74UGold_Folded
+	{
+		mesh = Weapons/Firearm/AK74U_Folded,
+		texture = Weapons/Firearm/AK74UGold,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.5740 -0.0270,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0040 0.2850 0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0040 0.2280 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0040 0.1100 0.0470,
+			rotate = -65.0000 90.0000 155.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0140 0.1360 0.0180,
+			rotate = 179.0000 0.0000 -89.0000,
+		}
+	}
+	model AK74UGoldNoMag_Folded
+	{
+		mesh = Weapons/Firearm/AK74UNoMag_Folded,
+		texture = Weapons/Firearm/AK74UGold,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		
+		attachment bayonet
+		{
+			offset = -0.0020 0.5740 -0.0270,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0040 0.2850 0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0040 0.2280 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0040 0.1100 0.0470,
+			rotate = -65.0000 90.0000 155.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0140 0.1360 0.0180,
+			rotate = 179.0000 0.0000 -89.0000,
+		}
+	}
+	model AK74URainbow
+	{
+		mesh = Weapons/Firearm/AK74U,
+		texture = Weapons/Firearm/AK74URainbow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.5740 -0.0270,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0040 0.2850 0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0040 0.2280 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0040 0.1100 0.0470,
+			rotate = -65.0000 90.0000 155.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0140 0.1360 0.0180,
+			rotate = 179.0000 0.0000 -89.0000,
+		}
+	}
+	model AK74URainbowNoMag
+	{
+		mesh = Weapons/Firearm/AK74UNoMag,
+		texture = Weapons/Firearm/AK74URainbow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.5740 -0.0270,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0040 0.2850 0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0040 0.2280 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0040 0.1100 0.0470,
+			rotate = -65.0000 90.0000 155.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0140 0.1360 0.0180,
+			rotate = 179.0000 0.0000 -89.0000,
+		}
+	}
+	model AK74URainbow_Folded
+	{
+		mesh = Weapons/Firearm/AK74U_Folded,
+		texture = Weapons/Firearm/AK74URainbow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.5740 -0.0270,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0040 0.2850 0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0040 0.2280 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0040 0.1100 0.0470,
+			rotate = -65.0000 90.0000 155.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0140 0.1360 0.0180,
+			rotate = 179.0000 0.0000 -89.0000,
+		}
+	}
+	model AK74URainbowNoMag_Folded
+	{
+		mesh = Weapons/Firearm/AK74UNoMag_Folded,
+		texture = Weapons/Firearm/AK74URainbow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		
+		attachment bayonet
+		{
+			offset = -0.0020 0.5740 -0.0270,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0040 0.2850 0.0250,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0040 0.2280 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0040 0.1100 0.0470,
+			rotate = -65.0000 90.0000 155.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0140 0.1360 0.0180,
+			rotate = 179.0000 0.0000 -89.0000,
+		}
+	}
+	model FranchiLF57DZ
+	{
+		mesh = Weapons/Firearm/FranchiLF57,
+		texture = Weapons/Firearm/FranchiLF57DZ,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0020 0.2430 0.0110,
+			rotate = -90.0000 0.0000 121.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0030 0.2420 0.0050,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0020 0.0380 0.0380,
+			rotate = 90.0000 89.0000 -1.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = 0.0020 0.1390 -0.0200,
+			rotate = -1.0000 89.0000 90.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0320 0.0360,
+			rotate = 146.0000 89.0000 -57.0000,
+		}
+
+		attachment laser
+		{
+			offset = 0.0010 0.1360 -0.0160,
+			rotate = -1.0000 90.0000 90.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0080 0.1690 0.0260,
+			rotate = -1.0000 0.0000 90.0000,
+		}
+	}
+	model FranchiLF57DZNoMag
+	{
+		mesh = Weapons/Firearm/FranchiLF57NoMag,
+		texture = Weapons/Firearm/FranchiLF57DZ,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0020 0.2430 0.0110,
+			rotate = -90.0000 0.0000 121.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0030 0.2420 0.0050,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0020 0.0380 0.0380,
+			rotate = 90.0000 89.0000 -1.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = 0.0020 0.1390 -0.0200,
+			rotate = -1.0000 89.0000 90.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0320 0.0360,
+			rotate = 146.0000 89.0000 -57.0000,
+		}
+
+		attachment laser
+		{
+			offset = 0.0010 0.1360 -0.0160,
+			rotate = -1.0000 90.0000 90.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0080 0.1690 0.0260,
+			rotate = -1.0000 0.0000 90.0000,
+		}
+	}
+	model FranchiLF57DZ_Folded
+	{
+		mesh = Weapons/Firearm/FranchiLF57_Folded,
+		texture = Weapons/Firearm/FranchiLF57DZ,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0020 0.2430 0.0110,
+			rotate = -90.0000 0.0000 121.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0030 0.2420 0.0050,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0020 0.0380 0.0380,
+			rotate = 90.0000 89.0000 -1.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = 0.0020 0.1390 -0.0200,
+			rotate = -1.0000 89.0000 90.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0320 0.0360,
+			rotate = 146.0000 89.0000 -57.0000,
+		}
+
+		attachment laser
+		{
+			offset = 0.0010 0.1360 -0.0160,
+			rotate = -1.0000 90.0000 90.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0080 0.1690 0.0260,
+			rotate = -1.0000 0.0000 90.0000,
+		}
+	}
+	model FranchiLF57DZNoMag_Folded
+	{
+		mesh = Weapons/Firearm/FranchiLF57NoMag_Folded,
+		texture = Weapons/Firearm/FranchiLF57DZ,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0020 0.2430 0.0110,
+			rotate = -90.0000 0.0000 121.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0030 0.2420 0.0050,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0020 0.0380 0.0380,
+			rotate = 90.0000 89.0000 -1.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = 0.0020 0.1390 -0.0200,
+			rotate = -1.0000 89.0000 90.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0320 0.0360,
+			rotate = 146.0000 89.0000 -57.0000,
+		}
+
+		attachment laser
+		{
+			offset = 0.0010 0.1360 -0.0160,
+			rotate = -1.0000 90.0000 90.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0080 0.1690 0.0260,
+			rotate = -1.0000 0.0000 90.0000,
+		}
+	}
+	model P90Pink
+	{
+		mesh = Weapons/Firearm/P90,
+		texture = Weapons/Firearm/P90Pink,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.1500 -0.0150,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1330 -0.0220,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0660 -0.0570,
+			rotate = 0.0000 -89.0000 90.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0150 0.0900 -0.0580,
+			rotate = 0.0000 -1.0000 90.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = -0.0360 0.0840 -0.0530,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0320 0.0820 -0.0530,
+			rotate = 180.0000 1.0000 -90.0000,
+		}
+
+		attachment rifle_back_bag
+		{
+			offset = -0.0300 0.1410 0.0100,
+			rotate = 12.0000 -1.0000 -177.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment rifle_back
+		{
+			offset = -0.0050 -0.1180 0.0090,
+			rotate = -180.0000 3.0000 179.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = -0.0300 -0.0870 0.0410,
+			rotate = 178.0000 4.0000 -176.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_rifle
+		{
+			offset = 0.0010 -0.0340 -0.0270,
+			rotate = -170.0000 11.0000 179.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = 0.0020 -0.0780 0.0380,
+			rotate = 167.0000 -11.0000 178.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0010 -0.0260 -0.0340,
+			rotate = -150.0000 -4.0000 169.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = -0.0130 -0.1110 -0.0050,
+			rotate = 0.0000 0.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model P90PinkNoMag
+	{
+		mesh = Weapons/Firearm/P90NoMag,
+		texture = Weapons/Firearm/P90Pink,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.1500 -0.0150,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1330 -0.0220,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0660 -0.0570,
+			rotate = 0.0000 -89.0000 90.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0150 0.0900 -0.0580,
+			rotate = 0.0000 -1.0000 90.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = -0.0360 0.0840 -0.0530,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0320 0.0820 -0.0530,
+			rotate = 180.0000 1.0000 -90.0000,
+		}
+
+		attachment rifle_back_bag
+		{
+			offset = -0.0300 0.1410 0.0100,
+			rotate = 12.0000 -1.0000 -177.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment rifle_back
+		{
+			offset = -0.0050 -0.1180 0.0090,
+			rotate = -180.0000 3.0000 179.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = -0.0300 -0.0870 0.0410,
+			rotate = 178.0000 4.0000 -176.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_rifle
+		{
+			offset = 0.0010 -0.0340 -0.0270,
+			rotate = -170.0000 11.0000 179.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = 0.0020 -0.0780 0.0380,
+			rotate = 167.0000 -11.0000 178.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0010 -0.0260 -0.0340,
+			rotate = -150.0000 -4.0000 169.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = -0.0130 -0.1110 -0.0050,
+			rotate = 0.0000 0.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model P90BlackIce
+	{
+		mesh = Weapons/Firearm/P90,
+		texture = Weapons/Firearm/P90BlackIce,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.1500 -0.0150,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1330 -0.0220,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0660 -0.0570,
+			rotate = 0.0000 -89.0000 90.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0150 0.0900 -0.0580,
+			rotate = 0.0000 -1.0000 90.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = -0.0360 0.0840 -0.0530,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0320 0.0820 -0.0530,
+			rotate = 180.0000 1.0000 -90.0000,
+		}
+
+		attachment rifle_back_bag
+		{
+			offset = -0.0300 0.1410 0.0100,
+			rotate = 12.0000 -1.0000 -177.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment rifle_back
+		{
+			offset = -0.0050 -0.1180 0.0090,
+			rotate = -180.0000 3.0000 179.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = -0.0300 -0.0870 0.0410,
+			rotate = 178.0000 4.0000 -176.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_rifle
+		{
+			offset = 0.0010 -0.0340 -0.0270,
+			rotate = -170.0000 11.0000 179.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = 0.0020 -0.0780 0.0380,
+			rotate = 167.0000 -11.0000 178.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0010 -0.0260 -0.0340,
+			rotate = -150.0000 -4.0000 169.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = -0.0130 -0.1110 -0.0050,
+			rotate = 0.0000 0.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model P90BlackIceNoMag
+	{
+		mesh = Weapons/Firearm/P90NoMag,
+		texture = Weapons/Firearm/P90BlackIce,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.1500 -0.0150,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1330 -0.0220,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0660 -0.0570,
+			rotate = 0.0000 -89.0000 90.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0150 0.0900 -0.0580,
+			rotate = 0.0000 -1.0000 90.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = -0.0360 0.0840 -0.0530,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0320 0.0820 -0.0530,
+			rotate = 180.0000 1.0000 -90.0000,
+		}
+
+		attachment rifle_back_bag
+		{
+			offset = -0.0300 0.1410 0.0100,
+			rotate = 12.0000 -1.0000 -177.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment rifle_back
+		{
+			offset = -0.0050 -0.1180 0.0090,
+			rotate = -180.0000 3.0000 179.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = -0.0300 -0.0870 0.0410,
+			rotate = 178.0000 4.0000 -176.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_rifle
+		{
+			offset = 0.0010 -0.0340 -0.0270,
+			rotate = -170.0000 11.0000 179.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = 0.0020 -0.0780 0.0380,
+			rotate = 167.0000 -11.0000 178.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0010 -0.0260 -0.0340,
+			rotate = -150.0000 -4.0000 169.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = -0.0130 -0.1110 -0.0050,
+			rotate = 0.0000 0.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model P90Plank
+	{
+		mesh = Weapons/Firearm/P90,
+		texture = Weapons/Firearm/P90Plank,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.1500 -0.0150,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1330 -0.0220,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0660 -0.0570,
+			rotate = 0.0000 -89.0000 90.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0150 0.0900 -0.0580,
+			rotate = 0.0000 -1.0000 90.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = -0.0360 0.0840 -0.0530,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0320 0.0820 -0.0530,
+			rotate = 180.0000 1.0000 -90.0000,
+		}
+
+		attachment rifle_back_bag
+		{
+			offset = -0.0300 0.1410 0.0100,
+			rotate = 12.0000 -1.0000 -177.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment rifle_back
+		{
+			offset = -0.0050 -0.1180 0.0090,
+			rotate = -180.0000 3.0000 179.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = -0.0300 -0.0870 0.0410,
+			rotate = 178.0000 4.0000 -176.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_rifle
+		{
+			offset = 0.0010 -0.0340 -0.0270,
+			rotate = -170.0000 11.0000 179.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = 0.0020 -0.0780 0.0380,
+			rotate = 167.0000 -11.0000 178.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0010 -0.0260 -0.0340,
+			rotate = -150.0000 -4.0000 169.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = -0.0130 -0.1110 -0.0050,
+			rotate = 0.0000 0.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model P90PlankNoMag
+	{
+		mesh = Weapons/Firearm/P90NoMag,
+		texture = Weapons/Firearm/P90Plank,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.1500 -0.0150,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1330 -0.0220,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0660 -0.0570,
+			rotate = 0.0000 -89.0000 90.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0150 0.0900 -0.0580,
+			rotate = 0.0000 -1.0000 90.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = -0.0360 0.0840 -0.0530,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0320 0.0820 -0.0530,
+			rotate = 180.0000 1.0000 -90.0000,
+		}
+
+		attachment rifle_back_bag
+		{
+			offset = -0.0300 0.1410 0.0100,
+			rotate = 12.0000 -1.0000 -177.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment rifle_back
+		{
+			offset = -0.0050 -0.1180 0.0090,
+			rotate = -180.0000 3.0000 179.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = -0.0300 -0.0870 0.0410,
+			rotate = 178.0000 4.0000 -176.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_rifle
+		{
+			offset = 0.0010 -0.0340 -0.0270,
+			rotate = -170.0000 11.0000 179.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = 0.0020 -0.0780 0.0380,
+			rotate = 167.0000 -11.0000 178.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0010 -0.0260 -0.0340,
+			rotate = -150.0000 -4.0000 169.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = -0.0130 -0.1110 -0.0050,
+			rotate = 0.0000 0.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model AK74Winter
+	{
+		mesh = Weapons/Firearm/AK74,
+		texture = Weapons/Firearm/AK74Winter,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4340 -0.0230,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3820 0.0120,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0950 0.0320,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0060 0.1470 0.0080,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK74WinterNoMag
+	{
+		mesh = Weapons/Firearm/AK74NoMag,
+		texture = Weapons/Firearm/AK74Winter,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4340 -0.0230,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3820 0.0120,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0950 0.0320,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0060 0.1470 0.0080,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK74Gold
+	{
+		mesh = Weapons/Firearm/AK74,
+		texture = Weapons/Firearm/AK74Gold,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4340 -0.0230,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3820 0.0120,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0950 0.0320,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0060 0.1470 0.0080,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK74GoldNoMag
+	{
+		mesh = Weapons/Firearm/AK74NoMag,
+		texture = Weapons/Firearm/AK74Gold,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4340 -0.0230,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3820 0.0120,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0950 0.0320,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0060 0.1470 0.0080,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK74Rainbow
+	{
+		mesh = Weapons/Firearm/AK74,
+		texture = Weapons/Firearm/AK74Rainbow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4340 -0.0230,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3820 0.0120,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0950 0.0320,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0060 0.1470 0.0080,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK74RainbowNoMag
+	{
+		mesh = Weapons/Firearm/AK74NoMag,
+		texture = Weapons/Firearm/AK74Rainbow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4340 -0.0230,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3820 0.0120,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0950 0.0320,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0060 0.1470 0.0080,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103Rainbow
+	{
+		mesh = Weapons/Firearm/AK103,
+		texture = Weapons/Firearm/AK103Rainbow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103RainbowNoMag
+	{
+		mesh = Weapons/Firearm/AK103NoMag,
+		texture = Weapons/Firearm/AK103Rainbow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103RainbowSkele
+	{
+		mesh = Weapons/Firearm/AK103Skele,
+		texture = Weapons/Firearm/AK103RainbowSkele,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103RainbowSkeleNoMag
+	{
+		mesh = Weapons/Firearm/AK103SkeleNoMag,
+		texture = Weapons/Firearm/AK103RainbowSkele,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103Gold
+	{
+		mesh = Weapons/Firearm/AK103,
+		texture = Weapons/Firearm/AK103Gold,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103GoldNoMag
+	{
+		mesh = Weapons/Firearm/AK103NoMag,
+		texture = Weapons/Firearm/AK103Gold,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103GoldSkele
+	{
+		mesh = Weapons/Firearm/AK103Skele,
+		texture = Weapons/Firearm/AK103GoldSkele,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103GoldSkeleNoMag
+	{
+		mesh = Weapons/Firearm/AK103SkeleNoMag,
+		texture = Weapons/Firearm/AK103GoldSkele,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103Winter
+	{
+		mesh = Weapons/Firearm/AK103,
+		texture = Weapons/Firearm/AK103Winter,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103WinterNoMag
+	{
+		mesh = Weapons/Firearm/AK103NoMag,
+		texture = Weapons/Firearm/AK103Winter,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103WinterSkele
+	{
+		mesh = Weapons/Firearm/AK103Skele,
+		texture = Weapons/Firearm/AK103WinterSkele,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103WinterSkeleNoMag
+	{
+		mesh = Weapons/Firearm/AK103SkeleNoMag,
+		texture = Weapons/Firearm/AK103WinterSkele,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103MatteBlack
+	{
+		mesh = Weapons/Firearm/AK103,
+		texture = Weapons/Firearm/AK103MatteBlack,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103MatteBlackNoMag
+	{
+		mesh = Weapons/Firearm/AK103NoMag,
+		texture = Weapons/Firearm/AK103MatteBlack,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103MatteBlackSkele
+	{
+		mesh = Weapons/Firearm/AK103Skele,
+		texture = Weapons/Firearm/AK103MatteBlackSkele,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model AK103MatteBlackSkeleNoMag
+	{
+		mesh = Weapons/Firearm/AK103SkeleNoMag,
+		texture = Weapons/Firearm/AK103MatteBlackSkele,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = -0.0020 0.4460 -0.0250,
+			rotate = 88.0000 0.0000 88.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4310 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.3910 0.0100,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1020 0.0350,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1440 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1510 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+
+	model HenryRepeatingBigBoyDeluxe
+	{
+		mesh = Weapons/Firearm/HenryRepeatingBigBoy,
+		texture = Weapons/Firearm/HenryRepeatingBigBoyDeluxe,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4180 0.0210,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.4130 0.0150,
+			rotate = -92.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1360 0.0420,
+			rotate = 90.0000 89.0000 -2.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1620 0.0240,
+			rotate = 178.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0070 -0.1560 -0.0210,
+			rotate = 6.0000 0.0000 0.0000,
+		}
+
+		attachment buttstock
+		{
+			offset = -0.0250 -0.0760 0.0230,
+			rotate = 91.0000 0.0000 -91.0000,
+		}
+	}
+
+	model HenryRepeatingBigBoyPink
+	{
+		mesh = Weapons/Firearm/HenryRepeatingBigBoy,
+		texture = Weapons/Firearm/HenryRepeatingBigBoyPink,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.4180 0.0210,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.4130 0.0150,
+			rotate = -92.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1360 0.0420,
+			rotate = 90.0000 89.0000 -2.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1620 0.0240,
+			rotate = 178.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0070 -0.1560 -0.0210,
+			rotate = 6.0000 0.0000 0.0000,
+		}
+
+		attachment buttstock
+		{
+			offset = -0.0250 -0.0760 0.0230,
+			rotate = 91.0000 0.0000 -91.0000,
+		}
+	}
+
+	model M1918BARGreenGold
+	{
+		mesh = Weapons/Firearm/M1918BAR,
+		texture = Weapons/Firearm/M1918BARGreenGold,
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.5050 0.0340,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0010 0.0410 0.0390,
+			rotate = 154.0000 89.0000 -64.0000,
+		}
+
+		attachment scope2
+		{
+			offset = 0.0000 0.0500 0.0360,
+			rotate = 90.0000 89.0000 0.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = 0.0000 -0.1310 -0.0170,
+			rotate = 8.0000 0.0000 0.0000,
+		}
+
+		attachment world
+		{
+			offset = 0.0200 0.1250 0.0390,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model M1918BARGreenGoldNoMag
+	{
+		mesh = Weapons/Firearm/M1918BARNoMag,
+		texture = Weapons/Firearm/M1918BARGreenGold,
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.5050 0.0340,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0010 0.0410 0.0390,
+			rotate = 154.0000 89.0000 -64.0000,
+		}
+
+		attachment scope2
+		{
+			offset = 0.0000 0.0500 0.0360,
+			rotate = 90.0000 89.0000 0.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = 0.0000 -0.1310 -0.0170,
+			rotate = 8.0000 0.0000 0.0000,
+		}
+
+		attachment world
+		{
+			offset = 0.0200 0.1250 0.0390,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model M1918BARGreenGoldBipod
+	{
+		mesh = Weapons/Firearm/M1918BARBipod,
+		texture = Weapons/Firearm/M1918BARGreenGold,
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.5050 0.0340,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0010 0.0410 0.0390,
+			rotate = 154.0000 89.0000 -64.0000,
+		}
+
+		attachment scope2
+		{
+			offset = 0.0000 0.0500 0.0360,
+			rotate = 90.0000 89.0000 0.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = 0.0000 -0.1310 -0.0170,
+			rotate = 8.0000 0.0000 0.0000,
+		}
+
+		attachment world
+		{
+			offset = 0.0000 0.0000 -0.0530,
+			rotate = 180.0000 -89.0000 -176.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model M1918BARGreenGoldBipodNoMag
+	{
+		mesh = Weapons/Firearm/M1918BARBipodNoMag,
+		texture = Weapons/Firearm/M1918BARGreenGold,
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.5050 0.0340,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0010 0.0410 0.0390,
+			rotate = 154.0000 89.0000 -64.0000,
+		}
+
+		attachment scope2
+		{
+			offset = 0.0000 0.0500 0.0360,
+			rotate = 90.0000 89.0000 0.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = 0.0000 -0.1310 -0.0170,
+			rotate = 8.0000 0.0000 0.0000,
+		}
+
+		attachment world
+		{
+			offset = 0.0000 0.0000 -0.0530,
+			rotate = 180.0000 -89.0000 -176.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model SIG550White
+	{
+		mesh = Weapons/Firearm/SIG550,
+		texture = Weapons/Firearm/SIG550White,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0010 0.3820 0.0150,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0020 0.2120 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0010 0.2430 -0.0040,
+			rotate = -89.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0010 0.1200 0.0440,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0160 0.2430 0.0170,
+			rotate = 0.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0020 -0.1650 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model SIG550WhiteNoMag
+	{
+		mesh = Weapons/Firearm/SIG550NoMag,
+		texture = Weapons/Firearm/SIG550White,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0010 0.3820 0.0150,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0020 0.2120 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0010 0.2430 -0.0040,
+			rotate = -89.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0010 0.1200 0.0440,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0160 0.2430 0.0170,
+			rotate = 0.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0020 -0.1650 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model SIG550Pink
+	{
+		mesh = Weapons/Firearm/SIG550,
+		texture = Weapons/Firearm/SIG550Pink,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0010 0.3820 0.0150,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0020 0.2120 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0010 0.2430 -0.0040,
+			rotate = -89.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0010 0.1200 0.0440,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0160 0.2430 0.0170,
+			rotate = 0.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0020 -0.1650 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model SIG550PinkNoMag
+	{
+		mesh = Weapons/Firearm/SIG550NoMag,
+		texture = Weapons/Firearm/SIG550Pink,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0010 0.3820 0.0150,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0020 0.2120 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0010 0.2430 -0.0040,
+			rotate = -89.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0010 0.1200 0.0440,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0160 0.2430 0.0170,
+			rotate = 0.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0020 -0.1650 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model SIG550Green
+	{
+		mesh = Weapons/Firearm/SIG550,
+		texture = Weapons/Firearm/SIG550Green,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0010 0.3820 0.0150,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0020 0.2120 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0010 0.2430 -0.0040,
+			rotate = -89.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0010 0.1200 0.0440,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0160 0.2430 0.0170,
+			rotate = 0.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0020 -0.1650 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model SIG550GreenNoMag
+	{
+		mesh = Weapons/Firearm/SIG550NoMag,
+		texture = Weapons/Firearm/SIG550Green,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0010 0.3820 0.0150,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0020 0.2120 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0010 0.2430 -0.0040,
+			rotate = -89.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0010 0.1200 0.0440,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0160 0.2430 0.0170,
+			rotate = 0.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0020 -0.1650 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model SIG550Shenron
+	{
+		mesh = Weapons/Firearm/SIG550,
+		texture = Weapons/Firearm/SIG550Shenron,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0010 0.3820 0.0150,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0020 0.2120 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0010 0.2430 -0.0040,
+			rotate = -89.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0010 0.1200 0.0440,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0160 0.2430 0.0170,
+			rotate = 0.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0020 -0.1650 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model SIG550ShenronNoMag
+	{
+		mesh = Weapons/Firearm/SIG550NoMag,
+		texture = Weapons/Firearm/SIG550Shenron,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.4250 0.0110,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0010 0.3820 0.0150,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0020 0.2120 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0010 0.2430 -0.0040,
+			rotate = -89.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0010 0.1200 0.0440,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0160 0.2430 0.0170,
+			rotate = 0.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0020 -0.1650 -0.0200,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model StG44CrabShell
+	{
+		mesh = Weapons/Firearm/StG44,
+		texture = Weapons/Firearm/StG44CrabShell,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0070 0.3820 0.0210,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.3700 0.0130,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0700 0.0430,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0020 0.1480 0.0230,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+	}
+	model StG44CrabShellNoMag
+	{
+		mesh = Weapons/Firearm/StG44NoMag,
+		texture = Weapons/Firearm/StG44CrabShell,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0070 0.3820 0.0210,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.3700 0.0130,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0700 0.0430,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0020 0.1480 0.0230,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+	}
+
+	model Remington1100Wood
+	{
+		mesh = Weapons/Firearm/Remington1100,
+		texture = Weapons/Firearm/Remington1100Wood,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.5140 0.0270,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3910 0.0060,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0060 0.2120 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0930 0.0360,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1850 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment stock
+		{
+			offset = 0.0020 -0.0850 0.0090,
+			rotate = 92.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1680 -0.0370,
+			rotate = 3.0000 0.0000 0.0000,
+		}
+	}
+
+	model Remington1100Gold
+	{
+		mesh = Weapons/Firearm/Remington1100,
+		texture = Weapons/Firearm/Remington1100Gold,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.5140 0.0270,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3910 0.0060,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0060 0.2120 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0930 0.0360,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1850 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment stock
+		{
+			offset = 0.0020 -0.0850 0.0090,
+			rotate = 92.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1680 -0.0370,
+			rotate = 3.0000 0.0000 0.0000,
+		}
+	}
+
+	model Remington1100Rainbow
+	{
+		mesh = Weapons/Firearm/Remington1100,
+		texture = Weapons/Firearm/Remington1100Rainbow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.5140 0.0270,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3910 0.0060,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0060 0.2120 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0930 0.0360,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1850 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment stock
+		{
+			offset = 0.0020 -0.0850 0.0090,
+			rotate = 92.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1680 -0.0370,
+			rotate = 3.0000 0.0000 0.0000,
+		}
+	}
+	model Remington1100RedWhite
+	{
+		mesh = Weapons/Firearm/Remington1100,
+		texture = Weapons/Firearm/Remington1100RedWhite,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0050 0.5140 0.0270,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3910 0.0060,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0060 0.2120 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0930 0.0360,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1850 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment stock
+		{
+			offset = 0.0020 -0.0850 0.0090,
+			rotate = 92.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1680 -0.0370,
+			rotate = 3.0000 0.0000 0.0000,
+		}
+	}
+
+	model TrenchGunPink
+	{
+		mesh = Weapons/Firearm/TrenchGun,
+		texture = Weapons/Firearm/TrenchGunPink,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = 0.0000 0.5090 0.0100,
+			rotate = 92.0000 0.0000 -90.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0060 0.4610 0.0270,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3910 0.0060,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = 0.0060 0.2300 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment stock
+		{
+			offset = 0.0150 -0.0650 0.0030,
+			rotate = 91.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = 0.0050 -0.1390 -0.0390,
+			rotate = 3.0000 0.0000 0.0000,
+		}
+	}
+	model TrenchGunYellow
+	{
+		mesh = Weapons/Firearm/TrenchGun,
+		texture = Weapons/Firearm/TrenchGunYellow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment bayonet
+		{
+			offset = 0.0000 0.5090 0.0100,
+			rotate = 92.0000 0.0000 -90.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0060 0.4610 0.0270,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3910 0.0060,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = 0.0060 0.2300 -0.0210,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment stock
+		{
+			offset = 0.0150 -0.0650 0.0030,
+			rotate = 91.0000 0.0000 90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = 0.0050 -0.1390 -0.0390,
+			rotate = 3.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SteelDamascus
+	{
+		mesh = Weapons/Firearm/BarrettM82A1,
+		texture = Weapons/Firearm/BarrettM82A1SteelDamascus,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SteelDamascusNoMag
+	{
+		mesh = Weapons/Firearm/BarrettM82A1NoMag,
+		texture = Weapons/Firearm/BarrettM82A1SteelDamascus,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SteelDamascusSuppressor
+	{
+		mesh = Weapons/Firearm/BarrettM82A1Suppressor,
+		texture = Weapons/Firearm/BarrettM82A1SteelDamascus,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SteelDamascusNoMagSuppressor
+	{
+		mesh = Weapons/Firearm/BarrettM82A1NoMagSuppressor,
+		texture = Weapons/Firearm/BarrettM82A1SteelDamascus,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SteelDamascusBipod
+	{
+		mesh = Weapons/Firearm/BarrettM82A1Bipod,
+		texture = Weapons/Firearm/BarrettM82A1SteelDamascus,
+
+		attachment world
+		{
+			offset = 0.0000 0.0580 -0.0780,
+			rotate = -102.0000 -89.0000 -86.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SteelDamascusBipodNoMag
+	{
+		mesh = Weapons/Firearm/BarrettM82A1BipodNoMag,
+		texture = Weapons/Firearm/BarrettM82A1SteelDamascus,
+
+		attachment world
+		{
+			offset = 0.0000 0.0580 -0.0780,
+			rotate = -102.0000 -89.0000 -86.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SteelDamascusBipodSuppressor
+	{
+		mesh = Weapons/Firearm/BarrettM82A1BipodSuppressor,
+		texture = Weapons/Firearm/BarrettM82A1SteelDamascus,
+
+		attachment world
+		{
+			offset = 0.0000 0.0580 -0.0780,
+			rotate = -102.0000 -89.0000 -86.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SteelDamascusBipodNoMagSuppressor
+	{
+		mesh = Weapons/Firearm/BarrettM82A1BipodNoMagSuppressor,
+		texture = Weapons/Firearm/BarrettM82A1SteelDamascus,
+
+		attachment world
+		{
+			offset = 0.0000 0.0580 -0.0780,
+			rotate = -102.0000 -89.0000 -86.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+
+	model BarrettM82A1SalvagedRage
+	{
+		mesh = Weapons/Firearm/BarrettM82A1,
+		texture = Weapons/Firearm/BarrettM82A1SalvagedRage,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SalvagedRageNoMag
+	{
+		mesh = Weapons/Firearm/BarrettM82A1NoMag,
+		texture = Weapons/Firearm/BarrettM82A1SalvagedRage,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SalvagedRageSuppressor
+	{
+		mesh = Weapons/Firearm/BarrettM82A1Suppressor,
+		texture = Weapons/Firearm/BarrettM82A1SalvagedRage,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SalvagedRageNoMagSuppressor
+	{
+		mesh = Weapons/Firearm/BarrettM82A1NoMagSuppressor,
+		texture = Weapons/Firearm/BarrettM82A1SalvagedRage,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SalvagedRageBipod
+	{
+		mesh = Weapons/Firearm/BarrettM82A1Bipod,
+		texture = Weapons/Firearm/BarrettM82A1SalvagedRage,
+
+		attachment world
+		{
+			offset = 0.0000 0.0580 -0.0780,
+			rotate = -102.0000 -89.0000 -86.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SalvagedRageBipodNoMag
+	{
+		mesh = Weapons/Firearm/BarrettM82A1BipodNoMag,
+		texture = Weapons/Firearm/BarrettM82A1SalvagedRage,
+
+		attachment world
+		{
+			offset = 0.0000 0.0580 -0.0780,
+			rotate = -102.0000 -89.0000 -86.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SalvagedRageBipodSuppressor
+	{
+		mesh = Weapons/Firearm/BarrettM82A1BipodSuppressor,
+		texture = Weapons/Firearm/BarrettM82A1SalvagedRage,
+
+		attachment world
+		{
+			offset = 0.0000 0.0580 -0.0780,
+			rotate = -102.0000 -89.0000 -86.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1SalvagedRageBipodNoMagSuppressor
+	{
+		mesh = Weapons/Firearm/BarrettM82A1BipodNoMagSuppressor,
+		texture = Weapons/Firearm/BarrettM82A1SalvagedRage,
+
+		attachment world
+		{
+			offset = 0.0000 0.0580 -0.0780,
+			rotate = -102.0000 -89.0000 -86.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+
+	model BarrettM82A1ZoidbergSpecial
+	{
+		mesh = Weapons/Firearm/BarrettM82A1,
+		texture = Weapons/Firearm/BarrettM82A1ZoidbergSpecial,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1ZoidbergSpecialNoMag
+	{
+		mesh = Weapons/Firearm/BarrettM82A1NoMag,
+		texture = Weapons/Firearm/BarrettM82A1ZoidbergSpecial,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1ZoidbergSpecialSuppressor
+	{
+		mesh = Weapons/Firearm/BarrettM82A1Suppressor,
+		texture = Weapons/Firearm/BarrettM82A1ZoidbergSpecial,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1ZoidbergSpecialNoMagSuppressor
+	{
+		mesh = Weapons/Firearm/BarrettM82A1NoMagSuppressor,
+		texture = Weapons/Firearm/BarrettM82A1ZoidbergSpecial,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1ZoidbergSpecialBipod
+	{
+		mesh = Weapons/Firearm/BarrettM82A1Bipod,
+		texture = Weapons/Firearm/BarrettM82A1ZoidbergSpecial,
+
+		attachment world
+		{
+			offset = 0.0000 0.0580 -0.0780,
+			rotate = -102.0000 -89.0000 -86.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1ZoidbergSpecialBipodNoMag
+	{
+		mesh = Weapons/Firearm/BarrettM82A1BipodNoMag,
+		texture = Weapons/Firearm/BarrettM82A1ZoidbergSpecial,
+
+		attachment world
+		{
+			offset = 0.0000 0.0580 -0.0780,
+			rotate = -102.0000 -89.0000 -86.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1ZoidbergSpecialBipodSuppressor
+	{
+		mesh = Weapons/Firearm/BarrettM82A1BipodSuppressor,
+		texture = Weapons/Firearm/BarrettM82A1ZoidbergSpecial,
+
+		attachment world
+		{
+			offset = 0.0000 0.0580 -0.0780,
+			rotate = -102.0000 -89.0000 -86.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model BarrettM82A1ZoidbergSpecialBipodNoMagSuppressor
+	{
+		mesh = Weapons/Firearm/BarrettM82A1BipodNoMagSuppressor,
+		texture = Weapons/Firearm/BarrettM82A1ZoidbergSpecial,
+
+		attachment world
+		{
+			offset = 0.0000 0.0580 -0.0780,
+			rotate = -102.0000 -89.0000 -86.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0080 0.6550 0.0290,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0070 0.6210 0.0230,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.1330 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1870 0.0250,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0080 -0.1560 0.0030,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model SVDDragunovSnowstorm
+	{
+		mesh = Weapons/Firearm/SVDDragunov,
+		texture = Weapons/Firearm/SVDDragunovSnowstorm,
+
+		attachment world
+		{
+			offset = -0.0050 0.1370 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.6340 0.0210,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.5850 0.0150,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0990 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1740 0.0240,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1500 -0.0150,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment buttstock
+		{
+			offset = -0.0230 -0.0760 0.0230,
+			rotate = 87.0000 0.0000 -91.0000,
+		}
+
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model SVDDragunovSnowstormNoMag
+		{
+		mesh = Weapons/Firearm/SVDDragunovNoMag,
+		texture = Weapons/Firearm/SVDDragunovSnowstorm,
+
+		attachment world
+		{
+			offset = -0.0050 0.1370 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.6340 0.0210,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.5850 0.0150,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0990 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1740 0.0240,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1500 -0.0150,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment buttstock
+		{
+			offset = -0.0230 -0.0760 0.0230,
+			rotate = 87.0000 0.0000 -91.0000,
+		}
+
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model SVDDragunovSurvivalist
+	{
+		mesh = Weapons/Firearm/SVDDragunov,
+		texture = Weapons/Firearm/SVDDragunovSurvivalist,
+
+		attachment world
+		{
+			offset = -0.0050 0.1370 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.6340 0.0210,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.5850 0.0150,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0990 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1740 0.0240,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1500 -0.0150,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment buttstock
+		{
+			offset = -0.0230 -0.0760 0.0230,
+			rotate = 87.0000 0.0000 -91.0000,
+		}
+
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model SVDDragunovSurvivalistNoMag
+		{
+		mesh = Weapons/Firearm/SVDDragunovNoMag,
+		texture = Weapons/Firearm/SVDDragunovSurvivalist,
+
+		attachment world
+		{
+			offset = -0.0050 0.1370 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0060 0.6340 0.0210,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0060 0.5850 0.0150,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0990 0.0460,
+			rotate = -85.0000 90.0000 175.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0030 0.1740 0.0240,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1500 -0.0150,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment buttstock
+		{
+			offset = -0.0230 -0.0760 0.0230,
+			rotate = 87.0000 0.0000 -91.0000,
+		}
+
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model PM63RAKGreenAnimal
+	{
+		mesh = Weapons/Firearm/PM63RAK,
+		texture = Weapons/Firearm/PM63RAKGreenAnimal,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0040 0.1850 -0.0230,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0020 0.1810 -0.0290,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0030 0.0490 -0.0330,
+			rotate = 0.0000 -89.0000 89.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0060 0.0910 -0.0240,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0030 0.0440 -0.0320,
+			rotate = 0.0000 -90.0000 91.0000,
+		}
+
+		attachment drum
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model PM63RAKGrGreenAnimal
+	{
+		mesh = Weapons/Firearm/PM63RAKGr,
+		texture = Weapons/Firearm/PM63RAKGreenAnimal,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0010 0.1850 0.0270,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1810 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0010 0.0490 0.0350,
+			rotate = -90.0000 90.0000 180.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0060 0.0910 0.0270,
+			rotate = 0.0000 0.0000 90.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0000 0.0440 0.0340,
+			rotate = 179.0000 89.0000 -88.0000,
+		}
+
+		attachment drum
+		{
+			offset = -0.0030 0.0000 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+	}
+	model PM63RAKExtGreenAnimal
+	{
+		mesh = Weapons/Firearm/PM63RAKExt,
+		texture = Weapons/Firearm/PM63RAKGreenAnimal,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0010 0.1850 0.0270,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1810 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0010 0.0490 0.0350,
+			rotate = -90.0000 90.0000 180.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0060 0.0910 0.0270,
+			rotate = 0.0000 0.0000 90.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0000 0.0440 0.0340,
+			rotate = 179.0000 89.0000 -88.0000,
+		}
+
+		attachment drum
+		{
+			offset = -0.0030 0.0000 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+	}
+	model PM63RAKExtGrGreenAnimal
+		{
+		mesh = Weapons/Firearm/PM63RAKExtGr,
+		texture = Weapons/Firearm/PM63RAKGreenAnimal,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0010 0.1850 0.0270,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1810 0.0200,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0010 0.0490 0.0350,
+			rotate = -90.0000 90.0000 180.0000,
+		}
+
+		attachment side
+		{
+			offset = -0.0060 0.0910 0.0270,
+			rotate = 0.0000 0.0000 90.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0000 0.0440 0.0340,
+			rotate = 179.0000 89.0000 -88.0000,
+		}
+
+		attachment drum
+		{
+			offset = -0.0030 0.0000 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+	}
+	model MiniUziGold
+	{
+		mesh = Weapons/Firearm/MiniUzi,
+		texture = Weapons/Firearm/MiniUziGold,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0020 0.1880 -0.0170,
+			rotate = -90.0000 0.0000 121.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1630 -0.0240,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0010 0.0150 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0060 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment laser
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+	}
+	model MiniUziGoldNoMag
+	{
+		mesh = Weapons/Firearm/MiniUziNoMag,
+		texture = Weapons/Firearm/MiniUziGold,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0020 0.1880 -0.0170,
+			rotate = -90.0000 0.0000 121.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1630 -0.0240,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0010 0.0150 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0060 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment laser
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+	}
+	model MiniUziGold_Folded
+	{
+		mesh = Weapons/Firearm/MiniUzi_Folded,
+		texture = Weapons/Firearm/MiniUziGold,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0020 0.1880 -0.0170,
+			rotate = -90.0000 0.0000 121.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1630 -0.0240,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0010 0.0150 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0060 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment laser
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+	}
+	model MiniUziGoldNoMag_Folded
+	{
+		mesh = Weapons/Firearm/MiniUziNoMag_Folded,
+		texture = Weapons/Firearm/MiniUziGold,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0020 0.1880 -0.0170,
+			rotate = -90.0000 0.0000 121.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1630 -0.0240,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0010 0.0150 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0060 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment laser
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+	}
+	model MiniUziRainbow
+	{
+		mesh = Weapons/Firearm/MiniUzi,
+		texture = Weapons/Firearm/MiniUziRainbow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0020 0.1880 -0.0170,
+			rotate = -90.0000 0.0000 121.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1630 -0.0240,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0010 0.0150 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0060 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment laser
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+	}
+	model MiniUziRainbowNoMag
+	{
+		mesh = Weapons/Firearm/MiniUziNoMag,
+		texture = Weapons/Firearm/MiniUziRainbow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0020 0.1880 -0.0170,
+			rotate = -90.0000 0.0000 121.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1630 -0.0240,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0010 0.0150 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0060 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment laser
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+	}
+	model MiniUziRainbow_Folded
+	{
+		mesh = Weapons/Firearm/MiniUzi_Folded,
+		texture = Weapons/Firearm/MiniUziRainbow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0020 0.1880 -0.0170,
+			rotate = -90.0000 0.0000 121.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1630 -0.0240,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0010 0.0150 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0060 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment laser
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+	}
+	model MiniUziRainbowNoMag_Folded
+	{
+		mesh = Weapons/Firearm/MiniUziNoMag_Folded,
+		texture = Weapons/Firearm/MiniUziRainbow,
+
+		attachment world
+		{
+			offset = -0.0050 0.0670 -0.0100,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = 0.0020 0.1880 -0.0170,
+			rotate = -90.0000 0.0000 121.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = 0.0010 0.1630 -0.0240,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0010 0.0150 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment gunlight
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0060 -0.0370,
+			rotate = 109.0000 -90.0000 -162.0000,
+		}
+
+		attachment laser
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.1210 -0.0260,
+			rotate = -179.0000 0.0000 -90.0000,
+		}
+	}
+
+
+		model M4A1Tan
+	{
+		mesh = Weapons/Firearm/M4A1,
+		texture = Weapons/Firearm/M4A1Tan,
+
+		attachment world
+		{
+			offset = 0.0200 0.1300 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0040 0.3800 0.0210,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0850 0.0410,
+			rotate = -179.0000 89.0000 -91.0000,
+		}
+
+		attachment scope2
+		{
+			offset = -0.0050 0.0390 0.0460,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0070 0.2120 -0.0060,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0060 0.2290 0.0030,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3570 0.0160,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.2090 0.0290,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1300 0.0010,
+			rotate = 0.0000 0.0000 -0.0400,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0050 0.0810 0.0310,
+			rotate = 179.0000 0.0000 -180.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0310 0.1900 0.0230,
+			rotate = 180.0000 90.0000 180.0000,
+		}
+
+		attachment coupled556
+		{
+			offset = -0.0080 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment sling_rifle
+		{
+			offset = -0.0110 0.0480 0.0290,
+			rotate = -6.0000 1.0000 1.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = -0.0190 0.0020 0.0120,
+			rotate = -1.0000 17.0000 3.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0200 0.0490 0.0060,
+			rotate = -15.0000 -2.0000 -15.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = 0.0270 0.0240 -0.0090,
+			rotate = 4.0000 -15.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = 0.0020 -0.0060 0.0050,
+			rotate = 1.0000 12.0000 1.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model M4A1TanNoMag
+	{
+		mesh = Weapons/Firearm/M4A1NoMag,
+		texture = Weapons/Firearm/M4A1Tan,
+
+		attachment world
+		{
+			offset = 0.0200 0.1300 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0040 0.3800 0.0210,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0850 0.0410,
+			rotate = -179.0000 89.0000 -91.0000,
+		}
+
+		attachment scope2
+		{
+			offset = -0.0050 0.0390 0.0460,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0070 0.2120 -0.0060,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0060 0.2290 0.0030,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3570 0.0160,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.2090 0.0290,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1300 0.0010,
+			rotate = 0.0000 0.0000 -0.0400,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0050 0.0810 0.0310,
+			rotate = 179.0000 0.0000 -180.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0310 0.1900 0.0230,
+			rotate = 180.0000 90.0000 180.0000,
+		}
+
+		attachment coupled556
+		{
+			offset = -0.0080 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment sling_rifle
+		{
+			offset = -0.0110 0.0480 0.0290,
+			rotate = -6.0000 1.0000 1.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = -0.0190 0.0020 0.0120,
+			rotate = -1.0000 17.0000 3.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0200 0.0490 0.0060,
+			rotate = -15.0000 -2.0000 -15.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = 0.0270 0.0240 -0.0090,
+			rotate = 4.0000 -15.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = 0.0020 -0.0060 0.0050,
+			rotate = 1.0000 12.0000 1.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model M4A1White
+	{
+		mesh = Weapons/Firearm/M4A1,
+		texture = Weapons/Firearm/M4A1White,
+
+		attachment world
+		{
+			offset = 0.0200 0.1300 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0040 0.3800 0.0210,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0850 0.0410,
+			rotate = -179.0000 89.0000 -91.0000,
+		}
+
+		attachment scope2
+		{
+			offset = -0.0050 0.0390 0.0460,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0070 0.2120 -0.0060,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0060 0.2290 0.0030,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3570 0.0160,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.2090 0.0290,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1300 0.0010,
+			rotate = 0.0000 0.0000 -0.0400,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0050 0.0810 0.0310,
+			rotate = 179.0000 0.0000 -180.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0310 0.1900 0.0230,
+			rotate = 180.0000 90.0000 180.0000,
+		}
+
+		attachment coupled556
+		{
+			offset = -0.0080 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment sling_rifle
+		{
+			offset = -0.0110 0.0480 0.0290,
+			rotate = -6.0000 1.0000 1.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = -0.0190 0.0020 0.0120,
+			rotate = -1.0000 17.0000 3.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0200 0.0490 0.0060,
+			rotate = -15.0000 -2.0000 -15.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = 0.0270 0.0240 -0.0090,
+			rotate = 4.0000 -15.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = 0.0020 -0.0060 0.0050,
+			rotate = 1.0000 12.0000 1.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model M4A1WhiteNoMag
+	{
+		mesh = Weapons/Firearm/M4A1NoMag,
+		texture = Weapons/Firearm/M4A1White,
+
+		attachment world
+		{
+			offset = 0.0200 0.1300 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0040 0.3800 0.0210,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0850 0.0410,
+			rotate = -179.0000 89.0000 -91.0000,
+		}
+
+		attachment scope2
+		{
+			offset = -0.0050 0.0390 0.0460,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0070 0.2120 -0.0060,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0060 0.2290 0.0030,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3570 0.0160,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.2090 0.0290,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1300 0.0010,
+			rotate = 0.0000 0.0000 -0.0400,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0050 0.0810 0.0310,
+			rotate = 179.0000 0.0000 -180.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0310 0.1900 0.0230,
+			rotate = 180.0000 90.0000 180.0000,
+		}
+
+		attachment coupled556
+		{
+			offset = -0.0080 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment sling_rifle
+		{
+			offset = -0.0110 0.0480 0.0290,
+			rotate = -6.0000 1.0000 1.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = -0.0190 0.0020 0.0120,
+			rotate = -1.0000 17.0000 3.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0200 0.0490 0.0060,
+			rotate = -15.0000 -2.0000 -15.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = 0.0270 0.0240 -0.0090,
+			rotate = 4.0000 -15.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = 0.0020 -0.0060 0.0050,
+			rotate = 1.0000 12.0000 1.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model M4A1Blue
+	{
+		mesh = Weapons/Firearm/M4A1,
+		texture = Weapons/Firearm/M4A1Blue,
+
+		attachment world
+		{
+			offset = 0.0200 0.1300 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0040 0.3800 0.0210,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0850 0.0410,
+			rotate = -179.0000 89.0000 -91.0000,
+		}
+
+		attachment scope2
+		{
+			offset = -0.0050 0.0390 0.0460,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0070 0.2120 -0.0060,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0060 0.2290 0.0030,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3570 0.0160,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.2090 0.0290,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1300 0.0010,
+			rotate = 0.0000 0.0000 -0.0400,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0050 0.0810 0.0310,
+			rotate = 179.0000 0.0000 -180.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0310 0.1900 0.0230,
+			rotate = 180.0000 90.0000 180.0000,
+		}
+
+		attachment coupled556
+		{
+			offset = -0.0080 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment sling_rifle
+		{
+			offset = -0.0110 0.0480 0.0290,
+			rotate = -6.0000 1.0000 1.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = -0.0190 0.0020 0.0120,
+			rotate = -1.0000 17.0000 3.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0200 0.0490 0.0060,
+			rotate = -15.0000 -2.0000 -15.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = 0.0270 0.0240 -0.0090,
+			rotate = 4.0000 -15.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = 0.0020 -0.0060 0.0050,
+			rotate = 1.0000 12.0000 1.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model M4A1BlueNoMag
+	{
+		mesh = Weapons/Firearm/M4A1NoMag,
+		texture = Weapons/Firearm/M4A1Blue,
+
+		attachment world
+		{
+			offset = 0.0200 0.1300 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0040 0.3800 0.0210,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0850 0.0410,
+			rotate = -179.0000 89.0000 -91.0000,
+		}
+
+		attachment scope2
+		{
+			offset = -0.0050 0.0390 0.0460,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0070 0.2120 -0.0060,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0060 0.2290 0.0030,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3570 0.0160,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.2090 0.0290,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1300 0.0010,
+			rotate = 0.0000 0.0000 -0.0400,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0050 0.0810 0.0310,
+			rotate = 179.0000 0.0000 -180.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0310 0.1900 0.0230,
+			rotate = 180.0000 90.0000 180.0000,
+		}
+
+		attachment coupled556
+		{
+			offset = -0.0080 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment sling_rifle
+		{
+			offset = -0.0110 0.0480 0.0290,
+			rotate = -6.0000 1.0000 1.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = -0.0190 0.0020 0.0120,
+			rotate = -1.0000 17.0000 3.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0200 0.0490 0.0060,
+			rotate = -15.0000 -2.0000 -15.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = 0.0270 0.0240 -0.0090,
+			rotate = 4.0000 -15.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = 0.0020 -0.0060 0.0050,
+			rotate = 1.0000 12.0000 1.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model M4A1Red
+	{
+		mesh = Weapons/Firearm/M4A1,
+		texture = Weapons/Firearm/M4A1Red,
+
+		attachment world
+		{
+			offset = 0.0200 0.1300 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0040 0.3800 0.0210,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0850 0.0410,
+			rotate = -179.0000 89.0000 -91.0000,
+		}
+
+		attachment scope2
+		{
+			offset = -0.0050 0.0390 0.0460,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0070 0.2120 -0.0060,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0060 0.2290 0.0030,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3570 0.0160,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.2090 0.0290,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1300 0.0010,
+			rotate = 0.0000 0.0000 -0.0400,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0050 0.0810 0.0310,
+			rotate = 179.0000 0.0000 -180.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0310 0.1900 0.0230,
+			rotate = 180.0000 90.0000 180.0000,
+		}
+
+		attachment coupled556
+		{
+			offset = -0.0080 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment sling_rifle
+		{
+			offset = -0.0110 0.0480 0.0290,
+			rotate = -6.0000 1.0000 1.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = -0.0190 0.0020 0.0120,
+			rotate = -1.0000 17.0000 3.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0200 0.0490 0.0060,
+			rotate = -15.0000 -2.0000 -15.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = 0.0270 0.0240 -0.0090,
+			rotate = 4.0000 -15.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = 0.0020 -0.0060 0.0050,
+			rotate = 1.0000 12.0000 1.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model M4A1RedNoMag
+	{
+		mesh = Weapons/Firearm/M4A1NoMag,
+		texture = Weapons/Firearm/M4A1Red,
+
+		attachment world
+		{
+			offset = 0.0200 0.1300 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0040 0.3800 0.0210,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0850 0.0410,
+			rotate = -179.0000 89.0000 -91.0000,
+		}
+
+		attachment scope2
+		{
+			offset = -0.0050 0.0390 0.0460,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0070 0.2120 -0.0060,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0060 0.2290 0.0030,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3570 0.0160,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.2090 0.0290,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1300 0.0010,
+			rotate = 0.0000 0.0000 -0.0400,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0050 0.0810 0.0310,
+			rotate = 179.0000 0.0000 -180.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0310 0.1900 0.0230,
+			rotate = 180.0000 90.0000 180.0000,
+		}
+
+		attachment coupled556
+		{
+			offset = -0.0080 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment sling_rifle
+		{
+			offset = -0.0110 0.0480 0.0290,
+			rotate = -6.0000 1.0000 1.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = -0.0190 0.0020 0.0120,
+			rotate = -1.0000 17.0000 3.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0200 0.0490 0.0060,
+			rotate = -15.0000 -2.0000 -15.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = 0.0270 0.0240 -0.0090,
+			rotate = 4.0000 -15.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = 0.0020 -0.0060 0.0050,
+			rotate = 1.0000 12.0000 1.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model M4A1Pink
+	{
+		mesh = Weapons/Firearm/M4A1,
+		texture = Weapons/Firearm/M4A1Pink,
+
+		attachment world
+		{
+			offset = 0.0200 0.1300 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0040 0.3800 0.0210,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0850 0.0410,
+			rotate = -179.0000 89.0000 -91.0000,
+		}
+
+		attachment scope2
+		{
+			offset = -0.0050 0.0390 0.0460,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0070 0.2120 -0.0060,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0060 0.2290 0.0030,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3570 0.0160,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.2090 0.0290,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1300 0.0010,
+			rotate = 0.0000 0.0000 -0.0400,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0050 0.0810 0.0310,
+			rotate = 179.0000 0.0000 -180.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0310 0.1900 0.0230,
+			rotate = 180.0000 90.0000 180.0000,
+		}
+
+		attachment coupled556
+		{
+			offset = -0.0080 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment sling_rifle
+		{
+			offset = -0.0110 0.0480 0.0290,
+			rotate = -6.0000 1.0000 1.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = -0.0190 0.0020 0.0120,
+			rotate = -1.0000 17.0000 3.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0200 0.0490 0.0060,
+			rotate = -15.0000 -2.0000 -15.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = 0.0270 0.0240 -0.0090,
+			rotate = 4.0000 -15.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = 0.0020 -0.0060 0.0050,
+			rotate = 1.0000 12.0000 1.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model M4A1PinkNoMag
+	{
+		mesh = Weapons/Firearm/M4A1NoMag,
+		texture = Weapons/Firearm/M4A1Pink,
+
+		attachment world
+		{
+			offset = 0.0200 0.1300 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0040 0.3800 0.0210,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0850 0.0410,
+			rotate = -179.0000 89.0000 -91.0000,
+		}
+
+		attachment scope2
+		{
+			offset = -0.0050 0.0390 0.0460,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0070 0.2120 -0.0060,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0060 0.2290 0.0030,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3570 0.0160,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.2090 0.0290,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1300 0.0010,
+			rotate = 0.0000 0.0000 -0.0400,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0050 0.0810 0.0310,
+			rotate = 179.0000 0.0000 -180.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0310 0.1900 0.0230,
+			rotate = 180.0000 90.0000 180.0000,
+		}
+
+		attachment coupled556
+		{
+			offset = -0.0080 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment sling_rifle
+		{
+			offset = -0.0110 0.0480 0.0290,
+			rotate = -6.0000 1.0000 1.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = -0.0190 0.0020 0.0120,
+			rotate = -1.0000 17.0000 3.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0200 0.0490 0.0060,
+			rotate = -15.0000 -2.0000 -15.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = 0.0270 0.0240 -0.0090,
+			rotate = 4.0000 -15.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = 0.0020 -0.0060 0.0050,
+			rotate = 1.0000 12.0000 1.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model M4A1Cannabis
+	{
+		mesh = Weapons/Firearm/M4A1,
+		texture = Weapons/Firearm/M4A1Cannabis,
+
+		attachment world
+		{
+			offset = 0.0200 0.1300 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0040 0.3800 0.0210,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0850 0.0410,
+			rotate = -179.0000 89.0000 -91.0000,
+		}
+
+		attachment scope2
+		{
+			offset = -0.0050 0.0390 0.0460,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0070 0.2120 -0.0060,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0060 0.2290 0.0030,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3570 0.0160,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.2090 0.0290,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1300 0.0010,
+			rotate = 0.0000 0.0000 -0.0400,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0050 0.0810 0.0310,
+			rotate = 179.0000 0.0000 -180.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0310 0.1900 0.0230,
+			rotate = 180.0000 90.0000 180.0000,
+		}
+
+		attachment coupled556
+		{
+			offset = -0.0080 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment sling_rifle
+		{
+			offset = -0.0110 0.0480 0.0290,
+			rotate = -6.0000 1.0000 1.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = -0.0190 0.0020 0.0120,
+			rotate = -1.0000 17.0000 3.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0200 0.0490 0.0060,
+			rotate = -15.0000 -2.0000 -15.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = 0.0270 0.0240 -0.0090,
+			rotate = 4.0000 -15.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = 0.0020 -0.0060 0.0050,
+			rotate = 1.0000 12.0000 1.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model M4A1CannabisNoMag
+	{
+		mesh = Weapons/Firearm/M4A1NoMag,
+		texture = Weapons/Firearm/M4A1Cannabis,
+
+		attachment world
+		{
+			offset = 0.0200 0.1300 0.0000,
+			rotate = 180.0000 0.0000 180.0000,
+		}
+
+		attachment muzzle
+		{
+			offset = -0.0040 0.3800 0.0210,
+			rotate = -90.0000 0.0000 180.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0060 0.0850 0.0410,
+			rotate = -179.0000 89.0000 -91.0000,
+		}
+
+		attachment scope2
+		{
+			offset = -0.0050 0.0390 0.0460,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment foregrip
+		{
+			offset = -0.0070 0.2120 -0.0060,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment anglegrip
+		{
+			offset = -0.0060 0.2290 0.0030,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment barrelend
+		{
+			offset = -0.0050 0.3570 0.0160,
+			rotate = -90.0000 0.0000 -180.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0120 0.2090 0.0290,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0060 -0.1300 0.0010,
+			rotate = 0.0000 0.0000 -0.0400,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0050 0.0810 0.0310,
+			rotate = 179.0000 0.0000 -180.0000,
+		}
+
+		attachment laser
+		{
+			offset = -0.0310 0.1900 0.0230,
+			rotate = 180.0000 90.0000 180.0000,
+		}
+
+		attachment coupled556
+		{
+			offset = -0.0080 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment sling_rifle
+		{
+			offset = -0.0110 0.0480 0.0290,
+			rotate = -6.0000 1.0000 1.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle2
+		{
+			offset = -0.0190 0.0020 0.0120,
+			rotate = -1.0000 17.0000 3.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifle3
+		{
+			offset = -0.0200 0.0490 0.0060,
+			rotate = -15.0000 -2.0000 -15.0000,
+			bone = Bip01_Spine,
+		}
+
+		attachment sling_rifleback
+		{
+			offset = 0.0270 0.0240 -0.0090,
+			rotate = 4.0000 -15.0000 0.0000,
+			bone = Bip01_BackPack,
+		}
+
+		attachment sling_riflebag
+		{
+			offset = 0.0020 -0.0060 0.0050,
+			rotate = 1.0000 12.0000 1.0000,
+			bone = Bip01_BackPack,
+		}
+	}
+	model ColtCavalryRevolverGold
+	{
+
+		mesh = Weapons/Firearm/ColtCavalryRevolver,
+		texture = Weapons/Firearm/ColtCavalryRevolverGold,
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.2160 -0.0270,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0640 -0.0310,
+			rotate = -1.0000 -89.0000 89.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0020 0.0770 -0.0370,
+			rotate = -1.0000 -89.0000 89.0000,
+		}
+
+		attachment grip
+		{
+			offset = 0.0000 -0.0070 -0.0050,
+			rotate = 11.0000 0.0000 0.0000,
+		}
+
+		attachment world
+		{
+			offset = -0.0100 0.0690 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model ColtCavalryRevolverMeleeGold
+	{
+		mesh = Weapons/Firearm/ColtCavalryRevolverMelee,
+		texture = Weapons/Firearm/ColtCavalryRevolverGold,
+
+		attachment muzzle
+		{
+			offset = 0.0000 -0.0460 0.0370,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0070 0.0840 0.0010,
+			rotate = 72.0000 -87.0000 1.0000,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0040 0.0830 0.0060,
+			rotate = 72.0000 -86.0000 0.0000,
+		}
+
+		attachment grip
+		{
+			offset = -0.0100 0.1540 -0.0520,
+			rotate = 177.0000 0.0000 -3.0000,
+		}
+
+		attachment world
+		{
+			offset = -0.0100 0.0690 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model ColtCavalryRevolverOrnateIvory
+	{
+
+		mesh = Weapons/Firearm/ColtCavalryRevolver,
+		texture = Weapons/Firearm/ColtCavalryRevolverOrnateIvory,
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.2160 -0.0270,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0640 -0.0310,
+			rotate = -1.0000 -89.0000 89.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0020 0.0770 -0.0370,
+			rotate = -1.0000 -89.0000 89.0000,
+		}
+
+		attachment grip
+		{
+			offset = 0.0000 -0.0070 -0.0050,
+			rotate = 11.0000 0.0000 0.0000,
+		}
+
+		attachment world
+		{
+			offset = -0.0100 0.0690 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model ColtCavalryRevolverMeleeOrnateIvory
+	{
+		mesh = Weapons/Firearm/ColtCavalryRevolverMelee,
+		texture = Weapons/Firearm/ColtCavalryRevolverOrnateIvory,
+
+		attachment muzzle
+		{
+			offset = 0.0000 -0.0460 0.0370,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0070 0.0840 0.0010,
+			rotate = 72.0000 -87.0000 1.0000,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0040 0.0830 0.0060,
+			rotate = 72.0000 -86.0000 0.0000,
+		}
+
+		attachment grip
+		{
+			offset = -0.0100 0.1540 -0.0520,
+			rotate = 177.0000 0.0000 -3.0000,
+		}
+
+		attachment world
+		{
+			offset = -0.0100 0.0690 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model ColtCavalryRevolverBlackDeath
+	{
+
+		mesh = Weapons/Firearm/ColtCavalryRevolver,
+		texture = Weapons/Firearm/ColtCavalryRevolverBlackDeath,
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.2160 -0.0270,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = 0.0000 0.0640 -0.0310,
+			rotate = -1.0000 -89.0000 89.0000,
+		}
+
+		attachment reddot
+		{
+			offset = 0.0020 0.0770 -0.0370,
+			rotate = -1.0000 -89.0000 89.0000,
+		}
+
+		attachment grip
+		{
+			offset = 0.0000 -0.0070 -0.0050,
+			rotate = 11.0000 0.0000 0.0000,
+		}
+
+		attachment world
+		{
+			offset = -0.0100 0.0690 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+	model ColtCavalryRevolverMeleeBlackDeath
+	{
+		mesh = Weapons/Firearm/ColtCavalryRevolverMelee,
+		texture = Weapons/Firearm/ColtCavalryRevolverBlackDeath,
+
+		attachment muzzle
+		{
+			offset = 0.0000 -0.0460 0.0370,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0070 0.0840 0.0010,
+			rotate = 72.0000 -87.0000 1.0000,
+		}
+
+		attachment reddot
+		{
+			offset = -0.0040 0.0830 0.0060,
+			rotate = 72.0000 -86.0000 0.0000,
+		}
+
+		attachment grip
+		{
+			offset = -0.0100 0.1540 -0.0520,
+			rotate = 177.0000 0.0000 -3.0000,
+		}
+
+		attachment world
+		{
+			offset = -0.0100 0.0690 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+
+	model CrossbowCompoundRedWhite
+	{
+		mesh = Weapons/Firearm/CrossbowCompoundEmpty,
+		texture = Weapons/Firearm/CrossbowCompoundRedWhite,
+
+		attachment world
+		{
+			offset = -0.0100 0.0690 0.0420,
+			rotate = 0.0000 89.0000 -7.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0050 0.0720 0.0310,
+			rotate = -1.0000 89.0000 92.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1370 -0.0260,
+			rotate = 1.0000 1.0000 1.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0110 0.0650 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment rifle_back
+		{
+			offset = -0.0030 0.0420 0.0070,
+			rotate = -65.0000 -79.0000 -63.0000,
+		}
+	}
+	model CrossbowCompoundLoadedRedWhite
+	{
+		mesh = Weapons/Firearm/CrossbowCompound,
+		texture = Weapons/Firearm/CrossbowCompoundRedWhite,
+
+		attachment world
+		{
+			offset = -0.0100 0.0690 0.0420,
+			rotate = 0.0000 89.0000 -7.0000,
+		}
+
+		attachment scope
+		{
+			offset = -0.0050 0.0720 0.0310,
+			rotate = -1.0000 89.0000 92.0000,
+		}
+
+		attachment recoilpad
+		{
+			offset = -0.0050 -0.1370 -0.0260,
+			rotate = 1.0000 1.0000 1.0000,
+		}
+
+		attachment side
+		{
+			offset = 0.0110 0.0650 0.0120,
+			rotate = 180.0000 0.0000 -90.0000,
+		}
+
+		attachment rifle_back
+		{
+			offset = -0.0030 0.0420 0.0070,
+			rotate = -65.0000 -79.0000 -63.0000,
+		}
+	}
+}

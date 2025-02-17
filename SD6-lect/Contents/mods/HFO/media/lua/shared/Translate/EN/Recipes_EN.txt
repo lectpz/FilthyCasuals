@@ -1,0 +1,27 @@
+Recipes_EN = {
+
+    Recipe_Clean_Pistol                     = "Clean Pistol",
+    Recipe_Clean_Revolver                   = "Clean Revolver",
+    Recipe_Clean_Rifle                      = "Clean Rifle",
+    Recipe_Clean_Shotgun                    = "Clean Shotgun",
+
+	Recipe_Open_Box_of_.223_Ammo            = "Open Box of .223 Rounds",
+    Recipe_Open_Box_of_.308_Ammo            = "Open Box of .308 Rounds",
+    Recipe_Open_Box_of_.38_Special_Bullets  = "Open Box of .38 Special Rounds",
+    Recipe_Open_Box_of_.44_Magnum_Bullets   = "Open Box of .44 Magnum Rounds",
+    Recipe_Open_Box_of_.45_Auto_Bullets     = "Open Box of .45 Auto Rounds",
+    Recipe_Open_Box_of_.556_Ammo            = "Open Box of 5.56mm Rounds",
+    Recipe_Open_Box_of_9mm_Bullets          = "Open Box of 9mm Rounds",
+    Recipe_Open_Box_of_Shotgun_Shells       = "Open Box of Shotgun Shells",
+
+	Recipe_Place_.223_Ammo_in_Box           = "Place .223 Rounds in Box",
+    Recipe_Place_.308_Ammo_in_Box           = "Place .308 Rounds in Box",
+    Recipe_Place_.38_Speciam_Bullets_in_Box = "Place .38 Special Rounds in Box",
+    Recipe_Place_.44_Magnum_Bullets_in_Box  = "Place .44 Magnum Rounds in Box",
+    Recipe_Place_.45_Auto_Bullets_in_Box    = "Place .45 Auto Rounds in Box",
+    Recipe_Place_.556_Ammo_in_Box           = "Place 5.56mm Rounds in Box",
+    Recipe_Place_Shotgun_Shells_in_Box      = "Place Shotgun Shells in Box",
+
+    Recipe_Sawn_Off_Shotgun                 = "Saw Shotgun",
+    Recipe_Sawn_Off_Double_Barrel_Shotgun   = "Saw Shotgun",
+}

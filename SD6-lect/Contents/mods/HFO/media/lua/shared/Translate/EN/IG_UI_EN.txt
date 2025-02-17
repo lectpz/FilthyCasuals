@@ -1,0 +1,29 @@
+IGUI_EN = {
+
+	IGUI_HotbarAttachment_WeaponLight = "Weapon Light Hotkey",
+    
+    IGUI_HFA_Bipod = "Toggle Bipod (Open / Close)",
+    IGUI_HFA_LaserGreen = "Toggle Laser Green (On / Off)",
+    IGUI_HFA_LaserRed = "Toggle Laser Red (On / Off)",
+
+    IGUI_HFO_On = "On",
+	IGUI_HFO_Off = "Off",
+	IGUI_HFO_MeleeMode = "Melee Mode Change",
+	IGUI_HFO_MeleeRanged = "Ranged Mode",
+	IGUI_HFO_MeleeMelee = "Melee Mode",
+	IGUI_HFO_Firemode = "Selective Fire",
+	IGUI_HFO_WeaponLight = "Weapon Light",
+	IGUI_HFO_Caliber = "Caliber Change",
+	IGUI_HFO_StockToggle = "Toggle Stock",
+	IGUI_HFO_StockFold = "Folded",
+	IGUI_HFO_StockExtended = "Extended",
+	IGUI_HFO_IntegratedToggle = "Toggle Integrated",
+	IGUI_HFO_IntegratedRetracted = "Retracted",
+	IGUI_HFO_IntegratedExtended = "Extended", 
+	IGUI_HFO_IntegratedGrip = "Extended",
+	IGUI_HFO_SwapMagazine = "Swap Magazine", 
+	IGUI_HFO_DefaultMag = "Default Mag",
+	IGUI_HFO_ExtSm = "Small Extended Mag",
+	IGUI_HFO_ExtLg = "Large Extended Mag",
+	IGUI_HFO_Drum = "Drum Mag",
+}
