@@ -90,6 +90,12 @@ function EventHandlers.OnClothingUpdated(player)
             end
         end
     end
+    
+    for _, buff in pairs(BuffSystem.BUFF_CALCULATIONS) do
+        if buff.apply then
+            buff.apply(player)
+        end
+    end
 end
 
 return EventHandlers
