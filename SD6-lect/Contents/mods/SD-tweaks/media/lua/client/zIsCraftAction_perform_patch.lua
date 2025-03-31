@@ -1,6 +1,22 @@
-local ISCraftAction_o_perform = ISCraftAction.perform
-function ISCraftAction:perform()
-	if isAdmin() or isDebugEnabled() then ISCraftAction_o_perform(self) return end
+local ISCraftAction_o_isValid = ISCraftAction.isValid
+function ISCraftAction:isValid()
+	if isAdmin() or isDebugEnabled() then return ISCraftAction_o_isValid(self) end
+	
+	--[[local parent = self.container:getParent()
+	if parent and parent:getModData().owner and not instanceof(parent, "BaseVehicle") then
+		player:Say("I cannot craft out of a player shop.")
+		return false
+	end
+	local canBeDoneFromFloor, containers = self.containers
+	for i=0,containers:size()-1 do
+		local container = containers:get(i)
+		local containersParent = container:getParent()
+		if containersParent and containersParent:getModData().owner and not instanceof(containersParent, "BaseVehicle") then
+			player:Say("I cannot craft out of a player shop.")
+			return false
+		end
+	end]]
+	
 	local player = self.character
 	local x = player:getX()
 	local y = player:getY()
@@ -25,6 +41,7 @@ function ISCraftAction:perform()
 
 	if ISTradingUI.instance and ISTradingUI.instance:isVisible() then
 		player:Say("It's rude to do that during a trade.")
+		return false
 	elseif SafeHouse.getSafeHouse(sqObj) then
 		if isOwnSafeHouse then
 			local shx1 = isOwnSafeHouse:getX()
@@ -33,21 +50,18 @@ function ISCraftAction:perform()
 			local shy2 = isOwnSafeHouse:getH() + shy1
 			
 			if x >= shx1 and y >= shy1 and x <= shx2 and y <= shy2 then
-				ISCraftAction_o_perform(self)
-				return
+				return ISCraftAction_o_isValid(self)
 			end
 		end
 		player:Say("I cannot perform any crafting actions while inside someone else's SafeHouse limits.")
-		self.character:StopAllActionQueue();
-		local queue = ISTimedActionQueue.getTimedActionQueue(self.character);
-		queue:clearQueue();
-		self.character:PlayAnim("Idle")
-		return
+		return false
 	elseif checkCCshopCoords(x, y, coords) then
+	--elseif parent and parent:getModData().owner and not instanceof(parent, "BaseVehicle") then
 		--player:setHaloNote("I cannot bulk pack or unpack items while inside the CC shop area.", 236, 131, 190, 50)
 		player:Say("I cannot perform any crafting actions while inside the CC shop area.")
+		return false
 	else
-		ISCraftAction_o_perform(self)
+		return ISCraftAction_o_isValid(self)
 	end
 end
 --ISTradingUI.instance and ISTradingUI.instance:isVisible()

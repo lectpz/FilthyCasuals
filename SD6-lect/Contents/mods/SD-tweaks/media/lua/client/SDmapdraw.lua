@@ -14,7 +14,7 @@ local function splitString(sandboxvar, delimiter)
 end
 
 -- Define colors with alpha channel
-local alpha = 0.75
+local alpha = 0.6
 local symbolCoordinates = {}
 
 function drawHatchedRectangleForZone(self, zoneName, spacingFactor, hatchSpacing, api)
@@ -140,6 +140,24 @@ function ISWorldMap:onRightMouseUp(x, y)
 		modalMapAPI = self.mapAPI
 	end)
 	
+	context:addOptionOnTop("Remove old map zone asterisks", self, 
+	function()
+		local symbolsAPI = self.mapAPI:getSymbolsAPI()
+		local symCount = symbolsAPI:getSymbolCount()
+		if symCount and symCount ~= 0 then
+			for i=symCount, 0, -1 do
+				local symIndex = symbolsAPI:getSymbolByIndex(i)
+				if symIndex then
+					local symID = symIndex:getSymbolID()
+					if symID and symID == "Asterisk" then
+						symbolsAPI:removeSymbolByIndex(i)
+					end
+				end
+			end
+		end
+	end)
+
+	
 	if isAdmin() or isDebugEnabled() then
 		local newmapzone 	= context:addOptionOnTop("Draw new map zone:", self, nil)
 		local submenu 	= ISContextMenu:getNew(context)
@@ -207,9 +225,9 @@ function ISWorldMap:onRightMouseUp(x, y)
 						end
 					end
 					
-					for i=1,#ZoneNames do
-						drawHatchedRectangleForZone(self, ZoneNames[i], 1.0, 750, self.mapAPI)
-					end
+					--for i=1,#ZoneNames do
+						--drawHatchedRectangleForZone(self, ZoneNames[i], 1.0, 750, self.mapAPI)
+					--end
 
 					ModDataMapDrawTierZones[getCurrentUserSteamID()] = false
 					ModData.transmit("MoreDifficultZones")
@@ -227,10 +245,71 @@ end
 ---------------------------------------------------------
 
 
-local original_close = ISWorldMap.close
+--[[local original_close = ISWorldMap.close
 function ISWorldMap:close()
 	original_close(self)
 	ModDataMapDrawTierZones[getCurrentUserSteamID()] = "CLEARED"
+end]]
+
+local MapMarkerSystem = require("MapMarkerSystem/Shared");
+--100% credit to the renderAreaMarker system goes to Elyon.
+--below is a compatibility function to utilize Elyon's system. we don't use Elyon's input system, so a local function is used.
+--we migrate the zones params over to the marker table and draw the lines per Elyon's function.
+---@param self ISWorldMap|ISMiniMapInner
+---@param marker table
+local function elyon_renderAreaMarker(self, marker)
+    if not self.javaObject then return; end
+    local api = self.javaObject:getAPI();
+    if not api then return; end
+
+    local nwX, nwY = marker.coordinates.nw.x, marker.coordinates.nw.y;
+    local seX, seY = marker.coordinates.se.x, marker.coordinates.se.y;
+
+    local neX, neY = seX, nwY;
+    local swX, swY = nwX, seY;
+
+    local uiNWX, uiNWY = api:worldToUIX(nwX, nwY), api:worldToUIY(nwX, nwY);
+    local uiNEX, uiNEY = api:worldToUIX(neX, neY), api:worldToUIY(neX, neY);
+    local uiSWX, uiSWY = api:worldToUIX(swX, swY), api:worldToUIY(swX, swY);
+    local uiSEX, uiSEY = api:worldToUIX(seX, seY), api:worldToUIY(seX, seY);
+
+    local absX, absY = self:getAbsoluteX(), self:getAbsoluteY();
+    uiNWX, uiNWY = uiNWX + absX, uiNWY + absY;
+    uiNEX, uiNEY = uiNEX + absX, uiNEY + absY;
+    uiSWX, uiSWY = uiSWX + absX, uiSWY + absY;
+    uiSEX, uiSEY = uiSEX + absX, uiSEY + absY;
+
+    local function drawLine(x1, y1, x2, y2, r, g, b, a)
+        local thickness = 5;
+        local dx, dy = x2 - x1, y2 - y1;
+        local angle = math.atan2(dy, dx);
+
+        local offsetX = math.sin(angle) * thickness / 2;
+        local offsetY = math.cos(angle) * thickness / 2;
+
+        local x1Top, y1Top = x1 + offsetX, y1 - offsetY;
+        local x1Bottom, y1Bottom = x1 - offsetX, y1 + offsetY;
+        local x2Top, y2Top = x2 + offsetX, y2 - offsetY;
+        local x2Bottom, y2Bottom = x2 - offsetX, y2 + offsetY;
+
+        self.javaObject:DrawTexture(nil, x1Top, y1Top, x2Top, y2Top, x2Bottom, y2Bottom, x1Bottom, y1Bottom, r, g, b, a);
+    end
+
+    self:setStencilRect(0, 0, self.width, self.height);
+    if marker.name and marker.isNameEnabled then
+        local markerNameScale = marker.scaleName or 1;
+        local markerFont = UIFont[marker.nameFont or MapMarkerSystem.FontList[1]];
+        local markernameColor = marker.colorName or { r = 0.0, g = 0.0, b = 0.0, a = 1.0 };
+        local textHeight = getTextManager():MeasureStringY(markerFont, marker.name);
+        self:drawTextZoomed(marker.name, uiNWX + 10, uiNWY - textHeight, markerNameScale, markernameColor.r,
+            markernameColor.g, markernameColor.b, markernameColor.a, markerFont);
+    end
+
+    drawLine(uiNWX, uiNWY, uiNEX, uiNEY, marker.color.r, marker.color.g, marker.color.b, alpha);
+    drawLine(uiNEX, uiNEY, uiSEX, uiSEY, marker.color.r, marker.color.g, marker.color.b, alpha);
+    drawLine(uiSEX, uiSEY, uiSWX, uiSWY, marker.color.r, marker.color.g, marker.color.b, alpha);
+    drawLine(uiSWX, uiSWY, uiNWX, uiNWY, marker.color.r, marker.color.g, marker.color.b, alpha);
+    self:clearStencilRect();
 end
 
 local original_render = ISWorldMap.render
@@ -246,21 +325,60 @@ function ISWorldMap:render()
 									zoneinfo ..  "\n" ..
 									zoneXY]]
     end
-	if ModDataMapDrawTierZones[getCurrentUserSteamID()] then
+	
+	for i=1,#ZoneNames do
+		local marker = {}
+		marker.coordinates = {}
+		marker.coordinates.nw = {}
+		marker.coordinates.se = {}
+		marker.color = {}
+		
+		marker.name = ZoneNames[i]
+		marker.isNameEnabled = false
+		
+		local zoneCoordinates = Zone.list[marker.name]
+
+		marker.maxZoomLevel = 100
+		marker.coordinates.nw.x, marker.coordinates.nw.y = zoneCoordinates[1], zoneCoordinates[2]
+		marker.coordinates.se.x, marker.coordinates.se.y = zoneCoordinates[3], zoneCoordinates[4]
+		if zoneCoordinates[5] == 5 then
+			marker.color.r, marker.color.g, marker.color.b = 1, 0, 0
+		elseif zoneCoordinates[5] == 4 then
+			marker.color.r, marker.color.g, marker.color.b = 0.6, 0.125, 1
+		elseif zoneCoordinates[5] == 3 then
+			marker.color.r, marker.color.g, marker.color.b = 1, 0.5, 0
+		elseif zoneCoordinates[5] == 2 then
+			marker.color.r, marker.color.g, marker.color.b = 1, 1, 0
+		elseif zoneCoordinates[5] == 1 then
+			marker.color.r, marker.color.g, marker.color.b = 0, 1, 0
+		end
+		
+		elyon_renderAreaMarker(self, marker)
+	end
+	
+	--[[if ModDataMapDrawTierZones[getCurrentUserSteamID()] then
 		local symbolsAPI = self.mapAPI:getSymbolsAPI()
-		for i=symbolsAPI:getSymbolCount()-1, 0, -1 do
-			local symbol = symbolsAPI:getSymbolByIndex(i)
-			if symbol:getSymbolID() == "Asterisk" then
-				symbolsAPI:removeSymbolByIndex(i)
+		local symCount = symbolsAPI:getSymbolCount()
+		if symCount and symCount ~= 0 then
+			for i=symCount, 0, -1 do
+				local symIndex = symbolsAPI:getSymbolByIndex(i)
+				if symIndex then
+					local symID = symIndex:getSymbolID()
+					if symID and symID == "Asterisk" then
+						symbolsAPI:removeSymbolByIndex(i)
+					end
+				end
 			end
 		end
 		
-		for i=1,#ZoneNames do
-			drawHatchedRectangleForZone(self, ZoneNames[i], 1.0, 750, self.mapAPI)
-		end
+		--for i=1,#ZoneNames do
+			--drawHatchedRectangleForZone(self, ZoneNames[i], 1.0, 750, self.mapAPI)
+		--end
+		--deprecated, we use elyon's marker system now
 
 		ModDataMapDrawTierZones[getCurrentUserSteamID()] = false
-	end
+	end]]
+	
 end
 
 local original_onMouseMove = ISWorldMap.onMouseMove
@@ -302,8 +420,7 @@ function ISWorldMap:onMouseMove(dx, dy)
 		end
 	end
 	
-	local zhealth = zhealth or 2.1
-	local zoneinfo = toxicText .. "[T"..tier.."] " .. zonename .. " - Sprinter="..sprinter.. "% Pinpoint="..pinpoint.. "% Cognition="..cognition.."%" .. " ZombieHealth=" .. math.floor(zhealth/1.7*100+0.5) .. "%"
+	local zoneinfo = toxicText .. "[T"..tier.."] " .. zonename .. " - Sprinter="..sprinter.. "% Pinpoint="..pinpoint.. "% Cognition="..cognition.."%" .. " ZombieHealth=" .. math.floor(zhealth/2.1*100+0.5) .. "%"
 	local zoneXY = "("..worldX..","..worldY..") Controlled by:" .. controlText
 	
 	self.zone = { mouseX, mouseY, zoneinfo, zoneXY , zonesTally, zonename, zonetier}

@@ -56,5 +56,5 @@ local function z_AMCTickControl_patch()
 	end
 end
 
-Events.OnTick.Remove(AMCTickControl.main)
-Events.EveryTenMinutes.Add(z_AMCTickControl_patch)
+--Events.OnTick.Remove(AMCTickControl.main)
+--Events.EveryTenMinutes.Add(z_AMCTickControl_patch)

@@ -837,7 +837,30 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 			
 			local function itemStats()
 				soulPower = math.min(soulsFreed / soulsRequired, 1) or 0
-				tooltip.description = tooltip.description .. green .. "Stat modifiers to weapon: <LINE> "
+				
+				local tierColor = white
+				local wTier = wMD.Tier
+				if wTier then
+					if wTier == 5 then
+						tierColor = gold
+					elseif wTier == 4 then
+						tierColor = purple
+					elseif wTier == 3 then
+						tierColor = yellow
+					elseif wTier == 2 then
+						tierColor = blue
+					end
+				end
+				
+				tooltip.description = tooltip.description .. orange .. "Stat modifiers to weapon: <LINE> "
+				
+				if wMD.mdzPrefix then tooltip.description = tooltip.description .. white .. " <LINE> Weapon Quality: " .. tierColor .. wMD.mdzPrefix .. " <LINE> " end
+				if wMD.mdzMinDmg then tooltip.description = tooltip.description .. green .. " <LINE> " .. string.format("%.2f", wMD.mdzMinDmg)  .. "x More Minimum Damage <LINE> " end
+				if wMD.mdzMaxDmg then tooltip.description = tooltip.description .. green .. string.format("%.2f", wMD.mdzMaxDmg)  .. "x More Maximum Damage <LINE> " end
+				if wMD.mdzCriticalChance then tooltip.description = tooltip.description .. green .. string.format("%.2f", wMD.mdzCriticalChance)  .. "x More Critical Chance <LINE> " end
+				if wMD.mdzCritDmgMultiplier then tooltip.description = tooltip.description .. green .. string.format("%.2f", wMD.mdzCritDmgMultiplier)  .. "x More Critical Damage Multiplier <LINE> " end
+				
+				tooltip.description = tooltip.description .. orange .. " <LINE> SoulForge Modifiers: <LINE> "
 				tooltip.description = tooltip.description .. green .. " <LINE> Extra Base Maximum Damage: +" .. math.floor(soulPower * 10)/10 * numAugments/4 .. " <LINE> "
 				tooltip.description = tooltip.description .. green .. "Extra Base Critical Chance: +" .. math.floor(soulPower * 50)/10 * numAugments/4 .. "% <LINE> "
 				tooltip.description = tooltip.description .. green .. "Extra Base Critical Multi: +" .. math.floor(soulPower * 50)/100 * numAugments/4 .. "x <LINE> "
@@ -1039,7 +1062,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 						submenu:removeOptionByName("Soul Forge Weapon")
 						
 						tooltip = ISWorldObjectContextMenu.addToolTip();
-						option_soulForgeModifiers = submenu:addOption("Soul Forged Modifiers", item, nil, player)
+						option_soulForgeModifiers = submenu:addOption("Weapon Modifiers", item, nil, player)
 						option_soulForgeModifiers.toolTip = tooltip
 						itemStats()
 						
@@ -1111,7 +1134,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 							if wTier >= 2 then itemToolTipMats("SoulForge.SoulCrystalT2", option_sm11_upgrade) end
 							if wTier >= 3 then itemToolTipMats("SoulForge.SoulCrystalT3", option_sm11_upgrade) end
 							if _fix == pref2_setstat or _fix == suff2_setstat  then 
-								if wTier >= 5 then itemToolTipMats("SoulForge.SoulCrystalT4", option_sm11_upgrade) end
+								if wTier >= 4 then itemToolTipMats("SoulForge.SoulCrystalT4", option_sm11_upgrade) end
 							end
 							
 							--if _fix == pref2_setstat or _fix == suff2_setstat  then
@@ -1417,7 +1440,7 @@ function SoulCountSD(character, handWeapon)
 					HaloTextHelper.addTextWithArrow(character, "+" .. math.floor(killDiff*(math.floor(SoulThirst+1.25))-killDiff+0.5) .. " Additional Souls Gained", true, HaloTextHelper.getColorGreen());
 				end
 			end
-			weaponModData.KillCount = weaponSouls + killDiff*(math.floor(SoulThirst+1.25)) + math.floor(tierzone/2+0.25) --calculate and set new kill counter on weapon, 
+			weaponModData.KillCount = weaponSouls + killDiff*(math.floor(SoulThirst+1.25)) + killDiff*math.floor(tierzone/2+0.25) --calculate and set new kill counter on weapon, 
 			weaponModData.PlayerKills = n_killcount --update player kill counter on weapon
 			--character:Say("new kills: " .. weaponModData.KillCount)
 			

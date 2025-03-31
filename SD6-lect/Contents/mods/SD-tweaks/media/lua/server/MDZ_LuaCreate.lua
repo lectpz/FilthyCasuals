@@ -36,12 +36,15 @@ local hfoVanilla = {
 	["Base.DoubleBarrelShotgunSawnoff"] = "Remington SPR 220 Sawnoff Shotgun",
 }
 
---local isMultiplayer = true
---if getWorld():getGameMode() ~= "Multiplayer" then isMultiplayer = false end
+local isMultiplayer = true
+if getWorld():getGameMode() ~= "Multiplayer" then isMultiplayer = false end
 
-MDZ_OnCreate_RangedWeaponVariance = function(item)
-
-	--if not isServer() and isMultiplayer then return end
+MDZ_OnCreate_RangedWeaponVariance = function(item, cache)
+	
+	if not isAdmin() then
+		if not isServer() and isMultiplayer and not cache then return end
+	end
+	if not item then return end
 	local iMD = item:getModData()
 	
 	iMD.CriticalChance				= iMD.CriticalChance or item:getCriticalChance()
@@ -96,9 +99,10 @@ MDZ_OnCreate_RangedWeaponVariance = function(item)
 	--print("MDZ ON LUA CREATE RANGED =========================")
 end
 
---[[MDZ_OnCreate_MeleeWeaponVariance = function(item)
+MDZ_OnCreate_MeleeWeaponVariance = function(item)
 
-	--if not isServer() and isMultiplayer then return end getCriticalChance() getCritDmgMultiplier()
+	--if not isServer() and isMultiplayer then return end
+	if not item then return end
 	local iMD = item:getModData()
 	iMD.mdzMaxDmg = iMD.mdzMaxDmg or scaledNormal()
 	iMD.mdzMinDmg = iMD.mdzMinDmg or scaledNormal()
@@ -132,7 +136,7 @@ end
 	iMD.mdzPrefix = iMD.mdzPrefix or itemPrefix
 	item:setName(iMD.mdzPrefix .. " " .. iMD.Name)
 	rngSum = 0
-end]]
+end
 
 local function MDZ_weapon_luaCreate()
 	local items = getAllItems();
@@ -158,5 +162,5 @@ local function MDZ_weapon_luaCreate()
 	end
 
 end
---MDZ_weapon_luaCreate()
+
 Events.OnInitGlobalModData.Add(MDZ_weapon_luaCreate)

@@ -136,6 +136,8 @@ local function preDistributionMergeSD5()
 	for distribution, chance in pairs(AmmoCacheData) do
 		table.insert(ProceduralDistributions.list[distribution].items, "AmmoCache")
 		table.insert(ProceduralDistributions.list[distribution].items, chance)
+		table.insert(ProceduralDistributions.list[distribution].items, "ChiikuCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
 	end
 ----------------------------------------------------------------------------------------	
 	local medData = {

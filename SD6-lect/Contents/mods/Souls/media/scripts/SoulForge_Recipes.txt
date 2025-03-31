@@ -521,12 +521,12 @@ module SoulForge {
 		InSameInventory:true,
 	}
 	
-	recipe Unforge Weapon
+	recipe Unforge SoulWrought Weapon
 	{
-		StoredSoulsSD_new=400,
-		SoulShardT1=7,
-		SoulShardT2=6,
-		SoulShardT3=3,
+		StoredSoulsSD_new=650,
+		SoulShardT1=8,
+		SoulShardT2=7,
+		SoulShardT3=6,
 		AnimNode:Loot,
 		Prop1: Source=1,
 		Result:EmptySoulFlaskWhite,
@@ -535,6 +535,91 @@ module SoulForge {
 		InSameInventory:true,
 		AllowOnlyOne:true,
 		OnTest:OnTest_checkMainHand,
+		OnCreate:OnCreate_unforgeMainHand,
+	}
+	
+	recipe Unforge SoulForged Weapon (4x Augments)
+	{
+		StoredSoulsSD_new=550,
+		SoulShardT1=8,
+		SoulShardT2=7,
+		SoulShardT3=6,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:EmptySoulFlaskWhite,
+		RemoveResultItem:true,
+		Time:50.0,
+		InSameInventory:true,
+		AllowOnlyOne:true,
+		OnTest:OnTest_checkMainHand4x,
+		OnCreate:OnCreate_unforgeMainHand,
+	}
+	
+	recipe Unforge SoulForged Weapon (3x Augments)
+	{
+		StoredSoulsSD_new=450,
+		SoulShardT1=6,
+		SoulShardT2=5,
+		SoulShardT3=4,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:EmptySoulFlaskWhite,
+		RemoveResultItem:true,
+		Time:50.0,
+		InSameInventory:true,
+		AllowOnlyOne:true,
+		OnTest:OnTest_checkMainHand3x,
+		OnCreate:OnCreate_unforgeMainHand,
+	}
+	
+	recipe Unforge SoulForged Weapon (2x Augments)
+	{
+		StoredSoulsSD_new=350,
+		SoulShardT1=5,
+		SoulShardT2=4,
+		SoulShardT3=3,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:EmptySoulFlaskWhite,
+		RemoveResultItem:true,
+		Time:50.0,
+		InSameInventory:true,
+		AllowOnlyOne:true,
+		OnTest:OnTest_checkMainHand2x,
+		OnCreate:OnCreate_unforgeMainHand,
+	}
+	
+	recipe Unforge SoulForged Weapon (1x Augments)
+	{
+		StoredSoulsSD_new=250,
+		SoulShardT1=4,
+		SoulShardT2=3,
+		SoulShardT3=2,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:EmptySoulFlaskWhite,
+		RemoveResultItem:true,
+		Time:50.0,
+		InSameInventory:true,
+		AllowOnlyOne:true,
+		OnTest:OnTest_checkMainHand1x,
+		OnCreate:OnCreate_unforgeMainHand,
+	}
+	
+	recipe Unforge SoulForged Weapon (Unaugmented)
+	{
+		StoredSoulsSD_new=150,
+		SoulShardT1=3,
+		SoulShardT2=2,
+		SoulShardT3=1,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:EmptySoulFlaskWhite,
+		RemoveResultItem:true,
+		Time:50.0,
+		InSameInventory:true,
+		AllowOnlyOne:true,
+		OnTest:OnTest_checkMainHand0x,
 		OnCreate:OnCreate_unforgeMainHand,
 	}
 	

@@ -135,11 +135,13 @@ local function sfjUpgrade(player, item, tier)
 	local playerInv = getSpecificPlayer(0):getInventory()
 	item:getModData().Tier = tier
 	item:setName(upgradeTier(item:getName()))
-	for i=1, 2 do
+	for i=1, tier-1 do
 		playerInv:RemoveOneOf("SoulForge.SoulShardT"..tier)
 	end
-	playerInv:RemoveOneOf("SoulForge.WeightedDiceT"..tier)
-	for i=1,tier^2 do
+	for i=1, tier-1 do
+		playerInv:RemoveOneOf("SoulForge.WeightedDiceT"..tier)
+	end
+	for i=1,(tier)^2 do
 		playerInv:RemoveOneOf("Base.ScrapMetal")
 	end
 end

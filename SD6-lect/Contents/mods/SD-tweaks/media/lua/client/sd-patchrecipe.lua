@@ -9,6 +9,7 @@ recipesToPatch["Make Metal Pipe Mold"] = true
 recipesToPatch["Make 97 Bushmaster Seat"] = true
 recipesToPatch["Make Bucket Of Concrete"] = true
 recipesToPatch["Redeem CDC Red Package"] = true
+recipesToPatch["Unpack Bundle of Crossbow Bolts"] = true
 
 function patchConcreteBucket(items, result, player)
     local playerInv = player:getInventory()
@@ -124,6 +125,8 @@ local function patch_recipes()
 					patched = patched + 1
 					print ("Patched \""..name.."\"..")
 				end
+			elseif name == "Unpack Bundle of Crossbow Bolts" then
+				recipe:getResult():setCount(30)
             end
         end
     end

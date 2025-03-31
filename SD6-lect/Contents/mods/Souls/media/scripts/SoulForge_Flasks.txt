@@ -394,4 +394,109 @@ module SoulForge {
 		StaticModel			=		static_GiantWhiteBot,
 		WorldStaticModel	=		world_GiantWhiteBot,
 	}
+	
+	item LuckFlask_100
+	{	
+		DisplayName 			=	Flask of Luck (+100),
+		DisplayCategory			=	SoulForge,
+		Type 					=	Food,
+		Weight 					=	1.0,
+		DaysFresh 				= 	1000000000,
+		DaysTotallyRotten 		= 	1000000000,
+		HungerChange 			= 	-20,
+		ThirstChange 			= 	-10,
+		Calories 				= 	150,
+		Carbohydrates 			= 	10,
+		Lipids 					= 	15,
+		Proteins 				= 	10,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		OnEat 					=	LuckFlask_100,		
+		Icon 					=	YellowBot,
+		StaticModel 			=	static_YellowBot,
+		WorldStaticModel 		= 	world_YellowBot,
+	}
+	
+	item LuckFlask_200
+	{	
+		DisplayName 			=	Flask of Luck (+200),
+		DisplayCategory			=	SoulForge,
+		Type 					=	Food,
+		Weight 					=	3.0,
+		DaysFresh 				= 	1000000000,
+		DaysTotallyRotten 		= 	1000000000,
+		HungerChange 			= 	-20,
+		ThirstChange 			= 	-10,
+		Calories 				= 	150,
+		Carbohydrates 			= 	10,
+		Lipids 					= 	15,
+		Proteins 				= 	10,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		OnEat 					=	LuckFlask_200,		
+		Icon 					=	PinkBot,
+		StaticModel 			=	static_PinkBot,
+		WorldStaticModel 		= 	world_PinkBot,
+	}
+
+	item LuckFlask_300
+	{
+		DisplayName 			=	Flask of Luck (+300),
+		DisplayCategory			=	SoulForge,
+		Type 					=	Food,
+		Weight 					=	5.0,
+		DaysFresh 				= 	1000000000,
+		DaysTotallyRotten 		= 	1000000000,
+		HungerChange 			= 	-20,
+		ThirstChange 			= 	-10,
+		Calories 				= 	150,
+		Carbohydrates 			= 	10,
+		Lipids 					= 	15,
+		Proteins 				= 	10,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		OnEat 					=	LuckFlask_300,		
+		Icon 					=	GiantWhiteBot,
+		StaticModel 			=	static_GiantWhiteBot,
+		WorldStaticModel 		= 	world_GiantWhiteBot,
+	}
+
+	item SoulThirstFlask_40
+	{	
+		DisplayName 			=	Flask of SoulThirst (40%),
+		DisplayCategory			=	SoulForge,
+		Type 					=	Food,
+		Weight 					=	1.0,
+		DaysFresh 				= 	1000000000,
+		DaysTotallyRotten 		= 	1000000000,
+		HungerChange 			= 	-20,
+		ThirstChange 			= 	-10,
+		Calories 				= 	150,
+		Carbohydrates 			= 	10,
+		Lipids 					= 	15,
+		Proteins 				= 	10,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		OnEat 					=	SoulThirstFlask_40,		
+		Icon 					=	RedBot,
+		StaticModel 			=	static_RedBot,
+		WorldStaticModel 		= 	world_RedBot,
+	}
+	
+	item SoulSmithFlask_2pct
+	{	
+		DisplayName 			=	Flask of SoulSmith (2%),
+		DisplayCategory			=	SoulForge,
+		Type 					=	Food,
+		Weight 					=	1.0,
+		DaysFresh 				= 	1000000000,
+		DaysTotallyRotten 		= 	1000000000,
+		HungerChange 			= 	-20,
+		ThirstChange 			= 	-10,
+		Calories 				= 	150,
+		Carbohydrates 			= 	10,
+		Lipids 					= 	15,
+		Proteins 				= 	10,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		OnEat 					=	SoulSmithFlask_2pct,		
+		Icon 					=	PurpleBot,
+		StaticModel 			=	static_PurpleBot,
+		WorldStaticModel 		= 	world_PurpleBot,
+	}
 }

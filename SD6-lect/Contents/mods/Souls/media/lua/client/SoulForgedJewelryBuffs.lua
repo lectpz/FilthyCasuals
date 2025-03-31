@@ -129,9 +129,6 @@ function BuffSystem.modifyBuff(player, item, isEquipping, buffType)
         pMD[buff.modData] = (pMD[buff.modData] or 0) - value
     end
     
-    if buff.apply then
-        buff.apply(player, value, isEquipping)
-    end
 end
 
 return BuffSystem

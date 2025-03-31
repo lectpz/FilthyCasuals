@@ -72,6 +72,7 @@ end
 
 local function SDOnWeaponSwing(character, handWeapon)
 	if character:getPrimaryHandItem() == nil then return end
+	if character ~= getSpecificPlayer(0) then return end
 	
 	local tierzone = checkZone()
 	
@@ -151,7 +152,9 @@ local function SDOnWeaponSwing(character, handWeapon)
 		if engravedName then
 			inventoryItem:setName(engravedName .. " [T" .. tostring(tierzone) .. "]")
 		else
-			inventoryItem:setName(soulWrought..basename .. " [T" .. tostring(tierzone) .. "]")
+			local mdzPrefix = ""
+			if modData.mdzPrefix then mdzPrefix = modData.mdzPrefix .. " " end
+			inventoryItem:setName(soulWrought.. mdzPrefix .. basename .. " [T" .. tostring(tierzone) .. "]")
 		end
 
 		if soulForgeConditionLowerChance then inventoryItem:setConditionLowerChance(scriptItem:getConditionLowerChance() * soulForgeConditionLowerChance) end
@@ -184,28 +187,50 @@ local function SDOnWeaponSwing(character, handWeapon)
 		local mdzCriticalChance = modData.mdzCriticalChance or 1
 		local mdzCritDmgMultiplier = modData.mdzCritDmgMultiplier or 1
 
+		local soulForgeAmmoPerShoot = modData.soulForgeAmmoPerShoot or 1
+		local soulForgeAimingPerkCritModifier = modData.soulForgeAimingPerkCritModifier or 1
+		local soulForgeAimingPerkHitChanceModifier = modData.soulForgeAimingPerkHitChanceModifier or 1
+		local soulForgeAimingPerkRangeModifier = modData.soulForgeAimingPerkRangeModifier or 1
+		local soulForgeAimingTime = modData.soulForgeAimingTime or 1
+		local soulForgeProjectileCount = modData.soulForgeProjectileCount or 1
+		local isPiercingBullets = modData.isPiercingBullets or false
+		local soulWrought = modData.SoulWrought or ""
+		local soulForgeMaxHitCount = modData.MaxHitCount or nil
+
+		if isPiercingBullets then
+			inventoryItem:setPiercingBullets(true)
+		else
+			inventoryItem:setProjectileCount(soulForgeProjectileCount)
+		end
+
+		if soulForgeMaxHitCount then
+			inventoryItem:setMaxHitCount(soulForgeMaxHitCount)
+		end
+
 		local soulForgeMinDmgMulti = modData.soulForgeMinDmgMulti or 1
 		local soulForgeMaxDmgMulti = modData.soulForgeMaxDmgMulti or 1
 		local soulForgeCritRate = modData.soulForgeCritRate or 1
 		local soulForgeCritMulti = modData.soulForgeCritMulti or 1
 		
-		if modData.CriticalChance then inventoryItem:setCriticalChance(modData.CriticalChance * soulForgeCritRate * mdzCriticalChance) end
+		if modData.CriticalChance then inventoryItem:setCriticalChance(modData.CriticalChance * soulForgeCritRate * mdzCriticalChance * soulForgeAimingPerkCritModifier) end
 		if modData.CritDmgMultiplier then inventoryItem:setCritDmgMultiplier(modData.CritDmgMultiplier * soulForgeCritMulti * mdzCritDmgMultiplier) end
 		inventoryItem:setMinDamage(modData.MinDamage * soulForgeMinDmgMulti * mdzMinDmg)
 		inventoryItem:setMaxDamage(modData.MaxDamage * soulForgeMaxDmgMulti * mdzMaxDmg)
 		if modData.ReloadTime then inventoryItem:setReloadTime(modData.ReloadTime * mdzReloadTime) end
 		if modData.RecoilDelay then inventoryItem:setRecoilDelay(modData.RecoilDelay * mdzRecoilDelay) end
 		
-		inventoryItem:setAimingTime(modData.AimingTime * mdzAimingTime * (localdmgmulti/tierzone) ^ rangedmulti)
-		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier * (localdmgmulti/tierzone) ^ rangedmulti)
+		inventoryItem:setAimingTime(modData.AimingTime * mdzAimingTime * soulForgeAimingTime * (localdmgmulti/tierzone) ^ rangedmulti)
+		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier * soulForgeAimingPerkHitChanceModifier * (localdmgmulti/tierzone) ^ rangedmulti)
 		inventoryItem:setAimingPerkCritModifier(modData.AimingPerkCritModifier * (localdmgmulti/tierzone) ^ rangedmulti)
-		inventoryItem:setAimingPerkRangeModifier(modData.AimingPerkRangeModifier * (localdmgmulti/tierzone) ^ rangedmulti)
+		inventoryItem:setAimingPerkRangeModifier(modData.AimingPerkRangeModifier * soulForgeAimingPerkRangeModifier * (localdmgmulti/tierzone) ^ rangedmulti)
 		
 		local engravedName = modData.EngravedName
 		if engravedName then 
 			inventoryItem:setName(engravedName)
 		else
-			inventoryItem:setName(modData.mdzPrefix .. " " ..modData.Name .. " [T" .. tostring(tierzone) .. "]")
+			local mdzPrefix = ""
+			if modData.mdzPrefix then mdzPrefix = modData.mdzPrefix .. " " end
+			inventoryItem:setName(mdzPrefix .. soulWrought ..  modData.Name .. " [T" .. tostring(tierzone) .. "]")
 		end
 	end
 end
@@ -213,6 +238,7 @@ Events.OnWeaponSwing.Add(SDOnWeaponSwing)
 
 local function SDWeaponCheck(character, inventoryItem)
 	if inventoryItem == nil then return end
+	if character ~= getSpecificPlayer(0) then return end
 	local scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
 	
 	local tierzone = checkZone()
@@ -282,7 +308,9 @@ local function SDWeaponCheck(character, inventoryItem)
 		if engravedName then 
 			inventoryItem:setName(engravedName)
 		else
-			inventoryItem:setName(soulWrought..basename)
+			local mdzPrefix = ""
+			if modData.mdzPrefix then mdzPrefix = modData.mdzPrefix .. " " end
+			inventoryItem:setName(soulWrought.. mdzPrefix .. basename)
 		end
 		
 		if soulForgeMaxHitCount then
@@ -306,7 +334,7 @@ local function SDWeaponCheck(character, inventoryItem)
 		args.itemID = inventoryItem:getID()
 		
 		if isSoulForged then sendClientCommand(character, 'sdLogger', 'SoulForgeEquip', args) end
-	elseif inventoryItem:IsWeapon() and inventoryItem:isRanged() and inventoryItem:getSwingAnim() ~= "Handgun" then
+	elseif inventoryItem:IsWeapon() and inventoryItem:isRanged() then
 		initRangedStats(modData, inventoryItem, character)
 		
 		local mdzMaxDmg = modData.mdzMaxDmg or 1
@@ -316,6 +344,26 @@ local function SDWeaponCheck(character, inventoryItem)
 		local mdzRecoilDelay = modData.mdzRecoilDelay or 1
 		local mdzCriticalChance = modData.mdzCriticalChance or 1
 		local mdzCritDmgMultiplier = modData.mdzCritDmgMultiplier or 1
+		
+		local soulForgeAmmoPerShoot = modData.soulForgeAmmoPerShoot or 1
+		local soulForgeAimingPerkCritModifier = modData.soulForgeAimingPerkCritModifier or 1
+		local soulForgeAimingPerkHitChanceModifier = modData.soulForgeAimingPerkHitChanceModifier or 1
+		local soulForgeAimingPerkRangeModifier = modData.soulForgeAimingPerkRangeModifier or 1
+		local soulForgeAimingTime = modData.soulForgeAimingTime or 1
+		local soulForgeProjectileCount = modData.soulForgeProjectileCount or 1
+		local isPiercingBullets = modData.isPiercingBullets or false
+		local soulWrought = modData.SoulWrought or ""
+		local soulForgeMaxHitCount = modData.MaxHitCount or nil
+		
+		if isPiercingBullets then
+			inventoryItem:setPiercingBullets(true)
+		else
+			inventoryItem:setProjectileCount(soulForgeProjectileCount)
+		end
+		
+		if soulForgeMaxHitCount then
+			inventoryItem:setMaxHitCount(soulForgeMaxHitCount)
+		end
 		
 		local soulForgeMinDmgMulti = modData.soulForgeMinDmgMulti or 1
 		local soulForgeMaxDmgMulti = modData.soulForgeMaxDmgMulti or 1
@@ -329,16 +377,18 @@ local function SDWeaponCheck(character, inventoryItem)
 		if modData.ReloadTime then inventoryItem:setReloadTime(modData.ReloadTime * mdzReloadTime) end
 		if modData.RecoilDelay then inventoryItem:setRecoilDelay(modData.RecoilDelay * mdzRecoilDelay) end
 		
-		inventoryItem:setAimingTime(modData.AimingTime * mdzAimingTime)
-		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier)
-		inventoryItem:setAimingPerkCritModifier(modData.AimingPerkCritModifier)
-		inventoryItem:setAimingPerkRangeModifier(modData.AimingPerkRangeModifier)
+		inventoryItem:setAimingTime(modData.AimingTime * mdzAimingTime * soulForgeAimingTime)
+		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier * soulForgeAimingPerkHitChanceModifier)
+		inventoryItem:setAimingPerkCritModifier(modData.AimingPerkCritModifier * soulForgeAimingPerkCritModifier)
+		inventoryItem:setAimingPerkRangeModifier(modData.AimingPerkRangeModifier * soulForgeAimingPerkRangeModifier)
 		
 		local engravedName = modData.EngravedName
 		if engravedName then 
 			inventoryItem:setName(engravedName)
 		else
-			inventoryItem:setName(modData.mdzPrefix .. " " ..modData.Name)
+			local mdzPrefix = ""
+			if modData.mdzPrefix then mdzPrefix = modData.mdzPrefix .. " " end
+			inventoryItem:setName(mdzPrefix .. soulWrought .. modData.Name)
 		end
 		
 		Events.OnPlayerUpdate.Add(worseVehicleRanged)

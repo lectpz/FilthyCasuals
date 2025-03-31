@@ -16,6 +16,29 @@ module Base
         Tooltip = Tooltip_Cache,
 	}
 	
+	item ChiikuCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Chiiku Firearm Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open Chiiku Firearm Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy ChiikuCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:ChiikuWeaponCacheSD,
+	}
+	
 	item EventWeaponCacheT3
 	{
         Type                    = Normal,

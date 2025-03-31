@@ -360,10 +360,123 @@ function OnTest_checkMainHand(item)
 		local weaponModData = weapon:getModData()
 		local soulsFreed = weaponModData.KillCount or nil
 		local soulForged = weaponModData.SoulForged or false
+		local soulWrought = weaponModData.SoulWrought or false
+		local augments = weaponModData.Augments or 0
 		
 		if weapon:isFavorite() then return false end
 		
-		if soulForged and (soulsFreed and soulsFreed < 1) then
+		if soulForged and (soulsFreed and soulsFreed < 1) and soulWrought and augments and augments == 4 then
+			return true
+		end
+	end
+	return false
+end
+
+function OnTest_checkMainHand4x(item)
+	if not canReturnSoulForge then return false end
+	local player = getSpecificPlayer(0)
+
+	if not item:isInPlayerInventory() then return false end
+	
+	if player:getPrimaryHandItem() ~= nil then
+		local weapon = player:getPrimaryHandItem()
+		local weaponModData = weapon:getModData()
+		local soulsFreed = weaponModData.KillCount or nil
+		local soulForged = weaponModData.SoulForged or false
+		local augments = weaponModData.Augments or 0
+		local soulWrought = weaponModData.SoulWrought or false
+		
+		if weapon:isFavorite() then return false end
+		
+		if soulForged and (soulsFreed and soulsFreed < 1) and augments and augments == 4 and not soulWrought then
+			return true
+		end
+	end
+	return false
+end
+
+function OnTest_checkMainHand3x(item)
+	if not canReturnSoulForge then return false end
+	local player = getSpecificPlayer(0)
+
+	if not item:isInPlayerInventory() then return false end
+	
+	if player:getPrimaryHandItem() ~= nil then
+		local weapon = player:getPrimaryHandItem()
+		local weaponModData = weapon:getModData()
+		local soulsFreed = weaponModData.KillCount or nil
+		local soulForged = weaponModData.SoulForged or false
+		local augments = weaponModData.Augments or 0
+		
+		if weapon:isFavorite() then return false end
+		
+		if soulForged and (soulsFreed and soulsFreed < 1) and augments and augments == 3 then
+			return true
+		end
+	end
+	return false
+end
+
+function OnTest_checkMainHand2x(item)
+	if not canReturnSoulForge then return false end
+	local player = getSpecificPlayer(0)
+
+	if not item:isInPlayerInventory() then return false end
+	
+	if player:getPrimaryHandItem() ~= nil then
+		local weapon = player:getPrimaryHandItem()
+		local weaponModData = weapon:getModData()
+		local soulsFreed = weaponModData.KillCount or nil
+		local soulForged = weaponModData.SoulForged or false
+		local augments = weaponModData.Augments or 0
+		
+		if weapon:isFavorite() then return false end
+		
+		if soulForged and (soulsFreed and soulsFreed < 1) and augments and augments == 2 then
+			return true
+		end
+	end
+	return false
+end
+
+function OnTest_checkMainHand1x(item)
+	if not canReturnSoulForge then return false end
+	local player = getSpecificPlayer(0)
+
+	if not item:isInPlayerInventory() then return false end
+	
+	if player:getPrimaryHandItem() ~= nil then
+		local weapon = player:getPrimaryHandItem()
+		local weaponModData = weapon:getModData()
+		local soulsFreed = weaponModData.KillCount or nil
+		local soulForged = weaponModData.SoulForged or false
+		local augments = weaponModData.Augments or 0
+		
+		if weapon:isFavorite() then return false end
+		
+		if soulForged and (soulsFreed and soulsFreed < 1) and augments and augments == 1 then
+			return true
+		end
+	end
+	return false
+end
+
+function OnTest_checkMainHand0x(item)
+	if not canReturnSoulForge then return false end
+	local player = getSpecificPlayer(0)
+
+	if not item:isInPlayerInventory() then return false end
+	
+	if player:getPrimaryHandItem() ~= nil then
+		local weapon = player:getPrimaryHandItem()
+		local weaponModData = weapon:getModData()
+		local soulsFreed = weaponModData.KillCount or nil
+		local soulForged = weaponModData.SoulForged or false
+		local augments = weaponModData.Augments or 0
+		
+		if weapon:isFavorite() then return false end
+		
+		if soulForged and (soulsFreed and soulsFreed < 1) and augments and augments == 0 then
 			return true
 		end
 	end
@@ -414,8 +527,25 @@ function OnCreate_unforgeMainHand(items, result, player)
 		
 		for i=1,augments do
 			local returnBrokenWeapon = InventoryItemFactory.CreateItem(weapon:getFullType())
+			local rMD = returnBrokenWeapon:getModData()
+			if returnBrokenWeapon:isRanged() then
+				rMD.mdzMaxDmg = 1
+				rMD.mdzMinDmg = 1
+				rMD.mdzAimingTime = 1
+				rMD.mdzReloadTime = 1
+				rMD.mdzRecoilDelay = 1
+				rMD.mdzCriticalChance = 1
+				rMD.mdzCritDmgMultiplier = 1
+				rMD.mdzPrefix = "Broken"
+			else
+				rMD.mdzMaxDmg = 1
+				rMD.mdzMinDmg = 1
+				rMD.mdzCriticalChance = 1
+				rMD.mdzCritDmgMultiplier = 1
+				rMD.mdzPrefix = "Broken"
+			end
 			returnBrokenWeapon:setCondition(0)
-			returnBrokenWeapon:setHaveBeenRepaired(25)
+			returnBrokenWeapon:setHaveBeenRepaired(100)
 			playerInv:AddItem(returnBrokenWeapon)
 		end
 		local p1_desc = weaponModData.p1_desc or nil
@@ -457,7 +587,28 @@ function OnCreate_unforgeMainHand(items, result, player)
 		player:setPrimaryHandItem(nil)
 		
 		local returnBrokenWeapon = InventoryItemFactory.CreateItem(weapon:getFullType())
-		returnBrokenWeapon:setCondition(0)
+		--returnBrokenWeapon:copyModData(weaponModData)
+		local rMD = returnBrokenWeapon:getModData()
+		
+		if returnBrokenWeapon:isRanged() then
+			rMD.mdzAimingTime = weaponModData.mdzAimingTime or 1
+			rMD.mdzReloadTime = weaponModData.mdzReloadTime or 1
+			rMD.mdzRecoilDelay = weaponModData.mdzRecoilDelay or 1
+			rMD.mdzMaxDmg = weaponModData.mdzMaxDmg or 1
+			rMD.mdzMinDmg = weaponModData.mdzMinDmg or 1
+			rMD.mdzCriticalChance = weaponModData.mdzCriticalChance or 1
+			rMD.mdzCritDmgMultiplier = weaponModData.mdzCritDmgMultiplier or 1
+			rMD.mdzPrefix = weaponModData.mdzPrefix or nil
+		else
+			rMD.mdzMaxDmg = weaponModData.mdzMaxDmg or 1
+			rMD.mdzMinDmg = weaponModData.mdzMinDmg or 1
+			rMD.mdzCriticalChance = weaponModData.mdzCriticalChance or 1
+			rMD.mdzCritDmgMultiplier = weaponModData.mdzCritDmgMultiplier or 1
+			rMD.mdzPrefix = weaponModData.mdzPrefix or nil
+		end
+	
+		returnBrokenWeapon:setName(returnBrokenWeapon:getScriptItem():getDisplayName())
+		returnBrokenWeapon:setCondition(1)
 		returnBrokenWeapon:setHaveBeenRepaired(o_weaponRepair)
 		
 		playerInv:AddItem(returnBrokenWeapon)
@@ -468,8 +619,26 @@ function OnCreate_unforgeMainHand(items, result, player)
 		
 		if returnSoulWrought then
 			local returnBrokenWeapon_sw = InventoryItemFactory.CreateItem(weapon:getFullType())
+			local rMD = returnBrokenWeapon_sw:getModData()
+			if returnBrokenWeapon:isRanged() then
+				rMD.mdzMaxDmg = 1
+				rMD.mdzMinDmg = 1
+				rMD.mdzAimingTime = 1
+				rMD.mdzReloadTime = 1
+				rMD.mdzRecoilDelay = 1
+				rMD.mdzCriticalChance = 1
+				rMD.mdzCritDmgMultiplier = 1
+				rMD.mdzPrefix = "Broken"
+			else
+				rMD.mdzMaxDmg = 1
+				rMD.mdzMinDmg = 1
+				rMD.mdzCriticalChance = 1
+				rMD.mdzCritDmgMultiplier = 1
+				rMD.mdzPrefix = "Broken"
+			end
+			
 			returnBrokenWeapon_sw:setCondition(0)
-			returnBrokenWeapon_sw:setHaveBeenRepaired(o_weaponRepair)
+			returnBrokenWeapon_sw:setHaveBeenRepaired(100)
 			playerInv:AddItem(returnBrokenWeapon_sw)
 			if wTier >= 1 then playerInv:AddItem("SoulForge.SoulCrystalT1") end
 			if wTier >= 2 then playerInv:AddItem("SoulForge.SoulCrystalT2") end
@@ -608,4 +777,113 @@ SoulForgeReroll.bagWeightTicket = function(items, result, player)
 	end
 
 	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+end
+
+local function needToEatItAll(character, percent)
+	if percent < 1 then character:Say("I need to eat the whole thing to receive the buff.") end
+end
+
+local buffTimer = {}
+
+local function checkTimestamp(buff)
+	local timestamp = getTimestamp()
+	if buffTimer[buff] and (timestamp-buffTimer[buff] < 10) then
+		buffTimer[buff] = timestamp
+		return false
+	end
+	buffTimer[buff] = timestamp
+	return true
+end
+
+function SoulThirstFlask_40(food, character, percent)
+	needToEatItAll(character, percent)
+	if percent == 1 then
+		local pMD = character:getModData()
+		
+		if pMD.SoulThirstTimer and pMD.SoulThirstTimer > 0 then
+			Events.EveryTenMinutes.Remove(decaySoulThirst) --remove previous hook
+		end
+		
+		pMD.SoulThirstValue = 40
+		pMD.SoulThirstTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
+		
+		Events.EveryTenMinutes.Add(decaySoulThirst)
+		HaloTextHelper.addTextWithArrow(character, "Soul Thirst Buff Active. ", true, HaloTextHelper.getColorGreen());
+		buffTimer["SoulThirst"] = getTimestamp()
+	end
+end
+
+function LuckFlask_300(food, character, percent)
+	needToEatItAll(character, percent)
+	if percent == 1 then
+		local pMD = character:getModData()
+		
+		if pMD.luckTimer and pMD.luckTimer > 0 then
+			Events.EveryTenMinutes.Remove(decayLuck)
+		end
+		
+		pMD.luckValue = 300
+		pMD.luckTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
+		
+		Events.EveryTenMinutes.Add(decayLuck)
+		HaloTextHelper.addTextWithArrow(character, "Luck Buff Active. ", true, HaloTextHelper.getColorGreen());
+		buffTimer["Luck"] = getTimestamp()
+	end
+end
+
+function LuckFlask_100(food, character, percent)
+	needToEatItAll(character, percent)
+	if percent == 1 then
+		local pMD = character:getModData()
+		
+		if pMD.luckTimer and pMD.luckTimer > 0 then
+			Events.EveryTenMinutes.Remove(decayLuck)
+		end
+		
+		pMD.luckValue = 200
+		pMD.luckTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
+		
+		Events.EveryTenMinutes.Add(decayLuck)
+		HaloTextHelper.addTextWithArrow(character, "Luck Buff Active. ", true, HaloTextHelper.getColorGreen());
+		buffTimer["Luck"] = getTimestamp()
+	end
+end
+
+
+function LuckFlask_100(food, character, percent)
+	needToEatItAll(character, percent)
+	if percent == 1 then
+		local pMD = character:getModData()
+		
+		if pMD.luckTimer and pMD.luckTimer > 0 then
+			Events.EveryTenMinutes.Remove(decayLuck)
+		end
+		
+		pMD.luckValue = 100
+		pMD.luckTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
+		
+		Events.EveryTenMinutes.Add(decayLuck)
+		HaloTextHelper.addTextWithArrow(character, "Luck Buff Active. ", true, HaloTextHelper.getColorGreen());
+		buffTimer["Luck"] = getTimestamp()
+	end
+end
+
+function SoulSmithFlask_2pct(food, character, percent)
+	needToEatItAll(character, percent)
+	if percent == 1 then
+		local pMD = character:getModData()
+		
+		if pMD.SoulSmithTimer and pMD.SoulSmithTimer > 0 then
+			Events.EveryTenMinutes.Remove(decaySoulSmith) --remove previous hook
+			--Events.OnWeaponHitXp.Remove(SoulSmithOnWeaponHitXP)
+		end
+		
+		pMD.SoulSmithValue = 2
+		pMD.SoulSmithTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
+		
+		Events.EveryTenMinutes.Add(decaySoulSmith)
+		--Events.OnWeaponHitXp.Add(SoulSmithOnWeaponHitXP)
+		HaloTextHelper.addTextWithArrow(character, "Soul Smith Food Buff Active. ", true, HaloTextHelper.getColorGreen());
+		buffTimer["SoulSmith"] = getTimestamp()
+	end
 end

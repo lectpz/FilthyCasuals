@@ -31,10 +31,10 @@ function EventHandlers.SoulForgedJewelryOnCreate(items, result, player)
     
     local rolledItem = ItemGenerator.getRandomAccessoryForSlots()
     local inventory = player:getInventory()
-    local createdItem = InventoryItemFactory.CreateItem(rolledItem)
+    inventory:AddItems(rolledItem, 1)
+
+    local createdItem = ItemGenerator.findUnmodifiedSoulBuffJewlery(inventory, rolledItem)
     createdItem:setDisplayCategory('SoulForge')
-    inventory:AddItems(createdItem, 1)
-    createdItem = ItemGenerator.findUnmodifiedSoulBuffJewlery(inventory, rolledItem)
 
     if createdItem then
         local tier = 1
@@ -88,6 +88,12 @@ function EventHandlers.OnClothingUpdated(player)
                 ItemGenerator.SetResultName(item)
                 item:setDisplayCategory('SoulForge')
             end
+        end
+    end
+    
+    for _, buff in pairs(BuffSystem.BUFF_CALCULATIONS) do
+        if buff.apply then
+            buff.apply(player)
         end
     end
 end

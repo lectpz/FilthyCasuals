@@ -150,6 +150,7 @@ function ISInventoryTransferAction:transferItem(item)
 	and iFT ~= 'Base.SoulForgeCache' 
 	and iFT ~= 'Base.PokemonCache' 
 	and iFT ~= 'Base.ShinyPokemonCache' 
+	and iFT ~= 'Base.ChiikuCache'
 	then
 
 		if sourceContainer == "floor" and not isAdmin() then

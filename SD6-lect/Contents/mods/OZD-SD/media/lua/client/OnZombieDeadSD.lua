@@ -73,7 +73,9 @@ local function zPerks(player, tierzone, zombieSprinterValue)
 end
 
 function OnZombieDeadItemDrop(zombie)
-	local player = getSpecificPlayer(0)
+	local player = zombie:getAttackedBy()
+    if not player or not instanceof(player, "IsoPlayer") or not player:isLocalPlayer() then return end
+	
 	if player:isSeatedInVehicle() then 
 		if ZombRand(8) == 0 then zombie:addLineChatElement("Lousy... Sunday... Drivers...") end
 		return 
@@ -153,11 +155,14 @@ function OnZombieDeadItemDrop(zombie)
 -- function to add item
 	local function itemdrop(item)
 		--zombie:getSquare():AddWorldInventoryItem(item, 0, 0, 0) --use this if you want it items to drop onto the ground
-		zombie:getInventory():AddItem(item) --use this if you want the items to spawn into a zombie body
+		if not item then return end
+		local newItem = InventoryItemFactory.CreateItem(item)
+		MDZ_OnCreate_MeleeWeaponVariance(newItem)
+		zombie:getInventory():AddItem(newItem) --use this if you want the items to spawn into a zombie body
 	end	
 	
 	--check if player is in event zone, if event enabled and inside the zone then use event rolls, otherwise use the 
-	if eventenabled then
+	--[[if eventenabled then
 		local x = player:getX()
 		local y = player:getY()
 		local x1 = SandboxVars.SDevents.Xcoord1
@@ -171,7 +176,7 @@ function OnZombieDeadItemDrop(zombie)
 			t4roll = ZombRand(math.max(SandboxVars.SDevents.roll4 - math.floor(zombieSprinterValue*2) - controlMod - toxicMod - luckValue, 1))
 			t5roll = ZombRand(math.max(SandboxVars.SDevents.roll5 - math.floor(zombieSprinterValue*2.5) - controlMod - toxicMod - luckValue, 1))
 		end
-	end
+	end]]
 	
 	--if isDebugEnabled() then player:Say("luck value: " .. luckValue) end
 	
@@ -190,7 +195,7 @@ function OnZombieDeadItemDrop(zombie)
 			itemdrop(table1[t1])
 		end
 
-		if ZombRand(7-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
+		if ZombRand(7-tierzone) == 0 then zombie:getInventory():AddItem(bling[ZombRand(#bling)+1]) end
 
 	elseif tierzone == 4 then
 		--player:Say("Tier 4! 1 / " .. tostring(t4roll))
@@ -205,7 +210,7 @@ function OnZombieDeadItemDrop(zombie)
 			itemdrop(table1[t1])
 		end
 
-		if ZombRand(7-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
+		if ZombRand(7-tierzone) == 0 then zombie:getInventory():AddItem(bling[ZombRand(#bling)+1]) end
 
 	elseif tierzone == 3 then
 		--player:Say("Tier 3! 1 / " .. tostring(t3roll))
@@ -218,7 +223,7 @@ function OnZombieDeadItemDrop(zombie)
 			itemdrop(table1[t1])
 		end
 
-		if ZombRand(7-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
+		if ZombRand(7-tierzone) == 0 then zombie:getInventory():AddItem(bling[ZombRand(#bling)+1]) end
 
 	elseif tierzone == 2 then
 		--player:Say("Tier 2! 1 / " .. tostring(t2roll))
@@ -229,7 +234,7 @@ function OnZombieDeadItemDrop(zombie)
 			itemdrop(table1[t1])
 		end
 
-		if ZombRand(7-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
+		if ZombRand(7-tierzone) == 0 then zombie:getInventory():AddItem(bling[ZombRand(#bling)+1]) end
 
 	elseif tierzone == 1 then
 		--player:Say("Tier 1! 1 / " .. tostring(t1roll))
@@ -238,7 +243,7 @@ function OnZombieDeadItemDrop(zombie)
 			itemdrop(table1[t1])
 		end
 
-		if ZombRand(7-tierzone) == 0 then itemdrop(bling[ZombRand(#bling)+1]) end
+		if ZombRand(7-tierzone) == 0 then zombie:getInventory():AddItem(bling[ZombRand(#bling)+1]) end
 
 	end
 end

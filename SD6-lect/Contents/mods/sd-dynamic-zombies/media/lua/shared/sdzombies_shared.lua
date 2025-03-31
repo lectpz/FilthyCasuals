@@ -236,11 +236,11 @@ local function updateAllZombies()
 		else
 			tickMax = 1
 		end
-		sendServerCommand("SDRandomZombies", "updateAllZombies", nil)
+		--sendServerCommand("SDRandomZombies", "updateAllZombies", nil)
 	end
 end
-
-if isServer() then Events.EveryOneMinute.Add(updateAllZombies) end
+Events.EveryOneMinute.Add(updateAllZombies)
+--if isServer() then Events.EveryOneMinute.Add(updateAllZombies) end
 
 
 local Commands = {}
@@ -255,4 +255,4 @@ local function onServerCommand(module, command, args)
         Commands[module][command]()
     end
 end
-if isClient() then Events.OnServerCommand.Add(onServerCommand) end
+--if isClient() then Events.OnServerCommand.Add(onServerCommand) end

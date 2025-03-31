@@ -76,9 +76,9 @@ function SDmap.MapPanel:drawzone()
 		end
 	end
 	
-	for i=1,#ZoneNames do
-		drawHatchedRectangleForZone(self, ZoneNames[i], 1.0, 750, self.mapAPI)
-	end
+	--for i=1,#ZoneNames do
+		--drawHatchedRectangleForZone(self, ZoneNames[i], 1.0, 750, self.mapAPI)
+	--end
 
 	ModDataMapDrawTierZones[getCurrentUserSteamID()] = false
 	ModData.transmit("MoreDifficultZones")
@@ -468,9 +468,9 @@ function SDmap.CreateNewZone:drawzone()
 		end
 	end
 	
-	for i=1,#ZoneNames do
-		drawHatchedRectangleForZone(self, ZoneNames[i], 1.0, 750, self.mapAPI)
-	end
+	--for i=1,#ZoneNames do
+		--drawHatchedRectangleForZone(self, ZoneNames[i], 1.0, 750, self.mapAPI)
+	--end
 
 	ModDataMapDrawTierZones[getCurrentUserSteamID()] = false
 	ModData.transmit("MoreDifficultZones")

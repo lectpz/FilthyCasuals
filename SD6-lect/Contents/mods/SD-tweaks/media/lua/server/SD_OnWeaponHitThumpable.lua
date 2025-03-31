@@ -6,7 +6,7 @@ end
 
 local function OnWeaponHitThumpable(playerObj, handWeapon, object)
 	if handWeapon:getType() == "BareHands" then
-		if instanceof(object, "IsoDoor") or instanceof(object, "IsoWindow") then
+		if instanceof(object, "IsoDoor") or instanceof(object, "IsoWindow") or instanceof(object, "IsoTree") then
 			if not abuseTable[playerObj] then abuseTable[playerObj] = 0 end
 			abuseTable[playerObj] = abuseTable[playerObj] + 1
 			if abuseTable[playerObj] >= 10 then
@@ -17,7 +17,7 @@ local function OnWeaponHitThumpable(playerObj, handWeapon, object)
 					local player = online_players:get(i);
 					local username = player:getUsername()
 					if username == args.player_username then
-						print("[sdLogger] Player [" .. args.player_username .. "] caught shoving a door/window " .. abuseTable[playerObj] .. "times at: " .. playerObj:getX() .. "," .. playerObj:getY() .. "," .. playerObj:getZ())
+						print("[sdLogger] Player [" .. args.player_username .. "] caught shoving a door/tree/window " .. abuseTable[playerObj] .. "times at: " .. playerObj:getX() .. "," .. playerObj:getY() .. "," .. playerObj:getZ())
 						sendServerCommand(player, 'SDthings', 'OnWeaponHitThumpable', args);
 						abuseTable[playerObj] = 0
 						break
