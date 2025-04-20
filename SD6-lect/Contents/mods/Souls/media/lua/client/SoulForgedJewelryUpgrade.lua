@@ -1,6 +1,5 @@
 local Config = require('SoulForgedJewelryConfig')
 local ItemGenerator = require('SoulForgedJewelryItemGeneration')
-
 local function SoulForgedJewelryUpgrade(player, context, items)
     if not isAdmin() or not isDebugEnabled() then return end
     
@@ -37,7 +36,9 @@ local function SoulForgedJewelryUpgrade(player, context, items)
     context:addSubMenu(buffOption, buffSubMenu)
     
     for buffId, buffName in pairs(Config.buffDisplayNames) do
-        buffSubMenu:addOption(buffName, worldobjects, onSelectBuff, item, buffId)
+        if buffId ~= "SoulStrength" then
+            buffSubMenu:addOption(buffName, worldobjects, onSelectBuff, item, buffId)
+        end
     end
     
     local tierOption = subMenu:addOption("Set Tier", worldobjects, nil)
@@ -48,5 +49,4 @@ local function SoulForgedJewelryUpgrade(player, context, items)
         tierSubMenu:addOption("Tier " .. i, worldobjects, onSelectTier, item, i)
     end
 end
-
 Events.OnPreFillInventoryObjectContextMenu.Add(SoulForgedJewelryUpgrade)
