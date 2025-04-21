@@ -78,7 +78,7 @@ function TooltipSystem.createTooltip(item)
     
     -- Format the main value string based on buff type
     local mainText
-    if buff and buff == "luck" or oldBuff == "SoulStrength" then
+    if buff == "luck" or buff == "SoulStrength" then
         mainText = string.format("[T%d] %+.1f %s", tier, value, buffCalc.format)
     else 
         mainText = string.format("[T%d] %+.1f%% %s", tier, value, buffCalc.format)
@@ -92,20 +92,43 @@ function TooltipSystem.createTooltip(item)
     local isDowngrade = false
     
     -- Add total info based on equipped state and buff type
-    local hasLostBuff = false  -- New flag to track if we have a lost buff line
+    local hasLostBuff = false  -- Flag to track if we have a lost buff line
+    
+    -- Check if buff has a maximum value
+    local hasMaxValue = buffCalc.maxValue ~= nil
+    local isAtMax = hasMaxValue and currentTotal >= buffCalc.maxValue
     
     -- Add total info based on equipped state and buff type
     if item:isEquipped() then
-        if buff and buff == "luck" then
+        if buff == "luck" or buff == "SoulStrength" then
             tooltip = tooltip .. string.format("\nCurrent Total: %+.1f", currentTotal)
+            -- Add max value indicator if applicable
+            if hasMaxValue then
+                tooltip = tooltip .. string.format(" (Max: %+.1f)", buffCalc.maxValue)
+                if isAtMax then
+                    tooltip = tooltip .. " [MAXED]"
+                end
+            end
         else
             tooltip = tooltip .. string.format("\nCurrent Total: %+.1f%%", currentTotal)
+            -- Add max value indicator if applicable
+            if hasMaxValue then
+                tooltip = tooltip .. string.format(" (Max: %+.1f%%)", buffCalc.maxValue)
+                if isAtMax then
+                    tooltip = tooltip .. " [MAXED]"
+                end
+            end
         end
     else
         -- Get currently equipped item in same slot
         local equippedItem = TooltipSystem.getEquippedInSlot(player, item:getBodyLocation())
-        local baseTotal = TooltipSystem.calculateBuffTotal(player, buff, equippedItem)
-        local newTotal = baseTotal + value
+        local baseTotal = currentTotal
+        local newTotal = baseTotal
+        
+        -- Only add the value if we're not already at max
+        if not hasMaxValue or baseTotal < buffCalc.maxValue then
+            newTotal = math.min(baseTotal + value, hasMaxValue and buffCalc.maxValue or (baseTotal + value))
+        end
         
         -- Determine if this would be a downgrade
         if equippedItem and equippedItem:getModData().SoulBuff == buff then
@@ -113,10 +136,24 @@ function TooltipSystem.createTooltip(item)
             isDowngrade = value < equippedValue
         end
         
-        if buff and buff == "luck" then
-            tooltip = tooltip .. string.format("\nTotal: %+.1f -> %+.1f", currentTotal, newTotal)
+        if buff == "luck" or buff == "SoulStrength" then
+            tooltip = tooltip .. string.format("\nTotal: %+.1f -> %+.1f", baseTotal, newTotal)
+            -- Add max value indicator if applicable
+            if hasMaxValue then
+                tooltip = tooltip .. string.format(" (Max: %+.1f)", buffCalc.maxValue)
+                if newTotal >= buffCalc.maxValue then
+                    tooltip = tooltip .. " [MAXED]"
+                end
+            end
         else
-            tooltip = tooltip .. string.format("\nTotal: %+.1f%% -> %+.1f%%", currentTotal, newTotal)
+            tooltip = tooltip .. string.format("\nTotal: %+.1f%% -> %+.1f%%", baseTotal, newTotal)
+            -- Add max value indicator if applicable
+            if hasMaxValue then
+                tooltip = tooltip .. string.format(" (Max: %+.1f%%)", buffCalc.maxValue)
+                if newTotal >= buffCalc.maxValue then
+                    tooltip = tooltip .. " [MAXED]"
+                end
+            end
         end
         
         -- Add info about different buff being replaced
@@ -137,7 +174,7 @@ function TooltipSystem.createTooltip(item)
         end
     end
     
-    return tooltip, isDowngrade, hasLostBuff  -- Return the additional flag
+    return tooltip, isDowngrade, hasLostBuff
 end
 
 -- Helper function to draw tooltip text with specific color

@@ -1,7 +1,7 @@
 local Config = require('SoulForgedJewelryConfig')
 local ItemGenerator = require('SoulForgedJewelryItemGeneration')
 local function SoulForgedJewelryUpgrade(player, context, items)
-    if not isAdmin() or not isDebugEnabled() then return end
+    -- if not isAdmin() or not isDebugEnabled() then return end
     
     if not items or #items == 0 then return end
     local _items = ISInventoryPane.getActualItems(items)
