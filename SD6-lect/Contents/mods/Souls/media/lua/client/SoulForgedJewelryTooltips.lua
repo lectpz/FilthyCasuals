@@ -75,13 +75,22 @@ function TooltipSystem.createTooltip(item)
     if not buffCalc then return "Invalid Buff", false end
     
     local value = buffCalc.getDisplayValue(tier)
+    local showTier = not (buffCalc and buffCalc.hasTier == false)
     
     -- Format the main value string based on buff type
     local mainText
     if buff == "luck" or buff == "SoulStrength" then
-        mainText = string.format("[T%d] %+.1f %s", tier, value, buffCalc.format)
+        if showTier then
+            mainText = string.format("[T%d] %+.1f %s", tier, value, buffCalc.format)
+        else
+            mainText = string.format("%+.1f %s", value, buffCalc.format)
+        end
     else 
-        mainText = string.format("[T%d] %+.1f%% %s", tier, value, buffCalc.format)
+        if showTier then
+            mainText = string.format("[T%d] %+.1f%% %s", tier, value, buffCalc.format)
+        else
+            mainText = string.format("%+.1f%% %s", value, buffCalc.format)
+        end
     end
     
     local tooltip = mainText
