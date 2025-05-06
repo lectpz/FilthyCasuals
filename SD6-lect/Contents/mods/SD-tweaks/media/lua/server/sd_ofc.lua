@@ -129,11 +129,11 @@ local function onFillContainer(_roomName, _containerType, container)
 	
 	if sd_bID[sq:getBuilding():getID()] then return end
 	
-	--[[if not bID_flag then
+	if not bID_flag then
 		getPlayerBIDS()
 		bID_flag = true
 	end
-	if ofc_bID[sq:getBuilding():getID()] then return end]]
+	if ofc_bID[sq:getBuilding():getID()] then return end
 	
 	local sq_roomDef = sq_room:getRoomDef()
 	if not sq_roomDef then return end

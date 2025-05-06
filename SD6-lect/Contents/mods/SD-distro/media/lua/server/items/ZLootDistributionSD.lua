@@ -457,6 +457,12 @@ local function editDistributions()
 	modifyItemWeight("MetalworkCache", 2)
 	modifyItemWeight("MechanicCache", 2)
 	modifyItemWeight("MedicalCache", 2.5)
+	
+	modifyItemWeight("SmallSheetMetal", 0.75)
+	modifyItemWeight("SheetMetal", 0.75)
+	modifyItemWeight("MetalPipe", 0.75)
+	modifyItemWeight("MetalBar", 0.75)
+	
 	yeetItem("PropaneTank")
 	yeetItem("TW.LargePropaneTank")
 	yeetItem("Biofuel.IndustrialPropaneTank")

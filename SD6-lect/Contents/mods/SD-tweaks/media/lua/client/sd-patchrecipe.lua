@@ -1,3 +1,33 @@
+local recipesToUnyeet = {}
+
+recipesToUnyeet["Fry Nachos"] = true
+recipesToUnyeet["Make Burrito"] = true
+recipesToUnyeet["Create Burrito"] = true
+recipesToUnyeet["Burrito"] = true
+recipesToUnyeet["Make Bucket of Fried Bird"] = true
+recipesToUnyeet["Make Pasta Dough"] = true
+recipesToUnyeet["Make 2 Bowls of Stew"] = true
+recipesToUnyeet["Make Wooden Skewers"] = true
+recipesToUnyeet["Make Seitan"] = true
+recipesToUnyeet["Make Pie Dough"] = true
+recipesToUnyeet["Take Tortilla from Bag"] = true
+recipesToUnyeet["Press Dough into Tortilla Shape"] = true
+recipesToUnyeet["Make Wonton Wrappers Dough"] = true
+recipesToUnyeet["Cast Small Metal Sheet"] = true
+recipesToUnyeet["Cast Metal Bar"] = true
+recipesToUnyeet["Cast Metal Pipe"] = true
+
+function yeppers()
+	return true
+end
+
+function OnTest_FirearmCleaning_SD(item)
+	if item:IsWeapon() and item:isRanged() then
+		if item:getHaveBeenRepaired() == 1 then return false end
+	end
+	return true
+end
+
 local recipesToPatch = {}
 
 recipesToPatch["Create Propane tank"] = true
@@ -58,6 +88,21 @@ function SD6_addMetalBar(items, result, player)
 	playerInv:AddItem("Base.MetalBar")
 end
 
+function SD6_addSmallMetalSheets(items, result, player)
+    local playerInv = player:getInventory()
+	playerInv:AddItems("Base.SmallSheetMetal",4)
+end
+
+function SD6_addMetalPipes(items, result, player)
+    local playerInv = player:getInventory()
+	playerInv:AddItems("Base.MetalPipe",3)
+end
+
+function SD6_addMetalBars(items, result, player)
+    local playerInv = player:getInventory()
+	playerInv:AddItems("Base.MetalBar",3)
+end
+
 function getYeetedToHell()
 	return false
 end
@@ -107,15 +152,18 @@ local function patch_recipes()
                 patched = patched + 1
                 print ("Patched \""..name.."\"..")
 			elseif name == "Make Small Metal Sheet Mold" then
-				recipe:setLuaCreate("SD6_addSmallMetalSheet")
+				recipe:findSource("Base.SmallSheetMetal"):setKeep(true)
+				--recipe:setLuaCreate("SD6_addSmallMetalSheet")
                 patched = patched + 1
                 print ("Patched \""..name.."\"..")
 			elseif name == "Make Metal Bar Mold" then
-				recipe:setLuaCreate("SD6_addMetalBar")
+				recipe:findSource("Base.MetalBar"):setKeep(true)
+				--recipe:setLuaCreate("SD6_addMetalBar")
                 patched = patched + 1
                 print ("Patched \""..name.."\"..")
 			elseif name == "Make Metal Pipe Mold" then
-				recipe:setLuaCreate("SD6_addMetalPipe")
+				recipe:findSource("Base.MetalPipe"):setKeep(true)
+				--recipe:setLuaCreate("SD6_addMetalPipe")
                 patched = patched + 1
                 print ("Patched \""..name.."\"..")
 			elseif name == "Make 97 Bushmaster Seat" then
@@ -127,8 +175,76 @@ local function patch_recipes()
 				end
 			elseif name == "Unpack Bundle of Crossbow Bolts" then
 				recipe:getResult():setCount(30)
+				patched = patched + 1
+				print ("Patched \""..name.."\"..")
             end
         end
+		
+		if recipesToUnyeet[name] then
+			if name == "Make Wonton Wrappers Dough" then
+				recipe:findSource("Base.Flour"):setCount(3)
+				patched = patched + 1
+				print ("Patched \""..name.."\"..")
+			end
+			if name == "Make Pasta Dough" then 
+				--print("Recipe Name: " .. name)
+				local eggs = 3
+				recipe:findSource("Base.Flour"):setCount(5)
+				recipe:findSource("Base.WildEggs"):setCount(eggs)
+				recipe:findSource("Base.Egg"):setCount(eggs)
+				recipe:findSource("SapphCooking.BowlwithBeatenEggs"):setCount(eggs)
+				recipe:findSource("SapphCooking.BrownEgg"):setCount(eggs)
+				--[[local sourceIngredients = recipe:getSource()
+				for i=0, sourceIngredients:size()-1 do
+					print(sourceIngredients:get(i):getItems())
+				end]]
+				patched = patched + 1
+				print ("Patched \""..name.."\"..")
+			end
+			
+			if name == "Cast Small Metal Sheet" then
+				recipe:findSource("Base.ScrapMetal"):setCount(60)
+				recipe:getResult():setCount(8)
+				--recipe:setLuaCreate("SD6_addSmallMetalSheets")
+				patched = patched + 1
+				print ("Patched \""..name.."\"..")
+			end
+			
+			if name == "Cast Metal Pipe" then
+				recipe:findSource("Base.ScrapMetal"):setCount(40)
+				recipe:getResult():setCount(6)
+				--recipe:setLuaCreate("SD6_addMetalPipes")
+				patched = patched + 1
+				print ("Patched \""..name.."\"..")
+			end
+			
+			if name == "Cast Metal Bar" then
+				recipe:findSource("Base.ScrapMetal"):setCount(30)
+				recipe:getResult():setCount(6)
+				--recipe:setLuaCreate("SD6_addMetalBars")
+				patched = patched + 1
+				print ("Patched \""..name.."\"..")
+			end
+			
+			recipe:setIsHidden(false)
+			recipe:setCanPerform("yeppers")
+			patched = patched + 1
+			print ("Patched \""..name.."\"..")
+		end
+		
+		if recipe:getLuaCreate() == "Recipe.OnCreate.FirearmCleaning" then
+			--print(recipe:getLuaCreate())
+			--recipe:setLuaCreate("Recipe.OnCreate.FirearmCleaning")
+			--recipe:setLuaTest("OnTest_FirearmCleaning_SD")
+			recipe:setRemoveResultItem(true)
+			--print("==========GETSOURCE==============")
+			local rSource = recipe:getSource()
+			--for i=0, rSource:size()-1 do
+				print(rSource:get(0):setKeep(true))
+			--end
+			--print("==========GETSOURCE==============")
+		end
+		
     end
     local stop = Calendar.getInstance():getTimeInMillis()
 

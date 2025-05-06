@@ -569,46 +569,46 @@ local suff2_args = {
     ApocalypseEnjoyer =	function(item)
 						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
 						
-						local sm1, sm2, sm3 = 1.15, 1.1, 1
+						local sm1, sm2, sm3 = 1, 1.1, 1
 						
-						local maxDamage = sm1
+						local maxHitCount = scriptItem:getMaxHitCount() + sm1
 						local maxCondition = sm2
 						local conditionLowerChance = sm3
 						
 						local description = gold .. "Suffix Modifer: Apocalypse Enjoyer" ..
-								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Maximum Damage" ..
+								green .. " <LINE> Max Hit Count +" .. sm1 ..
 								green .. " <LINE> " .. string.format("%.0f", (sm2*100-100))  .. "% More Maximum Weapon Condition <LINE> "
-						return description, scriptItem, maxDamage, maxCondition, conditionLowerChance
+						return description, scriptItem, maxHitCount, maxCondition, conditionLowerChance
 					end,
 					
 	AscendedPath =	function(item)
 						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
 						
-						local sm1, sm2, sm3 = 1.15, 1, 1.1
+						local sm1, sm2, sm3 = 1, 1, 1.1
 						
-						local maxDamage = sm1
+						local maxHitCount = scriptItem:getMaxHitCount() + sm1
 						local minDamage = sm2
 						local conditionLowerChance = sm3
 						
 						local description = gold .. "Suffix Modifer: Ascended Path" ..
-								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Maximum Damage" ..
+								green .. " <LINE> Max Hit Count +" .. sm1 ..
 								green .. " <LINE> " .. string.format("%.0f", (sm3*100-100))  .. "% More Weapon Condition Lower Chance <LINE> "
-						return description, scriptItem, maxDamage, minDamage, conditionLowerChance
+						return description, scriptItem, maxHitCount, minDamage, conditionLowerChance
 					end,
 	
-	ToxicProgenitor=function(item)
+	DyingDawn=function(item)
 						local scriptItem = ScriptManager.instance:getItem(item:getFullType())
 						
-						local sm1, sm2, sm3 = 1.15, 1, 1.2
+						local sm1, sm2, sm3 = 1, 1, 1.2
 						
-						local maxDamage = sm1
+						local maxHitCount = scriptItem:getMaxHitCount() + sm1
 						local minDamage = sm2
-						local soulForgeCritRate = sm3
+						local soulForgeCritMulti = sm3
 						
-						local description = gold .. "Suffix Modifer: Toxic Progenitor" ..
-								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Maximum Damage" ..
+						local description = gold .. "Suffix Modifer: Dying Dawn" ..
+								green .. " <LINE> Max Hit Count +" .. sm1 ..
 								green .. " <LINE> " .. string.format("%.0f", (sm3*100-100))  .. "% More Critical Chance <LINE> "
-						return description, scriptItem, maxDamage, minDamage, soulForgeCritRate
+						return description, scriptItem, maxHitCount, minDamage, soulForgeCritMulti
 					end,
 					
 	UnhingedTryhard=function(item)
@@ -686,13 +686,9 @@ local suff2_setstat = {
 						item:setName(weaponModData.Name)
 					end,
 
-    ApocalypseEnjoyer =	function(item, description, scriptItem, maxDamage, maxCondition, conditionLowerChance)
+    ApocalypseEnjoyer =	function(item, description, scriptItem, maxHitCount, maxCondition, conditionLowerChance)
 												
-						if weaponModData.soulForgeMaxDmgMulti ~= nil then
-							weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti * maxDamage
-						else
-							weaponModData.soulForgeMaxDmgMulti = maxDamage -- Set the default value if nil
-						end
+						weaponModData.MaxHitCount = maxHitCount
 						
 						if weaponModData.ConditionLowerChance ~= nil then
 							weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance * conditionLowerChance
@@ -718,13 +714,9 @@ local suff2_setstat = {
 						item:setName(weaponModData.Name)
 					end,
 					
-    AscendedPath =	function(item, description, scriptItem, maxDamage, minDamage, conditionLowerChance)
+    AscendedPath =	function(item, description, scriptItem, maxHitCount, minDamage, conditionLowerChance)
 												
-						if weaponModData.soulForgeMaxDmgMulti ~= nil then
-							weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti * maxDamage
-						else
-							weaponModData.soulForgeMaxDmgMulti = maxDamage -- Set the default value if nil
-						end
+						weaponModData.MaxHitCount = maxHitCount
 						
 						if weaponModData.soulForgeMinDmgMulti ~= nil then
 							weaponModData.soulForgeMinDmgMulti = weaponModData.soulForgeMinDmgMulti * minDamage
@@ -748,13 +740,9 @@ local suff2_setstat = {
 						item:setName(weaponModData.Name)
 					end,
 	
-	ToxicProgenitor=function(item, description, scriptItem, maxHitCount, minDamage, soulForgeCritRate)
+	DyingDawn=function(item, description, scriptItem, maxHitCount, minDamage, soulForgeCritMulti)
 												
-						if weaponModData.soulForgeMaxDmgMulti ~= nil then
-							weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti * maxDamage
-						else
-							weaponModData.soulForgeMaxDmgMulti = maxDamage -- Set the default value if nil
-						end
+						weaponModData.MaxHitCount = maxHitCount
 						
 						if weaponModData.soulForgeMinDmgMulti ~= nil then
 							weaponModData.soulForgeMinDmgMulti = weaponModData.soulForgeMinDmgMulti * minDamage
@@ -762,12 +750,12 @@ local suff2_setstat = {
 							weaponModData.soulForgeMinDmgMulti = minDamage -- Set the default value if nil
 						end
 						
-						if weaponModData.soulForgeCritRate ~= nil then
-							weaponModData.soulForgeCritRate = weaponModData.soulForgeCritRate * soulForgeCritRate
+						if weaponModData.soulForgeCritMulti ~= nil then
+							weaponModData.soulForgeCritMulti = weaponModData.soulForgeCritMulti * soulForgeCritMulti
 						else
-							weaponModData.soulForgeCritRate = soulForgeCritRate
+							weaponModData.soulForgeCritMulti = soulForgeCritMulti
 						end
-						weaponModData.suffix2 = "Toxic Progenitor"
+						weaponModData.suffix2 = "Dying Dawn"
 						
 						isAugmented()
 						
@@ -839,7 +827,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 				soulPower = math.min(soulsFreed / soulsRequired, 1) or 0
 				
 				local tierColor = white
-				local wTier = wMD.Tier
+				local wTier = weaponModData.Tier
 				if wTier then
 					if wTier == 5 then
 						tierColor = gold
@@ -854,11 +842,11 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 				
 				tooltip.description = tooltip.description .. orange .. "Stat modifiers to weapon: <LINE> "
 				
-				if wMD.mdzPrefix then tooltip.description = tooltip.description .. white .. " <LINE> Weapon Quality: " .. tierColor .. wMD.mdzPrefix .. " <LINE> " end
-				if wMD.mdzMinDmg then tooltip.description = tooltip.description .. green .. " <LINE> " .. string.format("%.2f", wMD.mdzMinDmg)  .. "x More Minimum Damage <LINE> " end
-				if wMD.mdzMaxDmg then tooltip.description = tooltip.description .. green .. string.format("%.2f", wMD.mdzMaxDmg)  .. "x More Maximum Damage <LINE> " end
-				if wMD.mdzCriticalChance then tooltip.description = tooltip.description .. green .. string.format("%.2f", wMD.mdzCriticalChance)  .. "x More Critical Chance <LINE> " end
-				if wMD.mdzCritDmgMultiplier then tooltip.description = tooltip.description .. green .. string.format("%.2f", wMD.mdzCritDmgMultiplier)  .. "x More Critical Damage Multiplier <LINE> " end
+				if weaponModData.mdzPrefix then tooltip.description = tooltip.description .. white .. " <LINE> Weapon Quality: " .. tierColor .. weaponModData.mdzPrefix .. " <LINE> " end
+				if weaponModData.mdzMinDmg then tooltip.description = tooltip.description .. green .. " <LINE> " .. string.format("%.2f", weaponModData.mdzMinDmg)  .. "x More Minimum Damage <LINE> " end
+				if weaponModData.mdzMaxDmg then tooltip.description = tooltip.description .. green .. string.format("%.2f", weaponModData.mdzMaxDmg)  .. "x More Maximum Damage <LINE> " end
+				if weaponModData.mdzCriticalChance then tooltip.description = tooltip.description .. green .. string.format("%.2f", weaponModData.mdzCriticalChance)  .. "x More Critical Chance <LINE> " end
+				if weaponModData.mdzCritDmgMultiplier then tooltip.description = tooltip.description .. green .. string.format("%.2f", weaponModData.mdzCritDmgMultiplier)  .. "x More Critical Damage Multiplier <LINE> " end
 				
 				tooltip.description = tooltip.description .. orange .. " <LINE> SoulForge Modifiers: <LINE> "
 				tooltip.description = tooltip.description .. green .. " <LINE> Extra Base Maximum Damage: +" .. math.floor(soulPower * 10)/10 * numAugments/4 .. " <LINE> "

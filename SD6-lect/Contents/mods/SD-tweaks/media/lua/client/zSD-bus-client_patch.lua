@@ -1,10 +1,37 @@
-local tp_loc = {
---[[	["cc"] = { 11072, 8851, 0 },
+local function splitString(sandboxvar, delimiter)
+	local ztable = {}
+	for match in sandboxvar:gmatch(delimiter) do
+		table.insert(ztable, match)
+	end
+	return ztable
+end
+
+local tp_loc = {}
+
+local stopName = {}
+
+local vanilla_tp_loc = {--[[
+	["cc"] = { 11072, 8851, 0 },
 	["cc_shops"] = { 11250, 8903, 0 },
 	["rs"] = { 5964, 5276, 0 },
 	["wp"] = { 12074, 7235, 0},
 	["ivy"] = { 8778, 9760, 0},
-	["rw"] = { 8256, 11886, 0},
+	--["rw"] = { 8256, 11886, 0},
+	["rw"] = { 8256, 11886, 1},
+	["md"] = { 10608, 11222, 0},]]
+}
+
+local vanilla_stopName = {--[[
+	["cc"] = "Sunday Drivers Community Center",
+	["cc_shops"] = "Community Center Shops (East)",
+	["rs"] = "Riverside",
+	["wp"] = "West Point Outpost",
+	["ivy"] = "Ivy Lake",
+	["rw"] = "Rosewood",
+	["md"] = "Muldraugh",]]
+}
+
+local other_tp_loc = {--[[
 	["lv"] = { 13240, 3508, 0},
 	["rc"] = { 5210, 10645, 0},
 	["ec"] = { 10457, 17218, 0},
@@ -17,13 +44,7 @@ local tp_loc = {
 	["DD_outpost2"] = { 2918, 2483, 0 },]]
 }
 
-local stopName = {
---[[	["cc"] = "Muldraugh Community Center",
-	["cc_shops"] = "Community Center Shops (East)",
-	["rs"] = "Riverside",
-	["wp"] = "West Point Outpost",
-	["ivy"] = "Ivy Lake",
-	["rw"] = "Rosewood",
+local other_stopName = {--[[
 	["lv"] = "Louisville",
 	["rc"] = "Raven Creek / Redstone / Wilbore",
 	["ec"] = "Eerie County",
@@ -36,51 +57,7 @@ local stopName = {
 	["DD_outpost2"] = "Dirkerdam North-West Outpost",]]
 }
 
-local vanilla_tp_loc = {
-	["cc"] = { 11072, 8851, 0 },
-	["cc_shops"] = { 11250, 8903, 0 },
-	["rs"] = { 5964, 5276, 0 },
-	["wp"] = { 12074, 7235, 0},
-	["ivy"] = { 8778, 9760, 0},
-	["rw"] = { 8256, 11886, 0},
-}
-
-local vanilla_stopName = {
-	["cc"] = "Muldraugh Community Center",
-	["cc_shops"] = "Community Center Shops (East)",
-	["rs"] = "Riverside",
-	["wp"] = "West Point Outpost",
-	["ivy"] = "Ivy Lake",
-	["rw"] = "Rosewood",
-}
-
-local other_tp_loc = {
-	["lv"] = { 13240, 3508, 0},
-	["rc"] = { 5210, 10645, 0},
-	["ec"] = { 10457, 17218, 0},
-	["bbl"] = { 6543, 8182, 0},
-	["lc"] = { 14778, 6517, 0},
-	["Elroy"] = { 3768, 7639, 0},
-	["OakdaleU"] = { 12390, 11228, 0},
-	["DD_entrance"] = { 9737, 6275, 0 },
-	["DD_outpost1"] = { 8816, 4531, 0 },
-	["DD_outpost2"] = { 2918, 2483, 0 },
-}
-
-local other_stopName = {
-	["lv"] = "Louisville",
-	["rc"] = "Raven Creek / Redstone / Wilbore",
-	["ec"] = "Eerie County",
-	["bbl"] = "Big Bear Lake / Nettle Township",
-	["lc"] = "Lake Cumberland / Shortrest City",
-	["Elroy"] = "Cathaya Valley / Elroy",
-	["OakdaleU"] = "Oakdale",
-	["DD_entrance"] = "Dirkerdam Entrance / Taylorsville",
-	["DD_outpost1"] = "Dirkerdam South City Outpost",
-	["DD_outpost2"] = "Dirkerdam North-West Outpost",
-}
-
-local function initBusStop()
+--[[local function initBusStop()
 	if SandboxVars.SDbus.vanillaBusEnabled and not SandboxVars.SDbus.otherBusEnabled then
 		tp_loc = {}
 		stopName = {}
@@ -111,8 +88,22 @@ local function initBusStop()
 		tp_loc = {}
 		stopName = {}
 	end
-end
+end]]
 --Events.OnInitGlobalModData.Add(initBusStop)
+
+local function initBusStop()
+	local busSandbox = splitString(SandboxVars.SDbus.BusStops, "[^;]+")
+	local busTable = {}
+	for i=1,#busSandbox do
+		local busDelimited = splitString(busSandbox[i], "[^:]+")
+		for j=1, #busDelimited do table.insert(busTable, busDelimited[j]) end
+	end
+
+	for i=1,#busTable,5 do
+		tp_loc[busTable[i]] = { tonumber(busTable[i+2]), tonumber(busTable[i+3]), tonumber(busTable[i+4]) }
+		stopName[busTable[i]] = busTable[i+1]
+	end
+end
 
 local function playSoundWhenMoveFrom(playerObj,x,y)
 

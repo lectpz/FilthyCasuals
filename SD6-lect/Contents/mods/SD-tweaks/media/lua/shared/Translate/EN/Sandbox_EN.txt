@@ -6,6 +6,9 @@ Sandbox_EN = {
 	Sandbox_SDnoBuild_exclusionZones = "Exclusion coords- topleft->bottomright x1,y2,x2,y2;",
 	Sandbox_SDnoBuild_exclusionZones_tooltip = "e.g. 19000:100:19750:150;",
 
+	Sandbox_SDOnWeaponSwing_RangedDamageMultiplier = "Ranged damage multiplier (Higher is better)",
+	Sandbox_SDOnWeaponSwing_RangedDamageMultiplier_tooltip = "e.g. 1.5 (Higher is better)",
+	
 	Sandbox_SDOnWeaponSwing_Tier1dmg = "Tier 1 damage modifier",
 	Sandbox_SDOnWeaponSwing_Tier1dmg_tooltip = "e.g. 1.00",
 
@@ -113,203 +116,6 @@ Sandbox_EN = {
 	Sandbox_SDevents_Rewards4 = "Reward Loot",
 	Sandbox_SDevents_Rewards4_tooltip = "Base.XCoin",
 
-	Sandbox_SDZones = "SD Tier Zones",
-	
-	Sandbox_SDZones_BigBearLake = "BigBearLake Tier Zone",
-	Sandbox_SDZones_BigBearLake_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_BigBearLakeMili = "BigBearLakeMili Tier Zone",
-	Sandbox_SDZones_BigBearLakeMili_tooltip = "e.g. 5",
-	
-	Sandbox_SDZones_BigBearLakeWest = "BigBearLakeWest Tier Zone",
-	Sandbox_SDZones_BigBearLakeWest_tooltip = "e.g. 4",
-	
-	Sandbox_SDZones_BigBearLakeEast = "BigBearLakeEast Tier Zone",
-	Sandbox_SDZones_BigBearLakeEast_tooltip = "e.g. 3",
-
-	Sandbox_SDZones_CC = "CC Tier Zone",
-	Sandbox_SDZones_CC_tooltip = "e.g. 1",
-
-	Sandbox_SDZones_Chestown = "Chestown Tier Zone",
-	Sandbox_SDZones_Chestown_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_DirkerCityT3N = "DirkerCityT3N Tier Zone",
-	Sandbox_SDZones_DirkerCityT3N_tooltip = "e.g. 3",
-
-	Sandbox_SDZones_DirkerCityT3South = "DirkerCityT3South Tier Zone",
-	Sandbox_SDZones_DirkerCityT3South_tooltip = "e.g. 3",
-
-	Sandbox_SDZones_DirkerCityT3West = "DirkerCityT3West Tier Zone",
-	Sandbox_SDZones_DirkerCityT3West_tooltip = "e.g. 3",
-
-	Sandbox_SDZones_DirkerCityT4E = "DirkerCityT4E Tier Zone",
-	Sandbox_SDZones_DirkerCityT4E_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_DirkerCityT4EE = "DirkerCityT4EE Tier Zone",
-	Sandbox_SDZones_DirkerCityT4EE_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_DirkerCityT4N = "DirkerCityT4N Tier Zone",
-	Sandbox_SDZones_DirkerCityT4N_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_DirkerCityT4NE = "DirkerCityT4NE Tier Zone",
-	Sandbox_SDZones_DirkerCityT4NE_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_DirkerCityT4NW = "DirkerCityT4NW Tier Zone",
-	Sandbox_SDZones_DirkerCityT4NW_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_DirkerCityT4S = "DirkerCityT4S Tier Zone",
-	Sandbox_SDZones_DirkerCityT4S_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_DirkerCityT4SE = "DirkerCityT4SE Tier Zone",
-	Sandbox_SDZones_DirkerCityT4SE_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_DirkerCityT4SW = "DirkerCityT4SW Tier Zone",
-	Sandbox_SDZones_DirkerCityT4SW_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_DirkerCityT4W = "DirkerCityT4W Tier Zone",
-	Sandbox_SDZones_DirkerCityT4W_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_DirkerCityT5E = "DirkerCityT5E Tier Zone",
-	Sandbox_SDZones_DirkerCityT5E_tooltip = "e.g. 5",
-
-	Sandbox_SDZones_DirkerCityT5W = "DirkerCityT5W Tier Zone",
-	Sandbox_SDZones_DirkerCityT5W_tooltip = "e.g. 5",
-
-	Sandbox_SDZones_DirkerEasy = "DirkerEasy Tier Zone",
-	Sandbox_SDZones_DirkerEasy_tooltip = "e.g. 3",
-
-	Sandbox_SDZones_DirkerEncampment = "DirkerEncampment Tier Zone",
-	Sandbox_SDZones_DirkerEncampment_tooltip = "e.g. 3",
-
-	Sandbox_SDZones_DirkerHard = "DirkerHard Tier Zone",
-	Sandbox_SDZones_DirkerHard_tooltip = "e.g. 5",
-
-	Sandbox_SDZones_DirkerMed = "DirkerMed Tier Zone",
-	Sandbox_SDZones_DirkerMed_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_DirkerTownNorthWestT3 = "DirkerTownNorthWestT3 Tier Zone",
-	Sandbox_SDZones_DirkerTownNorthWestT3_tooltip = "e.g. 3",
-
-	Sandbox_SDZones_DirkerTownNorthWestT4 = "DirkerTownNorthWestT4 Tier Zone",
-	Sandbox_SDZones_DirkerTownNorthWestT4_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_DirkerTownSouthEastT3 = "DirkerTownSouthEastT3 Tier Zone",
-	Sandbox_SDZones_DirkerTownSouthEastT3_tooltip = "e.g. 3",
-
-	Sandbox_SDZones_DirkerTownSouthEastT4 = "DirkerTownSouthEastT4 Tier Zone",
-	Sandbox_SDZones_DirkerTownSouthEastT4_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_DirkerTownSouthT3 = "DirkerTownSouthT3 Tier Zone",
-	Sandbox_SDZones_DirkerTownSouthT3_tooltip = "e.g. 3",
-
-	Sandbox_SDZones_DirkerTownSouthT4 = "DirkerTownSouthT4 Tier Zone",
-	Sandbox_SDZones_DirkerTownSouthT4_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_EerieCapitol = "EerieCapitol Tier Zone",
-	Sandbox_SDZones_EerieCapitol_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_EerieCountry = "EerieCountry Tier Zone",
-	Sandbox_SDZones_EerieCountry_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_EerieIrvington = "EerieIrvington Tier Zone",
-	Sandbox_SDZones_EerieIrvington_tooltip = "e.g. 5",
-
-	Sandbox_SDZones_EerieMilitaryBase = "EerieMilitaryBase Tier Zone",
-	Sandbox_SDZones_EerieMilitaryBase_tooltip = "e.g. 3",
-
-	Sandbox_SDZones_EeriePowerPlant = "EeriePowerPlant Tier Zone",
-	Sandbox_SDZones_EeriePowerPlant_tooltip = "e.g. 3",
-
-	Sandbox_SDZones_FortRedstone = "FortRedstone Tier Zone",
-	Sandbox_SDZones_FortRedstone_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_Grapeseed = "Grapeseed Tier Zone",
-	Sandbox_SDZones_Grapeseed_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_InsidePetro = "InsidePetro Tier Zone",
-	Sandbox_SDZones_InsidePetro_tooltip = "e.g. 5",
-
-	Sandbox_SDZones_LC = "LC Tier Zone",
-	Sandbox_SDZones_LC_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_LCBunker = "LCBunker Tier Zone",
-	Sandbox_SDZones_LCBunker_tooltip = "e.g. 5",
-
-	Sandbox_SDZones_LCDowntown = "LCDowntown Tier Zone",
-	Sandbox_SDZones_LCDowntown_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_LCSouth1 = "LCSouth1 Tier Zone",
-	Sandbox_SDZones_LCSouth1_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_LCSouth2 = "LCSouth2 Tier Zone",
-	Sandbox_SDZones_LCSouth2_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_LVairport = "LVairport Tier Zone",
-	Sandbox_SDZones_LVairport_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_LVshipping = "LVshipping Tier Zone",
-	Sandbox_SDZones_LVshipping_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_LakeIvy = "LakeIvy Tier Zone",
-	Sandbox_SDZones_LakeIvy_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_Louisville = "Louisville Tier Zone",
-	Sandbox_SDZones_Louisville_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_LouisvilleMallArea = "LouisvilleMallArea Tier Zone",
-	Sandbox_SDZones_LouisvilleMallArea_tooltip = "e.g. 5",
-
-	Sandbox_SDZones_LouisvillePD = "LouisvillePD Tier Zone",
-	Sandbox_SDZones_LouisvillePD_tooltip = "e.g. 5",
-
-	Sandbox_SDZones_MarchRidge = "MarchRidge Tier Zone",
-	Sandbox_SDZones_MarchRidge_tooltip = "e.g. 1",
-
-	Sandbox_SDZones_Muldraugh = "Muldraugh Tier Zone",
-	Sandbox_SDZones_Muldraugh_tooltip = "e.g. 1",
-
-	Sandbox_SDZones_Nettle = "Nettle Tier Zone",
-	Sandbox_SDZones_Nettle_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_OaksdaleU = "OaksdaleU Tier Zone",
-	Sandbox_SDZones_OaksdaleU_tooltip = "e.g. 3",
-
-	Sandbox_SDZones_OldStPaulo = "OldStPaulo Tier Zone",
-	Sandbox_SDZones_OldStPaulo_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_Petroville = "Petroville Tier Zone",
-	Sandbox_SDZones_Petroville_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_RavenCreek = "RavenCreek Tier Zone",
-	Sandbox_SDZones_RavenCreek_tooltip = "e.g. 3",
-
-	Sandbox_SDZones_RavenCreekEntrance = "RavenCreekEntrance Tier Zone",
-	Sandbox_SDZones_RavenCreekEntrance_tooltip = "e.g. 4",
-
-	Sandbox_SDZones_RavenCreekPDMilitaryHospital = "RavenCreekPDMilitaryHospital Tier Zone",
-	Sandbox_SDZones_RavenCreekPDMilitaryHospital_tooltip = "e.g. 5",
-
-	Sandbox_SDZones_Riverside = "Riverside Tier Zone",
-	Sandbox_SDZones_Riverside_tooltip = "e.g. 1",
-
-	Sandbox_SDZones_Rosewood = "Rosewood Tier Zone",
-	Sandbox_SDZones_Rosewood_tooltip = "e.g. 1",
-
-	Sandbox_SDZones_RosewoodX = "RosewoodX Tier Zone",
-	Sandbox_SDZones_RosewoodX_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_Taylorsville = "Taylorsville Tier Zone",
-	Sandbox_SDZones_Taylorsville_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_ValleyStreamMall = "ValleyStreamMall Tier Zone",
-	Sandbox_SDZones_ValleyStreamMall_tooltip = "e.g. 3",
-	
-	Sandbox_SDZones_WestPointEast = "WestPointEast Tier Zone",
-	Sandbox_SDZones_WestPointEast_tooltip = "e.g. 2",
-
-	Sandbox_SDZones_WestPointWest = "WestPointWest Tier Zone",
-	Sandbox_SDZones_WestPointWest_tooltip = "e.g. 1",
-	
 	Sandbox_McCraes = "McCrae's Car Battery Charger",
 	
 	Sandbox_McCraes_X = "McCrae's Car Battery Charger X-Coordinate",
@@ -336,9 +142,7 @@ Sandbox_EN = {
 	
 	Sandbox_SDbus = "SD Bus System",
 	
-	Sandbox_SDbus_vanillaBusEnabled = "Enable Vanilla Town Bus Stops",
-	Sandbox_SDbus_vanillaBusEnabled_tooltip = "Check to enable, uncheck to disable",
-	
-	Sandbox_SDbus_otherBusEnabled = "Enable Modded Town Bus Stops",
-	Sandbox_SDbus_otherBusEnabled_tooltip = "Check to enable, uncheck to disable",
+	Sandbox_SDbus_BusStops = "Bus Stops",
+	Sandbox_SDbus_BusStops_tooltip = "Input Bus Stops",
+
 }

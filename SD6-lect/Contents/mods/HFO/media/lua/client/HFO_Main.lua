@@ -279,7 +279,7 @@ local function applyWeaponStats(weapon, result, conditionStats)
 			else
 				local mdzPrefix = modData.mdzPrefix or weaponModData.mdzPrefix or ""
 				local soulWrought = modData.SoulWrought or weaponModData.SoulWrought or ""
-				if mdzPrefix ~= "" then mdzPrefix = mdzPrefix .. " "
+				if mdzPrefix ~= "" then mdzPrefix = mdzPrefix .. " " end
 				result:setName(mdzPrefix .. soulWrought .. modData.Name)
 			end
 		else
@@ -670,9 +670,14 @@ local function SwapMagazineHotkey(keyNum)
                     local magazineTranslation = magazineTranslationMap[nextMagazineType]
                     PlayerSay("Swapping to " .. magazineTranslation)
 					
+					--local itemID = result:getID()
+                    --player:getInventory():AddItem(result)
+					--local inventoryItem = player:getInventory():getItemWithID(itemID)
+					local rMD = result:getModData()
+					local weaponModData = weapon:getModData()
 					sdCopyModData(weaponModData, rMD)
 					
-                    applyWeaponStats(weapon, result, conditionStats)
+					applyWeaponStats(weapon, result, conditionStats)
     
                     result:setMagazineType(nextMagazineType)
                     result:setMaxAmmo(newMag:getMaxAmmo())
@@ -687,9 +692,9 @@ local function SwapMagazineHotkey(keyNum)
 					local itemID = result:getID()
                     player:getInventory():AddItem(result)
 					local inventoryItem = player:getInventory():getItemWithID(itemID)
-					local rMD = inventoryItem:getModData()
-					local weaponModData = weapon:getModData()
-
+					--local rMD = inventoryItem:getModData()
+					--local weaponModData = weapon:getModData()
+					--sdCopyModData(weaponModData, rMD)
 					sdSetModData(inventoryItem, weaponModData)		
 					
                     handleEquippedWeapon(player, weapon, result)

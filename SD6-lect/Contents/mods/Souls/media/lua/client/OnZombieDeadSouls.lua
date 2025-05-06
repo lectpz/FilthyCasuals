@@ -22,10 +22,10 @@ local function getWeightedItem(tableno, tableweight, rollvalue)
 end
 
 function OnZombieDeadSouls(zombie)
-	local player = zombie:getAttackedBy()
-	if player:isSeatedInVehicle() then return end
-    if not player or not instanceof(player, "IsoPlayer") or not player:isLocalPlayer() then return end
-	
+	player = zombie:getAttackedBy()
+	if player:isSeatedInVehicle() then 
+		return 
+	end
 	--player:Say("OZD TEST")
 	local tierzone, zonename, playerx, playery, control, toxic = checkZone()
 --	local tierzone = 4

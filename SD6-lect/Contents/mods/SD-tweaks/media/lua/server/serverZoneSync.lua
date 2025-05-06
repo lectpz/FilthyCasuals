@@ -28,15 +28,20 @@ local function OnInitGlobalModData()
 		sortData(zonesGMD)
 		
 		for zone, factions in pairs(zonesGMD) do
-			for factionName, killCount in pairs(factions) do
+			--[[for factionName, killCount in pairs(factions) do
 				local reduxMulti = 1
 				if FactionControlledZones[zone] == factionName then reduxMulti = 0.9 end
 				zonesGMD[zone][factionName] = math.floor(killCount * 0.9 * reduxMulti)
+			end]]
+			for factionName, killCount in pairs(factions) do
+				if FactionControlledZones[zone] == factionName then
+					zonesGMD[zone][factionName] = math.floor(killCount * 0.9)
+				end
 			end
 		end
 	end
 end
-Events.OnInitGlobalModData.Add(OnInitGlobalModData)
+--Events.OnInitGlobalModData.Add(OnInitGlobalModData)
 
 local function countDaysPassed()
 	if not ModData.exists("countDaysPassed") then
@@ -45,9 +50,21 @@ local function countDaysPassed()
 	else
 		daysPassed = ModData.getOrCreate("countDaysPassed")
 		if not daysPassed["count"] then daysPassed["count"] = 0 end
-		if daysPassed["count"] > ZombRand(24,48) then
-			ModData.remove("zonesData")
-			ModData.remove("FactionControlledZones")
+		--if daysPassed["count"] > ZombRand(24,48) then
+		if daysPassed["count"] > 12 then
+			--ModData.remove("zonesData")
+			--ModData.remove("FactionControlledZones")
+			local FactionControlledZones = ModData.getOrCreate("FactionControlledZones")
+			local zonesGMD = ModData.getOrCreate("zonesData") or {}
+			
+			for zone, factions in pairs(zonesGMD) do
+				for factionName, killCount in pairs(factions) do
+					if FactionControlledZones[zone] == factionName then
+						zonesGMD[zone][factionName] = math.floor(killCount * 0.9)
+					end
+				end
+			end
+			
 			daysPassed["count"] = 0
 		else
 			daysPassed["count"] = daysPassed["count"] + 1

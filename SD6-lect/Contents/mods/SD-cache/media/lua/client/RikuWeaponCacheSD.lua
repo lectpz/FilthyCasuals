@@ -89,13 +89,21 @@ function RikuWeaponCacheSD(items, result, player)
 	local n3 = #table3 
 	local t3 = ZombRand(n3)+1
 	
-	local table4 = splitString(SandboxVars.RWC.table4)
-	local n4 = #table4 
-	local t4 = ZombRand(n4)+1	
+	local rmwtable4 = splitString(SandboxVars.RWC.table4)
+	local rmwn4 = #rmwtable4 
+	local rmwt4 = ZombRand(rmwn4)+1	
 	
-	local table5 = splitString(SandboxVars.RWC.table5)
-	local n5 = #table5 
-	local t5 = ZombRand(n5)+1	
+	local rmwtable5 = splitString(SandboxVars.RWC.table5)
+	local rmwn5 = #rmwtable5 
+	local rmwt5 = ZombRand(rmwn5)+1	
+	
+	local ozdtable4 = splitString(SandboxVars.OZD.table4)
+	local ozdn4 = #ozdtable4
+	local ozdt4 = ZombRand(ozdn4)+1
+	
+	local ozdtable5 = splitString(SandboxVars.OZD.table5)
+	local ozdn5 = #ozdtable4
+	local ozdt5 = ZombRand(ozdn5)+1
 	
 	args = {
 	  player_name = getOnlineUsername(),
@@ -120,11 +128,21 @@ function RikuWeaponCacheSD(items, result, player)
 -- tiered rolling, checks zone and adds item
 	if (zonetier == 5 and isToxicControl() and ZombRand(3) == 0) or (zonetier == 5 and isToxicControl() and ZombRand(luckValue)+1 > 250) then
 		if ZombRand(10) == 0 then
-			addSoulForgedWeaponToPlayer(table5[t5])
-			if ZombRand(luckValue)+1 > 250 then addItemToPlayer(table5[t5]) end
+			if ZombRand(5) == 0 then
+				addSoulForgedWeaponToPlayer(ozdtable5[ozdt5])
+				if ZombRand(luckValue)+1 > 250 then addItemToPlayer(ozdtable5[ozdt5]) end
+			else
+				addSoulForgedWeaponToPlayer(rmwtable5[rmwt5])
+				if ZombRand(luckValue)+1 > 250 then addItemToPlayer(rmwtable5[rmwt5]) end
+			end
 		else
-			addItemToPlayer(table5[t5])
-			if ZombRand(luckValue)+1 > 250 then addItemToPlayer(table5[t5]) end
+			if ZombRand(5) == 0 then
+				addItemToPlayer(ozdtable5[ozdt5])
+				if ZombRand(luckValue)+1 > 250 then addItemToPlayer(ozdtable5[ozdt5]) end
+			else
+				addItemToPlayer(rmwtable5[rmwt5])
+				if ZombRand(luckValue)+1 > 250 then addItemToPlayer(rmwtable5[rmwt5]) end
+			end
 		end
 		sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 		return
@@ -132,11 +150,21 @@ function RikuWeaponCacheSD(items, result, player)
 	--elseif zonetier == 4 then
 	if zonetier >= 4 then
 		if (isToxicControl() and ZombRand(10) == 0) or (isToxicControl() and ZombRand(luckValue)+1 > 200) then
-			addSoulForgedWeaponToPlayer(table4[t4])
-			if ZombRand(luckValue)+1 > 200 then addItemToPlayer(table4[t4]) end
+			if ZombRand(5) == 0 then
+				addSoulForgedWeaponToPlayer(ozdtable4[ozdt4])
+				if ZombRand(luckValue)+1 > 200 then addItemToPlayer(ozdtable4[ozdt4]) end
+			else
+				addSoulForgedWeaponToPlayer(rmwtable4[rmwt4])
+				if ZombRand(luckValue)+1 > 200 then addItemToPlayer(rmwtable4[rmwt4]) end
+			end
 		else
-			addItemToPlayer(table4[t4])
-			if ZombRand(luckValue)+1 > 200 then addItemToPlayer(table4[t4]) end
+			if ZombRand(5) == 0 then
+				addItemToPlayer(ozdtable4[ozdt4])
+				if ZombRand(luckValue)+1 > 250 then addItemToPlayer(ozdtable4[ozdt4]) end
+			else
+				addItemToPlayer(rmwtable4[rmwt4])
+				if ZombRand(luckValue)+1 > 250 then addItemToPlayer(rmwtable4[rmwt4]) end
+			end
 		end
 		addEmptyBoxToPlayer("EmptyWeaponCacheT4");
 	elseif zonetier == 3 then

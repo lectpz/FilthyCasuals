@@ -13,28 +13,15 @@ function ISRemoveBurntVehicle:perform()
 	end
 	local totalXp = 5;
 	for i=1,math.min(tierzone*2, self.character:getPerkLevel(Perks.MetalWelding)) do
---		if self:checkAddItem("MetalBar", 15) then totalXp = totalXp + 2 end;
---		if self:checkAddItem("MetalBar", 15) then totalXp = totalXp + 2 end;
---		if self:checkAddItem("MetalBar", 15) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("MetalBar", 20) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining-
---		if self:checkAddItem("MetalPipe", 15) then totalXp = totalXp + 2 end;
---		if self:checkAddItem("MetalPipe", 15) then totalXp = totalXp + 2 end;
---		if self:checkAddItem("MetalPipe", 20) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("MetalPipe", 25) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining
---		if self:checkAddItem("SheetMetal", 25) then totalXp = totalXp + 2 end;
---		if self:checkAddItem("SheetMetal", 25) then totalXp = totalXp + 2 end;
---		if self:checkAddItem("SheetMetal", 25) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("SheetMetal", 28) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining
---		if self:checkAddItem("SmallSheetMetal", 15) then totalXp = totalXp + 2 end;
---		if self:checkAddItem("SmallSheetMetal", 15) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("SmallSheetMetal", 18) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("SmallSheetMetal", 18) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining
---		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
---		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
---		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("ScrapMetal", 10) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("ScrapMetal", 10) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("ScrapMetal", 10) then totalXp = totalXp + 2 end; -- additional yield on account of fixing propane torches not draining
+		if self:checkAddItem("MetalBar", 23) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("MetalPipe", 30) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("SheetMetal", 33) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("SmallSheetMetal", 21) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("SmallSheetMetal", 21) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
 	end
 	for i=1,(15+(tierzone)*2) do
 		self.item:Use();

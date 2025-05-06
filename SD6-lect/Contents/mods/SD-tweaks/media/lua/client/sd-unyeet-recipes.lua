@@ -90,4 +90,4 @@ local function unyeet_recipes()
 	print("Unyeeted "..unyeeted.." recipes in "..(stop - start).."ms!")
 end
 
-Events.OnInitGlobalModData.Add(unyeet_recipes)
+--Events.OnInitGlobalModData.Add(unyeet_recipes)

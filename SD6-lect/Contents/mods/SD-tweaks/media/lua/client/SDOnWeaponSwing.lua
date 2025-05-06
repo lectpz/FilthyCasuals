@@ -206,6 +206,9 @@ local function SDOnWeaponSwing(character, handWeapon)
 		if soulForgeMaxHitCount then
 			inventoryItem:setMaxHitCount(soulForgeMaxHitCount)
 		end
+		
+		local dmgMulti = tonumber(SandboxVars.SDOnWeaponSwing.RangedDamageMultiplier) or 1.5
+		local rangedDmgMulti = 1 - (1 - localdmgmulti)^dmgMulti
 
 		local soulForgeMinDmgMulti = modData.soulForgeMinDmgMulti or 1
 		local soulForgeMaxDmgMulti = modData.soulForgeMaxDmgMulti or 1
@@ -214,8 +217,8 @@ local function SDOnWeaponSwing(character, handWeapon)
 		
 		if modData.CriticalChance then inventoryItem:setCriticalChance(modData.CriticalChance * soulForgeCritRate * mdzCriticalChance * soulForgeAimingPerkCritModifier) end
 		if modData.CritDmgMultiplier then inventoryItem:setCritDmgMultiplier(modData.CritDmgMultiplier * soulForgeCritMulti * mdzCritDmgMultiplier) end
-		inventoryItem:setMinDamage(modData.MinDamage * soulForgeMinDmgMulti * mdzMinDmg)
-		inventoryItem:setMaxDamage(modData.MaxDamage * soulForgeMaxDmgMulti * mdzMaxDmg)
+		inventoryItem:setMinDamage(modData.MinDamage * soulForgeMinDmgMulti * mdzMinDmg * rangedDmgMulti)
+		inventoryItem:setMaxDamage(modData.MaxDamage * soulForgeMaxDmgMulti * mdzMaxDmg * rangedDmgMulti)
 		if modData.ReloadTime then inventoryItem:setReloadTime(modData.ReloadTime * mdzReloadTime) end
 		if modData.RecoilDelay then inventoryItem:setRecoilDelay(modData.RecoilDelay * mdzRecoilDelay) end
 		
