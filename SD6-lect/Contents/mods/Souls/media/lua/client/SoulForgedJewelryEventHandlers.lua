@@ -91,6 +91,16 @@ function EventHandlers.OnClothingUpdated(player)
         end
     end
     
+    local inventory = player:getInventory()
+    local allItems = inventory:getItems()
+    for i=0, allItems:size()-1 do
+        local item = allItems:get(i)
+        local modData = item:getModData()
+        if modData and modData.SoulBuff then
+            ItemGenerator.SetResultName(item)
+        end
+    end
+    
     for _, buff in pairs(BuffSystem.BUFF_CALCULATIONS) do
         if buff.apply then
             buff.apply(player)

@@ -149,23 +149,31 @@ end
 local function sfjUpgradeContext(player, context, items)
     local playerObj = getSpecificPlayer(0)
     local playerInv = playerObj:getInventory()
-	local _items = ISInventoryPane.getActualItems(items)
-	
-	for i=1, #_items do
-		local item = _items[i]
-		if not item:isInPlayerInventory() or item:isEquipped() or item:isFavorite() or item:getContainer():getType() ~= "none" then return end -- item must be in inventory
-		local iTier = item:getModData().Tier
-		local iBuff = item:getModData().SoulBuff
-		if iTier and iTier < 5 and iBuff then 
-			local sfj_upgrade = context:addOption("Upgrade [T" .. iTier .. "] SoulForged Jewelry to [T" .. iTier+1 .. "]", player, sfjUpgrade, item, iTier+1)
-			local tooltip = ISWorldObjectContextMenu.addToolTip();
-			tooltip.description = gold .. "Material required for upgrade:"
-			itemToolTipMats(tooltip, "Base.ScrapMetal", sfj_upgrade, (iTier+1)^2)
-			itemToolTipMats(tooltip, "SoulForge.WeightedDiceT"..iTier+1, sfj_upgrade, iTier)
-			itemToolTipMats(tooltip, "SoulForge.SoulShardT"..iTier+1, sfj_upgrade, iTier)
-			sfj_upgrade.toolTip = tooltip
-			break
-		end
-	end
+    local _items = ISInventoryPane.getActualItems(items)
+    
+    for i=1, #_items do
+        local item = _items[i]
+        if not item:isInPlayerInventory() or item:isEquipped() or item:isFavorite() or item:getContainer():getType() ~= "none" then return end -- item must be in inventory
+        local iTier = item:getModData().Tier
+        local iBuff = item:getModData().SoulBuff
+        
+        if iTier and iTier < 5 and iBuff and iBuff ~= "SoulStrength" then 
+            local sfj_upgrade = context:addOption("Upgrade [T" .. iTier .. "] SoulForged Jewelry to [T" .. iTier+1 .. "]", player, sfjUpgrade, item, iTier+1)
+            local tooltip = ISWorldObjectContextMenu.addToolTip();
+            tooltip.description = gold .. "Material required for upgrade:"
+            itemToolTipMats(tooltip, "Base.ScrapMetal", sfj_upgrade, (iTier+1)^2)
+            itemToolTipMats(tooltip, "SoulForge.WeightedDiceT"..iTier+1, sfj_upgrade, iTier)
+            itemToolTipMats(tooltip, "SoulForge.SoulShardT"..iTier+1, sfj_upgrade, iTier)
+            sfj_upgrade.toolTip = tooltip
+            break
+        elseif iTier and iTier < 5 and iBuff and iBuff == "SoulStrength" then
+            local sfj_no_upgrade = context:addOption("Cannot Upgrade", player)
+            sfj_no_upgrade.notAvailable = true
+            local tooltip = ISWorldObjectContextMenu.addToolTip()
+            tooltip.description = red .. iBuff .. " items cannot be upgraded."
+            sfj_no_upgrade.toolTip = tooltip
+            break
+        end
+    end
 end
 Events.OnPreFillInventoryObjectContextMenu.Add(sfjUpgradeContext)

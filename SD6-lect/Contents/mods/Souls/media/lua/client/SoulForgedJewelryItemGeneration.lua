@@ -73,17 +73,34 @@ function ItemGenerator.SetResultName(result)
     local selectedBuff = modData.SoulBuff
     if not selectedBuff then return end
     
+    local buffCalc = BuffSystem.BUFF_CALCULATIONS[selectedBuff]
     local currentName = result:getName()
+    local showTier = not (buffCalc and buffCalc.hasTier == false)
+    
     if not currentName:find("Soul Forged") then
         local displayBuffName = Config.buffDisplayNames[selectedBuff] or selectedBuff
-        local newItemName = "[T" .. modData.Tier .."] " .. displayBuffName .. " Soul Forged " .. currentName
+        local newItemName
+        
+        if showTier then
+            newItemName = "[T" .. modData.Tier .."] " .. displayBuffName .. " Soul Forged " .. currentName
+        else
+            newItemName = displayBuffName .. " Soul Forged " .. currentName
+        end
+        
         result:setName(newItemName)
     else
         local baseItemName = currentName:match("Soul Forged (.+)$")
         
         if baseItemName then
             local displayBuffName = Config.buffDisplayNames[selectedBuff] or selectedBuff
-            local newItemName = "[T" .. modData.Tier .."] " .. displayBuffName .. " Soul Forged " .. baseItemName
+            local newItemName
+            
+            if showTier then
+                newItemName = "[T" .. modData.Tier .."] " .. displayBuffName .. " Soul Forged " .. baseItemName
+            else
+                newItemName = displayBuffName .. " Soul Forged " .. baseItemName
+            end
+            
             if currentName ~= newItemName then
                 result:setName(newItemName)
             end

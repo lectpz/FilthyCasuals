@@ -9,7 +9,9 @@ BuffSystem.BUFF_CALCULATIONS = {
         modData = "PermaSoulForgeStrengthBonus",
         apply = function(player, value, isEquipping)
             player:setMaxWeightBase(player:getMaxWeightBase() + (player:getModData().PermaSoulForgeStrengthBonus or 0))
-        end
+        end,
+        maxValue = 1,
+        hasTier = false
     },
     luck = {
         format = "Luck",
@@ -124,9 +126,13 @@ function BuffSystem.modifyBuff(player, item, isEquipping, buffType)
     local pMD = player:getModData()
     
     if isEquipping then
-        pMD[buff.modData] = (pMD[buff.modData] or 0) + value
+        local newValue = (pMD[buff.modData] or 0) + value
+        if buff.maxValue then
+            newValue = math.min(newValue, buff.maxValue)
+        end
+        pMD[buff.modData] = newValue
     else
-        pMD[buff.modData] = (pMD[buff.modData] or 0) - value
+        pMD[buff.modData] = math.max((pMD[buff.modData] or 0) - value, 0)
     end
     
 end
