@@ -10,7 +10,7 @@ BuffSystem.BUFF_CALCULATIONS = {
         apply = function(player, value, isEquipping)
             player:setMaxWeightBase(player:getMaxWeightBase() + (player:getModData().PermaSoulForgeStrengthBonus or 0))
         end,
-        maxValue = 1,
+        maxValue = 13,
         hasTier = false
     },
     luck = {
