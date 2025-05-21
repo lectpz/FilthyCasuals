@@ -39,6 +39,7 @@ function ISInventoryTransferAction:new(character, item, srcContainer, destContai
     
     if o and dexterityBonus > 0 then
         o.maxTime = o.maxTime - (o.maxTime * dexterityBonus)
+        if SDxferQOL then o.maxTime = o.maxTime * 0.25 end
     end
     
     return o
