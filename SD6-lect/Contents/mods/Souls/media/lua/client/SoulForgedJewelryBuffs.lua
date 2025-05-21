@@ -77,6 +77,7 @@ BuffSystem.BUFF_CALCULATIONS = {
         getDisplayValue = function(tier) return 1 * tier end,
         getBonus = function(tier) return (.01 * tier) end,
         modData = "PermaAiming",
+        defaultValue = 1
     },
     Reloading = {
         format = "Reloading Speed Bonus",
