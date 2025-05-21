@@ -5,12 +5,15 @@ Config.soulForgeBuffWeights = {
     ["SoulSmith"] = 5,
     ["SoulThirst"] = 5,
     ["SoulStrength"] = 1,
-    ["SoulDexterity"] = 1,
+    ["SoulDexterity"] = 10,
     ["MaxCondition"] = 10,
     ["ConditionLowerChance"] = 10,
     ["CritRate"] = 10,
     ["CritMulti"] = 20,
     ["MaxDmg"] = 15,
+    ["Aiming"] = 1,
+    ["Reloading"] = 5,
+    ["Recoil"] = 1,
 }
 
 Config.tierBuffs = {
@@ -18,7 +21,7 @@ Config.tierBuffs = {
     T2 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "MaxCondition", "ConditionLowerChance", "CritRate", "SoulStrength", "MaxDmg" },
     T3 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "ConditionLowerChance", "CritRate", "SoulStrength", "MaxDmg" },
     T4 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "CritRate", "SoulStrength", "MaxDmg" },
-    T5 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "CritRate", "SoulStrength" },
+    T5 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "CritRate", "SoulStrength", "Aiming", "Reloading", "Recoil" },
 }
 
 Config.buffDisplayNames = {
@@ -31,7 +34,10 @@ Config.buffDisplayNames = {
     ConditionLowerChance = "Resilience",
     CritRate = "Critical Chance",
     CritMulti = "Critical Multiplier",
-    MaxDmg = "Maximum Damage"
+    MaxDmg = "Maximum Damage",
+    Aiming = "Aim Speed",
+    Reloading = "Reloading Speed",
+    Recoil = "Recoil Reduction"
 }
 
 Config.validZones = {1, 2, 3, 4, 5}

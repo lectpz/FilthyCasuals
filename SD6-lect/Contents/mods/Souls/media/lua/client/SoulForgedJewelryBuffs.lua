@@ -10,7 +10,7 @@ BuffSystem.BUFF_CALCULATIONS = {
         apply = function(player, value, isEquipping)
             player:setMaxWeightBase(player:getMaxWeightBase() + (player:getModData().PermaSoulForgeStrengthBonus or 0))
         end,
-        maxValue = 1,
+        maxValue = 13,
         hasTier = false
     },
     luck = {
@@ -71,6 +71,24 @@ BuffSystem.BUFF_CALCULATIONS = {
         getDisplayValue = function(tier) return 1 * tier end,
         getBonus = function(tier) return (.01 * tier) end,
         modData = "PermaSoulSmithValue",
+    },
+    Aiming = {
+        format = "Aiming Speed Bonus",
+        getDisplayValue = function(tier) return 1 * tier end,
+        getBonus = function(tier) return (.01 * tier) end,
+        modData = "PermaAiming",
+    },
+    Reloading = {
+        format = "Reloading Speed Bonus",
+        getDisplayValue = function(tier) return 1 * tier end,
+        getBonus = function(tier) return (.01 * tier) end,
+        modData = "PermaReloading",
+    },
+    Recoil = {
+        format = "Recoil Reduction Bonus",
+        getDisplayValue = function(tier) return 1 * tier end,
+        getBonus = function(tier) return (.01 * tier) end,
+        modData = "PermaRecoil",
     },
  }
 
