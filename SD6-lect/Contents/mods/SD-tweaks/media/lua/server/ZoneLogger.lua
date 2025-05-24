@@ -18,4 +18,120 @@ Events.OnServerStarted.Add(function()
         local line = string.format("%s,%d,%d,%d,%d", k, v[1], v[2], v[3], v[4])
         writeToFile(line)
     end
+
+    saveAllItemsToFile()
+
+    saveAllBusStopsToJsonFile()
 end)
+
+local function splitString(sandboxvar, delimiter)
+	local ztable = {}
+	local pattern = "[^ %;,]+"
+
+	for match in sandboxvar:gmatch(pattern) do
+		table.insert(ztable, match)
+	end
+	return ztable
+end
+
+function saveAllItemsToFile()
+    local itemCount = 0
+    local allItems = getAllItems()
+    local itemsData = {}
+    
+    for i = 0, allItems:size() - 1 do
+        local item = allItems:get(i)
+        if item then
+            local itemID = item:getFullName()
+            local displayName = item:getDisplayName()
+            
+            if itemID and displayName then
+                itemsData[itemID] = displayName
+                itemCount = itemCount + 1
+            end
+        end
+    end
+    
+    local file = getFileWriter("static/all_items.json", true, false)
+    file:write("{\n")
+    
+    local isFirst = true
+    for itemID, displayName in pairs(itemsData) do
+        if not isFirst then
+            file:write(",\n")
+        end
+
+        local escapedName = string.gsub(displayName, '"', '\\"')
+        file:write(string.format('  "%s": "%s"', itemID, escapedName))
+        isFirst = false
+    end
+    
+    file:write("\n}")
+    file:close()
+    
+    print(string.format("Saved %d items to static/all_items.json", itemCount))
+end
+
+function saveAllBusStopsToJsonFile()
+    local busStops = {}
+    local busStopCount = 0
+    
+    local busStopsString = SandboxVars.SDbus.BusStops
+    if not busStopsString or busStopsString == "" then
+        print("No bus stops data found in sandbox")
+        return
+    end
+    
+    for busStop in busStopsString:gmatch("[^;]+") do
+        if busStop and busStop ~= "" then
+            local parts = {}
+            for part in busStop:gmatch("[^:]+") do
+                table.insert(parts, part)
+            end
+            
+            if #parts >= 5 then
+                local code = parts[1]
+                local name = parts[2]
+                local x = tonumber(parts[3])
+                local y = tonumber(parts[4])
+                local z = tonumber(parts[5])
+                
+                if code and name and x and y and z then
+                    busStops[code] = {
+                        name = name,
+                        x = x,
+                        y = y,
+                        z = z
+                    }
+                    busStopCount = busStopCount + 1
+                end
+            end
+        end
+    end
+    
+    local file = getFileWriter("static/bus_stops.json", true, false)
+    file:write("{\n")
+    
+    local isFirst = true
+    for code, data in pairs(busStops) do
+        if not isFirst then
+            file:write(",\n")
+        end
+        
+        local escapedName = string.gsub(data.name, '"', '\\"')
+        
+        file:write(string.format('  "%s": {\n', code))
+        file:write(string.format('    "name": "%s",\n', escapedName))
+        file:write(string.format('    "x": %d,\n', data.x))
+        file:write(string.format('    "y": %d,\n', data.y))
+        file:write(string.format('    "z": %d\n', data.z))
+        file:write('  }')
+        
+        isFirst = false
+    end
+    
+    file:write("\n}")
+    file:close()
+    
+    print(string.format("Saved %d bus stops to static/bus_stops.json", busStopCount))
+end
