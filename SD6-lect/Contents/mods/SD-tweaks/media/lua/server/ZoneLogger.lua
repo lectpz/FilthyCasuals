@@ -4,13 +4,12 @@ ZoneLogger = {}
 ZoneLogger.fileName = "static/zoneData.txt"
 
 local function writeToFile(line)
+    local startTime = getTimestampMs()
     local file = getFileWriter(ZoneLogger.fileName, true, false)
     file:write(line .. "\n")
     file:close()
-end
-
-local function onEveryTenMinutes()
-    writeTimeToFile()
+    local endTime = getTimestampMs()
+    print(string.format("Zone data write took %d ms", endTime - startTime))
 end
 
 Events.OnServerStarted.Add(function()
@@ -35,6 +34,7 @@ local function splitString(sandboxvar, delimiter)
 end
 
 function saveAllItemsToFile()
+    local startTime = getTimestampMs()
     local itemCount = 0
     local allItems = getAllItems()
     local itemsData = {}
@@ -69,10 +69,12 @@ function saveAllItemsToFile()
     file:write("\n}")
     file:close()
     
-    print(string.format("Saved %d items to static/all_items.json", itemCount))
+    local endTime = getTimestampMs()
+    print(string.format("Saved %d items to static/all_items.json in %d ms", itemCount, endTime - startTime))
 end
 
 function saveAllBusStopsToJsonFile()
+    local startTime = getTimestampMs()
     local busStops = {}
     local busStopCount = 0
     
@@ -133,5 +135,6 @@ function saveAllBusStopsToJsonFile()
     file:write("\n}")
     file:close()
     
-    print(string.format("Saved %d bus stops to static/bus_stops.json", busStopCount))
+    local endTime = getTimestampMs()
+    print(string.format("Saved %d bus stops to static/bus_stops.json in %d ms", busStopCount, endTime - startTime))
 end
