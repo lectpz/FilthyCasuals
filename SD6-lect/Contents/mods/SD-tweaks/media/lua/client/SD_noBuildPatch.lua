@@ -29,11 +29,14 @@ local function getExclusionCoordinates(sandboxvar, delimiter)
 	return ztable
 end
 
+SDxferQOL = nil
+
 local function canBuild()
     local player = getSpecificPlayer(0)
     local isOwnSafeHouse = SafeHouse.hasSafehouse(player)
-    local x = player:getX()
-    local y = player:getY()
+	local tier, zone, x, y = checkZone()
+    --local x = player:getX()
+    --local y = player:getY()
 
     if isOwnSafeHouse then
         local shx1 = isOwnSafeHouse:getX()-15
@@ -48,12 +51,19 @@ local function canBuild()
         end
     end
 
-    local ccx1, ccy1, ccx2, ccy2 = 10800, 8750, 11332, 9072
-    if x >= ccx1 and y >= ccy1 and x <= ccx2 and y <= ccy2 then
+    --local ccx1, ccy1, ccx2, ccy2 = 10800, 8750, 11332, 9072
+    --if x >= ccx1 and y >= ccy1 and x <= ccx2 and y <= ccy2 then
+	if zone == "CC" then
         isInCC = true
     else
         isInCC = false
     end
+	
+	if isInCC or isInSafeHouse then
+		SDxferQOL = true
+	else
+		SDxferQOL = nil
+	end
 	
 	local exclusionZones = getExclusionZones(SandboxVars.SDnoBuild.exclusionZones) or {}
 	if #exclusionZones > 0 then

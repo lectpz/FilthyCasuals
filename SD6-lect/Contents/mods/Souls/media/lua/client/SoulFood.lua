@@ -49,7 +49,7 @@ end
 local tickLength = 54 -- 45 irl minutes
 
 local alertDenom = 80
-local fortitudeDenom = 25
+local fortitudeDenom = 12.5
 local IronChefDenom = 0.4
 local luckDenom = 0.01
 local SoulSmithDenom = 0.8

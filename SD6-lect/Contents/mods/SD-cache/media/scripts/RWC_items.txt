@@ -31,7 +31,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy ChiikuCache,
-/		Sound:s_zeldaitem,
+		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
@@ -189,7 +189,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
-/		Sound:s_zeldaitem,
+		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,

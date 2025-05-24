@@ -669,24 +669,20 @@ local suff2_setstat = {
 						item:setName(mdzPrefix .. wMD.Name)
 					end,
 					
-    AscendedPath =	function(item, description, scriptItem, maxDamage, minDamage, conditionLowerChance)
+    AscendedPath =	function(item, description, scriptItem, maxHitCount, soulForgeAimingPerkCritModifier, soulForgeAimingPerkRangeModifier)
 												
-						if wMD.soulForgeMaxDmgMulti ~= nil then
-							wMD.soulForgeMaxDmgMulti = wMD.soulForgeMaxDmgMulti * maxDamage
+						wMD.MaxHitCount = maxHitCount
+						
+						if wMD.soulForgeAimingPerkCritModifier ~= nil then
+							wMD.soulForgeAimingPerkCritModifier = wMD.soulForgeAimingPerkCritModifier * soulForgeAimingPerkCritModifier
 						else
-							wMD.soulForgeMaxDmgMulti = maxDamage -- Set the default value if nil
+							wMD.soulForgeAimingPerkCritModifier = soulForgeAimingPerkCritModifier -- Set the default value if nil
 						end
 						
-						if wMD.soulForgeMinDmgMulti ~= nil then
-							wMD.soulForgeMinDmgMulti = wMD.soulForgeMinDmgMulti * minDamage
+						if wMD.soulForgeAimingPerkRangeModifier ~= nil then
+							wMD.soulForgeAimingPerkRangeModifier = wMD.soulForgeAimingPerkRangeModifier * soulForgeAimingPerkRangeModifier
 						else
-							wMD.soulForgeMinDmgMulti = minDamage -- Set the default value if nil
-						end
-						
-						if wMD.ConditionLowerChance ~= nil then
-							wMD.ConditionLowerChance = wMD.ConditionLowerChance * conditionLowerChance
-						else
-							wMD.ConditionLowerChance = conditionLowerChance
+							wMD.soulForgeAimingPerkRangeModifier = soulForgeAimingPerkRangeModifier
 						end
 						wMD.suffix2 = "Ascended Path"
 						
@@ -1307,7 +1303,34 @@ local function SoulContextSDRanged(player, context, items) -- # When an inventor
 																													wMD.soulForgeCritMulti = wMD.soulForgeCritMulti + 0.01
 																													end, player)
 							sw_upgrade(swUpgrade4, Upgrade4MatNo, "SoulForge.CritMultiTicket")
-																													
+							
+							local Upgrade5MatNo = {3,4,3,2}
+							local swUpgrade5 = submenu2:addOption("Add +1% to Aiming Time Stat Modifier", item, function()
+																											if not wMD.soulForgeAimingTime then wMD.soulForgeAimingTime = 1 end
+																											remove_swMats(Upgrade5MatNo)
+																											playerInv:RemoveOneOf("SoulForge.AimingTimeTicket")
+																											wMD.soulForgeAimingTime = wMD.soulForgeAimingTime + 0.01
+																											end, player)
+							sw_upgrade(swUpgrade5, Upgrade5MatNo, "SoulForge.AimingTimeTicket")
+							
+							local Upgrade6MatNo = {3,4,3,2}
+							local swUpgrade6 = submenu2:addOption("Add +1% to Aiming Perk Hit Chance Modifier", item, function()
+																											if not wMD.soulForgeAimingPerkHitChanceModifier then wMD.soulForgeAimingPerkHitChanceModifier = 1 end
+																											remove_swMats(Upgrade6MatNo)
+																											playerInv:RemoveOneOf("SoulForge.AimingPerkHitTicket")
+																											wMD.soulForgeAimingPerkHitChanceModifier = wMD.soulForgeAimingPerkHitChanceModifier + 0.01
+																											end, player)
+							sw_upgrade(swUpgrade6, Upgrade6MatNo, "SoulForge.AimingPerkHitTicket")
+							
+							local Upgrade7MatNo = {3,4,3,2}
+							local swUpgrade7 = submenu2:addOption("Add +1% to Aiming Perk Crit Rate Modifier", item, function()
+																											if not wMD.soulForgeAimingPerkCritModifier then wMD.soulForgeAimingPerkCritModifier = 1 end
+																											remove_swMats(Upgrade7MatNo)
+																											playerInv:RemoveOneOf("SoulForge.AimingPerkCritTicket")
+																											wMD.soulForgeAimingPerkCritModifier = wMD.soulForgeAimingPerkCritModifier + 0.01
+																											end, player)
+							sw_upgrade(swUpgrade7, Upgrade7MatNo, "SoulForge.AimingPerkCritTicket")
+							
 						end
 						
 					elseif (weaponCurrentCondition < (weaponMaxCond) or soulsFreed < soulsRequired) then
@@ -1352,6 +1375,7 @@ Events.OnFillInventoryObjectContextMenu.Add(SoulContextSDRanged)
 
 function RangedSoulCountSD(character, handWeapon)
 	if getSpecificPlayer(0) ~= character then return end
+	if not handWeapon then return end
 	if handWeapon:getType() == "BareHands" then return end
 
 	local player = character

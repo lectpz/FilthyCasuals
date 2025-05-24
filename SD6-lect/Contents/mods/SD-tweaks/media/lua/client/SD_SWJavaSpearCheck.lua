@@ -2,6 +2,7 @@
 --somewhatfrog--
 ----------------
 
+local threshold = 1000
 local sdLogger = false
 local hits = 0
 local overheads = 0
@@ -22,7 +23,7 @@ local function javaSpearCheck(character, handWeapon)
         --java mod works by increasing the minimum distance to another zombie to 100 tiles
         --ain't no way there is so many so so lonely zombies for a false positive
         --1000 hits requirement might be overkill
-        if hits > 1000 and overheads == 0 then
+        if hits > threshold and overheads == 0 then
             --sdLogger (you probably want to log this data)
             if sdLogger then
                 local args = {}
@@ -44,13 +45,17 @@ local function javaSpearCheck(character, handWeapon)
     end
 end
 
-Events.OnWeaponSwingHitPoint.Add(javaSpearCheck)
-
 
 local function OnGameStart()
-    local activatedMods = getActivatedMods()
-    if activatedMods:contains("SD6_tweaks") or activatedMods:contains("SD6_tweakstest") then
-        sdLogger = true
+    if SandboxVars.SD_SWDetect.SD_SWJavaSpearCheck then
+        Events.OnWeaponSwingHitPoint.Add(javaSpearCheck)
+
+        threshold = SandboxVars.SD_SWDetect.SD_SWJavaSpearCheck_Threshold
+
+        local activatedMods = getActivatedMods()
+        if activatedMods:contains("SD6_tweaks") or activatedMods:contains("SD6_tweakstest") then
+            sdLogger = true
+        end
     end
 end
 

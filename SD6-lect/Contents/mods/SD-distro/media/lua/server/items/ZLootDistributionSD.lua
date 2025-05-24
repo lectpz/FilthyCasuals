@@ -181,6 +181,11 @@ local function preDistributionMergeSD5()
 	end
 ----------------------------------------------------------------------------------------		
 	local jewelryData = {
+		WardrobeWoman = 0.00001,
+		WardrobeMan = 0.00001,
+		CampingStoreGear = 0.001,
+		FireStorageTools = 0.001,
+		GigamartTools = 0.001,
 		DepartmentStoreJewelry = 0.001,
 		DepartmentStoreWatches = 0.001,
 		JewelryGems = 0.001,
@@ -382,7 +387,7 @@ local function editDistributions()
 	-- Set rolls to 1 for food containers
 	--setRollValue(foodContainers, 1)
 	-- Set rolls to 2 for gun/ammo/weapon containers
-	--setRollValue(gunContainers, 2)
+	setRollValue(gunContainers, 3)
 	
 	local yeetBool = SandboxVars.SpawnChanceModifier.yeetBool
 	local yeetItems = getSandboxItems(SandboxVars.SpawnChanceModifier.yeetItems)
@@ -473,6 +478,15 @@ local function editDistributions()
 	findItemInDistribution("TW.LargePropaneTank")
 	findItemInDistribution("Biofuel.IndustrialPropaneTank")
 	print("----------ITEMS REMAIN-----------")]]
+	
+	local ammoReduce = {"ShotgunShellsBox", "Base.ShotgunShellsBox", "308Box", "Base.308Box", "556Box", "Base.556Box", "Base.556Box", "545Box", "Base.545Box"}
+	
+	for i=1,#sapphFoods do
+		modifyItemWeight(ammoReduce[i], 0.35)
+	end
+	
+	yeetItem("Bullets45Box")
+	yeetItem("Base.Bullets45Box")
 end
 
 Events.OnPostDistributionMerge.Add(editDistributions)

@@ -79,7 +79,11 @@ function Commands.sdLogger.onItemFall(player, args)
 end
 
 function Commands.sdLogger.SoulForgeEquip(player, args)
-    print("[sdLogger] Player [" .. args.player_name .. "] equipped a SoulForged item: [" .. args.name .. " (ID=".. args.itemID .. "]) with critrate mod: " .. args.critrate .. ", with critmulti mod: " .. args.critmulti .. ", with min dmg mod: " .. args.mindmg .. ", with max dmg mod: " .. args.maxdmg .. ", with endurance mod: " .. args.endurancemod .. ", with # of souls: " .. args.hassouls)
+    print("[sdLogger] Player [" .. args.player_name .. "] equipped a SoulForged Melee Weapon: [" .. args.name .. " (ID=".. args.itemID .. "]) with critrate mod: " .. args.critrate .. ", with critmulti mod: " .. args.critmulti .. ", with min dmg mod: " .. args.mindmg .. ", with max dmg mod: " .. args.maxdmg .. ", with endurance mod: " .. args.endurancemod .. ", with # of souls: " .. args.hassouls)
+end
+
+function Commands.sdLogger.SoulForgeEquipRanged(player, args)
+    print("[sdLogger] Player [" .. args.player_name .. "] equipped a SoulForged Ranged Weapon: [" .. args.name .. " (ID=".. args.itemID .. "]) with critrate mod: " .. args.critrate .. ", with critmulti mod: " .. args.critmulti .. ", with min dmg mod: " .. args.mindmg .. ", with max dmg mod: " .. args.maxdmg .. ", with # of souls: " .. args.hassouls)
 end
 
 function Commands.sdLogger.modBagCap(player, args)

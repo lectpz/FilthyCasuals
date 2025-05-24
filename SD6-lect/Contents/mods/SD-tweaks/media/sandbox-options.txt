@@ -370,3 +370,37 @@ option SDbus.BusStops
 	page = SDbus,
 	translation = SDbus_BusStops,
 }
+
+option SD_SWDetect.SD_SWJavaSpearCheck
+{
+	type = boolean,
+	default = true,
+	page = SD_SWDetect,
+	translation = SD_SWDetect_SD_SWJavaSpearCheck,
+}
+
+option SD_SWDetect.SD_SWJavaSpearCheck_Threshold
+{
+	type = integer,
+	min = 10,
+	max = 10000,
+	default = 1000,
+	page = SD_SWDetect,
+	translation = SD_SWDetect_SD_SWJavaSpearCheck_Threshold,
+}
+
+option SD_SWDetect.SD_SWJavaSpeedMacroCheck
+{
+	type = boolean,
+	default = true,
+	page = SD_SWDetect,
+	translation = SD_SWDetect_SD_SWJavaSpeedMacroCheck,
+}
+
+option SD_SWDetect.SD_SWJavaViewCheck
+{
+	type = boolean,
+	default = true,
+	page = SD_SWDetect,
+	translation = SD_SWDetect_SD_SWJavaViewCheck,
+}

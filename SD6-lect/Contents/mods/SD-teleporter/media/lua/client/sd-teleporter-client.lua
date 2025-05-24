@@ -394,17 +394,23 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 
     local playerObj = getSpecificPlayer(player);
     local safehouse = SafeHouse.hasSafehouse(playerObj);
-	local playerModData = playerObj:getModData()
-	local pshx = playerModData.SafeHouseX
-	local pshy = playerModData.SafeHouseY
-	local pshz = playerModData.SafeHouseZ or 0
+	--local playerModData = playerObj:getModData()
+	--local pshx = playerModData.SafeHouseX
+	--local pshy = playerModData.SafeHouseY
+	--local pshz = playerModData.SafeHouseZ or 0
+	local gmd = ModData.getOrCreate("SH TP Coords")
+	local pshx = gmd["SafeHouseX"]
+	local pshy = gmd["SafeHouseY"]
+	local pshz = gmd["SafeHouseZ"]
+	
     if safehouse then
-		if playerModData.SafeHouseX ~= nil and playerModData.SafeHouseY ~= nil then
+		--if playerModData.SafeHouseX ~= nil and playerModData.SafeHouseY ~= nil then
+		if pshx ~= nil and pshy ~= nil then
 			local x1 = safehouse:getX()
 			local y1 = safehouse:getY()
 			local x2 = safehouse:getW() + x1
 			local y2 = safehouse:getH() + y1
-			if playerModData.SafeHouseX >= x1 and playerModData.SafeHouseY >= y1 and playerModData.SafeHouseX <= x2 and playerModData.SafeHouseY <= y2 then
+			if pshx >= x1 and pshy >= y1 and pshx <= x2 and pshy <= y2 then
 				local args = {
 					safehouse_x = pshx,
 					safehouse_y = pshy,
@@ -418,7 +424,7 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 				else
 					checkDepleted(player, item)
 					ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'SD6_TPtoSH', args));
-					print("SH Teleport Requested")
+					--print("SH Teleport Requested")
 					--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
 					--[[playerObj:setX(args.safehouse_x)
 					playerObj:setY(args.safehouse_y)
@@ -428,8 +434,11 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 					playerObj:setLz(args.safehouse_z)]]
 				end
 			else--if saved moddata SH is not within current SH boundaries then write overwrite existing moddata with default SH coordinates
-				playerModData.SafeHouseX = safehouse:getX() --write moddata to player to save safehouse X coordinate
-				playerModData.SafeHouseY = safehouse:getY() --write moddata to player to save safehouse Y coordinate
+				--playerModData.SafeHouseX = safehouse:getX() --write moddata to player to save safehouse X coordinate
+				--playerModData.SafeHouseY = safehouse:getY() --write moddata to player to save safehouse Y coordinate
+				gmd["SafeHouseX"] = safehouse:getX()+3 --write moddata to player to save safehouse X coordinate
+				gmd["SafeHouseY"] = safehouse:getY()+3 --write moddata to player to save safehouse Y coordinate
+				gmd["SafeHouseZ"] = 0
 				playerObj:Say("Custom Safehouse coordinates are no longer within your current Safehouse and need to be reset.")
 				
 				local args = {
@@ -445,7 +454,7 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 				else
 					checkDepleted(player, item)
 					ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'SD6_TPtoSH', args));
-					print("SH Teleport Requested")
+					--print("SH Teleport Requested")
 					--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
 					--[[playerObj:setX(args.safehouse_x)
 					playerObj:setY(args.safehouse_y)
@@ -463,7 +472,7 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 				player_name = getOnlineUsername()
 			};
 			
-			if (item:getType() == "TeleporterConsumable") and (item:getUsedDelta() < 0.1) then
+			if (item:getType() == "TeleporterConsumable") and (item:getUsedDelta() < 0.08) then
 				playerObj:Say("This teleporter is useless.")
 				return
 			else
@@ -598,6 +607,7 @@ doSDsafehousecoord_SD5 = function(item, player)
 	local playerObj = getSpecificPlayer(player)
 	local safehouse = SafeHouse.hasSafehouse(playerObj);--define safehouse
 	local playerModData = getPlayer():getModData()
+	local gmd = ModData.getOrCreate("SH TP Coords")
 	
 	if safehouse then -- check if there is a valid safehouse
 		
@@ -615,7 +625,10 @@ doSDsafehousecoord_SD5 = function(item, player)
 				playerModData.SafeHouseX = math.floor(x) --write moddata to player to save safehouse X coordinate
 				playerModData.SafeHouseY = math.floor(y) --write moddata to player to save safehouse Y coordinate
 				playerModData.SafeHouseZ = z --write moddata to player to save safehouse Z coordinate
-				playerObj:Say("Safehouse teleport coordinates set to: x=" .. tostring(playerModData.SafeHouseX) ..", y=" .. tostring(playerModData.SafeHouseY) .. ", z=" .. tostring(playerModData.SafeHouseZ))
+				gmd["SafeHouseX"] = math.floor(x)
+				gmd["SafeHouseY"] = math.floor(y)
+				gmd["SafeHouseZ"] = z
+				playerObj:Say("Safehouse teleport coordinates set to: x=" .. tostring(gmd["SafeHouseX"]) ..", y=" .. tostring(gmd["SafeHouseY"]) .. ", z=" .. tostring(gmd["SafeHouseZ"]))
 			--else
 			--	playerObj:Say("I need to be on the ground floor to do this.")
 			--end
@@ -665,3 +678,18 @@ end
 
 Events.OnFillInventoryObjectContextMenu.Add(SDrewardcontext) -- everytime you rightclick an object in your inventory it will trigger this check to add a teleport option
 ]]--
+
+local function coordCompat(player)
+	Events.OnPlayerUpdate.Remove(coordCompat)
+	local playerModData = player:getModData()
+	local pshx = playerModData.SafeHouseX
+	local pshy = playerModData.SafeHouseY
+	local pshz = playerModData.SafeHouseZ or 0
+	
+	local gmd = ModData.getOrCreate("SH TP Coords")
+	if pshx then gmd["SafeHouseX"] = pshx end
+	if pshy then gmd["SafeHouseY"] = pshy end
+	if pshz then gmd["SafeHouseZ"] = pshz end
+end
+
+Events.OnPlayerUpdate.Add(coordCompat)

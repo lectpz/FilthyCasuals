@@ -195,7 +195,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy [Recipe.GetItemTypes.T1Weapons],
-		StoredSoulsSD_new=100,
+		StoredSoulsSD_new=250,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		Prop2: Source=2,
@@ -210,7 +210,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy [Recipe.GetItemTypes.T2Weapons],
-		StoredSoulsSD_new=300,
+		StoredSoulsSD_new=500,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		Prop2: Source=2,
@@ -225,7 +225,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy [Recipe.GetItemTypes.T3Weapons],
-		StoredSoulsSD_new=600,
+		StoredSoulsSD_new=750,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		Prop2: Source=2,
@@ -255,7 +255,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy [Recipe.GetItemTypes.T5Weapons],
-		StoredSoulsSD_new=1000,
+		StoredSoulsSD_new=1250,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		Prop2: Source=2,
@@ -523,7 +523,7 @@ module SoulForge {
 	
 	recipe Unforge SoulWrought Weapon
 	{
-		StoredSoulsSD_new=650,
+		StoredSoulsSD_new=1000,
 		SoulShardT1=8,
 		SoulShardT2=7,
 		SoulShardT3=6,
@@ -540,7 +540,7 @@ module SoulForge {
 	
 	recipe Unforge SoulForged Weapon (4x Augments)
 	{
-		StoredSoulsSD_new=550,
+		StoredSoulsSD_new=850,
 		SoulShardT1=8,
 		SoulShardT2=7,
 		SoulShardT3=6,
@@ -557,7 +557,7 @@ module SoulForge {
 	
 	recipe Unforge SoulForged Weapon (3x Augments)
 	{
-		StoredSoulsSD_new=450,
+		StoredSoulsSD_new=700,
 		SoulShardT1=6,
 		SoulShardT2=5,
 		SoulShardT3=4,
@@ -574,7 +574,7 @@ module SoulForge {
 	
 	recipe Unforge SoulForged Weapon (2x Augments)
 	{
-		StoredSoulsSD_new=350,
+		StoredSoulsSD_new=550,
 		SoulShardT1=5,
 		SoulShardT2=4,
 		SoulShardT3=3,
@@ -591,7 +591,7 @@ module SoulForge {
 	
 	recipe Unforge SoulForged Weapon (1x Augments)
 	{
-		StoredSoulsSD_new=250,
+		StoredSoulsSD_new=400,
 		SoulShardT1=4,
 		SoulShardT2=3,
 		SoulShardT3=2,
@@ -608,7 +608,7 @@ module SoulForge {
 	
 	recipe Unforge SoulForged Weapon (Unaugmented)
 	{
-		StoredSoulsSD_new=150,
+		StoredSoulsSD_new=250,
 		SoulShardT1=3,
 		SoulShardT2=2,
 		SoulShardT3=1,

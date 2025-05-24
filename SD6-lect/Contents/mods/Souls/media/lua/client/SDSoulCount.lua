@@ -607,7 +607,7 @@ local suff2_args = {
 						
 						local description = gold .. "Suffix Modifer: Dying Dawn" ..
 								green .. " <LINE> Max Hit Count +" .. sm1 ..
-								green .. " <LINE> " .. string.format("%.0f", (sm3*100-100))  .. "% More Critical Chance <LINE> "
+								green .. " <LINE> " .. string.format("%.0f", (sm3*100-100))  .. "% More Critical Damage Multiplier <LINE> "
 						return description, scriptItem, maxHitCount, minDamage, soulForgeCritMulti
 					end,
 					
@@ -895,7 +895,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 					context:addSubMenu(soulsContext, submenu)
 					
 					function updatesoulsFreed(soulsFreed, soulsRequired, weaponRepairedStack)
-						local n_soulsFreed = math.max(soulsFreed - math.floor(soulsRequired/((math.min(5, weaponRepairedStack) -1)/2)),0)
+						local n_soulsFreed = math.max(soulsFreed - math.floor(soulsRequired/((math.min(7, weaponRepairedStack-1) -1)/2)),0)
 						return n_soulsFreed
 					end
 					
@@ -904,13 +904,13 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 					--repair stack option
 					------------------------------------------------------------------------------------------------------
 					new_weaponRepairStack = function(item, player)
-						item:setHaveBeenRepaired(weaponRepairedStack - 1)
+						item:setHaveBeenRepaired(weaponRepairedStack - 2)
 						weaponModData.KillCount = n_soulsFreed
 						--soulsFreed = weaponModData.KillCount
 					end
 					
 					function calcsoulDiff(soulsRequired, weaponRepairedStack)
-						local soulDiff = math.floor(soulsRequired/(math.min(5, weaponRepairedStack-1) -1))*2
+						local soulDiff = math.floor(soulsRequired/((math.min(7, weaponRepairedStack-1) -1)/2))
 						return soulDiff
 					end
 					
@@ -937,7 +937,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 					local permaMaxCondition = pMD.PermaMaxConditionBonus
 					if soulForgeMaxCondition and permaMaxCondition and permaMaxCondition > 1 then soulForgeMaxCondition = soulForgeMaxCondition * permaMaxCondition end
 					weaponCurrentCondition = item:getCondition()
-					weaponCondRepairAmount = math.ceil(weaponMaxCond/4 * soulForgeMaxCondition)
+					weaponCondRepairAmount = math.ceil(weaponMaxCond/3.5 * soulForgeMaxCondition)
 					weaponNewCondition = math.floor(math.min((weaponCurrentCondition + weaponCondRepairAmount), weaponMaxCond*soulForgeMaxCondition)+0.5)
 					
 					new_weaponCondition = function(item, player)
@@ -1386,7 +1386,7 @@ Events.OnFillInventoryObjectContextMenu.Add(SoulContextSD) -- everytime you righ
 
 function SoulCountSD(character, handWeapon)
 	if character ~= getSpecificPlayer(0) then return end
-
+	if not handWeapon then return end
 	if handWeapon:getType() == "BareHands" then return end
 
 	local player = character

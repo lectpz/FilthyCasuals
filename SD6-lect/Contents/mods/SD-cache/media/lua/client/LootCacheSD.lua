@@ -295,7 +295,7 @@ function MedicalCacheSD(items, result, player)
 -- tiered rolling, checks zone and adds item
 	local zonetier, zonename, x, y = checkZone()
 	
-	local medicalitems = splitString("HS_VenenosusAer.VA_Charcoal_Tablets HS_VenenosusAer.VA_Filter_LowGrade HS_VenenosusAer.VA_Filter_MediumGrade HS_VenenosusAer.VA_Filter_HighGrade CDCRR.Zedalis CDCRR.Zomboflex CDCRR.Bitezapro CDCRR.Salivix CDCRR.Viazom CDCRR.Fevarax CDCRR.Humanox CanteensAndBottles.GymBottleSpiffoade SapphCooking.ThermosCoffee CanteensAndBottles.MedicinalCanteenGreenWhiteSerum CanteensAndBottles.MedicinalCanteenWhiteGreenSerum")
+	local medicalitems = { "HS_VenenosusAer.VA_Charcoal_Tablets", "HS_VenenosusAer.VA_Filter_LowGrade", "HS_VenenosusAer.VA_Filter_MediumGrade", "HS_VenenosusAer.VA_Filter_HighGrade", "CDCRR.Zedalis", "CDCRR.Zomboflex", "CDCRR.Bitezapro", "CDCRR.Salivix", "CDCRR.Viazom", "CDCRR.Fevarax", "CDCRR.Humanox", "CDCRR.WeatheredPills", "CDCRR.ConsumerViralTestPackage", "CDCRR.PremiumViralTestPackage", "CDCRR.WeatheredViralTestPackage",  "CDCRR.CDCFamilyPack", "SoulForge.LacerationHealing", "SoulForge.DeepWoundHealing", "SoulForge.BiteHealing", "SoulForge.FractureHealing", "SoulForge.BurnHealing"}
 		
 	local zoneroll = 12-zonetier
 	
@@ -311,6 +311,7 @@ function MedicalCacheSD(items, result, player)
 	if zonetier == 5 then
 		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
 		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD(zoneroll, "CDCRR.CDCProPack1")
 		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 		addItemToPlayer(getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
@@ -318,9 +319,10 @@ function MedicalCacheSD(items, result, player)
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 	elseif zonetier == 4 then
 		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
-		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD(zoneroll, "CDCRR.CDCProPack1")
 		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
@@ -329,17 +331,20 @@ function MedicalCacheSD(items, result, player)
 		addItemToPlayer(getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 	elseif zonetier == 3 then
 		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD(zoneroll, "CDCRR.CDCProPack1")
 		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 	elseif zonetier == 2 then
 		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD(zoneroll, "CDCRR.CDCProPack3")
 		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 	elseif zonetier == 1 then
 		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD(zoneroll, "CDCRR.CDCProPack3")
 		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
 		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
 	end
@@ -355,6 +360,32 @@ function AmmoCacheSD(items, result, player)
 	--randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
 	
 	local ammo = splitString("Base.Bullets45Box Base.ShotgunShellsBox Base.308Box Base.556Box Base.Bullets9mmBox Base.762x54rBox Base.762Box Base.50BMGBox Base.57Box Base.545Box Base.380Box Base.223Box")
+	local hfoMag = {"Base.Mag9ExtSm",
+					"Base.Mag9ExtLg",
+					"Base.Mag57ExtLg",
+					"Base.MagLugerExtSm",
+					"Base.MagLugerExtLg",
+					"Base.Mag380ExtSm",
+					"Base.Mag380ExtLg",
+					"Base.Mag44ExtSm",
+					"Base.Mag44ExtLg",
+					"Base.Mag45ExtSm",
+					"Base.Mag45ExtLg",
+					"Base.Mag223ExtLg",
+					"Base.MagMosinNagantExtSm",
+					"Base.MagPM63RAKExtLg",
+					"Base.MagM1GarandExtSm",
+					"Base.Mag3006ExtLg",
+					"Base.Mag308ExtSm",
+					"Base.MagSVDExtSm",
+					"Base.Mag50BMGExtSm",
+					"Base.MagMP28ExtLg",
+					"Base.Mag9x39ExtLg",
+					"Base.Mag9Drum",
+					"Base.Mag57Drum",
+					"Base.MagLugerDrum",
+					"Base.Mag380Drum",
+					"Base.Mag45Drum",}
 	
 	local zoneroll = 8-zonetier
 
@@ -377,6 +408,7 @@ function AmmoCacheSD(items, result, player)
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, hfoMag[ZombRand(#hfoMag)+1])
 	elseif zonetier == 4 then
 		gunpowder:setUsedDelta(math.min(0.9, scaledNormal()))
 		randomrollSD(1, gunpowder, "Base.GunPowder")
@@ -386,6 +418,7 @@ function AmmoCacheSD(items, result, player)
 		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, hfoMag[ZombRand(#hfoMag)+1])
 	elseif zonetier == 3 then
 		gunpowder:setUsedDelta(math.min(0.8, scaledNormal()))
 		randomrollSD(1, gunpowder, "Base.GunPowder")
@@ -394,6 +427,7 @@ function AmmoCacheSD(items, result, player)
 		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, hfoMag[ZombRand(#hfoMag)+1])
 	elseif zonetier == 2 then
 		gunpowder:setUsedDelta(math.min(0.7, scaledNormal()))
 		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
@@ -776,7 +810,7 @@ function PokemonCacheSD(items, result, player)
 		addItemToPlayer("pkmncards.boosterpackfossil")
 		addItemToPlayer("pkmncards.boosterpackjungle")
 		addItemToPlayer("pkmncards.boosterpack")
-		for i=1, tier-3 do
+		for i=1, 2 do
 			randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
 			randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
 			randomrollSD(zoneroll, "pkmncards.boosterpack")
@@ -785,11 +819,11 @@ function PokemonCacheSD(items, result, player)
 		addItemToPlayer("pkmncards.boosterpackfossil")
 		addItemToPlayer("pkmncards.boosterpackjungle")
 		addItemToPlayer("pkmncards.boosterpack")
-		for i=1, tier-3 do
-			randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
-			randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
-			randomrollSD(zoneroll, "pkmncards.boosterpack")
-		end
+
+		randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
+		randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
+		randomrollSD(zoneroll, "pkmncards.boosterpack")
+
 	elseif zonetier == 3 then
 		addItemToPlayer("pkmncards.boosterpackfossil")
 		addItemToPlayer("pkmncards.boosterpackjungle")
@@ -839,7 +873,7 @@ function ShinyPokemonCacheSD(items, result, player)
 		addItemToPlayer("pkmncards.boosterpackfossil")
 		addItemToPlayer("pkmncards.boosterpackjungle")
 		addItemToPlayer("pkmncards.boosterpack")
-		for i=1, tier-3 do
+		for i=1, 2 do
 			randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
 			randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
 			randomrollSD(zoneroll, "pkmncards.boosterpack")
@@ -848,11 +882,11 @@ function ShinyPokemonCacheSD(items, result, player)
 		addItemToPlayer("pkmncards.boosterpackfossil")
 		addItemToPlayer("pkmncards.boosterpackjungle")
 		addItemToPlayer("pkmncards.boosterpack")
-		for i=1, tier-3 do
-			randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
-			randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
-			randomrollSD(zoneroll, "pkmncards.boosterpack")
-		end
+
+		randomrollSD(zoneroll, "pkmncards.boosterpackfossil")
+		randomrollSD(zoneroll, "pkmncards.boosterpackjungle")
+		randomrollSD(zoneroll, "pkmncards.boosterpack")
+
 	elseif zonetier == 3 then
 		addItemToPlayer("pkmncards.boosterpackfossil")
 		addItemToPlayer("pkmncards.boosterpackjungle")
@@ -935,8 +969,8 @@ function OnCreate_SoulForgeCache(items, result, player)
 	local zonetier, zonename, x, y = checkZone()
 	local zoneroll = 8-zonetier
 	
-	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
-	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
+	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "SoulForge.AimingTimeTicket", "SoulForge.AimingPerkHitTicket", "SoulForge.AimingPerkCritTicket"}
+	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, 2, 4, 4}
 	
 	local soulFlask = InventoryItemFactory.CreateItem("SoulForge.StoredSoulsSD_new")
 	

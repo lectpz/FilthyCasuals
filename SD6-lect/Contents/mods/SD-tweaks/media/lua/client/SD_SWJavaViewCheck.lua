@@ -35,13 +35,15 @@ local function javaViewCheck()
     end
 end
 
-Events.EveryHours.Add(javaViewCheck)
-
 
 local function OnGameStart()
-    local activatedMods = getActivatedMods()
-    if activatedMods:contains("SD6_tweaks") or activatedMods:contains("SD6_tweakstest") then
-        sdLogger = true
+    if SandboxVars.SD_SWDetect.SD_SWJavaViewCheck then
+        Events.EveryHours.Add(javaViewCheck)
+
+        local activatedMods = getActivatedMods()
+        if activatedMods:contains("SD6_tweaks") or activatedMods:contains("SD6_tweakstest") then
+            sdLogger = true
+        end
     end
 end
 

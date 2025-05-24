@@ -76,7 +76,7 @@ function OnZombieDeadSouls(zombie)
 		nofaction = 1
 	end
 	
-	local dd_T5 = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "Base.rangerToken", "Base.cogToken", "Base.vwToken", }
+	local dd_T5 = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "Base.rangerToken", "Base.cogToken", "Base.vwToken", "SoulForge.AimingTimeTicket", "SoulForge.AimingPerkHitTicket", "SoulForge.AimingPerkCritTicket" }
 	local dd_T5weight = {  
 					10*multiRanger,
                     10*multiVW, 
@@ -88,10 +88,13 @@ function OnZombieDeadSouls(zombie)
 					3*multiRanger*multiRanger 	*	((controlMod)/35+1),
 					3*multiCOG*multiCOG 		*	((controlMod)/35+1),
 					3*multiVW*multiVW		*	((controlMod)/35+1),
+					10*multiCOG, 
+                    10*multiRanger, 
+                    10*multiVW, 
 					}
 
 	
-	local dd_T4 = { "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "Base.rangerToken", "Base.cogToken", "Base.vwToken", }
+	local dd_T4 = { "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "Base.rangerToken", "Base.cogToken", "Base.vwToken", "SoulForge.AimingTimeTicket", "SoulForge.AimingPerkHitTicket", "SoulForge.AimingPerkCritTicket" }
 	local dd_T4weight = {
 					7*multiVW, 
                     10*multiRanger, 
@@ -101,9 +104,13 @@ function OnZombieDeadSouls(zombie)
 					2*multiRanger*multiRanger 	*	((controlMod)/35+1),
 					2*multiCOG*multiCOG 		*	((controlMod)/35+1),
 					2*multiVW*multiVW		*	((controlMod)/35+1),
+					7*multiCOG, 
+                    7*multiRanger, 
+                    7*multiVW, 
 					}
 	
-	local dd_T3 = { "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "Base.rangerToken", "Base.cogToken", "Base.vwToken", }
+	local dd_T3 = { "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "Base.rangerToken", "Base.cogToken", "Base.vwToken", 
+	"SoulForge.AimingTimeTicket", "SoulForge.AimingPerkHitTicket", "SoulForge.AimingPerkCritTicket" }
 	local dd_T3weight = {  
                     10*multiRanger, 
                     10*multiVW*multiCOG, 
@@ -112,6 +119,9 @@ function OnZombieDeadSouls(zombie)
 					1*multiRanger*multiRanger 	*	((controlMod)/35+1),
 					1*multiCOG*multiCOG 		*	((controlMod)/35+1),
 					1*multiVW*multiVW		*	((controlMod)/35+1),
+					4*multiCOG, 
+                    4*multiRanger, 
+                    4*multiVW, 
 					}
 	
 	local t1roll = ZombRand(math.max(75 - 0.2*(luck + toxicMod + controlMod),50))--ZombRand(SandboxVars.OZD.roll1) -- rolls an integer between 0-roll1

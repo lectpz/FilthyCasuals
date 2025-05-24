@@ -12,6 +12,8 @@ local fridgetiles = {
 	"melos_tiles_appliances_01_105",
 	"melos_tiles_appliances_01_69",
 	"blackwood7_48",
+	"melos_tiles_appliances_01_94",
+	"melos_tiles_appliances_01_95"
 }
 
 local fridgetilenames = {
@@ -26,6 +28,8 @@ local fridgetilenames = {
 	"Purple Fridge",
 	"Yellow Fridge",
 	"Royale with Cheese Fridge",
+	"Melos Freezer Chest (1/2)",
+	"Melos Freezer Chest (2/2)",
 }
 
 local fridgetiledescriptions = {
@@ -39,6 +43,8 @@ local fridgetiledescriptions = {
 	"52 fridge / 26 freezer (organized)",
 	"52 fridge / 26 freezer (organized)",
 	"52 fridge / 26 freezer (organized)",
+	"65 fridge / 65 freezer (organized)",
+	"65 fridge / 65 freezer (organized)",
 	"65 fridge / 65 freezer (organized)",
 }
 
@@ -438,6 +444,15 @@ local decorationtiles = {
 	"DylanRandomAssetPack8_40",
 	"DylanRandomAssetPack3_42",
 	"DylanRandomAssetPack3_39",
+	"melos_tiles_overgrown_objects_01_53",
+	"melos_tiles_overgrown_objects_01_54",
+	"melos_tiles_overgrown_objects_01_55",
+	"melos_tiles_overgrown_objects_01_61",
+	"melos_tiles_overgrown_objects_01_62",
+	"melos_tiles_overgrown_objects_01_63",
+	"melos_tiles_overgrown_objects_01_69",
+	"melos_tiles_overgrown_objects_01_70",
+	"melos_tiles_overgrown_objects_01_71",
 }
 
 local decorationtilenames = {
@@ -470,6 +485,15 @@ local decorationtilenames = {
 	"Daphne Mannequin",
 	"Hanging Man",
 	"Hanging Man 2",
+	"Melos Spiffo Statue Top (1/3)",
+	"Melos Spiffo Statue Top (2/3)",
+	"Melos Spiffo Statue Top (3/3)",
+	"Melos Spiffo Statue Middle (1/3)",
+	"Melos Spiffo Statue Middle (2/3)",
+	"Melos Spiffo Statue Middle (3/3)",
+	"Melos Spiffo Statue Bot (1/3)",
+	"Melos Spiffo Statue Bot (2/3)",
+	"Melos Spiffo Statue Bot (3/3)",
 }
 
 local args = {}

@@ -1,6 +1,6 @@
 local function SDvanillaweaptweak()
 
-	local vanillaweap = {"Sledgehammer", "Sledghehammer2"}
+	local vanillaweap = {"Sledgehammer", "Sledgehammer2"}
 
 	for i=1,#vanillaweap do
 

@@ -35,11 +35,11 @@ module TW
 	AllowDestroyedItem      : true,
 	Result 					: GunParts,
 	OnTest:Recipe.OnTest.IsFavorite,
-	Sound 					: GunDissasembly,
+/	Sound 					: GunDissasembly,
 	Time 					: 5.0,
 	Category 				: Scrapping,
 	SkillRequired 			: MetalWelding=4,
-	OnCreate                : DeconstructGun_OnCreate,
+	OnCreate                : SD_DeconstructGun_OnCreate,
 	OnGiveXP 				: Give10MWXP,
 	AnimNode 				: Disassemble,
 	CanBeDoneFromFloor      : TRUE,
@@ -52,7 +52,7 @@ module TW
 	
     recipe Disassemble Gun Magazine
     {
-    	[Recipe.GetItemTypes.GunMagazine]/M14Clip/556Clip/308Clip/223Clip/44Clip/45Clip/9mmClip/545Clip/762Clip/9mmBoxClip/ScarHMag/FNFALMag/USPMag/UMPMag/VectorMag/223Clip10/9mmClip8/45Clip13/792x33Clip/50BMGClip/57Clip/380Clip/762x54rStripperClip/PM63RAK_Extended/PM63RAK_GripExtended/PM63RAK_Extended_Melee/Mag9ExtSm/Mag9ExtLg/Mag57ExtLg/MagLugerExtSm/MagLugerExtLg/Mag380ExtSm/Mag380ExtLg/Mag44ExtSm/Mag44ExtLg/Mag45ExtSm/Mag45ExtLg/Mag223ExtLg/MagMosinNagantExtSm/MagPM63RAKExtLg/MagM1GarandExtSm/Mag3006ExtLg/Mag308ExtSm/MagSVDExtSm/Mag50BMGExtSm/MagMP28ExtLg/Mag9x39ExtLg/,
+    	[Recipe.GetItemTypes.GunMagazine]/M14Clip/556Clip/308Clip/223Clip/44Clip/45Clip/9mmClip/545Clip/762Clip/9mmBoxClip/ScarHMag/FNFALMag/USPMag/UMPMag/VectorMag/223Clip10/9mmClip8/45Clip13/792x33Clip/50BMGClip/57Clip/380Clip/PM63RAK_Extended/PM63RAK_GripExtended/PM63RAK_Extended_Melee/Mag9ExtSm/Mag9ExtLg/Mag57ExtLg/MagLugerExtSm/MagLugerExtLg/Mag380ExtSm/Mag380ExtLg/Mag44ExtSm/Mag44ExtLg/Mag45ExtSm/Mag45ExtLg/Mag223ExtLg/MagMosinNagantExtSm/MagPM63RAKExtLg/MagM1GarandExtSm/Mag3006ExtLg/Mag308ExtSm/MagSVDExtSm/Mag50BMGExtSm/MagMP28ExtLg/Mag9x39ExtLg/3006BlocClip/TheNailGunClip/P90Clip/3006Clip/45Clip20,
 		keep MetalWorkbench,
 		
 	NoBrokenItems			: False,
@@ -60,7 +60,7 @@ module TW
         Result           	: Spring,
         OnTest:Recipe.OnTest.IsFavorite,
         Time             		: 5.0,
-	    Sound 					: ScrapStuff,
+/	    Sound 					: ScrapStuff,
 		OnGiveXP 				: Give10MWXP,
 		Category 		        : Scrapping,
 		SkillRequired 			: MetalWelding=3,

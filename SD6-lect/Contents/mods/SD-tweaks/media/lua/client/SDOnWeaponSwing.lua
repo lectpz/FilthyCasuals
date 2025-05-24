@@ -70,11 +70,20 @@ local function initRangedStats(modData, inventoryItem, character)
 	modData.MeleeSwap = nil
 end
 
+local baseHealth = 2.1
+local function calcMulti(zoneHealth)
+	if baseHealth then return zoneHealth/baseHealth end
+	return 1
+end
+
 local function SDOnWeaponSwing(character, handWeapon)
 	if character:getPrimaryHandItem() == nil then return end
 	if character ~= getSpecificPlayer(0) then return end
 	
+	--local tierzone, zonename, x, y, toxic, control, sprinter, pinpoint, cognition, zoneHealth = checkZone()
 	local tierzone = checkZone()
+	
+	--local zoneMulti = calcMulti(zoneHealth)
 	
 	local tiercritratemod	= {tonumber(SandboxVars.SDOnWeaponSwing.Tier1critrate), tonumber(SandboxVars.SDOnWeaponSwing.Tier2critrate), tonumber(SandboxVars.SDOnWeaponSwing.Tier3critrate), tonumber(SandboxVars.SDOnWeaponSwing.Tier4critrate), tonumber(SandboxVars.SDOnWeaponSwing.Tier5critrate)}
 	local tiercritmultimod	= {tonumber(SandboxVars.SDOnWeaponSwing.Tier1critmulti), tonumber(SandboxVars.SDOnWeaponSwing.Tier2critmulti), tonumber(SandboxVars.SDOnWeaponSwing.Tier3critmulti), tonumber(SandboxVars.SDOnWeaponSwing.Tier4critmulti), tonumber(SandboxVars.SDOnWeaponSwing.Tier4critmulti)}
@@ -215,14 +224,26 @@ local function SDOnWeaponSwing(character, handWeapon)
 		local soulForgeCritRate = modData.soulForgeCritRate or 1
 		local soulForgeCritMulti = modData.soulForgeCritMulti or 1
 		
+		local pMD = character:getModData()
+		local permaCritRate = pMD.PermaSoulForgeCritRateBonus 
+		local permaCritMulti = pMD.PermaSoulForgeCritMultiBonus
+		local permaMaxDmg = pMD.PermaSoulForgeMaxDmgBonus
+		local permaAiming = pMD.PermaAiming or 1
+		local permaReloading = pMD.PermaReloading or 1
+		local permaRecoil = pMD.PermaRecoil or 1
+
+		if permaCritRate and permaCritRate > 1 then soulForgeCritRate = soulForgeCritRate * permaCritRate end
+		if permaCritMulti and permaCritMulti > 1 then soulForgeCritMulti = soulForgeCritMulti * permaCritMulti end
+		if permaMaxDmg and permaMaxDmg > 1 then soulForgeMaxDmgMulti = soulForgeMaxDmgMulti * permaMaxDmg end
+		
 		if modData.CriticalChance then inventoryItem:setCriticalChance(modData.CriticalChance * soulForgeCritRate * mdzCriticalChance * soulForgeAimingPerkCritModifier) end
 		if modData.CritDmgMultiplier then inventoryItem:setCritDmgMultiplier(modData.CritDmgMultiplier * soulForgeCritMulti * mdzCritDmgMultiplier) end
 		inventoryItem:setMinDamage(modData.MinDamage * soulForgeMinDmgMulti * mdzMinDmg * rangedDmgMulti)
 		inventoryItem:setMaxDamage(modData.MaxDamage * soulForgeMaxDmgMulti * mdzMaxDmg * rangedDmgMulti)
-		if modData.ReloadTime then inventoryItem:setReloadTime(modData.ReloadTime * mdzReloadTime) end
-		if modData.RecoilDelay then inventoryItem:setRecoilDelay(modData.RecoilDelay * mdzRecoilDelay) end
+		if modData.ReloadTime then inventoryItem:setReloadTime(permaReloading * modData.ReloadTime * mdzReloadTime) end
+		if modData.RecoilDelay then inventoryItem:setRecoilDelay(permaRecoil * modData.RecoilDelay * mdzRecoilDelay) end
 		
-		inventoryItem:setAimingTime(modData.AimingTime * mdzAimingTime * soulForgeAimingTime * (localdmgmulti/tierzone) ^ rangedmulti)
+		inventoryItem:setAimingTime(permaAiming * modData.AimingTime * mdzAimingTime * soulForgeAimingTime * (localdmgmulti/tierzone) ^ rangedmulti)
 		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier * soulForgeAimingPerkHitChanceModifier * (localdmgmulti/tierzone) ^ rangedmulti)
 		inventoryItem:setAimingPerkCritModifier(modData.AimingPerkCritModifier * (localdmgmulti/tierzone) ^ rangedmulti)
 		inventoryItem:setAimingPerkRangeModifier(modData.AimingPerkRangeModifier * soulForgeAimingPerkRangeModifier * (localdmgmulti/tierzone) ^ rangedmulti)
@@ -395,6 +416,20 @@ local function SDWeaponCheck(character, inventoryItem)
 		end
 		
 		Events.OnPlayerUpdate.Add(worseVehicleRanged)
+		
+		local hasSouls = modData.KillCount or false
+		
+		local args = {}
+		args.critrate = soulForgeCritRate
+		args.critmulti = soulForgeCritMulti
+		args.mindmg = soulForgeMinDmgMulti
+		args.maxdmg = soulForgeMaxDmgMulti
+		args.name = soulWrought..modData.Name
+		args.hassouls = hasSouls
+		args.player_name = getOnlineUsername()
+		args.itemID = inventoryItem:getID()
+		
+		if isSoulForged then sendClientCommand(character, 'sdLogger', 'SoulForgeEquipRanged', args) end
 	end
 end
 Events.OnEquipPrimary.Add(SDWeaponCheck)

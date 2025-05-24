@@ -189,4 +189,35 @@ module SoulForge {
 		Icon = Dice,
 		WorldStaticModel = Dice,
 	}
+	
+	
+	item AimingTimeTicket
+    {
+        DisplayCategory 	= 	SoulForge,
+		Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Augment Aiming Time Stat,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
+	
+	item AimingPerkHitTicket
+    {
+        DisplayCategory 	= 	SoulForge,
+		Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Augment Aiming Perk Hit Chance Modifier,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
+	
+	item AimingPerkCritTicket
+    {
+        DisplayCategory 	= 	SoulForge,
+		Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Augment Aiming Perk Crit Chance Modifier,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
 }

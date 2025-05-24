@@ -13,15 +13,19 @@ function ISRemoveBurntVehicle:perform()
 	end
 	local totalXp = 5;
 	for i=1,math.min(tierzone*2, self.character:getPerkLevel(Perks.MetalWelding)) do
-		if self:checkAddItem("MetalBar", 23) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("MetalPipe", 30) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("SheetMetal", 33) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("SmallSheetMetal", 21) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("SmallSheetMetal", 21) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
-		if self:checkAddItem("ScrapMetal", 12) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("MetalBar", 20) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("MetalBar", 30) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("MetalPipe", 27) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("MetalPipe", 37) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("SheetMetal", 30) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("SheetMetal", 40) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("SmallSheetMetal", 20) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("SmallSheetMetal", 20) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("SmallSheetMetal", 30) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("ScrapMetal", 13) then totalXp = totalXp + 2 end;
+		if self:checkAddItem("ScrapMetal", 13) then totalXp = totalXp + 2 end;
+		self.vehicle:getSquare():AddWorldInventoryItem("ScrapMetal", ZombRandFloat(0,0.9), ZombRandFloat(0,0.9), 0);
+		self.vehicle:getSquare():AddWorldInventoryItem("ScrapMetal", ZombRandFloat(0,0.9), ZombRandFloat(0,0.9), 0);
 	end
 	for i=1,(15+(tierzone)*2) do
 		self.item:Use();

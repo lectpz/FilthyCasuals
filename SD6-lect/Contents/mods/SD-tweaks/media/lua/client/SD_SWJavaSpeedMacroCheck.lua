@@ -103,22 +103,24 @@ local function javaSpeedMacroCheck(character, handWeapon)
     --end
 end
 
-Events.OnWeaponSwingHitPoint.Add(javaSpeedMacroCheck)
-
 
 local function OnGameStart()
-    local activatedMods = getActivatedMods()
-    if activatedMods:contains("SD6_tweaks")
-    or activatedMods:contains("SD6_tweakstest")
-    then
-        sdLogger = true
-    end
-    if activatedMods:contains("CombatTraitsCore")
-    or activatedMods:contains("Melee-maticianTrait")
-    or activatedMods:contains("Melee-maticianTrait6pt")
-    or activatedMods:contains("Melee-maticianTrait8pt")
-    then
-        spearFix = true
+    if SandboxVars.SD_SWDetect.SD_SWJavaSpeedMacroCheck then
+        Events.OnWeaponSwingHitPoint.Add(javaSpeedMacroCheck)
+
+        local activatedMods = getActivatedMods()
+        if activatedMods:contains("SD6_tweaks")
+            or activatedMods:contains("SD6_tweakstest")
+        then
+            sdLogger = true
+        end
+        if activatedMods:contains("CombatTraitsCore")
+            or activatedMods:contains("Melee-maticianTrait")
+            or activatedMods:contains("Melee-maticianTrait6pt")
+            or activatedMods:contains("Melee-maticianTrait8pt")
+        then
+            spearFix = true
+        end
     end
 end
 

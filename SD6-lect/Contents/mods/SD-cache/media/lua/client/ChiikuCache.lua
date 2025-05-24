@@ -91,6 +91,35 @@ local chiikuMags = {
 	"ChiikuArms.ScarHMag",
 }
 
+local hfoMags = {	
+	"Base.Mag9ExtSm",
+	"Base.Mag9ExtLg",
+	"Base.Mag57ExtLg",
+	"Base.MagLugerExtSm",
+	"Base.MagLugerExtLg",
+	"Base.Mag380ExtSm",
+	"Base.Mag380ExtLg",
+	"Base.Mag44ExtSm",
+	"Base.Mag44ExtLg",
+	"Base.Mag45ExtSm",
+	"Base.Mag45ExtLg",
+	"Base.Mag223ExtLg",
+	"Base.MagMosinNagantExtSm",
+	"Base.MagPM63RAKExtLg",
+	"Base.MagM1GarandExtSm",
+	"Base.Mag3006ExtLg",
+	"Base.Mag308ExtSm",
+	"Base.MagSVDExtSm",
+	"Base.Mag50BMGExtSm",
+	"Base.MagMP28ExtLg",
+	"Base.Mag9x39ExtLg",
+	"Base.Mag9Drum",
+	"Base.Mag57Drum",
+	"Base.MagLugerDrum",
+	"Base.Mag380Drum",
+	"Base.Mag45Drum",
+}
+
 function ChiikuWeaponCacheSD(items, result, player)
 	
 	local zonetier, zonename, x, y = checkZone()
@@ -120,6 +149,7 @@ function ChiikuWeaponCacheSD(items, result, player)
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, hfoMags[ZombRand(#hfoMags)+1])
 	elseif zonetier == 4 then
 		gunpowder:setUsedDelta(math.min(0.9, scaledNormal()))
 		randomrollSD(1, gunpowder, "Base.GunPowder")
@@ -130,6 +160,7 @@ function ChiikuWeaponCacheSD(items, result, player)
 		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, hfoMags[ZombRand(#hfoMags)+1])
 	elseif zonetier == 3 then
 		gunpowder:setUsedDelta(math.min(0.8, scaledNormal()))
 		randomrollSD(1, gunpowder, "Base.GunPowder")
@@ -139,6 +170,7 @@ function ChiikuWeaponCacheSD(items, result, player)
 		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, hfoMags[ZombRand(#hfoMags)+1])
 	elseif zonetier == 2 then
 		gunpowder:setUsedDelta(math.min(0.7, scaledNormal()))
 		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
@@ -147,6 +179,7 @@ function ChiikuWeaponCacheSD(items, result, player)
 		addItemToPlayer(chiikuMags[ZombRand(#chiikuMags)+1])
 		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, hfoMags[ZombRand(#hfoMags)+1])
 	elseif zonetier == 1 then
 		gunpowder:setUsedDelta(math.min(0.6, scaledNormal()))
 		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
@@ -154,6 +187,7 @@ function ChiikuWeaponCacheSD(items, result, player)
 		addWeaponToPlayer(chiikuArms[ZombRand(#chiikuArms)+1])
 		addItemToPlayer(chiikuMags[ZombRand(#chiikuMags)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, hfoMags[ZombRand(#hfoMags)+1])
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 end

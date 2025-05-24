@@ -41,9 +41,7 @@ if getWorld():getGameMode() ~= "Multiplayer" then isMultiplayer = false end
 
 MDZ_OnCreate_RangedWeaponVariance = function(item, cache)
 	
-	if not isAdmin() then
-		if not isServer() and isMultiplayer and not cache then return end
-	end
+	if not isServer() and isMultiplayer and not cache and not isAdmin() then return end
 	if not item then return end
 	local iMD = item:getModData()
 	
@@ -100,42 +98,44 @@ MDZ_OnCreate_RangedWeaponVariance = function(item, cache)
 end
 
 MDZ_OnCreate_MeleeWeaponVariance = function(item)
-
-	--if not isServer() and isMultiplayer then return end
-	if not item then return end
-	local iMD = item:getModData()
-	iMD.mdzMaxDmg = iMD.mdzMaxDmg or scaledNormal()
-	iMD.mdzMinDmg = iMD.mdzMinDmg or scaledNormal()
-	iMD.mdzCriticalChance = iMD.mdzCriticalChance or scaledNormal()
-	iMD.mdzCritDmgMultiplier = iMD.mdzCritDmgMultiplier or scaledNormal()
 	
-	iMD.CriticalChance		= iMD.CriticalChance or item:getCriticalChance()
-	iMD.CritDmgMultiplier	= iMD.CritDmgMultiplier or item:getCritDmgMultiplier()
-	iMD.MinDamage			= iMD.MinDamage or item:getMinDamage()
-	iMD.MaxDamage			= iMD.MaxDamage or item:getMaxDamage()
-	iMD.MaxHitCount			= iMD.MaxHitCount or item:getMaxHitCount()
-	iMD.Name				= item:getName()
-	iMD.SD7_1				= true
+	if isServer() then return end
+	if isAdmin() or isDebugEnabled() then
+		if not item then return end
+		local iMD = item:getModData()
+		iMD.mdzMaxDmg = iMD.mdzMaxDmg or scaledNormal()
+		iMD.mdzMinDmg = iMD.mdzMinDmg or scaledNormal()
+		iMD.mdzCriticalChance = iMD.mdzCriticalChance or scaledNormal()
+		iMD.mdzCritDmgMultiplier = iMD.mdzCritDmgMultiplier or scaledNormal()
 		
-	item:setMaxDamage(iMD.mdzMaxDmg * iMD.MaxDamage)
-	item:setMinDamage(iMD.mdzMinDmg * iMD.MinDamage)
-	item:setCriticalChance(iMD.mdzCriticalChance * iMD.CriticalChance)
-	item:setCritDmgMultiplier(iMD.mdzCritDmgMultiplier * iMD.CritDmgMultiplier)
-	
-	local itemPower = rngSum / 4
-	local itemPrefix = "Ordinary"
-	if itemPower >= 0.09 then
-		itemPrefix = "Exemplary"
-	elseif itemPower > 0.075 then
-		itemPrefix = "Exceptional"
-	elseif itemPower > 0.06 then
-		itemPrefix = "Superior"
-	elseif itemPower > 0.045 then
-		itemPrefix = "Refined"
+		iMD.CriticalChance		= iMD.CriticalChance or item:getCriticalChance()
+		iMD.CritDmgMultiplier	= iMD.CritDmgMultiplier or item:getCritDmgMultiplier()
+		iMD.MinDamage			= iMD.MinDamage or item:getMinDamage()
+		iMD.MaxDamage			= iMD.MaxDamage or item:getMaxDamage()
+		iMD.MaxHitCount			= iMD.MaxHitCount or item:getMaxHitCount()
+		iMD.Name				= item:getName()
+		iMD.SD7_1				= true
+			
+		item:setMaxDamage(iMD.mdzMaxDmg * iMD.MaxDamage)
+		item:setMinDamage(iMD.mdzMinDmg * iMD.MinDamage)
+		item:setCriticalChance(iMD.mdzCriticalChance * iMD.CriticalChance)
+		item:setCritDmgMultiplier(iMD.mdzCritDmgMultiplier * iMD.CritDmgMultiplier)
+		
+		local itemPower = rngSum / 4
+		local itemPrefix = "Ordinary"
+		if itemPower >= 0.09 then
+			itemPrefix = "Exemplary"
+		elseif itemPower > 0.075 then
+			itemPrefix = "Exceptional"
+		elseif itemPower > 0.06 then
+			itemPrefix = "Superior"
+		elseif itemPower > 0.045 then
+			itemPrefix = "Refined"
+		end
+		iMD.mdzPrefix = iMD.mdzPrefix or itemPrefix
+		item:setName(iMD.mdzPrefix .. " " .. iMD.Name)
+		rngSum = 0
 	end
-	iMD.mdzPrefix = iMD.mdzPrefix or itemPrefix
-	item:setName(iMD.mdzPrefix .. " " .. iMD.Name)
-	rngSum = 0
 end
 
 local function MDZ_weapon_luaCreate()
@@ -148,19 +148,19 @@ local function MDZ_weapon_luaCreate()
 				local getLuaCreate = testItem:getLuaCreate() or nil
 				if testItem:isRanged() then
 					if not getLuaCreate then
-						print("[MoreDifficultZones] Ranged Weapon found! MDZ OnCreate Function added to - " .. testItem:getFullName() .. "(" .. testItem:getDisplayName() .. ")")
+						--print("[MoreDifficultZones] Ranged Weapon found! MDZ OnCreate Function added to - " .. testItem:getFullName() .. "(" .. testItem:getDisplayName() .. ")")
 						testItem:DoParam("OnCreate = MDZ_OnCreate_RangedWeaponVariance")
 					end
-				--[[else 
+				elseif testItem:getModuleName() == "RMWeapons" then 
 					if not getLuaCreate then
-						print("[MoreDifficultZones] Melee Weapon found! MDZ OnCreate Function added to - " .. testItem:getFullName() .. "(" .. testItem:getDisplayName() .. ")")
+						--print("[MoreDifficultZones] Melee Weapon found! MDZ OnCreate Function added to - " .. testItem:getFullName() .. "(" .. testItem:getDisplayName() .. ")")
 						testItem:DoParam("OnCreate = MDZ_OnCreate_MeleeWeaponVariance")
-					end]]
+					end
 				end
 			end
 		end
 	end
 
 end
-
+--MDZ_weapon_luaCreate()
 Events.OnInitGlobalModData.Add(MDZ_weapon_luaCreate)

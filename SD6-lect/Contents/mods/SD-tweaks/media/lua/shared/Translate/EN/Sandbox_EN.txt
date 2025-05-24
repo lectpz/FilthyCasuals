@@ -145,4 +145,10 @@ Sandbox_EN = {
 	Sandbox_SDbus_BusStops = "Bus Stops",
 	Sandbox_SDbus_BusStops_tooltip = "Input Bus Stops",
 
+    Sandbox_SD_SWDetect = "SD_SWDetect",
+
+    Sandbox_SD_SWDetect_SD_SWJavaSpearCheck = "Spear Check",
+    Sandbox_SD_SWDetect_SD_SWJavaSpearCheck_Threshold = "Spear Check Threshold",
+    Sandbox_SD_SWDetect_SD_SWJavaSpeedMacroCheck = "Attack Speed and Macro Check",
+    Sandbox_SD_SWDetect_SD_SWJavaViewCheck = "View Check",
 }
