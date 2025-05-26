@@ -97,11 +97,15 @@ MDZ_OnCreate_RangedWeaponVariance = function(item, cache)
 	--print("MDZ ON LUA CREATE RANGED =========================")
 end
 
-MDZ_OnCreate_MeleeWeaponVariance = function(item)
+MDZ_OnCreate_MeleeWeaponVariance = function(item, cache)
 	
 	if isServer() then return end
-	if isAdmin() or isDebugEnabled() then
-		if not item then return end
+	
+	if cache and (isAdmin() or isDebugEnabled()) then return end-- if it's a cache and you're superuser, just close so you don't double dip and cause naming issues
+
+	if not item then return end
+	
+	if cache or isAdmin() or isDebugEnabled() then--if player, then cache open will still function (but not unforge). if superuser, will work for cache and item spawn and unforge.
 		local iMD = item:getModData()
 		iMD.mdzMaxDmg = iMD.mdzMaxDmg or scaledNormal()
 		iMD.mdzMinDmg = iMD.mdzMinDmg or scaledNormal()
@@ -136,6 +140,7 @@ MDZ_OnCreate_MeleeWeaponVariance = function(item)
 		item:setName(iMD.mdzPrefix .. " " .. iMD.Name)
 		rngSum = 0
 	end
+
 end
 
 local function MDZ_weapon_luaCreate()

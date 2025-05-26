@@ -387,7 +387,15 @@ local function editDistributions()
 	-- Set rolls to 1 for food containers
 	--setRollValue(foodContainers, 1)
 	-- Set rolls to 2 for gun/ammo/weapon containers
-	setRollValue(gunContainers, 3)
+	--setRollValue(gunContainers, 3)
+	for k,v in pairs(ProceduralDistributions.list) do
+		for m,n in pairs(v) do
+			if m == "rolls" then 
+				--print(k,n) 
+				if n > 3 then ProceduralDistributions.list[k].rolls = 3 end
+			end
+		end
+	end
 	
 	local yeetBool = SandboxVars.SpawnChanceModifier.yeetBool
 	local yeetItems = getSandboxItems(SandboxVars.SpawnChanceModifier.yeetItems)

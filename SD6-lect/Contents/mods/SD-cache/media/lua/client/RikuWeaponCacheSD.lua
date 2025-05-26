@@ -31,7 +31,7 @@ end
 local function addItemToPlayer(loot)
 	--if isDebugEnabled() then getSpecificPlayer(0):Say(loot) end
 	local newItem = InventoryItemFactory.CreateItem(loot)
-	MDZ_OnCreate_MeleeWeaponVariance(newItem)
+	MDZ_OnCreate_MeleeWeaponVariance(newItem, true)
 	getSpecificPlayer(0):getInventory():AddItem(newItem)
 	addToArgs(loot)
 end
@@ -45,7 +45,7 @@ local function addSoulForgedWeaponToPlayer(loot)
 	local weaponFT = loot
 	local scriptItem = ScriptManager.instance:getItem(weaponFT)
 	local weapon = InventoryItemFactory.CreateItem(weaponFT)
-	MDZ_OnCreate_MeleeWeaponVariance(weapon)
+	MDZ_OnCreate_MeleeWeaponVariance(weapon, true)
 	local weaponModData = weapon:getModData()
 	local playerObj = getSpecificPlayer(0)
 	

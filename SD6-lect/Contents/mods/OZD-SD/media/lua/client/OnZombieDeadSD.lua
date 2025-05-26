@@ -149,7 +149,7 @@ function OnZombieDeadItemDrop(zombie)
 		--zombie:getSquare():AddWorldInventoryItem(item, 0, 0, 0) --use this if you want it items to drop onto the ground
 		if not item then return end
 		local newItem = InventoryItemFactory.CreateItem(item)
-		MDZ_OnCreate_MeleeWeaponVariance(newItem)
+		MDZ_OnCreate_MeleeWeaponVariance(newItem, true)
 		zombie:getInventory():AddItem(newItem) --use this if you want the items to spawn into a zombie body
 	end	
 	
