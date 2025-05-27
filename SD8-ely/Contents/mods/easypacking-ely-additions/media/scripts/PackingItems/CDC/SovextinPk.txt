@@ -1,0 +1,84 @@
+module Packing
+{
+    imports
+    {
+        Base,
+        CDCRR
+    }
+
+    item 5pkSovextin
+    {
+        DisplayName         = 5 x Sovextin Syrette,
+        DisplayCategory     = FirstAid,
+        Weight              = 0.05,
+        Icon                = Syrette1_CDCRR,
+        WorldStaticModel    = Sovextin,
+        Tooltip             = Tooltip_CDCRR_Sovextin
+    }
+
+    item 10pkSovextin
+    {
+        DisplayName         = 10 x Sovextin Syrette,
+        DisplayCategory     = FirstAid,
+        Weight              = 0.1,
+        Icon                = Syrette1_CDCRR,
+        WorldStaticModel    = Sovextin,
+        Tooltip             = Tooltip_CDCRR_Sovextin
+    }
+
+    recipe Pack 5
+    {
+        destroy Sovextin=5,
+
+        Result  :5pkSovextin,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage,
+    }
+
+    recipe Unpack 5
+    {
+        5pkSovextin,
+
+        Result          :Sovextin=5,
+        RemoveResultItem:true,
+        Time            :75.0,
+        Category        :Storage,
+    }
+
+    recipe Pack 10
+    {
+        destroy Sovextin=10,
+
+        Result  :10pkSovextin,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :120.0,
+        Category:Storage,
+    }
+
+    recipe Unpack 10
+    {
+        10pkSovextin,
+
+        Result          :Sovextin=10,
+        RemoveResultItem:true,
+        Time            :120.0,
+        Category        :Storage,
+    }
+
+    recipe Put Together
+    {
+        5pkSovextin=2,
+
+        Result  :10pkSovextin,
+        Time    :75.0
+    }
+
+    recipe Split in Two
+    {
+        10pkSovextin,
+
+        Result  :5pkSovextin=2,
+        Time    :75.0
+    }
+}

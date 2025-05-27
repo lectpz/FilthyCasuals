@@ -1,0 +1,172 @@
+module Packing
+{
+    imports
+    {
+        Base,
+        PZGFarm
+    }
+
+    item 5pkGrapeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Grape Seeds Packet,
+        Icon                = SeedPacketGrapes,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketGrapes_Ground
+    }
+
+    item 10pkGrapeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Grape Seeds Packet,
+        Icon                = SeedPacketGrapes,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketGrapes_Ground
+    }
+
+    item 50pkGrapeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Grape Seeds Packet,
+        Icon                = SeedPacketGrapes,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketGrapes_Ground
+    }
+
+    item 100pkGrapeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Grape Seeds Packet,
+        Icon                = SeedPacketGrapes,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketGrapes_Ground
+    }
+
+    recipe Pack 5
+    {
+        destroy GrapeBagSeed=5,
+
+        Result  :5pkGrapeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,,
+        Time    :50.0,
+        Category:Storage
+    }
+
+    recipe Pack 10
+    {
+        destroy GrapeBagSeed=10,
+
+        Result  :10pkGrapeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,,
+        Time    :75.0,
+        Category:Storage
+    }
+
+    recipe Pack 50
+    {
+        destroy GrapeBagSeed=50,
+
+        Result  :50pkGrapeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,,
+        Time    :100.0,
+        Category:Storage
+    }
+
+    recipe Pack 100
+    {
+        destroy GrapeBagSeed=100,
+
+        Result  :100pkGrapeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,,
+        Time    :125.0,
+        Category:Storage
+    }
+
+    recipe Unpack 5
+    {
+        destroy 5pkGrapeBagSeed,
+
+        Result:GrapeBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+    recipe Unpack 10
+    {
+        destroy 10pkGrapeBagSeed,
+
+        Result:GrapeBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+    recipe Unpack 50
+    {
+        destroy 50pkGrapeBagSeed,
+
+        Result:GrapeBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+    recipe Unpack 100
+    {
+        destroy 100pkGrapeBagSeed,
+
+        Result:GrapeBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+    
+    recipe Put Together
+    {
+        5pkGrapeBagSeed=2,
+
+        Result  :10pkGrapeBagSeed=1,
+        Time    :10.0
+    }
+
+    recipe Put Together
+    {
+        10pkGrapeBagSeed=5,
+
+        Result  :50pkGrapeBagSeed=1,
+        Time    :20.0
+    }
+
+    recipe Put Together
+    {
+        50pkGrapeBagSeed=2,
+
+        Result  :100pkGrapeBagSeed=1,
+        Time    :40.0
+    }
+
+    recipe Split in Two
+    {
+        10pkGrapeBagSeed=1,
+
+        Result  :5pkGrapeBagSeed=2,
+        Time    :10.0
+    }
+
+    recipe Split in Five
+    {
+        50pkGrapeBagSeed=1,
+
+        Result  :10pkGrapeBagSeed=5,
+        Time    :20.0
+    }
+
+    recipe Split in Two
+    {
+        100pkGrapeBagSeed=1,
+
+        Result  :50pkGrapeBagSeed=2,
+        Time    :40.0
+    }
+}
