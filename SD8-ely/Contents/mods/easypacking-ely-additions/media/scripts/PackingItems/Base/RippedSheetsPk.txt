@@ -1,0 +1,35 @@
+module Packing
+{
+    imports
+    {
+        Base,
+    }
+
+    item 500pkRag
+    {
+		DisplayName		= 500 x Ripped Sheets,
+		DisplayCategory = Household,
+        Weight			= 7.5,
+		Type			= Normal,
+		Icon			= PRag,
+		WorldStaticModel= StripRollSheet,
+    }
+
+    recipe Pack 500
+    {
+        destroy RippedStrips=500,
+        
+        Result  :500pkRag=1,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+    recipe Put Together
+    {
+        100pkRag=5,
+
+        Result  :500pkRag=1,
+        Time    :75.0
+    }
+}

@@ -1,0 +1,383 @@
+module Packing
+{
+	imports
+	{
+		Base,
+	}
+
+// ===== Basil =====
+	recipe Pack 10
+	
+		destroy Basil=10,
+		
+		Result	:10pkBasil,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:45.0,
+		Category:Storage,
+	
+	
+	recipe Unpack 10
+	
+		destroy 10pkBasil,
+		
+		Result	:Basil=10,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:45.0,
+		Category:Storage,
+	
+	
+	recipe Pack 50
+	
+		destroy Basil=50,
+		
+		Result	:50pkBasil,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:22.5,
+		Category:Storage,
+	
+	
+	recipe Unpack 50
+	
+		destroy 50pkBasil,
+		
+		Result	:Basil=50,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:22.5,
+		Category:Storage,
+	
+
+	recipe Put Together
+	
+		10pkBasil=5,
+		
+		Result	:50pkBasil=1,
+		Time	:7.5,
+	
+
+	recipe Split in Five
+	
+		50pkBasil=1,
+		
+		Result	:10pkBasil=5,
+		Time	:7.5,
+
+// ===== Chives =====
+
+	recipe Pack 10
+	
+		destroy Chives=10,
+		
+		Result	:10pkChives,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:45.0,
+		Category:Storage,
+	
+	
+	recipe Unpack 10
+	
+		destroy 10pkChives,
+		
+		Result	:Chives=10,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:45.0,
+		Category:Storage,
+	
+	
+	recipe Pack 50
+	
+		destroy Chives=50,
+		
+		Result	:50pkChives,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:22.5,
+		Category:Storage,
+	
+	
+	recipe Unpack 50
+	
+		destroy 50pkChives,
+		
+		Result	:Chives=50,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:22.5,
+		Category:Storage,
+	
+
+	recipe Put Together
+	
+		10pkChives=5,
+		
+		Result	:50pkChives=1,
+		Time	:7.5,
+	
+
+	recipe Split in Five
+	
+		50pkChives=1,
+		
+		Result	:10pkChives=5,
+		Time	:7.5,
+
+// ===== Cilantro =====
+
+	recipe Pack 10
+	
+		destroy Cilantro=10,
+		
+		Result	:10pkCilantro,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:45.0,
+		Category:Storage,
+	
+	
+	recipe Unpack 10
+	
+		destroy 10pkCilantro,
+		
+		Result	:Cilantro=10,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:45.0,
+		Category:Storage,
+	
+	
+	recipe Pack 50
+	
+		destroy Cilantro=50,
+		
+		Result	:50pkCilantro,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:22.5,
+		Category:Storage,
+	
+	
+	recipe Unpack 50
+	
+		destroy 50pkCilantro,
+		
+		Result	:Cilantro=50,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:22.5,
+		Category:Storage,
+	
+
+	recipe Put Together
+	
+		10pkCilantro=5,
+		
+		Result	:50pkCilantro=1,
+		Time	:7.5,
+	
+
+	recipe Split in Five
+	
+		50pkCilantro=1,
+		
+		Result	:10pkCilantro=5,
+		Time	:7.5,
+	
+// ===== Oregano =====
+
+	recipe Pack 5
+	
+		destroy Oregano=5,
+
+		Result:5pkOregano,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:45.0,
+		Category:Storage,
+	
+	
+	recipe Pack 10
+	
+		destroy Oregano=10,
+		
+		Result	:10pkOregano,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:45.0,
+		Category:Storage,
+	
+	
+	recipe Unpack 10
+	
+		destroy 10pkOregano,
+		
+		Result	:Oregano=10,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:45.0,
+		Category:Storage,
+	
+	
+	recipe Pack 50
+	
+		destroy Oregano=50,
+		
+		Result	:50pkOregano,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:22.5,
+		Category:Storage,
+	
+	
+	recipe Unpack 50
+	
+		destroy 50pkOregano,
+		
+		Result	:Oregano=50,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:22.5,
+		Category:Storage,
+	
+
+	recipe Put Together
+	
+		10pkOregano=5,
+		
+		Result	:10pkOregano=1,
+		Time	:7.5,
+	
+
+	recipe Split in Five
+	
+		50pkOregano=1,
+		
+		Result	:10pkOregano=5,
+		Time	:7.5,
+	
+// ===== Sage =====
+	
+	recipe Pack 10
+	
+		destroy Sage=10,
+		
+		Result	:10pkSage,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:45.0,
+		Category:Storage,
+	
+	
+	recipe Unpack 10
+	
+		destroy 10pkSage,
+		
+		Result	:Sage=10,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:45.0,
+		Category:Storage,
+	
+	
+	recipe Pack 50
+	
+		destroy Sage=50,
+		
+		Result	:50pkSage,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:22.5,
+		Category:Storage,
+	
+	
+	recipe Unpack 50
+	
+		destroy 50pkSage,
+		
+		Result	:Sage=50,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:22.5,
+		Category:Storage,
+	
+
+	recipe Put Together
+	
+		10pkSage=5,
+		
+		Result	:50pkSage=1,
+		Time	:7.5,
+	
+
+	recipe Split in Five
+	
+		50pkSage=1,
+		
+		Result	:10pkSage=5,
+		Time	:7.5,
+
+// ===== Thyme =====
+	
+	recipe Pack 10
+	
+		destroy Thyme=10,
+		
+		Result	:10pkThyme,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:45.0,
+		Category:Storage,
+	
+	
+	recipe Unpack 10
+	
+		destroy 10pkThyme,
+		
+		Result	:Thyme=10,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:45.0,
+		Category:Storage,
+	
+	
+	recipe Pack 50
+	
+		destroy Thyme=50,
+		
+		Result	:50pkThyme,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:22.5,
+		Category:Storage,
+	
+	
+	recipe Unpack 50
+	
+		destroy 50pkThyme,
+		
+		Result	:Thyme=50,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:22.5,
+		Category:Storage,
+	
+
+	recipe Put Together
+	
+		10pkThyme=5,
+		
+		Result	:50pkThyme=1,
+		Time	:7.5,
+	
+
+	recipe Split in Five
+	
+		50pkThyme=1,
+		
+		Result	:10pkThyme=5,
+		Time	:7.5,
+}

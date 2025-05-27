@@ -1,0 +1,81 @@
+module Packing
+{
+    imports
+    {
+        Base,
+        SapphCooking
+    }
+
+    item 5pkCandyCigarettePack
+	{
+		DisplayName     = 5 x Pack of Candy Cigarettes,
+		DisplayCategory = Food,
+		Type            = Normal,
+		Weight          = 0.5,
+		Icon            = CandyCigarettePackIcon,
+		WorldStaticModel = CandyCigarettePack_Ground,
+	}
+
+    item 10pkCandyCigarettePack
+	{
+		DisplayName     = 10 x Pack of Candy Cigarettes,
+		DisplayCategory = Food,
+		Type            = Normal,
+		Weight          = 1.0,
+		Icon            = CandyCigarettePackIcon,
+		WorldStaticModel = CandyCigarettePack_Ground,
+	}
+
+    recipe Pack 5
+	{
+		destroy PackofCandyCigarretes=5,
+
+        Result	:5pkCandyCigarettePack,
+        OnTest	:Recipe.OnTest.IsFavorite,
+        Time	:45.0,
+        Category:Storage,
+	}
+
+	recipe Unpack 5
+    {
+        destroy 5pkCandyCigarettePack,
+
+        Result	:PackofCandyCigarretes=5,
+        Time	:45.0,
+        Category:Storage
+    }
+
+	recipe Pack 10
+	{
+		destroy PackofCandyCigarretes=10,
+
+		Result	:10pkCandyCigarettePack,
+		Time	:75.0,
+		Category:Storage
+	}
+
+	recipe Unpack 10
+    {
+        destroy 10pkCandyCigarettePack,
+
+        Result	:PackofCandyCigarretes=10,
+        Time	:75.0,
+        Category:Storage
+    }
+
+	recipe Put Together
+	{
+		5pkCandyCigarettePack=2,
+
+		Result:10pkCandyCigarettePack,
+		Time:40.0
+	}
+
+	recipe Split in Two
+	{
+		10pkCandyCigarettePack,
+
+		Result:5pkCandyCigarettePack,
+		Time:40.0
+	}
+}

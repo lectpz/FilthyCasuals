@@ -1,0 +1,36 @@
+module Packing
+{
+	imports
+	{
+		Base,
+	}
+	
+	item 20pkRadioTransmitter
+	{
+		DisplayName		= 20 x Radio Transmitters,
+		Weight			= 1.0,
+		Type			= Normal,
+		Icon			= PkRadioTransmitterBox,
+		WorldStaticModel= MediumRadioTransmitter
+	}
+	
+	recipe Pack 20
+	{
+		destroy RadioTransmitter=20,
+		
+		Result:20pkRadioTransmitter,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:45.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 20
+	{
+		destroy 20pkRadioTransmitter,
+		
+		Result:RadioTransmitter=20,
+		Time:45.0,
+		Category:Storage,
+	}
+
+}

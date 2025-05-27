@@ -1,0 +1,87 @@
+module Packing
+{
+    imports
+    {
+        Base,
+    }
+
+    item 5pkAlcoholedCottonBalls
+    {
+        DisplayName         = 5 x Cotton Balls Doused in Alcohol,
+        DisplayCategory     = FirstAid,
+        Weight              = 0.5,
+        Type                = Normal,
+        Icon                = CottonBalls,
+        WorldStaticModel    = CottonBalls,
+    }
+
+    item 10pkAlcoholedCottonBalls
+    {
+        DisplayName         = 10 x Cotton Balls Doused in Alcohol,
+        DisplayCategory     = FirstAid,
+        Weight              = 1.0,
+        Type                = Normal,
+        Icon                = CottonBalls,
+        WorldStaticModel    = CottonBalls,
+    }
+
+    recipe Pack 5
+    {
+        destroy AlcoholedCottonBalls=5,
+
+        Result  :5pkAlcoholedCottonBalls,
+        OnCreate:Recipe.OnCreate.SaveUses,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :5.0,
+        Category:Storage
+    }
+
+    recipe Pack 10
+    {
+        destroy AlcoholedCottonBalls=10,
+
+        Result  :10pkAlcoholedCottonBalls,
+        OnCreate:Recipe.OnCreate.SaveUses,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :10.0,
+        Category:Storage
+    }
+
+    recipe Unpack 5
+    {
+        5pkAlcoholedCottonBalls,
+
+        Result          :AlcoholedCottonBalls,
+        OnCreate        :Recipe.OnCreate.LoadUses,
+        RemoveResultItem:true,
+        Time            :5.0,
+        Category        :Storage,
+    }
+
+    recipe Unpack 10
+    {
+        10pkAlcoholedCottonBalls,
+
+        Result          :AlcoholedCottonBalls,
+        OnCreate        :Recipe.OnCreate.LoadUses,
+        RemoveResultItem:true,
+        Time            :10.0,
+        Category        :Storage,
+    }
+
+    recipe Put Together
+    {
+        5pkAlcoholedCottonBalls=2,
+
+        Result  :10pkAlcoholedCottonBalls,
+        Time    :10.0
+    }
+
+    recipe Split in Two
+    {
+        10pkAlcoholedCottonBalls,
+
+        Result  :5pkAlcoholedCottonBalls=2,
+        Time    :10.0
+    }
+}

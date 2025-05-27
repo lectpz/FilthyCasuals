@@ -1,0 +1,83 @@
+module Packing
+{
+    imports
+    {
+        Base,
+        CDCRR
+    }
+
+    item 5pkConsumerViralTest
+    {
+        DisplayName         = 5 x KX93185 Test Kit - Pecker & Pecker,
+        DisplayCategory     = FirstAid,
+        Weight              = 0.05,
+        Icon                = TestKit1_CDCRR,
+        WorldStaticModel    = ConsumerViralTest,
+        Tooltip             = Tooltip_CDCRR_ConsumerViralTest
+    }
+
+    item 10pkConsumerViralTest
+    {
+        DisplayName         = 10 x KX93185 Test Kit - Pecker & Pecker,
+        DisplayCategory     = FirstAid,
+        Weight              = 0.1,
+        Icon                = TestKit1_CDCRR,
+        WorldStaticModel    = ConsumerViralTest,
+        Tooltip             = Tooltip_CDCRR_ConsumerViralTest
+    }
+
+    recipe Pack 5
+    {
+        destroy ConsumerViralTest=5,
+
+        Result  :5pkConsumerViralTest,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage,
+    }
+
+    recipe Unpack 5
+    {
+        5pkConsumerViralTest,
+
+        Result          :ConsumerViralTest=5,
+        RemoveResultItem:true,
+        Time            :75.0,
+        Category        :Storage,
+    }
+
+    recipe Pack 10
+    {
+        destroy ConsumerViralTest=10,
+
+        Result  :10pkConsumerViralTest,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :120.0,
+        Category:Storage,
+    }
+
+    recipe Unpack 10
+    {
+        10pkConsumerViralTest,
+
+        Result  :ConsumerViralTest=10,
+        Time    :120.0,
+        Category:Storage,
+    }
+
+    recipe Put Together
+    {
+        5pkConsumerViralTest=2,
+
+        Result  :10pkConsumerViralTest,
+        Time    :75.0
+    }
+
+    recipe Split in Two
+    {
+        10pkConsumerViralTest,
+
+        Result  :5pkConsumerViralTest=2,
+        Time    :75.0
+    }
+}

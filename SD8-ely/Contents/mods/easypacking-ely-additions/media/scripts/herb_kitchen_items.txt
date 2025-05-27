@@ -1,0 +1,136 @@
+module Packing
+{
+	imports
+	{
+		Base,
+	}
+
+// ===== Basil =====
+
+	item 10pkBasil
+	{
+		DisplayName		= 10 x Basil,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= HerbBasil,
+		WorldStaticModel= Basil_Ground
+	}
+	
+	item 50pkBasil
+	{
+		DisplayName		= 50 x Basil,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= HerbBasil,
+		WorldStaticModel= Basil_Ground
+	}
+	
+// ===== Chives =====
+
+	item 10pkChives
+	{
+		DisplayName		= 10 x Chives,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= HerbChives,
+		WorldStaticModel= HerbChives_Ground
+	}
+	
+	item 50pkChives
+	{
+		DisplayName		= 50 x Chives,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= HerbChives,
+		WorldStaticModel= HerbChives_Ground
+	}
+	
+// ===== Cilantro =====
+
+	item 10pkCilantro
+	{
+		DisplayName		= 10 x Cilantro,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= HerbCilantro,
+		WorldStaticModel= HerbCilantro_Ground
+	}
+	
+	item 50pkCilantro
+	{
+		DisplayName		= 50 x Cilantro,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= HerbCilantro,
+		WorldStaticModel= HerbCilantro_Ground
+	}
+	
+// ===== Oregano =====
+
+	item 5kpkOregano
+	{
+		DisplayName		= 5 x Oregano,
+		Weight			= 0.25,
+		Type			= Normal,
+		Icon			= HerbOregano,
+		WorldStaticModel= HerbOregano_Ground,
+	}
+	
+	item 10pkOregano
+	{
+		DisplayName		= 10 x Oregano,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= HerbOregano,
+		WorldStaticModel= HerbOregano_Ground,
+	}
+	
+	item 50pkOregano
+	{
+		DisplayName		= 50 x Oregano,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= HerbOregano,
+		WorldStaticModel= HerbOregano_Ground,
+	}
+
+// ===== Sage =====
+
+	item 10pkSage
+	{
+		DisplayName		= 10 x Sage,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= HerbSage,
+		WorldStaticModel= HerbSage_Ground
+	}
+	
+	item 50pkSage
+	{
+		DisplayName		= 50 x Sage,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= HerbSage,
+		WorldStaticModel= HerbSage_Ground
+	}
+	
+// ===== Thyme =====
+
+	item 10pkThyme
+	{
+		DisplayName		= 10 x Thyme,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= HerbThyme,
+		WorldStaticModel= HerbThyme_Ground
+	}
+	
+	item 50pkThyme
+	{
+		DisplayName		= 50 x Thyme,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= HerbThyme,
+		WorldStaticModel= HerbThyme_Ground
+	}
+}

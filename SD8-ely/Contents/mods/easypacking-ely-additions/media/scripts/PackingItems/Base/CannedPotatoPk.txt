@@ -1,0 +1,61 @@
+module Packing
+{
+    imports
+    {
+        Base,
+    }
+
+    item 5pkCannedPotato
+    {
+        DisplayName		= 5 x Canned Potato,
+		Weight			= 4,
+		Type			= Normal,
+		Icon			= CannedPotato,
+		WorldStaticModel= CannedClosedPotatoes
+    }
+
+    item 10pkCannedPotato
+    {
+        DisplayName		= 10 x Canned Potato,
+		Weight			= 8,
+		Type			= Normal,
+		Icon			= CannedPotato,
+		WorldStaticModel= CannedClosedPotatoes
+    }
+
+    recipe Pack 5
+    {
+        destroy CannedPotato2=5,
+
+        Result:5pkCannedPotato,
+        OnTest:Recipe.OnTest.IsFavorite,
+		Time:45.0,
+		Category:Storage,
+    }
+
+    recipe Unpack 5
+    {
+        destroy 5pkCannedPotato,
+
+        Result:CannedPotatao2=5,
+        Time:45.0
+    }
+
+    recipe Pack 10
+    {
+        destroy CannedPotato2=10,
+
+        Result:5pkCannedPotato,
+        OnTest:Recipe.OnTest.IsFavorite,
+		Time:45.0,
+		Category:Storage,
+    }
+
+    recipe Unpack 10
+    {
+        destroy 10pkCannedPotato,
+
+        Result:CannedPotatao2=10,
+        Time:45.0
+    }
+}

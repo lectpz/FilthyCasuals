@@ -1,0 +1,35 @@
+module Packing
+{
+	imports
+	{
+		Base,
+	}
+	
+	item 10pkStone
+	{
+		DisplayName		= 10 x Stones,
+		Weight			= 1.5,
+		Type			= Normal,
+		Icon			= PkStoneBox,
+		WorldStaticModel= MediumStone
+	}
+	
+	recipe Pack 10
+	{
+		destroy Stone=10,
+		
+		Result	:10pkStone,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:45.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 10
+	{
+		destroy 10pkStone,
+		
+		Result	:Stone=10,
+		Time	:45.0,
+		Category:Storage,
+	}	
+}

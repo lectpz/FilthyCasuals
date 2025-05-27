@@ -1,0 +1,88 @@
+module Packing
+{
+    imports
+    {
+        Base,
+        CDCRR
+    }
+
+    item 5pkZedalis
+    {
+        DisplayName         = 5 x Zedalis,
+        DisplayCategory     = FirstAid,
+        Weight              = 0.5,
+        Type                = Normal,
+        Icon                = PillSet4_CDCRR,
+        WorldStaticModel 	= Zedalis,
+    }
+
+    item 10pkZedalis
+    {
+        DisplayName         = 10 x Zedalis,
+        DisplayCategory     = FirstAid,
+        Weight              = 1.0,
+        Type                = Normal,
+        Icon                = PillSet4_CDCRR,
+        WorldStaticModel 	= Zedalis,
+    }
+
+    recipe Pack 5
+    {
+        destroy Zedalis=5,
+
+        Result      :5pkZedalis,
+        OnCreate    :Recipe.OnCreate.SaveUses,
+        OnTest      :Recipe.OnTest.IsFavorite,
+        Time        :75.0,
+        Category    :Storage,
+    }
+
+    recipe Unpack 5
+    {
+        5pkZedalis,
+
+        Result          :Zedalis,
+        OnCreate        :Recipe.OnCreate.LoadUses,
+        RemoveResultItem:true,
+        Time            :75.0,
+        Category        :Storage,
+    }
+
+    recipe Pack 10
+    {
+        destroy Zedalis=10,
+
+        Result      :10pkZedalis,
+        OnCreate    :Recipe.OnCreate.SaveUses,
+        OnTest      :Recipe.OnTest.IsFavorite,
+        Time        :120.0,
+        Category    :Storage,
+    }
+
+    recipe Unpack 10
+    {
+        10pkZedalis,
+
+        Result          :Zedalis,
+        OnCreate        :Recipe.OnCreate.LoadUses,
+        RemoveResultItem:true,
+        Time            :120.0,
+        Category        :Storage,
+    }
+
+    recipe Put Together
+    {
+        5pkZedalis=2,
+
+        Result  :10pkZedalis,
+        Time    :75.0
+    }
+
+    recipe Split in Two
+    {
+        10pkZedalis,
+
+        Result  :5pkZedalis=2,
+        Time    :75.0
+    }
+}

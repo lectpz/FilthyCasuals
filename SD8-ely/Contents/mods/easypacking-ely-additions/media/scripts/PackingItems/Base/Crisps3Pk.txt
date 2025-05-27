@@ -1,0 +1,84 @@
+module Packing
+{
+	imports
+	{
+		Base,
+	}
+	
+	item 10pkCrisp3
+	{
+		Weight			= 1.0,
+		Type			= Normal,
+		DisplayName		= 10 x Chips,
+		DisplayCategory = Food,
+		Icon			= Crisps3,
+		WorldStaticModel = Chips3,
+	}
+	
+	item 5pkCrisp3
+	{
+		Weight			= 0.7,
+		Type			= Normal,
+		DisplayName		= 5 x Chips,
+		DisplayCategory = Food,
+		Icon			= Crisps3,
+		WorldStaticModel = Chips3,
+	}
+
+	recipe Pack 10
+	{
+		destroy Crisps3=10,
+		
+		Result:10pkCrisp3,
+		OnTest:Recipe.OnTest.WholeFood,
+		Time:100.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 10
+	{
+		destroy 10pkCrisp3,
+		
+		Result:Crisps3=10,
+		OnGiveXP:Recipe.OnGiveXP.None,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Pack 5
+	{
+		destroy Crisps3=5,
+		
+		Result:5pkCrisp3,
+		OnTest:Recipe.OnTest.WholeFood,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 5
+	{
+		destroy 5pkCrisp3,
+		
+		Result:Crisps3=5,
+		OnGiveXP:Recipe.OnGiveXP.None,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Put Together
+	{
+		5pkCrisp3=2,
+		
+		Result:10pkCrisp3=1,
+		Time:40.0,
+	}
+
+	recipe Split in Two
+	{
+		10pkCrisp3=1,
+		
+		CanBeDoneFromFloor:true,
+		Result:5pkCrisp3=2,
+		Time:40.0,
+	}
+}

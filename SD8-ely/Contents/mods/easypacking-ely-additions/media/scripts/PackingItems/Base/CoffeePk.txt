@@ -1,0 +1,90 @@
+module Packing
+{
+    imports
+    {
+        Base,
+    }
+
+    item 5pkCoffee
+    {
+        DisplayName         = 5 x Coffee,
+        DisplayCategory     = Food,
+        Weight              = 3,
+        Type                = Normal,
+        Icon                = Coffee,
+        WorldStaticModel    = Coffee,
+    }
+
+    item 10pkCoffee
+    {
+        DisplayName         = 10 x Coffee,
+        DisplayCategory     = Food,
+        Weight              = 5,
+        Type                = Normal,
+        Icon                = Coffee,
+        WorldStaticModel    = Coffee
+    }
+
+    recipe Pack 5
+    {
+        destroy Coffee=5,
+
+        Result  :5pkCoffee,
+        OnCreate:Recipe.OnCreate.SaveFood
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage,
+    }
+
+    recipe Unpack 5
+    {
+        destroy 5pkCoffee,
+
+        Result          :Coffee=5,
+        OnCreate        :Recipe.OnCreate.LoadFood,
+        OnGiveXP        :Recipe.OnGiveXP.None,
+        RemoveResultItem:true,
+        Time            :50.0,
+        Category        :Storage
+    }
+
+    recipe Pack 10
+    {
+        destroy Coffee=10,
+
+        Result  :10pkCoffee,
+        OnCreate:Recipe.OnCreate.SaveFood
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage,
+    }
+
+    recipe Unpack 10
+    {
+        destroy 10pkCoffee,
+
+        Result          :Coffee=10,
+        OnCreate        :Recipe.OnCreate.LoadFood,
+        OnGiveXP        :Recipe.OnGiveXP.None,
+        RemoveResultItem:true,
+        Time            :50.0,
+        Category        :Storage
+    }
+
+    recipe Put Together
+    {
+        destroy 5pkCoffee=2,
+        
+        Result  :10pkCoffee,
+        Time    :50.0
+    }
+
+    recipe Split in Two
+    {
+        destroy 10pkCoffee,
+
+        CanBeDoneFromFloor  :true,
+        Result              :5pkCoffee,
+        Time                :50.0
+    }
+}

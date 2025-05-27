@@ -1,0 +1,176 @@
+module Packing
+{
+	import
+	{
+		Base,
+	}
+
+// ===== WildGarlic =====
+
+	item 10pkWildGarlic
+	{
+		DisplayName		= 10 x Wild Garlic,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= PkWildGarlicSmallBox,
+		WorldStaticModel= SmallWildGarlic
+	}
+	
+	item 50pkWildGarlic
+	{
+		DisplayName		= 50 x Wild Garlic,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= PkWildGarlicMediumBox,
+		WorldStaticModel= MediumWildGarlic
+	}
+
+// ===== BlackSage =====
+
+	item 10pkBlackSage
+	{
+		DisplayName		= 10 x Black Sage,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= PkBlackSageSmallBox,
+		WorldStaticModel= SmallBlackSage
+	}
+	
+	item 50pkBlackSage
+	{
+		DisplayName		= 50 x Black Sage,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= PkBlackSageMediumBox,
+		WorldStaticModel= MediumBlackSage
+	}
+	
+// ===== Comfrey =====
+
+	item 5kpkComfrey
+	{
+		DisplayName		= 5 x Comfrey,
+		Weight			= 0.25,
+		Type			= Normal,
+		Icon			= PkComfreySmallBox,
+		WorldStaticModel= SmallComfrey
+	}
+	
+	item 10pkComfrey
+	{
+		DisplayName		= 10 x Comfrey,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= PkComfreySmallBox,
+		WorldStaticModel= SmallComfrey
+	}
+	
+	item 50pkComfrey
+	{
+		DisplayName		= 50 x Comfrey,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= PkComfreyMediumBox,
+		WorldStaticModel= MediumComfrey
+	}
+
+// ===== CommonMallow =====
+
+	item 10pkCommonMallow
+	{
+		DisplayName		= 10 x Common Mallow,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= PkCommonMallowSmallBox,
+		WorldStaticModel= SmallCommonMallow
+	}
+	
+	item 50pkCommonMallow
+	{
+		DisplayName		= 50 x Common Mallow,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= PkCommonMallowMediumBox,
+		WorldStaticModel= MediumCommonMallow
+	}
+	
+// ===== LemonGrass =====
+
+	item 10pkLemonGrass
+	{
+		DisplayName		= 10 x Lemon Grass,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= PkLemonGrassSmallBox,
+		WorldStaticModel= SmallLemonGrass
+	}
+	
+	item 50pkLemonGrass
+	{
+		DisplayName		= 50 x Lemon Grass,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= PkLemonGrassMediumBox,
+		WorldStaticModel= MediumLemonGrass
+	}
+
+// ===== Nettle =====
+
+	item 10pkNettles
+	{
+		DisplayName		= 10 x Nettles,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= Nettle,
+		WorldStaticModel= Nettles_Ground
+	}
+	
+	item 50pkNettles
+	{
+		DisplayName		= 50 x Nettles,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= Nettle,
+		WorldStaticModel= Nettles_Ground
+	}
+
+// ===== Thistle =====
+
+	item 10pkThistles
+	{
+		DisplayName		= 10 x Thistles,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= Thistle,
+		WorldStaticModel= Thistles_Ground
+	}
+	
+	item 50pkThistles
+	{
+		DisplayName		= 50 x Thistles,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= Thistle,
+		WorldStaticModel= Thistles_Ground
+	}
+
+// ===== Violets =====
+
+	item 10pkViolets
+	{
+		DisplayName		= 10 x Violets,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= Violets,
+		WorldStaticModel= Violets
+	}
+	
+	item 50pkViolets
+	{
+		DisplayName		= 50 x Violets,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= Violets,
+		WorldStaticModel= Violets
+	}
+}

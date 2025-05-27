@@ -1,0 +1,173 @@
+module Packing
+{
+    imports
+    {
+        Base,
+        PZGFarm
+    }
+
+    item 5pkCherryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Cherry Seeds Packet,
+        Icon                = SeedPacketCherry,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCherry_Ground
+    }
+
+    item 10pkCherryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Cherry Seeds Packet,
+        Icon                = SeedPacketCherry,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCherry_Ground
+    }
+
+    item 50pkCherryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Cherry Seeds Packet,
+        Icon                = SeedPacketCherry,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCherry_Ground
+    }
+
+    item 100pkCherryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Cherry Seeds Packet,
+        Icon                = SeedPacketCherry,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCherry_Ground
+    }
+
+    recipe Unpack 5
+    {
+        destroy 5pkCherryBagSeed,
+
+        Result:CherryBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+    recipe Unpack 10
+    {
+        destroy 10pkCherryBagSeed,
+
+        Result:CherryBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+    recipe Unpack 50
+    {
+        destroy 50pkCherryBagSeed,
+
+        Result:CherryBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+    recipe Unpack 100
+    {
+        destroy 100pkCherryBagSeed,
+
+        Result:CherryBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 5
+    {
+        destroy CherryBagSeed=5,
+
+        Result  :5pkCherryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,,
+        Time    :50.0,
+        Category:Storage
+    }
+
+    recipe Pack 10
+    {
+        destroy CherryBagSeed=10,
+
+        Result  :10pkCherryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,,
+        Time    :75.0,
+        Category:Storage
+    }
+
+    recipe Pack 50
+    {
+        destroy CherryBagSeed=50,
+
+        Result  :50pkCherryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,,
+        Time    :100.0,
+        Category:Storage
+    }
+
+    recipe Pack 100
+    {
+        destroy CherryBagSeed=100,
+
+        Result  :100pkCherryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,,
+        Time    :125.0,
+        Category:Storage
+    }
+
+    recipe Put Together
+    {
+        5pkCherryBagSeed=2,
+
+        Result  :10pkCherryBagSeed=1,
+        Time    :10.0
+    }
+
+    recipe Put Together
+    {
+        10pkCherryBagSeed=5,
+
+        Result  :50pkCherryBagSeed=1,
+        Time    :20.0
+    }
+
+    recipe Put Together
+    {
+        50pkCherryBagSeed=2,
+
+        Result  :100pkCherryBagSeed=1,
+        Time    :40.0
+    }
+
+    recipe Split in Two
+    {
+        10pkCherryBagSeed=1,
+
+        Result  :5pkCherryBagSeed=2,
+        Time    :10.0
+    }
+
+    recipe Split in Five
+    {
+        50pkCherryBagSeed=1,
+
+        Result  :10pkCherryBagSeed=5,
+        Time    :20.0
+    }
+
+    recipe Split in Two
+    {
+        100pkCherryBagSeed=1,
+
+        Result  :50pkCherryBagSeed=2,
+        Time    :40.0
+    }
+}

@@ -1,0 +1,88 @@
+module Packing
+{
+    imports
+    {
+        Base,
+        CDCRR
+    }
+
+    item 5pkFevarax
+    {
+        DisplayName         = 5 x Fevarax,
+        DisplayCategory     = FirstAid,
+        Weight              = 0.5,
+        Type                = Normal,
+        Icon                = PillSet6_CDCRR,
+        WorldStaticModel 	= Fevarax,
+    }
+
+    item 10pkFevarax
+    {
+        DisplayName         = 10 x Fevarax,
+        DisplayCategory     = FirstAid,
+        Weight              = 1.0,
+        Type                = Normal,
+        Icon                = PillSet6_CDCRR,
+        WorldStaticModel 	= Fevarax,
+    }
+
+    recipe Pack 5
+    {
+        destroy Fevarax=5,
+
+        Result  :5pkFevarax,
+        OnCreate:Recipe.OnCreate.SaveUses,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage,
+    }
+
+    recipe Unpack 5
+    {
+        5pkFevarax,
+
+        Result          :Fevarax,
+        OnCreate        :Recipe.OnCreate.LoadUses,
+        RemoveResultItem:true,
+        Time            :75.0,
+        Category        :Storage,
+    }
+
+    recipe Pack 10
+    {
+        destroy Fevarax=10,
+
+        Result  :10pkFevarax,
+        OnCreate:Recipe.OnCreate.SaveUses,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :120.0,
+        Category:Storage,
+    }
+
+    recipe Unpack 10
+    {
+        10pkFevarax,
+
+        Result          :Fevarax,
+        OnCreate        :Recipe.OnCreate.LoadUses,
+        RemoveResultItem:true,
+        Time            :120.0,
+        Category        :Storage,
+    }
+
+    recipe Put Together
+    {
+        5pkFevarax=2,
+
+        Result  :10pkFevarax,
+        Time    :75.0
+    }
+
+    recipe Split in Two
+    {
+        10pkFevarax,
+
+        Result  :5pkFevarax=2,
+        Time    :75.0
+    }
+}
