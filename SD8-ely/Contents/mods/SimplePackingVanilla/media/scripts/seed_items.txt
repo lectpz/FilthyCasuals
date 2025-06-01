@@ -1,9 +1,0 @@
-module SP
-{
-    imports
-    {
-        Base,
-    }
-
-    item 
-}

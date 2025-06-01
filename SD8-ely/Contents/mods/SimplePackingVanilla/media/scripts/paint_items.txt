@@ -96,8 +96,6 @@ module SP
 		WorldStaticModel= BigPaintPink
 	}
 
-
-
 	item 4pkPaintPurple
 	{
 		DisplayName		= 4 x Purple Paint,
@@ -106,7 +104,6 @@ module SP
 		Icon			= PkPaintPurpleBox,
 		WorldStaticModel= BigPaintPurple
 	}
-
 
 	item 4pkPaintRed
 	{
@@ -117,7 +114,6 @@ module SP
 		WorldStaticModel= BigPaintRed
 	}
 
-
 	item 4pkPaintTurquoise
 	{
 		DisplayName		= 4 x Turquoise Paint,
@@ -126,7 +122,6 @@ module SP
 		Icon			= PkPaintTurquoiseBox,
 		WorldStaticModel= BigPaintTurquoise
 	}
-
 
 	item 4pkPaintWhite
 	{
@@ -137,7 +132,6 @@ module SP
 		WorldStaticModel= BigPaintWhite
 	}
 
-
 	item 4pkPaintYellow
 	{
 		DisplayName		= 4 x Yellow Paint,
@@ -146,6 +140,4 @@ module SP
 		Icon			= PkPaintYellowBox,
 		WorldStaticModel= BigPaintYellow
 	}
-
-
 }

@@ -327,7 +327,6 @@ module SP
 		Time:75.0,
 		Category:Storage,
 	}
-	
 
 	recipe Unpack 4
 	{
