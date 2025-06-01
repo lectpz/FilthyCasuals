@@ -1,0 +1,173 @@
+module Packing
+{
+    imports
+    {
+        Base,
+        PZGFarm
+    }
+
+    item 5pkPepperHabaneroBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x PepperHabanero Seeds Packet,
+        Icon                = SeedPacketPepperHabanero,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPepperHabanero_Ground
+    }
+
+    item 10pkPepperHabaneroBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x PepperHabanero Seeds Packet,
+        Icon                = SeedPacketPepperHabanero,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPepperHabanero_Ground
+    }
+
+    item 50pkPepperHabaneroBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x PepperHabanero Seeds Packet,
+        Icon                = SeedPacketPepperHabanero,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPepperHabanero_Ground
+    }
+
+    item 100pkPepperHabaneroBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x PepperHabanero Seeds Packet,
+        Icon                = SeedPacketPepperHabanero,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPepperHabanero_Ground
+    }
+
+    recipe Pack 5
+    {
+        destroy PepperHabaneroBagSeed=5,
+
+        Result  :5pkPepperHabaneroBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,,
+        Time    :50.0,
+        Category:Storage
+    }
+
+    recipe Pack 10
+    {
+        destroy PepperHabaneroBagSeed=10,
+
+        Result  :10pkPepperHabaneroBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,,
+        Time    :75.0,
+        Category:Storage
+    }
+
+    recipe Pack 50
+    {
+        destroy PepperHabaneroBagSeed=50,
+
+        Result  :50pkPepperHabaneroBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,,
+        Time    :100.0,
+        Category:Storage
+    }
+
+    recipe Pack 100
+    {
+        destroy PepperHabaneroBagSeed=100,
+
+        Result  :100pkPepperHabaneroBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,,
+        Time    :125.0,
+        Category:Storage
+    }
+
+    recipe Unpack 5
+    {
+        destroy 5pkPepperHabaneroBagSeed,
+
+        Result:PepperHabaneroBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+    recipe Unpack 10
+    {
+        destroy 10pkPepperHabaneroBagSeed,
+
+        Result:PepperHabaneroBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+    recipe Unpack 50
+    {
+        destroy 50pkPepperHabaneroBagSeed,
+
+        Result:PepperHabaneroBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+    recipe Unpack 100
+    {
+        destroy 100pkPepperHabaneroBagSeed,
+
+        Result:PepperHabaneroBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Put Together
+    {
+        5pkPepperHabaneroBagSeed=2,
+
+        Result  :10pkPepperHabaneroBagSeed=1,
+        Time    :10.0
+    }
+
+    recipe Put Together
+    {
+        10pkPepperHabaneroBagSeed=5,
+
+        Result  :50pkPepperHabaneroBagSeed=1,
+        Time    :20.0
+    }
+
+    recipe Put Together
+    {
+        50pkPepperHabaneroBagSeed=2,
+
+        Result  :100pkPepperHabaneroBagSeed=1,
+        Time    :40.0
+    }
+
+    recipe Split in Two
+    {
+        10pkPepperHabaneroBagSeed=1,
+
+        Result  :5pkPepperHabaneroBagSeed=2,
+        Time    :10.0
+    }
+
+    recipe Split in Five
+    {
+        50pkPepperHabaneroBagSeed=1,
+
+        Result  :10pkPepperHabaneroBagSeed=5,
+        Time    :20.0
+    }
+
+    recipe Split in Two
+    {
+        100pkPepperHabaneroBagSeed=1,
+
+        Result  :50pkPepperHabaneroBagSeed=2,
+        Time    :40.0
+    }
+}

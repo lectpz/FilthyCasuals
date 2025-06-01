@@ -1,0 +1,85 @@
+module Packing
+{
+	imports
+	{
+		Base,
+	}
+	
+	item 10pkNettles
+	{
+		DisplayName		= 10 x Nettles,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= Nettle,
+		WorldStaticModel= Nettles_Ground
+	}
+	
+	item 50pkNettles
+	{
+		DisplayName		= 50 x Nettles,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= Nettle,
+		WorldStaticModel= Nettles_Ground
+	}
+	
+	recipe Pack 10
+	{
+		destroy Nettles=10,
+		
+		Result	:10pkNettles,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:45.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 10
+	{
+		destroy 10pkNettles,
+		
+		Result	:Nettles=10,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:45.0,
+		Category:Storage,
+	}
+	
+	recipe Pack 50
+	{
+		destroy Nettles=50,
+		
+		Result	:50pkNettles,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:22.5,
+		Category:Storage,
+	}
+	
+	recipe Unpack 50
+	{
+		destroy 50pkNettles,
+		
+		Result	:Nettles=50,
+		OnCreate:Recipe.OnCreate.LoadFood,
+		RemoveResultItem:true,
+		Time	:22.5,
+		Category:Storage,
+	}
+
+	recipe Put Together
+	{
+		10pkNettles=5,
+		
+		Result	:50pkNettles=1,
+		Time	:7.5,
+	}
+
+	recipe Split in Five
+	{
+		50pkNettles=1,
+		
+		Result	:10pkNettles=5,
+		Time	:7.5,
+	}
+}
