@@ -1,0 +1,223 @@
+module SP
+{
+	imports
+	{
+		Base,
+	}
+
+    item 5pkCabbageBagSeed
+    {
+        DisplayName = 5x Cabbage Seeds,
+        Weight = 0.05,
+        Type = Normal,
+        Icon = TZ_SeedpackCabbageLettuce,
+        WorldStaticModel = CabbageSeedBag_Ground,
+    }
+
+    item 10pkCabbageBagSeed
+    {
+        DisplayName = 10x Cabbage Seeds,
+        Weight = 0.1,
+        Type = Normal,
+        Icon = TZ_SeedpackCabbageLettuce,
+        WorldStaticModel = CabbageSeedBag_Ground,
+    }
+
+    item 50pkCabbageBagSeed
+    {
+        DisplayName = 50x Cabbage Seeds,
+        Weight = 0.5,
+        Type = Normal,
+        Icon = TZ_SeedpackCabbageLettuce,
+        WorldStaticModel = CabbageSeedBag_Ground,
+    }
+
+    item 100pkCabbageBagSeed
+    {
+        DisplayName = 100x Cabbage Seeds,
+        Weight = 1.0,
+        Type = Normal,
+        Icon = TZ_SeedpackCabbageLettuce,
+        WorldStaticModel = CabbageSeedBag_Ground,
+    }
+
+    item 5pkCarrotsBagSeed
+    {
+        DisplayName = 5x Carrots Seeds,
+        Weight = 0.05,
+        Type = Normal,
+        Icon = CarrotsSeedPacket,
+        WorldStaticModel = SeedPacket,
+    }
+
+    item 10pkCarrotsBagSeed
+    {
+        DisplayName = 10x Carrots Seeds,
+        Weight = 0.1,
+        Type = Normal,
+        Icon = CarrotsSeedPacket,
+        WorldStaticModel = SeedPacket,
+    }
+
+    item 50pkCarrotsBagSeed
+    {
+        DisplayName = 50x Carrots Seeds,
+        Weight = 0.5,
+        Type = Normal,
+        Icon = CarrotsSeedPacket,
+        WorldStaticModel = SeedPacket, 
+    }
+
+    item 100pkCarrotsBagSeed
+    {
+        DisplayName = 100x Carrots Seeds,
+        Weight = 1.0,
+        Type = Normal,
+        Icon = CarrotsSeedPacket,
+        WorldStaticModel = SeedPacket, 
+    }
+
+    item 5pkPotatoBagSeed
+    {
+        DisplayName = 5x Potato Seeds,
+        Weight = 0.05,
+        Type = Normal,
+        Icon = TZ_SeedpackPotatoes,
+        WorldStaticModel = PotatoSeedBag_Ground,
+    }
+
+    item 10pkPotatoBagSeed
+    {
+        DisplayName = 10x Potato Seeds,
+        Weight = 0.1,
+        Type = Normal,
+        Icon = TZ_SeedpackPotatoes,
+        WorldStaticModel = PotatoSeedBag_Ground,
+    }
+
+    item 50pkPotatoBagSeed
+    {
+        DisplayName = 50x Potato Seeds,
+        Weight = 0.5,
+        Type = Normal,
+        Icon = TZ_SeedpackPotatoes,
+        WorldStaticModel = PotatoSeedBag_Ground,
+    }
+
+    item 100pkPotatoBagSeed
+    {
+        DisplayName = 100x Potato Seeds,
+        Weight = 1.0,
+        Type = Normal,
+        Icon = TZ_SeedpackPotatoes,
+        WorldStaticModel = PotatoSeedBag_Ground,
+    }
+
+    item 5pkRadishBagSeed
+    {
+        DisplayName = 5x Radish Seeds,
+        Weight = 0.05,
+        Type = Normal,
+        Icon = RadishSeedPacket,
+        WorldStaticModel = SeedPacket,
+    }
+
+    item 10pkRadishBagSeed
+    {
+        DisplayName = 10x Radish Seeds,
+        Weight = 0.1,
+        Type = Normal,
+        Icon = RadishSeedPacket,
+        WorldStaticModel = SeedPacket,
+    }
+
+    item 50pkRadishBagSeed
+    {
+        DisplayName = 50x Radish Seeds,
+        Weight = 0.5,
+        Type = Normal,
+        Icon = RadishSeedPacket,
+        WorldStaticModel = SeedPacket,
+    }
+
+    item 100pkRadishBagSeed
+    {
+        DisplayName = 100x Radish Seeds,
+        Weight = 1.0,
+        Type = Normal,
+        Icon = RadishSeedPacket,
+        WorldStaticModel = SeedPacket,
+    }
+
+    item 5pkStrawberryBagSeed
+    {
+        DisplayName = 5x Strawberry Seeds,
+        Weight = 0.05,
+        Type = Normal,
+        Icon = StrawberrySeedPacket,
+        WorldStaticModel = SeedPacket,
+    }
+
+    item 10pkStrawberryBagSeed
+    {
+        DisplayName = 10x Strawberry Seeds,
+        Weight = 0.1,
+        Type = Normal,
+        Icon = StrawberrySeedPacket,
+        WorldStaticModel = SeedPacket,
+    }
+
+    item 50pkStrawberryBagSeed
+    {
+        DisplayName = 50x Strawberry Seeds,
+        Weight = 0.5,
+        Type = Normal,
+        Icon = StrawberrySeedPacket,
+        WorldStaticModel = SeedPacket,
+    }
+
+    item 100pkStrawberryBagSeed
+    {
+        DisplayName = 100x Strawberry Seeds,
+        Weight = 1.0,
+        Type = Normal,
+        Icon = StrawberrySeedPacket,
+        WorldStaticModel = SeedPacket,
+    }
+
+    item 5pkTomatoBagSeed
+    {
+        DisplayName = 5x Tomato Seeds,
+        Weight = 0.05,
+        Type = Normal,
+        Icon = TZ_SeedpackTomatoes,
+        WorldStaticModel = TomatoSeedBag_Ground,
+    }
+
+    item 10pkTomatoBagSeed
+    {
+        DisplayName = 10x Tomato Seeds,
+        Weight = 0.1,
+        Type = Normal,
+        Icon = TZ_SeedpackTomatoes,
+        WorldStaticModel = TomatoSeedBag_Ground,
+    }
+
+    item 50pkTomatoBagSeed
+    {
+        DisplayName = 50x Tomato Seeds,
+        Weight = 0.5,
+        Type = Normal,
+        Icon = TZ_SeedpackTomatoes,
+        WorldStaticModel = TomatoSeedBag_Ground,
+    }
+
+    item 100pkTomatoBagSeed
+    {
+        DisplayName = 100x Tomato Seeds,
+        Weight = 1.0,
+        Type = Normal,
+        Icon = TZ_SeedpackTomatoes,
+        WorldStaticModel = TomatoSeedBag_Ground,
+    }
+}

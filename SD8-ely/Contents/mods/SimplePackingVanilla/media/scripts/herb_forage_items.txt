@@ -1,0 +1,87 @@
+module SP
+{
+	import
+	{
+		Base,
+	}
+
+    /***** WildGarlic *****/
+
+	item 10pkWildGarlic
+	{
+		DisplayName		= 10 x Wild Garlic,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= PkWildGarlicSmallBox,
+		WorldStaticModel= SmallWildGarlic
+	}
+	
+	item 50pkWildGarlic
+	{
+		DisplayName		= 50 x Wild Garlic,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= PkWildGarlicMediumBox,
+		WorldStaticModel= MediumWildGarlic
+	}
+
+    /***** CommonMallow *****/
+
+	item 10pkCommonMallow
+	{
+		DisplayName		= 10 x Common Mallow,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= PkCommonMallowSmallBox,
+		WorldStaticModel= SmallCommonMallow
+	}
+	
+	item 50pkCommonMallow
+	{
+		DisplayName		= 50 x Common Mallow,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= PkCommonMallowMediumBox,
+		WorldStaticModel= MediumCommonMallow
+	}
+
+    /***** Thistle *****/
+
+	item 10pkThistles
+	{
+		DisplayName		= 10 x Thistles,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= Thistle,
+		WorldStaticModel= Thistles_Ground
+	}
+	
+	item 50pkThistles
+	{
+		DisplayName		= 50 x Thistles,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= Thistle,
+		WorldStaticModel= Thistles_Ground
+	}
+
+    /***** Violets *****/
+
+	item 10pkViolets
+	{
+		DisplayName		= 10 x Violets,
+		Weight			= 0.5,
+		Type			= Normal,
+		Icon			= Violets,
+		WorldStaticModel= Violets
+	}
+	
+	item 50pkViolets
+	{
+		DisplayName		= 50 x Violets,
+		Weight			= 2.8,
+		Type			= Normal,
+		Icon			= Violets,
+		WorldStaticModel= Violets
+	}
+}

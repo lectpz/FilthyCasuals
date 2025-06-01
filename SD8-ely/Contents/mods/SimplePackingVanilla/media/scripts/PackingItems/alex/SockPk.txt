@@ -1,0 +1,65 @@
+module SP
+{
+    import
+    {
+        Base,
+    }
+
+    item 6pkAnkleSocks
+    {
+        DisplayName = Pack of Ankle Socks,
+        DisplayCategory = Clothing,
+        Weight = 0.5,
+        Type = Normal,
+        Icon = SockPack,
+        WorldStaticModel = Sock_Ankle_Ground
+    }
+
+    item 6pkLongSocks
+    {
+        DisplayName = Pack of Long Socks,
+        DisplayCategory = Clothing,
+        Weight = 0.5,
+        Type = Normal,
+        Icon = SockPack,
+        WorldStaticModel = Sock_Long_Ground
+    }
+
+    recipe Pack Ankle Socks
+    {
+        destroy Socks_Ankle=6,
+
+        Result: 6pkAnkleSocks,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Unpack Ankle Socks
+    {
+        destroy 6pkAnkleSocks,
+
+        Result:Socks_Ankle=6,
+        Time:45.0,
+        Category:Storage
+    }
+
+    recipe Pack Long Socks
+    {
+        destroy Socks_Long=6,
+
+        Result:6pkLongSocks,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Unpack Long Socks
+    {
+        destroy 6pkLongSocks,
+
+        Result:Socks_Long=6,
+        Time:45.0,
+        Category:Storage
+    }
+}

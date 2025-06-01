@@ -1,0 +1,97 @@
+module SP
+{
+	imports
+	{
+		Base,
+	}
+	
+	item 10pkWhiskey
+	{
+		DisplayName		= 10 x Bourbon,
+		DisplayCategory = Food,
+		Weight			= 3.5,
+		Type			= Normal,
+		Icon			= PWhiskey,
+		WorldStaticModel= WoodenBoxOfWhiskey,
+	}
+	
+	item 5pkWhiskey
+	{
+		DisplayName		= 5 x Bourbon,
+		DisplayCategory = Food,
+		Weight			= 2.45,
+		Type			= Normal,
+		Icon			= PWhiskey,
+		WorldStaticModel= WoodenBoxOfWhiskey,
+	}
+
+	recipe Pack 10
+	{
+		destroy WhiskeyFull=10,
+		
+		Result	:10pkWhiskey,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:100.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 10
+	{
+		destroy 10pkWhiskey,
+		
+		Result			:WhiskeyFull=10,
+		OnCreate		:Recipe.OnCreate.LoadFood,
+		OnGiveXP		:Recipe.OnGiveXP.None,
+		RemoveResultItem:true,
+		Time			:75.0,
+		Category		:Storage,
+	}
+	
+	recipe Pack 5
+	{
+		destroy WhiskeyFull=5,
+		
+		Result	:5pkWhiskey,
+		OnCreate:Recipe.OnCreate.SaveFood,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 5
+	{
+		destroy 5pkWhiskey,
+		
+		Result			:WhiskeyFull=5,
+		OnCreate		:Recipe.OnCreate.LoadFood,
+		OnGiveXP		:Recipe.OnGiveXP.None,
+		RemoveResultItem:true,
+		Time			:50.0,
+		Category		:Storage,
+	}
+
+	recipe Put Together
+	{
+		destroy 5pkWhiskey=2,
+		
+		Result	:10pkWhiskey=1,
+		Time	:40.0,
+	}
+
+	recipe Split in Two
+	{
+		destroy 10pkWhiskey=1,
+		
+		CanBeDoneFromFloor:true,
+		Result			  :5pkWhiskey=2,
+		Time			  :40.0,
+	}
+
+	model WoodenBoxOfWhiskey
+	{
+		mesh 	= WorldItems/wooden_box_of_whiskey_bottles,
+		texture = WorldItems/WoodenBoxOfWhiskeyBottle,
+		scale 	= 1.0,
+	}
+}

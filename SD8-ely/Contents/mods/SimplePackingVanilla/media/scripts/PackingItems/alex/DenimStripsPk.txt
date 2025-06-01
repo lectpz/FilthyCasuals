@@ -1,0 +1,44 @@
+module SP
+{
+    imports
+    {
+        Base,
+    }
+
+    item 500pkDenim
+    {
+		DisplayName		= 500 x Denim Strips,
+		DisplayCategory = Material,
+        Weight			= 7.5,
+		Type			= Normal,
+		Icon			= PDenimStrips,
+		WorldStaticModel= StripRollDenim,
+    }
+
+    recipe Pack 500
+    {
+        destroy DenimStrips=500,
+        
+        Result  :500pkDenim=1,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+    recipe Unpack 500
+    {
+        destroy 500pkDenim,
+
+        Result  :DenimStrips=500,
+        Time    :75.0,
+        Category:Storage,
+    }
+
+    recipe Put Together
+    {
+        100pkDenim=5,
+
+        Result  :500pkDenim=1,
+        Time    :75.0
+    }
+}
