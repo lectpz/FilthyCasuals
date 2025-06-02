@@ -79,7 +79,8 @@ function EventHandlers.OnClothingUpdated(player)
     local faction = pMD.faction
 
     if faction == "COG" then
-        pMD.PermaSoulForgeStrengthBonus = 2
+        pMD.PermaSoulForgeStrengthBonus = 1
+        pMD.PermaSoulForgeDexterityBonus = .1
     elseif faction == "Ranger" then
         pMD.PermaAiming = .1
     elseif faction == "VoidWalker" then
