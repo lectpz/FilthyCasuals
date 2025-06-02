@@ -75,6 +75,17 @@ function EventHandlers.OnClothingUpdated(player)
         player:getModData()[buff.modData] = buff.defaultValue or 0
     end
 
+    local pMD = player:getModData()
+    local faction = pMD.faction
+
+    if faction == "COG" then
+        pMD.PermaSoulForgeStrengthBonus = 2
+    elseif faction == "Ranger" then
+        pMD.PermaAiming = .1
+    elseif faction == "VoidWalker" then
+        pMD.PermaSoulThirstValue = 10
+    end
+
     local playerWornItems = getPlayer():getWornItems()
     for i=0,playerWornItems:size()-1 do 
         local item = playerWornItems:get(i):getItem()
