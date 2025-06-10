@@ -1,0 +1,223 @@
+module SP
+{
+	imports
+	{
+		Base,
+	}
+
+    recipe Pack 5 Cabbage Seeds
+    {
+        destroy CabbageBagSeed=5,
+        Result:5pkCabbageBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 10 Cabbage Seeds
+    {
+        destroy CabbageBagSeed=10,
+        Result:10pkCabbageBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 50 Cabbage Seeds
+    {
+        destroy CabbageBagSeed=50,
+        Result:50pkCabbageBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 100 Cabbage Seeds
+    {
+        destroy CabbageBagSeed=100,
+        Result:100pkCabbageBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 5 Carrots Seeds
+    {
+        destroy CarrotsBagSeed=5,
+        Result:5pkCarrotsBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 10 Carrots Seeds
+    {
+        destroy CarrotsBagSeed=10,
+        Result:10pkCarrotsBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 50 Carrots Seeds
+    {
+        destroy CarrotsBagSeed=50,
+        Result:50pkCarrotsBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 100 Carrots Seeds
+    {
+        destroy CarrotsBagSeed=100,
+        Result:100pkCarrotsBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 5 Potato Seeds
+    {
+        destroy PotatoBagSeed=5,
+        Result:5pkPotatoBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 10 Potato Seeds
+    {
+        destroy PotatoBagSeed=10,
+        Result:10pkPotatoBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 50 Potato Seeds
+    {
+        destroy PotatoBagSeed=50,
+        Result:50pkPotatoBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 100 Potato Seeds
+    {
+        destroy PotatoBagSeed=100,
+        Result:100pkPotatoBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 5 Radish Seeds
+    {
+        destroy RadishBagSeed=5,
+        Result:5pkRadishBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 10 Radish Seeds
+    {
+        destroy RadishBagSeed=10,
+        Result:10pkRadishBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 50 Radish Seeds
+    {
+        destroy RadishBagSeed=50,
+        Result:50pkRadishBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 100 Radish Seeds
+    {
+        destroy RadishBagSeed=100,
+        Result:100pkRadishBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 5 Strawberry Seeds
+    {
+        destroy StrawberryBagSeed=5,
+        Result:5pkStrawberryBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 10 Strawberry Seeds
+    {
+        destroy StrawberryBagSeed=10,
+        Result:10pkStrawberryBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 50 Strawberry Seeds
+    {
+        destroy StrawberryBagSeed=50,
+        Result:50pkStrawberryBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 100 Strawberry Seeds
+    {
+        destroy StrawberryBagSeed=100,
+        Result:100pkStrawberryBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 5 Tomato Seeds
+    {
+        destroy TomatoBagSeed=5,
+        Result:5pkTomatoBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 10 Tomato Seeds
+    {
+        destroy TomatoBagSeed=10,
+        Result:10pkTomatoBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 50 Tomato Seeds
+    {
+        destroy TomatoBagSeed=50,
+        Result:50pkTomatoBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+
+    recipe Pack 100 Tomato Seeds
+    {
+        destroy TomatoBagSeed=100,
+        Result:100pkTomatoBagSeed,
+        RemoveResultItem:true,
+        Time:45.0,
+        Category:Storage,
+    }
+}

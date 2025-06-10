@@ -1,0 +1,341 @@
+module SP
+{
+	imports
+	{
+		Base,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintBlack=4,
+		
+		Result:4pkPaintBlack,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 4
+	{
+		destroy 4pkPaintBlack,
+		
+		Result:Base.PaintBlack=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintBlue=4,
+		
+		Result:4pkPaintBlue,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 4
+	{
+		destroy 4pkPaintBlue,
+		
+		Result:Base.PaintBlue=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintBrown=4,
+		
+		Result:4pkPaintBrown,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 4
+	{
+		destroy 4pkPaintBrown,
+		
+		Result:Base.PaintBrown=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintCyan=4,
+		
+		Result:4pkPaintCyan,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 4
+	{
+		destroy 4pkPaintCyan,
+		
+		Result:Base.PaintCyan=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintGreen=4,
+		
+		Result:4pkPaintGreen,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 4
+	{
+		destroy 4pkPaintGreen,
+		
+		Result:Base.PaintGreen=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintGrey=4,
+		
+		Result:4pkPaintGrey,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 4
+	{
+		destroy 4pkPaintGrey,
+		
+		Result:Base.PaintGrey=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintLightBlue=4,
+		
+		Result:4pkPaintLightBlue,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 4
+	{
+		destroy 4pkPaintLightBlue,
+		
+		Result:Base.PaintLightBlue=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintLightBrown=4,
+		
+		Result:4pkPaintLightBrown,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 4
+	{
+		destroy 4pkPaintLightBrown,
+		
+		Result:Base.PaintLightBrown=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintOrange=4,
+		
+		Result:4pkPaintOrange,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 4
+	{
+		destroy 4pkPaintOrange,
+		
+		Result:Base.PaintOrange=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintPink=4,
+		
+		Result:4pkPaintPink,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 4
+	{
+		destroy 4pkPaintPink,
+		
+		Result:Base.PaintPink=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintPurple=4,
+		
+		Result:4pkPaintPurple,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+
+	recipe Unpack 4
+	{
+		destroy 4pkPaintPurple,
+		
+		Result:Base.PaintPurple=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintRed=4,
+		
+		Result:4pkPaintRed,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+
+	recipe Unpack 4
+	{
+		destroy 4pkPaintRed,
+		
+		Result:Base.PaintRed=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintTurquoise=4,
+		
+		Result:4pkPaintTurquoise,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+
+	recipe Unpack 4
+	{
+		destroy 4pkPaintTurquoise,
+		
+		Result:Base.PaintTurquoise=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintWhite=4,
+		
+		Result:4pkPaintWhite,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+
+	recipe Unpack 4
+	{
+		destroy 4pkPaintWhite,
+		
+		Result:Base.PaintWhite=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Pack 4
+	{
+		destroy PaintYellow=4,
+		
+		Result:4pkPaintYellow,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+
+	recipe Unpack 4
+	{
+		destroy 4pkPaintYellow,
+		
+		Result:Base.PaintYellow=4,
+		OnCreate:Recipe.OnCreate.LoadUses,
+		RemoveResultItem:true,
+		Time:50.0,
+		Category:Storage,
+	}
+}

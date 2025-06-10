@@ -1,0 +1,81 @@
+module SP
+{
+    imports
+    {
+        Base,
+    }
+
+    item 5pkScotchtape
+    {
+        DisplayName         = 5 x Adhesive Tape,
+        DisplayCategory     = Material,
+        Weight              = 1.5,
+        Type                = Normal,
+        Icon                = Scotchtape,
+        WorldStaticModel    = Scotchtape
+    }
+
+    item 10pkScotchtape
+    {
+        DisplayName         = 10 x Adhesive Tape,
+        DisplayCategory     = Material,
+        Weight              = 3.0,
+        Type                = Normal,
+        Icon                = Scotchtape,
+        WorldStaticModel    = Scotchtape
+    }
+
+    recipe Pack 5
+    {
+        destroy Scotchtape=5,
+
+        Result  :5pkScotchtape,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :10.0,
+        Category:Storage,
+    }
+
+    recipe Unpack 5
+    {
+        5pkScotchtape,
+
+        Result  :Scotchtape=5,
+        Time    :10.0,
+        Category:Storage
+    }
+
+    recipe Pack 10
+    {
+        destroy Scotchtape=10,
+
+        Result  :10pkScotchtape,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :20.0,
+        Category:Storage,
+    }
+
+    recipe Unpack 10
+    {
+        10pkScotchtape,
+
+        Result  :Scotchtape=10,
+        Time    :10.0,
+        Category:Storage
+    }
+
+    recipe Put Together
+    {
+        5pkScotchtape=2,
+
+        Result  :10pkScotchtape,
+        Time    :10.0
+    }
+
+    recipe Split in Two
+    {
+        10pkScotchtape,
+
+        Result  :5pkScotchtape=2,
+        Time    :10.0
+    }
+}

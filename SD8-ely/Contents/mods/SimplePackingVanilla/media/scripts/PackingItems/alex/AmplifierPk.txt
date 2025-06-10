@@ -1,0 +1,44 @@
+module SP
+{
+	imports
+	{
+		Base,
+	}
+	
+	item 5pkAmplifier
+	{
+		DisplayName		= 5 x Amplifier,
+		Weight			= 1.5
+		Type			= Normal,
+		Icon			= PkAmplifierBox,
+		WorldStaticModel= MediumAmplifier
+	}
+
+	item 10pkAmplifier
+	{
+		DisplayName		= 10 x Amplifier,
+		Weight			= 3.0
+		Type			= Normal,
+		Icon			= PkAmplifierBox,
+		WorldStaticModel= MediumAmplifier
+	}
+	
+	recipe Pack 5
+	{
+		destroy Amplifier=5,
+		
+		Result	:5pkAmplifier,
+		OnTest	:Recipe.OnTest.IsFavorite,
+		Time	:45.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 5
+	{
+		destroy 5pkAmplifier,
+		
+		Result	:Amplifier=5,
+		Time	:45.0,
+		Category:Storage,
+	}
+}
