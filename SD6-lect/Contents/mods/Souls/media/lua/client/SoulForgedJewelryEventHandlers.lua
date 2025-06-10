@@ -12,7 +12,7 @@ function EventHandlers.OnTest_CheckInInventory(item)
 
     if isOwnSafeHouse then
         local shx1 = isOwnSafeHouse:getX()
-        local shy1 = isOwnSafeHouse:getY()-15
+        local shy1 = isOwnSafeHouse:getY()
         local shx2 = isOwnSafeHouse:getW() + shx1
         local shy2 = isOwnSafeHouse:getH() + shy1
 
