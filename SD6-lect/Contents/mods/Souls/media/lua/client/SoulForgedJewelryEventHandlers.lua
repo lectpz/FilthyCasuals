@@ -82,9 +82,9 @@ function EventHandlers.OnClothingUpdated(player)
         pMD.PermaSoulForgeStrengthBonus = 1
         pMD.PermaSoulForgeDexterityBonus = .1
     elseif faction == "Ranger" then
-        pMD.PermaAiming = .1
+        pMD.PermaAiming = .15
     elseif faction == "VoidWalker" then
-        pMD.PermaSoulThirstValue = 10
+        pMD.PermaSoulThirstValue = 15
     end
 
     local playerWornItems = getPlayer():getWornItems()
