@@ -14,9 +14,7 @@ local tiers = {
 -- THIS IS LECT'S ORIGINAL FUCNTION FOR QUALITY MODIFIERS
 local function getQualityModifier(fullItemString)
     local tierSuffix = string.match(fullItemString, "(T%d+)$")
-    if not tierSuffix then
-        return nil
-    end
+    if not tierSuffix then return nil end
 
     local tierNumber = string.sub(tierSuffix, -1)
     local moduleName = string.gsub(fullItemString, "^SoulForge.", "")
@@ -34,7 +32,6 @@ local function ticketList(player)
         local itemInv = items:get(i)
         local itemName = itemInv:getFullType()
         if string.sub(itemName, 1, 10) == "SoulForge." then
-            -- TODO: also check for weapon type (melee vs ranged)
             local stat, tier = getQualityModifier(itemName)
             if stat and tier then
                 local tierName = "T" .. tier
@@ -57,28 +54,18 @@ local function ticketList(player)
     return tickets
 end
 
-local function augmentContextMenu(player, context, items) -- should I not pass in the fucking weapon too?
+local function augmentContextMenu(player, context, items)
     local ticketList = ticketList(player)
 
-    -- only create the menu if there are valid tickets
-    if not ticketList then
-        return
-    end
+    if not ticketList then return end
 
-    -- grab weapon????
-    -- i think you're only allowed to do it with held weapon anyways????
-    -- https://projectzomboid.com/modding/zombie/characters/IsoGameCharacter.html#getPrimaryHandItem()
     local heldItem = player:getPrimaryHandItem()
 
-    -- return if no held item
-    if not heldItem then
-        return
-    end
+    if not heldItem then return end
 
     local augmentMenu = context:addOption("Soul Augment Ticket Upgrade", item, nil, player)
 
     if heldItem:isWeapon() then
-        -- create the context menu for real this time?
         for item, tier, bonus in ticketList do
             augmentMenu:addOption(item, heldItem, nil, augmentWeapon(heldItem, item, tier, bonus))
             -- TODO: Check Lect's code to find the fancy text that does the fun numbers and stuff
