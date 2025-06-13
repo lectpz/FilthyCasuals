@@ -11,6 +11,8 @@ local tiers = {
 	T5 = 0.016
 }
 
+
+-- THIS IS LECT'S ORIGINAL FUCNTION FOR QUALITY MODIFIERS
 local function getQualityModifier(fullItemString)
 	local tierSuffix = string.match(fullItemString, "(T%d+)$")
 	if not tierSuffix then return nil end
