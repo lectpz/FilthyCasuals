@@ -16,9 +16,11 @@ local tiers = {
 local function getQualityModifier(fullItemString)
 	local tierSuffix = string.match(fullItemString, "(T%d+)$")
 	if not tierSuffix then return nil end
+
 	local tierNumber = string.sub(tierSuffix, -1)
 	local moduleName = string.gsub(fullItemString, "^SoulForge.", "")
 	local itemQualityModifier = string.gsub(moduleName, "_Enhancer" .. tierSuffix .. "$", "")
+
 	return itemQualityModifier, tierNumber
 end
 
@@ -49,6 +51,7 @@ local function ticketList(player)
 			end
 		end
 	end
+
 	return tickets
 end
 
