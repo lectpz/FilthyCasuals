@@ -1,4 +1,4 @@
-local meleeStats = { "MaxDmg", "MinDmg", "CriticalChance", "CritDmgMultiplier"}
+local meleeStats = { "MaxDmg", "MinDmg", "CriticalChance", "CritDmgMultiplier" }
 -- TODO: grab quality stats for guns
 -- local gunStats = {}
 -- SDSoulCount_Ranged.lua has all the modifiers
@@ -23,14 +23,14 @@ local function getQualityModifier(fullItemString)
 end
 
 local function ticketList(player)
-    local inv = player:getInventory()
-    local items = inv:getItems()
+	local inv = player:getInventory()
+	local items = inv:getItems()
 	local tickets = {}
 
-    for i = 0, items:size() - 1 do
-        local itemInv = items:get(i)
-        local itemName = itemInv:getFullType()
-        if string.sub(itemName, 1, 10) == "SoulForge." then
+	for i = 0, items:size() - 1 do
+		local itemInv = items:get(i)
+		local itemName = itemInv:getFullType()
+		if string.sub(itemName, 1, 10) == "SoulForge." then
 			-- TODO: also check for weapon type (melee vs ranged)
 			local stat, tier = getQualityModifier(itemName)
 			if stat and tier then
@@ -48,7 +48,7 @@ local function ticketList(player)
 				end
 			end
 		end
-    end
+	end
 	return tickets
 end
 
@@ -65,9 +65,9 @@ local function augmentContextMenu(player, context, items) -- should I not pass i
 
 	-- return if no held item
 	if not heldItem then return end
-	
-	augmentMenu = context:addOption("Soul Augment Ticket Upgrade", item, nil, player)
-	
+
+	local augmentMenu = context:addOption("Soul Augment Ticket Upgrade", item, nil, player)
+
 	if heldItem:isWeapon() then
 		-- create the context menu for real this time?
 		for item, tier, bonus in ticketList do
@@ -75,7 +75,6 @@ local function augmentContextMenu(player, context, items) -- should I not pass i
 			-- TODO: Check Lect's code to find the fancy text that does the fun numbers and stuff
 		end
 	end
-
 end
 
 -- TODO: Build augmentWeapon(weapon, item, tier, bonus)
