@@ -73,3 +73,36 @@ function getSoulForgedValidItems()
     
     print(string.format("\nTotal valid items: %d", #validItems))
 end
+
+-- Weird Text Test
+
+local function ticketList(player)
+    local inv = player:getInventory()
+    local items = inv:getItems()
+    local tickets = {}
+
+    for i = 0, items:size() - 1 do
+        local itemInv = items:get(i)
+        local itemName = itemInv:getFullType()
+        if string.sub(itemName, 1, 10) == "SoulForge." then
+            -- TODO: also check for weapon type (melee vs ranged)
+            local stat, tier = getQualityModifier(itemName)
+            if stat and tier then
+                local tierName = "T" .. tier
+                local tierBonus = tiers[tierName]
+                if tierBonus then
+                    tickets[stat] = tickets[stat] or {}
+                    table.insert(tickets[stat],
+                        {
+                            item = item,
+                            tier = tierName,
+                            bonus = tierBonus
+                        }
+                    )
+                end
+            end
+        end
+    end
+
+    return tickets
+end
