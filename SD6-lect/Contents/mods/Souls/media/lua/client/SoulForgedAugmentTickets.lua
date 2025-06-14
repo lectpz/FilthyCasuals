@@ -76,4 +76,8 @@ end
 -- TODO: Build augmentWeapon(weapon, item, tier, bonus)
 -- Probably would contain the isRanged check so I can use either melee or ranged dict/list
 
+local function augmentWeapon(weapon, item, tier, bonus)
+
+end
+
 Events.OnFillWorldObjectContextMenu.Add(augmentContextMenu)
