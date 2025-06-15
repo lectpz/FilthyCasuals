@@ -13,4 +13,3 @@ function WeaponUtils.getAugmentCount(modData)
 end
 
 -- TODO: Create weapon name generation
--- TODO: Create colorItem

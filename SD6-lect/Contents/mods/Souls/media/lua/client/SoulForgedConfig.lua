@@ -40,12 +40,21 @@ Config.statMap = {
     PiercingBullets = "PiercingBullets"
 }
 
+-- Tiers for QualityTickets
 Config.tiers = {
     T1 = 0.001,
     T2 = 0.002,
     T3 = 0.004,
     T4 = 0.008,
     T5 = 0.016
+}
+
+Config.prefixSuffixMap = {
+    Prefix1 = "prefix1",
+    Prefix2 = "prefix2",
+    Suffix1 = "suffix1",
+    Suffix2 = "suffix2",
+    Augments = "Augments"
 }
 
 return Config

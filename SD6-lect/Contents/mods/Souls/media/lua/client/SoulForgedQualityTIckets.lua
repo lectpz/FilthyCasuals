@@ -37,4 +37,8 @@ function QualityTickets.scanInventory(player)
     return tickets
 end
 
+function QualityTickets.applyTicket(weapon, stat, ticket)
+    weapon:getModData()[stat] = (weapon:getModData()[stat] or 0) + ticket.bonus
+end
+
 return QualityTickets
