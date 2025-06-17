@@ -26,6 +26,10 @@ Shop.Items["Packing.10pkScrapMetal"] = { tab = Tab.Misc, price = 10 }
 Shop.Items["Packing.100pkScrapMetal"] = { tab = Tab.Misc, price = 100 }
 Shop.Items["Base.paleSkinLegacy"] = { tab = Tab.Misc, price = 5 }
 
+Shop.Items["Base.GIR2Plushie"]                                      = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ZiffoPlushie"]                                 = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.BearSkinRug"]                                  = { tab = Tab.Misc, price = 20 }
+
 Shop.Items["Base.Crowbar"] = { tab = Tab.Misc, price = 25 }
 Shop.Items["Base.Salt"] = { tab = Tab.Misc, price = 5 }
 Shop.Items["Base.Pepper"] = { tab = Tab.Misc, price = 5 }
@@ -44,6 +48,44 @@ Shop.Items["Base.EmptyPetrolCan"] = { tab = Tab.Misc, price = 15 }
 
 Shop.Items["Base.Pot"] = { tab = Tab.Misc, price = 50 }
 Shop.Items["Base.BlowTorch"] = { tab = Tab.Misc, price = 75 }
+
+Shop.Items["HCustoms.ModularPackExtraBlack"]       = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackExtraBlue"]        = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackExtraRed"]         = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackExtraWhite"]                      = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackExtraTan"]                        = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackExtraPink"]                       = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackExtraOlive"]                      = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackExtraLeather"]                    = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackExtraWoodland"]                   = { tab = Tab.Misc, price = 30 }
+
+Shop.Items["HCustoms.ModularPackCanteenBlack"]     = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackCanteenBlue"]      = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackCanteenRed"]       = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackCanteenWhite"]                      = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackCanteenTan"]                        = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackCanteenPink"]                       = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackCanteenOlive"]                      = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackCanteenLeather"]                    = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularPackCanteenWoodland"]                   = { tab = Tab.Misc, price = 30 }
+
+Shop.Items["HCustoms.ModularMedkitBlack"]                           = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularMedkitBlue"]                            = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularMedkitRed"]                             = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularMedkitWhite"]                           = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularMedkitTan"]                             = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularMedkitPink"]                            = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularMedkitOlive"]                           = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularMedkitLeather"]                         = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.ModularMedkitWoodland"]                        = { tab = Tab.Misc, price = 30 }
+
+Shop.Items["HCustoms.EliteCombatSmallPackWatchet"]                        = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.EliteCombatSmallPackSunrise"]                        = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.EliteCombatSmallPackRetro"]                        = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.EliteCombatSmallPackLaguna"]                        = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.EliteCombatSmallPackGraffiti"]                        = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.EliteCombatSmallPackGamboge"]                        = { tab = Tab.Misc, price = 30 }
+Shop.Items["HCustoms.EliteCombatSmallPackCeladon"]                        = { tab = Tab.Misc, price = 30 }
 
 Shop.Items["SD.WinterRiotGearBox"]                 = { tab = Tab.GearSets, price = 100}
 Shop.Items["SD.RiotGearBox"]                       = { tab = Tab.GearSets, price = 100}
@@ -81,6 +123,10 @@ Shop.Items["Base.SpiffoSuit"]                      = { tab = Tab.Misc, price = 1
 Shop.Items["HCustoms.SpiffoSuit_Stitches"]         = { tab = Tab.Misc, price = 10}
 Shop.Items["Base.SpiffoTail"]                      = { tab = Tab.Misc, price = 10}
 Shop.Items["HCustoms.SpiffoTail_Stitches"]         = { tab = Tab.Misc, price = 10}
+Shop.Items["Base.Hat_Antlers"]         = { tab = Tab.Misc, price = 10}
+Shop.Items["Base.Hat_GoldStar"]         = { tab = Tab.Misc, price = 10}
+Shop.Items["Base.Hat_JokeArrow"]         = { tab = Tab.Misc, price = 10}
+Shop.Items["Base.Hat_JokeKnife"]         = { tab = Tab.Misc, price = 10}
 
 Shop.Items["Base.FG42"]        = { tab = Tab.Misc, price = 40}
 Shop.Items["Base.792Clip"]        = { tab = Tab.Misc, price = 3}
@@ -109,7 +155,9 @@ Shop.Items["HCustoms.DropLegPouchRed_L"]           = { tab = Tab.Misc, price = 5
 Shop.Items["HCustoms.DropLegPouchTan_L"]           = { tab = Tab.Misc, price = 50}
 Shop.Items["HCustoms.DropLegPouchWhite_L"]         = { tab = Tab.Misc, price = 50}
 Shop.Items["HCustoms.DropLegPouchWoodland_L"]      = { tab = Tab.Misc, price = 50}
-Shop.Items["HCustoms.DropLegPouchZoidberg_L"]      = { tab = Tab.Misc, price = 75}
+Shop.Items["HCustoms.DropLegPouchZoidberg_L"]      = { tab = Tab.Misc, price = 55}
+Shop.Items["OshkoshShirts.TShirt_bknht"]      = { tab = Tab.Misc, price = 25}
+Shop.Items["MoreShoes.Shoes_ZoidbergSlippers"]      = { tab = Tab.Misc, price = 10}
 
 Shop.Items["Base.FullHelmet_01-Black"]             = { tab = Tab.KP, price = 25 }
 Shop.Items["Base.Jacket_01-Black"]                 = { tab = Tab.KP, price = 50 }
@@ -223,7 +271,7 @@ Shop.Items["Base.Backpack_01-Black"]    = { tab = Tab.KP, price = 50 }
 Shop.Items["Base.Backpack_01-Desert"]    = { tab = Tab.KP, price = 50 }
 Shop.Items["Base.Backpack_01-Green"]    = { tab = Tab.KP, price = 50 }
 Shop.Items["Base.Backpack_01-White"]    = { tab = Tab.KP, price = 50 }
-Shop.Items["Base.CBX_RUKSAK1"]    = { tab = Tab.Misc, price = 200 }
+Shop.Items["Base.CBX_RUKSAK1"]    = { tab = Tab.Misc, price = 125 }
 
 
 Shop.Items["Base.Hat_WitchyHat"]    = { tab = Tab.PawLow, price = 10 }
@@ -256,3 +304,64 @@ Shop.Items["Base.ChainMail"]    = { tab = Tab.PawLow, price = 20 }
 Shop.Items["Base.Hat_Tknight"]    = { tab = Tab.PawLow, price = 20 }
 Shop.Items["Base.Vest_Tknight"]    = { tab = Tab.PawLow, price = 20 }
 Shop.Items["Base.KnightWaist"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.WetSuit"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.HATELA"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.FlatCap"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.Shoes_CanvasshoesLong"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.Shoes_Canvasshoes"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.Leggings_Bottoms"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.Hat_TubaHat"]    = { tab = Tab.PawLow, price = 50 }
+Shop.Items["Base.Vest_HECU"]    = { tab = Tab.PawLow, price = 40 }
+Shop.Items["Base.Mask_HECU"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.Shorts_Kimo"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.PFVest"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.PFShorts"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.PFPants"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.PFKnee"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.PFCropped"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.medbag"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.TacticalWaistBagBack"]    = { tab = Tab.PawLow, price = 20 }
+Shop.Items["Base.TacticalWaistBagBackMed"]    = { tab = Tab.PawLow, price = 20 }
+
+Shop.Items["HCustoms.HCustoms.Hat_DunceCap"]                        = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_BearSkullMask"]           = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_CougarSkullMask"]         = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_RamSkullMask"]            = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_WolfSkullMask"]           = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_PlagueDoctorMask"]                         = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.HCustoms.Hat_PaydayWolfMask"]                  = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_PaydaySokolMask"]                          = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_PaydayCrybabyMask"]                        = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_PaydayCloverMask"]                         = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_PaydayMrSinisterMask"]                     = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_PaydaySydneyMask"]                         = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_PaydayHoxtonMask"]                         = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_MonkeyGlassesMask"]                        = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_MonkeyBowMask"]                            = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_EagleMask"]                                = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_GingerbreadMask"]                          = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_PenguinMask"]                              = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_PigMask"]                                  = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_WolfMask"]                                 = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_SwanMask"]                                 = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_ZebraMask"]                                = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_RabbitMask"]                               = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_CobraMask"]                                = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_BearMask"]                                 = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_UnicornMask"]                              = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_OwlMask"]                                  = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_RatMask"]                                  = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_TigerMask"]                                = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_BearMask"]                                 = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_SesterMask"]                               = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_SesterMaskFull"]                           = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Shirt_HawaiianTheJungleBirdTwo"]               = { tab = Tab.Misc, price = 20 }
+
+Shop.Items["Perts.Pert_BulletBelt"]    = { tab = Tab.Misc, price = 25 }
+Shop.Items["HCustoms.Hat_DentistSurgicalMask"]    = { tab = Tab.Misc, price = 10 }
+Shop.Items["HCustoms.Shirt_Dentist"]    = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Gloves_Dentist"]    = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Hat_DentistCap"]    = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Apron_Dentist"]    = { tab = Tab.Misc, price = 20 }
+Shop.Items["HCustoms.Apron_DentistApperenticeLoose"]    = { tab = Tab.Misc, price = 25 }
+Shop.Items["HCustoms.Glasses_DustGoggles"]    = { tab = Tab.Misc, price = 20 }
