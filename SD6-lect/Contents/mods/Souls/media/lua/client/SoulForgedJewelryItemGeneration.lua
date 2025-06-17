@@ -70,46 +70,50 @@ end
 function ItemGenerator.SetResultName(result)
     if not result then return end
     local modData = result:getModData()
-    local selectedBuff = modData.SoulBuff
-    if not selectedBuff then return end
+    local buffs = modData.SoulBuffs or {modData.SoulBuff}
+    if not buffs or #buffs == 0 then return end
     
-    local buffCalc = BuffSystem.BUFF_CALCULATIONS[selectedBuff]
     local currentName = result:getName()
-    local showTier = not (buffCalc and buffCalc.hasTier == false)
+    local baseItemName = currentName:match("Soul Forged (.+)$") or currentName
     
-    if not currentName:find("Soul Forged") then
-        local displayBuffName = Config.buffDisplayNames[selectedBuff] or selectedBuff
-        local newItemName
-        
-        if showTier then
-            newItemName = "[T" .. modData.Tier .."] " .. displayBuffName .. " Soul Forged " .. currentName
-        else
-            newItemName = displayBuffName .. " Soul Forged " .. currentName
+    local displayBuffNames = {}
+    local showTier = true
+    
+    for _, buff in ipairs(buffs) do
+        if buff then
+            local buffCalc = BuffSystem.BUFF_CALCULATIONS[buff]
+            if buffCalc and buffCalc.hasTier == false then
+                showTier = false
+            end
+            local displayName = Config.buffDisplayNames[buff] or buff
+            table.insert(displayBuffNames, displayName)
         end
-        
-        result:setName(newItemName)
+    end
+    
+    if #displayBuffNames == 0 then return end
+    
+    local combinedBuffName
+    if #displayBuffNames == 1 then
+        combinedBuffName = displayBuffNames[1]
     else
-        local baseItemName = currentName:match("Soul Forged (.+)$")
-        
-        if baseItemName then
-            local displayBuffName = Config.buffDisplayNames[selectedBuff] or selectedBuff
-            local newItemName
-            
-            if showTier then
-                newItemName = "[T" .. modData.Tier .."] " .. displayBuffName .. " Soul Forged " .. baseItemName
-            else
-                newItemName = displayBuffName .. " Soul Forged " .. baseItemName
-            end
-            
-            if currentName ~= newItemName then
-                result:setName(newItemName)
-            end
-        end
+        combinedBuffName = table.concat(displayBuffNames, "/")
+    end
+    
+    local newItemName
+    if showTier then
+        newItemName = "[T" .. modData.Tier .."] " .. combinedBuffName .. " Soul Forged " .. baseItemName
+    else
+        newItemName = combinedBuffName .. " Soul Forged " .. baseItemName
+    end
+    
+    if currentName ~= newItemName then
+        result:setName(newItemName)
     end
 end
 
 function ItemGenerator.getTierSoulShard()
     local tier = checkZone()
+	tier = math.min(6, tier)
     local items = ArrayList.new()
     
     local soulShard = InventoryItemFactory.CreateItem("SoulForge.SoulShardT" .. tier)

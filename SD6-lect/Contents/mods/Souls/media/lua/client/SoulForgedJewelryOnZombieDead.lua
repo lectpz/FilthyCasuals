@@ -1,9 +1,10 @@
 local EventHandlers = require('SoulForgedJewelryEventHandlers')
 local ItemGenerator = require('SoulForgedJewelryItemGeneration')
-local validZones = {1, 2, 3, 4, 5}
 
 local function isValidZone(zone)
-    for _, validZone in ipairs(validZones) do
+    --for _, validZone in ipairs(zonetier) do
+	for i=1,#zonetier do
+		validZone = zonetier[i]
         if zone == validZone then
             return true
         end
