@@ -13,12 +13,43 @@ local function SoulForgedJewelryUpgrade(player, context, items)
 		
 		local function onSelectBuff(worldobjects, item, buffId)
 			item:getModData().SoulBuff = buffId
+			item:getModData().SoulBuffs = nil
 			
 			if not item:getModData().Tier then
 				item:getModData().Tier = 1
 			end
 			ItemGenerator.SetResultName(item)
 			getPlayer():Say("Set " .. item:getName() .. " buff to " .. Config.buffDisplayNames[buffId])
+		end
+		
+		local function onSelectMultipleBuff(worldobjects, item, buffId)
+			local modData = item:getModData()
+			if not modData.SoulBuffs then
+				modData.SoulBuffs = {}
+			end
+			
+			local alreadyHas = false
+			for i, existingBuff in ipairs(modData.SoulBuffs) do
+				if existingBuff == buffId then
+					table.remove(modData.SoulBuffs, i)
+					alreadyHas = true
+					break
+				end
+			end
+			
+			if not alreadyHas then
+				table.insert(modData.SoulBuffs, buffId)
+			end
+			
+			modData.SoulBuff = nil
+			
+			if not modData.Tier then
+				modData.Tier = 1
+			end
+			ItemGenerator.SetResultName(item)
+			
+			local action = alreadyHas and "Removed" or "Added"
+			getPlayer():Say(action .. " " .. Config.buffDisplayNames[buffId] .. " buff " .. (alreadyHas and "from" or "to") .. " " .. item:getName())
 		end
 		
 		local function onSelectTier(worldobjects, item, tier)
@@ -31,14 +62,29 @@ local function SoulForgedJewelryUpgrade(player, context, items)
 			getPlayer():Say("Set " .. item:getName() .. " tier to " .. tier)
 		end
 		
-		local buffOption = subMenu:addOption("Set Buff", worldobjects, nil)
+		local buffOption = subMenu:addOption("Set Single Buff", worldobjects, nil)
 		local buffSubMenu = ISContextMenu:getNew(subMenu)
 		context:addSubMenu(buffOption, buffSubMenu)
 		
 		for buffId, buffName in pairs(Config.buffDisplayNames) do
-			--if buffId ~= "SoulStrength" then
-				buffSubMenu:addOption(buffName, worldobjects, onSelectBuff, item, buffId)
-			--end
+			buffSubMenu:addOption(buffName, worldobjects, onSelectBuff, item, buffId)
+		end
+		
+		local multiBuffOption = subMenu:addOption("Toggle Multiple Buffs", worldobjects, nil)
+		local multiBuffSubMenu = ISContextMenu:getNew(subMenu)
+		context:addSubMenu(multiBuffOption, multiBuffSubMenu)
+		
+		for buffId, buffName in pairs(Config.buffDisplayNames) do
+			local currentBuffs = item:getModData().SoulBuffs or {}
+			local hasThisBuff = false
+			for _, existingBuff in ipairs(currentBuffs) do
+				if existingBuff == buffId then
+					hasThisBuff = true
+					break
+				end
+			end
+			local displayName = hasThisBuff and "[X] " .. buffName or "[ ] " .. buffName
+			multiBuffSubMenu:addOption(displayName, worldobjects, onSelectMultipleBuff, item, buffId)
 		end
 		
 		local tierOption = subMenu:addOption("Set Tier", worldobjects, nil)

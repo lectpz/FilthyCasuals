@@ -52,12 +52,17 @@ function EventHandlers.SoulForgedJewelryOnCreate(items, result, player)
             end
         end
         
-        local selectedBuff = BuffSystem.getWeightedBuff("T" .. tier)
-
-        createdItem:getModData().SoulBuff = selectedBuff
-        createdItem:getModData().Tier = tier
-        createdItem:setDisplayCategory('SoulForge')
+        if tier == 6 then
+            local selectedBuffs = BuffSystem.getMultipleWeightedBuffs("T5", 2)
+            createdItem:getModData().SoulBuffs = selectedBuffs
+            createdItem:getModData().Tier = 5
+        else
+            local selectedBuff = BuffSystem.getWeightedBuff("T" .. tier)
+            createdItem:getModData().SoulBuff = selectedBuff
+            createdItem:getModData().Tier = tier
+        end
         
+        createdItem:setDisplayCategory('SoulForge')
         ItemGenerator.SetResultName(createdItem)
     end
 end
@@ -92,14 +97,21 @@ function EventHandlers.OnClothingUpdated(player)
         local item = playerWornItems:get(i):getItem()
         local modData = item:getModData()
 
-        if modData.SoulBuff then
-            local buff = modData.SoulBuff
-            
-            if buff and BuffSystem.BUFF_CALCULATIONS[buff] then
-                BuffSystem.modifyBuff(player, item, true, buff)
-                ItemGenerator.SetResultName(item)
-                item:setDisplayCategory('SoulForge')
+        if modData.SoulBuff or modData.SoulBuffs then
+            if modData.SoulBuffs then
+                for _, buff in ipairs(modData.SoulBuffs) do
+                    if buff and BuffSystem.BUFF_CALCULATIONS[buff] then
+                        BuffSystem.modifyBuff(player, item, true, buff)
+                    end
+                end
+            elseif modData.SoulBuff then
+                local buff = modData.SoulBuff
+                if buff and BuffSystem.BUFF_CALCULATIONS[buff] then
+                    BuffSystem.modifyBuff(player, item, true, buff)
+                end
             end
+            ItemGenerator.SetResultName(item)
+            item:setDisplayCategory('SoulForge')
         end
     end
     
@@ -108,7 +120,7 @@ function EventHandlers.OnClothingUpdated(player)
     for i=0, allItems:size()-1 do
         local item = allItems:get(i)
         local modData = item:getModData()
-        if modData and modData.SoulBuff then
+        if modData and (modData.SoulBuff or modData.SoulBuffs) then
             ItemGenerator.SetResultName(item)
         end
     end

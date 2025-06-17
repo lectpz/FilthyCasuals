@@ -87,8 +87,8 @@ BuffSystem.BUFF_CALCULATIONS = {
     },
     Recoil = {
         format = "Recoil Reduction Bonus",
-        getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return (.01 * tier) end,
+        getDisplayValue = function(tier) return 0.4 * tier end,
+        getBonus = function(tier) return (.004 * tier) end,
         modData = "PermaRecoil",
     },
  }
@@ -136,6 +136,57 @@ function BuffSystem.getWeightedBuff(tier)
     return buffWeights[1].buff
 end
 
+function BuffSystem.getMultipleWeightedBuffs(tier, count)
+    local selectedBuffs = {}
+    local availableBuffs = {}
+    
+    for _, buff in ipairs(Config.tierBuffs[tier]) do
+        table.insert(availableBuffs, buff)
+    end
+    
+    for i = 1, count do
+        if #availableBuffs == 0 then break end
+        
+        local totalWeight = 0
+        local buffWeights = {}
+        
+        for _, buff in ipairs(availableBuffs) do
+            local weight = Config.soulForgeBuffWeights[buff] or 0
+            totalWeight = totalWeight + weight
+            table.insert(buffWeights, {
+                buff = buff,
+                weight = weight
+            })
+        end
+        
+        local roll = ZombRand(totalWeight)
+        local currentWeight = 0
+        local selectedBuff = nil
+        local selectedIndex = nil
+        
+        for idx, buffData in ipairs(buffWeights) do
+            currentWeight = currentWeight + buffData.weight
+            if roll < currentWeight then
+                selectedBuff = buffData.buff
+                selectedIndex = idx
+                break
+            end
+        end
+        
+        if selectedBuff then
+            table.insert(selectedBuffs, selectedBuff)
+            for j = #availableBuffs, 1, -1 do
+                if availableBuffs[j] == selectedBuff then
+                    table.remove(availableBuffs, j)
+                    break
+                end
+            end
+        end
+    end
+    
+    return selectedBuffs
+end
+
 function BuffSystem.modifyBuff(player, item, isEquipping, buffType)
     local buff = BuffSystem.BUFF_CALCULATIONS[buffType]
     if not buff then return end
@@ -154,6 +205,19 @@ function BuffSystem.modifyBuff(player, item, isEquipping, buffType)
         pMD[buff.modData] = math.max((pMD[buff.modData] or 0) - value, 0)
     end
     
+end
+
+function BuffSystem.modifyMultipleBuffs(player, item, isEquipping)
+    local modData = item:getModData()
+    local buffs = modData.SoulBuffs or {modData.SoulBuff}
+    
+    if not buffs then return end
+    
+    for _, buffType in ipairs(buffs) do
+        if buffType then
+            BuffSystem.modifyBuff(player, item, isEquipping, buffType)
+        end
+    end
 end
 
 return BuffSystem

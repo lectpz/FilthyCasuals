@@ -22,6 +22,7 @@ Config.tierBuffs = {
     T3 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "ConditionLowerChance", "CritRate", "SoulStrength", "MaxDmg" },
     T4 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "CritRate", "SoulStrength", "MaxDmg" },
     T5 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "CritRate", "SoulStrength", "Aiming", "Reloading", "Recoil" },
+    T6 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "CritRate", "SoulStrength", "Aiming", "Reloading", "Recoil" },
 }
 
 Config.buffDisplayNames = {
