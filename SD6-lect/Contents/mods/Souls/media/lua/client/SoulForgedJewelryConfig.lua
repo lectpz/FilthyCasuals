@@ -6,8 +6,8 @@ Config.soulForgeBuffWeights = {
     ["SoulThirst"] = 5,
     ["SoulStrength"] = 1,
     ["SoulDexterity"] = 10,
-    ["MaxCondition"] = 15,
-    ["ConditionLowerChance"] = 15,
+    ["MaxCondition"] = 10,
+    ["ConditionLowerChance"] = 10,
     ["CritRate"] = 10,
     ["CritMulti"] = 20,
     ["MaxDmg"] = 15,
@@ -22,7 +22,6 @@ Config.tierBuffs = {
     T3 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "ConditionLowerChance", "CritRate", "SoulStrength", "MaxDmg" },
     T4 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "CritRate", "SoulStrength", "MaxDmg" },
     T5 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "CritRate", "SoulStrength", "Aiming", "Reloading", "Recoil" },
-    T6 = { "SoulDexterity", "SoulThirst", "SoulSmith", "luck", "CritRate", "SoulStrength", "Aiming", "Reloading", "Recoil" },
 }
 
 Config.buffDisplayNames = {
