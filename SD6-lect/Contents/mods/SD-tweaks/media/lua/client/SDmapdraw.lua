@@ -62,7 +62,9 @@ function addMapSymbol(worldX, worldY, tier, mapAPI)
 	local texture = "Asterisk";
 	
 	local textureSymbol = mapAPI:getSymbolsAPI():addTexture(texture, worldX, worldY)
-	if tier == 5 then
+	if tier == 6 then
+		textureSymbol:setRGBA(0, 1, 1, alpha) -- Cyan (Tier 6)
+	elseif tier == 5 then
 		textureSymbol:setRGBA(1, 0, 0, alpha) -- Red (Tier 5)
 	elseif tier == 4 then
 		textureSymbol:setRGBA(0.6, 0.125, 1, alpha) -- Purple (Tier 4)
@@ -341,7 +343,9 @@ function ISWorldMap:render()
 		marker.maxZoomLevel = 100
 		marker.coordinates.nw.x, marker.coordinates.nw.y = zoneCoordinates[1], zoneCoordinates[2]
 		marker.coordinates.se.x, marker.coordinates.se.y = zoneCoordinates[3], zoneCoordinates[4]
-		if zoneCoordinates[5] == 5 then
+		if zoneCoordinates[5] == 6 then
+			marker.color.r, marker.color.g, marker.color.b = 0, 1, 1
+		elseif zoneCoordinates[5] == 5 then
 			marker.color.r, marker.color.g, marker.color.b = 1, 0, 0
 		elseif zoneCoordinates[5] == 4 then
 			marker.color.r, marker.color.g, marker.color.b = 0.6, 0.125, 1

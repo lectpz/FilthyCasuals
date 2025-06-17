@@ -10,7 +10,7 @@
 
 -- moodle framework stuff
 require "MF_ISMoodle"
-local tiers = 5
+local tiers = 6
 for i=1,tiers do
 	MF.createMoodle("SD6Tier"..i)
 end
@@ -28,7 +28,7 @@ end
 
 local function setInfusionMoodle(timer, infusion)
 	if not timer then return end
-	if timer and timer == 0 then
+	if timer and timer <= 0 then
 		MF.getMoodle(infusion):setValue(0.5)
 		return
 	end
@@ -54,7 +54,7 @@ local function setInfusionMoodle(timer, infusion)
 end
 
 local function setTierMoodle(moodleno, strength)
-	for i=1,5 do
+	for i=1,6 do
 		if i == moodleno then
 			MF.getMoodle("SD6Tier"..i):setValue(strength)
 		else
@@ -75,7 +75,9 @@ local function EveryOneMinuteSD()
 			MF.getMoodle("SundayDriversControl"):setValue(0.5)
 		end
 		
-		if tier_no == 5 then
+		if tier_no == 6 then
+			setTierMoodle(tier_no, 0.1)
+		elseif tier_no == 5 then
 			setTierMoodle(tier_no, 0.1)
 		elseif tier_no == 4 then
 			setTierMoodle(tier_no, 0.1)

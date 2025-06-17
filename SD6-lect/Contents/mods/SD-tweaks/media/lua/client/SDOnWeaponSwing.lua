@@ -6,6 +6,15 @@
 
 require "SDZoneCheck"
 
+function untierWeapon(player)
+	Events.OnPlayerMove.Remove(untierWeapon)
+	local handItem = player:getPrimaryHandItem()
+	if handItem and handItem:getModData().zoneTier then
+		handItem:getModData().zoneTier = false
+	end
+end
+Events.OnPlayerMove.Add(untierWeapon)
+
 local function initMeleeStats(modData, inventoryItem, character)
 	if	modData.CriticalChance		== nil and
 		modData.CritDmgMultiplier	== nil and
@@ -85,17 +94,18 @@ local function SDOnWeaponSwing(character, handWeapon)
 	
 	--local zoneMulti = calcMulti(zoneHealth)
 	
-	local tiercritratemod	= {tonumber(SandboxVars.SDOnWeaponSwing.Tier1critrate), tonumber(SandboxVars.SDOnWeaponSwing.Tier2critrate), tonumber(SandboxVars.SDOnWeaponSwing.Tier3critrate), tonumber(SandboxVars.SDOnWeaponSwing.Tier4critrate), tonumber(SandboxVars.SDOnWeaponSwing.Tier5critrate)}
-	local tiercritmultimod	= {tonumber(SandboxVars.SDOnWeaponSwing.Tier1critmulti), tonumber(SandboxVars.SDOnWeaponSwing.Tier2critmulti), tonumber(SandboxVars.SDOnWeaponSwing.Tier3critmulti), tonumber(SandboxVars.SDOnWeaponSwing.Tier4critmulti), tonumber(SandboxVars.SDOnWeaponSwing.Tier4critmulti)}
-	local tierdmgmod		= {tonumber(SandboxVars.SDOnWeaponSwing.Tier1dmg), tonumber(SandboxVars.SDOnWeaponSwing.Tier2dmg), tonumber(SandboxVars.SDOnWeaponSwing.Tier3dmg), tonumber(SandboxVars.SDOnWeaponSwing.Tier4dmg), tonumber(SandboxVars.SDOnWeaponSwing.Tier5dmg)}
+	local tiercritratemod	= {tonumber(SandboxVars.SDOnWeaponSwing.Tier1critrate), tonumber(SandboxVars.SDOnWeaponSwing.Tier2critrate), tonumber(SandboxVars.SDOnWeaponSwing.Tier3critrate), tonumber(SandboxVars.SDOnWeaponSwing.Tier4critrate), tonumber(SandboxVars.SDOnWeaponSwing.Tier5critrate), tonumber(SandboxVars.SDOnWeaponSwing.Tier6critrate)}
+	local tiercritmultimod	= {tonumber(SandboxVars.SDOnWeaponSwing.Tier1critmulti), tonumber(SandboxVars.SDOnWeaponSwing.Tier2critmulti), tonumber(SandboxVars.SDOnWeaponSwing.Tier3critmulti), tonumber(SandboxVars.SDOnWeaponSwing.Tier4critmulti), tonumber(SandboxVars.SDOnWeaponSwing.Tier5critmulti), tonumber(SandboxVars.SDOnWeaponSwing.Tier6critmulti)}
+	local tierdmgmod		= {tonumber(SandboxVars.SDOnWeaponSwing.Tier1dmg), tonumber(SandboxVars.SDOnWeaponSwing.Tier2dmg), tonumber(SandboxVars.SDOnWeaponSwing.Tier3dmg), tonumber(SandboxVars.SDOnWeaponSwing.Tier4dmg), tonumber(SandboxVars.SDOnWeaponSwing.Tier5dmg), tonumber(SandboxVars.SDOnWeaponSwing.Tier6dmg)}
 	
 	local localdmgmulti, localcritrate, localcritmulti = tierdmgmod[tierzone], tiercritratemod[tierzone], tiercritmultimod[tierzone]
 	
 	local inventoryItem = handWeapon
 	local scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
 	local modData = inventoryItem:getModData()
+	--print(modData.zoneTier)
 	
-	if tierzone and not handWeapon:isRanged() then
+	if tierzone and not handWeapon:isRanged() and modData.zoneTier ~= tierzone then
 		initMeleeStats(modData, inventoryItem, character)
 		
 		local basecritrate, basecritmulti, basemindmg, basemaxdmg, basename = modData.CriticalChance, modData.CritDmgMultiplier, modData.MinDamage, modData.MaxDamage, modData.Name
@@ -122,15 +132,16 @@ local function SDOnWeaponSwing(character, handWeapon)
 		end
 		
 		local localdmgmulti, localcritrate, localcritmulti = (tierdmgmod[tierzone] * modeMultiplier), (tiercritratemod[tierzone] * modeMultiplier), (tiercritmultimod[tierzone] * modeMultiplier)
+		local maxHit = inventoryItem:getMaxHitCount()
 		
 		local soulForgeMinDmgMulti = modData.soulForgeMinDmgMulti or 1
 		local soulForgeMaxDmgMulti = modData.soulForgeMaxDmgMulti or 1
 		local soulForgeCritRate = modData.soulForgeCritRate or 1
 		local soulForgeCritMulti = modData.soulForgeCritMulti or 1
 		local soulForgeConditionLowerChance = modData.ConditionLowerChance or 1
-		local soulForgeEnduranceMod = modData.EnduranceMod or 1
+		local soulForgeEnduranceMod = modData.EnduranceMod or inventoryItem:getEnduranceMod()
 		local soulForgeMaxCondition = modData.MaxCondition or 1
-		local soulForgeMaxHitCount = modData.MaxHitCount or nil
+		local soulForgeMaxHitCount = modData.MaxHitCount or maxHit
 		local soulWrought = modData.SoulWrought or ""
 		
 		local mdzMaxDmg = modData.mdzMaxDmg or 1
@@ -172,12 +183,15 @@ local function SDOnWeaponSwing(character, handWeapon)
 		if soulForgeMaxHitCount then
 			local mhc = math.max(soulForgeMaxHitCount-math.floor(tierzone/4),1)
 			if inventoryItem:getSwingAnim() == "Heavy" then mhc = soulForgeMaxHitCount end
-			if mhc ~= inventoryItem:getMaxHitCount() then inventoryItem:setMaxHitCount(mhc) end
+			if mhc ~= maxHit then inventoryItem:setMaxHitCount(mhc) end
 		end
 		if soulForgeEnduranceMod then inventoryItem:setEnduranceMod(soulForgeEnduranceMod) end
-	elseif tierzone and handWeapon:isRanged() and handWeapon:getSwingAnim() ~= "Handgun" then
+		modData.zoneTier = tierzone
+		--print(modData.zoneTier)
+	elseif tierzone and handWeapon:isRanged() and modData.zoneTier ~= tierzone then-- and handWeapon:getSwingAnim() ~= "Handgun" then
 		initRangedStats(modData, inventoryItem, character)
 		local rangedmulti = 1.0
+		if handWeapon:getSwingAnim() == "Handgun" then rangedmulti = 0.95 end
 		
 		if character:HasTrait("Brave")			then rangedmulti = rangedmulti - 0.1 end
 		if character:HasTrait("Desensitized")	then rangedmulti = rangedmulti - 0.2 end
@@ -207,16 +221,16 @@ local function SDOnWeaponSwing(character, handWeapon)
 		local soulForgeMaxHitCount = modData.MaxHitCount or nil
 
 		if isPiercingBullets then
-			inventoryItem:setPiercingBullets(true)
-		else
+			inventoryItem:setPiercingBullets(false)
 			inventoryItem:setProjectileCount(soulForgeProjectileCount)
 		end
 
-		if soulForgeMaxHitCount then
+		if soulForgeMaxHitCount and soulWrought then
 			inventoryItem:setMaxHitCount(soulForgeMaxHitCount)
 		end
 		
 		local dmgMulti = tonumber(SandboxVars.SDOnWeaponSwing.RangedDamageMultiplier) or 1.5
+		if handWeapon:getSwingAnim() == "Handgun" then dmgMulti = dmgMulti*2 end
 		local rangedDmgMulti = 1 - (1 - localdmgmulti)^dmgMulti
 
 		local soulForgeMinDmgMulti = modData.soulForgeMinDmgMulti or 1
@@ -229,23 +243,35 @@ local function SDOnWeaponSwing(character, handWeapon)
 		local permaCritMulti = pMD.PermaSoulForgeCritMultiBonus
 		local permaMaxDmg = pMD.PermaSoulForgeMaxDmgBonus
 		local permaAiming = pMD.PermaAiming or 1
-		local permaReloading = pMD.PermaReloading or 1
-		local permaRecoil = pMD.PermaRecoil or 1
+		local permaReloading = 1
+		if pMD.PermaReloading > 0 then permaReloading = math.max(0.35,1-pMD.PermaReloading) end
+		local permaRecoil = 1
+		if pMD.PermaRecoil > 0 then permaRecoil = math.max(0.35,1-pMD.PermaRecoil) end
 
 		if permaCritRate and permaCritRate > 1 then soulForgeCritRate = soulForgeCritRate * permaCritRate end
 		if permaCritMulti and permaCritMulti > 1 then soulForgeCritMulti = soulForgeCritMulti * permaCritMulti end
 		if permaMaxDmg and permaMaxDmg > 1 then soulForgeMaxDmgMulti = soulForgeMaxDmgMulti * permaMaxDmg end
 		
-		if modData.CriticalChance then inventoryItem:setCriticalChance(modData.CriticalChance * soulForgeCritRate * mdzCriticalChance * soulForgeAimingPerkCritModifier) end
-		if modData.CritDmgMultiplier then inventoryItem:setCritDmgMultiplier(modData.CritDmgMultiplier * soulForgeCritMulti * mdzCritDmgMultiplier) end
-		inventoryItem:setMinDamage(modData.MinDamage * soulForgeMinDmgMulti * mdzMinDmg * rangedDmgMulti)
-		inventoryItem:setMaxDamage(modData.MaxDamage * soulForgeMaxDmgMulti * mdzMaxDmg * rangedDmgMulti)
-		if modData.ReloadTime then inventoryItem:setReloadTime(permaReloading * modData.ReloadTime * mdzReloadTime) end
-		if modData.RecoilDelay then inventoryItem:setRecoilDelay(permaRecoil * modData.RecoilDelay * mdzRecoilDelay) end
+		local attachedDmg = 0
+		local attachedAim = 0
+		local attachedRecoil = 0
+		local attachedReload = 0
 		
-		inventoryItem:setAimingTime(permaAiming * modData.AimingTime * mdzAimingTime * soulForgeAimingTime * (localdmgmulti/tierzone) ^ rangedmulti)
+		if modData.attachedDmg then attachedDmg = modData.attachedDmg end
+		if modData.attachedAim then attachedAim = modData.attachedAim end
+		if modData.attachedRecoil then attachedRecoil = modData.attachedRecoil end
+		if modData.attachedReload then attachedReload = modData.attachedReload end
+		
+		if modData.CriticalChance then inventoryItem:setCriticalChance(modData.CriticalChance * soulForgeCritRate * mdzCriticalChance) end
+		if modData.CritDmgMultiplier then inventoryItem:setCritDmgMultiplier(modData.CritDmgMultiplier * soulForgeCritMulti * mdzCritDmgMultiplier) end
+		inventoryItem:setMinDamage((modData.MinDamage + attachedDmg) * soulForgeMinDmgMulti * mdzMinDmg * rangedDmgMulti)
+		inventoryItem:setMaxDamage((modData.MaxDamage + attachedDmg) * soulForgeMaxDmgMulti * mdzMaxDmg * rangedDmgMulti)
+		if modData.ReloadTime then inventoryItem:setReloadTime(permaReloading * (modData.ReloadTime + attachedReload) * mdzReloadTime) end
+		if modData.RecoilDelay then inventoryItem:setRecoilDelay(permaRecoil * (modData.RecoilDelay + attachedRecoil) * mdzRecoilDelay) end
+		
+		inventoryItem:setAimingTime(permaAiming * (modData.AimingTime + attachedAim) * mdzAimingTime * soulForgeAimingTime * (localdmgmulti/tierzone) ^ rangedmulti)
 		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier * soulForgeAimingPerkHitChanceModifier * (localdmgmulti/tierzone) ^ rangedmulti)
-		inventoryItem:setAimingPerkCritModifier(modData.AimingPerkCritModifier * (localdmgmulti/tierzone) ^ rangedmulti)
+		inventoryItem:setAimingPerkCritModifier(soulForgeAimingPerkCritModifier * modData.AimingPerkCritModifier * (localdmgmulti/tierzone) ^ rangedmulti)
 		inventoryItem:setAimingPerkRangeModifier(modData.AimingPerkRangeModifier * soulForgeAimingPerkRangeModifier * (localdmgmulti/tierzone) ^ rangedmulti)
 		
 		local engravedName = modData.EngravedName
@@ -256,6 +282,8 @@ local function SDOnWeaponSwing(character, handWeapon)
 			if modData.mdzPrefix then mdzPrefix = modData.mdzPrefix .. " " end
 			inventoryItem:setName(mdzPrefix .. soulWrought ..  modData.Name .. " [T" .. tostring(tierzone) .. "]")
 		end
+		modData.zoneTier = tierzone
+		--print(modData.zoneTier)
 	end
 end
 Events.OnWeaponSwing.Add(SDOnWeaponSwing)
@@ -294,15 +322,16 @@ local function SDWeaponCheck(character, inventoryItem)
 		end
 		
 		local basecritrate, basecritmulti, basemindmg, basemaxdmg, basename = modData.CriticalChance, modData.CritDmgMultiplier, modData.MinDamage, modData.MaxDamage, modData.Name
+		local maxHit = inventoryItem:getMaxHitCount()
 		
 		local soulForgeMinDmgMulti = modData.soulForgeMinDmgMulti or 1
 		local soulForgeMaxDmgMulti = modData.soulForgeMaxDmgMulti or 1
 		local soulForgeCritRate = modData.soulForgeCritRate or 1
 		local soulForgeCritMulti = modData.soulForgeCritMulti or 1
 		local soulForgeConditionLowerChance = modData.ConditionLowerChance or 1
-		local soulForgeEnduranceMod = modData.EnduranceMod or 1
+		local soulForgeEnduranceMod = modData.EnduranceMod or inventoryItem:getEnduranceMod()
 		local soulForgeMaxCondition = modData.MaxCondition or 1
-		local soulForgeMaxHitCount = modData.MaxHitCount or nil
+		local soulForgeMaxHitCount = modData.MaxHitCount or maxHit
 		local soulWrought = modData.SoulWrought or ""
 		
 		local pMD = character:getModData()
@@ -340,7 +369,7 @@ local function SDWeaponCheck(character, inventoryItem)
 		if soulForgeMaxHitCount then
 			local mhc = math.max(soulForgeMaxHitCount-math.floor(tierzone/4),1)
 			if inventoryItem:getSwingAnim() == "Heavy" then mhc = soulForgeMaxHitCount end
-			if mhc ~= inventoryItem:getMaxHitCount() then inventoryItem:setMaxHitCount(mhc) end
+			if mhc ~= maxHit then inventoryItem:setMaxHitCount(mhc) end
 		end
 		if soulForgeConditionLowerChance then inventoryItem:setConditionLowerChance(scriptItem:getConditionLowerChance() * soulForgeConditionLowerChance) end
 		if soulForgeMaxCondition then inventoryItem:setConditionMax(scriptItem:getConditionMax() * soulForgeMaxCondition) end
@@ -358,8 +387,16 @@ local function SDWeaponCheck(character, inventoryItem)
 		args.itemID = inventoryItem:getID()
 		
 		if isSoulForged then sendClientCommand(character, 'sdLogger', 'SoulForgeEquip', args) end
+		--[[local WeaponCOGbuff = modData.WeaponCOGbuff
+		if WeaponCOGbuff and WeaponCOGbuff > 0 then
+			pMD.WeaponCOGbuff = 2
+		else
+			pMD.WeaponCOGbuff = 0
+		end]]
+		modData.zoneTier = false
 	elseif inventoryItem:IsWeapon() and inventoryItem:isRanged() then
 		initRangedStats(modData, inventoryItem, character)
+		local isSoulForged = modData.SoulForged or false
 		
 		local mdzMaxDmg = modData.mdzMaxDmg or 1
 		local mdzMinDmg = modData.mdzMinDmg or 1
@@ -385,7 +422,7 @@ local function SDWeaponCheck(character, inventoryItem)
 			inventoryItem:setProjectileCount(soulForgeProjectileCount)
 		end
 		
-		if soulForgeMaxHitCount then
+		if soulForgeMaxHitCount and soulWrought then
 			inventoryItem:setMaxHitCount(soulForgeMaxHitCount)
 		end
 		
@@ -394,14 +431,24 @@ local function SDWeaponCheck(character, inventoryItem)
 		local soulForgeCritRate = modData.soulForgeCritRate or 1
 		local soulForgeCritMulti = modData.soulForgeCritMulti or 1
 		
+		local attachedDmg = 0
+		local attachedAim = 0
+		local attachedRecoil = 0
+		local attachedReload = 0
+		
+		if modData.attachedDmg then attachedDmg = modData.attachedDmg end
+		if modData.attachedAim then attachedAim = modData.attachedAim end
+		if modData.attachedRecoil then attachedRecoil = modData.attachedRecoil end
+		if modData.attachedReload then attachedReload = modData.attachedReload end
+		
 		if modData.CriticalChance then inventoryItem:setCriticalChance(modData.CriticalChance * soulForgeCritRate * mdzCriticalChance) end
 		if modData.CritDmgMultiplier then inventoryItem:setCritDmgMultiplier(modData.CritDmgMultiplier * soulForgeCritMulti * mdzCritDmgMultiplier) end
-		inventoryItem:setMinDamage(modData.MinDamage * soulForgeMinDmgMulti * mdzMinDmg)
-		inventoryItem:setMaxDamage(modData.MaxDamage * soulForgeMaxDmgMulti * mdzMaxDmg)
-		if modData.ReloadTime then inventoryItem:setReloadTime(modData.ReloadTime * mdzReloadTime) end
-		if modData.RecoilDelay then inventoryItem:setRecoilDelay(modData.RecoilDelay * mdzRecoilDelay) end
+		inventoryItem:setMinDamage((modData.MinDamage + attachedDmg) * soulForgeMinDmgMulti * mdzMinDmg)
+		inventoryItem:setMaxDamage((modData.MaxDamage + attachedDmg) * soulForgeMaxDmgMulti * mdzMaxDmg)
+		if modData.ReloadTime then inventoryItem:setReloadTime((modData.ReloadTime + attachedReload) * mdzReloadTime) end
+		if modData.RecoilDelay then inventoryItem:setRecoilDelay((modData.RecoilDelay + attachedRecoil) * mdzRecoilDelay) end
 		
-		inventoryItem:setAimingTime(modData.AimingTime * mdzAimingTime * soulForgeAimingTime)
+		inventoryItem:setAimingTime((modData.AimingTime + attachedAim) * mdzAimingTime * soulForgeAimingTime)
 		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier * soulForgeAimingPerkHitChanceModifier)
 		inventoryItem:setAimingPerkCritModifier(modData.AimingPerkCritModifier * soulForgeAimingPerkCritModifier)
 		inventoryItem:setAimingPerkRangeModifier(modData.AimingPerkRangeModifier * soulForgeAimingPerkRangeModifier)
@@ -430,6 +477,18 @@ local function SDWeaponCheck(character, inventoryItem)
 		args.itemID = inventoryItem:getID()
 		
 		if isSoulForged then sendClientCommand(character, 'sdLogger', 'SoulForgeEquipRanged', args) end
+		--[[local pMD = character:getModData()
+		pMD.WeaponCOGbuff = 0
+		pMD.WeaponVoidwalkerbuff = 0
+		pMD.WeaponRangerbuff = 0
+		
+		local suffix = modData.suffix2
+		
+		if suffix and suffix == "COG" then pMD.WeaponCOGbuff = 1 end
+		if suffix and suffix == "Voidwalker" then pMD.WeaponVoidwalkerbuff = 1 end
+		if suffix and suffix == "Ranger" then pMD.WeaponRangerbuff = 1 end]]
+		
+		modData.zoneTier = false
 	end
 end
 Events.OnEquipPrimary.Add(SDWeaponCheck)

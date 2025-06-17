@@ -9,6 +9,8 @@ Moodles_EN {
     Moodles_SD6Tier4_Bad_desc_lvl4 = "Moderate reduction to weapon effectiveness. Fear and uncertainty lurk in the shadows.",
 	Moodles_SD6Tier5_Bad_lvl4 = "Tier 5 Zone",
     Moodles_SD6Tier5_Bad_desc_lvl4 = "Major reduction to weapon effectiveness. You feel the crushing weight of death and despair.",
+	Moodles_SD6Tier6_Bad_lvl4 = "Tier 6 Zone",
+    Moodles_SD6Tier6_Bad_desc_lvl4 = "Extreme reduction to weapon effectiveness. Hopelessness permeates your very being.",
 	
 	Moodles_COG_Good_lvl4 = "COG Faction",
 	Moodles_COG_Good_desc_lvl4 = "You believe in order.",

@@ -24,6 +24,9 @@ Sandbox_EN = {
 	Sandbox_SDOnWeaponSwing_Tier5dmg = "Tier 5 damage modifier",
 	Sandbox_SDOnWeaponSwing_Tier5dmg_tooltip = "e.g. 0.4",
 	
+	Sandbox_SDOnWeaponSwing_Tier6dmg = "Tier 6 damage modifier",
+	Sandbox_SDOnWeaponSwing_Tier6dmg_tooltip = "e.g. 0.2",
+	
 	Sandbox_SDOnWeaponSwing_Tier1critrate = "Tier 1 critical rate modifier",
 	Sandbox_SDOnWeaponSwing_Tier1critrate_tooltip = "e.g. 1.00",
 
@@ -39,6 +42,9 @@ Sandbox_EN = {
 	Sandbox_SDOnWeaponSwing_Tier5critrate = "Tier 5 critical rate modifier",
 	Sandbox_SDOnWeaponSwing_Tier5critrate_tooltip = "e.g. 0.4",
 	
+	Sandbox_SDOnWeaponSwing_Tier6critrate = "Tier 6 critical rate modifier",
+	Sandbox_SDOnWeaponSwing_Tier6critrate_tooltip = "e.g. 0.2",
+	
 	Sandbox_SDOnWeaponSwing_Tier1critmulti = "Tier 1 critical multiplier modifier",
 	Sandbox_SDOnWeaponSwing_Tier1critmulti_tooltip = "e.g. 1.00",
 
@@ -53,6 +59,9 @@ Sandbox_EN = {
 	
 	Sandbox_SDOnWeaponSwing_Tier5critmulti = "Tier 5 critical multiplier modifier",
 	Sandbox_SDOnWeaponSwing_Tier5critmulti_tooltip = "e.g. 0.4",
+	
+	Sandbox_SDOnWeaponSwing_Tier6critmulti = "Tier 6 critical multiplier modifier",
+	Sandbox_SDOnWeaponSwing_Tier6critmulti_tooltip = "e.g. 0.2",
 	
 	Sandbox_SDevents = "SD Events",
 	
@@ -137,8 +146,14 @@ Sandbox_EN = {
 	
 	Sandbox_TilePicker = "SD Tile Picker Cache",
 
-	Sandbox_TilePicker_RegularCache= "Tile Picker Cache (Regular)",
+	Sandbox_TilePicker_RegularCache= "Tile Picker Cache 1 (Regular)",
 	Sandbox_TilePicker_RegularCache_tooltip = "e.g. sprite_name_01:Tile Name:Tile Description",
+	
+	Sandbox_TilePicker_RegularCache2= "Tile Picker Cache 2 (Regular)",
+	Sandbox_TilePicker_RegularCache2_tooltip = "e.g. sprite_name_01:Tile Name:Tile Description",
+	
+	Sandbox_TilePicker_RegularCache3= "Tile Picker Cache 3 (Regular)",
+	Sandbox_TilePicker_RegularCache3_tooltip = "e.g. sprite_name_01:Tile Name:Tile Description",
 	
 	Sandbox_SDbus = "SD Bus System",
 	

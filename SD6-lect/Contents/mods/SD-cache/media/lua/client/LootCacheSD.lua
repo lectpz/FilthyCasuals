@@ -127,7 +127,21 @@ function MechCacheSD(items, result, player)
 	  zonetier = zonetier,
 	}
 	
-	if zonetier == 5 then
+	if zonetier == 6 then
+		addItemToPlayer("Base.PetrolCan")
+		addItemsToPlayer("EngineParts", ZombRand(zonetier*2)+2)
+		addItemToPlayer(ki5parts[ZombRand(#ki5parts)+1])
+		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
+		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
+		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
+		randomrollSD(zoneroll, ki5parts[ZombRand(#ki5parts)+1])
+		addItemToPlayer(modbrakes[ZombRand(#modbrakes)+1])
+		addItemToPlayer(modsuspension[ZombRand(#modsuspension)+1])
+		randomrollSD(zoneroll, "BlowTorch")
+		newtank:setUsedDelta(math.min(0.6, scaledNormal()))
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
+		gascan:setUsedDelta(math.min(0.6, scaledNormal()))
+	elseif zonetier == 5 then
 		addItemToPlayer("Base.PetrolBleachBottle")
 		addItemsToPlayer("EngineParts", ZombRand(zonetier*2)+2)
 		addItemToPlayer(ki5parts[ZombRand(#ki5parts)+1])
@@ -216,7 +230,24 @@ function MetalworkCacheSD(items, result, player)
 	  zonetier = zonetier,
 	}
 	
-	if zonetier == 5 then
+	if zonetier == 6 then
+		newtank:setUsedDelta(math.min(0.4, scaledNormal()))
+		addItemsToPlayer("ScrapMetal", ZombRand(zonetier*2)+3)
+		addItemsToPlayer("MetalPipe", ZombRand(zonetier)+1)
+		addItemsToPlayer("MetalBar", ZombRand(zonetier)+1)
+		addItemsToPlayer("SmallSheetMetal", ZombRand(zonetier)+1)
+		--addItemToPlayer("SheetMetal")
+		--addItemToPlayer("BlowTorch")
+		randomrollSD(zoneroll, "BlowTorch")
+		randomrollSD(zoneroll, newtank, "Biofuel.IndustrialPropaneTank")
+		randomrollSD(zoneroll, "SheetMetal")
+		randomrollSD(zoneroll, "SheetMetal")
+		randomrollSD(zoneroll, "SheetMetal")
+		randomrollSD(zoneroll, "SheetMetal")
+		randomrollSD(zoneroll, "SheetMetal")
+		randomrollSD(zoneroll, "SheetMetal")
+		randomrollSD(zoneroll, "SheetMetal")
+	elseif zonetier == 5 then
 		newtank:setUsedDelta(math.min(0.3, scaledNormal()))
 		addItemsToPlayer("ScrapMetal", ZombRand(zonetier*2)+3)
 		addItemsToPlayer("MetalPipe", ZombRand(zonetier)+1)
@@ -308,7 +339,20 @@ function MedicalCacheSD(items, result, player)
 	  zonetier = zonetier,
 	}
 	
-	if zonetier == 5 then
+	if zonetier == 6 then
+		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
+		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
+		randomrollSD(zoneroll, "CDCRR.CDCProPack1")
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		addItemToPlayer(getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+		addItemToPlayer(medicalitems[ZombRand(#medicalitems)+1])
+	elseif zonetier == 5 then
 		randomrollSD(zoneroll, "CDCRR.CDCOrangeAirdrop")
 		randomrollSD(zoneroll, "CDCRR.CDCYellowAirdrop")
 		randomrollSD(zoneroll, "CDCRR.CDCProPack1")
@@ -398,7 +442,22 @@ function AmmoCacheSD(items, result, player)
 	  zonetier = zonetier,
 	}
 	
-	if zonetier == 5 then
+	if zonetier == 6 then
+		gunpowder:setUsedDelta(math.min(1, scaledNormal()))
+		randomrollSD(1, gunpowder, "Base.GunPowder")
+		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		--randomrollSD(zoneroll, hfoMag[ZombRand(#hfoMag)+1])
+		addItemToPlayer(hfoMag[ZombRand(#hfoMag)+1])
+		addItemToPlayer(hfoMag[ZombRand(#hfoMag)+1])
+	elseif zonetier == 5 then
 		gunpowder:setUsedDelta(math.min(1, scaledNormal()))
 		randomrollSD(1, gunpowder, "Base.GunPowder")
 		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
@@ -408,7 +467,8 @@ function AmmoCacheSD(items, result, player)
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
-		randomrollSD(zoneroll, hfoMag[ZombRand(#hfoMag)+1])
+		--randomrollSD(zoneroll, hfoMag[ZombRand(#hfoMag)+1])
+		addItemToPlayer(hfoMag[ZombRand(#hfoMag)+1])
 	elseif zonetier == 4 then
 		gunpowder:setUsedDelta(math.min(0.9, scaledNormal()))
 		randomrollSD(1, gunpowder, "Base.GunPowder")
@@ -463,7 +523,18 @@ function ArmorCachePatriotSD(items, result, player)
 	
 	local loot = splitString("Base.Military_ArmsProtectionLower_Patriot_Light-Black Base.Military_ArmsProtectionLower_Patriot_Light-Desert Base.Military_ArmsProtectionLower_Patriot_Light-Green Base.Military_ArmsProtectionLower_Patriot_Light-White Base.Military_ArmsProtectionUpper_Patriot_Light-Black Base.Military_ArmsProtectionUpper_Patriot_Light-Desert Base.Military_ArmsProtectionUpper_Patriot_Light-Green Base.Military_ArmsProtectionUpper_Patriot_Light-White Base.Military_BulletproofVest_Patriot_Light-Black Base.Military_BulletproofVest_Patriot_Light-Desert Base.Military_BulletproofVest_Patriot_Light-Green Base.Military_BulletproofVest_Patriot_Light-White Base.Military_BulletproofVest_Patriot_Light-Press Base.Military_Helmet_Patriot-Black Base.Military_Helmet_Patriot-Desert Base.Military_Helmet_Patriot-Green Base.Military_Helmet_Patriot-White Base.Military_Helmet_Patriot-Press Base.Military_LegsProtectionLower_Patriot_Light-Black Base.Military_LegsProtectionLower_Patriot_Light-Desert Base.Military_LegsProtectionLower_Patriot_Light-Green Base.Military_LegsProtectionLower_Patriot_Light-White Base.Military_LegsProtectionUpper_Patriot_Light-Black Base.Military_LegsProtectionUpper_Patriot_Light-Desert Base.Military_LegsProtectionUpper_Patriot_Light-Green Base.Military_LegsProtectionUpper_Patriot_Light-White")
 	
-	if zonetier == 5 then
+	if zonetier == 6 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+4, "Base.Military_MaskHelmet_GasMask-M80")
+		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+2, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+1, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(1, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+	elseif zonetier == 5 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+4, "Base.Military_MaskHelmet_GasMask-M80")
 		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
@@ -519,7 +590,18 @@ function ArmorCacheDefenderSD(items, result, player)
 	
 	local loot = splitString("Base.Military_ArmsProtectionLower_Defender_Medium-Black Base.Military_ArmsProtectionLower_Defender_Medium-Desert Base.Military_ArmsProtectionLower_Defender_Medium-Green Base.Military_ArmsProtectionLower_Defender_Medium-White Base.Military_ArmsProtectionUpper_Defender_Medium-Black Base.Military_ArmsProtectionUpper_Defender_Medium-Desert Base.Military_ArmsProtectionUpper_Defender_Medium-Green Base.Military_ArmsProtectionUpper_Defender_Medium-White Base.Military_ArmsProtectionUpper_Defender_Medium-Press Base.Military_BulletproofVest_Defender_Medium-Black Base.Military_BulletproofVest_Defender_Medium-Desert Base.Military_BulletproofVest_Defender_Medium-Green Base.Military_BulletproofVest_Defender_Medium-White Base.Military_Helmet_Defender-Black Base.Military_Helmet_Defender-Desert Base.Military_Helmet_Defender-Green Base.Military_Helmet_Defender-White Base.Military_LegsProtectionLower_Defender_Medium-Black Base.Military_LegsProtectionLower_Defender_Medium-Desert Base.Military_LegsProtectionLower_Defender_Medium-Green Base.Military_LegsProtectionLower_Defender_Medium-White Base.Military_LegsProtectionUpper_Defender_Medium-Black Base.Military_LegsProtectionUpper_Defender_Medium-Desert Base.Military_LegsProtectionUpper_Defender_Medium-Green Base.Military_LegsProtectionUpper_Defender_Medium-White Base.Military_LegsProtectionUpper_Defender_Medium-Press")
 	
-	if zonetier == 5 then
+	if zonetier == 6 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+4, "Base.Military_MaskHelmet_GasMask-M80")
+		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+2, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+1, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(1, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+	elseif zonetier == 5 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+4, "Base.Military_MaskHelmet_GasMask-M80")
 		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
@@ -576,7 +658,18 @@ function ArmorCacheVanguardSD(items, result, player)
 	
 	local loot = splitString("Base.Military_ArmsProtectionLower_Vanguard_Heavy-Black Base.Military_ArmsProtectionLower_Vanguard_Heavy-Desert Base.Military_ArmsProtectionLower_Vanguard_Heavy-Green Base.Military_ArmsProtectionLower_Vanguard_Heavy-White Base.Military_ArmsProtectionUpper_Vanguard_Heavy-Black Base.Military_ArmsProtectionUpper_Vanguard_Heavy-Desert Base.Military_ArmsProtectionUpper_Vanguard_Heavy-Green Base.Military_ArmsProtectionUpper_Vanguard_Heavy-White Base.Military_BulletproofVest_Vanguard_Heavy-Black Base.Military_BulletproofVest_Vanguard_Heavy-Desert Base.Military_BulletproofVest_Vanguard_Heavy-Green Base.Military_BulletproofVest_Vanguard_Heavy-White Base.Military_FullHelmet_Vanguard-Black Base.Military_FullHelmet_Vanguard-Desert Base.Military_FullHelmet_Vanguard-Green Base.Military_FullHelmet_Vanguard-White Base.Military_LegsProtectionLower_Vanguard_Heavy-Black Base.Military_LegsProtectionLower_Vanguard_Heavy-Desert Base.Military_LegsProtectionLower_Vanguard_Heavy-Green Base.Military_LegsProtectionLower_Vanguard_Heavy-White Base.Military_LegsProtectionUpper_Vanguard_Heavy-Black Base.Military_LegsProtectionUpper_Vanguard_Heavy-Desert Base.Military_LegsProtectionUpper_Vanguard_Heavy-Green Base.Military_LegsProtectionUpper_Vanguard_Heavy-White")
 	
-	if zonetier == 5 then
+	if zonetier == 6 then
+		addItemToPlayer(loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+4, "Base.Military_MaskHelmet_GasMask-M80")
+		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+3, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+2, loot[ZombRand(#loot)+1])
+		randomrollSD(zoneroll+1, loot[ZombRand(#loot)+1])
+		
+		randomrollSD(1, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+		randomrollSD(zoneroll, getWeightedItem(VAitems, VAweight, ZombRand(1,getTotalTableWeight(VAweight))))
+	elseif zonetier == 5 then
 		addItemToPlayer(loot[ZombRand(#loot)+1])
 		randomrollSD(zoneroll+4, "Base.Military_MaskHelmet_GasMask-M80")
 		randomrollSD(zoneroll+4, loot[ZombRand(#loot)+1])
@@ -714,7 +807,7 @@ function SpiffoCacheSD(items, result, player)
 	local loot = SpiffoTable[randomnumber]
 	local itemname = SpiffoName[randomnumber]
 	
-	if zonetier == 5 then
+	if zonetier >= 5 then
 		addSpiffoToPlayer(SpiffoTable[ZombRand(#SpiffoTable)+1], SpiffoName[ZombRand(#SpiffoTable)+1])
 		addSpiffoToPlayer(SpiffoTable[ZombRand(#SpiffoTable)+1], SpiffoName[ZombRand(#SpiffoTable)+1])
 		addItemToPlayer("CanteensAndBottles.GymBottleSpiffoade")
@@ -806,7 +899,7 @@ function PokemonCacheSD(items, result, player)
 	loot = "Aza_01_" .. randompokemon
 	addPokemonTileToPlayer(loot, loot)
 	
-	if zonetier == 5 then
+	if zonetier >= 5 then
 		addItemToPlayer("pkmncards.boosterpackfossil")
 		addItemToPlayer("pkmncards.boosterpackjungle")
 		addItemToPlayer("pkmncards.boosterpack")
@@ -842,6 +935,7 @@ function PokemonCacheSD(items, result, player)
 	end
 
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_pokemon", nil)
 end
 
 function ShinyPokemonCacheSD(items, result, player)
@@ -869,7 +963,7 @@ function ShinyPokemonCacheSD(items, result, player)
 --		addPokemonTileToPlayer(loot, loot)
 --	end
 	
-	if zonetier == 5 then
+	if zonetier >= 5 then
 		addItemToPlayer("pkmncards.boosterpackfossil")
 		addItemToPlayer("pkmncards.boosterpackjungle")
 		addItemToPlayer("pkmncards.boosterpack")
@@ -905,6 +999,7 @@ function ShinyPokemonCacheSD(items, result, player)
 	end
 	
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_pokemon", nil)
 end
 
 local function rollJewelry(tier, playerObj)
@@ -925,7 +1020,14 @@ function OnCreate_JewelryCache(items, result, player)
 	  zonetier = zonetier,
 	}
 	
-	if zonetier == 5 then
+	if zonetier == 6 then
+		for i=1,zonetier do
+			if ZombRand(zoneroll) == 0 then
+				rollJewelry(5, player)
+			end
+		end
+		rollJewelry(5, player)
+	elseif zonetier == 5 then
 		for i=1,zonetier do
 			if ZombRand(zoneroll) == 0 then
 				rollJewelry(zonetier, player)
@@ -983,12 +1085,24 @@ function OnCreate_SoulForgeCache(items, result, player)
 	  zonetier = zonetier,
 	}
 
-	if zonetier == 5 then
+	if zonetier == 6 then
 		soulFlask:setUsedDelta(math.min(scaledNormal()/10, zonetier/50))
 		randomrollSD(10, soulFlask, "SoulForge.StoredSoulsSD_new")
 		for i=1,3 do
 			randomrollSD(zoneroll, "SoulForge.SoulShardT"..zonetier)
 			randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+			randomrollSD(zoneroll, "SoulForge.WeightedDiceT"..zonetier)
+		end
+		addItemToPlayer(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+		addItemToPlayer(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+		addItemToPlayer("SoulForge.WeightedDiceT5")
+	elseif zonetier == 5 then
+		soulFlask:setUsedDelta(math.min(scaledNormal()/10, zonetier/50))
+		randomrollSD(10, soulFlask, "SoulForge.StoredSoulsSD_new")
+		for i=1,3 do
+			randomrollSD(zoneroll, "SoulForge.SoulShardT"..zonetier)
+			randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+			randomrollSD(zoneroll, "SoulForge.WeightedDiceT"..zonetier)
 		end
 		addItemToPlayer(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
 		addItemToPlayer("SoulForge.WeightedDiceT"..zonetier)
@@ -998,6 +1112,7 @@ function OnCreate_SoulForgeCache(items, result, player)
 		for i=1,3 do
 			randomrollSD(zoneroll, "SoulForge.SoulShardT"..zonetier)
 			randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+			randomrollSD(zoneroll, "SoulForge.WeightedDiceT"..zonetier)
 		end
 		addItemToPlayer(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
 		addItemToPlayer("SoulForge.WeightedDiceT"..zonetier)
@@ -1007,6 +1122,7 @@ function OnCreate_SoulForgeCache(items, result, player)
 		for i=1,3 do
 			randomrollSD(zoneroll, "SoulForge.SoulShardT"..zonetier)
 			randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
+			randomrollSD(zoneroll, "SoulForge.WeightedDiceT"..zonetier)
 		end
 		randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
 		addItemToPlayer("SoulForge.WeightedDiceT"..zonetier)
@@ -1015,6 +1131,7 @@ function OnCreate_SoulForgeCache(items, result, player)
 		randomrollSD(10, soulFlask, "SoulForge.StoredSoulsSD_new")
 		for i=1,3 do
 			randomrollSD(zoneroll, "SoulForge.SoulShardT"..zonetier)
+			randomrollSD(zoneroll, "SoulForge.WeightedDiceT"..zonetier)
 		end
 		randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
 		addItemToPlayer("SoulForge.WeightedDiceT"..zonetier)
@@ -1027,4 +1144,16 @@ function OnCreate_SoulForgeCache(items, result, player)
 		randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+end
+
+function OnCreate_WeatheredAmmoBoxSD(items, result, player)
+	
+	local gunpowder = InventoryItemFactory.CreateItem("Base.GunPowder")
+
+	gunpowder:setUsedDelta(math.max(0.1, scaledNormal()/3))
+	player:getInventory():AddItem(gunpowder)
+	for i=1,10 do
+		randomrollSD(4, "Base.ScrapMetalBits")
+	end
+
 end

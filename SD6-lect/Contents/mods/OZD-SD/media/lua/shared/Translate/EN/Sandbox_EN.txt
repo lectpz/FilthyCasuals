@@ -2,6 +2,9 @@ Sandbox_EN = {
 
 	Sandbox_OnZombieDeadSD = "Zombie Item Drop",
 	
+	Sandbox_OZD_roll6 = "Tier 6 Zombie Loot Drop (1 in n zombies)",
+	Sandbox_OZD_roll6_tooltip = "e.g. 7000",
+	
 	Sandbox_OZD_roll5 = "Tier 5 Zombie Loot Drop (1 in n zombies)",
 	Sandbox_OZD_roll5_tooltip = "e.g. 5000",
 	

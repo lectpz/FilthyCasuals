@@ -12,8 +12,8 @@ local fridgetiles = {
 	"melos_tiles_appliances_01_105",
 	"melos_tiles_appliances_01_69",
 	"blackwood7_48",
-	"melos_tiles_appliances_01_94",
-	"melos_tiles_appliances_01_95"
+	"melos_tiles_appliances_01_95",
+	"melos_tiles_appliances_01_94"
 }
 
 local fridgetilenames = {
@@ -559,6 +559,14 @@ local sandboxTiles = {}
 local sandboxTileNames = {}
 local sandboxTileDescriptions = {}
 
+local sandboxTiles2 = {}
+local sandboxTileNames2 = {}
+local sandboxTileDescriptions2 = {}
+
+local sandboxTiles3 = {}
+local sandboxTileNames3 = {}
+local sandboxTileDescriptions3 = {}
+
 local function tileSubMenu(tileContext, context, submenuname, item, player, tileSpriteTable, tileNameTable, tileDescription)
 	--submenu = ISContextMenu:getNew(context)
 	--context:addSubMenu(tileContext, submenu)
@@ -578,6 +586,15 @@ local function tileBoxContext(player, context, items) -- # When an inventory ite
 	local sandboxTiles = {}
 	local sandboxTileNames = {}
 	local sandboxTileDescriptions = {}
+	
+	local sandboxTiles2 = {}
+	local sandboxTileNames2 = {}
+	local sandboxTileDescriptions2 = {}
+	
+	local sandboxTiles3 = {}
+	local sandboxTileNames3 = {}
+	local sandboxTileDescriptions3 = {}
+	
 	for _, item in ipairs(items) do -- Check every item in inventory array
 		if not item:isInPlayerInventory() then return end
 		if item:getFullType() == "Base.TileCacheRegular" then
@@ -594,6 +611,36 @@ local function tileBoxContext(player, context, items) -- # When an inventory ite
 					table.insert(sandboxTileDescriptions, stringTable[3])
 				else
 					table.insert(sandboxTileDescriptions, "")
+				end
+			end
+			
+			local stringVal2 = splitString(SandboxVars.TilePicker.RegularCache2)
+			for i=1, #stringVal2 do
+				--print(stringVal[i])
+				local stringTable = splitTable(stringVal2[i])
+				for k=1,#stringTable do
+					if k==1 then table.insert(sandboxTiles2, stringTable[k]) end
+					if k==2 then table.insert(sandboxTileNames2, stringTable[k]) end
+				end
+				if #stringTable == 3 then 
+					table.insert(sandboxTileDescriptions2, stringTable[3])
+				else
+					table.insert(sandboxTileDescriptions2, "")
+				end
+			end
+			
+			local stringVal3 = splitString(SandboxVars.TilePicker.RegularCache3)
+			for i=1, #stringVal3 do
+				--print(stringVal[i])
+				local stringTable = splitTable(stringVal3[i])
+				for k=1,#stringTable do
+					if k==1 then table.insert(sandboxTiles3, stringTable[k]) end
+					if k==2 then table.insert(sandboxTileNames3, stringTable[k]) end
+				end
+				if #stringTable == 3 then 
+					table.insert(sandboxTileDescriptions3, stringTable[3])
+				else
+					table.insert(sandboxTileDescriptions3, "")
 				end
 			end
 
@@ -615,7 +662,17 @@ local function tileBoxContext(player, context, items) -- # When an inventory ite
 			
 			if #sandboxTiles == #sandboxTileNames then
 				if #sandboxTileDescriptions == 0 then sandboxTileDescriptions = "" end
-				tileSubMenu(tileContext, context, "Custom Tiles", item, player, sandboxTiles, sandboxTileNames, sandboxTileDescriptions)
+				tileSubMenu(tileContext, context, "Custom Tiles 1", item, player, sandboxTiles, sandboxTileNames, sandboxTileDescriptions)
+			end
+			
+			if #sandboxTiles2 == #sandboxTileNames2 then
+				if #sandboxTileDescriptions2 == 0 then sandboxTileDescriptions2 = "" end
+				tileSubMenu(tileContext, context, "Custom Tiles 2", item, player, sandboxTiles2, sandboxTileNames2, sandboxTileDescriptions2)
+			end
+			
+			if #sandboxTiles3 == #sandboxTileNames3 then
+				if #sandboxTileDescriptions3 == 0 then sandboxTileDescriptions3 = "" end
+				tileSubMenu(tileContext, context, "Custom Tiles 3", item, player, sandboxTiles3, sandboxTileNames3, sandboxTileDescriptions3)
 			end
 			
 			break

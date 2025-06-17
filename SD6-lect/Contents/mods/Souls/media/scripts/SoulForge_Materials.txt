@@ -155,7 +155,7 @@ module SoulForge {
 		DisplayName = SoulForged Dice [T5],
 		DisplayCategory = SoulForge,
 		Type = Normal,
-		Weight = 5,
+		Weight = 2.5,
 		Icon = Dice,
 		WorldStaticModel = Dice,
 	}
@@ -165,7 +165,7 @@ module SoulForge {
 		DisplayName = SoulForged Dice [T4],
 		DisplayCategory = SoulForge,
 		Type = Normal,
-		Weight = 4,
+		Weight = 2,
 		Icon = Dice,
 		WorldStaticModel = Dice,
 	}
@@ -175,7 +175,7 @@ module SoulForge {
 		DisplayName = SoulForged Dice [T3],
 		DisplayCategory = SoulForge,
 		Type = Normal,
-		Weight = 3,
+		Weight = 1.5,
 		Icon = Dice,
 		WorldStaticModel = Dice,
 	}
@@ -185,7 +185,7 @@ module SoulForge {
 		DisplayName = SoulForged Dice [T2],
 		DisplayCategory = SoulForge,
 		Type = Normal,
-		Weight = 2,
+		Weight = 1,
 		Icon = Dice,
 		WorldStaticModel = Dice,
 	}
@@ -220,4 +220,224 @@ module SoulForge {
         Icon            = BusTicket,
 		WorldStaticModel = PaperNapkins_Ground,
     }
+	
+	
+	item mdzCritDmgMultiplier_EnhancerT1	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Critical Damage Multiplier [T1],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzCritDmgMultiplier_EnhancerT2	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Critical Damage Multiplier [T2],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzCritDmgMultiplier_EnhancerT3	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Critical Damage Multiplier [T3],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzCritDmgMultiplier_EnhancerT4	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Critical Damage Multiplier [T4],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzCritDmgMultiplier_EnhancerT5	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Critical Damage Multiplier [T5],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzCriticalChance_EnhancerT1	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Critical Chance [T1],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzCriticalChance_EnhancerT2	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Critical Chance [T2],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzCriticalChance_EnhancerT3	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Critical Chance [T3],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzCriticalChance_EnhancerT4	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Critical Chance [T4],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzCriticalChance_EnhancerT5	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Critical Chance [T5],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzMinDmg_EnhancerT1	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Min Damage [T1],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzMinDmg_EnhancerT2	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Min Damage [T2],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzMinDmg_EnhancerT3	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Min Damage [T3],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzMinDmg_EnhancerT4	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Min Damage [T4],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzMinDmg_EnhancerT5	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Min Damage [T5],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzMaxDmg_EnhancerT1	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Max Damage [T1],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzMaxDmg_EnhancerT2	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Max Damage [T2],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzMaxDmg_EnhancerT3	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Max Damage [T3],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzMaxDmg_EnhancerT4	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Max Damage [T4],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
+
+
+	item mdzMaxDmg_EnhancerT5	
+	{
+		DisplayCategory 	= 	SoulForge,
+		Type 	 	 	 = Normal,
+		Weight 	 	 	 = 0.01,
+		DisplayName 	 	= Quality Enhancer - Max Damage [T5],
+		Icon 	 	 	 = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+	}
 }

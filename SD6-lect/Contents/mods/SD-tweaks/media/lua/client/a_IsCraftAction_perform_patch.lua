@@ -87,6 +87,28 @@ function ISCraftAction:perform()
 					
 					newItem:setCalories(resultItemCreated:getCalories());
 				else
+					local itemAge = resultItemCreated:getAge()
+					if tostring(itemAge) == "nan" then 
+						itemAge = 0 
+					end
+					newItem:setAge(itemAge)
+					
+					local itemGetOffAge = resultItemCreated:getOffAge()
+					if itemGetOffAge == 1000000000 then
+						itemGetOffAge = 6 * chefPower
+					else
+						itemGetOffAge = resultItemCreated:getOffAge() * chefPower
+					end
+					newItem:setOffAge(itemGetOffAge)
+					
+					local itemGetOffAgeMax = resultItemCreated:getOffAgeMax()
+					if itemGetOffAgeMax == 1000000000 then
+						itemGetOffAgeMax = 10 * chefPower
+					else
+						itemGetOffAgeMax = resultItemCreated:getOffAgeMax() * chefPower
+					end
+					newItem:setOffAgeMax(itemGetOffAgeMax)
+					
 					newItem:setCalories(0.1);
 				end
 				
@@ -190,6 +212,26 @@ function ISCraftAction:perform()
 				resultItemCreated:setOffAgeMax(itemGetOffAgeMax)
 
 			else
+				local itemAge = resultItemCreated:getAge()
+				if tostring(itemAge) == "nan" then 
+					itemAge = 0 
+				end
+				resultItemCreated:setAge(itemAge)
+				
+				local itemGetOffAge = resultItemCreated:getOffAge()
+				if itemGetOffAge == 1000000000 then
+					itemGetOffAge = 6 * chefPower
+				else
+					itemGetOffAge = resultItemCreated:getOffAge() * chefPower
+				end
+				resultItemCreated:setOffAge(itemGetOffAge)
+				
+				local itemGetOffAgeMax = resultItemCreated:getOffAgeMax()
+				if itemGetOffAgeMax == 1000000000 then
+					itemGetOffAgeMax = 10 * chefPower
+				else
+					itemGetOffAgeMax = resultItemCreated:getOffAgeMax() * chefPower
+				end
 				resultItemCreated:setCalories(1);
 			end
 			

@@ -16,6 +16,7 @@ local coords = {
 	11165, 8775, 11233, 8796,--north shops 2
 	11120, 8885, 11139, 8933,--south shops 1
 	11139, 8885, 11280, 8991,--south shops 2
+	11247, 8771, 11327, 8994,--east shops 2
 }
 
 local function checkCCshopCoords(x, y, coords)
@@ -386,6 +387,9 @@ end
 
 local function shopTeleport(player, context, worldobjects, test)
     local playerObj = getSpecificPlayer(0)
+	local tier, zone = checkZone()
+	
+	if zone ~= "CC" then return end
 
 	for i,v in pairs(worldobjects) do
 		local isosprite = v:getSprite()
@@ -430,7 +434,6 @@ local function shopTeleport(player, context, worldobjects, test)
 										
 					local sub_sm1 = sm1:addOption(name .. "'s shop (" .. x .. "," .. y .. "," .. z .. ")", v, 	function()
 																													local playerObj = getSpecificPlayer(0)
-																													local tier, zone = checkZone()
 																													if zone ~= "CC" then
 																														playerObj:Say("I need to be in CC to use this.")
 																														return

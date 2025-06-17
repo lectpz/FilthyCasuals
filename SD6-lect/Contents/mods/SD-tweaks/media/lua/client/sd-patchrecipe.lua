@@ -41,6 +41,9 @@ recipesToPatch["Make Bucket Of Concrete"] = true
 recipesToPatch["Redeem CDC Red Package"] = true
 recipesToPatch["Unpack Bundle of Crossbow Bolts"] = true
 
+recipesToPatch["Divide Scrap Metal Into Bits"] = true
+recipesToPatch["Combine Scrap Metal Bits"] = true
+
 function patchConcreteBucket(items, result, player)
     local playerInv = player:getInventory()
     playerInv:AddItem("Base.BucketConcreteFull")
@@ -64,7 +67,7 @@ end
 
 function SD6_sellValuables(items, result, player)
     local playerInv = player:getInventory()
-    playerInv:AddItems("Base.ScrapMetalBits", 3)
+    playerInv:AddItems("Base.ScrapMetalBits", 2)
 	--playerInv:AddItem("Base.ScrapMetalBits")
 end
 
@@ -123,6 +126,17 @@ local function patch_recipes()
     for i = 0, recipes:size()-1 do
         local recipe = recipes:get(i)
         local name = recipe:getOriginalname()
+		
+		if string.find(name, "^Dismantle") then
+			local result = recipe:getResult()
+			if result:getFullType() == "Base.SheetMetal" then
+				result:setType("SmallSheetMetal")
+				print ("Patched \""..name.."\"..")
+			end
+		end
+		
+		local reqScrapMetalBits = 20
+		
         if recipesToPatch[name] then
             if name == "Create Propane tank" then
                 recipe:setRemoveResultItem(true)
@@ -177,7 +191,15 @@ local function patch_recipes()
 				recipe:getResult():setCount(30)
 				patched = patched + 1
 				print ("Patched \""..name.."\"..")
-            end
+			elseif name == "Divide Scrap Metal Into Bits" then
+				recipe:getResult():setCount(reqScrapMetalBits)
+				patched = patched + 1
+				print ("Patched \""..name.."\"..")
+			elseif name == "Combine Scrap Metal Bits" then
+				recipe:findSource("Base.ScrapMetalBits"):setCount(reqScrapMetalBits)
+				patched = patched + 1
+				print ("Patched \""..name.."\"..")
+			end
         end
 		
 		if recipesToUnyeet[name] then

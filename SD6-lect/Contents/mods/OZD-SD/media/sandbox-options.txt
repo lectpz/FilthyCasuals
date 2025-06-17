@@ -1,5 +1,16 @@
 VERSION = 1,
 
+option OZD.roll6
+{
+	type = integer,
+	min = 1,
+	max = 99999,
+	default = 1500,
+
+	page = OnZombieDeadSD,
+	translation = OZD_roll6,
+}
+
 option OZD.roll5
 {
 	type = integer,

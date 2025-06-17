@@ -212,6 +212,11 @@ local function preDistributionMergeSD5()
 		WhiskeyBottlingFull = 0.0000001,
 		JanitorMisc = 0.000001,
 		PrisonCellRandom = 0.0001,
+		WardrobeWoman = 0.00001,
+		WardrobeMan = 0.00001,
+		CampingStoreGear = 0.001,
+		FireStorageTools = 0.001,
+		GigamartTools = 0.001,
 	}
 	
 	for distribution, chance in pairs(barData) do
@@ -342,6 +347,29 @@ local function editDistributions()
 		end
 	end
 
+	local function replaceItemInDistribution(oldItemName, newItemName)
+		if itemIndex[oldItemName] then
+			for i = 1, #itemIndex[oldItemName] do
+				local containerInfo = itemIndex[oldItemName][i]
+				local targetTable = nil
+
+				if containerInfo.type == "junk" then
+					targetTable = ProceduralDistributions.list[containerInfo.container].junk.items
+				else
+					targetTable = ProceduralDistributions.list[containerInfo.container][containerInfo.type]
+				end
+
+				if targetTable then
+					for k = #targetTable, 1, -1 do
+						if targetTable[k] == oldItemName then
+							targetTable[k] = newItemName
+						end
+					end
+				end
+			end
+		end
+	end
+
 	local function modifyItemWeight(itemName, multiplier)
 		if itemIndex[itemName] then
 			local processedContainers = {}
@@ -373,6 +401,7 @@ local function editDistributions()
 	
 	--foodContainers = { "Bakery", "BakeryBread", "BakeryCake", "BakeryDoughnuts", "BakeryKitchenBaking", "BakeryKitchenFridge", "BakeryKitchenFreezer", "BakeryMisc", "BakeryPie", "BarCounterGlasses", "BarCounterLiquor", "BarCounterMisc", "BarCounterWeapon", "BreweryBottles", "BreweryCans", "BreweryEmptyBottles", "BurgerKitchenButcher", "BurgerKitchenFridge", "BurgerKitchenFreezer", "BurgerKitchenSauce", "ButcherChicken", "ButcherChops", "ButcherFish", "ButcherFreezer", "ButcherGround", "ButcherSnacks", "ButcherSmoked", "ButcherTools", "CafeKitchenFridge", "CafeteriaDrinks", "CafeteriaFruit", "CafeteriaSandwiches", "CafeteriaSnacks", "CandyStoreSnacks", "ChineseKitchenBaking", "ChineseKitchenButcher", "ChineseKitchenFreezer", "ChineseKitchenFridge", "ChineseKitchenSauce", "CrepeKitchenBaking", "CrepeKitchenFridge", "CrepeKitchenSauce", "DeepFryKitchenFridge", "DeepFryKitchenFreezer", "DinerKitchenFridge", "DinerKitchenFreezer", "FishChipsKitchenButcher", "FishChipsKitchenFridge", "FishChipsKitchenFreezer", "FoodGourmet", "FreezerGeneric", "FreezerIceCream", "FreezerRich", "FreezerTrailerPark", "FridgeBeer", "FridgeBottles", "FridgeGeneric", "FridgeOffice", "FridgeOther", "FridgeSnacks", "FridgeSoda", "FridgeTrailerPark", "GigamartBakingMisc", "GigamartBottles", "GigamartCandy", "GigamartCannedFood", "GigamartCrisps", "GigamartDryGoods", "GigamartFarming", "GigamartHousewares", "GigamartLightbulb", "GigamartPots", "GigamartSauce", "GigamartSchool", "GigamartToys", "GroceryStandFruits1", "GroceryStandFruits2", "GroceryStandFruits3", "GroceryStandLettuce", "GroceryStandVegetables1", "GroceryStandVegetables2", "GroceryStandVegetables3", "GroceryStandVegetables4", "GroceryStorageCrate1", "GroceryStorageCrate2", "GroceryStorageCrate3", "ItalianKitchenBaking", "ItalianKitchenButcher", "ItalianKitchenFridge", "ItalianKitchenFreezer", "JaysKitchenBaking", "JaysKitchenBags", "JaysKitchenButcher", "JaysKitchenFridge", "JaysKitchenFreezer", "KitchenBaking", "KitchenBottles", "KitchenBreakfast", "KitchenDishes", "KitchenDryFood", "KitchenPots", "KitchenRandom", "Meat", "MexicanKitchenBaking", "MexicanKitchenButcher", "MexicanKitchenFridge", "MexicanKitchenFreezer", "MexicanKitchenSauce", "MotelFridge", "PizzaKitchenBaking", "PizzaKitchenButcher", "PizzaKitchenCheese", "PizzaKitchenFridge", "PizzaKitchenSauce", "ProduceStorageApples", "ProduceStorageBellPeppers", "ProduceStorageBroccoli", "ProduceStorageCabbages", "ProduceStorageCarrots", "ProduceStorageCherries", "ProduceStorageCorn", "ProduceStorageEggplant", "ProduceStorageLettuce", "ProduceStorageLeeks", "ProduceStorageOnions", "ProduceStoragePeaches", "ProduceStoragePear", "ProduceStoragePotatoes", "ProduceStorageRadishes", "ProduceStorageStrawberries", "ProduceStorageTomatoes", "ProduceStorageWatermelons", "RestaurantKitchenFreezer", "SeafoodKitchenButcher", "SeafoodKitchenFridge", "SeafoodKitchenFreezer", "SeafoodKitchenSauce", "ServingTrayBiscuits", "ServingTrayBurgers", "ServingTrayBurritos", "ServingTrayChicken", "ServingTrayChickenNuggets", "ServingTrayCornbread", "ServingTrayFish", "ServingTrayFries", "ServingTrayGravy", "ServingTrayHotdogs", "ServingTrayMaki", "ServingTrayNoodleSoup", "ServingTrayOmelettes", "ServingTrayOnionRings", "ServingTrayOnigiri", "ServingTrayOysters", "ServingTrayPancakes", "ServingTrayPerogies", "ServingTrayPizza", "ServingTrayPotatoPancakes", "ServingTrayRefriedBeans", "ServingTrayScrambledEggs", "ServingTrayShrimp", "ServingTrayShrimpDumplings", "ServingTraySpringRolls", "ServingTraySushiEgg", "ServingTraySushiFish", "ServingTrayTaco", "ServingTrayTofuFried", "ServingTrayWaffles", "SpiffosKitchenBags", "SpiffosKitchenCounter", "SpiffosKitchenFridge", "SpiffosKitchenFreezer", "SushiKitchenBaking", "SushiKitchenButcher", "SushiKitchenCutlery", "SushiKitchenFridge", "SushiKitchenFreezer", "SushiKitchenSauce" } 
 	gunContainers = { "ArmyStorageAmmunition", "ArmyStorageGuns", "FirearmWeapons", "GarageFirearms", "GunStoreAmmunition", "GunStoreCounter", "GunStoreDisplayCase", "GunStoreMagazineRack", "GunStoreShelf", "HuntingLockers", "PawnShopGuns", "PawnShopGunsSpecial", "PlankStashGun", "PoliceStorageAmmunition", "PoliceStorageGuns", "PawnShopCases", "PawnShopGuns", "PawnShopGunsSpecial", "PawnShopKnives" } 
+	wardrobes = { "WardrobeMan", "WardrobeWoman" }
 
 	function setRollValue(containerList, newRollValue)
 	  --for _, containerName in ipairs(containerList) do
@@ -396,6 +425,8 @@ local function editDistributions()
 			end
 		end
 	end
+	setRollValue(gunContainers, 4)
+	setRollValue(wardrobes, 2)	
 	
 	local yeetBool = SandboxVars.SpawnChanceModifier.yeetBool
 	local yeetItems = getSandboxItems(SandboxVars.SpawnChanceModifier.yeetItems)
@@ -467,9 +498,14 @@ local function editDistributions()
 	--findItemInDistribution("Biofuel.IndustrialPropaneTank")
 
 	modifyItemWeight("Book", 0.125)
-	modifyItemWeight("MetalworkCache", 2)
-	modifyItemWeight("MechanicCache", 2)
-	modifyItemWeight("MedicalCache", 2.5)
+	--modifyItemWeight("MetalworkCache", 1)
+	--modifyItemWeight("MechanicCache", 1)
+	modifyItemWeight("MedicalCache", 3)
+	modifyItemWeight("ChiikuCache", 1.5)
+	modifyItemWeight("WeaponCache", 1.5)
+	modifyItemWeight("AmmoCache", 3)
+	modifyItemWeight("SoulForgeCache", 2.5)
+	--modifyItemWeight("JewelryCache", 2)
 	
 	modifyItemWeight("SmallSheetMetal", 0.75)
 	modifyItemWeight("SheetMetal", 0.75)
@@ -479,22 +515,22 @@ local function editDistributions()
 	yeetItem("PropaneTank")
 	yeetItem("TW.LargePropaneTank")
 	yeetItem("Biofuel.IndustrialPropaneTank")
-	ItemPickerJava.Parse()
-	
+		
 	--[[print("----------ITEMS YEETED-----------")
 	findItemInDistribution("PropaneTank")
 	findItemInDistribution("TW.LargePropaneTank")
 	findItemInDistribution("Biofuel.IndustrialPropaneTank")
 	print("----------ITEMS REMAIN-----------")]]
 	
-	local ammoReduce = {"ShotgunShellsBox", "Base.ShotgunShellsBox", "308Box", "Base.308Box", "556Box", "Base.556Box", "Base.556Box", "545Box", "Base.545Box"}
+	local replaceAmmoBox = {"223Box","3006Box","308Box","380Box","50BMGBox","545Box","556Box","57Box","762Box","762x51Box","762x54rBox","792Box","792x33Box","9x39Box","Bullets38Box","Bullets44Box","Bullets45Box","Bullets9mmBox","ShotgunShellsBox",}	
 	
-	for i=1,#sapphFoods do
-		modifyItemWeight(ammoReduce[i], 0.35)
+	for i=1, #replaceAmmoBox do
+		modifyItemWeight(replaceAmmoBox[i], 0.65)
+		replaceItemInDistribution(replaceAmmoBox[i], "WeatheredAmmoBox")
+		replaceItemInDistribution("Base."..replaceAmmoBox[i], "WeatheredAmmoBox")
 	end
 	
-	yeetItem("Bullets45Box")
-	yeetItem("Base.Bullets45Box")
+	ItemPickerJava.Parse()
 end
 
 Events.OnPostDistributionMerge.Add(editDistributions)

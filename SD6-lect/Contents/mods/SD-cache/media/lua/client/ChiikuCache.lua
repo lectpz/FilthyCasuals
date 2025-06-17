@@ -138,7 +138,22 @@ function ChiikuWeaponCacheSD(items, result, player)
 	  zonetier = zonetier,
 	}
 	
-	if zonetier == 5 then
+	if zonetier == 6 then
+		gunpowder:setUsedDelta(math.min(1, scaledNormal()))
+		randomrollSD(1, gunpowder, "Base.GunPowder")
+		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
+		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
+		addWeaponToPlayer(chiikuArms[ZombRand(#chiikuArms)+1])
+		addItemToPlayer(chiikuMags[ZombRand(#chiikuMags)+1])
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
+		addItemToPlayer(ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll, hfoMags[ZombRand(#hfoMags)+1])
+		randomrollSD(zoneroll, hfoMags[ZombRand(#hfoMags)+1])
+	elseif zonetier == 5 then
 		gunpowder:setUsedDelta(math.min(1, scaledNormal()))
 		randomrollSD(1, gunpowder, "Base.GunPowder")
 		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
@@ -190,4 +205,5 @@ function ChiikuWeaponCacheSD(items, result, player)
 		randomrollSD(zoneroll, hfoMags[ZombRand(#hfoMags)+1])
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
 end

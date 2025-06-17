@@ -312,14 +312,14 @@ local pref2_args = {
 						if item:isPiercingBullets() then
 							sm3 = true
 							local soulForgePiercing = sm3
-							local description = gold .. "Prefix Modifer: Deadeye" ..
+							local description = gold .. "Prefix Modifer: Marksman" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Aiming Perk Hit Chance Modifier" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm2*100-100))  .. "% More Aiming Time" ..
 								green .. " <LINE> " .. "Piercing Bullets <LINE> "
 							return description, scriptItem, soulForgeAimingPerkHitChanceModifier, soulForgeAimingTime, soulForgePiercing
 						else
 							local soulForgeProjectileCount = item:getProjectileCount() + sm3
-							local description = gold .. "Prefix Modifer: Deadeye" ..
+							local description = gold .. "Prefix Modifer: Marksman" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Aiming Perk Hit Chance Modifier" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm2*100-100))  .. "% More Aiming Time" ..
 								green .. " <LINE> " .. "+1 to Projectile Count <LINE> "
@@ -344,7 +344,7 @@ local pref2_args = {
 							return description, scriptItem, soulForgeAimingPerkCritModifier, soulForgeAimingPerkRangeModifier, soulForgePiercing
 						else
 							local soulForgeProjectileCount = item:getProjectileCount() + sm3
-							local description = gold .. "Prefix Modifer: Deadeye" ..
+							local description = gold .. "Prefix Modifer: Bandit" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm1*100-100))  .. "% More Aiming Perk Crit Chance Modifier" ..
 								green .. " <LINE> " .. string.format("%.0f", (sm2*100-100))  .. "% More Aiming Perk Range Modifier" ..
 								green .. " <LINE> " .. "+1 to Projectile Count <LINE> "
@@ -1252,7 +1252,7 @@ local function SoulContextSDRanged(player, context, items) -- # When an inventor
 								for i=1,#upgrade_mats do
 									sw_itemToolTipMats(tooltip, shard[i], upgrade_no, upgrade_mats[i])
 								end
-								sw_itemToolTipMats(tooltip, sw_ticket, upgrade_no, 2)
+								sw_itemToolTipMats(tooltip, sw_ticket, upgrade_no, 1)
 								upgrade_no.toolTip = tooltip
 							end
 							
@@ -1271,7 +1271,6 @@ local function SoulContextSDRanged(player, context, items) -- # When an inventor
 																										if not wMD.soulForgeMinDmgMulti then wMD.soulForgeMinDmgMulti = 1 end
 																										remove_swMats(Upgrade1MatNo)
 																										playerInv:RemoveOneOf("SoulForge.MinDmgTicket")
-																										playerInv:RemoveOneOf("SoulForge.MinDmgTicket")
 																										wMD.soulForgeMinDmgMulti = wMD.soulForgeMinDmgMulti + 0.01
 																										end, player)
 							sw_upgrade(swUpgrade1, Upgrade1MatNo, "SoulForge.MinDmgTicket")
@@ -1280,7 +1279,6 @@ local function SoulContextSDRanged(player, context, items) -- # When an inventor
 							local swUpgrade2 = submenu2:addOption("Add +1% to Maximum Damage Modifier", item, function()
 																										if not wMD.soulForgeMaxDmgMulti then wMD.soulForgeMaxDmgMulti = 1 end
 																										remove_swMats(Upgrade2MatNo)
-																										playerInv:RemoveOneOf("SoulForge.MaxDmgTicket")
 																										playerInv:RemoveOneOf("SoulForge.MaxDmgTicket")
 																										wMD.soulForgeMaxDmgMulti = wMD.soulForgeMaxDmgMulti + 0.01
 																										end, player)

@@ -41,9 +41,12 @@ function ISInventoryPage:onBackpackRightMouseDown(x, y)
 			end
 		end
 	end
-
-	addDeleteContext()
-
+	
+	local sq = getSpecificPlayer(0):getSquare()
+	local SafeHouseSQ = SafeHouse.getSafeHouse(sq)
+	--SafeHouseSQ = true
+	if not SafeHouseSQ then addDeleteContext() end
+	
 	if isAdmin() or ISLootZed.cheat then
 		o_onBackpackRightMouseDown(self, x, y)
 		addDeleteContext()

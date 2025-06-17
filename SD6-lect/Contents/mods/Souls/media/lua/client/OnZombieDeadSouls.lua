@@ -21,6 +21,42 @@ local function getWeightedItem(tableno, tableweight, rollvalue)
 	end
 end
 
+local dd_T5 = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "Base.rangerToken", "Base.cogToken", "Base.vwToken", "SoulForge.AimingTimeTicket", "SoulForge.AimingPerkHitTicket", "SoulForge.AimingPerkCritTicket" }
+
+local dd_T4 = { "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "Base.rangerToken", "Base.cogToken", "Base.vwToken", "SoulForge.AimingTimeTicket", "SoulForge.AimingPerkHitTicket", "SoulForge.AimingPerkCritTicket" }
+
+local dd_T3 = { "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "Base.rangerToken", "Base.cogToken", "Base.vwToken", 
+"SoulForge.AimingTimeTicket", "SoulForge.AimingPerkHitTicket", "SoulForge.AimingPerkCritTicket" }
+
+local VAitems_t5 = { "HS_VenenosusAer.VA_Charcoal_Tablets", "HS_VenenosusAer.VA_Filter_LowGrade", "HS_VenenosusAer.VA_Filter_MediumGrade", "HS_VenenosusAer.VA_Filter_HighGrade" }
+local VAweight_t5 = { 4, 10, 5, 1 }
+
+local VAitems_t4 = { "HS_VenenosusAer.VA_Charcoal_Tablets", "HS_VenenosusAer.VA_Filter_LowGrade", "HS_VenenosusAer.VA_Filter_MediumGrade" }
+local VAweight_t4 = { 2, 5, 1 }
+
+local VAitems_t3 = { "HS_VenenosusAer.VA_Charcoal_Tablets", "HS_VenenosusAer.VA_Filter_LowGrade" }
+local VAweight_t3 = { 2, 8 }
+
+local table1 = { "SoulForge.SoulShardT1" }
+local n1 = #table1 --number of tier 1 items in loot pool
+local t1 = 1	-- random number generator, integers from 1 to n [eg n = 11, therefore rolls integers from 1 to 11]
+
+local table2 = { "SoulForge.SoulShardT2" }
+local n2 = #table2 --number of tier 2 items in loot pool
+local t2 = 1	-- random number generator, integers from 1 to n [eg n = 12, therefore rolls integers from 1 to 12]
+
+local table3 = { "SoulForge.SoulShardT3" }
+local n3 = #table3 --number of tier 3 items in loot pool
+local t3 = 1	-- random number generator, integers from 1 to n [eg n = 23, therefore rolls integers from 1 to 23]
+
+local table4 = { "SoulForge.SoulShardT4" }
+local n4 = #table4 --number of tier 4 items in loot pool
+local t4 = 1	-- random number generator, integers from 1 to n [eg n = 23, therefore rolls integers from 1 to 23]
+
+local table5 = { "SoulForge.SoulShardT5" }
+local n5 = #table5 --number of tier 4 items in loot pool
+local t5 = 1	-- random number generator, integers from 1 to n [eg n = 23, therefore rolls integers from 1 to 23]
+
 function OnZombieDeadSouls(zombie)
 	player = zombie:getAttackedBy()
 	if player:isSeatedInVehicle() then 
@@ -39,26 +75,6 @@ function OnZombieDeadSouls(zombie)
 	local luck = pMD.luckValue or 0
 	--if eventenabled then controlMod = 0 end
 	
-	local table1 = { "SoulForge.SoulShardT1" }
-	local n1 = #table1 --number of tier 1 items in loot pool
-	local t1 = ZombRand(n1)+1	-- random number generator, integers from 1 to n [eg n = 11, therefore rolls integers from 1 to 11]
-
-	local table2 = { "SoulForge.SoulShardT2" }
-	local n2 = #table2 --number of tier 2 items in loot pool
-	local t2 = ZombRand(n2)+1	-- random number generator, integers from 1 to n [eg n = 12, therefore rolls integers from 1 to 12]
-
-	local table3 = { "SoulForge.SoulShardT3" }
-	local n3 = #table3 --number of tier 3 items in loot pool
-	local t3 = ZombRand(n3)+1	-- random number generator, integers from 1 to n [eg n = 23, therefore rolls integers from 1 to 23]
-	
-	local table4 = { "SoulForge.SoulShardT4" }
-	local n4 = #table4 --number of tier 4 items in loot pool
-	local t4 = ZombRand(n4)+1	-- random number generator, integers from 1 to n [eg n = 23, therefore rolls integers from 1 to 23]
-	
-	local table5 = { "SoulForge.SoulShardT5" }
-	local n5 = #table5 --number of tier 4 items in loot pool
-	local t5 = ZombRand(n5)+1	-- random number generator, integers from 1 to n [eg n = 23, therefore rolls integers from 1 to 23]
-	
 	local faction = pMD.faction
 
 	local multiCOG = 1
@@ -76,7 +92,6 @@ function OnZombieDeadSouls(zombie)
 		nofaction = 1
 	end
 	
-	local dd_T5 = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "Base.rangerToken", "Base.cogToken", "Base.vwToken", "SoulForge.AimingTimeTicket", "SoulForge.AimingPerkHitTicket", "SoulForge.AimingPerkCritTicket" }
 	local dd_T5weight = {  
 					10*multiRanger,
                     10*multiVW, 
@@ -94,7 +109,6 @@ function OnZombieDeadSouls(zombie)
 					}
 
 	
-	local dd_T4 = { "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "Base.rangerToken", "Base.cogToken", "Base.vwToken", "SoulForge.AimingTimeTicket", "SoulForge.AimingPerkHitTicket", "SoulForge.AimingPerkCritTicket" }
 	local dd_T4weight = {
 					7*multiVW, 
                     10*multiRanger, 
@@ -109,8 +123,6 @@ function OnZombieDeadSouls(zombie)
                     7*multiVW, 
 					}
 	
-	local dd_T3 = { "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "Base.rangerToken", "Base.cogToken", "Base.vwToken", 
-	"SoulForge.AimingTimeTicket", "SoulForge.AimingPerkHitTicket", "SoulForge.AimingPerkCritTicket" }
 	local dd_T3weight = {  
                     10*multiRanger, 
                     10*multiVW*multiCOG, 
@@ -132,17 +144,7 @@ function OnZombieDeadSouls(zombie)
 	--player:Say(tostring(SandboxVars.OZD.roll3))
 	local t4roll = ZombRand(math.max(300 - 0.8*(luck + toxicMod + controlMod),125))
 	--player:Say(tostring(SandboxVars.OZD.roll4))
-	local t5roll = ZombRand(math.max(375 - 1.0*(luck + toxicMod + controlMod),150))
-	
-
-	local VAitems_t5 = { "HS_VenenosusAer.VA_Charcoal_Tablets", "HS_VenenosusAer.VA_Filter_LowGrade", "HS_VenenosusAer.VA_Filter_MediumGrade", "HS_VenenosusAer.VA_Filter_HighGrade" }
-	local VAweight_t5 = { 4, 10, 5, 1 }
-	
-	local VAitems_t4 = { "HS_VenenosusAer.VA_Charcoal_Tablets", "HS_VenenosusAer.VA_Filter_LowGrade", "HS_VenenosusAer.VA_Filter_MediumGrade" }
-	local VAweight_t4 = { 2, 5, 1 }
-	
-	local VAitems_t3 = { "HS_VenenosusAer.VA_Charcoal_Tablets", "HS_VenenosusAer.VA_Filter_LowGrade" }
-	local VAweight_t3 = { 2, 8 }
+	local t5roll = ZombRand(math.max(375 - 1.0*(luck + toxicMod + controlMod),150))	
 	
 -- function to add item
 	local function itemdrop(item)
@@ -156,7 +158,7 @@ function OnZombieDeadSouls(zombie)
 	end
 	
 	--check if player is in event zone, if event enabled and inside the zone then use event rolls, otherwise use the 
-	if tierzone == 5 then
+	if tierzone == 6 then
 		if t5roll == 0 and (isToxicControl() or ZombRand(tierzone) > 2) then
 			itemdrop(table5[t5])
 			if toxic then itemdrop(getWeightedItem(dd_T5, dd_T5weight, ZombRand(1,getTotalTableWeight(dd_T5weight)))) end
@@ -177,7 +179,29 @@ function OnZombieDeadSouls(zombie)
 		elseif t1roll == 0 then
 			itemdrop(table1[t1])
 		end
-
+		
+	elseif tierzone == 5 then
+		if t5roll == 0 and (isToxicControl() or ZombRand(tierzone) > 2) then
+			itemdrop(table5[t5])
+			if toxic then itemdrop(getWeightedItem(dd_T5, dd_T5weight, ZombRand(1,getTotalTableWeight(dd_T5weight)))) end
+			if (control or ZombRand(tierzone) > 2) and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T5, dd_T5weight, ZombRand(1,getTotalTableWeight(dd_T5weight)))) end
+			if (isToxicControl() or ZombRand(tierzone) > 2) then itemdrop(getWeightedItem(VAitems_t5, VAweight_t5, ZombRand(1,getTotalTableWeight(VAweight_t5)))) end
+		elseif t4roll == 0 and (isToxicControl() or ZombRand(tierzone) > 2) then
+			itemdrop(table4[t4])
+			if toxic 	and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T4, dd_T4weight, ZombRand(1,getTotalTableWeight(dd_T4weight)))) end
+			if (control or ZombRand(tierzone) > 2) and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T4, dd_T4weight, ZombRand(1,getTotalTableWeight(dd_T4weight)))) end
+			if (isToxicControl() or ZombRand(tierzone) > 2)  and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(VAitems_t4, VAweight_t4, ZombRand(1,getTotalTableWeight(VAweight_t4)))) end
+		elseif t3roll == 0 then
+			itemdrop(table3[t3])
+			if toxic 	and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T3, dd_T3weight, ZombRand(1,getTotalTableWeight(dd_T3weight)))) end
+			if (control or ZombRand(tierzone) > 2) and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T3, dd_T3weight, ZombRand(1,getTotalTableWeight(dd_T3weight)))) end
+			if (isToxicControl() or ZombRand(tierzone) > 2)  and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(VAitems_t3, VAweight_t3, ZombRand(1,getTotalTableWeight(VAweight_t3)))) end
+		elseif t2roll == 0 then
+			itemdrop(table2[t2])
+		elseif t1roll == 0 then
+			itemdrop(table1[t1])
+		end
+		
 	elseif tierzone == 4 then
 		if t4roll == 0 and (isToxicControl() or ZombRand(tierzone) > 2) then
 			itemdrop(table4[t4])

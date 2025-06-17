@@ -48,7 +48,7 @@ function onTestTier5CheckSD(sourceItem, result)
 	local playerInv = player:getInventory()
 	local tierzone = checkZone()
 	
-	if tierzone == 5 then
+	if tierzone >= 5 then
 		return true
 	else
 		return false

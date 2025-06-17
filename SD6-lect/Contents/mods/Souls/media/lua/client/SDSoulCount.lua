@@ -638,12 +638,12 @@ local suff2_setstat = {
 							weaponModData.soulForgeMinDmgMulti = minDamage -- Set the default value if nil
 						end
 
-						local isEnduranceMod = weaponModData.EnduranceMod or nil
+						--[[local isEnduranceMod = weaponModData.EnduranceMod or nil
 						if isEnduranceMod then
 							weaponModData.EnduranceMod = item:setEnduranceMod(EnduranceMod)
 						else
 							weaponModData.EnduranceMod = scriptItem:getEnduranceMod()
-						end
+						end]]
 						weaponModData.suffix2 = "Sunday Driver"
 						
 						isAugmented()
@@ -652,7 +652,7 @@ local suff2_setstat = {
 						weaponModData.s2_desc = description
 						
 						item:setMaxHitCount(maxHitCount)
-						item:setEnduranceMod(EnduranceMod)
+						--item:setEnduranceMod(EnduranceMod)
 						item:setName(weaponModData.Name)
 					end,
 
@@ -660,13 +660,13 @@ local suff2_setstat = {
 												
 						weaponModData.MaxHitCount = maxHitCount
 						
-						local isEnduranceMod = weaponModData.EnduranceMod or nil
+						--[[local isEnduranceMod = weaponModData.EnduranceMod or nil
 						if isEnduranceMod then
 							weaponModData.EnduranceMod = item:setEnduranceMod(EnduranceMod)
 						else
 							weaponModData.EnduranceMod = scriptItem:getEnduranceMod()
 						end
-						
+						]]
 						
 						if weaponModData.soulForgeMaxDmgMulti ~= nil then
 							weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti * maxDamage
@@ -682,7 +682,7 @@ local suff2_setstat = {
 						weaponModData.s2_desc = description
 						
 						item:setMaxHitCount(maxHitCount)
-						item:setEnduranceMod(EnduranceMod)
+						--item:setEnduranceMod(EnduranceMod)
 						item:setName(weaponModData.Name)
 					end,
 
@@ -917,7 +917,7 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 					soulDiff = calcsoulDiff(soulsRequired, weaponRepairedStack)
 					
 					if weaponRepairedStack >= 5 then
-						option_repairstack = submenu:addOption("Remove 1x repair stack. (-" .. soulDiff .. " souls.) New Soul Power: " .. n_soulsFreed .. "/" .. soulsRequired, item, new_weaponRepairStack, player)
+						option_repairstack = submenu:addOption("Remove 2x repair stack. (-" .. soulDiff .. " souls.) New Soul Power: " .. n_soulsFreed .. "/" .. soulsRequired, item, new_weaponRepairStack, player)
 					else
 						option_repairstack = submenu:addOption("Requires repair stacks of 4x or greater to remove a repair stack.", item, nil, player)
 					end
@@ -1419,7 +1419,12 @@ function SoulCountSD(character, handWeapon)
 		if killDiff > 0 then
 			local SoulThirstValue = pMD.SoulThirstValue or 0
 			local SoulThirst = 0
-			local pMD = player:getModData();
+
+			local faction = pMD.faction
+			if weaponModData.suffix2 == "Voidwalker" then
+				if faction == "Voidwalker" then SoulThirstValue = SoulThirstValue + 25 else SoulThirstValue = SoulThirstValue + 8.33 end
+			end
+
 			local permaSoulThirst = pMD.PermaSoulThirstValue
 			if permaSoulThirst then SoulThirstValue = math.floor(SoulThirstValue + permaSoulThirst + 0.5) end
 			if SoulThirstValue and SoulThirstValue > 0 then

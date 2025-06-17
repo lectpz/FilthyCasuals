@@ -33,6 +33,7 @@ SDxferQOL = nil
 
 local function canBuild()
     local player = getSpecificPlayer(0)
+	if not player then return end
     local isOwnSafeHouse = SafeHouse.hasSafehouse(player)
 	local tier, zone, x, y = checkZone()
     --local x = player:getX()
@@ -53,6 +54,10 @@ local function canBuild()
 
     --local ccx1, ccy1, ccx2, ccy2 = 10800, 8750, 11332, 9072
     --if x >= ccx1 and y >= ccy1 and x <= ccx2 and y <= ccy2 then
+	local bodyDamage = player:getBodyDamage()
+	local boredom
+	if bodyDamage then boredom = bodyDamage:getBoredomLevel() end
+	
 	if zone == "CC" then
         isInCC = true
     else
@@ -61,6 +66,7 @@ local function canBuild()
 	
 	if isInCC or isInSafeHouse then
 		SDxferQOL = true
+		if bodyDamage then bodyDamage:setBoredomLevel(math.max(boredom - 5, 0)) end
 	else
 		SDxferQOL = nil
 	end

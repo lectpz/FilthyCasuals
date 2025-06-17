@@ -26,6 +26,7 @@ function ISCraftAction:isValid()
 		11165, 8775, 11233, 8796,--north shops 2
 		11120, 8885, 11139, 8933,--south shops 1
 		11139, 8885, 11280, 8991,--south shops 2
+		11247, 8771, 11327, 8994,--east shops 2
 	}
 	local sqObj = getCell():getOrCreateGridSquare(x,y,0);
 	

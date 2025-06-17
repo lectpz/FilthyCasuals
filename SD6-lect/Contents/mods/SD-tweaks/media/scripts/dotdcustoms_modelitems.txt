@@ -1,0 +1,21 @@
+module Base
+{
+	model spooder
+	{
+		mesh = Static/spooder,	
+	}
+	model boosh
+	{
+		mesh = Static/dotdbush,	
+	}
+	model cardboardboxsnake
+	{
+		mesh = Static/dotdbox,	
+	}
+	model emptycardbox
+	{
+		mesh = Static/dotdbox,
+        texture = clothes/dotdcardbox, 	
+	}
+
+}

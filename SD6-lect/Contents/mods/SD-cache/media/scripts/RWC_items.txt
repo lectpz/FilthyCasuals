@@ -31,7 +31,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy ChiikuCache,
-		Sound:s_zeldaitem,
+/		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
@@ -189,7 +189,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
-		Sound:s_zeldaitem,
+/		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
@@ -201,7 +201,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy EventWeaponCacheT3,
-		Sound:s_zeldaitem,
+/		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		OnTest:OnTest_isInPlayerInventory,
@@ -214,7 +214,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy EventWeaponCacheT4,
-		Sound:s_zeldaitem,
+/		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		OnTest:OnTest_isInPlayerInventory,
@@ -227,7 +227,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy EventWeaponCacheT5,
-		Sound:s_zeldaitem,
+/		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		OnTest:OnTest_isInPlayerInventory,
@@ -241,7 +241,7 @@ module Base
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
 		EmptyWeaponCacheT4 = 5,
-		Sound:s_zeldaitem,
+/		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
@@ -255,7 +255,7 @@ module Base
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
 		EmptyWeaponCacheT3 = 4,
-		Sound:s_zeldaitem,
+/		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
@@ -269,7 +269,7 @@ module Base
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
 		EmptyWeaponCacheT2 = 3,
-		Sound:s_zeldaitem,
+/		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
@@ -283,7 +283,7 @@ module Base
 		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
 		EmptyWeaponCacheT1 = 2,
-		Sound:s_zeldaitem,
+/		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
@@ -508,7 +508,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy EventSpiffoCache,
-		Sound:s_zeldaitem,
+/		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptySpiffoCache,
 		RemoveResultItem:true,
@@ -653,7 +653,7 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy Base.PokemonCache,
-		Sound:s_pokemon,
+/		Sound:s_pokemon,
 		AnimNode:Loot,
 		Result:boosterpack_trash,
 		RemoveResultItem:true,
@@ -665,11 +665,35 @@ module Base
 	{
 		CanBeDoneFromFloor:true,
 		destroy Base.ShinyPokemonCache,
-		Sound:s_pokemon,
+/		Sound:s_pokemon,
 		AnimNode:Loot,
 		Result:boosterpack_trash,
 		RemoveResultItem:true,
 		Time:100.0,
 		OnCreate:ShinyPokemonCacheSD,
+	}
+	
+	item WeatheredAmmoBox
+	{
+		DisplayName = Box of Unmarked Ammunition (Weathered),
+		DisplayCategory = Ammo,
+		Type = Normal,
+		Weight = 0.9,
+		Icon = RifleAmmo223,
+		PlaceMultipleSound = BoxOfRoundsPlaceAll,
+		PlaceOneSound = BoxOfRoundsPlaceOne,
+		StaticModel = RifleAmmoBox,
+		WorldStaticModel = RifleAmmoBox,
+	}
+	
+	recipe Open Box of Unmarked Ammunition (Weathered)
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeatheredAmmoBox,
+		AnimNode:Loot,
+		Result:GunPowder,
+		RemoveResultItem:true,
+		Time:20.0,
+		OnCreate:OnCreate_WeatheredAmmoBoxSD,
 	}
 }

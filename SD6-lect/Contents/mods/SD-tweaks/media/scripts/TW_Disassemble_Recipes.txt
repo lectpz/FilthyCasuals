@@ -36,7 +36,7 @@ module TW
 	Result 					: GunParts,
 	OnTest:Recipe.OnTest.IsFavorite,
 /	Sound 					: GunDissasembly,
-	Time 					: 5.0,
+	Time 					: 15.0,
 	Category 				: Scrapping,
 	SkillRequired 			: MetalWelding=4,
 	OnCreate                : SD_DeconstructGun_OnCreate,
@@ -46,7 +46,7 @@ module TW
 	Prop1 					: Screwdriver,
 	Prop2 					: Source=1,
 	NeedToBeLearn			: true,
-	OnTest:Recipe.OnTest.IsFavorite,
+	OnTest:OnTest_dontDestroySoulForgedGuns,
 	Override:true,
     }
 	
@@ -59,7 +59,7 @@ module TW
 	AllowDestroyedItem      : true,
         Result           	: Spring,
         OnTest:Recipe.OnTest.IsFavorite,
-        Time             		: 5.0,
+        Time             		: 15.0,
 /	    Sound 					: ScrapStuff,
 		OnGiveXP 				: Give10MWXP,
 		Category 		        : Scrapping,
