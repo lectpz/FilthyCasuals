@@ -1,5 +1,6 @@
 local Config = require('SoulForgedJewelryConfig')
 local ItemGenerator = require('SoulForgedJewelryItemGeneration')
+local BuffSystem = require('SoulForgedJewelryBuffs')
 local function SoulForgedJewelryUpgrade(player, context, items)
     if isAdmin() or isDebugEnabled() then
     
@@ -62,6 +63,12 @@ local function SoulForgedJewelryUpgrade(player, context, items)
 			getPlayer():Say("Set " .. item:getName() .. " tier to " .. tier)
 		end
 		
+		local function onSelectIndividualBuffTier(worldobjects, item, buffId, tier)
+			BuffSystem.setBuffTier(item, buffId, tier)
+			ItemGenerator.SetResultName(item)
+			getPlayer():Say("Set " .. Config.buffDisplayNames[buffId] .. " tier to " .. tier .. " on " .. item:getName())
+		end
+		
 		local buffOption = subMenu:addOption("Set Single Buff", worldobjects, nil)
 		local buffSubMenu = ISContextMenu:getNew(subMenu)
 		context:addSubMenu(buffOption, buffSubMenu)
@@ -93,6 +100,30 @@ local function SoulForgedJewelryUpgrade(player, context, items)
 		
 		for i = 1, 5 do
 			tierSubMenu:addOption("Tier " .. i, worldobjects, onSelectTier, item, i)
+		end
+		
+		-- Individual buff tier management for items with multiple buffs
+		local modData = item:getModData()
+		if modData.SoulBuffs and #modData.SoulBuffs > 0 then
+			local individualTierOption = subMenu:addOption("Set Individual Buff Tiers", worldobjects, nil)
+			local individualTierSubMenu = ISContextMenu:getNew(subMenu)
+			context:addSubMenu(individualTierOption, individualTierSubMenu)
+			
+			for _, buffId in ipairs(modData.SoulBuffs) do
+				local buffName = Config.buffDisplayNames[buffId] or buffId
+				local currentTier = BuffSystem.getBuffTier(item, buffId)
+				local buffTierOption = individualTierSubMenu:addOption(buffName .. " (T" .. currentTier .. ")", worldobjects, nil)
+				local buffTierSubMenu = ISContextMenu:getNew(individualTierSubMenu)
+				context:addSubMenu(buffTierOption, buffTierSubMenu)
+				
+				for tier = 1, 5 do
+					local tierLabel = "Tier " .. tier
+					if tier == currentTier then
+						tierLabel = tierLabel .. " [CURRENT]"
+					end
+					buffTierSubMenu:addOption(tierLabel, worldobjects, onSelectIndividualBuffTier, item, buffId, tier)
+				end
+			end
 		end
 	end
 end

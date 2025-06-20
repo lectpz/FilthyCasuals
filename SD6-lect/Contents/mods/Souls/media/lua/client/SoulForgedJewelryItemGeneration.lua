@@ -101,9 +101,11 @@ function ItemGenerator.SetResultName(result)
     
     local newItemName
     if showTier then
-        newItemName = "[T" .. modData.Tier .."] " .. combinedBuffName .. " Soul Forged " .. baseItemName
+        -- Show T6 for items with multiple buffs, otherwise use the item's tier
+        local displayTier = (#buffs > 1) and "6" or (modData.Tier or "?")
+        newItemName = "[T" .. displayTier .."] " .. (combinedBuffName or "Unknown") .. " Soul Forged " .. (baseItemName or "Item")
     else
-        newItemName = combinedBuffName .. " Soul Forged " .. baseItemName
+        newItemName = (combinedBuffName or "Unknown") .. " Soul Forged " .. (baseItemName or "Item")
     end
     
     if currentName ~= newItemName then

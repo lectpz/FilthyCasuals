@@ -42,7 +42,7 @@ function TooltipSystem.calculateBuffTotal(player, buffType, options)
                            (not options.bodyLocation or item:getBodyLocation() == options.bodyLocation)
         
         if shouldCount then
-            local tier = BuffSystem.getTierNumber(item)
+            local tier = BuffSystem.getBuffTier(item, buffType)
             local buffCalc = BuffSystem.BUFF_CALCULATIONS[buffType]
             if buffCalc then
                 total = total + buffCalc.getDisplayValue(tier)
@@ -52,7 +52,7 @@ function TooltipSystem.calculateBuffTotal(player, buffType, options)
     
     -- Add potential new item if specified
     if options.includeItem and options.includeItem:getModData().SoulBuff == buffType then
-        local tier = BuffSystem.getTierNumber(options.includeItem)
+        local tier = BuffSystem.getBuffTier(options.includeItem, buffType)
         local buffCalc = BuffSystem.BUFF_CALCULATIONS[buffType]
         if buffCalc then
             total = total + buffCalc.getDisplayValue(tier)
@@ -76,19 +76,20 @@ function TooltipSystem.createTooltip(item)
         if buff then
             local buffCalc = BuffSystem.BUFF_CALCULATIONS[buff]
             if buffCalc then
-                local value = buffCalc.getDisplayValue(tier)
+                local buffTier = BuffSystem.getBuffTier(item, buff) -- Use individual buff tier
+                local value = buffCalc.getDisplayValue(buffTier)
                 local showTier = not (buffCalc and buffCalc.hasTier == false)
                 
                 local buffText
                 if buff == "luck" or buff == "SoulStrength" then
                     if showTier then
-                        buffText = string.format("[T%d] %+.1f %s", tier, value, buffCalc.format)
+                        buffText = string.format("[T%d] %+.1f %s", buffTier, value, buffCalc.format)
                     else
                         buffText = string.format("%+.1f %s", value, buffCalc.format)
                     end
                 else 
                     if showTier then
-                        buffText = string.format("[T%d] %+.1f%% %s", tier, value, buffCalc.format)
+                        buffText = string.format("[T%d] %+.1f%% %s", buffTier, value, buffCalc.format)
                     else
                         buffText = string.format("%+.1f%% %s", value, buffCalc.format)
                     end
@@ -105,24 +106,28 @@ function TooltipSystem.createTooltip(item)
     
     -- For simplicity with multiple buffs, we'll just show the main text
     -- Complex total calculations would be too verbose for multiple buffs
-    if #buffs == 1 then
-        local buff = buffs[1]
-        local buffCalc = BuffSystem.BUFF_CALCULATIONS[buff]
-        local currentTotal = TooltipSystem.calculateBuffTotal(player, buff)
-        
-        -- Track if this would be a downgrade
-        local isDowngrade = false
-        
-        -- Add total info based on equipped state and buff type
-        local hasLostBuff = false  -- Flag to track if we have a lost buff line
-        
-        -- Check if buff has a maximum value
-        local hasMaxValue = buffCalc.maxValue ~= nil
-        local isAtMax = hasMaxValue and currentTotal >= buffCalc.maxValue
-        local value = buffCalc.getDisplayValue(tier)
+    if #buffs > 1 then
+        -- For multiple buffs, just return the main text without complex calculations
+        return tooltip, false, false
+    end
     
-        -- Add total info based on equipped state and buff type
-        if item:isEquipped() then
+    local buff = buffs[1]
+    local buffCalc = BuffSystem.BUFF_CALCULATIONS[buff]
+    local currentTotal = TooltipSystem.calculateBuffTotal(player, buff)
+    
+    -- Track if this would be a downgrade
+    local isDowngrade = false
+    
+    -- Add total info based on equipped state and buff type
+    local hasLostBuff = false  -- Flag to track if we have a lost buff line
+    
+    -- Check if buff has a maximum value
+    local hasMaxValue = buffCalc.maxValue ~= nil
+    local isAtMax = hasMaxValue and currentTotal >= buffCalc.maxValue
+    local value = buffCalc.getDisplayValue(BuffSystem.getBuffTier(item, buff))
+
+    -- Add total info based on equipped state and buff type
+    if item:isEquipped() then
         if buff == "luck" or buff == "SoulStrength" then
             tooltip = tooltip .. string.format("\nCurrent Total: %+.1f", currentTotal)
             -- Add max value indicator if applicable
@@ -155,7 +160,7 @@ function TooltipSystem.createTooltip(item)
         
         -- Determine if this would be a downgrade
         if equippedItem and equippedItem:getModData().SoulBuff == buff then
-            local equippedValue = BuffSystem.BUFF_CALCULATIONS[buff].getDisplayValue(BuffSystem.getTierNumber(equippedItem))
+            local equippedValue = BuffSystem.BUFF_CALCULATIONS[buff].getDisplayValue(BuffSystem.getBuffTier(equippedItem, buff))
             isDowngrade = value < equippedValue
         end
         
@@ -184,7 +189,7 @@ function TooltipSystem.createTooltip(item)
             hasLostBuff = true  -- Set flag when we add a lost buff line
             local oldBuff = equippedItem:getModData().SoulBuff
             local oldBuffCalc = BuffSystem.BUFF_CALCULATIONS[oldBuff]
-            local oldValue = oldBuffCalc.getDisplayValue(BuffSystem.getTierNumber(equippedItem))
+            local oldValue = oldBuffCalc.getDisplayValue(BuffSystem.getBuffTier(equippedItem, oldBuff))
             local oldTotal = TooltipSystem.calculateBuffTotal(player, oldBuff)
             local newOldTotal = oldTotal - oldValue
             
@@ -195,12 +200,9 @@ function TooltipSystem.createTooltip(item)
                 tooltip = tooltip .. string.format("\n%s: %+.1f%% -> %+.1f%%", oldBuffCalc.format, oldTotal, newOldTotal)
             end
         end
-        
-        return tooltip, isDowngrade, hasLostBuff
-    else
-        -- For multiple buffs, just return the main text without complex calculations
-        return tooltip, false, false
     end
+    
+    return tooltip, isDowngrade, hasLostBuff
 end
 
 -- Helper function to draw tooltip text with specific color

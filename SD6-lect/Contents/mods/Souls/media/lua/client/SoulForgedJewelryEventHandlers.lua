@@ -26,8 +26,8 @@ function EventHandlers.OnTest_CheckInInventory(item)
     return true
 end
 
-function EventHandlers.SoulForgedJewelryOnCreate(items, result, player)
-    if not items then return end
+function EventHandlers.SoulForgedJewelryOnCreate(items, result, player, forcedTier)
+    if not items then return end 
     
     local rolledItem = ItemGenerator.getRandomAccessoryForSlots()
     local inventory = player:getInventory()
@@ -37,26 +37,36 @@ function EventHandlers.SoulForgedJewelryOnCreate(items, result, player)
     createdItem:setDisplayCategory('SoulForge')
 
     if createdItem then
-        local tier = 1
-        for i=0, items:size()-1 do
-            local itemType = items:get(i):getFullType()
-            if itemType == "SoulForge.SoulShardT5" then 
-                tier = 5
-                break
-            elseif itemType == "SoulForge.SoulShardT4" then 
-                tier = 4
-            elseif itemType == "SoulForge.SoulShardT3" then 
-                tier = 3
-            elseif itemType == "SoulForge.SoulShardT2" then 
-                tier = 2
+        local tier = forcedTier or 1
+        
+        -- Only check shards if no tier was forced
+        if not forcedTier then
+            for i=0, items:size()-1 do
+                local itemType = items:get(i):getFullType()
+                if itemType == "SoulForge.SoulShardT5" then 
+                    tier = 5
+                    break
+                elseif itemType == "SoulForge.SoulShardT4" then 
+                    tier = 4
+                elseif itemType == "SoulForge.SoulShardT3" then 
+                    tier = 3
+                elseif itemType == "SoulForge.SoulShardT2" then 
+                    tier = 2
+                end
             end
         end
         
         if tier == 6 then
-            local selectedBuffs = BuffSystem.getMultipleWeightedBuffs("T5", 2)
+            local selectedBuffs = BuffSystem.getMultipleWeightedBuffs("T3", 2)
             createdItem:getModData().SoulBuffs = selectedBuffs
-            createdItem:getModData().Tier = 5
+            -- Set individual buff tiers for multiple buffs
+            createdItem:getModData().SoulBuffTiers = {}
+            for _, buff in ipairs(selectedBuffs) do
+                createdItem:getModData().SoulBuffTiers[buff] = 3
+            end
+            createdItem:getModData().Tier = 3
         else
+            tier = tier = 1
             local selectedBuff = BuffSystem.getWeightedBuff("T" .. tier)
             createdItem:getModData().SoulBuff = selectedBuff
             createdItem:getModData().Tier = tier

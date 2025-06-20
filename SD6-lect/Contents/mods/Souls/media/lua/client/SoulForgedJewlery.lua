@@ -29,7 +29,7 @@ function OnTest_CheckInInventory(item)
     if not item:isInPlayerInventory() then return false end
 
     return true
- end
+end
 
  -- Override transfer speed for dexterity buff
 local original_new = ISInventoryTransferAction.new
