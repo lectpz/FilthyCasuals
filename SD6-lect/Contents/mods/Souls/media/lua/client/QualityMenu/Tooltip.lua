@@ -34,21 +34,13 @@ function Tooltip.attachSimpleTooltip(option, label, description, color)
     option.toolTip = tooltip
 end
 
--- You can also include this if you use custom display names:
-Tooltip.DisplayNames = {
-    MaxDmg = "Max Damage",
-    MinDmg = "Min Damage",
-    CriticalChance = "Crit Chance",
-    CritDmgMultiplier = "Crit Multiplier"
-}
-
 function Tooltip.getAugmentColor(augmentNo)
     local color = Tooltip.AugmentColors[augmentNo] or Tooltip.AugmentColors[0]
     return color
 end
 
-function Tooltip.getDisplayName(statName)
-    return Tooltip.DisplayNames[statName] or statName
+function Tooltip.getDisplayName(statKey)
+    return Tooltip.DisplayNames[statKey] or statKey
 end
 
 return Tooltip

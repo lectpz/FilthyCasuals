@@ -41,7 +41,7 @@ end
 
 function Tickets.applyTicket(weapon, statKey, ticket)
     print(string.format("[Tickets] Applying ticket: %s | Tier %s | Bonus %.3f", statKey, ticket.tier, ticket.bonus))
-    local tierBonus = ticket.bonus -- e.g. 0.10
+    local tierBonus = ticket.bonus
     Utils.applyStatBonus(weapon, statKey, tierBonus)
 
     -- Optionally increment augment count

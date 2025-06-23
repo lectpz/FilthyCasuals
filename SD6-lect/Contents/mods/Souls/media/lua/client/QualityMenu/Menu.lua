@@ -6,6 +6,11 @@ local Utils = require("QualityMenu/Utils")
 local Config = require("QualityMenu/Config")
 
 function Menu.applyQualityTicket(weapon, statKey, ticket)
+    if not statKey or not ticket then
+        print("[Menu] Error: Missing statKey or ticket", statKey, ticket)
+        return
+    end
+
     print("[Menu] Applying ticket:", statKey, ticket.tier, ticket.bonus)
     Tickets.applyTicket(weapon, statKey, ticket)
     HaloTextHelper.addTextAbovePlayer(getPlayer(),
@@ -16,11 +21,11 @@ function Menu.buildQualityTicketMenu(player, context, weapon, tickets)
     print("[Menu] Building quality ticket submenu")
     local modData = weapon:getModData()
 
-    local parentOption = context:addOption("SoulForge: Apply Quality Modifier", weapon)
+    local parentOption = context:addOption("Quality Enhancer Tickets", weapon)
     local submenu = ISContextMenu:getNew(context)
     context:addSubMenu(parentOption, submenu)
 
-    -- View current augments
+    -- Show current bonuses
     submenu:addOption("Current Enhancer Multipliers:", weapon, nil).notAvailable = true
     for statKey, _ in pairs(Config.statMap) do
         local label = Tooltip.getDisplayName(statKey)
@@ -28,15 +33,31 @@ function Menu.buildQualityTicketMenu(player, context, weapon, tickets)
         submenu:addOption("  " .. label .. ": " .. bonus, weapon, nil).notAvailable = true
     end
 
-    -- Apply new tickets
-    submenu:addOption("Available Quality Tickets:", weapon, nil).notAvailable = true
+    local weaponType = weapon:isRanged() and "Ranged" or "Melee"
+    local validStats = Config.soulStats[weaponType]
+
+    -- Only show applicable ticket types
     for statKey, ticketList in pairs(tickets) do
-        for _, ticket in ipairs(ticketList) do
-            local label = string.format("  Apply %s | %s | +%.2f%%",
-                Tooltip.getDisplayName(statKey), ticket.tier, ticket.bonus * 100)
-            local opt = submenu:addOption(label, weapon, Menu.applyQualityTicket, weapon, statKey, ticket)
-            Tooltip.attachSimpleTooltip(opt, Tooltip.getDisplayName(statKey),
-                "Enhances this stat by +" .. (ticket.bonus * 100) .. "%")
+        if Utils.contains(validStats, statKey) then
+            table.sort(ticketList, function(a, b) return a.bonus > b.bonus end)
+
+            local statSubmenu = ISContextMenu:getNew(context)
+            submenu:addSubMenu(submenu:addOption(Tooltip.getDisplayName(statKey) .. " Tickets"), statSubmenu)
+
+            statSubmenu:addOption("Apply All Tickets", nil, function()
+                for _, ticket in ipairs(ticketList) do
+                    Menu.applyQualityTicket(weapon, statKey, ticket)
+                    getSpecificPlayer(player):getInventory():Remove(ticket.item)
+                end
+            end)
+
+            for _, ticket in ipairs(ticketList) do
+                local label = string.format("%s | %s | +%.2f%%", Tooltip.getDisplayName(statKey), ticket.tier,
+                    ticket.bonus * 100)
+                local opt = statSubmenu:addOption(label, nil, Menu.applyQualityTicket, weapon, statKey, ticket)
+                Tooltip.attachSimpleTooltip(opt, Tooltip.getDisplayName(statKey),
+                    "Enhances this stat by +" .. (ticket.bonus * 100) .. "%")
+            end
         end
     end
 end

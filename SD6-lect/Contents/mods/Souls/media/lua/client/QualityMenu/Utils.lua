@@ -35,13 +35,21 @@ function Utils.formatEnhancerBonus(modData, statKey)
     return string.format("+%.2f%%", bonus)
 end
 
--- Optional: Returns a table of all stat bonuses
+-- Returns a table of all stat bonuses
 function Utils.getAllEnhancerStats(modData)
     local results = {}
     for statKey, _ in pairs(Config.statMap) do
         results[statKey] = Utils.formatEnhancerBonus(modData, statKey)
     end
     return results
+end
+
+-- Utility: check if a value exists in a table
+function Utils.contains(tbl, val)
+    for _, v in ipairs(tbl) do
+        if v == val then return true end
+    end
+    return false
 end
 
 return Utils
