@@ -1,13 +1,15 @@
-Config = require("SoulForgedConfig")
-QualityTickets = {}
+Config = require("QualityMenu/Config")
+Utils = require("QualityMenu/Utils")
+Tickets = {}
 
-function QualityTickets.parseTicketName(fullItemString)
+function Tickets.parseTicketName(fullItemString)
     local stat, tierNum = string.match(fullItemString, "^SoulForge%.(.-)_EnhancerT(%d+)$")
     if not stat or not tierNum then return nil end
     return stat, tierNum
 end
 
-function QualityTickets.scanInventory(player)
+function Tickets.scanInventory(player)
+    print("[Tickets] Scanning inventory for quality tickets...")
     local inv = player:getInventory()
     local items = inv:getItems()
     local tickets = {}
@@ -16,7 +18,7 @@ function QualityTickets.scanInventory(player)
         local item = items:get(i)
         local itemName = item:getFullType()
 
-        local stat, tier = QualityTickets.parseTicketName(itemName)
+        local stat, tier = Tickets.parseTicketName(itemName)
         if stat and tier then
             local tierName = "T" .. tier
             local tierBonus = Config.tiers[tierName]
@@ -37,8 +39,14 @@ function QualityTickets.scanInventory(player)
     return tickets
 end
 
-function QualityTickets.applyTicket(weapon, stat, ticket)
-    weapon:getModData()[stat] = (weapon:getModData()[stat] or 0) + ticket.bonus
+function Tickets.applyTicket(weapon, statKey, ticket)
+    print(string.format("[Tickets] Applying ticket: %s | Tier %s | Bonus %.3f", statKey, ticket.tier, ticket.bonus))
+    local tierBonus = ticket.bonus -- e.g. 0.10
+    Utils.applyStatBonus(weapon, statKey, tierBonus)
+
+    -- Optionally increment augment count
+    local modData = weapon:getModData()
+    modData.Augments = (modData.Augments or 0) + 1
 end
 
-return QualityTickets
+return Tickets

@@ -49,12 +49,4 @@ Config.tiers = {
     T5 = 0.016
 }
 
-Config.prefixSuffixMap = {
-    Prefix1 = "prefix1",
-    Prefix2 = "prefix2",
-    Suffix1 = "suffix1",
-    Suffix2 = "suffix2",
-    Augments = "Augments"
-}
-
 return Config
