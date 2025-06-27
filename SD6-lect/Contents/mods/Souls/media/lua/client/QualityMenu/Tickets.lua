@@ -3,7 +3,8 @@ Utils = require("QualityMenu/Utils")
 Tickets = {}
 
 function Tickets.parseTicketName(fullItemString)
-    local stat, tierNum = string.match(fullItemString, "^SoulForge%.(.-)_EnhancerT(%d+)$")
+    local stat, tierNum = string.match(fullItemString, "^SoulForge%.mdz?(%a+)_EnhancerT(%d+)$")
+
     if not stat or not tierNum then return nil end
     return stat, tierNum
 end
@@ -15,10 +16,12 @@ function Tickets.scanInventory(player)
     local tickets = {}
 
     for i = 0, items:size() - 1 do
+        print("[Tickets] Checking item: ", items:get(i):getFullType())
         local item = items:get(i)
         local itemName = item:getFullType()
 
         local stat, tier = Tickets.parseTicketName(itemName)
+        print("[Tickets] stat:", stat, "tier:", tier)
         if stat and tier then
             local tierName = "T" .. tier
             local tierBonus = Config.tiers[tierName]

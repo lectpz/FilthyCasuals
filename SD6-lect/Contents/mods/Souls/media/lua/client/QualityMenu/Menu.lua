@@ -54,7 +54,7 @@ function Menu.buildQualityTicketMenu(player, context, weapon, tickets)
             for _, ticket in ipairs(ticketList) do
                 local label = string.format("%s | %s | +%.2f%%", Tooltip.getDisplayName(statKey), ticket.tier,
                     ticket.bonus * 100)
-                local opt = statSubmenu:addOption(label, nil, Menu.applyQualityTicket, weapon, statKey, ticket)
+                local opt = statSubmenu:addOption(label, weapon, Menu.applyQualityTicket, weapon, statKey, ticket)
                 Tooltip.attachSimpleTooltip(opt, Tooltip.getDisplayName(statKey),
                     "Enhances this stat by +" .. (ticket.bonus * 100) .. "%")
             end
