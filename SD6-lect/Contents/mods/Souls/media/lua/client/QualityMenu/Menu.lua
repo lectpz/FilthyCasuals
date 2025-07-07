@@ -25,18 +25,20 @@ function Menu.buildQualityTicketMenu(player, context, weapon, tickets)
     local submenu = ISContextMenu:getNew(context)
     context:addSubMenu(parentOption, submenu)
 
-    -- Show current bonuses
-    submenu:addOption("Current Enhancer Multipliers:", weapon, nil).notAvailable = true
+    local statSummary = ""
     for statKey, _ in pairs(Config.statMap) do
         local label = Tooltip.getDisplayName(statKey)
         local bonus = Utils.formatEnhancerBonus(modData, statKey)
-        submenu:addOption("  " .. label .. ": " .. bonus, weapon, nil).notAvailable = true
+        statSummary = statSummary .. label .. ": " .. bonus .. " <LINE> "
     end
+
+    local statOpt = submenu:addOption("Stats", weapon, nil)
+    Tooltip.attachSimpleTooltip(statOpt, "Current Enhancer Multipliers", statSummary)
+    statOpt.notAvailable = true
 
     local weaponType = weapon:isRanged() and "Ranged" or "Melee"
     local validStats = Config.soulStats[weaponType]
 
-    -- Only show applicable ticket types
     for statKey, ticketList in pairs(tickets) do
         if Utils.contains(validStats, statKey) then
             table.sort(ticketList, function(a, b) return a.bonus > b.bonus end)

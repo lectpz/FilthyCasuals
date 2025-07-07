@@ -1,7 +1,6 @@
 local Utils = {}
 local Config = require("QualityMenu/Config")
 
--- Applies a bonus to a weapon's stat modData (e.g., mdzMaxDmg)
 function Utils.applyStatBonus(weapon, statKey, tierBonus)
     local modData = weapon:getModData()
     local mdzKey = "mdz" .. statKey
@@ -11,7 +10,6 @@ function Utils.applyStatBonus(weapon, statKey, tierBonus)
     print(string.format("[WeaponAugment] Applied %.4f to %s → %s = %.4f", tierBonus, statKey, mdzKey, modData[mdzKey]))
 end
 
--- Finds a SoulForged weapon in the context menu items
 function Utils.getForgeableWeapon(items)
     for _, entry in ipairs(items) do
         local item = entry and entry.items and entry.items[1]
@@ -27,7 +25,6 @@ function Utils.getForgeableWeapon(items)
     return nil
 end
 
--- Formats a single bonus string like "+12.50%%"
 function Utils.formatEnhancerBonus(modData, statKey)
     local mdzKey = "mdz" .. statKey
     local mult = modData[mdzKey] or 1.0
@@ -35,7 +32,6 @@ function Utils.formatEnhancerBonus(modData, statKey)
     return string.format("+%.2f%%", bonus)
 end
 
--- Returns a table of all stat bonuses
 function Utils.getAllEnhancerStats(modData)
     local results = {}
     for statKey, _ in pairs(Config.statMap) do
@@ -44,7 +40,6 @@ function Utils.getAllEnhancerStats(modData)
     return results
 end
 
--- Utility: check if a value exists in a table
 function Utils.contains(tbl, val)
     for _, v in ipairs(tbl) do
         if v == val then return true end

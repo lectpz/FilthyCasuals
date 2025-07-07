@@ -47,7 +47,6 @@ function Tickets.applyTicket(weapon, statKey, ticket)
     local tierBonus = ticket.bonus
     Utils.applyStatBonus(weapon, statKey, tierBonus)
 
-    -- Optionally increment augment count
     local modData = weapon:getModData()
     modData.Augments = (modData.Augments or 0) + 1
 end

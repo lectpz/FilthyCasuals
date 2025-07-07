@@ -21,7 +21,6 @@ Config.soulStats = {
 }
 
 Config.statMap = {
-    -- Melee stats
     MaxDmg = "soulForgeMaxDmgMulti",
     MinDmg = "soulForgeMinDmgMulti",
     CriticalChance = "soulForgeCritRate",
