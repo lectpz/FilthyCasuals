@@ -109,6 +109,31 @@ function BuffSystem.getTierNumber(item)
     return tonumber(tierMatch) or 1
 end
 
+-- Get tier for a specific buff (supports individual buff tiers)
+function BuffSystem.getBuffTier(item, buffType)
+    local modData = item:getModData()
+    
+    -- Check if individual buff tiers are defined
+    if modData.SoulBuffTiers and modData.SoulBuffTiers[buffType] then
+        return modData.SoulBuffTiers[buffType]
+    end
+    
+    -- Fall back to item tier for single buff items or items without individual tiers
+    return BuffSystem.getTierNumber(item)
+end
+
+-- Set tier for a specific buff
+function BuffSystem.setBuffTier(item, buffType, tier)
+    local modData = item:getModData()
+    
+    -- Initialize SoulBuffTiers if it doesn't exist
+    if not modData.SoulBuffTiers then
+        modData.SoulBuffTiers = {}
+    end
+    
+    modData.SoulBuffTiers[buffType] = tier
+end
+
 function BuffSystem.getWeightedBuff(tier)
     local availableBuffs = Config.tierBuffs[tier]
     local totalWeight = 0
@@ -191,7 +216,7 @@ function BuffSystem.modifyBuff(player, item, isEquipping, buffType)
     local buff = BuffSystem.BUFF_CALCULATIONS[buffType]
     if not buff then return end
     
-    local tier = BuffSystem.getTierNumber(item)
+    local tier = BuffSystem.getBuffTier(item, buffType) -- Use individual buff tier
     local value = buff.getBonus(tier)
     local pMD = player:getModData()
     
