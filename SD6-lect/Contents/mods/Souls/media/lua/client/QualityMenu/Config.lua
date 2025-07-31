@@ -39,7 +39,6 @@ Config.statMap = {
     PiercingBullets = "PiercingBullets"
 }
 
--- Tiers for QualityTickets
 Config.tiers = {
     T1 = 0.001,
     T2 = 0.002,
