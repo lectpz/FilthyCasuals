@@ -1,0 +1,25 @@
+module Base
+{
+	sound CashRegister
+	{
+		category = Voice, loop = false
+		clip
+		{
+			file = media/sound/cashregister.ogg,
+			distanceMax = 1,
+			volume = 0.1,
+		}
+	}
+
+	sound Notification
+	{
+		category = Voice, loop = false
+		clip
+		{
+			file = media/sound/notification.ogg,
+			distanceMax = 1,
+			volume = 0.1,
+		}
+	}
+
+}

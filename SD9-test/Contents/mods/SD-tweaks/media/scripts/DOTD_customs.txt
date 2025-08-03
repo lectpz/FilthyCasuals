@@ -1,0 +1,135 @@
+module DOTD
+
+{
+        
+    item HighlySpooder
+    {
+        DisplayCategory         =   Clothing,
+        Type                    =   Clothing,
+        DisplayName             =   Spooder,
+        ClothingItem            =   spooder,
+        BodyLocation            =   FullSuit,
+        BloodLocation           =   Jumper;Shoes;Groin,
+		Icon                    =   spooder,
+        CanHaveHoles            =   false,
+        BulletDefense           =   15,
+      	BiteDefense             =   25,
+       	ScratchDefense          =   25,
+        Insulation              =   1.0,
+        WindResistance          =   1.0,
+        WaterResistance         =   1.0,
+        CombatSpeedModifier     =   1.0,
+        FabricType              =   Leather,
+        WorldStaticModel        =   spooder,
+    }
+	
+	item HighlySpooderHeavy
+    {
+        DisplayCategory         =   Clothing,
+        Type                    =   Clothing,
+        DisplayName             =   Heavy Spooder,
+        ClothingItem            =   spooder,
+        BodyLocation            =   FullSuit,
+        BloodLocation           =   Jumper;Shoes;Groin,
+		Icon                    =   spooder,
+        CanHaveHoles            =   false,
+        BulletDefense           =   15,
+      	BiteDefense             =   25,
+       	ScratchDefense          =   25,
+        Insulation              =   1.0,
+        WindResistance          =   1.0,
+        WaterResistance         =   1.0,
+        CombatSpeedModifier     =   1.0,
+        FabricType              =   Leather,
+        WorldStaticModel        =   spooder,
+		Weight                  = 	55.0,
+    }
+
+    item Boosh
+    {
+        DisplayCategory         =   Clothing,
+        Type                    =   Clothing,
+        DisplayName             =   Bush,
+        ClothingItem            =   boosh,
+        BodyLocation            =   FullSuit,
+        BloodLocation           =   Jumper;Shoes;Groin,
+		Icon                    =   boosh,
+        CanHaveHoles            =   false,
+        BulletDefense           =   15,
+      	BiteDefense             =   25,
+       	ScratchDefense          =   25,
+        Insulation              =   1.0,
+        WindResistance          =   1.0,
+        WaterResistance         =   1.0,
+        FabricType              =   Leather,
+        WorldStaticModel        =   boosh,
+        Tooltip					=   If Im not a bush - Im not no one,
+    }
+	
+	item BooshHeavy
+    {
+        DisplayCategory         =   Clothing,
+        Type                    =   Clothing,
+        DisplayName             =   Heavy Bush,
+        ClothingItem            =   boosh,
+        BodyLocation            =   FullSuit,
+        BloodLocation           =   Jumper;Shoes;Groin,
+		Icon                    =   boosh,
+        CanHaveHoles            =   false,
+        BulletDefense           =   15,
+      	BiteDefense             =   25,
+       	ScratchDefense          =   25,
+        Insulation              =   1.0,
+        WindResistance          =   1.0,
+        WaterResistance         =   1.0,
+        FabricType              =   Leather,
+        WorldStaticModel        =   boosh,
+        Tooltip					=   If Im not a bush - Im not no one,
+		Weight                  = 	55.0,
+    }
+
+
+    item CardboardboxSnake
+    {
+        DisplayCategory         =   Clothing,
+        Type                    =   Clothing,
+        DisplayName             =   Cardboard Box,
+        ClothingItem            =   cardboardbox,
+        BodyLocation            =   FullSuit,
+        BloodLocation           =   Jumper;Shoes;Groin,
+		Icon                    =   cardboardbox,
+        CanHaveHoles            =   false,
+        BulletDefense           =   5,
+      	BiteDefense             =   5,
+       	ScratchDefense          =   5,
+        Insulation              =   0.5,
+        WindResistance          =   1.0,
+        WaterResistance         =   1.0,
+        FabricType              =   Leather,
+        WorldStaticModel        =   cardboardboxsnake,
+        Tooltip					=   Snake? SNAAAKE!,
+    }
+	
+	item CardboardboxSnakeHeavy
+    {
+        DisplayCategory         =   Clothing,
+        Type                    =   Clothing,
+        DisplayName             =   Heavy Cardboard Box,
+        ClothingItem            =   cardboardbox,
+        BodyLocation            =   FullSuit,
+        BloodLocation           =   Jumper;Shoes;Groin,
+		Icon                    =   cardboardbox,
+        CanHaveHoles            =   false,
+        BulletDefense           =   5,
+      	BiteDefense             =   5,
+       	ScratchDefense          =   5,
+        Insulation              =   0.5,
+        WindResistance          =   1.0,
+        WaterResistance         =   1.0,
+        FabricType              =   Leather,
+        WorldStaticModel        =   cardboardboxsnake,
+        Tooltip					=   Snake? SNAAAKE!,
+		Weight                  = 	55.0,
+    }
+
+}

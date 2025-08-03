@@ -1,0 +1,699 @@
+module Base
+{	
+	imports
+	{
+		Base
+	}
+	
+	item WeaponCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Weapon Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item ChiikuCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Chiiku Firearm Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open Chiiku Firearm Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy ChiikuCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:ChiikuWeaponCacheSD,
+	}
+	
+	item EventWeaponCacheT3
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tier 3 Event Weapon Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EventWeaponCacheT4
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tier 4 Event Weapon Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EventWeaponCacheT5
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tier 5 Event Weapon Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyWeaponCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item EmptyWeaponCacheT1
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Tier 1 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item EmptyWeaponCacheT2
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Tier 2 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item EmptyWeaponCacheT3
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Tier 3 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item EmptyWeaponCacheT4
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Tier 4 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item MetalworkCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Metalwork Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_complete_plus,
+        WorldStaticModel        = RikuEmporiumBox_complete_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyMetalworkCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Metalwork Cache,
+        Icon                    = i_RikuEmporiumBox_complete_plus,
+        WorldStaticModel        = RikuEmporiumBox_complete_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+
+	item MechanicCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Mechanic Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyMechanicCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Mechanic Cache,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	item MedicalCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Medical Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyMedicalCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Medical Cache,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Weapon Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:RikuWeaponCacheSD,
+	}
+	
+	recipe Open Tier 3 Event Weapon Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy EventWeaponCacheT3,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:RikuRewardsT3,
+	}
+	
+	recipe Open Tier 4 Event Weapon Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy EventWeaponCacheT4,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:RikuRewardsT4,
+	}
+	
+	recipe Open Tier 5 Event Weapon Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy EventWeaponCacheT5,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:RikuRewardsT5,
+	}
+	
+	recipe Upgrade Weapon Cache To Tier 5
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+		EmptyWeaponCacheT4 = 5,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCanPerform:onTestTier5CheckSD,
+		OnCreate:RikuWeaponCacheUpgradeSD,
+	}
+	
+	recipe Upgrade Weapon Cache To Tier 4
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+		EmptyWeaponCacheT3 = 4,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCanPerform:onTestTier3CheckSD,
+		OnCreate:RikuWeaponCacheUpgradeSD,
+	}
+	
+	recipe Upgrade Weapon Cache To Tier 3
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+		EmptyWeaponCacheT2 = 3,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCanPerform:onTestTier2CheckSD,
+		OnCreate:RikuWeaponCacheUpgradeSD,
+	}
+	
+	recipe Upgrade Weapon Cache To Tier 2
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeaponCache,
+		EmptyWeaponCacheT1 = 2,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCanPerform:onTestTier1CheckSD,
+		OnCreate:RikuWeaponCacheUpgradeSD,
+	}
+	
+	recipe Open Mechanic Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy MechanicCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyMechanicCache,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:MechCacheSD,
+	}
+
+	recipe Open Metalwork Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy MetalworkCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyMetalworkCache,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:MetalworkCacheSD,
+	}
+	
+	recipe Open Medical Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy MedicalCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyMedicalCache,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:MedicalCacheSD,
+	}
+
+	item AmmoCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Ammo Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event,
+        WorldStaticModel        = RikuEmporiumBox_event,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyAmmoCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Ammo Cache,
+        Icon                    = i_RikuEmporiumBox_event,
+        WorldStaticModel        = RikuEmporiumBox_event,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Ammo Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy AmmoCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyAmmoCache,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:AmmoCacheSD,
+	}
+	
+	item ArmorCachePatriot
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Armor Cache (Patriot),
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache1,
+        WorldStaticModel        = cache1,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyArmorCachePatriot
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Armor Cache (Patriot),
+        Icon                    = cache1,
+        WorldStaticModel        = cache1,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Armor Cache (Patriot)
+	{
+		CanBeDoneFromFloor:true,
+		destroy ArmorCachePatriot,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyArmorCachePatriot,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:ArmorCachePatriotSD,
+	}
+	
+	item ArmorCacheDefender
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Armor Cache (Defender),
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache2,
+        WorldStaticModel        = cache2,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyArmorCacheDefender
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Armor Cache (Defender),
+        Icon                    = cache2,
+        WorldStaticModel        = cache2,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Armor Cache (Defender)
+	{
+		CanBeDoneFromFloor:true,
+		destroy ArmorCacheDefender,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyArmorCacheDefender,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:ArmorCacheDefenderSD,
+	}
+	
+	item ArmorCacheVanguard
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Armor Cache (Vanguard),
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache3,
+        WorldStaticModel        = cache3,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyArmorCacheVanguard
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Armor Cache (Vanguard),
+        Icon                    = cache3,
+        WorldStaticModel        = cache3,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Armor Cache (Vanguard)
+	{
+		CanBeDoneFromFloor:true,
+		destroy ArmorCacheVanguard,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyArmorCacheVanguard,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:ArmorCacheVanguardSD,
+	}
+	
+	item SpiffoCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Spiffo Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache4,
+        WorldStaticModel        = cache4,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptySpiffoCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Empty Spiffo Cache,
+        Icon                    = cache4,
+        WorldStaticModel        = cache4,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Spiffo Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy SpiffoCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptySpiffoCache,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:SpiffoCacheSD,
+	}
+	
+	item EventSpiffoCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Event Spiffo Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache4,
+        WorldStaticModel        = cache4,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open Event Spiffo Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy EventSpiffoCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptySpiffoCache,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:EventSpiffoCacheSD,
+	}
+	
+	item TileCacheRegular
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tile Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache5,
+        WorldStaticModel        = cache5,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item TileCachePremium
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Premium Tile Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache6,
+        WorldStaticModel        = cache6,
+        Tooltip = Tooltip_Cache,
+	}
+
+	recipe Whos That Pokemon
+	{
+		CanBeDoneFromFloor:true,
+		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackjungle,
+		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackjungle,
+		destroy Base.TileCacheRegular,
+		Sound:s_pokemon,
+		AnimNode:Loot,
+		Result:boosterpack_trash,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:PokemonCacheSD,
+	}
+	
+	recipe Reroll Pokemon Booster Pack
+	{
+		[Recipe.GetItemTypes.PokemonCards001_049]=3,
+		[Recipe.GetItemTypes.PokemonCards050_099]=3,
+		[Recipe.GetItemTypes.PokemonCards100_151]=3,
+		ScrapMetal=4,
+		Result:pkmncards.boosterpack,
+		Time:25.0,
+	}
+	
+	recipe Reroll Pokemon Jungle Booster Pack
+	{
+		[Recipe.GetItemTypes.PokemonCards001_049]=3,
+		[Recipe.GetItemTypes.PokemonCards050_099]=3,
+		[Recipe.GetItemTypes.PokemonCards100_151]=3,
+		ScrapMetal=4,
+		Result:pkmncards.boosterpackjungle,
+		Time:25.0,
+	}
+	
+	recipe Reroll Pokemon Fossil Booster Pack
+	{
+		[Recipe.GetItemTypes.PokemonCards001_049]=3,
+		[Recipe.GetItemTypes.PokemonCards050_099]=3,
+		[Recipe.GetItemTypes.PokemonCards100_151]=3,
+		ScrapMetal=4,
+		Result:pkmncards.boosterpackfossil,
+		Time:25.0,
+	}
+
+	item JewelryCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = SoulForge Jewelry Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache6,
+        WorldStaticModel        = cache6,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open Jewelry Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy JewelryCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:Base.Dice,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:OnCreate_JewelryCache,
+	}
+	
+	item SoulForgeCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = SoulForge Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = cache6,
+        WorldStaticModel        = cache6,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open SoulForge Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy SoulForgeCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:Base.Dice,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:OnCreate_SoulForgeCache,
+	}
+	
+	item PokemonCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Pokemon Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item ShinyPokemonCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Shiny Pokemon Cache,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+
+	recipe Whos That Pokemon
+	{
+		CanBeDoneFromFloor:true,
+		destroy Base.PokemonCache,
+/		Sound:s_pokemon,
+		AnimNode:Loot,
+		Result:boosterpack_trash,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:PokemonCacheSD,
+	}
+
+	recipe Whos That Pokemon
+	{
+		CanBeDoneFromFloor:true,
+		destroy Base.ShinyPokemonCache,
+/		Sound:s_pokemon,
+		AnimNode:Loot,
+		Result:boosterpack_trash,
+		RemoveResultItem:true,
+		Time:100.0,
+		OnCreate:ShinyPokemonCacheSD,
+	}
+	
+	item WeatheredAmmoBox
+	{
+		DisplayName = Box of Unmarked Ammunition (Weathered),
+		DisplayCategory = Ammo,
+		Type = Normal,
+		Weight = 0.9,
+		Icon = RifleAmmo223,
+		PlaceMultipleSound = BoxOfRoundsPlaceAll,
+		PlaceOneSound = BoxOfRoundsPlaceOne,
+		StaticModel = RifleAmmoBox,
+		WorldStaticModel = RifleAmmoBox,
+	}
+	
+	recipe Open Box of Unmarked Ammunition (Weathered)
+	{
+		CanBeDoneFromFloor:true,
+		destroy WeatheredAmmoBox,
+		AnimNode:Loot,
+		Result:GunPowder,
+		RemoveResultItem:true,
+		Time:20.0,
+		OnCreate:OnCreate_WeatheredAmmoBoxSD,
+	}
+}

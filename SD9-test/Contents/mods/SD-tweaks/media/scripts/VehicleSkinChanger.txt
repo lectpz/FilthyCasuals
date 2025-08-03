@@ -1,0 +1,52 @@
+module Base
+{
+    item VehicleSkinChanger
+    {
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = SD Vehicle Skin Changer,
+        DisplayCategory = Junk,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item VehicleRustChanger
+    {
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = SD Vehicle Rust Changer,
+        DisplayCategory = Junk,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
+	
+	item bagCapacityTicket
+    {
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = SD Bag Capacity Upgrade Ticket,
+        DisplayCategory = SoulForge,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
+
+	item bagWeightTicket
+    {
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = SD Bag Weight Reduction Upgrade Ticket,
+        DisplayCategory = SoulForge,
+        Icon            = BusTicket,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
+	
+	item EngraveKit
+    {
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = SD Weapon Engraving Kit,
+        DisplayCategory = SoulForge,
+        Icon            = Pen,
+		WorldStaticModel = PaperNapkins_Ground,
+    }
+}

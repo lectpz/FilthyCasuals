@@ -1,0 +1,90 @@
+module SoulForge {
+	
+	item RestoreKillsOne
+	{
+		DisplayName 			=	Restorative Flask of Death (1),
+		DisplayCategory 		=	SoulForge,
+		Type 					=	Normal,
+		Weight 					=	0.01,
+		Icon 					=	BlackBot,
+		StaticModel 			=	static_BlackBot,
+		WorldStaticModel 		= 	world_BlackBot,
+	}
+	
+	item RestoreKillsTen
+	{
+		DisplayName 			=	Restorative Flask of Death (10),
+		DisplayCategory 		=	SoulForge,
+		Type 					=	Normal,
+		Weight 					=	0.01,
+		Icon 					=	BlackBot,
+		StaticModel 			=	static_BlackBot,
+		WorldStaticModel 		= 	world_BlackBot,
+	}
+	
+	item RestoreKillsOneHundred
+	{
+		DisplayName 			=	Restorative Flask of Death (100),
+		DisplayCategory 		=	SoulForge,
+		Type 					=	Normal,
+		Weight 					=	0.01,
+		Icon 					=	BlackBot,
+		StaticModel 			=	static_BlackBot,
+		WorldStaticModel 		= 	world_BlackBot,
+	}
+	
+	item RestoreKillsOneThousand
+	{
+		DisplayName 			=	Restorative Flask of Death (1000),
+		DisplayCategory 		=	SoulForge,
+		Type 					=	Normal,
+		Weight 					=	0.01,
+		Icon 					=	BlackBot,
+		StaticModel 			=	static_BlackBot,
+		WorldStaticModel 		= 	world_BlackBot,
+	}
+	
+	item RestoreHoursOne
+	{
+		DisplayName 			=	Restorative Flask of Time (1),
+		DisplayCategory 		=	SoulForge,
+		Type 					=	Normal,
+		Weight 					=	0.01,
+		Icon 					=	GreenBot,
+		StaticModel 			=	static_GreenBot,
+		WorldStaticModel 		= 	world_GreenBot,
+	}
+	
+	item RestoreHoursTen
+	{
+		DisplayName 			=	Restorative Flask of Time (10),
+		DisplayCategory 		=	SoulForge,
+		Type 					=	Normal,
+		Weight 					=	0.01,
+		Icon 					=	GreenBot,
+		StaticModel 			=	static_GreenBot,
+		WorldStaticModel 		= 	world_GreenBot,
+	}
+	
+	item RestoreHoursOneHundred
+	{
+		DisplayName 			=	Restorative Flask of Time (100),
+		DisplayCategory 		=	SoulForge,
+		Type 					=	Normal,
+		Weight 					=	0.01,
+		Icon 					=	GreenBot,
+		StaticModel 			=	static_GreenBot,
+		WorldStaticModel 		= 	world_GreenBot,
+	}
+	
+	item RestoreHoursOneThousand
+	{
+		DisplayName 			=	Restorative Flask of Time (1000),
+		DisplayCategory 		=	SoulForge,
+		Type 					=	Normal,
+		Weight 					=	0.01,
+		Icon 					=	GreenBot,
+		StaticModel 			=	static_GreenBot,
+		WorldStaticModel 		= 	world_GreenBot,
+	}
+}

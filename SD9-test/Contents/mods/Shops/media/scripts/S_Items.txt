@@ -1,0 +1,94 @@
+module Base {
+
+    		
+    item GoldCoin
+	{
+		Weight	=	0.01,
+		Type	=	Normal,
+		DisplayName	=	Gold Coin,
+		Icon	=	GoldCoin,
+		WorldStaticModel = GoldCoin,
+	}
+
+	model GoldCoin 
+	{
+		mesh = WorldItems/Button,
+		texture = Item_GoldCoin,
+		scale = 1,
+	}
+
+	item CopperCoin
+	{
+		Weight	=	0.01,
+		Type	=	Normal,
+		DisplayName	=	Copper Coin,
+		Icon	=	CopperCoin,
+		WorldStaticModel = CopperCoin,
+	}
+
+	model CopperCoin 
+	{
+		mesh = WorldItems/Button,
+		texture = Item_CopperCoin,
+		scale = 1,
+	}
+	
+	item SilverCoin
+	{
+		Weight	=	0.01,
+		Type	=	Normal,
+		DisplayName	=	Silver Coin,
+		Icon	=	SilverCoin,
+		WorldStaticModel = SilverCoin,
+	}
+
+	model SilverCoin 
+	{
+		mesh = WorldItems/Button,
+		texture = Item_SilverCoin,
+		scale = 1,
+	}
+
+	item EventCoin
+	{
+		Weight	=	0.01,
+		Type	=	Normal,
+		DisplayName	=	Event Coin,
+		Icon	=	EventCoin,
+		WorldStaticModel = EventCoin,
+	}
+
+	model EventCoin 
+	{
+		mesh = WorldItems/Button,
+		texture = Item_EventCoin,
+		scale = 1,
+	}
+
+	item SurvivalPack
+	{
+		Weight	=	0.01,
+		Type	=	Normal,
+		DisplayName	= Survival Pack,
+		Icon	=	Present4,
+	}
+
+	item PlayerShop
+	{
+		Weight	=	0.01,
+		Type	=	Normal,
+		DisplayName	= Player Shop,
+		Icon	=	PlayerShop,
+		Tags = PlayerShop
+	}
+
+	item PlayerShopFreezer
+	{
+		Weight	=	0.01,
+		Type	=	Normal,
+		DisplayName	= Player Shop (Freezer),
+		Icon	=	PlayerShop,
+		Tags = PlayerShopFreezer
+	}
+
+}

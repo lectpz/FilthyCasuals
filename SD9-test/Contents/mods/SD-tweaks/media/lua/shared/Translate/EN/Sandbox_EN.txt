@@ -1,0 +1,169 @@
+Sandbox_EN = {
+	Sandbox_SDOnWeaponSwing = "Dynamic Weapons",
+	
+	Sandbox_SDnoBuild = "SD Building Exclusion Zones",
+
+	Sandbox_SDnoBuild_exclusionZones = "Exclusion coords- topleft->bottomright x1,y2,x2,y2;",
+	Sandbox_SDnoBuild_exclusionZones_tooltip = "e.g. 19000:100:19750:150;",
+
+	Sandbox_SDOnWeaponSwing_RangedDamageMultiplier = "Ranged damage multiplier (Higher is better)",
+	Sandbox_SDOnWeaponSwing_RangedDamageMultiplier_tooltip = "e.g. 1.5 (Higher is better)",
+	
+	Sandbox_SDOnWeaponSwing_Tier1dmg = "Tier 1 damage modifier",
+	Sandbox_SDOnWeaponSwing_Tier1dmg_tooltip = "e.g. 1.00",
+
+	Sandbox_SDOnWeaponSwing_Tier2dmg = "Tier 2 damage modifier",
+	Sandbox_SDOnWeaponSwing_Tier2dmg_tooltip = "e.g. 0.85",
+		
+	Sandbox_SDOnWeaponSwing_Tier3dmg = "Tier 3 damage modifier",
+	Sandbox_SDOnWeaponSwing_Tier3dmg_tooltip = "e.g. 0.7",
+	
+	Sandbox_SDOnWeaponSwing_Tier4dmg = "Tier 4 damage modifier",
+	Sandbox_SDOnWeaponSwing_Tier4dmg_tooltip = "e.g. 0.55",
+	
+	Sandbox_SDOnWeaponSwing_Tier5dmg = "Tier 5 damage modifier",
+	Sandbox_SDOnWeaponSwing_Tier5dmg_tooltip = "e.g. 0.4",
+	
+	Sandbox_SDOnWeaponSwing_Tier6dmg = "Tier 6 damage modifier",
+	Sandbox_SDOnWeaponSwing_Tier6dmg_tooltip = "e.g. 0.2",
+	
+	Sandbox_SDOnWeaponSwing_Tier1critrate = "Tier 1 critical rate modifier",
+	Sandbox_SDOnWeaponSwing_Tier1critrate_tooltip = "e.g. 1.00",
+
+	Sandbox_SDOnWeaponSwing_Tier2critrate = "Tier 2 critical rate modifier",
+	Sandbox_SDOnWeaponSwing_Tier2critrate_tooltip = "e.g. 0.85",
+		
+	Sandbox_SDOnWeaponSwing_Tier3critrate = "Tier 3 critical rate modifier",
+	Sandbox_SDOnWeaponSwing_Tier3critrate_tooltip = "e.g. 0.7",
+	
+	Sandbox_SDOnWeaponSwing_Tier4critrate = "Tier 4 critical rate modifier",
+	Sandbox_SDOnWeaponSwing_Tier4critrate_tooltip = "e.g. 0.55",
+	
+	Sandbox_SDOnWeaponSwing_Tier5critrate = "Tier 5 critical rate modifier",
+	Sandbox_SDOnWeaponSwing_Tier5critrate_tooltip = "e.g. 0.4",
+	
+	Sandbox_SDOnWeaponSwing_Tier6critrate = "Tier 6 critical rate modifier",
+	Sandbox_SDOnWeaponSwing_Tier6critrate_tooltip = "e.g. 0.2",
+	
+	Sandbox_SDOnWeaponSwing_Tier1critmulti = "Tier 1 critical multiplier modifier",
+	Sandbox_SDOnWeaponSwing_Tier1critmulti_tooltip = "e.g. 1.00",
+
+	Sandbox_SDOnWeaponSwing_Tier2critmulti = "Tier 2 critical multiplier modifier",
+	Sandbox_SDOnWeaponSwing_Tier2critmulti_tooltip = "e.g. 0.85",
+		
+	Sandbox_SDOnWeaponSwing_Tier3critmulti = "Tier 3 critical multiplier modifier",
+	Sandbox_SDOnWeaponSwing_Tier3critmulti_tooltip = "e.g. 0.7",
+	
+	Sandbox_SDOnWeaponSwing_Tier4critmulti = "Tier 4 critical multiplier modifier",
+	Sandbox_SDOnWeaponSwing_Tier4critmulti_tooltip = "e.g. 0.55",
+	
+	Sandbox_SDOnWeaponSwing_Tier5critmulti = "Tier 5 critical multiplier modifier",
+	Sandbox_SDOnWeaponSwing_Tier5critmulti_tooltip = "e.g. 0.4",
+	
+	Sandbox_SDOnWeaponSwing_Tier6critmulti = "Tier 6 critical multiplier modifier",
+	Sandbox_SDOnWeaponSwing_Tier6critmulti_tooltip = "e.g. 0.2",
+	
+	Sandbox_SDevents = "SD Events",
+	
+	Sandbox_SDevents_Xcoord1 = "Top Left X-Coordinate for Zone",
+	Sandbox_SDevents_Xcoord1_tooltip = "e.g. 11100",
+	
+	Sandbox_SDevents_Ycoord1 = "Top Left Y-Coordinate for Zone",
+	Sandbox_SDevents_Ycoord1_tooltip = "e.g. 8700",
+	
+	Sandbox_SDevents_Xcoord2 = "Bottom Right X-Coordinate for Zone",
+	Sandbox_SDevents_Xcoord2_tooltip = "e.g. 11400",
+	
+	Sandbox_SDevents_Ycoord2 = "Bottom Right Y-Coordinate for Zone",
+	Sandbox_SDevents_Ycoord2_tooltip = "e.g. 9300",
+	
+	Sandbox_SDevents_EventTier = "Event Tier for Zone",
+	Sandbox_SDevents_EventTier_tooltip = "e.g. 2",
+	
+	Sandbox_SDevents_roll5 = "Tier 5 loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll5_tooltip = "e.g. 2000",
+	
+	Sandbox_SDevents_roll4 = "Tier 4 loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll4_tooltip = "e.g. 1250",
+	
+	Sandbox_SDevents_roll3 = "Tier 3 loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll3_tooltip = "e.g. 750",
+	
+	Sandbox_SDevents_roll2 = "Tier 2 loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll2_tooltip = "e.g. 350",
+
+	Sandbox_SDevents_roll1 = "Tier 1 loot drop (1 in n zombies)",
+	Sandbox_SDevents_roll1_tooltip = "e.g. 150",
+	
+	Sandbox_SDevents_enabled = "Enable Event Zone",
+	Sandbox_SDevents_enabled_tooltip = "Check to enable, uncheck to disable",
+	
+	Sandbox_SDevents_toxic = "Enable Toxic Event Zone",
+	Sandbox_SDevents_toxic_tooltip = "Check to enable, uncheck to disable",
+	
+	Sandbox_SDevents_teleportenabled = "Enable Event Teleport",
+	Sandbox_SDevents_teleportenabled_tooltip = "Check to enable, uncheck to disable",
+	
+	Sandbox_SDevents_tpX = "Event Teleport X-Coordinate",
+	Sandbox_SDevents_tpX_tooltip = "e.g. 19627",
+	
+	Sandbox_SDevents_tpY = "Event Teleport Y-Coordinate",
+	Sandbox_SDevents_tpY_tooltip = "e.g. 127",
+	
+	Sandbox_SDevents_tpZ = "Event Teleport Z-Coordinate",
+	Sandbox_SDevents_tpZ_tooltip = "e.g. 0",
+	
+	Sandbox_SDevents_Rewards1 = "Reward Loot",
+	Sandbox_SDevents_Rewards1_tooltip = "Base.Item",
+
+	Sandbox_SDevents_Rewards2 = "Reward Loot",
+	Sandbox_SDevents_Rewards2_tooltip = "Base.EventWeaponCacheT3",
+	
+	Sandbox_SDevents_Rewards3 = "Reward Loot",
+	Sandbox_SDevents_Rewards3_tooltip = "Base.XCoin",
+	
+	Sandbox_SDevents_Rewards4 = "Reward Loot",
+	Sandbox_SDevents_Rewards4_tooltip = "Base.XCoin",
+
+	Sandbox_McCraes = "McCrae's Car Battery Charger",
+	
+	Sandbox_McCraes_X = "McCrae's Car Battery Charger X-Coordinate",
+	Sandbox_McCraes_X_tooltip = "e.g. 19000",
+	
+	Sandbox_McCraes_Y = "McCrae's Car Battery Charger Y-Coordinate",
+	Sandbox_McCraes_Y_tooltip = "e.g. 1000",
+	
+	Sandbox_SDVehicleReroll = "SD Vehicle Respawn",
+	
+	Sandbox_SDVehicleReroll_rareKI5 = "Rare KI5 spawn chance (n/100)",
+	Sandbox_SDVehicleReroll_rareKI5_tooltip = "e.g. 95",
+	
+	Sandbox_SDVehicleReroll_KI5 = "KI5 spawn chance (n/100)",
+	Sandbox_SDVehicleReroll_KI5_tooltip = "e.g. 85",
+	
+	Sandbox_SDVehicleReroll_Vanilla = "Vanilla spawn chance (n/100)",
+	Sandbox_SDVehicleReroll_Vanilla_tooltip = "e.g. 50",
+	
+	Sandbox_TilePicker = "SD Tile Picker Cache",
+
+	Sandbox_TilePicker_RegularCache= "Tile Picker Cache 1 (Regular)",
+	Sandbox_TilePicker_RegularCache_tooltip = "e.g. sprite_name_01:Tile Name:Tile Description",
+	
+	Sandbox_TilePicker_RegularCache2= "Tile Picker Cache 2 (Regular)",
+	Sandbox_TilePicker_RegularCache2_tooltip = "e.g. sprite_name_01:Tile Name:Tile Description",
+	
+	Sandbox_TilePicker_RegularCache3= "Tile Picker Cache 3 (Regular)",
+	Sandbox_TilePicker_RegularCache3_tooltip = "e.g. sprite_name_01:Tile Name:Tile Description",
+	
+	Sandbox_SDbus = "SD Bus System",
+	
+	Sandbox_SDbus_BusStops = "Bus Stops",
+	Sandbox_SDbus_BusStops_tooltip = "Input Bus Stops",
+
+    Sandbox_SD_SWDetect = "SD_SWDetect",
+
+    Sandbox_SD_SWDetect_SD_SWJavaSpearCheck = "Spear Check",
+    Sandbox_SD_SWDetect_SD_SWJavaSpearCheck_Threshold = "Spear Check Threshold",
+    Sandbox_SD_SWDetect_SD_SWJavaSpeedMacroCheck = "Attack Speed and Macro Check",
+    Sandbox_SD_SWDetect_SD_SWJavaViewCheck = "View Check",
+}

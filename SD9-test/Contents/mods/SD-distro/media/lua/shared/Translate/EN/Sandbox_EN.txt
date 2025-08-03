@@ -1,0 +1,16 @@
+Sandbox_EN = {
+	Sandbox_SpawnChanceModifier = "Customizable Loot Spawn",
+
+	Sandbox_SpawnChanceModifier_yeetBool = "Enable Custom Item Spawn Removal",
+	Sandbox_SpawnChanceModifier_yeetBool_tooltip = "Check to enable, uncheck to disable",
+	
+	Sandbox_SpawnChanceModifier_yeetItems = "Custom Item String for Item Removal"
+	Sandbox_SpawnChanceModifier_yeetItems_tooltip = "e.g. - Module.Item1;Module.Item2;ModuleX.ItemY; (Syntax - use ; after item to separate)"
+	
+	Sandbox_SpawnChanceModifier_modifyBool = "Enable Custom Item Spawn Modifiers",
+	Sandbox_SpawnChanceModifier_modifyBool_tooltip = "Check to enable, uncheck to disable",
+	
+	Sandbox_SpawnChanceModifier_modifyItems = "Custom Item String for Item Modification"
+	Sandbox_SpawnChanceModifier_modifyItems_tooltip = "e.g. - Module.Item1:0.1;Module.Item2:0.5;ModuleX.ItemY:1,5; (Syntax - use : to separate item chance, use ; after item:chance to separate)"
+
+}
