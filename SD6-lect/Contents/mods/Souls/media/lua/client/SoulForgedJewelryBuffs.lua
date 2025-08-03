@@ -15,8 +15,8 @@ BuffSystem.BUFF_CALCULATIONS = {
     },
     luck = {
         format = "Luck",
-        getDisplayValue = function(tier) return 1.5 * tier end,
-        getBonus = function(tier) return 1.5 * tier end,
+        getDisplayValue = function(tier) return 1.25 * tier end,
+        getBonus = function(tier) return 1.25 * tier end,
         modData = "PermaSoulForgeLuckBonus"
     },
     SoulDexterity = {
@@ -27,8 +27,8 @@ BuffSystem.BUFF_CALCULATIONS = {
     },
     SoulThirst = {
         format = "Soul Thirst Bonus",
-        getDisplayValue = function(tier) return .4 * tier end,
-        getBonus = function(tier) return 0.4 * tier end,
+        getDisplayValue = function(tier) return .6 * tier end,
+        getBonus = function(tier) return 0.6 * tier end,
         modData = "PermaSoulThirstValue"
     },
     MaxCondition = {
@@ -47,29 +47,29 @@ BuffSystem.BUFF_CALCULATIONS = {
     },
     CritRate = {
         format = "Crit Chance",
-        getDisplayValue = function(tier) return 1*1.5 * tier end,
-        getBonus = function(tier) return (0.01*1.5 * tier) end,
+        getDisplayValue = function(tier) return 1.25 * tier end,
+        getBonus = function(tier) return (0.0125 * tier) end,
         modData = "PermaSoulForgeCritRateBonus",
         defaultValue = 1
     },
     CritMulti = {
         format = "Crit Multiplier",
-        getDisplayValue = function(tier) return 2 * tier end,
-        getBonus = function(tier) return (0.02 * tier) end,
+        getDisplayValue = function(tier) return 1.5 * tier end,
+        getBonus = function(tier) return (0.015 * tier) end,
         modData = "PermaSoulForgeCritMultiBonus",
         defaultValue = 1
     },
     MaxDmg = {
         format = "Maximum Damage",
-        getDisplayValue = function(tier) return .5*2 * tier end,
-        getBonus = function(tier) return (0.005*2 * tier) end,
+        getDisplayValue = function(tier) return 1 * tier end,
+        getBonus = function(tier) return (0.01 * tier) end,
         modData = "PermaSoulForgeMaxDmgBonus",
         defaultValue = 1
     },
     SoulSmith = {
         format = "Soul Smith Bonus",
-        getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return (.01 * tier) end,
+        getDisplayValue = function(tier) return 0.03 * tier end,
+        getBonus = function(tier) return (.03 * tier) end,
         modData = "PermaSoulSmithValue",
     },
     Aiming = {
@@ -234,7 +234,7 @@ end
 
 function BuffSystem.modifyMultipleBuffs(player, item, isEquipping)
     local modData = item:getModData()
-    local buffs = modData.SoulBuffs or {modData.SoulBuff}
+    local buffs = modData.SoulBuffs
     
     if not buffs then return end
     

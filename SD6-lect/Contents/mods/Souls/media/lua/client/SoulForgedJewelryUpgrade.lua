@@ -12,16 +12,6 @@ local function SoulForgedJewelryUpgrade(player, context, items)
 		local subMenu = ISContextMenu:getNew(context)
 		context:addSubMenu(soulForgeOption, subMenu)
 		
-		local function onSelectBuff(worldobjects, item, buffId)
-			item:getModData().SoulBuff = buffId
-			item:getModData().SoulBuffs = nil
-			
-			if not item:getModData().Tier then
-				item:getModData().Tier = 1
-			end
-			ItemGenerator.SetResultName(item)
-			getPlayer():Say("Set " .. item:getName() .. " buff to " .. Config.buffDisplayNames[buffId])
-		end
 		
 		local function onSelectMultipleBuff(worldobjects, item, buffId)
 			local modData = item:getModData()
@@ -42,7 +32,8 @@ local function SoulForgedJewelryUpgrade(player, context, items)
 				table.insert(modData.SoulBuffs, buffId)
 			end
 			
-			modData.SoulBuff = nil
+			-- Clear NameModified flag so name can be updated
+			modData.NameModified = nil
 			
 			if not modData.Tier then
 				modData.Tier = 1
@@ -53,31 +44,16 @@ local function SoulForgedJewelryUpgrade(player, context, items)
 			getPlayer():Say(action .. " " .. Config.buffDisplayNames[buffId] .. " buff " .. (alreadyHas and "from" or "to") .. " " .. item:getName())
 		end
 		
-		local function onSelectTier(worldobjects, item, tier)
-			item:getModData().Tier = tier
-			
-			if not item:getModData().SoulBuff then
-				item:getModData().SoulBuff = "luck"
-			end
-			ItemGenerator.SetResultName(item)
-			getPlayer():Say("Set " .. item:getName() .. " tier to " .. tier)
-		end
 		
 		local function onSelectIndividualBuffTier(worldobjects, item, buffId, tier)
 			BuffSystem.setBuffTier(item, buffId, tier)
+			-- Clear NameModified flag so name can be updated
+			item:getModData().NameModified = nil
 			ItemGenerator.SetResultName(item)
 			getPlayer():Say("Set " .. Config.buffDisplayNames[buffId] .. " tier to " .. tier .. " on " .. item:getName())
 		end
 		
-		local buffOption = subMenu:addOption("Set Single Buff", worldobjects, nil)
-		local buffSubMenu = ISContextMenu:getNew(subMenu)
-		context:addSubMenu(buffOption, buffSubMenu)
-		
-		for buffId, buffName in pairs(Config.buffDisplayNames) do
-			buffSubMenu:addOption(buffName, worldobjects, onSelectBuff, item, buffId)
-		end
-		
-		local multiBuffOption = subMenu:addOption("Toggle Multiple Buffs", worldobjects, nil)
+		local multiBuffOption = subMenu:addOption("Toggle Buffs", worldobjects, nil)
 		local multiBuffSubMenu = ISContextMenu:getNew(subMenu)
 		context:addSubMenu(multiBuffOption, multiBuffSubMenu)
 		
@@ -92,14 +68,6 @@ local function SoulForgedJewelryUpgrade(player, context, items)
 			end
 			local displayName = hasThisBuff and "[X] " .. buffName or "[ ] " .. buffName
 			multiBuffSubMenu:addOption(displayName, worldobjects, onSelectMultipleBuff, item, buffId)
-		end
-		
-		local tierOption = subMenu:addOption("Set Tier", worldobjects, nil)
-		local tierSubMenu = ISContextMenu:getNew(subMenu)
-		context:addSubMenu(tierOption, tierSubMenu)
-		
-		for i = 1, 5 do
-			tierSubMenu:addOption("Tier " .. i, worldobjects, onSelectTier, item, i)
 		end
 		
 		-- Individual buff tier management for items with multiple buffs

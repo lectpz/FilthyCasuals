@@ -66,9 +66,9 @@ function EventHandlers.SoulForgedJewelryOnCreate(items, result, player, forcedTi
             end
             createdItem:getModData().Tier = 3
         else
-            tier = tier = 1
+            tier = math.max(tier - 1, 1)
             local selectedBuff = BuffSystem.getWeightedBuff("T" .. tier)
-            createdItem:getModData().SoulBuff = selectedBuff
+            createdItem:getModData().SoulBuffs = {selectedBuff}
             createdItem:getModData().Tier = tier
         end
         
@@ -107,15 +107,8 @@ function EventHandlers.OnClothingUpdated(player)
         local item = playerWornItems:get(i):getItem()
         local modData = item:getModData()
 
-        if modData.SoulBuff or modData.SoulBuffs then
-            if modData.SoulBuffs then
-                for _, buff in ipairs(modData.SoulBuffs) do
-                    if buff and BuffSystem.BUFF_CALCULATIONS[buff] then
-                        BuffSystem.modifyBuff(player, item, true, buff)
-                    end
-                end
-            elseif modData.SoulBuff then
-                local buff = modData.SoulBuff
+        if modData.SoulBuffs then
+            for _, buff in ipairs(modData.SoulBuffs) do
                 if buff and BuffSystem.BUFF_CALCULATIONS[buff] then
                     BuffSystem.modifyBuff(player, item, true, buff)
                 end
@@ -130,7 +123,7 @@ function EventHandlers.OnClothingUpdated(player)
     for i=0, allItems:size()-1 do
         local item = allItems:get(i)
         local modData = item:getModData()
-        if modData and (modData.SoulBuff or modData.SoulBuffs) then
+        if modData and modData.SoulBuffs then
             ItemGenerator.SetResultName(item)
         end
     end
