@@ -36,8 +36,12 @@ function Menu.buildQualityTicketMenu(player, context, weapon, tickets)
     Tooltip.attachSimpleTooltip(statOpt, "Current Enhancer Multipliers", statSummary)
     statOpt.notAvailable = true
 
-    local weaponType = weapon:isRanged() and "Ranged" or "Melee"
-    local validStats = Config.soulStats[weaponType]
+    if weapon:isRanged() then
+        print("[Menu] Skipping Quality Enhancer: Ranged weapons not allowed")
+        return
+    end
+
+    local validStats = Config.soulStats["Melee"]
 
     for statKey, ticketList in pairs(tickets) do
         if Utils.contains(validStats, statKey) then

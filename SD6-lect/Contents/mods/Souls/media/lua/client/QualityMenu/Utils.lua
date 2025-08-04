@@ -5,7 +5,12 @@ function Utils.applyStatBonus(weapon, statKey, tierBonus)
     local modData = weapon:getModData()
     local mdzKey = "mdz" .. statKey
     local baseMult = modData[mdzKey] or 1.0
-    modData[mdzKey] = baseMult + (tierBonus or 0)
+
+    if baseMult <= 1.15 then
+        print("[Utils] Mult has not hit cap. Adding more.")
+        modData[mdzKey] = baseMult + (tierBonus or 0)
+    end
+
 
     print(string.format("[WeaponAugment] Applied %.4f to %s → %s = %.4f", tierBonus, statKey, mdzKey, modData[mdzKey]))
 end
