@@ -1,6 +1,16 @@
 local TooltipSystem = {}
 local BuffSystem = require('SoulForgedJewelryBuffs')
 
+-- Helper function to check if table contains a value
+local function table_contains(table, value)
+    for _, v in ipairs(table) do
+        if v == value then
+            return true
+        end
+    end
+    return false
+end
+
 -- Color definitions for different tooltip states
 local colors = {
     background = {
@@ -37,7 +47,8 @@ function TooltipSystem.calculateBuffTotal(player, buffType, options)
         
         -- Check if item should be counted based on options
         local shouldCount = item:isEquipped() and 
-                           item:getModData().SoulBuff == buffType and
+                           item:getModData().SoulBuffs and
+                           table_contains(item:getModData().SoulBuffs, buffType) and
                            (not options.excludeItem or item ~= options.excludeItem) and
                            (not options.bodyLocation or item:getBodyLocation() == options.bodyLocation)
         
@@ -51,7 +62,7 @@ function TooltipSystem.calculateBuffTotal(player, buffType, options)
     end
     
     -- Add potential new item if specified
-    if options.includeItem and options.includeItem:getModData().SoulBuff == buffType then
+    if options.includeItem and options.includeItem:getModData().SoulBuffs and table_contains(options.includeItem:getModData().SoulBuffs, buffType) then
         local tier = BuffSystem.getBuffTier(options.includeItem, buffType)
         local buffCalc = BuffSystem.BUFF_CALCULATIONS[buffType]
         if buffCalc then
@@ -66,7 +77,7 @@ function TooltipSystem.createTooltip(item)
     if not item then return "", false end
     
     local modData = item:getModData()
-    local buffs = modData.SoulBuffs or {modData.SoulBuff}
+    local buffs = modData.SoulBuffs
     if not modData or not buffs or #buffs == 0 then return "", false end
     
     local tier = BuffSystem.getTierNumber(item)
@@ -89,9 +100,9 @@ function TooltipSystem.createTooltip(item)
                     end
                 else 
                     if showTier then
-                        buffText = string.format("[T%d] %+.1f%% %s", buffTier, value, buffCalc.format)
+                        buffText = string.format("[T%d] %+.2f%% %s", buffTier, value, buffCalc.format)
                     else
-                        buffText = string.format("%+.1f%% %s", value, buffCalc.format)
+                        buffText = string.format("%+.2f%% %s", value, buffCalc.format)
                     end
                 end
                 table.insert(mainTextLines, buffText)
@@ -141,7 +152,7 @@ function TooltipSystem.createTooltip(item)
             tooltip = tooltip .. string.format("\nCurrent Total: %+.1f%%", currentTotal)
             -- Add max value indicator if applicable
             if hasMaxValue then
-                tooltip = tooltip .. string.format(" (Max: %+.1f%%)", buffCalc.maxValue)
+                tooltip = tooltip .. string.format(" (Max: %+.2f%%)", buffCalc.maxValue)
                 if isAtMax then
                     tooltip = tooltip .. " [MAXED]"
                 end
@@ -159,7 +170,7 @@ function TooltipSystem.createTooltip(item)
         end
         
         -- Determine if this would be a downgrade
-        if equippedItem and equippedItem:getModData().SoulBuff == buff then
+        if equippedItem and equippedItem:getModData().SoulBuffs and table_contains(equippedItem:getModData().SoulBuffs, buff) then
             local equippedValue = BuffSystem.BUFF_CALCULATIONS[buff].getDisplayValue(BuffSystem.getBuffTier(equippedItem, buff))
             isDowngrade = value < equippedValue
         end
@@ -174,10 +185,10 @@ function TooltipSystem.createTooltip(item)
                 end
             end
         else
-            tooltip = tooltip .. string.format("\nTotal: %+.1f%% -> %+.1f%%", baseTotal, newTotal)
+            tooltip = tooltip .. string.format("\nTotal: %+.2f%% -> %+.2f%%", baseTotal, newTotal)
             -- Add max value indicator if applicable
             if hasMaxValue then
-                tooltip = tooltip .. string.format(" (Max: %+.1f%%)", buffCalc.maxValue)
+                tooltip = tooltip .. string.format(" (Max: %+.2f%%)", buffCalc.maxValue)
                 if newTotal >= buffCalc.maxValue then
                     tooltip = tooltip .. " [MAXED]"
                 end
@@ -185,19 +196,22 @@ function TooltipSystem.createTooltip(item)
         end
         
         -- Add info about different buff being replaced
-        if equippedItem and equippedItem:getModData().SoulBuff and equippedItem:getModData().SoulBuff ~= buff then
-            hasLostBuff = true  -- Set flag when we add a lost buff line
-            local oldBuff = equippedItem:getModData().SoulBuff
-            local oldBuffCalc = BuffSystem.BUFF_CALCULATIONS[oldBuff]
-            local oldValue = oldBuffCalc.getDisplayValue(BuffSystem.getBuffTier(equippedItem, oldBuff))
-            local oldTotal = TooltipSystem.calculateBuffTotal(player, oldBuff)
-            local newOldTotal = oldTotal - oldValue
-            
-            -- Format the lost buff line
-            if oldBuff == "luck" or oldBuff == "SoulStrength" then
-                tooltip = tooltip .. string.format("\n%s: %+.1f -> %+.1f", oldBuffCalc.format, oldTotal, newOldTotal)
-            else
-                tooltip = tooltip .. string.format("\n%s: %+.1f%% -> %+.1f%%", oldBuffCalc.format, oldTotal, newOldTotal)
+        if equippedItem and equippedItem:getModData().SoulBuffs then
+            for _, oldBuff in ipairs(equippedItem:getModData().SoulBuffs) do
+                if oldBuff ~= buff and not table_contains(buffs, oldBuff) then
+                    hasLostBuff = true  -- Set flag when we add a lost buff line
+                    local oldBuffCalc = BuffSystem.BUFF_CALCULATIONS[oldBuff]
+                    local oldValue = oldBuffCalc.getDisplayValue(BuffSystem.getBuffTier(equippedItem, oldBuff))
+                    local oldTotal = TooltipSystem.calculateBuffTotal(player, oldBuff)
+                    local newOldTotal = oldTotal - oldValue
+                    
+                    -- Format the lost buff line
+                    if oldBuff == "luck" or oldBuff == "SoulStrength" then
+                        tooltip = tooltip .. string.format("\n%s: %+.1f -> %+.1f", oldBuffCalc.format, oldTotal, newOldTotal)
+                    else
+                        tooltip = tooltip .. string.format("\n%s: %+.2f%% -> %+.2f%%", oldBuffCalc.format, oldTotal, newOldTotal)
+                    end
+                end
             end
         end
     end
@@ -268,7 +282,7 @@ function TooltipSystem.setupTooltipRenderer()
     ISToolTipInv.render = function(self)
         if not ISContextMenu.instance or not ISContextMenu.instance.visibleCheck then
             local itemObj = self.item
-            if itemObj and (itemObj:getModData().SoulBuff or itemObj:getModData().SoulBuffs) then
+            if itemObj and itemObj:getModData().SoulBuffs then
                 TooltipSystem.drawTooltipJewelry(self, itemObj:getModData())
             end
         end
