@@ -6,6 +6,12 @@ Sandbox_EN = {
 	Sandbox_SDnoBuild_exclusionZones = "Exclusion coords- topleft->bottomright x1,y2,x2,y2;",
 	Sandbox_SDnoBuild_exclusionZones_tooltip = "e.g. 19000:100:19750:150;",
 
+	Sandbox_SDOnWeaponSwing_TreeDamageT5 = "Tier 5 Tree Damage Modifier",
+	Sandbox_SDOnWeaponSwing_TreeDamageT5_tooltip = "e.g. 0.4 (1.0 means no mod)",
+	
+	Sandbox_SDOnWeaponSwing_TreeDamageT6 = "Tier 6 Tree Damage Modifier",
+	Sandbox_SDOnWeaponSwing_TreeDamageT6_tooltip = "e.g. 0.75 (1.0 means no mod)",
+
 	Sandbox_SDOnWeaponSwing_RangedDamageMultiplier = "Ranged damage multiplier (Higher is better)",
 	Sandbox_SDOnWeaponSwing_RangedDamageMultiplier_tooltip = "e.g. 1.5 (Higher is better)",
 	

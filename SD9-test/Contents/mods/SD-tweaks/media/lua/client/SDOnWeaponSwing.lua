@@ -204,7 +204,13 @@ local function SDOnWeaponSwing(character, handWeapon)
 		if isInSafehouse then 
 			inventoryItem:setTreeDamage(modData.TreeDamage)
 		else
-			if tierzone > 4 then inventoryItem:setTreeDamage(modData.TreeDamage/tierzone) else inventoryItem:setTreeDamage(modData.TreeDamage) end
+			if tierzone == 5 then
+				inventoryItem:setTreeDamage(modData.TreeDamage * SandboxVars.SDOnWeaponSwing.TreeDamageT5)
+			elseif
+				inventoryItem:setTreeDamage(modData.TreeDamage * SandboxVars.SDOnWeaponSwing.TreeDamageT6)
+			else
+				inventoryItem:setTreeDamage(modData.TreeDamage)
+			end
 		end
 
 		modData.zoneTier = tierzone

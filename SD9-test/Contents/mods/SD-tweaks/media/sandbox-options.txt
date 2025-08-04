@@ -9,6 +9,24 @@ option SDnoBuild.exclusionZones
 	translation = SDnoBuild_exclusionZones,
 }
 
+option SDOnWeaponSwing.TreeDamageT5
+{
+	type = string,
+	default = 0.4,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_TreeDamageT5,
+}
+
+option SDOnWeaponSwing.TreeDamageT6
+{
+	type = string,
+	default = 0.75,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_TreeDamageT6,
+}
+
 option SDOnWeaponSwing.RangedDamageMultiplier
 {
 	type = string,

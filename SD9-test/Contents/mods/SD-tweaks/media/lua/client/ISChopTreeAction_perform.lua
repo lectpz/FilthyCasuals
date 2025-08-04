@@ -71,7 +71,13 @@ function ISChopTreeAction:start()
 	if isInSafehouse then 
 		handItem:setTreeDamage(wMD.TreeDamage)
 	else
-		if tierzone > 4 then handItem:setTreeDamage(wMD.TreeDamage / tierzone) else handItem:setTreeDamage(wMD.TreeDamage) end
+		if tierzone == 5 then
+			handItem:setTreeDamage(wMD.TreeDamage * SandboxVars.SDOnWeaponSwing.TreeDamageT5)
+		elseif tierzone == 6 then
+			handItem:setTreeDamage(wMD.TreeDamage * SandboxVars.SDOnWeaponSwing.TreeDamageT6)
+		else
+			handItem:setTreeDamage(wMD.TreeDamage)
+		end
 	end
 	o_start(self)
 end
