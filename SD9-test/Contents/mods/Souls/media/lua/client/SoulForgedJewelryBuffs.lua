@@ -234,7 +234,7 @@ end
 
 function BuffSystem.modifyMultipleBuffs(player, item, isEquipping)
     local modData = item:getModData()
-    local buffs = modData.SoulBuffs or {modData.SoulBuff}
+    local buffs = modData.SoulBuffs
     
     if not buffs then return end
     

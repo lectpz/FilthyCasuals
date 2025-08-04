@@ -6,6 +6,16 @@
 local ItemGenerator = require('SoulForgedJewelryItemGeneration')
 local EventHandlers = require('SoulForgedJewelryEventHandlers')
 
+-- Helper function to check if table contains a value
+local function table_contains(table, value)
+    for _, v in ipairs(table) do
+        if v == value then
+            return true
+        end
+    end
+    return false
+end
+
 local green = " <RGB:" .. getCore():getGoodHighlitedColor():getR() .. "," .. getCore():getGoodHighlitedColor():getG() .. "," .. getCore():getGoodHighlitedColor():getB() .. "> "
 local red = " <RGB:" .. getCore():getBadHighlitedColor():getR() .. "," .. getCore():getBadHighlitedColor():getG() .. "," .. getCore():getBadHighlitedColor():getB() .. "> "
 local yellow = " <RGB:1,0,0> "
@@ -59,8 +69,8 @@ local function sfjReroll(player, items, sfjTier)
 		local item = items[i]
 		if not item:isInPlayerInventory() or item:isEquipped() or item:isFavorite() or item:getContainer():getType() ~= "none" then return end -- item must be in inventory
 		local iTier = item:getModData().Tier
-		local iBuff = item:getModData().SoulBuff
-		if iTier and iBuff then table.insert(cachedItems[iTier], item:getID()) end -- populate cached items table
+		local iBuffs = item:getModData().SoulBuffs
+		if iTier and iBuffs and #iBuffs > 0 then table.insert(cachedItems[iTier], item:getID()) end -- populate cached items table
 	end
 	
 	for tier,v in pairs(cachedItems) do
@@ -104,8 +114,8 @@ local function sfjContext(player, context, items)
 		local item = _items[i]
 		if not item:isInPlayerInventory() or item:isEquipped() or item:isFavorite() or item:getContainer():getType() ~= "none" then return end -- item must be in inventory
 		local iTier = item:getModData().Tier
-		local iBuff = item:getModData().SoulBuff
-		if iTier and iBuff then table.insert(cachedItems[iTier], item:getID()) end -- populate cached items table
+		local iBuffs = item:getModData().SoulBuffs
+		if iTier and iBuffs and #iBuffs > 0 then table.insert(cachedItems[iTier], item:getID()) end -- populate cached items table
 	end
 	
 	for tier,v in pairs(cachedItems) do
@@ -155,9 +165,10 @@ local function sfjUpgradeContext(player, context, items)
         local item = _items[i]
         if not item:isInPlayerInventory() or item:isEquipped() or item:isFavorite() or item:getContainer():getType() ~= "none" then return end -- item must be in inventory
         local iTier = item:getModData().Tier
-        local iBuff = item:getModData().SoulBuff
+        local iBuffs = item:getModData().SoulBuffs
         
-        if iTier and iTier < 5 and iBuff and iBuff ~= "SoulStrength" then 
+        -- Prevent upgrade for items with multiple buffs
+        if iTier and iTier < 5 and iBuffs and #iBuffs == 1 and not table_contains(iBuffs, "SoulStrength") then 
             local sfj_upgrade = context:addOption("Upgrade [T" .. iTier .. "] SoulForged Jewelry to [T" .. iTier+1 .. "]", player, sfjUpgrade, item, iTier+1)
             local tooltip = ISWorldObjectContextMenu.addToolTip();
             tooltip.description = gold .. "Material required for upgrade:"
@@ -166,11 +177,18 @@ local function sfjUpgradeContext(player, context, items)
             itemToolTipMats(tooltip, "SoulForge.SoulShardT"..iTier+1, sfj_upgrade, iTier)
             sfj_upgrade.toolTip = tooltip
             break
-        elseif iTier and iTier < 5 and iBuff and iBuff == "SoulStrength" then
+        elseif iTier and iTier < 5 and iBuffs and #iBuffs > 0 and table_contains(iBuffs, "SoulStrength") then
             local sfj_no_upgrade = context:addOption("Cannot Upgrade", player)
             sfj_no_upgrade.notAvailable = true
             local tooltip = ISWorldObjectContextMenu.addToolTip()
-            tooltip.description = red .. iBuff .. " items cannot be upgraded."
+            tooltip.description = red .. "SoulStrength items cannot be upgraded."
+            sfj_no_upgrade.toolTip = tooltip
+            break
+        elseif iTier and iTier < 5 and iBuffs and #iBuffs > 1 then
+            local sfj_no_upgrade = context:addOption("Cannot Upgrade", player)
+            sfj_no_upgrade.notAvailable = true
+            local tooltip = ISWorldObjectContextMenu.addToolTip()
+            tooltip.description = red .. "Multi-buff items cannot be upgraded."
             sfj_no_upgrade.toolTip = tooltip
             break
         end

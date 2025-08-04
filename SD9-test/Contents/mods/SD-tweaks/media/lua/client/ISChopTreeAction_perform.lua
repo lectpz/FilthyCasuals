@@ -48,3 +48,30 @@ function gatherLogsSD(player)
 		end
 	end
 end
+
+local o_start = ISChopTreeAction.start
+function ISChopTreeAction:start()
+	local handItem = self.character:getPrimaryHandItem()
+	local wMD = handItem:getModData()
+	local isOwnSafeHouse = SafeHouse.hasSafehouse(self.character)
+	local tierzone, zone, x, y = checkZone()
+
+    if isOwnSafeHouse then
+        local shx1 = isOwnSafeHouse:getX()-15
+        local shy1 = isOwnSafeHouse:getY()-15
+        local shx2 = isOwnSafeHouse:getW() + shx1 + 30
+        local shy2 = isOwnSafeHouse:getH() + shy1 + 30
+
+        if x >= shx1 and y >= shy1 and x <= shx2 and y <= shy2 then
+            isInSafeHouse = true
+        else
+            isInSafeHouse = false
+        end
+    end
+	if isInSafehouse then 
+		handItem:setTreeDamage(wMD.TreeDamage)
+	else
+		if tierzone > 4 then handItem:setTreeDamage(wMD.TreeDamage / tierzone) else handItem:setTreeDamage(wMD.TreeDamage) end
+	end
+	o_start(self)
+end

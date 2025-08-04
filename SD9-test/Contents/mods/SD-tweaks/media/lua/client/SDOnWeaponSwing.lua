@@ -6,7 +6,7 @@
 
 require "SDZoneCheck"
 
-function untierWeapon(player)
+local function untierWeapon(player)
 	Events.OnPlayerMove.Remove(untierWeapon)
 	local handItem = player:getPrimaryHandItem()
 	if handItem and handItem:getModData().zoneTier then
@@ -15,12 +15,31 @@ function untierWeapon(player)
 end
 Events.OnPlayerMove.Add(untierWeapon)
 
+local isInSafeHouse = false
+local function SDCheckSafehouse(player, x, y)
+	local isOwnSafeHouse = SafeHouse.hasSafehouse(player)
+
+    if isOwnSafeHouse then
+        local shx1 = isOwnSafeHouse:getX()-15
+        local shy1 = isOwnSafeHouse:getY()-15
+        local shx2 = isOwnSafeHouse:getW() + shx1 + 30
+        local shy2 = isOwnSafeHouse:getH() + shy1 + 30
+
+        if x >= shx1 and y >= shy1 and x <= shx2 and y <= shy2 then
+            isInSafeHouse = true
+        else
+            isInSafeHouse = false
+        end
+    end
+end
+
 local function initMeleeStats(modData, inventoryItem, character)
 	if	modData.CriticalChance		== nil and
 		modData.CritDmgMultiplier	== nil and
 		modData.MinDamage			== nil and
 		modData.MaxDamage			== nil and
 		modData.MaxHitCount			== nil and
+		modData.TreeDamage 			== nil and
 		modData.Name				== nil then
 		
 		local newItem = InventoryItemFactory.CreateItem(inventoryItem:getFullType())
@@ -30,6 +49,7 @@ local function initMeleeStats(modData, inventoryItem, character)
 		modData.MinDamage			= newItem:getMinDamage()
 		modData.MaxDamage			= newItem:getMaxDamage()
 		modData.MaxHitCount			= newItem:getMaxHitCount()
+		modData.TreeDamage			= newItem:getTreeDamage()
 		modData.Name				= character:getPrimaryHandItem():getName()
 		modData.SD7_1				= true
 	elseif not modData.SD7_1 then
@@ -180,6 +200,13 @@ local function SDOnWeaponSwing(character, handWeapon)
 			if mhc ~= maxHit then inventoryItem:setMaxHitCount(mhc) end
 		end
 		if soulForgeEnduranceMod then inventoryItem:setEnduranceMod(soulForgeEnduranceMod) end
+		
+		if isInSafehouse then 
+			inventoryItem:setTreeDamage(modData.TreeDamage)
+		else
+			if tierzone > 4 then inventoryItem:setTreeDamage(modData.TreeDamage/tierzone) else inventoryItem:setTreeDamage(modData.TreeDamage) end
+		end
+
 		modData.zoneTier = tierzone
 		--print(modData.zoneTier)
 	elseif tierzone and handWeapon:isRanged() and modData.zoneTier ~= tierzone then-- and handWeapon:getSwingAnim() ~= "Handgun" then
@@ -288,6 +315,7 @@ Events.OnWeaponSwing.Add(SDOnWeaponSwing)
 local function SDWeaponCheck(character, inventoryItem)
 	if inventoryItem == nil then return end
 	if character ~= getSpecificPlayer(0) then return end
+	
 	local scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
 	
 	local tierzone = checkZone()
