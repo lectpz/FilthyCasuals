@@ -270,7 +270,7 @@ function checkZone(x,y)
 						return NestedZone.list[NestedZoneNames[j]][5], NestedZoneNames[j], x, y, control, NestedZone.list[NestedZoneNames[j]][7], NestedZone.list[NestedZoneNames[j]][8], NestedZone.list[NestedZoneNames[j]][9], NestedZone.list[NestedZoneNames[j]][10], NestedZone.list[NestedZoneNames[j]][11]
 					end
 				end
-				local control = getControl(ZoneNames[i], player, NestedZone.list[NestedZoneNames[j]][5])
+				local control = getControl(ZoneNames[i], player, Zone.list[ZoneNames[j]][5])
 				return Zone.list[ZoneNames[i]][5], ZoneNames[i], x, y, control, Zone.list[ZoneNames[i]][7], Zone.list[ZoneNames[i]][8], Zone.list[ZoneNames[i]][9], Zone.list[ZoneNames[i]][10], Zone.list[ZoneNames[i]][11]
 			else
 				local control = getControl(ZoneNames[i], player, Zone.list[ZoneNames[i]][5])
