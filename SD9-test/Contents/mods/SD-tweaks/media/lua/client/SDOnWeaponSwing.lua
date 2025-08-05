@@ -206,7 +206,7 @@ local function SDOnWeaponSwing(character, handWeapon)
 		else
 			if tierzone == 5 then
 				inventoryItem:setTreeDamage(modData.TreeDamage * SandboxVars.SDOnWeaponSwing.TreeDamageT5)
-			elseif
+			elseif tierzone == 6 then
 				inventoryItem:setTreeDamage(modData.TreeDamage * SandboxVars.SDOnWeaponSwing.TreeDamageT6)
 			else
 				inventoryItem:setTreeDamage(modData.TreeDamage)
