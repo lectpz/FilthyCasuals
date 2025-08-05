@@ -887,16 +887,16 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 					Ranger = "0.5% Soul Smith"
 				}
 
-				if factionBuff[weaponModData.suffix2] and faction then
-
-					if string.lower(weaponModData.suffix2) == string.lower(faction) then
-						tooltip.description = tooltip.description .. gold .. factionBuff[weaponModData.suffix2] .. blue .. " (Faction Bonus)"
+				if factionBuff[weaponModData.suffix2] then
+					if faction then
+						if string.lower(weaponModData.suffix2) == string.lower(faction) then
+							tooltip.description = tooltip.description .. gold .. factionBuff[weaponModData.suffix2] .. blue .. " (Faction Bonus)"
+						else
+							tooltip.description = tooltip.description .. gold .. baseBuff[weaponModData.suffix2]
+						end
 					else
 						tooltip.description = tooltip.description .. gold .. baseBuff[weaponModData.suffix2]
 					end
-
-				else
-					tooltip.description = tooltip.description .. gold .. baseBuff[weaponModData.suffix2]
 				end
 				
 			end
