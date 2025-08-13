@@ -93,7 +93,10 @@ end
 function OnEat_Alert(food, character, percent)
 	needToEatItAll(character, percent)
 	if percent == 1 then
-		local hunger = food:getModData().hungerChange
+		local fMD = food:getModData()
+		local hunger = fMD.hungerChange
+		local ironChefBuff = 1
+		if fMD.ironChefBuff then ironChefBuff = fMD.ironChefBuff end
 		local pMD = character:getModData()
 		
 		if pMD.alertnessTimer and pMD.alertnessTimer > 0 then
@@ -101,7 +104,7 @@ function OnEat_Alert(food, character, percent)
 		end
 		
 		pMD.alertnessValue = hunger/alertDenom
-		pMD.alertnessTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
+		pMD.alertnessTimer = tickLength * ironChefBuff --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
 		Events.EveryTenMinutes.Add(decayAlertness)
 		HaloTextHelper.addTextWithArrow(character, "Alert Buff Active. ", true, HaloTextHelper.getColorGreen());
 		buffTimer["Alert"] = getTimestamp()
@@ -134,7 +137,10 @@ end
 function OnEat_Fortitude(food, character, percent)
 	needToEatItAll(character, percent)
 	if percent == 1 then
-		local hunger = food:getModData().hungerChange
+		local fMD = food:getModData()
+		local hunger = fMD.hungerChange
+		local ironChefBuff = 1
+		if fMD.ironChefBuff then ironChefBuff = fMD.ironChefBuff end
 		local pMD = character:getModData()
 		
 		if pMD.fortitudeTimer and pMD.fortitudeTimer > 0 then
@@ -142,7 +148,7 @@ function OnEat_Fortitude(food, character, percent)
 		end
 		
 		pMD.fortitudeValue = hunger/fortitudeDenom
-		pMD.fortitudeTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
+		pMD.fortitudeTimer = tickLength * ironChefBuff --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
 		Events.EveryTenMinutes.Add(decayFortitude)
 		HaloTextHelper.addTextWithArrow(character, "Fortitude Buff Active. ", true, HaloTextHelper.getColorGreen());
 		buffTimer["Fortitude"] = getTimestamp()
@@ -171,15 +177,16 @@ end
 function OnEat_IronChef(food, character, percent)
 	needToEatItAll(character, percent)
 	if percent == 1 then
-		local hunger = food:getModData().hungerChange
+		local fMD = food:getModData()
+		local hunger = fMD.hungerChange
 		local pMD = character:getModData()
 		
 		if pMD.IronChefTimer and pMD.IronChefTimer > 0 then
-			Events.EveryTenMinutes.Remove(decayLuck)
+			Events.EveryTenMinutes.Remove(decayIronChef)
 		end
 		
 		pMD.IronChefValue = hunger/IronChefDenom
-		pMD.IronChefTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
+		pMD.IronChefTimer = tickLength --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
 		Events.EveryTenMinutes.Add(decayIronChef)
 		HaloTextHelper.addTextWithArrow(character, "Iron Chef Buff Active. ", true, HaloTextHelper.getColorGreen());
 		buffTimer["IronChef"] = getTimestamp()
@@ -208,7 +215,10 @@ end
 function OnEat_Luck(food, character, percent)
 	needToEatItAll(character, percent)
 	if percent == 1 then
-		local hunger = food:getModData().hungerChange
+		local fMD = food:getModData()
+		local ironChefBuff = 1
+		if fMD.ironChefBuff then ironChefBuff = fMD.ironChefBuff end
+		local hunger = fMD.hungerChange
 		local pMD = character:getModData()
 		
 		if pMD.luckTimer and pMD.luckTimer > 0 then
@@ -216,7 +226,7 @@ function OnEat_Luck(food, character, percent)
 		end
 		
 		pMD.luckValue = hunger/luckDenom
-		pMD.luckTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
+		pMD.luckTimer = tickLength * ironChefBuff --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
 		
 		Events.EveryTenMinutes.Add(decayLuck)
 		HaloTextHelper.addTextWithArrow(character, "Luck Buff Active. ", true, HaloTextHelper.getColorGreen());
@@ -228,9 +238,16 @@ end
 function SoulSmithOnWeaponHitXP(player, handWeapon, character, damageSplit)
 	if player ~= getSpecificPlayer(0) then return end
 	if handWeapon:getType() == "BareHands" or handWeapon:isRanged() then return end
-	local pMD = getSpecificPlayer(0):getModData()
+	local pMD = player:getModData()
 	local permaSoulSmithValue = pMD.PermaSoulSmithValue
 	local SoulSmithValue = pMD.SoulSmithValue or 0
+	
+	local faction = pMD.faction
+	local handItem = player:getPrimaryHandItem()
+	if handItem and handItem:getModData().suffix2 == "Ranger" then
+		if faction == "Ranger" then SoulSmithValue = SoulSmithValue + 2 else SoulSmithValue = SoulSmithValue + 0.83 end
+	end
+
 	if SoulSmithValue and permaSoulSmithValue and permaSoulSmithValue > 0 then SoulSmithValue = SoulSmithValue + permaSoulSmithValue end
 	if SoulSmithValue and SoulSmithValue > 0 then
 		if ZombRand(0,10000) < SoulSmithValue*100 then
@@ -267,7 +284,10 @@ end
 function OnEat_SoulSmith(food, character, percent)
 	needToEatItAll(character, percent)
 	if percent == 1 then
-		local hunger = food:getModData().hungerChange
+		local fMD = food:getModData()
+		local hunger = fMD.hungerChange
+		local ironChefBuff = 1
+		if fMD.ironChefBuff then ironChefBuff = fMD.ironChefBuff end
 		local pMD = character:getModData()
 		local permaSoulSmith = pMD.PermaSoulSmithValue
 		
@@ -277,7 +297,7 @@ function OnEat_SoulSmith(food, character, percent)
 		end
 		
 		pMD.SoulSmithValue = hunger/SoulSmithDenom
-		pMD.SoulSmithTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
+		pMD.SoulSmithTimer = tickLength * ironChefBuff --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
 		
 		Events.EveryTenMinutes.Add(decaySoulSmith)
 		--Events.OnWeaponHitXp.Add(SoulSmithOnWeaponHitXP)
@@ -290,7 +310,10 @@ local function initSoulSmith(player)
 	local pMD = player:getModData()
 	local permaSoulSmith = pMD.PermaSoulSmithValue
 	Events.OnWeaponHitXp.Add(SoulSmithOnWeaponHitXP)
-	if (permaSoulSmith and permaSoulSmith > 0) or (pMD.SoulSmithTimer and pMD.SoulSmithTimer > 0) then
+	
+	local handItem = player:getPrimaryHandItem()
+	
+	if (permaSoulSmith and permaSoulSmith > 0) or (pMD.SoulSmithTimer and pMD.SoulSmithTimer > 0) or (handItem and handItem:getModData().suffix2 == "Ranger") then
 		HaloTextHelper.addTextWithArrow(player, "Soul Smith Active.", true, HaloTextHelper.getColorGreen());
 	end
 	Events.OnPlayerMove.Remove(initSoulSmith)
@@ -318,7 +341,10 @@ end
 function OnEat_SoulThirst(food, character, percent)
 	needToEatItAll(character, percent)
 	if percent == 1 then
-		local hunger = food:getModData().hungerChange
+		local fMD = food:getModData()
+		local hunger = fMD.hungerChange
+		local ironChefBuff = 1
+		if fMD.ironChefBuff then ironChefBuff = fMD.ironChefBuff end
 		local pMD = character:getModData()
 		
 		if pMD.SoulThirstTimer and pMD.SoulThirstTimer > 0 then
@@ -326,7 +352,7 @@ function OnEat_SoulThirst(food, character, percent)
 		end
 		
 		pMD.SoulThirstValue = hunger/SoulThirstDenom
-		pMD.SoulThirstTimer = 54 --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
+		pMD.SoulThirstTimer = tickLength * ironChefBuff --24 hours * 60 min / 10min/tick = 24*6 = 144. So each in-game IRL hour has 72 10-minute ticks. Each 30 minutes IRL has 36 10-minute ticks
 		
 		Events.EveryTenMinutes.Add(decaySoulThirst)
 		HaloTextHelper.addTextWithArrow(character, "Soul Thirst Buff Active. ", true, HaloTextHelper.getColorGreen());
@@ -346,51 +372,88 @@ end
 Events.OnGameStart.Add(infuseOnGameStart)
 
 function infuseAlert(item, playerObj)
+	--item:setOffAge(1000000000)
+	--item:setOffAgeMax(1000000000)
+
 	local itemModData = item:getModData()
+	local pMD = playerObj:getModData()
+	
+	itemModData.ironChefBuff = 1
+	if pMD.IronChefValue and pMD.IronChefValue > 0 then
+		itemModData.ironChefBuff = pMD.IronChefValue / 10 + 1
+		item:setOffAge(item:getOffAge() * 5 * itemModData.ironChefBuff)
+		item:setOffAgeMax(item:getOffAgeMax() * 5 * itemModData.ironChefBuff)
+	end
+		
 	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_Alert")
 	itemModData.setOnEat = "OnEat_Alert"
-	itemModData.hungerChange = item:getHungerChange() * -1
+	itemModData.hungerChange = item:getHungerChange() * -1 * itemModData.ironChefBuff
 	local playerInv = playerObj:getInventory()
-	for i=1,3 do
-		playerInv:RemoveOneOf(shard[1])
-		playerInv:RemoveOneOf(shard[2])
-	end
+	playerInv:RemoveOneOf(shard[1])
+	playerInv:RemoveOneOf(shard[2])
 	getSoundManager():PlayWorldSoundImpl("infuseFood", false, playerObj:getX(), playerObj:getY(), playerObj:getZ(), 0.2, 10, 0.05, false) ;
+	item:setName("Alert Infused " .. item:getDisplayName())
 end
 
 function infuseFortitude(item, playerObj)
+	--item:setOffAge(1000000000)
+	--item:setOffAgeMax(1000000000)
+	
 	local itemModData = item:getModData()
+	local pMD = playerObj:getModData()
+	
+	itemModData.ironChefBuff = 1
+	if pMD.IronChefValue and pMD.IronChefValue > 0 then
+		itemModData.ironChefBuff = pMD.IronChefValue / 10 + 1
+		item:setOffAge(item:getOffAge() * 5 * itemModData.ironChefBuff)
+		item:setOffAgeMax(item:getOffAgeMax() * 5 * itemModData.ironChefBuff)
+	end
+	
 	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_Fortitude")
 	itemModData.setOnEat = "OnEat_Fortitude"
-	itemModData.hungerChange = item:getHungerChange() * -1
-	for i=1,4 do
+	itemModData.hungerChange = item:getHungerChange() * -1 * itemModData.ironChefBuff
+	for i=1,3 do
 		playerInv:RemoveOneOf(shard[2])
 		playerInv:RemoveOneOf(shard[3])
 	end
 	getSoundManager():PlayWorldSoundImpl("infuseFood", false, playerObj:getX(), playerObj:getY(), playerObj:getZ(), 0.2, 10, 0.05, false) ;
+	item:setName("Fortitude Infused " .. item:getDisplayName())
 end
 
 function infuseIronChef(item, playerObj)
+	--item:setOffAge(1000000000)
+	--item:setOffAgeMax(1000000000)
+	
 	local itemModData = item:getModData()
 	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_IronChef")
 	itemModData.setOnEat = "OnEat_IronChef"
 	itemModData.hungerChange = item:getHungerChange() * -1
-	for i=1,3 do
-		playerInv:RemoveOneOf(shard[1])
-		playerInv:RemoveOneOf(shard[2])
-	end
+	playerInv:RemoveOneOf(shard[1])
 	getSoundManager():PlayWorldSoundImpl("infuseFood", false, playerObj:getX(), playerObj:getY(), playerObj:getZ(), 0.2, 10, 0.05, false) ;
+	item:setName("Iron Chef Infused " .. item:getDisplayName())
 end
 
 function infuseLuck(item, playerObj)
+	--item:setOffAge(1000000000)
+	--item:setOffAgeMax(1000000000)
+	
 	local itemModData = item:getModData()
+	local pMD = playerObj:getModData()
+	
+	itemModData.ironChefBuff = 1
+	if pMD.IronChefValue and pMD.IronChefValue > 0 then
+		itemModData.ironChefBuff = pMD.IronChefValue / 10 + 1
+		item:setOffAge(item:getOffAge() * 5 * itemModData.ironChefBuff)
+		item:setOffAgeMax(item:getOffAgeMax() * 5 * itemModData.ironChefBuff)
+	end
+	
 	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_Luck")
 	itemModData.setOnEat = "OnEat_Luck"
-	itemModData.hungerChange = item:getHungerChange() * -1
+	itemModData.hungerChange = item:getHungerChange() * -1 * itemModData.ironChefBuff
 	for i=1,4 do
 		playerInv:RemoveOneOf(shard[2])
 		playerInv:RemoveOneOf(shard[3])
@@ -400,32 +463,58 @@ function infuseLuck(item, playerObj)
 		playerInv:RemoveOneOf("Base.ScrapMetal")
 	end
 	getSoundManager():PlayWorldSoundImpl("infuseFood", false, playerObj:getX(), playerObj:getY(), playerObj:getZ(), 0.2, 10, 0.05, false) ;
+	item:setName("Luck Infused " .. item:getDisplayName())
 end
 
 function infuseSoulSmith(item, playerObj)
+	--item:setOffAge(1000000000)
+	--item:setOffAgeMax(1000000000)
+	
 	local itemModData = item:getModData()
+	local pMD = playerObj:getModData()
+	
+	itemModData.ironChefBuff = 1
+	if pMD.IronChefValue and pMD.IronChefValue > 0 then
+		itemModData.ironChefBuff = pMD.IronChefValue / 10 + 1
+		item:setOffAge(item:getOffAge() * 5 * itemModData.ironChefBuff)
+		item:setOffAgeMax(item:getOffAgeMax() * 5 * itemModData.ironChefBuff)
+	end
+	
 	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_SoulSmith")
 	itemModData.setOnEat = "OnEat_SoulSmith"
-	itemModData.hungerChange = item:getHungerChange() * -1
-	for i=1,4 do
+	itemModData.hungerChange = item:getHungerChange() * -1 * itemModData.ironChefBuff
+	for i=1,3 do
 		playerInv:RemoveOneOf(shard[1])
 		playerInv:RemoveOneOf(shard[2])
 		playerInv:RemoveOneOf(shard[3])
 		--playerInv:RemoveOneOf(shard[4])
 	end
-	for i=1,15 do
+	for i=1,25 do
 		playerInv:RemoveOneOf("Base.ScrapMetal")
 	end
 	getSoundManager():PlayWorldSoundImpl("infuseFood", false, playerObj:getX(), playerObj:getY(), playerObj:getZ(), 0.2, 10, 0.05, false) ;
+	item:setName("Soul Smith Infused " .. item:getDisplayName())
 end
 
 function infuseSoulThirst(item, playerObj)
+	--item:setOffAge(1000000000)
+	--item:setOffAgeMax(1000000000)
+	
 	local itemModData = item:getModData()
+	local pMD = playerObj:getModData()
+	
+	itemModData.ironChefBuff = 1
+	if pMD.IronChefValue and pMD.IronChefValue > 0 then
+		itemModData.ironChefBuff = pMD.IronChefValue / 10 + 1
+		item:setOffAge(item:getOffAge() * 5 * itemModData.ironChefBuff)
+		item:setOffAgeMax(item:getOffAgeMax() * 5 * itemModData.ironChefBuff)
+	end
+	
 	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_SoulThirst")
 	itemModData.setOnEat = "OnEat_SoulThirst"
-	itemModData.hungerChange = item:getHungerChange() * -1
+	itemModData.hungerChange = item:getHungerChange() * -1 * itemModData.ironChefBuff
 	for i=1,3 do
 		playerInv:RemoveOneOf(shard[1])
 		playerInv:RemoveOneOf(shard[2])
@@ -436,18 +525,24 @@ function infuseSoulThirst(item, playerObj)
 		playerInv:RemoveOneOf("Base.ScrapMetal")
 	end
 	getSoundManager():PlayWorldSoundImpl("infuseFood", false, playerObj:getX(), playerObj:getY(), playerObj:getZ(), 0.2, 10, 0.05, false) ;
+	item:setName("Soul Thirst Infused " .. item:getDisplayName())
 end
 
 
 local function soulInfuse(player, context, _items)
 	local playerObj = getSpecificPlayer(player)
 	items = ISInventoryPane.getActualItems(_items)
+	local pMD = playerObj:getModData()
 
 	for i=1, #items do
 		item = items[i]
 		--if not item:isInPlayerInventory() then return end
 		if instanceof(item, "Food") then
 			local iMD = item:getModData()
+			local ironChefBuff = 1
+			if pMD.IronChefValue then ironChefBuff = pMD.IronChefValue / 10 + 1 end
+			--print(ironChefBuff)
+			
 			--dPr("Hunger Change value: " .. item:getHungerChange())
 			local setOnEatFlag = iMD.setOnEat or false
 			if setOnEatFlag then 
@@ -455,32 +550,33 @@ local function soulInfuse(player, context, _items)
 				if setOnEatFlag == "OnEat_Alert" then
 					local hasAlertness = context:addOption("Soul-Infused (Alertness)", item, nil, playerObj)
 					tooltip = ISWorldObjectContextMenu.addToolTip();
-					tooltip.description = tooltip.description .. green .. "Eating this infused food will recover " .. math.floor(iMD.hungerChange/alertDenom*54*100) .. "%  of fatigue bar over 45 minutes. <LINE> "
+					tooltip.description = tooltip.description .. green .. "Eating this infused food will recover " .. math.floor(iMD.hungerChange/alertDenom*54*100) .. "%  of fatigue bar over " .. math.floor(45*ironChefBuff) .. " minutes. <LINE> "
 					hasAlertness.toolTip = tooltip
 				elseif setOnEatFlag == "OnEat_Fortitude" then
 					local hasFortitude = context:addOption("Soul-Infused (Fortitude)", item, nil, playerObj)
 					tooltip = ISWorldObjectContextMenu.addToolTip();
-					tooltip.description = tooltip.description .. green .. "Eating this infused food will recover " .. math.floor(iMD.hungerChange/fortitudeDenom*54*100) .. "% of endurance bar over 45 minutes. <LINE> "
+					tooltip.description = tooltip.description .. green .. "Eating this infused food will recover " .. math.floor(iMD.hungerChange/fortitudeDenom*54*100) .. "% of endurance bar over " .. math.floor(45*ironChefBuff) .. " minutes. <LINE> "
 					hasFortitude.toolTip = tooltip
 				elseif setOnEatFlag == "OnEat_IronChef" then
 					local hasIronChef = context:addOption("Soul-Infused (IronChef)", item, nil, playerObj)
 					tooltip = ISWorldObjectContextMenu.addToolTip();
-					tooltip.description = tooltip.description .. green .. "Eating this infused food will elevate your cooking skills. Foods cooked while this buff is active will last " .. math.floor(iMD.hungerChange/IronChefDenom*100)/100 .. "% longer. This buff lasts 45 minutes. <LINE> "
+					local ironChefFoodBuff = math.floor(iMD.hungerChange/IronChefDenom*100)/100
+					tooltip.description = tooltip.description .. green .. "Eating this infused food will elevate your cooking skills. Foods cooked while this buff is active will last longer. Bonus " .. ironChefFoodBuff*10 .. "% to Soul Infused foods cooked while buff is active. Bonus " .. 5*(ironChefFoodBuff/10) .. "% to Soul Infused food age timer while buff is active. This buff lasts 45 minutes. <LINE> "
 					hasIronChef.toolTip = tooltip
 				elseif setOnEatFlag == "OnEat_Luck" then
 					local hasLuck = context:addOption("Soul-Infused (Luck)", item, nil, playerObj)
 					tooltip = ISWorldObjectContextMenu.addToolTip();
-					tooltip.description = tooltip.description .. green .. "Eating this infused food will increase your luck by " .. math.floor(iMD.hungerChange/luckDenom*100)/100 .. " for 45 minutes. <LINE> "
+					tooltip.description = tooltip.description .. green .. "Eating this infused food will increase your luck by " .. math.floor(iMD.hungerChange/luckDenom*100)/100 .. " for " .. math.floor(45*ironChefBuff) .. " minutes. <LINE> "
 					hasLuck.toolTip = tooltip
 				elseif setOnEatFlag == "OnEat_SoulSmith" then
 					local hasSoulSmith	= context:addOption("Soul-Infused (SoulSmith)", item, infuseSoulSmith, playerObj)
 					tooltip = ISWorldObjectContextMenu.addToolTip();
-					tooltip.description = tooltip.description .. green .. "Eating this infused food will give you a " .. math.floor(iMD.hungerChange/SoulSmithDenom*100)/100 .. "% chance to repair your weapon with each successful hit for 45 minutes. <LINE> "
+					tooltip.description = tooltip.description .. green .. "Eating this infused food will give you a " .. math.floor(iMD.hungerChange/SoulSmithDenom*100)/100 .. "% chance to repair your weapon with each successful hit for " .. math.floor(45*ironChefBuff) .. " minutes. <LINE> "
 					hasSoulSmith.toolTip = tooltip
 				elseif setOnEatFlag == "OnEat_SoulThirst" then
 					local hasSoulThirst	= context:addOption("Soul-Infused (SoulThirst)", item, infuseSoulThirst, playerObj)
 					tooltip = ISWorldObjectContextMenu.addToolTip();
-					tooltip.description = tooltip.description .. green .. "Eating this infused food will give you a " .. math.floor(iMD.hungerChange/SoulThirstDenom*100)/100 .. "% chance to gain an additional soul on kill. This buff lasts for 45 minutes. <LINE> "
+					tooltip.description = tooltip.description .. green .. "Eating this infused food will give you a " .. math.min(100,math.floor(iMD.hungerChange/SoulThirstDenom*100)/100) .. "% chance to gain an additional soul on kill. This buff lasts for " .. math.floor(45*ironChefBuff) .. " minutes. <LINE> "
 					hasSoulThirst.toolTip = tooltip
 				end
 				break
@@ -501,42 +597,43 @@ local function soulInfuse(player, context, _items)
 				local iMD = item:getModData()
 				local setOnEatFlag = iMD.setOnEat or false
 				
-				local AlertnessMatNo = {3,3}
+				local AlertnessMatNo = {1,1}
 				alerttooltip = ISWorldObjectContextMenu.addToolTip();
-				alerttooltip.description = alerttooltip.description .. green .. "Eating this infused food will recover " .. math.floor(-1*item:getHungerChange()/alertDenom*54*100) .. "% of fatigue bar over 45 minutes. <LINE> "
+				alerttooltip.description = alerttooltip.description .. green .. "Eating this infused food will recover " .. math.floor(-1*item:getHungerChange()/alertDenom*54*100)*ironChefBuff .. "% of fatigue bar over " .. math.floor(45*ironChefBuff) .. " minutes. <LINE> "
 				alerttooltip.description = alerttooltip.description .. " <LINE> " .. gold .. "Materials required to infuse Alertness:"
 				itemToolTipMats(alerttooltip, shard[1], Alertness, AlertnessMatNo[1])
 				itemToolTipMats(alerttooltip, shard[2], Alertness, AlertnessMatNo[2])
 				Alertness.toolTip = alerttooltip
 				
-				local FortitudeMatNo = {4,4}
+				local FortitudeMatNo = {3,3}
 				forttooltip = ISWorldObjectContextMenu.addToolTip();
-				forttooltip.description = forttooltip.description .. green .. "Eating this infused food will recover " .. math.floor(-1*item:getHungerChange()/fortitudeDenom*54*100) .. "% of endurance bar over 45 minutes. <LINE> "
+				forttooltip.description = forttooltip.description .. green .. "Eating this infused food will recover " .. math.floor(-1*item:getHungerChange()/fortitudeDenom*54*100)*ironChefBuff .. "% of endurance bar over " .. math.floor(45*ironChefBuff) .. " minutes. <LINE> "
 				forttooltip.description = forttooltip.description .. " <LINE> " .. gold .. "Materials required to infuse Fortitude:"
 				itemToolTipMats(forttooltip, shard[2], Fortitude, FortitudeMatNo[1])
 				itemToolTipMats(forttooltip, shard[3], Fortitude, FortitudeMatNo[2])
 				Fortitude.toolTip = forttooltip
 				
-				local IronChefMatNo = {3,3}
+				local IronChefMatNo = {1}
 				ironcheftooltip = ISWorldObjectContextMenu.addToolTip();
-				ironcheftooltip.description = ironcheftooltip.description .. green .. "Eating this infused food will elevate your cooking skills. Foods cooked while this buff is active will last " .. math.floor(-1*item:getHungerChange()/IronChefDenom*100)/100 .. "% longer. This buff lasts 45 minutes. <LINE> "
+				local ironChefFoodBuff = math.floor(-item:getHungerChange()/IronChefDenom*100)/100
+				ironcheftooltip.description = ironcheftooltip.description .. green .. "Eating this infused food will elevate your cooking skills. Foods cooked while this buff is active will last longer. Bonus " .. ironChefFoodBuff*10 .. "% hunger value to Soul Infused foods while buff is active. Bonus " .. 5*(ironChefFoodBuff*10) .. "% to Soul Infused food age timer while buff is active. This buff lasts 45 minutes. <LINE> "
 				ironcheftooltip.description = ironcheftooltip.description .. " <LINE> " .. gold .. "Materials required to infuse IronChef:"
 				itemToolTipMats(ironcheftooltip, shard[1], IronChef, IronChefMatNo[1])
-				itemToolTipMats(ironcheftooltip, shard[2], IronChef, IronChefMatNo[2])
+				--itemToolTipMats(ironcheftooltip, shard[2], IronChef, IronChefMatNo[2])
 				IronChef.toolTip = ironcheftooltip
 				
 				local LuckMatNo = {4,4,15}
 				lucktooltip = ISWorldObjectContextMenu.addToolTip();
-				lucktooltip.description = lucktooltip.description .. green .. "Eating this infused food will increase your luck by " .. math.floor(-1*item:getHungerChange()/luckDenom*100)/100 .. " for 45 minutes. <LINE> "
+				lucktooltip.description = lucktooltip.description .. green .. "Eating this infused food will increase your luck by " .. math.floor(-1*item:getHungerChange()/luckDenom*100)/100*ironChefBuff .. " for " .. math.floor(45*ironChefBuff) .. " minutes. <LINE> "
 				lucktooltip.description = lucktooltip.description .. " <LINE> " .. gold .. "Materials required to infuse Luck:"
 				itemToolTipMats(lucktooltip, shard[2], Luck, LuckMatNo[1])
 				itemToolTipMats(lucktooltip, shard[3], Luck, LuckMatNo[2])
 				itemToolTipMats(lucktooltip, "Base.ScrapMetal", Luck, LuckMatNo[3])
 				Luck.toolTip = lucktooltip
 
-				local SoulSmithMatNo = {4,4,5,25}
+				local SoulSmithMatNo = {3,3,3,25}
 				soulsmithtooltip = ISWorldObjectContextMenu.addToolTip();
-				soulsmithtooltip.description = soulsmithtooltip.description .. green .. "Eating this infused food will give you a " .. math.floor(-1*item:getHungerChange()/SoulSmithDenom*100)/100 .. "% chance to repair your weapon with each successful hit for 45 minutes. <LINE> "
+				soulsmithtooltip.description = soulsmithtooltip.description .. green .. "Eating this infused food will give you a " .. math.floor(-1*item:getHungerChange()/SoulSmithDenom*100)/100*ironChefBuff .. "% chance to repair your weapon with each successful hit for " .. math.floor(45*ironChefBuff) .. " minutes. <LINE> "
 				soulsmithtooltip.description = soulsmithtooltip.description .. " <LINE> " .. gold .. "Materials required to infuse SoulSmith:"
 				itemToolTipMats(soulsmithtooltip, shard[1], SoulSmith, SoulSmithMatNo[1])
 				itemToolTipMats(soulsmithtooltip, shard[2], SoulSmith, SoulSmithMatNo[2])
@@ -546,14 +643,14 @@ local function soulInfuse(player, context, _items)
 				
 				local SoulThirstMatNo = {3,3,3,10}
 				soulthirsttooltip = ISWorldObjectContextMenu.addToolTip();
-				soulthirsttooltip.description = soulthirsttooltip.description .. green .. "Eating this infused food will give you a " .. math.floor(-1*item:getHungerChange()/SoulThirstDenom*100)/100 .. "% chance to gain an additional soul on kill. This buff lasts for 45 minutes. <LINE> "
+				soulthirsttooltip.description = soulthirsttooltip.description .. green .. "Eating this infused food will give you a " .. math.min(100,math.floor(-1*item:getHungerChange()/SoulThirstDenom*100)/100*ironChefBuff) .. "% chance to gain an additional soul on kill. This buff lasts for " .. math.floor(45*ironChefBuff) .. " minutes. <LINE> "
 				soulthirsttooltip.description = soulthirsttooltip.description .. " <LINE> " .. gold .. "Materials required to infuse SoulThirst:"
 				itemToolTipMats(soulthirsttooltip, shard[1], SoulThirst, SoulThirstMatNo[1])
 				itemToolTipMats(soulthirsttooltip, shard[2], SoulThirst, SoulThirstMatNo[2])
 				itemToolTipMats(soulthirsttooltip, shard[3], SoulThirst, SoulThirstMatNo[3])
 				itemToolTipMats(soulthirsttooltip, "Base.ScrapMetal", SoulThirst, SoulThirstMatNo[4])
 				SoulThirst.toolTip = soulthirsttooltip
-				
+				--print(ironChefBuff)
 				break
 			end
 		end

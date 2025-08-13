@@ -1,0 +1,88 @@
+module Packing
+{
+	imports
+	{
+		Base,
+	}
+	
+	item 10pkRubberStrip
+	{
+		Weight			= 1.5,
+		Type			= Normal,
+		DisplayName		= 10 x Rubber Strips,
+		DisplayCategory = Material,
+		Icon			= JRubber,
+		WorldStaticModel = BundleOfRubberStrip,
+	}
+	
+	item 5pkRubberStrip
+	{
+		Weight			= 1.05,
+		Type			= Normal,
+		DisplayName		= 5 x Rubber Strips,
+		DisplayCategory = Material,
+		Icon			= JRubber,
+		WorldStaticModel = BundleOfRubberStrip,
+	}
+
+	recipe Pack 10
+	{
+		destroy damnCraft.RubberStrip=10,
+		
+		Result:10pkRubberStrip,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:100.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 10
+	{
+		destroy 10pkRubberStrip,
+		
+		Result:damnCraft.RubberStrip=10,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Pack 5
+	{
+		destroy damnCraft.RubberStrip=5,
+		
+		Result:5pkRubberStrip,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 5
+	{
+		destroy 5pkRubberStrip,
+		
+		Result:damnCraft.RubberStrip=5,
+		Time:50.0,
+		Category:Storage,
+	}
+
+	recipe Put Together
+	{
+		5pkRubberStrip=2,
+		
+		Result:10pkRubberStrip=1,
+		Time:30.0,
+	}
+
+	recipe Split in Two
+	{
+		10pkRubberStrip=1,
+		
+		Result:5pkRubberStrip=2,
+		Time:30.0,
+	}
+
+	model BundleOfRubberStrip
+	{
+		mesh = WorldItems/pack_of_sheet_rope,
+		texture = WorldItems/BundleOfRubberStrips,
+		scale = 1.0,
+	}
+}

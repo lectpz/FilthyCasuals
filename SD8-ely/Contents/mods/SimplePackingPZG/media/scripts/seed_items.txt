@@ -1,0 +1,1442 @@
+module SP
+{
+	imports
+	{
+		Base,
+        PZGFarm
+	}
+
+    item 5pkAppleBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Apple Seeds Packet,
+        Icon                = SeedPacketApple,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketApple_Ground
+    }
+
+
+    item 10pkAppleBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Apple Seeds Packet,
+        Icon                = SeedPacketApple,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketApple_Ground
+    }
+
+
+    item 50pkAppleBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Apple Seeds Packet,
+        Icon                = SeedPacketApple,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketApple_Ground
+    }
+
+
+    item 100pkAppleBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Apple Seeds Packet,
+        Icon                = SeedPacketApple,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketApple_Ground
+    }
+
+    item 5pkAvocadoBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Avocado Seeds Packet,
+        Icon                = SeedPacketAvocado,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketAvocado_Ground
+    }
+
+
+    item 10pkAvocadoBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Avocado Seeds Packet,
+        Icon                = SeedPacketAvocado,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketAvocado_Ground
+    }
+
+
+    item 50pkAvocadoBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Avocado Seeds Packet,
+        Icon                = SeedPacketAvocado,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketAvocado_Ground
+    }
+
+
+    item 100pkAvocadoBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Avocado Seeds Packet,
+        Icon                = SeedPacketAvocado,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketAvocado_Ground
+    }
+
+    item 5pkBananaBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Banana Seeds Packet,
+        Icon                = SeedPacketBanana,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBanana_Ground
+    }
+
+
+    item 10pkBananaBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Banana Seeds Packet,
+        Icon                = SeedPacketBanana,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBanana_Ground
+    }
+
+
+    item 50pkBananaBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Banana Seeds Packet,
+        Icon                = SeedPacketBanana,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBanana_Ground
+    }
+
+
+    item 100pkBananaBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Banana Seeds Packet,
+        Icon                = SeedPacketBanana,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBanana_Ground
+    }
+
+    item 5pkBellpepperBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Bellpepper Seeds Packet,
+        Icon                = SeedPacketPepper,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBellPepper_Ground
+    }
+
+
+    item 10pkBellpepperBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Bellpepper Seeds Packet,
+        Icon                = SeedPacketPepper,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBellPepper_Ground
+    }
+
+
+    item 50pkBellpepperBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Bellpepper Seeds Packet,
+        Icon                = SeedPacketPepper,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBellPepper_Ground
+    }
+
+
+    item 100pkBellpepperBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Bellpepper Seeds Packet,
+        Icon                = SeedPacketPepper,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBellPepper_Ground
+    }
+
+    item 5pkBlackbeansBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Black Bean Seeds Packet,
+        Icon                = SeedPacketBlackbeans,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBlackbeans_Ground
+    }
+
+
+    item 10pkBlackbeansBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Black Bean Seeds Packet,
+        Icon                = SeedPacketBlackbeans,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBlackbeans_Ground
+    }
+
+
+    item 50pkBlackbeansBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Black Bean Seeds Packet,
+        Icon                = SeedPacketBlackbeans,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBlackbeans_Ground
+    }
+
+
+    item 100pkBlackbeansBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Black Bean Seeds Packet,
+        Icon                = SeedPacketBlackbeans,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBlackbeans_Ground
+    }
+
+    item 5pkBlackberryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Blackberry Seeds Packet,
+        Icon                = SeedPacketBlackberry,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBlackberry_Ground
+    }
+
+
+    item 10pkBlackberryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Blackberry Seeds Packet,
+        Icon                = SeedPacketBlackberry,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBlackberry_Ground
+    }
+
+
+    item 50pkBlackberryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Blackberry Seeds Packet,
+        Icon                = SeedPacketBlackberry,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBlackberry_Ground
+    }
+
+
+    item 100pkBlackberryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Blackberry Seeds Packet,
+        Icon                = SeedPacketBlackberry,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBlackberry_Ground
+    }
+
+    item 5pkBlueberryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Blueberry Seeds Packet,
+        Icon                = SeedPacketBlueberry,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBlueberry_Ground
+    }
+
+
+    item 10pkBlueberryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Blueberry Seeds Packet,
+        Icon                = SeedPacketBlueberry,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBlueberry_Ground
+    }
+
+
+    item 50pkBlueberryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Blueberry Seeds Packet,
+        Icon                = SeedPacketBlueberry,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBlueberry_Ground
+    }
+
+
+    item 100pkBlueberryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Blueberry Seeds Packet,
+        Icon                = SeedPacketBlueberry,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketBlueberry_Ground
+    }
+
+
+    item 5pkCherryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Cherry Seeds Packet,
+        Icon                = SeedPacketCherry,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCherry_Ground
+    }
+
+
+    item 10pkCherryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Cherry Seeds Packet,
+        Icon                = SeedPacketCherry,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCherry_Ground
+    }
+
+
+    item 50pkCherryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Cherry Seeds Packet,
+        Icon                = SeedPacketCherry,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCherry_Ground
+    }
+
+
+    item 100pkCherryBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Cherry Seeds Packet,
+        Icon                = SeedPacketCherry,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCherry_Ground
+    }
+
+    item 5pkCoconutBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Coconut Seeds Packet,
+        Icon                = SeedPacketCoconut,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCoconut_Ground
+    }
+
+
+    item 10pkCoconutBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Coconut Seeds Packet,
+        Icon                = SeedPacketCoconut,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCoconut_Ground
+    }
+
+
+    item 50pkCoconutBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Coconut Seeds Packet,
+        Icon                = SeedPacketCoconut,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCoconut_Ground
+    }
+
+
+    item 100pkCoconutBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Coconut Seeds Packet,
+        Icon                = SeedPacketCoconut,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCoconut_Ground
+    }
+
+    item 5pkCornBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Corn Seeds Packet,
+        Icon                = SeedPacketCorn,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCorn_Ground
+    }
+
+
+    item 10pkCornBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Corn Seeds Packet,
+        Icon                = SeedPacketCorn,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCorn_Ground
+    }
+
+
+    item 50pkCornBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Corn Seeds Packet,
+        Icon                = SeedPacketCorn,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCorn_Ground
+    }
+
+
+    item 100pkCornBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Corn Seeds Packet,
+        Icon                = SeedPacketCorn,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCorn_Ground
+    }
+
+    item 5pkCucumberBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Cucumber Seeds Packet,
+        Icon                = SeedPacketCucumber,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCucumber_Ground
+    }
+
+
+    item 10pkCucumberBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Cucumber Seeds Packet,
+        Icon                = SeedPacketCucumber,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCucumber_Ground
+    }
+
+    item 50pkCucumberBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Cucumber Seeds Packet,
+        Icon                = SeedPacketCucumber,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCucumber_Ground
+    }
+
+
+    item 100pkCucumberBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Cucumber Seeds Packet,
+        Icon                = SeedPacketCucumber,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketCucumber_Ground
+    }
+
+    item 5pkDaikonBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Daikon Seeds Packet,
+        Icon                = SeedPacketDaikon,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketDaikon_Ground
+    }
+
+
+    item 10pkDaikonBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Daikon Seeds Packet,
+        Icon                = SeedPacketDaikon,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketDaikon_Ground
+    }
+
+
+    item 50pkDaikonBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Daikon Seeds Packet,
+        Icon                = SeedPacketDaikon,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketDaikon_Ground
+    }
+
+
+    item 100pkDaikonBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Daikon Seeds Packet,
+        Icon                = SeedPacketDaikon,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketDaikon_Ground
+    }
+
+    item 5pkEdamameBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Edamame Seeds Packet,
+        Icon                = SeedPacketEdamame,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketEdamame_Ground
+    }
+
+
+    item 10pkEdamameBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Edamame Seeds Packet,
+        Icon                = SeedPacketEdamame,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketEdamame_Ground
+    }
+
+
+    item 50pkEdamameBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Edamame Seeds Packet,
+        Icon                = SeedPacketEdamame,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketEdamame_Ground
+    }
+
+
+    item 100pkEdamameBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Edamame Seeds Packet,
+        Icon                = SeedPacketEdamame,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketEdamame_Ground
+    }
+
+    item 5pkEggplantBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Eggplant Seeds Packet,
+        Icon                = SeedPacketEggplant,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketEggplant_Ground
+    }
+
+
+    item 10pkEggplantBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Eggplant Seeds Packet,
+        Icon                = SeedPacketEggplant,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketEggplant_Ground
+    }
+
+
+    item 50pkEggplantBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Eggplant Seeds Packet,
+        Icon                = SeedPacketEggplant,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketEggplant_Ground
+    }
+
+
+    item 100pkEggplantBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Eggplant Seeds Packet,
+        Icon                = SeedPacketEggplant,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketEggplant_Ground
+    }
+
+
+    item 5pkGrapefruitBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Grapefruit Seeds Packet,
+        Icon                = SeedPacketGrapefruit,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketGrapefruit_Ground
+    }
+
+
+    item 10pkGrapefruitBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Grapefruit Seeds Packet,
+        Icon                = SeedPacketGrapefruit,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketGrapefruit_Ground
+    }
+
+
+    item 50pkGrapefruitBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Grapefruit Seeds Packet,
+        Icon                = SeedPacketGrapefruit,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketGrapefruit_Ground
+    }
+
+
+    item 100pkGrapefruitBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Grapefruit Seeds Packet,
+        Icon                = SeedPacketGrapefruit,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketGrapefruit_Ground
+    }
+
+    item 5pkGrapeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Grape Seeds Packet,
+        Icon                = SeedPacketGrapes,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketGrapes_Ground
+    }
+
+
+    item 10pkGrapeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Grape Seeds Packet,
+        Icon                = SeedPacketGrapes,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketGrapes_Ground
+    }
+
+
+    item 50pkGrapeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Grape Seeds Packet,
+        Icon                = SeedPacketGrapes,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketGrapes_Ground
+    }
+
+
+    item 100pkGrapeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Grape Seeds Packet,
+        Icon                = SeedPacketGrapes,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketGrapes_Ground
+    }
+
+    item 5pkPepperHabaneroBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x PepperHabanero Seeds Packet,
+        Icon                = SeedPacketPepperHabanero,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPepperHabanero_Ground
+    }
+
+
+    item 10pkPepperHabaneroBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x PepperHabanero Seeds Packet,
+        Icon                = SeedPacketPepperHabanero,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPepperHabanero_Ground
+    }
+
+
+    item 50pkPepperHabaneroBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x PepperHabanero Seeds Packet,
+        Icon                = SeedPacketPepperHabanero,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPepperHabanero_Ground
+    }
+
+
+    item 100pkPepperHabaneroBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x PepperHabanero Seeds Packet,
+        Icon                = SeedPacketPepperHabanero,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPepperHabanero_Ground
+    }
+
+
+    item 5pkPepperJalapenoBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x PepperJalapeno Seeds Packet,
+        Icon                = SeedPacketPepperJalapeno,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPepperJalapeno_Ground
+    }
+
+
+    item 10pkPepperJalapenoBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x PepperJalapeno Seeds Packet,
+        Icon                = SeedPacketPepperJalapeno,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPepperJalapeno_Ground
+    }
+
+
+    item 50pkPepperJalapenoBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x PepperJalapeno Seeds Packet,
+        Icon                = SeedPacketPepperJalapeno,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPepperJalapeno_Ground
+    }
+
+
+    item 100pkPepperJalapenoBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x PepperJalapeno Seeds Packet,
+        Icon                = SeedPacketPepperJalapeno,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPepperJalapeno_Ground
+    }
+
+
+    item 5pkLeekBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Leek Seeds Packet,
+        Icon                = SeedPacketLeek,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLeek_Ground
+    }
+
+
+    item 10pkLeekBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Leek Seeds Packet,
+        Icon                = SeedPacketLeek,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLeek_Ground
+    }
+
+
+    item 50pkLeekBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Leek Seeds Packet,
+        Icon                = SeedPacketLeek,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLeek_Ground
+    }
+
+
+    item 100pkLeekBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Leek Seeds Packet,
+        Icon                = SeedPacketLeek,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLeek_Ground
+    }
+
+
+    item 5pkLemonBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Lemon Seeds Packet,
+        Icon                = SeedPacketLemon,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLemon_Ground
+    }
+
+
+    item 10pkLemonBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Lemon Seeds Packet,
+        Icon                = SeedPacketLemon,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLemon_Ground
+    }
+
+
+    item 50pkLemonBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Lemon Seeds Packet,
+        Icon                = SeedPacketLemon,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLemon_Ground
+    }
+
+
+    item 100pkLemonBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Lemon Seeds Packet,
+        Icon                = SeedPacketLemon,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLemon_Ground
+    }
+
+
+    item 5pkLettuceBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Lettuce Seeds Packet,
+        Icon                = SeedPacketLettuce,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLettuce_Ground
+    }
+
+
+    item 10pkLettuceBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Lettuce Seeds Packet,
+        Icon                = SeedPacketLettuce,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLettuce_Ground
+    }
+
+
+    item 50pkLettuceBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Lettuce Seeds Packet,
+        Icon                = SeedPacketLettuce,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLettuce_Ground
+    }
+
+
+    item 100pkLettuceBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Lettuce Seeds Packet,
+        Icon                = SeedPacketLettuce,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLettuce_Ground
+    }
+
+
+    item 5pkLimeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Lime Seeds Packet,
+        Icon                = SeedPacketLime,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLime_Ground
+    }
+
+
+    item 10pkLimeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Lime Seeds Packet,
+        Icon                = SeedPacketLime,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLime_Ground
+    }
+
+
+    item 50pkLimeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Lime Seeds Packet,
+        Icon                = SeedPacketLime,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLime_Ground
+    }
+
+
+    item 100pkLimeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Lime Seeds Packet,
+        Icon                = SeedPacketLime,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketLime_Ground
+    }
+
+
+    item 5pkMangoBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Mango Seeds Packet,
+        Icon                = SeedPacketMango,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketMango_Ground
+    }
+
+
+    item 10pkMangoBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Mango Seeds Packet,
+        Icon                = SeedPacketMango,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketMango_Ground
+    }
+
+
+    item 50pkMangoBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Mango Seeds Packet,
+        Icon                = SeedPacketMango,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketMango_Ground
+    }
+
+
+    item 100pkMangoBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Mango Seeds Packet,
+        Icon                = SeedPacketMango,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketMango_Ground
+    }
+
+
+    item 5pkOnionBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Onion Seeds Packet,
+        Icon                = SeedPacketOnion,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketOnion_Ground
+    }
+
+
+    item 10pkOnionBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Onion Seeds Packet,
+        Icon                = SeedPacketOnion,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketOnion_Ground
+    }
+
+
+    item 50pkOnionBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Onion Seeds Packet,
+        Icon                = SeedPacketOnion,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketOnion_Ground
+    }
+
+
+    item 100pkOnionBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Onion Seeds Packet,
+        Icon                = SeedPacketOnion,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketOnion_Ground
+    }
+
+
+    item 5pkOrangeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Orange Seeds Packet,
+        Icon                = SeedPacketOrange,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketOrange_Ground
+    }
+
+
+    item 10pkOrangeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Orange Seeds Packet,
+        Icon                = SeedPacketOrange,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketOrange_Ground
+    }
+
+
+    item 50pkOrangeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Orange Seeds Packet,
+        Icon                = SeedPacketOrange,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketOrange_Ground
+    }
+
+
+    item 100pkOrangeBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Orange Seeds Packet,
+        Icon                = SeedPacketOrange,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketOrange_Ground
+    }
+
+
+    item 5pkPeachBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Peach Seeds Packet,
+        Icon                = SeedPacketPeach,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPeach_Ground
+    }
+
+
+    item 10pkPeachBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Peach Seeds Packet,
+        Icon                = SeedPacketPeach,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPeach_Ground
+    }
+
+
+    item 50pkPeachBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Peach Seeds Packet,
+        Icon                = SeedPacketPeach,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPeach_Ground
+    }
+
+
+    item 100pkPeachBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Peach Seeds Packet,
+        Icon                = SeedPacketPeach,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPeach_Ground
+    }
+
+
+    item 5pkPearBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Pear Seeds Packet,
+        Icon                = SeedPacketPear,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPear_Ground
+    }
+
+
+    item 10pkPearBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Pear Seeds Packet,
+        Icon                = SeedPacketPear,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPear_Ground
+    }
+
+
+    item 50pkPearBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Pear Seeds Packet,
+        Icon                = SeedPacketPear,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPear_Ground
+    }
+
+
+    item 100pkPearBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Pear Seeds Packet,
+        Icon                = SeedPacketPear,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPear_Ground
+    }
+
+    item 5pkPinePineappleBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x PinePineapple Seeds Packet,
+        Icon                = SeedPacketPinePineapple,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPinePineapple_Ground
+    }
+
+
+    item 10pkPinePineappleBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x PinePineapple Seeds Packet,
+        Icon                = SeedPacketPinePineapple,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPinePineapple_Ground
+    }
+
+
+    item 50pkPinePineappleBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x PinePineapple Seeds Packet,
+        Icon                = SeedPacketPinePineapple,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPinePineapple_Ground
+    }
+
+
+    item 100pkPinePineappleBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x PinePineapple Seeds Packet,
+        Icon                = SeedPacketPinePineapple,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPinePineapple_Ground
+    }
+
+    item 5pkPumpkinBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Pumpkin Seeds Packet,
+        Icon                = SeedPacketPumpkin,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPumpkin_Ground
+    }
+
+
+    item 10pkPumpkinBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Pumpkin Seeds Packet,
+        Icon                = SeedPacketPumpkin,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPumpkin_Ground
+    }
+
+
+    item 50pkPumpkinBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Pumpkin Seeds Packet,
+        Icon                = SeedPacketPumpkin,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPumpkin_Ground
+    }
+
+
+    item 100pkPumpkinBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Pumpkin Seeds Packet,
+        Icon                = SeedPacketPumpkin,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketPumpkin_Ground
+    }
+
+
+    item 5pkSugarcaneBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Sugarcane Seeds Packet,
+        Icon                = SeedPacketSugarcane,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketSugarcane_Ground
+    }
+
+
+    item 10pkSugarcaneBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Sugarcane Seeds Packet,
+        Icon                = SeedPacketSugarcane,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketSugarcane_Ground
+    }
+
+
+    item 50pkSugarcaneBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Sugarcane Seeds Packet,
+        Icon                = SeedPacketSugarcane,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketSugarcane_Ground
+    }
+
+
+    item 100pkSugarcaneBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Sugarcane Seeds Packet,
+        Icon                = SeedPacketSugarcane,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketSugarcane_Ground
+    }
+
+
+    item 5pkWatermelonBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Watermelon Seeds Packet,
+        Icon                = SeedPacketWatermelon,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketWatermelon_Ground
+    }
+
+
+    item 10pkWatermelonBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Watermelon Seeds Packet,
+        Icon                = SeedPacketWatermelon,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketWatermelon_Ground
+    }
+
+
+    item 50pkWatermelonBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Watermelon Seeds Packet,
+        Icon                = SeedPacketWatermelon,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketWatermelon_Ground
+    }
+
+
+    item 100pkWatermelonBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Watermelon Seeds Packet,
+        Icon                = SeedPacketWatermelon,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketWatermelon_Ground
+    }
+
+
+    item 5pkWheatBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Wheat Seeds Packet,
+        Icon                = SeedPacketWheat,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketWheat_Ground
+    }
+
+
+    item 10pkWheatBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Wheat Seeds Packet,
+        Icon                = SeedPacketWheat,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketWheat_Ground
+    }
+
+
+    item 50pkWheatBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Wheat Seeds Packet,
+        Icon                = SeedPacketWheat,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketWheat_Ground
+    }
+
+
+    item 100pkWheatBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Wheat Seeds Packet,
+        Icon                = SeedPacketWheat,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketWheat_Ground
+    }
+
+
+    item 5pkZucchiniBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 5 x Zucchini Seeds Packet,
+        Icon                = SeedPacketZucchini,
+        Weight              = 0.3,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketZucchini_Ground
+    }
+
+
+    item 10pkZucchiniBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 10 x Zucchini Seeds Packet,
+        Icon                = SeedPacketZucchini,
+        Weight              = 0.5,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketZucchini_Ground
+    }
+
+
+    item 50pkZucchiniBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 50 x Zucchini Seeds Packet,
+        Icon                = SeedPacketZucchini,
+        Weight              = 1.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketZucchini_Ground
+    }
+
+
+    item 100pkZucchiniBagSeed
+    {
+        DisplayCategory     = Gardening,
+        DisplayName         = 100 x Zucchini Seeds Packet,
+        Icon                = SeedPacketZucchini,
+        Weight              = 2.0,
+        SurvivalGear        = True,
+        WorldStaticModel    = SeedPacketZucchini_Ground
+    }
+}

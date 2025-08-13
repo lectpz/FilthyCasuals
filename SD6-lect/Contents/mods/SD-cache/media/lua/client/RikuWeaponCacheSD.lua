@@ -4,7 +4,16 @@
 --Free to use with permission-----------------
 ----------------------------------------------
 
-require "SDZoneCheck"
+local green = " <RGB:" .. getCore():getGoodHighlitedColor():getR() .. "," .. getCore():getGoodHighlitedColor():getG() .. "," .. getCore():getGoodHighlitedColor():getB() .. "> "
+local red = " <RGB:" .. getCore():getBadHighlitedColor():getR() .. "," .. getCore():getBadHighlitedColor():getG() .. "," .. getCore():getBadHighlitedColor():getB() .. "> "
+
+local yellow = " <RGB:1,0,0> "
+local orange = " <RGB:1,0.5,0> "
+local gold = " <RGB:0.83,0.68,0.21> "
+local blue = " <RGB:0.2,0.5,1> "
+local purple = " <RGB:0.62,0.12,0.94> "
+
+local white = " <RGB:1,1,1> "
 
 -- function to split the sandbox string into a table. my brute force way to bypass the limitations of sandbox var string delimiter. parses the input string and pulls out the everything between spaces.
 local function splitString(sandboxvar, delimiter)
@@ -41,7 +50,7 @@ local function addEmptyBoxToPlayer(loot)
 	addToArgs(loot)
 end
 
-local function addSoulForgedWeaponToPlayer(loot)
+local function addSoulForgedWeaponToPlayer(loot, tierzone)
 	local weaponFT = loot
 	local scriptItem = ScriptManager.instance:getItem(weaponFT)
 	local weapon = InventoryItemFactory.CreateItem(weaponFT)
@@ -54,18 +63,84 @@ local function addSoulForgedWeaponToPlayer(loot)
 	weaponModData.PlayerKills = playerObj:getZombieKills()
 	weaponModData.ConditionLowerChance = 1.1
 	weaponModData.MaxCondition = 1.1
-	--[[weaponModData.CriticalChance	= weapon:getCriticalChance()
-	weaponModData.CritDmgMultiplier	= weapon:getCritDmgMultiplier()
-	weaponModData.MinDamage			= weapon:getMinDamage()
-	weaponModData.MaxDamage			= weapon:getMaxDamage()
-	weaponModData.MaxHitCount		= weapon:getMaxHitCount()]]
+	
+	if tierzone == 6 then
+		
+		weaponModData.MaxHitCount = weaponModData.MaxHitCount + 1
+		weaponModData.Augments = 1
+		
+		local rng = ZombRand(3)
+		
+		if rng == 0 then
+			
+			weaponModData.soulForgeMinDmgMulti = 1.15
+			weaponModData.soulForgeCritRate = 1.2
+			weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance * 1.2
+			weaponModData.MaxCondition = weaponModData.MaxCondition * 1.2
+							
+			weaponModData.s2_desc = gold .. "Suffix Modifer: COG" ..
+									green .. " <LINE> Max Hit Count +" .. 1 ..
+									green .. " <LINE> " .. string.format("%.0f", (weaponModData.ConditionLowerChance*100-100))  .. "% More Weapon Condition Lower Chance <LINE> " ..
+									green .. " <LINE> " .. string.format("%.0f", (weaponModData.MaxCondition*100-100))  .. "% More Maximum Weapon Condition <LINE> " ..
+									green .. " <LINE> " .. string.format("%.0f", (weaponModData.soulForgeCritRate*100-100))  .. "% More Critical Chance <LINE> " .. 
+									green .. " <LINE> " .. string.format("%.0f", (weaponModData.soulForgeMinDmgMulti*100-100))  .. "% More Minimum Damage <LINE> "
+			
+			weaponModData.suffix2 = "COG"
+			
+			weapon:setCriticalChance(weapon:getCriticalChance() * weaponModData.soulForgeCritRate)
+			weapon:setMinDamage(weapon:getMinDamage() * weaponModData.soulForgeMinDmgMulti)
+			
+		elseif rng == 1 then
+		
+			weaponModData.soulForgeMaxDmgMulti = 1.15
+			weaponModData.soulForgeCritRate = 1.2
+			weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance * 1.2
+			weaponModData.MaxCondition = weaponModData.MaxCondition * 1.2
+		
+			weaponModData.s2_desc = gold .. "Suffix Modifer: Voidwalker" ..
+									green .. " <LINE> Max Hit Count +" .. 1 ..
+									green .. " <LINE> " .. string.format("%.0f", (weaponModData.ConditionLowerChance*100-100))  .. "% More Weapon Condition Lower Chance <LINE> " ..
+									green .. " <LINE> " .. string.format("%.0f", (weaponModData.MaxCondition*100-100))  .. "% More Maximum Weapon Condition <LINE> " ..
+									green .. " <LINE> " .. string.format("%.0f", (weaponModData.soulForgeCritRate*100-100))  .. "% More Critical Chance <LINE> " .. 
+									green .. " <LINE> " .. string.format("%.0f", (weaponModData.soulForgeMaxDmgMulti*100-100))  .. "% More Maximum Damage <LINE> "
+			
+			weaponModData.suffix2 = "Voidwalker"
+			
+			weapon:setCriticalChance(weapon:getCriticalChance() * weaponModData.soulForgeCritRate)
+			weapon:setMinDamage(weapon:getMinDamage() * weaponModData.soulForgeMaxDmgMulti)
+			
+		elseif rng == 2 then
+		
+			weaponModData.soulForgeCritRate = 1.2
+			weaponModData.soulForgeCritMulti = 1.2
+			weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance * 1.2
+			weaponModData.MaxCondition = weaponModData.MaxCondition * 1.2
+			
+			weaponModData.s2_desc = gold .. "Suffix Modifer: Ranger" ..
+									green .. " <LINE> Max Hit Count +" .. 1 ..
+									green .. " <LINE> " .. string.format("%.0f", (weaponModData.ConditionLowerChance*100-100))  .. "% More Weapon Condition Lower Chance <LINE> " ..
+									green .. " <LINE> " .. string.format("%.0f", (weaponModData.MaxCondition*100-100))  .. "% More Maximum Weapon Condition <LINE> " ..
+									green .. " <LINE> " .. string.format("%.0f", (weaponModData.soulForgeCritRate*100-100))  .. "% More Critical Chance <LINE> " .. 
+									green .. " <LINE> " .. string.format("%.0f", (weaponModData.soulForgeCritMulti*100-100))  .. "% More Critical Damage Multiplier <LINE> "
+			
+			weaponModData.suffix2 = "Ranger"
+			
+			weapon:setCriticalChance(weapon:getCriticalChance() * weaponModData.soulForgeCritRate)
+			weapon:setCritDmgMultiplier(weapon:getCritDmgMultiplier() * weaponModData.soulForgeCritMulti)
+			
+		end
+		weapon:setMaxHitCount(weaponModData.MaxHitCount)
+	end
 	
 	local mdzPrefix = ""
 	if weaponModData.mdzPrefix then mdzPrefix = weaponModData.mdzPrefix .. " " end
 	
-	weaponModData.Name = "Soul Forged " .. mdzPrefix .. scriptItem:getDisplayName()
+	local suffix = ""
+	if weaponModData.suffix2 then suffix = " of the " .. weaponModData.suffix2 end
 	
-	weapon:setName(weaponModData.Name)
+	weaponModData.Name = "Soul Forged " .. scriptItem:getDisplayName() .. suffix
+	
+	weapon:setName(mdzPrefix .. weaponModData.Name)
 	weapon:setConditionLowerChance(scriptItem:getConditionLowerChance() * weaponModData.ConditionLowerChance)
 	weapon:setConditionMax(scriptItem:getConditionMax() * weaponModData.MaxCondition)
 
@@ -102,7 +177,7 @@ function RikuWeaponCacheSD(items, result, player)
 	local ozdt4 = ZombRand(ozdn4)+1
 	
 	local ozdtable5 = splitString(SandboxVars.OZD.table5)
-	local ozdn5 = #ozdtable4
+	local ozdn5 = #ozdtable5
 	local ozdt5 = ZombRand(ozdn5)+1
 	
 	args = {
@@ -125,24 +200,31 @@ function RikuWeaponCacheSD(items, result, player)
 		return false
 	end
 	
+	if zonetier == 6 and isDebugEnabled() then
+		addSoulForgedWeaponToPlayer(rmwtable5[rmwt5], zonetier)
+		return
+	end
+	
 -- tiered rolling, checks zone and adds item
+	if (zonetier == 6 and ZombRand(2) == 0) or (zonetier == 6 and ZombRand(luckValue)+1 > 250) then
+		if ZombRand(4) == 0 then
+			addSoulForgedWeaponToPlayer(rmwtable5[rmwt5], zonetier)
+			if ZombRand(luckValue)+1 > 250 then addItemToPlayer(rmwtable5[rmwt5]) end
+		else
+			addItemToPlayer(rmwtable5[rmwt5])
+			if ZombRand(luckValue)+1 > 250 then addItemToPlayer(rmwtable5[rmwt5]) end
+		end
+		sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+		return
+	end
+	
 	if (zonetier == 5 and isToxicControl() and ZombRand(3) == 0) or (zonetier == 5 and isToxicControl() and ZombRand(luckValue)+1 > 250) then
 		if ZombRand(10) == 0 then
-			if ZombRand(5) == 0 then
-				addSoulForgedWeaponToPlayer(ozdtable5[ozdt5])
-				if ZombRand(luckValue)+1 > 250 then addItemToPlayer(ozdtable5[ozdt5]) end
-			else
-				addSoulForgedWeaponToPlayer(rmwtable5[rmwt5])
-				if ZombRand(luckValue)+1 > 250 then addItemToPlayer(rmwtable5[rmwt5]) end
-			end
+			addSoulForgedWeaponToPlayer(rmwtable5[rmwt5])
+			if ZombRand(luckValue)+1 > 250 then addItemToPlayer(rmwtable5[rmwt5]) end
 		else
-			if ZombRand(5) == 0 then
-				addItemToPlayer(ozdtable5[ozdt5])
-				if ZombRand(luckValue)+1 > 250 then addItemToPlayer(ozdtable5[ozdt5]) end
-			else
-				addItemToPlayer(rmwtable5[rmwt5])
-				if ZombRand(luckValue)+1 > 250 then addItemToPlayer(rmwtable5[rmwt5]) end
-			end
+			addItemToPlayer(rmwtable5[rmwt5])
+			if ZombRand(luckValue)+1 > 250 then addItemToPlayer(rmwtable5[rmwt5]) end
 		end
 		sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 		return
@@ -150,21 +232,11 @@ function RikuWeaponCacheSD(items, result, player)
 	--elseif zonetier == 4 then
 	if zonetier >= 4 then
 		if (isToxicControl() and ZombRand(10) == 0) or (isToxicControl() and ZombRand(luckValue)+1 > 200) then
-			if ZombRand(5) == 0 then
-				addSoulForgedWeaponToPlayer(ozdtable4[ozdt4])
-				if ZombRand(luckValue)+1 > 200 then addItemToPlayer(ozdtable4[ozdt4]) end
-			else
-				addSoulForgedWeaponToPlayer(rmwtable4[rmwt4])
-				if ZombRand(luckValue)+1 > 200 then addItemToPlayer(rmwtable4[rmwt4]) end
-			end
+			addSoulForgedWeaponToPlayer(rmwtable4[rmwt4])
+			if ZombRand(luckValue)+1 > 200 then addItemToPlayer(rmwtable4[rmwt4]) end
 		else
-			if ZombRand(5) == 0 then
-				addItemToPlayer(ozdtable4[ozdt4])
-				if ZombRand(luckValue)+1 > 250 then addItemToPlayer(ozdtable4[ozdt4]) end
-			else
-				addItemToPlayer(rmwtable4[rmwt4])
-				if ZombRand(luckValue)+1 > 250 then addItemToPlayer(rmwtable4[rmwt4]) end
-			end
+			addItemToPlayer(rmwtable4[rmwt4])
+			if ZombRand(luckValue)+1 > 200 then addItemToPlayer(rmwtable4[rmwt4]) end
 		end
 		addEmptyBoxToPlayer("EmptyWeaponCacheT4");
 	elseif zonetier == 3 then
@@ -196,6 +268,7 @@ function RikuWeaponCacheSD(items, result, player)
 		addEmptyBoxToPlayer("EmptyWeaponCacheT1");
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
 end
 
 
@@ -243,7 +316,16 @@ function RikuWeaponCacheUpgradeSD(items, result, player)
 	local permaLuck = pMD.PermaSoulForgeLuckBonus 
 	if permaLuck then luckValue = luckValue + permaLuck end
 	
-	if zonetier == 5 then
+	if zonetier == 6 then
+		if (isToxicControl() and ZombRand(5) == 0) or (isToxicControl() and ZombRand(luckValue)+1 > 200) then
+			addSoulForgedWeaponToPlayer(table5[t5])
+			if ZombRand(luckValue)+1 > 200 then addItemToPlayer(table5[t5]) end
+		else
+			addItemToPlayer(table5[t5])
+			if ZombRand(luckValue)+1 > 200 then addItemToPlayer(table5[t5]) end
+		end
+		getSpecificPlayer(0):Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier) .. "!")
+	elseif zonetier == 5 then
 		if (isToxicControl() and ZombRand(10) == 0) or (isToxicControl() and ZombRand(luckValue)+1 > 200) then
 			addSoulForgedWeaponToPlayer(table5[t5])
 			if ZombRand(luckValue)+1 > 200 then addItemToPlayer(table5[t5]) end
@@ -281,6 +363,7 @@ function RikuWeaponCacheUpgradeSD(items, result, player)
 		getSpecificPlayer(0):Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier + 1) .. "!")
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
 end
 
 function RikuRewardsT5(items, result, player)
@@ -302,6 +385,7 @@ function RikuRewardsT5(items, result, player)
 	addItemToPlayer(table5[t5])
 	
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
 end
 
 function RikuRewardsT4(items, result, player)
@@ -323,6 +407,7 @@ function RikuRewardsT4(items, result, player)
 	addItemToPlayer(table4[t4])
 	
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
 end
 
 function RikuRewardsT3(items, result, player)
@@ -344,6 +429,7 @@ function RikuRewardsT3(items, result, player)
 	addItemToPlayer(table3[t3])
 	
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
 end
 
 function RerollT5(items, result, player)
@@ -374,6 +460,7 @@ function RerollT5(items, result, player)
 	addItemToPlayer(table5[t5])
 	
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
 end
 
 function RerollT4(items, result, player)
@@ -404,6 +491,7 @@ function RerollT4(items, result, player)
 	addItemToPlayer(table4[t4])
 	
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
 end
 
 function RerollT3(items, result, player)
@@ -434,6 +522,7 @@ function RerollT3(items, result, player)
 	addItemToPlayer(table3[t3])
 	
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
 end
 
 function UpgradeT5(items, result, player)
@@ -471,6 +560,7 @@ function UpgradeT5(items, result, player)
 	addItemToPlayer(rmwCategory[ZombRand(#rmwCategory+1)])
 	
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
 end
 
 function UpgradeT4(items, result, player)
@@ -508,4 +598,5 @@ function UpgradeT4(items, result, player)
 	addItemToPlayer(rmwCategory[ZombRand(#rmwCategory+1)])
 	
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
 end

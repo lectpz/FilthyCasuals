@@ -1,0 +1,37 @@
+VERSION = 1,
+
+option SpawnChanceModifier.yeetBool
+{
+	type = boolean,
+	default = false,
+
+	page = SpawnChanceModifier,
+	translation = SpawnChanceModifier_yeetBool,
+}
+
+option SpawnChanceModifier.yeetItems
+{
+	type = string,
+	default = Base.Example1;Base.Example2;CustomModule.Item1;CustomModule.Item2,
+
+	page = SpawnChanceModifier,
+	translation = SpawnChanceModifier_yeetItems,
+}
+
+option SpawnChanceModifier.modifyBool
+{
+	type = boolean,
+	default = false,
+
+	page = SpawnChanceModifier,
+	translation = SpawnChanceModifier_modifyBool,
+}
+
+option SpawnChanceModifier.modifyItems
+{
+	type = string,
+	default = Base.Example1:0.1;Base.Example2:0.5;CustomModule.Item1:1.2;CustomModule.Item2:1.5,
+
+	page = SpawnChanceModifier,
+	translation = SpawnChanceModifier_modifyItems,
+}

@@ -1,0 +1,62 @@
+module Base
+{	
+	item LogStacksSD2
+		{
+			DisplayName = Two Log Stack,
+			DisplayCategory = Material,
+			Type = Normal,
+			Weight = 6,
+			Icon = Logs2,
+			StaticModel = TwoLogsStack,
+			WorldStaticModel = TwoLogsStack,
+		}
+		
+	item LogStacksSD3
+		{
+			DisplayName = Three Log Stack,
+			DisplayCategory = Material,
+			Type = Normal,
+			Weight = 9,
+			Icon = Logs3,
+			StaticModel = ThreeLogsStack,
+			WorldStaticModel = ThreeLogsStack,
+		}
+		
+	item LogStacksSD4
+		{
+			DisplayName = Four Log Stack,
+			DisplayCategory = Material,
+			Type = Normal,
+			Weight = 12,
+			Icon = Logs4,
+			StaticModel = FourLogsStack,
+			WorldStaticModel = FourLogsStack,
+		}
+		
+	recipe Unstack Two Log Stack
+	{
+		CanBeDoneFromFloor:true,
+		destroy LogStacksSD2,
+		AnimNode:Loot,
+		Result:Log=2,
+		Time:100.0,
+	}
+	
+	recipe Unstack Three Log Stack
+	{
+		CanBeDoneFromFloor:true,
+		destroy LogStacksSD3,
+		AnimNode:Loot,
+		Result:Log=3,
+		Time:100.0,
+	}
+	
+	recipe Unstack Four Log Stack
+	{
+		CanBeDoneFromFloor:true,
+		destroy LogStacksSD4,
+		AnimNode:Loot,
+		Result:Log=4,
+		Time:100.0,
+	}
+}

@@ -1,0 +1,52 @@
+module SD
+{
+    imports
+    {
+        Base
+    }
+    recipe Craft Big Gas Tank Standard
+    {
+        keep WeldingMask,
+        keep Hammer,
+        BlowTorch=5,
+        Screws=8,
+        MetalBar=2,
+        SheetMetal=3,
+        SmallSheetMetal=5,
+
+        Result:BigGasTank1,
+        Time:500.0,
+        Sound:BlowTorch,
+        SkillRequired:MetalWelding=6;Mechanics=6,
+    }
+    recipe Craft Big Gas Tank Heavy-Duty
+    {
+        keep WeldingMask,
+        keep Hammer,
+        BlowTorch=5,
+        Screws=8,
+        MetalBar=2,
+        SheetMetal=3,
+        SmallSheetMetal=5,
+
+        Result:BigGasTank2,
+        Time:500.0,
+        Sound:BlowTorch,
+        SkillRequired:MetalWelding=6;Mechanics=6,
+    }
+    recipe Craft Big Gas Tank Sport
+    {
+        keep WeldingMask,
+        keep Hammer,
+        BlowTorch=5,
+        Screws=8,
+        MetalBar=2,
+        SheetMetal=3,
+        SmallSheetMetal=5,
+
+        Result:BigGasTank3,
+        Time:500.0,
+        Sound:BlowTorch,
+        SkillRequired:MetalWelding=6;Mechanics=6,
+    }
+}

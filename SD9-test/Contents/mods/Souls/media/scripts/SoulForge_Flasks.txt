@@ -1,0 +1,515 @@
+module SoulForge {
+
+	item EmptySoulFlaskWhite
+	{
+		DisplayName 			= 	Empty Soul Flask (White),
+		DisplayCategory 		= 	SoulForge,
+		Weight 					= 	0.3,
+		CanStoreWater			=	TRUE,
+		Type 					= 	Normal,
+		ReplaceOnUseOn			=	WaterSource-SoulFlaskWaterWhite,
+		ReplaceTypes			=	WaterSource SoulFlaskWaterWhite,
+		Icon 					= 	WhiteBot,
+		StaticModel				=	static_WhiteBot,
+		WorldStaticModel 		= 	world_WhiteBot,
+	}
+	
+	item SoulFlaskWaterWhite
+	{
+		DisplayName 			=	Soul Flask (White),
+		DisplayCategory 		=	Water,
+		Type 					=	Drainable,
+		Weight 					=	0.7,
+		Icon 					=	WhiteBot,
+		CanStoreWater 			=	TRUE,
+		FillFromDispenserSound 	=	GetWaterFromDispenserGlass,
+		FillFromTapSound 		=	GetWaterFromTapGlass,
+		IsCookable 				=	TRUE,
+		IsWaterSource 			=	TRUE,
+		ReplaceOnDeplete 		=	EmptySoulFlaskWhite,
+		ReplaceOnUseOn 			=	WaterSource-SoulFlaskWaterWhite,
+		UseDelta 				=	0.025,
+		UseWhileEquipped  		=	FALSE,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		StaticModel 			=	static_WhiteBot,
+		WorldStaticModel 		= 	world_WhiteBot,
+	}
+	
+	item EmptySoulFlaskBlack
+	{
+		DisplayName 			= 	Empty Soul Flask (Black),
+		DisplayCategory 		= 	SoulForge,
+		Weight 					= 	0.3,
+		CanStoreWater			=	TRUE,
+		Type 					= 	Normal,
+		ReplaceOnUseOn			=	WaterSource-SoulFlaskWaterBlack,
+		ReplaceTypes			=	WaterSource SoulFlaskWaterBlack,
+		Icon 					= 	BlackBot,
+		StaticModel				=	static_BlackBot,
+		WorldStaticModel 		= 	world_BlackBot,
+	}
+	
+	item SoulFlaskWaterBlack
+	{
+		DisplayName 			=	Soul Flask (Black),
+		DisplayCategory 		=	Water,
+		Type 					=	Drainable,
+		Weight 					=	0.7,
+		Icon 					=	BlackBot,
+		CanStoreWater 			=	TRUE,
+		FillFromDispenserSound 	=	GetWaterFromDispenserGlass,
+		FillFromTapSound 		=	GetWaterFromTapGlass,
+		IsCookable 				=	TRUE,
+		IsWaterSource 			=	TRUE,
+		ReplaceOnDeplete 		=	EmptySoulFlaskBlack,
+		ReplaceOnUseOn 			=	WaterSource-SoulFlaskWaterBlack,
+		UseDelta 				=	0.025,
+		UseWhileEquipped  		=	FALSE,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		StaticModel 			=	static_BlackBot,
+		WorldStaticModel 		= 	world_BlackBot,
+	}
+
+	item EmptySoulFlaskYellow
+	{	
+		DisplayName 			= 	Empty Soul Flask (Yellow),
+		DisplayCategory 		= 	SoulForge,
+		Weight 					= 	0.3,
+		CanStoreWater			=	TRUE,
+		Type 					= 	Normal,
+		ReplaceOnUseOn			=	WaterSource-SoulFlaskWaterYellow,
+		ReplaceTypes			=	WaterSource SoulFlaskWaterYellow,
+		Icon 					= 	YellowBot,
+		StaticModel				=	static_YellowBot,
+		WorldStaticModel 		= 	world_YellowBot,
+	}
+		
+	item SoulFlaskWaterYellow
+	{	
+		DisplayName 			=	Soul Flask (Yellow),
+		DisplayCategory 		=	Water,
+		Type 					=	Drainable,
+		Weight 					=	0.7,
+		Icon 					=	YellowBot,
+		CanStoreWater 			=	TRUE,
+		FillFromDispenserSound 	=	GetWaterFromDispenserGlass,
+		FillFromTapSound 		=	GetWaterFromTapGlass,
+		IsCookable 				=	TRUE,
+		IsWaterSource 			=	TRUE,
+		ReplaceOnDeplete 		=	EmptySoulFlaskYellow,
+		ReplaceOnUseOn 			=	WaterSource-SoulFlaskWaterYellow,
+		UseDelta 				=	0.025,
+		UseWhileEquipped  		=	FALSE,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		StaticModel 			=	static_YellowBot,
+		WorldStaticModel 		= 	world_YellowBot,
+	}
+
+
+	item EmptySoulFlaskRed	
+	{	
+		DisplayName 			= 	Empty Soul Flask (Red),
+		DisplayCategory 		= 	SoulForge,
+		Weight 					= 	0.3,
+		CanStoreWater			=	TRUE,
+		Type 					= 	Normal,
+		ReplaceOnUseOn			=	WaterSource-SoulFlaskWaterRed,
+		ReplaceTypes			=	WaterSource SoulFlaskWaterRed,
+		Icon 					= 	RedBot,
+		StaticModel				=	static_RedBot,
+		WorldStaticModel 		= 	world_RedBot,
+	}
+		
+	item SoulFlaskWaterRed	
+	{	
+		DisplayName 			=	Soul Flask (Red),
+		DisplayCategory 		=	Water,
+		Type 					=	Drainable,
+		Weight 					=	0.7,
+		Icon 					=	RedBot,
+		CanStoreWater 			=	TRUE,
+		FillFromDispenserSound 	=	GetWaterFromDispenserGlass,
+		FillFromTapSound 		=	GetWaterFromTapGlass,
+		IsCookable 				=	TRUE,
+		IsWaterSource 			=	TRUE,
+		ReplaceOnDeplete 		=	EmptySoulFlaskRed,
+		ReplaceOnUseOn 			=	WaterSource-SoulFlaskWaterRed,
+		UseDelta 				=	0.025,
+		UseWhileEquipped  		=	FALSE,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		StaticModel 			=	static_RedBot,
+		WorldStaticModel 		= 	world_RedBot,
+	}
+
+	
+	item EmptySoulFlaskPurple	
+	{	
+		DisplayName 			= 	Empty Soul Flask (Purple),
+		DisplayCategory 		= 	SoulForge,
+		Weight 					= 	0.3,
+		CanStoreWater			=	TRUE,
+		Type 					= 	Normal,
+		ReplaceOnUseOn			=	WaterSource-SoulFlaskWaterPurple,
+		ReplaceTypes			=	WaterSource SoulFlaskWaterPurple,
+		Icon 					= 	PurpleBot,
+		StaticModel				=	static_PurpleBot,
+		WorldStaticModel 		= 	world_PurpleBot,
+	}
+		
+	item SoulFlaskWaterPurple	
+	{	
+		DisplayName 			=	Soul Flask (Purple),
+		DisplayCategory 		=	Water,
+		Type 					=	Drainable,
+		Weight 					=	0.7,
+		Icon 					=	PurpleBot,
+		CanStoreWater 			=	TRUE,
+		FillFromDispenserSound 	=	GetWaterFromDispenserGlass,
+		FillFromTapSound 		=	GetWaterFromTapGlass,
+		IsCookable 				=	TRUE,
+		IsWaterSource 			=	TRUE,
+		ReplaceOnDeplete 		=	EmptySoulFlaskPurple,
+		ReplaceOnUseOn 			=	WaterSource-SoulFlaskWaterPurple,
+		UseDelta 				=	0.025,
+		UseWhileEquipped  		=	FALSE,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		StaticModel 			=	static_PurpleBot,
+		WorldStaticModel 		= 	world_PurpleBot,
+	}
+
+	
+	item EmptySoulFlaskPink	
+	{	
+		DisplayName 			= 	Empty Soul Flask (Pink),
+		DisplayCategory 		= 	SoulForge,
+		Weight 					= 	0.3,
+		CanStoreWater			=	TRUE,
+		Type 					= 	Normal,
+		ReplaceOnUseOn			=	WaterSource-SoulFlaskWaterPink,
+		ReplaceTypes			=	WaterSource SoulFlaskWaterPink,
+		Icon 					= 	PinkBot,
+		StaticModel				=	static_PinkBot,
+		WorldStaticModel 		= 	world_PinkBot,
+	}
+		
+	item SoulFlaskWaterPink	
+	{	
+		DisplayName 			=	Soul Flask (Pink),
+		DisplayCategory 		=	Water,
+		Type 					=	Drainable,
+		Weight 					=	0.7,
+		Icon 					=	PinkBot,
+		CanStoreWater 			=	TRUE,
+		FillFromDispenserSound 	=	GetWaterFromDispenserGlass,
+		FillFromTapSound 		=	GetWaterFromTapGlass,
+		IsCookable 				=	TRUE,
+		IsWaterSource 			=	TRUE,
+		ReplaceOnDeplete 		=	EmptySoulFlaskPink,
+		ReplaceOnUseOn 			=	WaterSource-SoulFlaskWaterPink,
+		UseDelta 				=	0.025,
+		UseWhileEquipped  		=	FALSE,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		StaticModel 			=	static_PinkBot,
+		WorldStaticModel 		= 	world_PinkBot,
+	}
+
+	
+	item EmptySoulFlaskGreen	
+	{	
+		DisplayName 			= 	Empty Soul Flask (Green),
+		DisplayCategory 		= 	SoulForge,
+		Weight 					= 	0.3,
+		CanStoreWater			=	TRUE,
+		Type 					= 	Normal,
+		ReplaceOnUseOn			=	WaterSource-SoulFlaskWaterGreen,
+		ReplaceTypes			=	WaterSource SoulFlaskWaterGreen,
+		Icon 					= 	GreenBot,
+		StaticModel				=	static_GreenBot,
+		WorldStaticModel 		= 	world_GreenBot,
+	}
+		
+	item SoulFlaskWaterGreen	
+	{	
+		DisplayName 			=	Soul Flask (Green),
+		DisplayCategory 		=	Water,
+		Type 					=	Drainable,
+		Weight 					=	0.7,
+		Icon 					=	GreenBot,
+		CanStoreWater 			=	TRUE,
+		FillFromDispenserSound 	=	GetWaterFromDispenserGlass,
+		FillFromTapSound 		=	GetWaterFromTapGlass,
+		IsCookable 				=	TRUE,
+		IsWaterSource 			=	TRUE,
+		ReplaceOnDeplete 		=	EmptySoulFlaskGreen,
+		ReplaceOnUseOn 			=	WaterSource-SoulFlaskWaterGreen,
+		UseDelta 				=	0.025,
+		UseWhileEquipped  		=	FALSE,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		StaticModel 			=	static_GreenBot,
+		WorldStaticModel 		= 	world_GreenBot,
+	}
+
+	
+	item EmptySoulFlaskCyan	
+	{	
+		DisplayName 			= 	Empty Soul Flask (Cyan),
+		DisplayCategory 		= 	SoulForge,
+		Weight 					= 	0.3,
+		CanStoreWater			=	TRUE,
+		Type 					= 	Normal,
+		ReplaceOnUseOn			=	WaterSource-SoulFlaskWaterCyan,
+		ReplaceTypes			=	WaterSource SoulFlaskWaterCyan,
+		Icon 					= 	CyanBot,
+		StaticModel				=	static_CyanBot,
+		WorldStaticModel 		= 	world_CyanBot,
+	}
+		
+	item SoulFlaskWaterCyan	
+	{	
+		DisplayName 			=	Soul Flask (Cyan),
+		DisplayCategory 		=	Water,
+		Type 					=	Drainable,
+		Weight 					=	0.7,
+		Icon 					=	CyanBot,
+		CanStoreWater 			=	TRUE,
+		FillFromDispenserSound 	=	GetWaterFromDispenserGlass,
+		FillFromTapSound 		=	GetWaterFromTapGlass,
+		IsCookable 				=	TRUE,
+		IsWaterSource 			=	TRUE,
+		ReplaceOnDeplete 		=	EmptySoulFlaskCyan,
+		ReplaceOnUseOn 			=	WaterSource-SoulFlaskWaterCyan,
+		UseDelta 				=	0.025,
+		UseWhileEquipped  		=	FALSE,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		StaticModel 			=	static_CyanBot,
+		WorldStaticModel 		= 	world_CyanBot,
+	}
+
+	
+	item EmptySoulFlaskBlue	
+	{	
+		DisplayName 			= 	Empty Soul Flask (Blue),
+		DisplayCategory 		= 	SoulForge,
+		Weight 					= 	0.3,
+		CanStoreWater			=	TRUE,
+		Type 					= 	Normal,
+		ReplaceOnUseOn			=	WaterSource-SoulFlaskWaterBlue,
+		ReplaceTypes			=	WaterSource SoulFlaskWaterBlue,
+		Icon 					= 	BlueBot,
+		StaticModel				=	static_BlueBot,
+		WorldStaticModel 		= 	world_BlueBot,
+	}
+		
+	item SoulFlaskWaterBlue	
+	{	
+		DisplayName 			=	Soul Flask (Blue),
+		DisplayCategory 		=	Water,
+		Type 					=	Drainable,
+		Weight 					=	0.7,
+		Icon 					=	BlueBot,
+		CanStoreWater 			=	TRUE,
+		FillFromDispenserSound 	=	GetWaterFromDispenserGlass,
+		FillFromTapSound 		=	GetWaterFromTapGlass,
+		IsCookable 				=	TRUE,
+		IsWaterSource 			=	TRUE,
+		ReplaceOnDeplete 		=	EmptySoulFlaskBlue,
+		ReplaceOnUseOn 			=	WaterSource-SoulFlaskWaterBlue,
+		UseDelta 				=	0.025,
+		UseWhileEquipped  		=	FALSE,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		StaticModel 			=	static_BlueBot,
+		WorldStaticModel 		= 	world_BlueBot,
+	}
+
+	item StoredSouls
+	{
+		DisplayCategory 	= 		SoulForge,
+		Type				=		Drainable,
+		DisplayName			=		Flask of Stored Souls (Deprecated),
+		Icon				=		WhiteBot,
+		Weight				=		1.0,
+		WeightEmpty			=		0.3,
+		KeepOnDeplete 		= 		TRUE,
+		UseDelta 			=		0.001,
+		UseWhileEquipped  	=		FALSE,
+		StaticModel			=		static_WhiteBot,
+		WorldStaticModel	=		world_WhiteBot,
+		cantBeConsolided 	= 		TRUE,
+	}
+	
+	item StoredSoulsSD
+	{
+		DisplayCategory 	= 		SoulForge,
+		Type				=		Drainable,
+		DisplayName			=		Flask of Stored Souls,
+		Icon				=		WhiteBot,
+		Weight				=		1.0,
+		WeightEmpty			=		0.3,
+		KeepOnDeplete 		= 		TRUE,
+		UseDelta 			=		0.0001,
+		UseWhileEquipped  	=		FALSE,
+		StaticModel			=		static_WhiteBot,
+		WorldStaticModel	=		world_WhiteBot,
+		cantBeConsolided 	= 		TRUE,
+	}
+	
+	item StoredSoulsSD_new
+	{
+		DisplayCategory 	= 		SoulForge,
+		Type				=		Drainable,
+		DisplayName			=		Flask of Stored Souls,
+		Icon				=		WhiteBot,
+		Weight				=		1.0,
+		WeightEmpty			=		0.3,
+		KeepOnDeplete 		= 		TRUE,
+		UseDelta 			=		0.0001,
+		UseWhileEquipped  	=		FALSE,
+		StaticModel			=		static_WhiteBot,
+		WorldStaticModel	=		world_WhiteBot,
+		cantBeConsolided 	= 		TRUE,
+	}
+	
+	item ContainerSoulsDisposable
+	{
+		DisplayCategory 	= 		SoulForge,
+		Type				=		Drainable,
+		DisplayName			=		Container of 1000 Souls (Single Use),
+		Icon				=		WhiteBot,
+		Weight				=		5.0,
+		UseDelta 			=		0.001,
+		UseWhileEquipped  	=		FALSE,
+		StaticModel			=		static_WhiteBot,
+		WorldStaticModel	=		world_WhiteBot,
+	}
+	
+	item ContainerSoulsDisposableGiant
+	{
+		DisplayCategory 	= 		SoulForge,
+		Type				=		Drainable,
+		DisplayName			=		Container of 10000 Souls (Single Use),
+		Icon				=		GiantWhiteBot,
+		Weight				=		5.0,
+		UseDelta 			=		0.001,
+		UseWhileEquipped  	=		FALSE,
+		StaticModel			=		static_GiantWhiteBot,
+		WorldStaticModel	=		world_GiantWhiteBot,
+	}
+
+
+	item EmptyContainerSoulsDisposable
+	{
+		DisplayCategory 	= 		SoulForge,
+		Type				=		Normal,
+		DisplayName			=		Empty Soul Container (Single Use),
+		Icon				=		WhiteBot,
+		Weight				=		0.01,
+		UseWhileEquipped  	=		FALSE,
+		StaticModel			=		static_WhiteBot,
+		WorldStaticModel	=		world_WhiteBot,
+	}
+
+	item LuckFlask_100
+	{	
+		DisplayName 			=	Flask of Luck (+100),
+		DisplayCategory			=	SoulForge,
+		Type 					=	Food,
+		Weight 					=	1.0,
+		DaysFresh 				= 	1000000000,
+		DaysTotallyRotten 		= 	1000000000,
+		HungerChange 			= 	-20,
+		ThirstChange 			= 	-10,
+		Calories 				= 	150,
+		Carbohydrates 			= 	10,
+		Lipids 					= 	15,
+		Proteins 				= 	10,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		OnEat 					=	LuckFlask_100,		
+		Icon 					=	YellowBot,
+		StaticModel 			=	static_YellowBot,
+		WorldStaticModel 		= 	world_YellowBot,
+	}
+	
+	item LuckFlask_200
+	{	
+		DisplayName 			=	Flask of Luck (+200),
+		DisplayCategory			=	SoulForge,
+		Type 					=	Food,
+		Weight 					=	3.0,
+		DaysFresh 				= 	1000000000,
+		DaysTotallyRotten 		= 	1000000000,
+		HungerChange 			= 	-20,
+		ThirstChange 			= 	-10,
+		Calories 				= 	150,
+		Carbohydrates 			= 	10,
+		Lipids 					= 	15,
+		Proteins 				= 	10,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		OnEat 					=	LuckFlask_200,		
+		Icon 					=	PinkBot,
+		StaticModel 			=	static_PinkBot,
+		WorldStaticModel 		= 	world_PinkBot,
+	}
+
+	item LuckFlask_300
+	{
+		DisplayName 			=	Flask of Luck (+300),
+		DisplayCategory			=	SoulForge,
+		Type 					=	Food,
+		Weight 					=	5.0,
+		DaysFresh 				= 	1000000000,
+		DaysTotallyRotten 		= 	1000000000,
+		HungerChange 			= 	-20,
+		ThirstChange 			= 	-10,
+		Calories 				= 	150,
+		Carbohydrates 			= 	10,
+		Lipids 					= 	15,
+		Proteins 				= 	10,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		OnEat 					=	LuckFlask_300,		
+		Icon 					=	GiantWhiteBot,
+		StaticModel 			=	static_GiantWhiteBot,
+		WorldStaticModel 		= 	world_GiantWhiteBot,
+	}
+
+	item SoulThirstFlask_40
+	{	
+		DisplayName 			=	Flask of SoulThirst (40%),
+		DisplayCategory			=	SoulForge,
+		Type 					=	Food,
+		Weight 					=	1.0,
+		DaysFresh 				= 	1000000000,
+		DaysTotallyRotten 		= 	1000000000,
+		HungerChange 			= 	-20,
+		ThirstChange 			= 	-10,
+		Calories 				= 	150,
+		Carbohydrates 			= 	10,
+		Lipids 					= 	15,
+		Proteins 				= 	10,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		OnEat 					=	SoulThirstFlask_40,		
+		Icon 					=	RedBot,
+		StaticModel 			=	static_RedBot,
+		WorldStaticModel 		= 	world_RedBot,
+	}
+	
+	item SoulSmithFlask_2pct
+	{	
+		DisplayName 			=	Flask of SoulSmith (2%),
+		DisplayCategory			=	SoulForge,
+		Type 					=	Food,
+		Weight 					=	1.0,
+		DaysFresh 				= 	1000000000,
+		DaysTotallyRotten 		= 	1000000000,
+		HungerChange 			= 	-20,
+		ThirstChange 			= 	-10,
+		Calories 				= 	150,
+		Carbohydrates 			= 	10,
+		Lipids 					= 	15,
+		Proteins 				= 	10,
+		CustomEatSound 			=	DrinkingFromBottleGlass,
+		OnEat 					=	SoulSmithFlask_2pct,		
+		Icon 					=	PurpleBot,
+		StaticModel 			=	static_PurpleBot,
+		WorldStaticModel 		= 	world_PurpleBot,
+	}
+}

@@ -1,0 +1,203 @@
+module Packing
+{
+	imports
+	{
+		Base,
+	}
+	
+	item 10pkRopeFertilizer
+	{
+		Weight			= 7.5,
+		Type			= Normal,
+		DisplayName		= 10 x NPK Fertilizer (Rope),
+		DisplayCategory = Material,
+		Icon			= JRopePlasterPowder,
+		WorldStaticModel= NPKFertilizerRoped
+	}
+	
+	item 5pkRopeFertilizer
+	{
+		Weight			= 5.0,
+		Type			= Normal,
+		DisplayName		= 5 x NPK Fertilizer (Rope),
+		DisplayCategory = Material,
+		Icon			= JRopePlasterPowder,
+		WorldStaticModel= NPKFertilizerRoped
+	}
+
+	item 10pkSheetRopeFertilizer
+	{
+		Weight			= 12.5,
+		Type			= Normal,
+		DisplayName		= 10 x NPK Fertilizer (SheetRope),
+		DisplayCategory = Material,
+		Icon			= JSheetRopePlasterPowder,
+		WorldStaticModel= NPKFertilizerSheetRoped
+	}
+	
+	item 5pkSheetRopeFertilizer
+	{
+		Weight			= 7.5,
+		Type			= Normal,
+		DisplayName		= 5 x NPK Fertilizer (SheetRope),
+		DisplayCategory = Material,
+		Icon			= JSheetRopePlasterPowder,
+		WorldStaticModel= NPKFertilizerSheetRoped
+	}
+	
+	recipe Rope 10
+	{
+		destroy Fertilizer=10,
+		Rope=2,
+		
+		CanBeDoneFromFloor:true,
+		Result:10pkRopeFertilizer,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:400.0,
+		Category:Storage,
+	}
+	
+	recipe Unrope 10
+	{
+		destroy 10pkRopeFertilizer,
+		
+		CanBeDoneFromFloor:true,
+		Result:Fertilizer,
+		OnCreate:Recipe.OnCreate.LoadUsesTwoRope,
+		RemoveResultItem:true,
+		Time:350.0,
+		Category:Storage,
+	}
+
+	recipe Rope 5
+	{
+		destroy Fertilizer=5,
+		Rope=1,
+		
+		CanBeDoneFromFloor:true,
+		Result:5pkRopeFertilizer,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:300.0,
+		Category:Storage,
+	}
+	
+	recipe Unrope 5
+	{
+		destroy 5pkRopeFertilizer,
+		
+		CanBeDoneFromFloor:true,
+		Result:Fertilizer,
+		OnCreate:Recipe.OnCreate.LoadUsesOneRope,
+		RemoveResultItem:true,
+		Time:250.0,
+		Category:Storage,
+	}
+
+	recipe Rope 10
+	{
+		destroy Fertilizer=10,
+		SheetRope=2,
+		
+		CanBeDoneFromFloor:true,
+		Result:10pkSheetRopeFertilizer,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:400.0,
+		Category:Storage,
+	}
+	
+	recipe Unrope 10
+	{
+		destroy 10pkSheetRopeFertilizer,
+		
+		CanBeDoneFromFloor:true,
+		Result:Fertilizer,
+		OnCreate:Recipe.OnCreate.LoadUsesTwoSheetRope,
+		RemoveResultItem:true,
+		Time:350.0,
+		Category:Storage,
+	}
+
+	recipe Rope 5
+	{
+		destroy Fertilizer=5,
+		SheetRope=1,
+		
+		CanBeDoneFromFloor:true,
+		Result:5pkSheetRopeFertilizer,
+		OnCreate:Recipe.OnCreate.SaveUses,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:300.0,
+		Category:Storage,
+	}
+	
+	recipe Unrope 5
+	{
+		destroy 5pkSheetRopeFertilizer,
+		
+		CanBeDoneFromFloor:true,
+		Result:Fertilizer,
+		OnCreate:Recipe.OnCreate.LoadUsesOneSheetRope,
+		RemoveResultItem:true,
+		Time:250.0,
+		Category:Storage,
+	}
+
+	recipe Put Together
+	{
+		5pkRopeFertilizer=2,
+		
+		CanBeDoneFromFloor:true,
+		Result:10pkRopeFertilizer=1,
+		OnCreate:Recipe.OnCreate.MergeUses,
+		Time:90.0,
+	}
+
+	recipe Put Together
+	{
+		5pkSheetRopeFertilizer=2,
+		
+		CanBeDoneFromFloor:true,
+		Result:10pkSheetRopeFertilizer=1,
+		OnCreate:Recipe.OnCreate.MergeUses,
+		Time:90.0,
+	}
+
+	recipe Split in Two
+	{
+		10pkRopeFertilizer=1,
+		
+		CanBeDoneFromFloor:true,
+		Result:5pkRopeFertilizer,
+		OnCreate:Recipe.OnCreate.SplitUsesInTwo,
+		RemoveResultItem:true,
+		Time:60.0,
+	}
+
+	recipe Split in Two
+	{
+		10pkSheetRopeFertilizer=1,
+		
+		CanBeDoneFromFloor:true,
+		Result:5pkSheetRopeFertilizer,
+		OnCreate:Recipe.OnCreate.SplitUsesInTwo,
+		RemoveResultItem:true,
+		Time:60.0,
+	}
+	
+	model NPKFertilizerRoped
+	{
+		mesh = WorldItems/stack_of_plaster_powder,
+		texture = WorldItems/NPKRoped,
+		scale = 1.0,
+	}
+
+	model NPKFertilizerSheetRoped
+	{
+		mesh = WorldItems/stack_of_plaster_powder,
+		texture = WorldItems/NPKSheetRoped,
+		scale = 1.0,
+	}
+}

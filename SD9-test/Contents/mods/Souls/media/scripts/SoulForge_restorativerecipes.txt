@@ -1,0 +1,105 @@
+module SoulForge {
+	recipe Restore 1 Kill
+	{
+		CanBeDoneFromFloor:true,
+		destroy SoulForge.RestoreKillsOne,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.BandageDirty,
+		RemoveResultItem:true,
+		Time:50.0,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:RestoreKills_One,
+	}
+	
+	recipe Restore 10 Kills
+	{
+		CanBeDoneFromFloor:true,
+		destroy SoulForge.RestoreKillsTen,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.BandageDirty,
+		RemoveResultItem:true,
+		Time:50.0,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:RestoreKills_Ten,
+	}
+	
+	recipe Restore 100 Kills
+	{
+		CanBeDoneFromFloor:true,
+		destroy SoulForge.RestoreKillsOneHundred,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.BandageDirty,
+		RemoveResultItem:true,
+		Time:50.0,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:RestoreKills_OneHundred,
+	}
+	
+	recipe Restore 1000 Kills
+	{
+		CanBeDoneFromFloor:true,
+		destroy SoulForge.RestoreKillsOneThousand,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.BandageDirty,
+		RemoveResultItem:true,
+		Time:50.0,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:RestoreKills_OneThousand,
+	}
+	
+	recipe Restore 1 Hour
+	{
+		CanBeDoneFromFloor:true,
+		destroy SoulForge.RestoreHoursOne,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.BandageDirty,
+		RemoveResultItem:true,
+		Time:50.0,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:RestoreHours_One,
+	}
+	
+	recipe Restore 10 Hours
+	{
+		CanBeDoneFromFloor:true,
+		destroy SoulForge.RestoreHoursTen,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.BandageDirty,
+		RemoveResultItem:true,
+		Time:50.0,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:RestoreHours_Ten,
+	}
+	
+	recipe Restore 100 Hours
+	{
+		CanBeDoneFromFloor:true,
+		destroy SoulForge.RestoreHoursOneHundred,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.BandageDirty,
+		RemoveResultItem:true,
+		Time:50.0,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:RestoreHours_OneHundred,
+	}
+	
+	recipe Restore 1000 Hours
+	{
+		CanBeDoneFromFloor:true,
+		destroy SoulForge.RestoreHoursOneThousand,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.BandageDirty,
+		RemoveResultItem:true,
+		Time:50.0,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:RestoreHours_OneThousand,
+	}
+}

@@ -1,0 +1,59 @@
+IGUI_EN = {
+    
+    IGUI_Loot_All_Coins = "Loot All Coins",
+    IGUI_Coins_To_Account = "Move Coins to Account",
+    IGUI_Contains = "Contains",
+
+    IGUI_AddShop = "Add Shop",
+    IGUI_RemoveShop = "Remove Shop",
+
+    IGUI_AddPlayerShop = "Add Player Shop",
+    IGUI_AddPlayerShopFreezer = "Add Player Shop (Freezer)",
+    IGUI_RemoveShop = "Remove Player Shop",
+    IGUI_RemoveItemsPlayerShop = "Remove all items in shop container",
+    IGUI_RemoveIncomePlayerShop = "Remove all income in shop container",
+    IGUI_ViewIncomePlayerShop = "View Income",
+    IGUI_PickupPlayerShop = "Pick up player shop",
+    IGUI_UnlockContainerPlayerShop = "Unlock shop container",
+    IGUI_LockContainerPlayerShop = "Lock shop container",
+    IGUI_ManagePlayerShop = "Manage Shop",
+    IGUI_SetPricePlayerShop = "Set Price",
+    IGUI_ViewPlayerShop = "View %1's Shop",
+    IGUI_TitlePlayerShop = "%1's Shop",
+    IGUI_ChangeSign = "Change Sign",
+
+    IGUI_Income = "Income",
+    IGUI_Get = "Get",
+
+    IGUI_Shop = "Shop",
+    IGUI_Shop_ViewItems = "View Shop Items",
+    IGUI_Shop_ViewOnly = "Use a Shop Kiosk to buy",
+    IGUI_Shop_Search = "Search",
+    IGUI_Shop_ClearCart = "Clear Cart",
+    IGUI_Shop_Sell = "Sell",
+    IGUI_Shop_BuyCart = "Buy Cart",
+    IGUI_Shop_Total = "Total",
+    IGUI_Shop_Balance = "Balance",
+    IGUI_Shop_DropOnFloor = "* Items will drop on floor",
+
+    IGUI_Balance_Link = "Link",
+    IGUI_Balance_Unlink = "Unlink",
+    IGUI_Balance_Transfer = "Transfer",
+    IGUI_Balance_TransferTo = "To",
+    IGUI_Balance_Send = "Send",
+    IGUI_Balance_TransferReceived = "Transfer Received, Sender: %1, Coins: %2",
+    IGUI_Balance_TransferReceivedSpecial = "Transfer Received, Sender: %1, Coins: %2, Event Coins: %3",
+    IGUI_Balance_AccountNeeded = "Account not found, please create one",
+
+
+    IGUI_Tab_Favorite = "Favorite",
+    IGUI_Tab_Sell = "Sell",
+    IGUI_Tab_All = "All",
+    
+    IGUI_Tab_Food = "Food",
+    IGUI_Tab_FirstAid = "First Aid",
+    IGUI_Tab_Event = "Event",
+	IGUI_Tab_Vehicles = "Vehicles",
+	IGUI_Tab_Weapons = "Weapons",
+
+}

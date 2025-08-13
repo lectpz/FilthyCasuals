@@ -1,0 +1,36 @@
+module Base
+{	
+	item 2024xmascache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Sunday Drivers 2024 Christmas Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_complete,
+        WorldStaticModel        = RikuEmporiumBox_complete,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item Empty2024xmascache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Christmas Cache,
+        Icon                    = i_RikuEmporiumBox_complete,
+        WorldStaticModel        = RikuEmporiumBox_complete,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open 2024 XMAS Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy 2024xmascache,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:Empty2024xmascache,
+		RemoveResultItem:true,
+		Time:500.0,
+		OnCreate:OnCreate_2024xmascache,
+		OnCanPerform:OnCanPerform_2024xmascache,
+	}
+}

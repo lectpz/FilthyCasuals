@@ -1,0 +1,17 @@
+Shop.Items["Base.DodgeRTtire3"] = { tab = Tab.Vehicles, price = 50 }
+Shop.Items["Base.80sOffroadTireA"] = { tab = Tab.Vehicles, price = 50 }
+Shop.Items["Base.V100Tire2"] = { tab = Tab.Vehicles, price = 50 }
+Shop.Items["Base.R32TireA"] = { tab = Tab.Vehicles, price = 50 }
+Shop.Items["Base.W460WideTire2"] = { tab = Tab.Vehicles, price = 15 }
+Shop.Items["Base.RearWindshield1"] = { tab = Tab.Vehicles, price = 15 }
+Shop.Items["Base.RearWindshield2"] = { tab = Tab.Vehicles, price = 15 }
+Shop.Items["Base.RearWindshield3"] = { tab = Tab.Vehicles, price = 15 }
+Shop.Items["Base.Windshield1"] = { tab = Tab.Vehicles, price = 15 }
+Shop.Items["Base.Windshield2"] = { tab = Tab.Vehicles, price = 15 }
+Shop.Items["Base.Windshield3"] = { tab = Tab.Vehicles, price = 15 }
+Shop.Items["Base.FrontWindow1"] = { tab = Tab.Vehicles, price = 15 }
+Shop.Items["Base.FrontWindow2"] = { tab = Tab.Vehicles, price = 15 }
+Shop.Items["Base.FrontWindow3"] = { tab = Tab.Vehicles, price = 15 }
+Shop.Items["Base.RearWindow1"] = { tab = Tab.Vehicles, price = 15 }
+Shop.Items["Base.RearWindow2"] = { tab = Tab.Vehicles, price = 15 }
+Shop.Items["Base.RearWindow3"] = { tab = Tab.Vehicles, price = 15 }

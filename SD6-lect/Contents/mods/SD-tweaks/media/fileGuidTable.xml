@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fileGuidTable>
+
+	<files>
+        <path>media/clothing/clothingItems/spooder.xml</path>
+        <guid>e595c8f8-7737-4894-b288-a79a06ad90f9</guid>
+    </files>
+
+	<files>
+        <path>media/clothing/clothingItems/boosh.xml</path>
+        <guid>71cf43a6-1063-4fe8-87d1-ea8da1ac98e9</guid>
+    </files>
+
+	<files>
+        <path>media/clothing/clothingItems/cardboardbox.xml</path>
+        <guid>c80b4626-2bf0-4aab-ad2e-35177745829b</guid>
+    </files>
+
+</fileGuidTable>
+
+
+
+
+

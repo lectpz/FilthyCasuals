@@ -1,0 +1,64 @@
+module Base
+{
+	model RedCrystal
+	{
+		mesh = SoulCrystal,
+        	texture = RedCrystal,
+	}
+	
+	model YellowCrystal
+	{
+		mesh = SoulCrystal,
+        	texture = YellowCrystal,
+	}
+
+	model OrangeCrystal
+	{
+		mesh = SoulCrystal,
+        	texture = OrangeCrystal,
+	}
+	
+	model GreenCrystal
+	{
+		mesh = SoulCrystal,
+        	texture = GreenCrystal,
+	}
+	
+	model PrismCrystal
+	{
+		mesh = SoulCrystal,
+        	texture = PrismCrystal,
+	}
+	
+
+	model RedCrystalShard
+	{
+		mesh = CrystalShard,
+        	texture = RedCrystal,
+	}
+	
+	model YellowCrystalShard
+	{
+		mesh = CrystalShard,
+        	texture = YellowCrystal,
+	}
+
+	model OrangeCrystalShard
+	{
+		mesh = CrystalShard,
+        	texture = OrangeCrystal,
+	}
+	
+	model GreenCrystalShard
+	{
+		mesh = CrystalShard,
+        	texture = GreenCrystal,
+	}
+	
+	model PrismCrystalShard
+	{
+		mesh = CrystalShard,
+        	texture = PrismCrystal,
+	}
+		
+}

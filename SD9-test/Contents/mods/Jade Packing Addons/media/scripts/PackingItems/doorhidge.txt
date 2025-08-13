@@ -1,0 +1,81 @@
+module Packing
+{
+	imports
+	{
+		Base,
+	}
+	
+	item 20pkHinge
+	{
+		Weight			= 1.5,
+		Type			= Normal,
+		DisplayName		= 20 x Door Hinges,
+		DisplayCategory = Material,
+		Icon			= Doorhinge,
+		WorldStaticModel= Doorhinge,
+	}
+	
+	item 10pkHinge
+	{
+		Weight			= 0.9,
+		Type			= Normal,
+		DisplayName		= 10 x Door Hinges,
+		DisplayCategory = Material,
+		Icon			= Doorhinge,
+		WorldStaticModel= Doorhinge,
+	}
+
+	recipe Pack 20
+	{
+		destroy Hinge=20,
+		
+		Result:20pkHinge,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:75.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 20
+	{
+		destroy 20pkHinge,
+		
+		Result:Hinge=20,
+		Time:50.0,
+		Category:Storage,
+	}
+	
+	recipe Pack 10
+	{
+		destroy Hinge=10,
+		
+		Result:10pkHinge,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:50.0,
+		Category:Storage,
+	}
+	
+	recipe Unpack 10
+	{
+		destroy 10pkHinge,
+		
+		Result:Hinge=10,
+		Time:25.0,
+		Category:Storage,
+	}
+
+	recipe Put Together
+	{
+		10pkHinge=2,
+		
+		Result:20pkHinge=1,
+		Time:30.0,
+	}
+
+	recipe Split in Two
+	{
+		20pkHinge=1,
+		
+		Result:10pkHinge=2,
+		Time:30.0,
+	}
+}

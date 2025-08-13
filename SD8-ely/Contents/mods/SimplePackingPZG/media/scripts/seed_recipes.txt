@@ -1,0 +1,4565 @@
+module SP
+{
+	imports
+	{
+		Base,
+        PZGFarm
+	}
+
+    recipe Pack 5
+    {
+        destroy AppleBagSeed=5,
+
+        Result  :5pkAppleBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy AppleBagSeed=10,
+
+        Result  :10pkAppleBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy AppleBagSeed=50,
+
+        Result  :50pkAppleBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy AppleBagSeed=100,
+
+        Result  :100pkAppleBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkAppleBagSeed,
+
+        Result:AppleBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkAppleBagSeed,
+
+        Result:AppleBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkAppleBagSeed,
+
+        Result:AppleBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkAppleBagSeed,
+
+        Result:AppleBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkAppleBagSeed=2,
+
+        Result  :10pkAppleBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkAppleBagSeed=5,
+
+        Result  :50pkAppleBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkAppleBagSeed=2,
+
+        Result  :100pkAppleBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkAppleBagSeed=1,
+
+        Result  :5pkAppleBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkAppleBagSeed=1,
+
+        Result  :10pkAppleBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkAppleBagSeed=1,
+
+        Result  :50pkAppleBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy AvocadoBagSeed=5,
+
+        Result  :5pkAvocadoBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy AvocadoBagSeed=10,
+
+        Result  :10pkAvocadoBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy AvocadoBagSeed=50,
+
+        Result  :50pkAvocadoBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy AvocadoBagSeed=100,
+
+        Result  :100pkAvocadoBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Put Together
+    {
+        5pkAvocadoBagSeed=2,
+
+        Result  :10pkAvocadoBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkAvocadoBagSeed=5,
+
+        Result  :50pkAvocadoBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkAvocadoBagSeed=2,
+
+        Result  :100pkAvocadoBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkAvocadoBagSeed=1,
+
+        Result  :5pkAvocadoBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkAvocadoBagSeed=1,
+
+        Result  :10pkAvocadoBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkAvocadoBagSeed=1,
+
+        Result  :50pkAvocadoBagSeed=2,
+        Time    :40.0
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkAvocadoBagSeed,
+
+        Result:AvocadoBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkAvocadoBagSeed,
+
+        Result:AvocadoBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkAvocadoBagSeed,
+
+        Result:AvocadoBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkAvocadoBagSeed,
+
+        Result:AvocadoBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 5
+    {
+        destroy BananaBagSeed=5,
+
+        Result  :5pkBananaBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy BananaBagSeed=10,
+
+        Result  :10pkBananaBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy BananaBagSeed=50,
+
+        Result  :50pkBananaBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy BananaBagSeed=100,
+
+        Result  :100pkBananaBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkBananaBagSeed,
+
+        Result:BananaBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkBananaBagSeed,
+
+        Result:BananaBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkBananaBagSeed,
+
+        Result:BananaBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkBananaBagSeed,
+
+        Result:BananaBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkBananaBagSeed=2,
+
+        Result  :10pkBananaBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkBananaBagSeed=5,
+
+        Result  :50pkBananaBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkBananaBagSeed=2,
+
+        Result  :100pkBananaBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkBananaBagSeed=1,
+
+        Result  :5pkBananaBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkBananaBagSeed=1,
+
+        Result  :10pkBananaBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkBananaBagSeed=1,
+
+        Result  :50pkBananaBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy BellpepperBagSeed=5,
+
+        Result  :5pkBellpepperBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy BellpepperBagSeed=10,
+
+        Result  :10pkBellpepperBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy BellpepperBagSeed=50,
+
+        Result  :50pkBellpepperBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy BellpepperBagSeed=100,
+
+        Result  :100pkBellpepperBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkBellpepperBagSeed,
+
+        Result:BellpepperBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkBellpepperBagSeed,
+
+        Result:BellpepperBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkBellpepperBagSeed,
+
+        Result:BellpepperBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkBellpepperBagSeed,
+
+        Result:BellpepperBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkBellpepperBagSeed=2,
+
+        Result  :10pkBellpepperBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkBellpepperBagSeed=5,
+
+        Result  :50pkBellpepperBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkBellpepperBagSeed=2,
+
+        Result  :100pkBellpepperBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkBellpepperBagSeed=1,
+
+        Result  :5pkBellpepperBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkBellpepperBagSeed=1,
+
+        Result  :10pkBellpepperBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkBellpepperBagSeed=1,
+
+        Result  :50pkBellpepperBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy BlackbeansBagSeed=5,
+
+        Result  :5pkBlackbeansBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy BlackbeansBagSeed=10,
+
+        Result  :10pkBlackbeansBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy BlackbeansBagSeed=50,
+
+        Result  :50pkBlackbeansBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy BlackbeansBagSeed=100,
+
+        Result  :100pkBlackbeansBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkBlackbeansBagSeed,
+
+        Result:BlackbeansBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkBlackbeansBagSeed,
+
+        Result:BlackbeansBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkBlackbeansBagSeed,
+
+        Result:BlackbeansBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkBlackbeansBagSeed,
+
+        Result:BlackbeansBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkBlackbeansBagSeed=2,
+
+        Result  :10pkBlackbeansBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkBlackbeansBagSeed=5,
+
+        Result  :50pkBlackbeansBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkBlackbeansBagSeed=2,
+
+        Result  :100pkBlackbeansBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkBlackbeansBagSeed=1,
+
+        Result  :5pkBlackbeansBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkBlackbeansBagSeed=1,
+
+        Result  :10pkBlackbeansBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkBlackbeansBagSeed=1,
+
+        Result  :50pkBlackbeansBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy BlackberryBagSeed=5,
+
+        Result  :5pkBlackberryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy BlackberryBagSeed=10,
+
+        Result  :10pkBlackberryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy BlackberryBagSeed=50,
+
+        Result  :50pkBlackberryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy BlackberryBagSeed=100,
+
+        Result  :100pkBlackberryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkBlackberryBagSeed,
+
+        Result:BlackberryBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkBlackberryBagSeed,
+
+        Result:BlackberryBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkBlackberryBagSeed,
+
+        Result:BlackberryBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkBlackberryBagSeed,
+
+        Result:BlackberryBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Put Together
+    {
+        5pkBlackberryBagSeed=2,
+
+        Result  :10pkBlackberryBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkBlackberryBagSeed=5,
+
+        Result  :50pkBlackberryBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkBlackberryBagSeed=2,
+
+        Result  :100pkBlackberryBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkBlackberryBagSeed=1,
+
+        Result  :5pkBlackberryBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkBlackberryBagSeed=1,
+
+        Result  :10pkBlackberryBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkBlackberryBagSeed=1,
+
+        Result  :50pkBlackberryBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy BlueberryBagSeed=5,
+
+        Result  :5pkBlueberryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy BlueberryBagSeed=10,
+
+        Result  :10pkBlueberryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy BlueberryBagSeed=50,
+
+        Result  :50pkBlueberryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy BlueberryBagSeed=100,
+
+        Result  :100pkBlueberryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkBlueberryBagSeed,
+
+        Result:BlueberryBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkBlueberryBagSeed,
+
+        Result:BlueberryBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkBlueberryBagSeed,
+
+        Result:BlueberryBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkBlueberryBagSeed,
+
+        Result:BlueberryBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Put Together
+    {
+        5pkBlueberryBagSeed=2,
+
+        Result  :10pkBlueberryBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkBlueberryBagSeed=5,
+
+        Result  :50pkBlueberryBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkBlueberryBagSeed=2,
+
+        Result  :100pkBlueberryBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkBlueberryBagSeed=1,
+
+        Result  :5pkBlueberryBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkBlueberryBagSeed=1,
+
+        Result  :10pkBlueberryBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkBlueberryBagSeed=1,
+
+        Result  :50pkBlueberryBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Unpack 5
+    {
+        destroy 5pkCherryBagSeed,
+
+        Result:CherryBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkCherryBagSeed,
+
+        Result:CherryBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkCherryBagSeed,
+
+        Result:CherryBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkCherryBagSeed,
+
+        Result:CherryBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Pack 5
+    {
+        destroy CherryBagSeed=5,
+
+        Result  :5pkCherryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy CherryBagSeed=10,
+
+        Result  :10pkCherryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy CherryBagSeed=50,
+
+        Result  :50pkCherryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy CherryBagSeed=100,
+
+        Result  :100pkCherryBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Put Together
+    {
+        5pkCherryBagSeed=2,
+
+        Result  :10pkCherryBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkCherryBagSeed=5,
+
+        Result  :50pkCherryBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkCherryBagSeed=2,
+
+        Result  :100pkCherryBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkCherryBagSeed=1,
+
+        Result  :5pkCherryBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkCherryBagSeed=1,
+
+        Result  :10pkCherryBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkCherryBagSeed=1,
+
+        Result  :50pkCherryBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy CoconutBagSeed=5,
+
+        Result  :5pkCoconutBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy CoconutBagSeed=10,
+
+        Result  :10pkCoconutBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy CoconutBagSeed=50,
+
+        Result  :50pkCoconutBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy CoconutBagSeed=100,
+
+        Result  :100pkCoconutBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkCoconutBagSeed,
+
+        Result:CoconutBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkCoconutBagSeed,
+
+        Result:CoconutBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkCoconutBagSeed,
+
+        Result:CoconutBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkCoconutBagSeed,
+
+        Result:CoconutBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkCoconutBagSeed=2,
+
+        Result  :10pkCoconutBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkCoconutBagSeed=5,
+
+        Result  :50pkCoconutBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkCoconutBagSeed=2,
+
+        Result  :100pkCoconutBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkCoconutBagSeed=1,
+
+        Result  :5pkCoconutBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkCoconutBagSeed=1,
+
+        Result  :10pkCoconutBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkCoconutBagSeed=1,
+
+        Result  :50pkCoconutBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy CornBagSeed=5,
+
+        Result  :5pkCornBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy CornBagSeed=10,
+
+        Result  :10pkCornBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy CornBagSeed=50,
+
+        Result  :50pkCornBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy CornBagSeed=100,
+
+        Result  :100pkCornBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkCornBagSeed,
+
+        Result:CornBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkCornBagSeed,
+
+        Result:CornBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkCornBagSeed,
+
+        Result:CornBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkCornBagSeed,
+
+        Result:CornBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkCornBagSeed=2,
+
+        Result  :10pkCornBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkCornBagSeed=5,
+
+        Result  :50pkCornBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkCornBagSeed=2,
+
+        Result  :100pkCornBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkCornBagSeed=1,
+
+        Result  :5pkCornBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkCornBagSeed=1,
+
+        Result  :10pkCornBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkCornBagSeed=1,
+
+        Result  :50pkCornBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy CucumberBagSeed=5,
+
+        Result  :5pkCucumberBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy CucumberBagSeed=10,
+
+        Result  :10pkCucumberBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy CucumberBagSeed=50,
+
+        Result  :50pkCucumberBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy CucumberBagSeed=100,
+
+        Result  :100pkCucumberBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkCucumberBagSeed,
+
+        Result:CucumberBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkCucumberBagSeed,
+
+        Result:CucumberBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkCucumberBagSeed,
+
+        Result:CucumberBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkCucumberBagSeed,
+
+        Result:CucumberBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkCucumberBagSeed=2,
+
+        Result  :10pkCucumberBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkCucumberBagSeed=5,
+
+        Result  :50pkCucumberBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkCucumberBagSeed=2,
+
+        Result  :100pkCucumberBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkCucumberBagSeed=1,
+
+        Result  :5pkCucumberBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkCucumberBagSeed=1,
+
+        Result  :10pkCucumberBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkCucumberBagSeed=1,
+
+        Result  :50pkCucumberBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy DaikonBagSeed=5,
+
+        Result  :5pkDaikonBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy DaikonBagSeed=10,
+
+        Result  :10pkDaikonBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy DaikonBagSeed=50,
+
+        Result  :50pkDaikonBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy DaikonBagSeed=100,
+
+        Result  :100pkDaikonBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkDaikonBagSeed,
+
+        Result:DaikonBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkDaikonBagSeed,
+
+        Result:DaikonBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkDaikonBagSeed,
+
+        Result:DaikonBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkDaikonBagSeed,
+
+        Result:DaikonBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkDaikonBagSeed=2,
+
+        Result  :10pkDaikonBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkDaikonBagSeed=5,
+
+        Result  :50pkDaikonBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkDaikonBagSeed=2,
+
+        Result  :100pkDaikonBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkDaikonBagSeed=1,
+
+        Result  :5pkDaikonBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkDaikonBagSeed=1,
+
+        Result  :10pkDaikonBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkDaikonBagSeed=1,
+
+        Result  :50pkDaikonBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy EdamameBagSeed=5,
+
+        Result  :5pkEdamameBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy EdamameBagSeed=10,
+
+        Result  :10pkEdamameBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy EdamameBagSeed=50,
+
+        Result  :50pkEdamameBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy EdamameBagSeed=100,
+
+        Result  :100pkEdamameBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkEdamameBagSeed,
+
+        Result:EdamameBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkEdamameBagSeed,
+
+        Result:EdamameBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkEdamameBagSeed,
+
+        Result:EdamameBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkEdamameBagSeed,
+
+        Result:EdamameBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkEdamameBagSeed=2,
+
+        Result  :10pkEdamameBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkEdamameBagSeed=5,
+
+        Result  :50pkEdamameBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkEdamameBagSeed=2,
+
+        Result  :100pkEdamameBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkEdamameBagSeed=1,
+
+        Result  :5pkEdamameBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkEdamameBagSeed=1,
+
+        Result  :10pkEdamameBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkEdamameBagSeed=1,
+
+        Result  :50pkEdamameBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy EggplantBagSeed=5,
+
+        Result  :5pkEggplantBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy EggplantBagSeed=10,
+
+        Result  :10pkEggplantBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy EggplantBagSeed=50,
+
+        Result  :50pkEggplantBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy EggplantBagSeed=100,
+
+        Result  :100pkEggplantBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkEggplantBagSeed,
+
+        Result:EggplantBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkEggplantBagSeed,
+
+        Result:EggplantBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkEggplantBagSeed,
+
+        Result:EggplantBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkEggplantBagSeed,
+
+        Result:EggplantBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkEggplantBagSeed=2,
+
+        Result  :10pkEggplantBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkEggplantBagSeed=5,
+
+        Result  :50pkEggplantBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkEggplantBagSeed=2,
+
+        Result  :100pkEggplantBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkEggplantBagSeed=1,
+
+        Result  :5pkEggplantBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkEggplantBagSeed=1,
+
+        Result  :10pkEggplantBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkEggplantBagSeed=1,
+
+        Result  :50pkEggplantBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy GrapefruitBagSeed=5,
+
+        Result  :5pkGrapefruitBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy GrapefruitBagSeed=10,
+
+        Result  :10pkGrapefruitBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy GrapefruitBagSeed=50,
+
+        Result  :50pkGrapefruitBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy GrapefruitBagSeed=100,
+
+        Result  :100pkGrapefruitBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkGrapefruitBagSeed,
+
+        Result:GrapefruitBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkGrapefruitBagSeed,
+
+        Result:GrapefruitBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkGrapefruitBagSeed,
+
+        Result:GrapefruitBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkGrapefruitBagSeed,
+
+        Result:GrapefruitBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Put Together
+    {
+        5pkGrapefruitBagSeed=2,
+
+        Result  :10pkGrapefruitBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkGrapefruitBagSeed=5,
+
+        Result  :50pkGrapefruitBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkGrapefruitBagSeed=2,
+
+        Result  :100pkGrapefruitBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkGrapefruitBagSeed=1,
+
+        Result  :5pkGrapefruitBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkGrapefruitBagSeed=1,
+
+        Result  :10pkGrapefruitBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkGrapefruitBagSeed=1,
+
+        Result  :50pkGrapefruitBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy GrapeBagSeed=5,
+
+        Result  :5pkGrapeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy GrapeBagSeed=10,
+
+        Result  :10pkGrapeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy GrapeBagSeed=50,
+
+        Result  :50pkGrapeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy GrapeBagSeed=100,
+
+        Result  :100pkGrapeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkGrapeBagSeed,
+
+        Result:GrapeBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkGrapeBagSeed,
+
+        Result:GrapeBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkGrapeBagSeed,
+
+        Result:GrapeBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkGrapeBagSeed,
+
+        Result:GrapeBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+    
+
+    recipe Put Together
+    {
+        5pkGrapeBagSeed=2,
+
+        Result  :10pkGrapeBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkGrapeBagSeed=5,
+
+        Result  :50pkGrapeBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkGrapeBagSeed=2,
+
+        Result  :100pkGrapeBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkGrapeBagSeed=1,
+
+        Result  :5pkGrapeBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkGrapeBagSeed=1,
+
+        Result  :10pkGrapeBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkGrapeBagSeed=1,
+
+        Result  :50pkGrapeBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy PepperHabaneroBagSeed=5,
+
+        Result  :5pkPepperHabaneroBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy PepperHabaneroBagSeed=10,
+
+        Result  :10pkPepperHabaneroBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy PepperHabaneroBagSeed=50,
+
+        Result  :50pkPepperHabaneroBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy PepperHabaneroBagSeed=100,
+
+        Result  :100pkPepperHabaneroBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkPepperHabaneroBagSeed,
+
+        Result:PepperHabaneroBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkPepperHabaneroBagSeed,
+
+        Result:PepperHabaneroBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkPepperHabaneroBagSeed,
+
+        Result:PepperHabaneroBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkPepperHabaneroBagSeed,
+
+        Result:PepperHabaneroBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkPepperHabaneroBagSeed=2,
+
+        Result  :10pkPepperHabaneroBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkPepperHabaneroBagSeed=5,
+
+        Result  :50pkPepperHabaneroBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkPepperHabaneroBagSeed=2,
+
+        Result  :100pkPepperHabaneroBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkPepperHabaneroBagSeed=1,
+
+        Result  :5pkPepperHabaneroBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkPepperHabaneroBagSeed=1,
+
+        Result  :10pkPepperHabaneroBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkPepperHabaneroBagSeed=1,
+
+        Result  :50pkPepperHabaneroBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy PepperJalapenoBagSeed=5,
+
+        Result  :5pkPepperJalapenoBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy PepperJalapenoBagSeed=10,
+
+        Result  :10pkPepperJalapenoBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy PepperJalapenoBagSeed=50,
+
+        Result  :50pkPepperJalapenoBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy PepperJalapenoBagSeed=100,
+
+        Result  :100pkPepperJalapenoBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkPepperJalapenoBagSeed,
+
+        Result:PepperJalapenoBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkPepperJalapenoBagSeed,
+
+        Result:PepperJalapenoBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkPepperJalapenoBagSeed,
+
+        Result:PepperJalapenoBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkPepperJalapenoBagSeed,
+
+        Result:PepperJalapenoBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Put Together
+    {
+        5pkPepperJalapenoBagSeed=2,
+
+        Result  :10pkPepperJalapenoBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkPepperJalapenoBagSeed=5,
+
+        Result  :50pkPepperJalapenoBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkPepperJalapenoBagSeed=2,
+
+        Result  :100pkPepperJalapenoBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkPepperJalapenoBagSeed=1,
+
+        Result  :5pkPepperJalapenoBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkPepperJalapenoBagSeed=1,
+
+        Result  :10pkPepperJalapenoBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkPepperJalapenoBagSeed=1,
+
+        Result  :50pkPepperJalapenoBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy LeekBagSeed=5,
+
+        Result  :5pkLeekBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy LeekBagSeed=10,
+
+        Result  :10pkLeekBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy LeekBagSeed=50,
+
+        Result  :50pkLeekBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy LeekBagSeed=100,
+
+        Result  :100pkLeekBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkLeekBagSeed,
+
+        Result:LeekBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkLeekBagSeed,
+
+        Result:LeekBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkLeekBagSeed,
+
+        Result:LeekBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkLeekBagSeed,
+
+        Result:LeekBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkLeekBagSeed=2,
+
+        Result  :10pkLeekBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkLeekBagSeed=5,
+
+        Result  :50pkLeekBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkLeekBagSeed=2,
+
+        Result  :100pkLeekBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkLeekBagSeed=1,
+
+        Result  :5pkLeekBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkLeekBagSeed=1,
+
+        Result  :10pkLeekBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkLeekBagSeed=1,
+
+        Result  :50pkLeekBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Unpack 5
+    {
+        destroy 5pkLemonBagSeed,
+
+        Result:LemonBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkLemonBagSeed,
+
+        Result:LemonBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkLemonBagSeed,
+
+        Result:LemonBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkLemonBagSeed,
+
+        Result:LemonBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 5
+    {
+        destroy LemonBagSeed=5,
+
+        Result  :5pkLemonBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy LemonBagSeed=10,
+
+        Result  :10pkLemonBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy LemonBagSeed=50,
+
+        Result  :50pkLemonBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy LemonBagSeed=100,
+
+        Result  :100pkLemonBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Put Together
+    {
+        5pkLemonBagSeed=2,
+
+        Result  :10pkLemonBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkLemonBagSeed=5,
+
+        Result  :50pkLemonBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkLemonBagSeed=2,
+
+        Result  :100pkLemonBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkLemonBagSeed=1,
+
+        Result  :5pkLemonBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkLemonBagSeed=1,
+
+        Result  :10pkLemonBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkLemonBagSeed=1,
+
+        Result  :50pkLemonBagSeed=2,
+        Time    :40.0
+    }
+
+
+    recipe Pack 5
+    {
+        destroy LettuceBagSeed=5,
+
+        Result  :5pkLettuceBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy LettuceBagSeed=10,
+
+        Result  :10pkLettuceBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy LettuceBagSeed=50,
+
+        Result  :50pkLettuceBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy LettuceBagSeed=100,
+
+        Result  :100pkLettuceBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkLettuceBagSeed,
+
+        Result:LettuceBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkLettuceBagSeed,
+
+        Result:LettuceBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkLettuceBagSeed,
+
+        Result:LettuceBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkLettuceBagSeed,
+
+        Result:LettuceBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkLettuceBagSeed=2,
+
+        Result  :10pkLettuceBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkLettuceBagSeed=5,
+
+        Result  :50pkLettuceBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkLettuceBagSeed=2,
+
+        Result  :100pkLettuceBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkLettuceBagSeed=1,
+
+        Result  :5pkLettuceBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkLettuceBagSeed=1,
+
+        Result  :10pkLettuceBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkLettuceBagSeed=1,
+
+        Result  :50pkLettuceBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy LimeBagSeed=5,
+
+        Result  :5pkLimeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy LimeBagSeed=10,
+
+        Result  :10pkLimeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy LimeBagSeed=50,
+
+        Result  :50pkLimeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy LimeBagSeed=100,
+
+        Result  :100pkLimeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkLimeBagSeed,
+
+        Result:LimeBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkLimeBagSeed,
+
+        Result:LimeBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkLimeBagSeed,
+
+        Result:LimeBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkLimeBagSeed,
+
+        Result:LimeBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkLimeBagSeed=2,
+
+        Result  :10pkLimeBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkLimeBagSeed=5,
+
+        Result  :50pkLimeBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkLimeBagSeed=2,
+
+        Result  :100pkLimeBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkLimeBagSeed=1,
+
+        Result  :5pkLimeBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkLimeBagSeed=1,
+
+        Result  :10pkLimeBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkLimeBagSeed=1,
+
+        Result  :50pkLimeBagSeed=2,
+        Time    :40.0
+    }
+
+
+    recipe Pack 5
+    {
+        destroy MangoBagSeed=5,
+
+        Result  :5pkMangoBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy MangoBagSeed=10,
+
+        Result  :10pkMangoBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy MangoBagSeed=50,
+
+        Result  :50pkMangoBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy MangoBagSeed=100,
+
+        Result  :100pkMangoBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkMangoBagSeed,
+
+        Result:MangoBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkMangoBagSeed,
+
+        Result:MangoBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkMangoBagSeed,
+
+        Result:MangoBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkMangoBagSeed,
+
+        Result:MangoBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkMangoBagSeed=2,
+
+        Result  :10pkMangoBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkMangoBagSeed=5,
+
+        Result  :50pkMangoBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkMangoBagSeed=2,
+
+        Result  :100pkMangoBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkMangoBagSeed=1,
+
+        Result  :5pkMangoBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkMangoBagSeed=1,
+
+        Result  :10pkMangoBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkMangoBagSeed=1,
+
+        Result  :50pkMangoBagSeed=2,
+        Time    :40.0
+    }
+
+
+    recipe Pack 5
+    {
+        destroy OnionBagSeed=5,
+
+        Result  :5pkOnionBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy OnionBagSeed=10,
+
+        Result  :10pkOnionBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy OnionBagSeed=50,
+
+        Result  :50pkOnionBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy OnionBagSeed=100,
+
+        Result  :100pkOnionBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkOnionBagSeed,
+
+        Result:OnionBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkOnionBagSeed,
+
+        Result:OnionBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkOnionBagSeed,
+
+        Result:OnionBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkOnionBagSeed,
+
+        Result:OnionBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkOnionBagSeed=2,
+
+        Result  :10pkOnionBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkOnionBagSeed=5,
+
+        Result  :50pkOnionBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkOnionBagSeed=2,
+
+        Result  :100pkOnionBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkOnionBagSeed=1,
+
+        Result  :5pkOnionBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkOnionBagSeed=1,
+
+        Result  :10pkOnionBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkOnionBagSeed=1,
+
+        Result  :50pkOnionBagSeed=2,
+        Time    :40.0
+    }
+
+
+    recipe Pack 5
+    {
+        destroy OrangeBagSeed=5,
+
+        Result  :5pkOrangeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy OrangeBagSeed=10,
+
+        Result  :10pkOrangeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy OrangeBagSeed=50,
+
+        Result  :50pkOrangeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy OrangeBagSeed=100,
+
+        Result  :100pkOrangeBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkOrangeBagSeed,
+
+        Result:OrangeBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkOrangeBagSeed,
+
+        Result:OrangeBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkOrangeBagSeed,
+
+        Result:OrangeBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkOrangeBagSeed,
+
+        Result:OrangeBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkOrangeBagSeed=2,
+
+        Result  :10pkOrangeBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkOrangeBagSeed=5,
+
+        Result  :50pkOrangeBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkOrangeBagSeed=2,
+
+        Result  :100pkOrangeBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkOrangeBagSeed=1,
+
+        Result  :5pkOrangeBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkOrangeBagSeed=1,
+
+        Result  :10pkOrangeBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkOrangeBagSeed=1,
+
+        Result  :50pkOrangeBagSeed=2,
+        Time    :40.0
+    }
+
+
+    recipe Pack 5
+    {
+        destroy PeachBagSeed=5,
+
+        Result  :5pkPeachBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy PeachBagSeed=10,
+
+        Result  :10pkPeachBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy PeachBagSeed=50,
+
+        Result  :50pkPeachBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy PeachBagSeed=100,
+
+        Result  :100pkPeachBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkPeachBagSeed,
+
+        Result:PeachBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkPeachBagSeed,
+
+        Result:PeachBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkPeachBagSeed,
+
+        Result:PeachBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkPeachBagSeed,
+
+        Result:PeachBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkPeachBagSeed=2,
+
+        Result  :10pkPeachBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkPeachBagSeed=5,
+
+        Result  :50pkPeachBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkPeachBagSeed=2,
+
+        Result  :100pkPeachBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkPeachBagSeed=1,
+
+        Result  :5pkPeachBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkPeachBagSeed=1,
+
+        Result  :10pkPeachBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkPeachBagSeed=1,
+
+        Result  :50pkPeachBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy PearBagSeed=5,
+
+        Result  :5pkPearBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy PearBagSeed=10,
+
+        Result  :10pkPearBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy PearBagSeed=50,
+
+        Result  :50pkPearBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy PearBagSeed=100,
+
+        Result  :100pkPearBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkPearBagSeed,
+
+        Result:PearBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkPearBagSeed,
+
+        Result:PearBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkPearBagSeed,
+
+        Result:PearBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkPearBagSeed,
+
+        Result:PearBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkPearBagSeed=2,
+
+        Result  :10pkPearBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkPearBagSeed=5,
+
+        Result  :50pkPearBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkPearBagSeed=2,
+
+        Result  :100pkPearBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkPearBagSeed=1,
+
+        Result  :5pkPearBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkPearBagSeed=1,
+
+        Result  :10pkPearBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkPearBagSeed=1,
+
+        Result  :50pkPearBagSeed=2,
+        Time    :40.0
+    }
+
+    recipe Pack 5
+    {
+        destroy PinePineappleBagSeed=5,
+
+        Result  :5pkPinePineappleBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy PinePineappleBagSeed=10,
+
+        Result  :10pkPinePineappleBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy PinePineappleBagSeed=50,
+
+        Result  :50pkPinePineappleBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy PinePineappleBagSeed=100,
+
+        Result  :100pkPinePineappleBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkPineappleBagSeed,
+
+        Result:PineappleBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkPineappleBagSeed,
+
+        Result:PineappleBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkPineappleBagSeed,
+
+        Result:PineappleBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkPineappleBagSeed,
+
+        Result:PineappleBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkPinePineappleBagSeed=2,
+
+        Result  :10pkPinePineappleBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkPinePineappleBagSeed=5,
+
+        Result  :50pkPinePineappleBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkPinePineappleBagSeed=2,
+
+        Result  :100pkPinePineappleBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkPinePineappleBagSeed=1,
+
+        Result  :5pkPinePineappleBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkPinePineappleBagSeed=1,
+
+        Result  :10pkPinePineappleBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkPinePineappleBagSeed=1,
+
+        Result  :50pkPinePineappleBagSeed=2,
+        Time    :40.0
+    }
+
+
+    recipe Pack 5
+    {
+        destroy PumpkinBagSeed=5,
+
+        Result  :5pkPumpkinBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy PumpkinBagSeed=10,
+
+        Result  :10pkPumpkinBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy PumpkinBagSeed=50,
+
+        Result  :50pkPumpkinBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy PumpkinBagSeed=100,
+
+        Result  :100pkPumpkinBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkPumpkinBagSeed,
+
+        Result:PumpkinBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkPumpkinBagSeed,
+
+        Result:PumpkinBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkPumpkinBagSeed,
+
+        Result:PumpkinBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkPumpkinBagSeed,
+
+        Result:PumpkinBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkPumpkinBagSeed=2,
+
+        Result  :10pkPumpkinBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkPumpkinBagSeed=5,
+
+        Result  :50pkPumpkinBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkPumpkinBagSeed=2,
+
+        Result  :100pkPumpkinBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkPumpkinBagSeed=1,
+
+        Result  :5pkPumpkinBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkPumpkinBagSeed=1,
+
+        Result  :10pkPumpkinBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkPumpkinBagSeed=1,
+
+        Result  :50pkPumpkinBagSeed=2,
+        Time    :40.0
+    }
+
+
+    recipe Pack 5
+    {
+        destroy SugarcaneBagSeed=5,
+
+        Result  :5pkSugarcaneBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy SugarcaneBagSeed=10,
+
+        Result  :10pkSugarcaneBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy SugarcaneBagSeed=50,
+
+        Result  :50pkSugarcaneBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy SugarcaneBagSeed=100,
+
+        Result  :100pkSugarcaneBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkSugarcaneBagSeed,
+
+        Result:SugarcaneBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkSugarcaneBagSeed,
+
+        Result:SugarcaneBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkSugarcaneBagSeed,
+
+        Result:SugarcaneBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkSugarcaneBagSeed,
+
+        Result:SugarcaneBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkSugarcaneBagSeed=2,
+
+        Result  :10pkSugarcaneBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkSugarcaneBagSeed=5,
+
+        Result  :50pkSugarcaneBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkSugarcaneBagSeed=2,
+
+        Result  :100pkSugarcaneBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkSugarcaneBagSeed=1,
+
+        Result  :5pkSugarcaneBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkSugarcaneBagSeed=1,
+
+        Result  :10pkSugarcaneBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkSugarcaneBagSeed=1,
+
+        Result  :50pkSugarcaneBagSeed=2,
+        Time    :40.0
+    }
+
+
+    recipe Pack 5
+    {
+        destroy WatermelonBagSeed=5,
+
+        Result  :5pkWatermelonBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy WatermelonBagSeed=10,
+
+        Result  :10pkWatermelonBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy WatermelonBagSeed=50,
+
+        Result  :50pkWatermelonBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy WatermelonBagSeed=100,
+
+        Result  :100pkWatermelonBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkWatermelonBagSeed,
+
+        Result:WatermelonBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkWatermelonBagSeed,
+
+        Result:WatermelonBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkWatermelonBagSeed,
+
+        Result:WatermelonBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkWatermelonBagSeed,
+
+        Result:WatermelonBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkWatermelonBagSeed=2,
+
+        Result  :10pkWatermelonBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkWatermelonBagSeed=5,
+
+        Result  :50pkWatermelonBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkWatermelonBagSeed=2,
+
+        Result  :100pkWatermelonBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkWatermelonBagSeed=1,
+
+        Result  :5pkWatermelonBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkWatermelonBagSeed=1,
+
+        Result  :10pkWatermelonBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkWatermelonBagSeed=1,
+
+        Result  :50pkWatermelonBagSeed=2,
+        Time    :40.0
+    }
+
+
+    recipe Pack 5
+    {
+        destroy WheatBagSeed=5,
+
+        Result  :5pkWheatBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy WheatBagSeed=10,
+
+        Result  :10pkWheatBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy WheatBagSeed=50,
+
+        Result  :50pkWheatBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy WheatBagSeed=100,
+
+        Result  :100pkWheatBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 5
+    {
+        destroy 5pkWheatBagSeed,
+
+        Result:WheatBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkWheatBagSeed,
+
+        Result:WheatBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkWheatBagSeed,
+
+        Result:WheatBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkWheatBagSeed,
+
+        Result:WheatBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkWheatBagSeed=2,
+
+        Result  :10pkWheatBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkWheatBagSeed=5,
+
+        Result  :50pkWheatBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkWheatBagSeed=2,
+
+        Result  :100pkWheatBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkWheatBagSeed=1,
+
+        Result  :5pkWheatBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkWheatBagSeed=1,
+
+        Result  :10pkWheatBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkWheatBagSeed=1,
+
+        Result  :50pkWheatBagSeed=2,
+        Time    :40.0
+    }
+
+
+    recipe Pack 5
+    {
+        destroy ZucchiniBagSeed=5,
+
+        Result  :5pkZucchiniBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :50.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 10
+    {
+        destroy ZucchiniBagSeed=10,
+
+        Result  :10pkZucchiniBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :75.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 50
+    {
+        destroy ZucchiniBagSeed=50,
+
+        Result  :50pkZucchiniBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :100.0,
+        Category:Storage
+    }
+
+
+    recipe Pack 100
+    {
+        destroy ZucchiniBagSeed=100,
+
+        Result  :100pkZucchiniBagSeed,
+        OnTest  :Recipe.OnTest.IsFavorite,
+        Time    :125.0,
+        Category:Storage
+    }
+
+    recipe Unpack 5
+    {
+        destroy 5pkZucchiniBagSeed,
+
+        Result:ZucchiniBagSeed=5,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 10
+    {
+        destroy 10pkZucchiniBagSeed,
+
+        Result:ZucchiniBagSeed=10,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 50
+    {
+        destroy 50pkZucchiniBagSeed,
+
+        Result:ZucchiniBagSeed=50,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+    recipe Unpack 100
+    {
+        destroy 100pkZucchiniBagSeed,
+
+        Result:ZucchiniBagSeed=100,
+        Time:50.0,
+        Category:Storage
+    }
+
+
+
+    recipe Put Together
+    {
+        5pkZucchiniBagSeed=2,
+
+        Result  :10pkZucchiniBagSeed=1,
+        Time    :10.0
+    }
+
+
+    recipe Put Together
+    {
+        10pkZucchiniBagSeed=5,
+
+        Result  :50pkZucchiniBagSeed=1,
+        Time    :20.0
+    }
+
+
+    recipe Put Together
+    {
+        50pkZucchiniBagSeed=2,
+
+        Result  :100pkZucchiniBagSeed=1,
+        Time    :40.0
+    }
+
+
+    recipe Split in Two
+    {
+        10pkZucchiniBagSeed=1,
+
+        Result  :5pkZucchiniBagSeed=2,
+        Time    :10.0
+    }
+
+
+    recipe Split in Five
+    {
+        50pkZucchiniBagSeed=1,
+
+        Result  :10pkZucchiniBagSeed=5,
+        Time    :20.0
+    }
+
+
+    recipe Split in Two
+    {
+        100pkZucchiniBagSeed=1,
+
+        Result  :50pkZucchiniBagSeed=2,
+        Time    :40.0
+    }
+}

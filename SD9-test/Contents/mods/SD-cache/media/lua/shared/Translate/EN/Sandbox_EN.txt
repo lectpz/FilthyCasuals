@@ -1,0 +1,20 @@
+Sandbox_EN = {
+
+	Sandbox_RikuWeaponCacheSD = "Riku Weapon Cache",
+	
+	Sandbox_RWC_table5 = "Tier 5 Loot Table",
+	Sandbox_RWC_table5_tooltip = "e.g. RMWeapons.MedSword;RMWeapons.PochitaSword;RMWeapons.NulBlade;RMWeapons.CavAxe;RMWeapons.MizutsuneSword;RMWeapons.ApostateAxe;RMWeapons.RefudClaws;RMWeapons.mace1;RMWeapons.RockstarGuitar;RMWeapons.VampClaymore",
+	
+	Sandbox_RWC_table4 = "Tier 4 Loot Table",
+	Sandbox_RWC_table4_tooltip = "e.g. RMWeapons.ArcSpear;RMWeapons.SealingStaff2;RMWeapons.LanceofLonginus;RMWeapons.JadeSword;RMWeapons.bassax;RMWeapons.EyeStaff;RMWeapons.themauler;RMWeapons.Nikabo;RMWeapons.FallenCross;RMWeapons.warhammer40k;RMWeapons.DreamAxe;RMWeapons.RoyalGreatsword;RMWeapons.crabspear;RMWeapons.MizutsuneGlaive;RMWeapons.SwordofSolitude;RMWeapons.firelink",
+	
+	Sandbox_RWC_table3 = "Tier 3 Loot Table",
+	Sandbox_RWC_table3_tooltip = "e.g. RMWeapons.MorningStar;RMWeapons.LastHope;RMWeapons.MadamScythe;RMWeapons.KineticHammer;RMWeapons.Shaxe;RMWeapons.TreeHugger;RMWeapons.bladebat;RMWeapons.sawbat1;RMWeapons.gnbat;RMWeapons.RebarClub;RMWeapons.CatnipCrusher;RMWeapons.MandateofHeaven;RMWeapons.steinsword;RMWeapons.CrimsonLance;RMWeapons.MoonlightGS;RMWeapons.waraxe;RMWeapons.BigBertha",
+	
+	Sandbox_RWC_table2 = "Tier 2 Loot Table",
+	Sandbox_RWC_table2_tooltip = "e.g. RMWeapons.Dadao;RMWeapons.dragonpiercer;RMWeapons.sword40k;RMWeapons.kindness;RMWeapons.spinecrusher;RMWeapons.Slapper;RMWeapons.BrushAxe;RMWeapons.warhammer;RMWeapons.SpikedClub1;RMWeapons.ZombieTrimmer;RMWeapons.Crimson1Sword;RMWeapons.MxScythe;RMWeapons.VikingWarhammer;RMWeapons.CavSword;RMWeapons.FuriosEppe;RMWeapons.StarWand;RMWeapons.falchion;RMWeapons.spikedsword",
+
+	Sandbox_RWC_table1 = "Tier 1 Loot Table",
+	Sandbox_RWC_table1_tooltip = "e.g. RMWeapons.PiroCraftKnife;RMWeapons.steinbeer;RMWeapons.club1;RMWeapons.MightCleaver;RMWeapons.bonkhammer;RMWeapons.club2;RMWeapons.spear1;RMWeapons.tanto;RMWeapons.Thawk;RMWeapons.ScrapMace1;RMWeapons.spikedleg;RMWeapons.RailSpike;RMWeapons.dexkama;RMWeapons.TrenchShovel;RMWeapons.IceAxe1;RMWeapons.beardedaxe;RMWeapons.Golok;RMWeapons.MeatHook;RMWeapons.hellokittyax;RMWeapons.FlangedMace;RMWeapons.HeavyCleaver;RMWeapons.glaive;RMWeapons.dagger1;RMWeapons.thunderbreaker;RMWeapons.Falx;RMWeapons.MagicMace",
+
+}

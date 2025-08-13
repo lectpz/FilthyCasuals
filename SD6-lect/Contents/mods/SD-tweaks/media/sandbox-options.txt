@@ -62,6 +62,15 @@ option SDOnWeaponSwing.Tier5dmg
 	page = SDOnWeaponSwing,
 	translation = SDOnWeaponSwing_Tier5dmg,
 }
+
+option SDOnWeaponSwing.Tier6dmg
+{
+	type = string,
+	default = 0.2,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier6dmg,
+}
 	
 option SDOnWeaponSwing.Tier1critrate
 {
@@ -107,6 +116,15 @@ option SDOnWeaponSwing.Tier5critrate
 	page = SDOnWeaponSwing,
 	translation = SDOnWeaponSwing_Tier5critrate,
 }
+
+option SDOnWeaponSwing.Tier6critrate
+{
+	type = string,
+	default = 0.2,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier6critrate,
+}
 	
 option SDOnWeaponSwing.Tier1critmulti
 {
@@ -151,6 +169,15 @@ option SDOnWeaponSwing.Tier5critmulti
 
 	page = SDOnWeaponSwing,
 	translation = SDOnWeaponSwing_Tier5critmulti,
+}
+
+option SDOnWeaponSwing.Tier6critmulti
+{
+	type = string,
+	default = 0.2,
+
+	page = SDOnWeaponSwing,
+	translation = SDOnWeaponSwing_Tier6critmulti,
 }
 
 option SDevents.Xcoord1
@@ -360,6 +387,24 @@ option TilePicker.RegularCache
 
 	page = TilePicker,
 	translation = TilePicker_RegularCache,
+}
+
+option TilePicker.RegularCache2
+{
+	type = string,
+	default = rugs_Simon_MD_33:Bear Rug 1/7;rugs_Simon_MD_34:Bear Rug 2/7;rugs_Simon_MD_35:Bear Rug 3/7;rugs_Simon_MD_36:Bear Rug 4/7;rugs_Simon_MD_37:Bear Rug 5/7;rugs_Simon_MD_38:Bear Rug 6/7;rugs_Simon_MD_39:Bear Rug 7/7;,
+
+	page = TilePicker,
+	translation = TilePicker_RegularCache2,
+}
+
+option TilePicker.RegularCache3
+{
+	type = string,
+	default = rugs_Simon_MD_33:Bear Rug 1/7;rugs_Simon_MD_34:Bear Rug 2/7;rugs_Simon_MD_35:Bear Rug 3/7;rugs_Simon_MD_36:Bear Rug 4/7;rugs_Simon_MD_37:Bear Rug 5/7;rugs_Simon_MD_38:Bear Rug 6/7;rugs_Simon_MD_39:Bear Rug 7/7;,
+
+	page = TilePicker,
+	translation = TilePicker_RegularCache3,
 }
 
 option SDbus.BusStops

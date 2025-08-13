@@ -185,6 +185,20 @@ function OnTest_dontDestroySouls(item)
 	
 end
 
+function OnTest_dontDestroySoulForgedGuns(item)
+	
+	local weaponModData = item:getModData()
+	local soulsFreed = weaponModData.KillCount or nil
+	local soulForged = weaponModData.SoulForged or false
+	
+	if item:isFavorite() or (soulsFreed and soulsFreed > 0) or soulForged then
+		return false
+	else
+		return true
+	end
+	
+end
+
 function OnTest_isInPlayerInventory(item)
 
 	local player = getSpecificPlayer(0)
@@ -831,7 +845,7 @@ function LuckFlask_300(food, character, percent)
 	end
 end
 
-function LuckFlask_100(food, character, percent)
+function LuckFlask_200(food, character, percent)
 	needToEatItAll(character, percent)
 	if percent == 1 then
 		local pMD = character:getModData()
@@ -885,5 +899,62 @@ function SoulSmithFlask_2pct(food, character, percent)
 		--Events.OnWeaponHitXp.Add(SoulSmithOnWeaponHitXP)
 		HaloTextHelper.addTextWithArrow(character, "Soul Smith Food Buff Active. ", true, HaloTextHelper.getColorGreen());
 		buffTimer["SoulSmith"] = getTimestamp()
+	end
+end
+
+function OnCreate_SoulCrystal(items, result, player)
+	local item = items:get(0)
+	local iMD = item:getModData()
+	
+	local qualityTier = 1
+	local itemPrefix = iMD.mdzPrefix
+	if itemPrefix == "Exemplary" then
+		qualityTier = 5
+	elseif itemPrefix == "Exceptional" then
+		qualityTier = 4
+	elseif itemPrefix == "Superior" then
+		qualityTier = 3
+	elseif itemPrefix == "Refined" then
+		qualityTier = 2
+	end
+	
+	local qualityStats = {
+	  mdzMaxDmg = iMD.mdzMaxDmg,
+	  mdzMinDmg = iMD.mdzMinDmg,
+	  mdzCriticalChance = iMD.mdzCriticalChance,
+	  mdzCritDmgMultiplier = iMD.mdzCritDmgMultiplier
+	}
+
+	local maxValue = iMD.mdzMaxDmg
+	local maxValueName = "mdzMaxDmg"
+
+	for key, value in pairs(qualityStats) do
+		if value > maxValue then
+			maxValue = value
+			maxValueName = key
+		end
+	end
+
+	--print("The maximum value is:", maxValue)
+	--print("The name of the maximum value is:", maxValueName)
+	
+	local inv = player:getInventory()
+	local resultItem = result:getFullType()
+	
+	if resultItem == "SoulForge.SoulCrystalT1" then
+		local tier = math.min(qualityTier, 1)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT"..tier)
+	elseif resultItem == "SoulForge.SoulCrystalT2" then
+		local tier = math.min(qualityTier, 2)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT"..tier)
+	elseif resultItem == "SoulForge.SoulCrystalT3" then
+		local tier = math.min(qualityTier, 3)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT"..tier)
+	elseif resultItem == "SoulForge.SoulCrystalT4" then
+		local tier = math.min(qualityTier, 4)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT"..tier)
+	else
+		local tier = math.min(qualityTier, 5)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT"..tier)
 	end
 end

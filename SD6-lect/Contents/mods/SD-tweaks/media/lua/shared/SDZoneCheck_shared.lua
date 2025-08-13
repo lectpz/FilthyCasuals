@@ -5,7 +5,7 @@
 ----------------------------------------------
 
 -- define zones (towns/maps)
-zonetier = {1, 2, 3, 4, 5}
+zonetier = {1, 2, 3, 4, 5, 6}
 zonetierno = #zonetier
 
 -- zone input, overall zones are on top, nested zones are on bottom
@@ -13,7 +13,7 @@ zonetierno = #zonetier
 
 Zone = {
 	list = {
-		["LouisvillePD"]={12000,900,12590,1650,5,nil,"Toxic",100,50,100,4.5},
+		["LouisvillePD"]={12000,900,12590,1650,6,nil,"Toxic",100,100,100,4.5},
 		["LouisvilleMallArea"]={12590,900,15000,1650,5,nil,nil,100,35,50,3.9},
 		["Louisville West"]={12000,1650,13200,4360,4,"Nested",nil,20,25,25,3.5},
 		["Louisville East"]={13200,1650,15000,4360,4,"Nested",nil,20,25,25,3.5},
@@ -24,89 +24,79 @@ Zone = {
 		["WestPointEast"]={11850,6600,12900,7800,2,nil,nil,10,10,15,2.9},
 		["Riverside"]={5250,5175,7500,6775,1,nil,nil,5,5,10,2.35},
 		["Rosewood"]={7500,11400,9300,12600,1,nil,nil,5,5,10,2.35},
-		["MarchRidge"]={9750,12300,10500,13200,1,nil,nil,5,5,10,2.35},
-		["InsidePetro"]={10930,11740,11400,12330,5,"Subnested",nil,100,100,100,4.5},
-		["Petroville"]={10500,11400,11400,12600,4,"Nested",nil,100,50,100,3.9},
+		["MarchRidge"]={9750,12410,10500,13200,1,nil,nil,5,5,10,2.35},
+		["InsidePetro"]={10930,11740,11400,12330,6,"Subnested","Toxic",100,100,100,4.5},
+		["Petroville"]={10500,11400,11400,12600,5,"Nested",nil,100,100,100,3.9},
 		["LakeIvy"]={8700,9300,9600,10800,1,nil,nil,5,5,10,2.35},
 		["FortRedstone"]={5400,11700,6000,12300,3,nil,nil,15,20,20,3.3},
 		["RavenCreekMilitaryHospital"]={3000,11100,3350,11545,5,"Subnested","Toxic",100,35,25,4.5},
-		["RavenCreekPD"]={3350,11100,3870,12000,5,"Subnested",nil,35,100,100,3.9},
-		["RavenCreekEast"]={3870,11100,4183,12000,4,"Subnested",nil,25,35,25,3.5},
-		["RavenCreekCentral"]={3570,12300,4300,12900,4,"Subnested",nil,25,50,30,3.5},
-		["RavenCreekRes1"]={3900,12000,4500,12300,1,"Subnested",nil,5,5,5,2.35},
+		["RavenCreekPD"]={3350,11100,3870,12000,4,"Subnested",nil,35,100,100,3.9},
+		["RavenCreekEast"]={3870,11100,4183,12000,3,"Subnested",nil,30,35,25,3.5},
 		["RavenCreekRes2"]={4050,12970,4500,13175,1,"Subnested",nil,5,5,5,2.35},
 		["RavenCreek"]={3000,11100,4800,13500,3,"Nested",nil,20,25,25,3.1},
-		["EerieIrvington"]={11161,17788,11700,18299,4,"Subnested",nil,20,20,25,3.2},
-		["EeriePowerPlant"]={9900,13879,10966,15292,3,"Subnested",nil,20,20,25,3.1},
-		["EerieCapitol"]={8970,16600,9600,17300,4,"Subnested",nil,35,50,50,3},
-		["EerieMilitaryBase"]={8101,17063,8527,17610,5,"Subnested","Toxic",100,25,35,3.3},
-		["EerieCountry"]={7500,13500,12300,18300,2,"Nested",nil,15,20,20,2.8},
-		["BigBearLakeMili"]={4800,6900,5556,7160,5,"Subnested",nil,100,100,100,3.7},
+		["EerieIrvington"]={11161,17788,11700,18299,4,"Subnested",nil,20,75,25,3.2},
+		["EeriePowerPlant"]={9900,13879,10966,15292,3,"Subnested",nil,35,100,100,3.1},
+		["EerieCapitol"]={8970,16600,9600,17300,6,"Subnested","Toxic",35,50,50,3},
+		["EerieMilitaryBase"]={8101,17063,8527,17610,5,"Subnested","Toxic",100,75,75,5.5},
+		["EerieCountry"]={7500,13500,12300,18300,2,"Nested",nil,15,100,20,2.8},
+		["BigBearLakeMili"]={4800,6900,5556,7160,6,"Subnested",nil,100,100,100,3.7},
 		["BigBearLakeWest"]={5000,7800,5700,8200,4,"Subnested",nil,25,25,50,3.4},
-		["BigBearLakeEast"]={5903,7475,6611,7855,3,"Subnested",nil,20,20,50,3.0},
+		["BigBearLakeEast"]={5903,7475,6611,7855,3,"Subnested",nil,20,20,50,3},
 		["BigBearLake"]={4800,6900,6900,8400,2,"Nested",nil,10,20,25,2.7},
 		["Chestown"]={4500,6600,4800,6900,2,nil,nil,15,20,25,2.7},
-		["LCBunker"]={17775,6300,18300,6900,5,"Subnested","Toxic",100,100,100,4.5},
+		["LCBunker"]={17775,6300,18300,6900,6,"Subnested","Toxic",100,100,100,4.5},
 		["LCDowntown"]={16800,6300,17775,6900,5,"Subnested",nil,35,50,50,3.9},
 		["LCDowntownWest"]={16300,6300,16800,7050,4,"Subnested",nil,25,35,30,3.5},
-		["LCSouth1"]={15783,7420,16103,7994,4,"Subnested",nil,25,35,50,3.5},
+		["LCSouth1"]={15847,7561,16103,7994,4,"Subnested",nil,35,100,50,8},
 		["LC"]={15000,6300,18300,8100,3,"Nested",nil,15,20,25,3.3},
 		["Taylorsville"]={9000,6300,10220,7200,2,nil,nil,15,20,25,2.9},
 		["Grapeseed"]={7200,11100,7500,11400,2,nil,nil,15,20,25,2.9},
 		["RosewoodX"]={7970,10820,8790,11400,2,nil,nil,10,10,20,2.9},
-		["ValleyStreamMall"]={13491,5598,14103,5985,3,nil,nil,20,35,50,3.1},
+		["ValleyStreamMall"]={13491,5598,14103,5985,3,nil,nil,15,35,50,3.1},
 		["ShortrestCityRes1"]={13200,6450,13500,7475,1,nil,nil,5,5,5,2.35},
 		["ShortrestCityRes2"]={13500,6450,14250,6900,1,nil,nil,5,5,5,2.35},
 		["ShortrestCitySouth"]={13500,6900,14250,7475,2,nil,nil,15,20,15,2.9},
 		["ShortrestCityEast"]={14250,6900,14700,7475,3,nil,nil,20,35,25,3.1},
-		["Pineville"]={3900,9000,4500,10200,2,nil,nil,15,15,15,2.9},
+		["Pineville"]={3650,9000,4500,10200,2,nil,nil,15,15,15,2.9},
 		["Wilbore"]={4550,9900,5100,10400,3,nil,nil,20,30,25,3.1},
 		["ShortestCityRes3"]={14250,6450,14700,6900,1,nil,nil,5,10,10,2.35},
-		["Jasperville"]={4800,1500,7500,3900,3,nil,nil,20,25,25,3.3},
-		["Leavenburg"]={4800,3900,7500,4900,3,nil,nil,20,25,25,3.3},
+		["Leavenburg"]={4800,3300,7500,4900,3,nil,nil,20,25,25,3.3},
 		["New Albany T5"]={13670,430,14100,900,5,"Subnested",nil,35,50,50,4.5},
 		["New Albany T4"]={12590,0,15000,900,4,"Nested",nil,25,35,35,3.75},
 		["New Albany T3"]={12000,0,12590,900,3,"Nested",nil,20,25,25,3.3},
-		["Over The River South"]={11100,5700,12300,6500,5,nil,nil,40,60,80,5},
+		["Over The River South"]={11100,5700,12300,6335,6,nil,nil,40,60,80,8},
 		["Over The River North"]={11100,3000,12000,4360,3,nil,nil,25,30,30,3.3},
 		["Over The River Central"]={11100,4360,12300,5700,4,nil,nil,25,30,30,3.5},
 		["Greenport"]={8100,7200,8700,7800,3,nil,nil,15,20,30,3.3},
 		["Constown"]={5100,10800,6300,11700,2,nil,nil,10,20,20,2.7},
 		["Green Valley Lake"]={6300,11100,7200,12000,3,nil,nil,15,30,30,2.35},
-		["Elliot Pond West"]={3900,13500,6200,14400,5,nil,nil,30,50,50,4.5},
-		["Elliot Pond East"]={6200,13500,7500,15600,4,nil,nil,50,60,60,3.5},
+		["Elliot Pond West"]={3900,13500,6200,14400,6,nil,nil,100,50,50,3.9},
+		["Elliot Pond East"]={6200,13500,7500,15600,4,nil,nil,25,60,60,3.1},
 		["Utopia"]={7200,9500,7600,9900,4,nil,nil,30,50,50,3.9},
 		["Ashenwood"]={11400,11130,11700,11700,3,nil,nil,20,40,30,3.3},
 		["Shepherdsville"]={14700,7900,15000,8300,2,nil,nil,5,10,10,2.35},
-		["Guston"]={3650,6600,4500,7800,2,nil,nil,10,20,20,2.7},
-		["Skidrow"]={12850,11000,16000,14200,5,nil,"Toxic",100,100,100,8},
+		["Guston"]={3650,6600,4500,9000,2,nil,nil,10,20,20,2.7},
+		["RavenCreekResidential"]={3870,12000,4367,12335,3,"Subnested",nil,15,30,20,2.1},
+		["The Fort"]={15001,1200,15599,1799,6,nil,"Toxic",100,75,75,4},
+		["Boat Toxic "]={11100,6334,11400,6593,6,nil,"Toxic",100,75,80,8},
+		["Bananas"]={9236,4861,9573,5108,4,nil,nil,0,0,0,5.6},
+		["PV Bus"]={10300,12123,10500,12410,3,nil,nil,50,50,100,2.1},
+		["Elliot Pond Road"]={7195,13200,10800,13500,3,nil,nil,10,55,55,2.1},
+		["jasperville"]={4800,1500,7499,3299,3,nil,nil,20,25,25,3.3},
+		["Ekron"]={6900,8100,7500,8700,1,nil,nil,5,5,10,2.35},
 	}
 }
 
 NestedZone = {
 	list = {
-		["InsidePetro"]={10930,11740,11400,12330,5,"Subnested",nil,100,100,100,4.5},
-		["LCBunker"]={17775,6300,18300,6900,5,"Subnested","Toxic",100,100,100,4.5},
-		["LCDowntown"]={16800,6300,17775,6900,5,"Subnested",nil,35,50,50,3.9},
-		["LCDowntownWest"]={16300,6300,16800,7050,4,"Subnested",nil,25,35,30,3.5},
-		["LCSouth1"]={15783,7420,16103,7994,4,"Subnested",nil,25,35,50,3.5},
-		["RavenCreekMilitaryHospital"]={3000,11100,3350,11545,5,"Subnested","Toxic",100,35,25,4.5},
-		["RavenCreekPD"]={3350,11100,3870,12000,5,"Subnested",nil,35,100,100,3.9},
-		["RavenCreekEast"]={3870,11100,4183,12000,4,"Subnested",nil,25,35,25,3.5},
-		["RavenCreekCentral"]={3570,12300,4300,12900,4,"Subnested",nil,25,50,30,3.5},
-		["RavenCreekRes1"]={3900,12000,4500,12300,1,"Subnested",nil,5,5,5,2.35},
-		["RavenCreekRes2"]={4050,12970,4500,13175,1,"Subnested",nil,5,5,5,2.35},
-		["EerieIrvington"]={11161,17788,11700,18299,4,"Subnested",nil,20,20,25,3.2},
-		["EeriePowerPlant"]={9900,13879,10966,15292,3,"Subnested",nil,20,20,25,3.1},
-		["EerieCapitol"]={8970,16600,9600,17300,4,"Subnested",nil,35,50,50,3},
-		["EerieMilitaryBase"]={8101,17063,8527,17610,5,"Subnested","Toxic",100,25,35,3.3},
-		["BigBearLakeMili"]={4800,6900,5556,7160,5,"Subnested",nil,100,100,100,3.7},
-		["BigBearLakeWest"]={5000,7800,5700,8200,4,"Subnested",nil,25,25,50,3.4},
-		["BigBearLakeEast"]={5903,7475,6611,7855,3,"Subnested",nil,20,20,50,3.0},
-		["Louisville Central"]={12930,2881,13654,3242,5,"Subnested",nil,20,25,25,5},
-		["New Albany T5"]={13670,430,14100,900,5,"Subnested",nil,35,50,50,4.5},
 	}
 }
+
+for k,v in pairs(Zone.list) do
+	if v[6] == "Subnested" then
+		NestedZone.list[k]=v
+	end
+end
 
 function getZoneNames(zonelist)
 	local zoneNames = {}

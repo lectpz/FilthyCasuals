@@ -1,0 +1,6 @@
+version=1
+id=3456541999
+title=Simple Packing
+description=Packing modpack primarily made for tackling chunk rot on the SD mp server.
+tags=Build 41;Balance;Multiplayer
+visibility=public
