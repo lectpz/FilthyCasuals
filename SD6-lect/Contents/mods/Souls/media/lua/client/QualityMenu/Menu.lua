@@ -5,16 +5,51 @@ local Tooltip = require("QualityMenu/Tooltip")
 local Utils = require("QualityMenu/Utils")
 local Config = require("QualityMenu/Config")
 
-function Menu.applyQualityTicket(weapon, statKey, ticket)
-    if not statKey or not ticket then
-        print("[Menu] Error: Missing statKey or ticket", statKey, ticket)
-        return
+local function resolvePlayer(player)
+    if type(player) == "number" then
+        local po = getSpecificPlayer(player)
+        print("[Menu] resolvePlayer index ->", tostring(po ~= nil))
+        return po
+    elseif type(player) == "userdata" then
+        print("[Menu] resolvePlayer userdata -> true")
+        return player
+    end
+    print("[Menu] resolvePlayer -> nil")
+    return nil
+end
+
+function Menu.applyQualityTicket(weapon, player, statKey, ticket, removeItem)
+    if not weapon or not statKey or not ticket then
+        print("[Menu] ERROR applyQualityTicket: missing weapon/statKey/ticket"); return
+    end
+    print("[Menu] Applying ticket:", statKey, ticket.tier, ticket.bonus)
+
+    Tickets.applyTicket(weapon, statKey, ticket)
+
+    local playerObj = resolvePlayer(player)
+    if removeItem and playerObj and ticket.item then
+        local inv = playerObj:getInventory()
+        if inv then
+            inv:Remove(ticket.item)
+            print("[Menu] Removed ticket item instance:", tostring(ticket.item:getFullType()))
+        else
+            print("[Menu] WARN: no inventory; could not remove ticket")
+        end
     end
 
-    print("[Menu] Applying ticket:", statKey, ticket.tier, ticket.bonus)
-    Tickets.applyTicket(weapon, statKey, ticket)
-    HaloTextHelper.addTextAbovePlayer(getPlayer(),
-        "Applied " .. Tooltip.getDisplayName(statKey) .. " +" .. (ticket.bonus * 100) .. "%", 0, 1, 0)
+    local hasHalo = type(HaloTextHelper) == "table" and type(HaloTextHelper.addTextAbovePlayer) == "function"
+    local nameFunc = (Tooltip and Tooltip.getDisplayName) and Tooltip.getDisplayName or tostring
+    local msg = string.format("Applied %s +%.0f%%", nameFunc(statKey), (ticket.bonus or 0) * 100)
+
+    if hasHalo and playerObj then
+        HaloTextHelper.addTextAbovePlayer(playerObj, msg, 0, 1, 0)
+        print("[Menu] HaloText:", msg)
+    elseif playerObj and playerObj.Say then
+        playerObj:Say(msg)
+        print("[Menu] Say():", msg)
+    else
+        print("[Menu] Feedback skipped (no Halo/Say)")
+    end
 end
 
 function Menu.buildQualityTicketMenu(player, context, weapon, tickets)
@@ -56,16 +91,14 @@ function Menu.buildQualityTicketMenu(player, context, weapon, tickets)
 
             child:addOption("Apply All Tickets", nil, function()
                 print(string.format("[Menu] ApplyAll %s x%d", statKey, #list))
-                local p = getSpecificPlayer(player)
                 for _, t in ipairs(list) do
-                    Menu.applyQualityTicket(weapon, statKey, t)
-                    if p then p:getInventory():Remove(t.item) end
+                    Menu.applyQualityTicket(weapon, player, statKey, t, true) -- removeItem=true
                 end
             end)
 
             for _, t in ipairs(list) do
                 local label = string.format("%s | %s | +%.2f%%", Tooltip.getDisplayName(statKey), t.tier, t.bonus * 100)
-                local opt = child:addOption(label, weapon, Menu.applyQualityTicket, weapon, statKey, t)
+                local opt = child:addOption(label, weapon, Menu.applyQualityTicket, player, statKey, t, true) -- removeItem=true
                 Tooltip.attachSimpleTooltip(opt, Tooltip.getDisplayName(statKey),
                     "Enhances this stat by +" .. (t.bonus * 100) .. "%")
             end
@@ -77,30 +110,27 @@ function Menu.addMenu(player, context, items)
     print("[QualityMenu] addMenu called")
 
     local playerObj = getSpecificPlayer(player)
-    local held = playerObj and playerObj:getPrimaryHandItem()
+    if not playerObj then
+        print("[QualityMenu] No playerObj (server-side or not ready); aborting")
+        return
+    end
+
+    local held = playerObj:getPrimaryHandItem()
     if held then
         print("[Debug] Currently held weapon:", held:getName(), "| FullType:", held:getFullType())
     else
         print("[Debug] No weapon currently equipped")
     end
 
-    local weaponCtx = Utils.getForgeableWeapon(items, { module = "RMWeapons" })
+    local weaponCtx = Utils.getForgeableWeapon(player, { module = "RMWeapons" })
     if not weaponCtx then
-        print("[QualityMenu] No valid weapon in context")
+        print("[QualityMenu] No valid weapon in primary hand")
         return
     end
 
     print("[QualityMenu] Found weapon:", weaponCtx:getName())
-    for k, v in pairs(weaponCtx:getModData() or {}) do print("  ", k, v) end
-
     local tickets = Tickets.scanInventory(playerObj)
-    local ok, err = pcall(function()
-        Menu.buildQualityTicketMenu(player, context, weaponCtx, tickets or {})
-    end)
-    if not ok then
-        print("[QualityMenu] ERROR in buildQualityTicketMenu:", tostring(err))
-        print(debug and debug.traceback and debug.traceback() or "[traceback unavailable]")
-    end
+    Menu.buildQualityTicketMenu(player, context, weaponCtx, tickets or {})
 end
 
 Events.OnFillInventoryObjectContextMenu.Add(Menu.addMenu)

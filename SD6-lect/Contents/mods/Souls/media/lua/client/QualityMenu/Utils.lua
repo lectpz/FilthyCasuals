@@ -55,34 +55,41 @@ function Utils.debugPrintHeldWeapon(playerIndex)
     end
 end
 
-function Utils.getForgeableWeapon(items, opts)
+function Utils.getForgeableWeapon(player, opts)
     opts = opts or {}
     local targetModule = opts.module or "RMWeapons"
+    print(string.format("[Utils][getForgeableWeapon] start (primary hand) module=%s", tostring(targetModule)))
 
-    print(string.format("[Utils][getForgeableWeapon] start module=%s", tostring(targetModule)))
-
-    for idx, entry in ipairs(items) do
-        local item = entry and entry.items and entry.items[1]
-        if not item then
-            print(string.format("[Utils][getForgeableWeapon] idx=%d -> skip: no item", idx))
-        else
-            local name = tostring(item:getName())
-            local ft = item:getFullType() or ""
-            print(string.format("[Utils][getForgeableWeapon] idx=%d name=%s fullType=%s", idx, name, ft))
-
-            if not Utils.isHandWeapon(item) then
-                print(string.format("[Utils][getForgeableWeapon] idx=%d -> reject: not HandWeapon", idx))
-            elseif not Utils.isFromModule(item, targetModule) then
-                print(string.format("[Utils][getForgeableWeapon] idx=%d -> reject: wrong module", idx))
-            else
-                print(string.format("[Utils][getForgeableWeapon] idx=%d -> ACCEPT %s", idx, name))
-                return item
-            end
-        end
+    local playerObj = player
+    if type(player) ~= "userdata" then
+        playerObj = getSpecificPlayer(tonumber(player) or 0)
+    end
+    if not playerObj then
+        print("[Utils][getForgeableWeapon] reject: no playerObj")
+        return nil
     end
 
-    print("[Utils][getForgeableWeapon] No matching weapon found in context")
-    return nil
+    local item = playerObj:getPrimaryHandItem()
+    if not item then
+        print("[Utils][getForgeableWeapon] reject: no primary-hand item")
+        return nil
+    end
+
+    local name = tostring(item:getName())
+    local ft = (_getFullType and _getFullType(item)) or (item.getFullType and item:getFullType()) or ""
+    print(string.format("[Utils][getForgeableWeapon] held=%s fullType=%s", name, ft))
+
+    if not Utils.isHandWeapon(item) then
+        print("[Utils][getForgeableWeapon] reject: not HandWeapon")
+        return nil
+    end
+    if not Utils.isFromModule(item, targetModule) then
+        print("[Utils][getForgeableWeapon] reject: wrong module")
+        return nil
+    end
+
+    print(string.format("[Utils][getForgeableWeapon] ACCEPT %s", name))
+    return item
 end
 
 function Utils.formatEnhancerBonus(modData, statKey)

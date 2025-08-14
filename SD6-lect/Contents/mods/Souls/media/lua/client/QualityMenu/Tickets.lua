@@ -1,6 +1,7 @@
-Config = require("QualityMenu/Config")
-Utils = require("QualityMenu/Utils")
-Tickets = {}
+local Tickets = {}
+
+local Config = require("QualityMenu/Config")
+local Utils = require("QualityMenu/Utils")
 
 function Tickets.parseTicketName(fullItemString)
     print("[Tickets][parseTicketName] Called with:", fullItemString)
@@ -15,29 +16,39 @@ end
 
 function Tickets.scanInventory(player)
     print("[Tickets][scanInventory] Scanning inventory for quality tickets...")
-    local inv = player:getInventory()
-    local items = inv:getItems()
-    local tickets = {}
+    if not player then
+        print("[Tickets][scanInventory] ERROR: player is nil"); return {}
+    end
 
-    for i = 0, items:size() - 1 do
-        local item = items:get(i)
-        local itemName = item:getFullType()
-        print("[Tickets][scanInventory] Checking item:", itemName)
+    local inv = player.getInventory and player:getInventory() or nil
+    if not inv then
+        print("[Tickets][scanInventory] ERROR: inventory is nil"); return {}
+    end
 
-        local stat, tier = Tickets.parseTicketName(itemName)
+    local ok, items = pcall(function() return inv:getItems() end)
+    if not ok or not items then
+        print("[Tickets][scanInventory] ERROR: getItems() failed"); return {}
+    end
+
+    local tickets, size = {}, items:size()
+    for i = 0, size - 1 do
+        local it = items:get(i)
+        local ft = it and it:getFullType() or ""
+        print("[Tickets][scanInventory] Checking item:", ft)
+        local stat, tier = Tickets.parseTicketName(ft)
         if stat and tier then
-            local tierName = "T" .. tier
-            local tierBonus = Config.tiers[tierName]
-            print(string.format("[Tickets][scanInventory] Valid ticket found: stat=%s tier=%s bonus=%.4f", stat, tierName,
+            local tierName, tierBonus = "T" .. tier, Config.tiers["T" .. tier]
+            print(string.format("[Tickets][scanInventory] Valid ticket: %s %s bonus=%.4f", stat, tierName,
                 tierBonus or -1))
             if tierBonus then
                 tickets[stat] = tickets[stat] or {}
-                table.insert(tickets[stat], { item = item, tier = tierName, bonus = tierBonus })
+                table.insert(tickets[stat], { item = it, tier = tierName, bonus = tierBonus })
             end
         end
     end
 
-    print("[Tickets][scanInventory] Total ticket stats found:", Utils.tableCount(tickets))
+    local buckets = 0; for _ in pairs(tickets) do buckets = buckets + 1 end
+    print("[Tickets][scanInventory] Total ticket stats found:", buckets)
     return tickets
 end
 
