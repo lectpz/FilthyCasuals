@@ -48,11 +48,11 @@ local function tallyKills()
 	end
 	local zonetier, zonename, x, y, control, toxic = checkZone()
 	local zoneMulti = 1
-	if zonetier == 6 then
+	--[[if zonetier == 6 then
 		zoneMulti = 3
 	elseif zonetier >=4 then
 		zoneMulti = 2
-	end
+	end]]
 	--if not toxic then toxicZone = false return end
 	
 	if player and isFaction then

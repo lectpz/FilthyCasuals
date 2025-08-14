@@ -327,7 +327,7 @@ function ISWorldMap:render()
 		self:drawText("Global Kills:", gx, gy, 0.1, 0.1, 0.1, 1, UIFont.Large)
 		for i=1,#globalTally do
 			gy = gy + 25
-			self:drawText(globalTally[i], gx+10, gy, 0.1, 0.1, 0.1, 1, UIFont.Large)
+			self:drawText(globalTally[i], gx+10, gy, 0.1, 0.1, 0.1, 1, UIFont.Medium)
 		end
 		--self:drawText(" <RGB:0.83,0.68,0.21> " .. "Global Kills: " .. globalTally, x, y, 0.1, 0.1, 0.1, 1, UIFont.Large)
 		--[[self.tooltip.description = 	zoneTally .. "\n" ..
@@ -436,7 +436,7 @@ function ISWorldMap:onMouseMove(dx, dy)
 			if k == faction then
 				zonesTally = zonesTally .. k .. " kills in " .. zonename ..": " .. v-- .. " / Global kills = " .. zonesData[faction.."_global"]
 				if v >= tier*1000 then
-					zoneXY = zoneXY .. " (Faction has killed 6000 zombies in this zone. Faction bonus is active.)"
+					zoneXY = zoneXY .. " (Faction has killed " .. v .. " out of required " .. tier*1000 .. " zombies in this zone. Faction bonus is active.)"
 				else
 					zoneXY = zoneXY .. " (Faction needs " .. tier*1000 .. " kills to activate zone bonus.)"
 				end
@@ -450,16 +450,16 @@ function ISWorldMap:onMouseMove(dx, dy)
 		end
 	end]]
 	
-	if zonesData["cog_global"] then
-		table.insert(globalTally, "COG: " .. zonesData["cog_global"])
+	if zonesData["COG_global"] then
+		table.insert(globalTally, "COG: " .. zonesData["COG_global"])
 	end
 	
-	if zonesData["ranger_global"] then
-		table.insert(globalTally, "Ranger: " .. zonesData["ranger_global"])
+	if zonesData["Ranger_global"] then
+		table.insert(globalTally, "Ranger: " .. zonesData["Ranger_global"])
 	end
 	
-	if zonesData["voidwalker_global"] then
-		table.insert(globalTally, "Voidwalker: " .. zonesData["voidwalker_global"])
+	if zonesData["VoidWalker_global"] then
+		table.insert(globalTally, "VoidWalker: " .. zonesData["VoidWalker_global"])
 	end
 	
 	if zonesData["Sunday Drivers_global"] then

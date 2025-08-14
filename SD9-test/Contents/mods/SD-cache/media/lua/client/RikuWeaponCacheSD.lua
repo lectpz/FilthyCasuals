@@ -199,7 +199,7 @@ function RikuWeaponCacheSD(items, result, player)
 	
 -- tiered rolling, checks zone and adds item
 	if zonetier == 6 then
-		if ZombRand(6) == 0 or ZombRand(luckValue)+1 > 350 then
+		if (ZombRand(6) == 0) or (ZombRand(luckValue)+1 > 350) then
 			addSoulForgedWeaponToPlayer(table5[t5], zonetier)
 			if ZombRand(luckValue)+1 > 350 then addItemToPlayer(table5[t5]) end
 		else
@@ -208,7 +208,7 @@ function RikuWeaponCacheSD(items, result, player)
 		end
 		sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 	elseif zonetier == 5 then
-		if ZombRand(8) == 0 or ZombRand(luckValue)+1 > 300) then
+		if (ZombRand(8) == 0) or (ZombRand(luckValue)+1 > 300) then
 			addSoulForgedWeaponToPlayer(table4[t4])
 			if ZombRand(luckValue)+1 > 300 then addItemToPlayer(table4[t4]) end
 		else

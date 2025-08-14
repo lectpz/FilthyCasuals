@@ -44,6 +44,8 @@ recipesToPatch["Unpack Bundle of Crossbow Bolts"] = true
 recipesToPatch["Divide Scrap Metal Into Bits"] = true
 recipesToPatch["Combine Scrap Metal Bits"] = true
 
+recipesToPatch["Gather Gunpowder HFO"] = true
+
 function patchConcreteBucket(items, result, player)
     local playerInv = player:getInventory()
     playerInv:AddItem("Base.BucketConcreteFull")
@@ -187,6 +189,11 @@ local function patch_recipes()
 					patched = patched + 1
 					print ("Patched \""..name.."\"..")
 				end
+			elseif name == "Gather Gunpowder HFO" then
+				recipe:setIsHidden(true)
+				recipe:setCanPerform("getYeetedToHell")
+				patched = patched + 1
+				print ("Patched \""..name.."\"..")
 			elseif name == "Unpack Bundle of Crossbow Bolts" then
 				recipe:getResult():setCount(30)
 				patched = patched + 1

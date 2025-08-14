@@ -1,5 +1,33 @@
 VERSION = 1,
 
+option SoulForge.JewelryDropRateT3
+{
+	type = integer, min = 1, max = 9999, default = 450,
+	page = SoulForge,
+	translation = SoulForge_JewelryDropRateT3,
+}
+
+option SoulForge.JewelryDropRateT4
+{
+	type = integer, min = 1, max = 9999, default = 600,
+	page = SoulForge,
+	translation = SoulForge_JewelryDropRateT4,
+}
+
+option SoulForge.JewelryDropRateT5
+{
+	type = integer, min = 1, max = 9999, default = 750,
+	page = SoulForge,
+	translation = SoulForge_JewelryDropRateT5,
+}
+
+option SoulForge.JewelryDropRateT6
+{
+	type = integer, min = 1, max = 9999, default = 900,
+	page = SoulForge,
+	translation = SoulForge_JewelryDropRateT6,
+}
+
 option SDnoBuild.exclusionZones
 {
 	type = string,

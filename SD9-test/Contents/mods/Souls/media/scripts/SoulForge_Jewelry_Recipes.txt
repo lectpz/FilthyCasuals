@@ -10,7 +10,7 @@ module SoulForgeJewelery
         SoulShardT1/SoulShardT2/SoulShardT3/SoulShardT4/SoulShardT5,
         PropaneTank/5,
         ScrapMetal=15,
-        StoredSoulsSD_new=100,
+        StoredSoulsSD_new=500,
         Result:Base.Dice,
         Sound:Hammering,
         Time:100.0,
@@ -23,7 +23,7 @@ module SoulForgeJewelery
 	recipe Open Jewelry Cache
 	{
 		CanBeDoneFromFloor:true,
-		EventJewelryCacheT1/EventJewelryCacheT2/EventJewelryCacheT3/EventJewelryCacheT4/EventJewelryCacheT5,
+		EventJewelryCacheT1/EventJewelryCacheT2/EventJewelryCacheT3/EventJewelryCacheT4/EventJewelryCacheT5/EventJewelryCacheT6,
 		Sound:s_zeldaitem,
 		AnimNode:Loot,
         Result:Base.Necklace_Gold,
@@ -81,6 +81,16 @@ module SoulForgeJewelery
         Type                    = Normal,
         Weight                  = 1.0,
         DisplayName             = Tier 5 Event Jewelry Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus
+	}
+	
+	item EventJewelryCacheT6
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tier 6 Event Jewelry Cache,
 		UseWhileEquipped 		= FALSE,
         Icon                    = i_RikuEmporiumBox_event_plus,
         WorldStaticModel        = RikuEmporiumBox_event_plus

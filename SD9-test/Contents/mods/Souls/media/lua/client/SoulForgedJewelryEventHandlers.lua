@@ -66,7 +66,7 @@ function EventHandlers.SoulForgedJewelryOnCreate(items, result, player, forcedTi
             end
             createdItem:getModData().Tier = 3
         else
-            tier = math.max(tier - 1, 1)
+            tier = math.max(tier, 1)
             local selectedBuff = BuffSystem.getWeightedBuff("T" .. tier)
             createdItem:getModData().SoulBuffs = {selectedBuff}
             createdItem:getModData().Tier = tier

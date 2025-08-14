@@ -39,7 +39,6 @@ local function initMeleeStats(modData, inventoryItem, character)
 		modData.MinDamage			== nil and
 		modData.MaxDamage			== nil and
 		modData.MaxHitCount			== nil and
-		modData.TreeDamage 			== nil and
 		modData.Name				== nil then
 		
 		local newItem = InventoryItemFactory.CreateItem(inventoryItem:getFullType())
@@ -49,7 +48,6 @@ local function initMeleeStats(modData, inventoryItem, character)
 		modData.MinDamage			= newItem:getMinDamage()
 		modData.MaxDamage			= newItem:getMaxDamage()
 		modData.MaxHitCount			= newItem:getMaxHitCount()
-		modData.TreeDamage			= newItem:getTreeDamage()
 		modData.Name				= character:getPrimaryHandItem():getName()
 		modData.SD7_1				= true
 	elseif not modData.SD7_1 then
@@ -201,15 +199,22 @@ local function SDOnWeaponSwing(character, handWeapon)
 		end
 		if soulForgeEnduranceMod then inventoryItem:setEnduranceMod(soulForgeEnduranceMod) end
 		
-		if isInSafehouse then 
-			inventoryItem:setTreeDamage(modData.TreeDamage)
-		else
-			if tierzone == 5 then
-				inventoryItem:setTreeDamage(modData.TreeDamage * SandboxVars.SDOnWeaponSwing.TreeDamageT5)
-			elseif tierzone == 6 then
-				inventoryItem:setTreeDamage(modData.TreeDamage * SandboxVars.SDOnWeaponSwing.TreeDamageT6)
+		local t5TreeDamage = tonumber(SandboxVars.SDOnWeaponSwing.TreeDamageT5) or 0.4
+		local t6TreeDamage = tonumber(SandboxVars.SDOnWeaponSwing.TreeDamageT6) or 0.2
+		local newItem = InventoryItemFactory.CreateItem(inventoryItem:getFullType())
+		local treeDmg = newItem:getTreeDamage()
+		
+		if treeDmg then
+			if isInSafehouse then 
+				inventoryItem:setTreeDamage(treeDmg)
 			else
-				inventoryItem:setTreeDamage(modData.TreeDamage)
+				if tierzone == 5 then
+					inventoryItem:setTreeDamage(math.floor(treeDmg * t5TreeDamage + 0.5))
+				elseif tierzone == 6 then
+					inventoryItem:setTreeDamage(math.floor(treeDmg * t6TreeDamage + 0.5))
+				else
+					inventoryItem:setTreeDamage(treeDmg)
+				end
 			end
 		end
 

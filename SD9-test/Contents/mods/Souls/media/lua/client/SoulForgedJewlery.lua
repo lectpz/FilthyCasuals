@@ -52,10 +52,14 @@ SoulForgedJewelryOnCreate = EventHandlers.SoulForgedJewelryOnCreate
 function SoulForgedJewelryOnCreateCache(items, result, player)
     local cacheItem = items:get(0)
     local tier = tonumber(string.match(cacheItem:getType(), "T(%d+)"))
+	local forcedTier = nil
+	
+	local rolls = 3
+	if tier == 6 then rolls = 1 forcedTier = 6 end
     
-    for i=1,3 do
+    for i=1,rolls do
         items = ItemGenerator.getTierSoulShardExplicit(tier)
-        SoulForgedJewelryOnCreate(items, result, player)
+        SoulForgedJewelryOnCreate(items, result, player, forcedTier)
     end
 end
 

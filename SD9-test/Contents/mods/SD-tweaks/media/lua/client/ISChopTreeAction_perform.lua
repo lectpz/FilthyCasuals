@@ -68,15 +68,23 @@ function ISChopTreeAction:start()
             isInSafeHouse = false
         end
     end
-	if isInSafehouse then 
-		handItem:setTreeDamage(wMD.TreeDamage)
-	else
-		if tierzone == 5 then
-			handItem:setTreeDamage(wMD.TreeDamage * SandboxVars.SDOnWeaponSwing.TreeDamageT5)
-		elseif tierzone == 6 then
-			handItem:setTreeDamage(wMD.TreeDamage * SandboxVars.SDOnWeaponSwing.TreeDamageT6)
+	
+	local t5TreeDamage = tonumber(SandboxVars.SDOnWeaponSwing.TreeDamageT5) or 0.4
+	local t6TreeDamage = tonumber(SandboxVars.SDOnWeaponSwing.TreeDamageT6) or 0.2
+	local newItem = InventoryItemFactory.CreateItem(handItem:getFullType())
+	local treeDmg = newItem:getTreeDamage()
+	
+	if treeDmg then
+		if isInSafehouse then 
+			handItem:setTreeDamage(wMD.entDamage)
 		else
-			handItem:setTreeDamage(wMD.TreeDamage)
+			if tierzone == 5 then
+				handItem:setTreeDamage(math.floor(treeDmg * t5TreeDamage + 0.5))
+			elseif tierzone == 6 then
+				handItem:setTreeDamage(math.floor(treeDmg * t6TreeDamage + 0.5))
+			else
+				handItem:setTreeDamage(treeDmg)
+			end
 		end
 	end
 	o_start(self)

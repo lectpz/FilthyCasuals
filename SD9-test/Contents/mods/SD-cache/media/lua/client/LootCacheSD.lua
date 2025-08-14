@@ -1020,49 +1020,8 @@ function OnCreate_JewelryCache(items, result, player)
 	  zonetier = zonetier,
 	}
 	
-	if zonetier == 6 then
-		for i=1,zonetier do
-			if ZombRand(zoneroll) == 0 then
-				rollJewelry(5, player)
-			end
-		end
-		rollJewelry(5, player)
-	elseif zonetier == 5 then
-		for i=1,zonetier do
-			if ZombRand(zoneroll) == 0 then
-				rollJewelry(zonetier, player)
-			end
-		end
-		rollJewelry(zonetier, player)
-	elseif zonetier == 4 then
-		for i=1,zonetier do
-			if ZombRand(zoneroll) == 0 then
-				rollJewelry(zonetier, player)
-			end
-		end
-		rollJewelry(zonetier, player)
-	elseif zonetier == 3 then
-		for i=1,zonetier do
-			if ZombRand(zoneroll) == 0 then
-				rollJewelry(zonetier, player)
-			end
-		end
-		rollJewelry(zonetier, player)
-	elseif zonetier == 2 then
-		for i=1,zonetier do
-			if ZombRand(zoneroll) == 0 then
-				rollJewelry(zonetier, player)
-			end
-		end
-		rollJewelry(zonetier, player)
-	elseif zonetier == 1 then
-		for i=1,zonetier do
-			if ZombRand(zoneroll) == 0 then
-				rollJewelry(zonetier, player)
-			end
-		end
-		rollJewelry(zonetier, player)
-	end
+	rollJewelry(zonetier, player)
+	
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 end
 

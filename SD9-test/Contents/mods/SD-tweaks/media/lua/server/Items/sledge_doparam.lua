@@ -16,5 +16,12 @@ local function SDvanillaweaptweak()
 		
 	end
 
+    local items = ScriptManager.instance:getAllItems()
+    for i = 0, items:size() - 1 do
+        local item = items:get(i)
+        if item:getEnduranceMod() > 1 then
+            item:DoParam("EnduranceMod = 1")
+        end
+    end
 end
 Events.OnInitGlobalModData.Add(SDvanillaweaptweak)

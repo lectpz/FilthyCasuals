@@ -235,6 +235,7 @@ local function getControl(zone, player, tier)
 	--if not zonesGMD[faction.."_global"] then return nil end
 	
 	--if zonesGMD[faction.."_global"] and zonesGMD[zone][faction] then
+	if not zonesData[zone] then return nil end
 	if zonesData[zone][faction] then
 		--if isDebugEnabled() then player:Say("DEBUG: Controlled Zone: " .. zone .. " by Faction: " .. faction) end
 		--local control = math.min(0.25,zonesGMD[zone][faction]/zonesGMD[faction.."_global"])
@@ -253,28 +254,30 @@ function checkZone(x,y)
 	local y = y or player:getY()
 	
 	for i = 1, #ZoneNames do
-		local x1 = Zone.list[ZoneNames[i]][1]
-		local y1 = Zone.list[ZoneNames[i]][2]
-		local x2 = Zone.list[ZoneNames[i]][3]
-		local y2 = Zone.list[ZoneNames[i]][4]
+		local _zoneName = ZoneNames[i]
+		local x1 = Zone.list[_zoneName][1]
+		local y1 = Zone.list[_zoneName][2]
+		local x2 = Zone.list[_zoneName][3]
+		local y2 = Zone.list[_zoneName][4]
 
 		if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
-			if Zone.list[ZoneNames[i]][6] == "Nested" then 
+			if Zone.list[_zoneName][6] == "Nested" then 
 				for j = 1, #NestedZoneNames do
-					local xx1 = NestedZone.list[NestedZoneNames[j]][1]
-					local yy1 = NestedZone.list[NestedZoneNames[j]][2]
-					local xx2 = NestedZone.list[NestedZoneNames[j]][3]
-					local yy2 = NestedZone.list[NestedZoneNames[j]][4]
+					local _nestedZoneName = NestedZoneNames[j]
+					local xx1 = NestedZone.list[_nestedZoneName][1]
+					local yy1 = NestedZone.list[_nestedZoneName][2]
+					local xx2 = NestedZone.list[_nestedZoneName][3]
+					local yy2 = NestedZone.list[_nestedZoneName][4]
 					if x >= xx1 and y >= yy1 and x <= xx2 and y <= yy2 then 
-						local control = getControl(NestedZoneNames[j], player, NestedZone.list[NestedZoneNames[j]][5])
-						return NestedZone.list[NestedZoneNames[j]][5], NestedZoneNames[j], x, y, control, NestedZone.list[NestedZoneNames[j]][7], NestedZone.list[NestedZoneNames[j]][8], NestedZone.list[NestedZoneNames[j]][9], NestedZone.list[NestedZoneNames[j]][10], NestedZone.list[NestedZoneNames[j]][11]
+						local control = getControl(_nestedZoneName, player, NestedZone.list[_nestedZoneName][5])
+						return NestedZone.list[_nestedZoneName][5], _nestedZoneName, x, y, control, NestedZone.list[_nestedZoneName][7], NestedZone.list[_nestedZoneName][8], NestedZone.list[_nestedZoneName][9], NestedZone.list[_nestedZoneName][10], NestedZone.list[_nestedZoneName][11]
 					end
 				end
-				local control = getControl(ZoneNames[i], player, Zone.list[ZoneNames[j]][5])
-				return Zone.list[ZoneNames[i]][5], ZoneNames[i], x, y, control, Zone.list[ZoneNames[i]][7], Zone.list[ZoneNames[i]][8], Zone.list[ZoneNames[i]][9], Zone.list[ZoneNames[i]][10], Zone.list[ZoneNames[i]][11]
+				local control = getControl(_zoneName, player, Zone.list[_zoneName][5])
+				return Zone.list[_zoneName][5], _zoneName, x, y, control, Zone.list[_zoneName][7], Zone.list[_zoneName][8], Zone.list[_zoneName][9], Zone.list[_zoneName][10], Zone.list[_zoneName][11]
 			else
-				local control = getControl(ZoneNames[i], player, Zone.list[ZoneNames[i]][5])
-				return Zone.list[ZoneNames[i]][5], ZoneNames[i], x, y, control, Zone.list[ZoneNames[i]][7], Zone.list[ZoneNames[i]][8], Zone.list[ZoneNames[i]][9], Zone.list[ZoneNames[i]][10], Zone.list[ZoneNames[i]][11]
+				local control = getControl(_zoneName, player, Zone.list[_zoneName][5])
+				return Zone.list[_zoneName][5], _zoneName, x, y, control, Zone.list[_zoneName][7], Zone.list[_zoneName][8], Zone.list[_zoneName][9], Zone.list[_zoneName][10], Zone.list[_zoneName][11]
 			end
 		end
 	end
@@ -284,24 +287,26 @@ end
 function checkZoneAtXY(x, y)
 	local control = 0
 	for i = 1, #ZoneNames do
-		local x1 = Zone.list[ZoneNames[i]][1]
-		local y1 = Zone.list[ZoneNames[i]][2]
-		local x2 = Zone.list[ZoneNames[i]][3]
-		local y2 = Zone.list[ZoneNames[i]][4]
+		local _zoneName = ZoneNames[i]
+		local x1 = Zone.list[_zoneName][1]
+		local y1 = Zone.list[_zoneName][2]
+		local x2 = Zone.list[_zoneName][3]
+		local y2 = Zone.list[_zoneName][4]
 		if x >= x1 and y >= y1 and x <= x2 and y <= y2 then
-			if Zone.list[ZoneNames[i]][6] == "Nested" then 
+			if Zone.list[_zoneName][6] == "Nested" then 
 				for j = 1, #NestedZoneNames do
-					local xx1 = NestedZone.list[NestedZoneNames[j]][1]
-					local yy1 = NestedZone.list[NestedZoneNames[j]][2]
-					local xx2 = NestedZone.list[NestedZoneNames[j]][3]
-					local yy2 = NestedZone.list[NestedZoneNames[j]][4]
+					local _nestedZoneName = NestedZoneNames[j]
+					local xx1 = NestedZone.list[_nestedZoneName][1]
+					local yy1 = NestedZone.list[_nestedZoneName][2]
+					local xx2 = NestedZone.list[_nestedZoneName][3]
+					local yy2 = NestedZone.list[_nestedZoneName][4]
 					if x >= xx1 and y >= yy1 and x <= xx2 and y <= yy2 then 
-						return NestedZone.list[NestedZoneNames[j]][5], NestedZoneNames[j], x, y, control, NestedZone.list[NestedZoneNames[j]][7], NestedZone.list[NestedZoneNames[j]][8], NestedZone.list[NestedZoneNames[j]][9], NestedZone.list[NestedZoneNames[j]][10], NestedZone.list[NestedZoneNames[j]][11]
+						return NestedZone.list[_nestedZoneName][5], _nestedZoneName, x, y, control, NestedZone.list[_nestedZoneName][7], NestedZone.list[_nestedZoneName][8], NestedZone.list[_nestedZoneName][9], NestedZone.list[_nestedZoneName][10], NestedZone.list[_nestedZoneName][11]
 					end
 				end
-				return Zone.list[ZoneNames[i]][5], ZoneNames[i], x, y, control, Zone.list[ZoneNames[i]][7], Zone.list[ZoneNames[i]][8], Zone.list[ZoneNames[i]][9], Zone.list[ZoneNames[i]][10], Zone.list[ZoneNames[i]][11]
+				return Zone.list[_zoneName][5], _zoneName, x, y, control, Zone.list[_zoneName][7], Zone.list[_zoneName][8], Zone.list[_zoneName][9], Zone.list[_zoneName][10], Zone.list[_zoneName][11]
 			else
-				return Zone.list[ZoneNames[i]][5], ZoneNames[i], x, y, control, Zone.list[ZoneNames[i]][7], Zone.list[ZoneNames[i]][8], Zone.list[ZoneNames[i]][9], Zone.list[ZoneNames[i]][10], Zone.list[ZoneNames[i]][11]
+				return Zone.list[_zoneName][5], _zoneName, x, y, control, Zone.list[_zoneName][7], Zone.list[_zoneName][8], Zone.list[_zoneName][9], Zone.list[_zoneName][10], Zone.list[_zoneName][11]
 			end
 		end
 	end
