@@ -73,14 +73,15 @@ function ItemGenerator.SetResultName(result)
     local buffs = modData.SoulBuffs
     if not buffs or #buffs == 0 then return end
     
-    -- Check if name has already been modified
-    if modData.NameModified then return end
-    
     local currentName = result:getName()
-    -- Extract base item name by removing any existing prefixes
-    local baseItemName = currentName:match("SoulForged (.+)$") or 
-                        currentName:match("%[T%d+%] .+ (.+)$") or 
-                        currentName
+    
+    -- Store the original name if this is the first time processing
+    if not modData.OriginalName then
+        modData.OriginalName = currentName
+    end
+    
+    -- Always use the stored original name as the base
+    local baseItemName = modData.OriginalName
     
     local displayBuffNames = {}
     local showTier = true
@@ -106,7 +107,7 @@ function ItemGenerator.SetResultName(result)
     end
     
     local newItemName
-    if showTier then
+    if showTier or #buffs > 1 then
         -- Show T6 for items with multiple buffs, otherwise use the item's tier
         local displayTier = (#buffs > 1) and "6" or (modData.Tier or "?")
         newItemName = "[T" .. displayTier .."] " .. (combinedBuffName or "Unknown") .. " " .. (baseItemName or "Item")
@@ -114,11 +115,7 @@ function ItemGenerator.SetResultName(result)
         newItemName = (combinedBuffName or "Unknown") .. " " .. (baseItemName or "Item")
     end
     
-    if currentName ~= newItemName then
-        result:setName(newItemName)
-        -- Mark that the name has been modified
-        modData.NameModified = true
-    end
+    result:setName(newItemName)
 end
 
 function ItemGenerator.getTierSoulShard()
