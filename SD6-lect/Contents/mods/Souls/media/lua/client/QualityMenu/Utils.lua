@@ -1,6 +1,12 @@
 local Utils = {}
 local Config = require("QualityMenu/Config")
 
+function Utils.hasMdzPrefix(modData)
+    local ok = modData and modData.mdzPrefix ~= nil and modData.mdzPrefix ~= ""
+    print(string.format("[Utils] hasMdzPrefix=%s (value=%s)", tostring(ok), tostring(modData and modData.mdzPrefix)))
+    return ok
+end
+
 function Utils.applyStatBonus(weapon, statKey, tierBonus)
     local modData = weapon:getModData()
     local mdzKey = "mdz" .. statKey
@@ -9,8 +15,9 @@ function Utils.applyStatBonus(weapon, statKey, tierBonus)
     if baseMult <= 1.15 then
         print("[Utils] Mult has not hit cap. Adding more.")
         modData[mdzKey] = baseMult + (tierBonus or 0)
+    else
+        print(string.format("[Utils] Cap reached for %s (%.4f). Skipping add.", mdzKey, baseMult))
     end
-
 
     print(string.format("[WeaponAugment] Applied %.4f to %s → %s = %.4f", tierBonus, statKey, mdzKey, modData[mdzKey]))
 end
@@ -20,13 +27,16 @@ function Utils.getForgeableWeapon(items)
         local item = entry and entry.items and entry.items[1]
         if item and instanceof(item, "HandWeapon") then
             local modData = item:getModData()
-            if modData and modData.IsSoulForged then
-                print("[Utils] Found SoulForged weapon:", item:getName())
+            if Utils.hasMdzPrefix(modData) then
+                print(string.format("[Utils] Found mdz weapon: %s (mdzPrefix=%s)", item:getName(),
+                    tostring(modData.mdzPrefix)))
                 return item
+            else
+                print(string.format("[Utils] HandWeapon without mdzPrefix: %s", item:getName()))
             end
         end
     end
-    print("[Utils] No valid SoulForged weapon found in context")
+    print("[Utils] No mdz-prefixed weapon found in context")
     return nil
 end
 
