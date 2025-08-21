@@ -1,32 +1,36 @@
 local Utils = {}
 local Config = require("QualityMenu/Config")
 
+function Utils.hasMdzPrefix(modData)
+    local ok = modData and modData.mdzPrefix ~= nil and modData.mdzPrefix ~= ""
+    return ok
+end
+
 function Utils.applyStatBonus(weapon, statKey, tierBonus)
     local modData = weapon:getModData()
     local mdzKey = "mdz" .. statKey
     local baseMult = modData[mdzKey] or 1.0
 
-    if baseMult <= 1.15 then
-        print("[Utils] Mult has not hit cap. Adding more.")
-        modData[mdzKey] = baseMult + (tierBonus or 0)
+    if baseMult < 1.15 then
+        modData[mdzKey] = math.min(1.15, baseMult + (tierBonus or 0))
+		return true
+	else
+		return false
     end
 
-
-    print(string.format("[WeaponAugment] Applied %.4f to %s → %s = %.4f", tierBonus, statKey, mdzKey, modData[mdzKey]))
 end
 
 function Utils.getForgeableWeapon(items)
-    for _, entry in ipairs(items) do
+	for i=1, #items do
+		local entry = items[i]
         local item = entry and entry.items and entry.items[1]
         if item and instanceof(item, "HandWeapon") then
             local modData = item:getModData()
-            if modData and modData.IsSoulForged then
-                print("[Utils] Found SoulForged weapon:", item:getName())
+            if Utils.hasMdzPrefix(modData) then
                 return item
             end
         end
     end
-    print("[Utils] No valid SoulForged weapon found in context")
     return nil
 end
 
@@ -46,7 +50,8 @@ function Utils.getAllEnhancerStats(modData)
 end
 
 function Utils.contains(tbl, val)
-    for _, v in ipairs(tbl) do
+	for i=1, #tbl do
+		local v = tbl[i]
         if v == val then return true end
     end
     return false

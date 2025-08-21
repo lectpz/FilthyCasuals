@@ -906,7 +906,7 @@ function OnCreate_SoulShard(items, result, player)
 	local item = items:get(0)
 	local iMD = item:getModData()
 	
-	local qualityTier = 1
+	--[[local qualityTier = 1
 	local itemPrefix = iMD.mdzPrefix
 	if itemPrefix == "Exemplary" then
 		qualityTier = 5
@@ -916,7 +916,7 @@ function OnCreate_SoulShard(items, result, player)
 		qualityTier = 3
 	elseif itemPrefix == "Refined" then
 		qualityTier = 2
-	end
+	end]]
 	
 	local qualityStats = {
 	  mdzMaxDmg = iMD.mdzMaxDmg,
@@ -942,19 +942,19 @@ function OnCreate_SoulShard(items, result, player)
 	local resultItem = result:getFullType()
 	
 	if resultItem == "SoulForge.SoulCrystalT1" then
-		local tier = math.min(qualityTier, 1)
-		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT"..tier)
+		--local tier = math.min(qualityTier, 1)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT1")--..tier)
 	elseif resultItem == "SoulForge.SoulCrystalT2" then
-		local tier = math.min(qualityTier, 2)
-		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT"..tier)
+		--local tier = math.min(qualityTier, 2)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT2")--..tier)
 	elseif resultItem == "SoulForge.SoulCrystalT3" then
-		local tier = math.min(qualityTier, 3)
-		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT"..tier)
+		--local tier = math.min(qualityTier, 3)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT3")--..tier)
 	elseif resultItem == "SoulForge.SoulCrystalT4" then
-		local tier = math.min(qualityTier, 4)
-		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT"..tier)
+		--local tier = math.min(qualityTier, 4)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT4")--..tier)
 	else
-		local tier = math.min(qualityTier, 5)
-		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT"..tier)
+		--local tier = math.min(qualityTier, 5)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT5")--..tier)
 	end
 end

@@ -75,7 +75,7 @@ function ISChopTreeAction:start()
 	local treeDmg = newItem:getTreeDamage()
 	
 	if treeDmg then
-		if isInSafehouse then 
+		if isInSafeHouse then 
 			handItem:setTreeDamage(wMD.entDamage)
 		else
 			if tierzone == 5 then

@@ -270,7 +270,7 @@ SD6_PublicTransportationContextMenuObjectName.doMenu = function(player, context,
 end
 
 local function overwriteSDBus()
-	Events.OnPreFillInventoryObjectContextMenu.Remove(PublicTransportationContextMenuObjectName.doMenu);
+	Events.OnFillInventoryObjectContextMenu.Remove(PublicTransportationContextMenuObjectName.doMenu);
 	Events.OnPreFillInventoryObjectContextMenu.Add(SD6_PublicTransportationContextMenuObjectName.doMenu);
 end
 Events.OnGameStart.Add(overwriteSDBus)

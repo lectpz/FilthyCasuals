@@ -1,7 +1,7 @@
 ISBuildingMenuUI = ISBuildingMenuUI or {}
 
-local isInSafeHouse = false
-local isInCC = false
+isInSafeHouse = false
+isInCC = false
 local isExcluded = false
 local removeOptionList = {
     [getText("ContextMenu_Build")] = getText("ContextMenu_Build"),

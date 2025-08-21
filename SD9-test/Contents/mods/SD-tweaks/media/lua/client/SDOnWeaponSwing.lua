@@ -222,18 +222,7 @@ local function SDOnWeaponSwing(character, handWeapon)
 		--print(modData.zoneTier)
 	elseif tierzone and handWeapon:isRanged() and modData.zoneTier ~= tierzone then-- and handWeapon:getSwingAnim() ~= "Handgun" then
 		initRangedStats(modData, inventoryItem, character)
-		local rangedmulti = 1.0
-		--if handWeapon:getSwingAnim() == "Handgun" then rangedmulti = 1.1 end
-		
-		--[[if character:HasTrait("Brave")			then rangedmulti = rangedmulti - 0.1 end
-		if character:HasTrait("Desensitized")	then rangedmulti = rangedmulti - 0.2 end
-		if character:HasTrait("Cowardly")		then rangedmulti = rangedmulti + 0.1 end
-		if character:HasTrait("EagleEyed")		then rangedmulti = rangedmulti - 0.1 end
-		if character:HasTrait("ShortSighted")	then rangedmulti = rangedmulti + 0.05 end
-		
-		rangedmulti = rangedmulti - character:getPerkLevel(Perks.Aiming)/14.28571429]]
-		
-		--if character:isSeatedInVehicle() then rangedmulti = 2.0 end
+
 		local mdzMaxDmg = modData.mdzMaxDmg or 1
 		local mdzMinDmg = modData.mdzMinDmg or 1
 		local mdzAimingTime = modData.mdzAimingTime or 1
@@ -264,9 +253,7 @@ local function SDOnWeaponSwing(character, handWeapon)
 		end
 		
 		local dmgMulti = tonumber(SandboxVars.SDOnWeaponSwing.RangedDamageMultiplier) or 1.0
-		if handWeapon:getSwingAnim() == "Handgun" then dmgMulti = dmgMulti*1.25 end
-		--local rangedDmgMulti = 1 - (1 - localdmgmulti)^dmgMulti
-		local rangedDmgMulti = dmgMulti * localdmgmulti
+		local perkMulti = 1.1 - tierzone/10
 
 		local soulForgeMinDmgMulti = modData.soulForgeMinDmgMulti or 1
 		local soulForgeMaxDmgMulti = modData.soulForgeMaxDmgMulti or 1
@@ -299,15 +286,15 @@ local function SDOnWeaponSwing(character, handWeapon)
 		
 		if modData.CriticalChance then inventoryItem:setCriticalChance(modData.CriticalChance * soulForgeCritRate * mdzCriticalChance) end
 		if modData.CritDmgMultiplier then inventoryItem:setCritDmgMultiplier(modData.CritDmgMultiplier * soulForgeCritMulti * mdzCritDmgMultiplier) end
-		inventoryItem:setMinDamage((modData.MinDamage + attachedDmg) * soulForgeMinDmgMulti * mdzMinDmg * rangedDmgMulti)
-		inventoryItem:setMaxDamage((modData.MaxDamage + attachedDmg) * soulForgeMaxDmgMulti * mdzMaxDmg * rangedDmgMulti)
+		inventoryItem:setMinDamage((modData.MinDamage + attachedDmg) * soulForgeMinDmgMulti * mdzMinDmg * localdmgmulti * dmgMulti)
+		inventoryItem:setMaxDamage((modData.MaxDamage + attachedDmg) * soulForgeMaxDmgMulti * mdzMaxDmg * localdmgmulti * dmgMulti)
 		if modData.ReloadTime then inventoryItem:setReloadTime(permaReloading * (modData.ReloadTime + attachedReload) * mdzReloadTime) end
 		if modData.RecoilDelay then inventoryItem:setRecoilDelay(permaRecoil * (modData.RecoilDelay + attachedRecoil) * mdzRecoilDelay) end
 		
-		inventoryItem:setAimingTime(permaAiming * (modData.AimingTime + attachedAim) * mdzAimingTime * soulForgeAimingTime * (localdmgmulti) ^ rangedmulti)
-		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier * soulForgeAimingPerkHitChanceModifier * (localdmgmulti) ^ rangedmulti)
-		inventoryItem:setAimingPerkCritModifier(soulForgeAimingPerkCritModifier * modData.AimingPerkCritModifier * (localdmgmulti) ^ rangedmulti)
-		inventoryItem:setAimingPerkRangeModifier(modData.AimingPerkRangeModifier * soulForgeAimingPerkRangeModifier * (localdmgmulti) ^ rangedmulti)
+		inventoryItem:setAimingTime(permaAiming * (modData.AimingTime + attachedAim) * mdzAimingTime * soulForgeAimingTime * perkMulti)
+		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier * soulForgeAimingPerkHitChanceModifier * perkMulti)
+		inventoryItem:setAimingPerkCritModifier(soulForgeAimingPerkCritModifier * modData.AimingPerkCritModifier * perkMulti)
+		inventoryItem:setAimingPerkRangeModifier(modData.AimingPerkRangeModifier * soulForgeAimingPerkRangeModifier * perkMulti)
 		
 		local engravedName = modData.EngravedName
 		if engravedName then 

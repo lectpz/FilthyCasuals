@@ -1,4 +1,4 @@
---local original = ISAddFuel.perform
+--[[local original = ISAddFuel.perform
 function ISAddFuel:perform()
 	
 	local maxFuel = 200
@@ -62,4 +62,4 @@ local function topOffGenerator(player, context, worldobjects, test)
 
 end
 
-Events.OnFillWorldObjectContextMenu.Add(topOffGenerator);
+--Events.OnFillWorldObjectContextMenu.Add(topOffGenerator);]]
