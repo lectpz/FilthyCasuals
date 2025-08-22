@@ -1,0 +1,12 @@
+module Base
+{
+	sound SD_McCraeBooklet
+	{
+		category = Player,
+		clip
+		{
+			file = media/sound/SDSurvivalBooklet.ogg,
+		}
+	}
+
+}

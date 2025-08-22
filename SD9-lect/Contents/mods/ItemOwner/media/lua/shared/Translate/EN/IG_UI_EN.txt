@@ -1,0 +1,3 @@
+IGUI_EN = {
+    IGUI_IO_Owner = "Owner",
+}

@@ -1,0 +1,98 @@
+VERSION = 1,
+
+option PZwaystonepanel.Xcoord
+{
+	type = integer,
+	min = 0,
+	max = 19799,
+	default = 19650,
+
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_Xcoord,
+}
+
+option PZwaystonepanel.Ycoord
+{
+	type = integer,
+	min = 0,
+	max = 19799,
+	default = 150,
+
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_Ycoord,
+}
+
+option PZwaystonepanel.Zcoord
+{
+	type = integer,
+	min = 0,
+	max = 6,
+	default = 0,
+
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_Zcoord,
+}
+
+option PZwaystonepanel.allowshtp
+{
+	type = boolean,
+	default = false,
+
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_allowshtp,
+}
+
+option PZwaystonepanel.allowreward
+{
+	type = boolean,
+	default = false,
+
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_allowreward,
+}
+
+option PZwaystonepanel.eventreward1
+{
+	type = string,
+	default = Base.SCoin,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward1,
+}
+
+option PZwaystonepanel.eventreward2
+{
+	type = string,
+	default = Base.EventWeaponCacheT3,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward2,
+}
+
+option PZwaystonepanel.eventreward3
+{
+	type = string,
+	default = Base.XCoin,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward3,
+}
+
+
+option PZwaystonepanel.eventreward4
+{
+	type = string,
+	default = Base.XCoin,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward4,
+}
+
+option PZwaystonepanel.eventreward5
+{
+	type = string,
+	default = Base.ScrapMetal;Base.ScrapMetal;Base.ScrapMetal;Base.ScrapMetal;Base.ScrapMetal;,
+	
+	page = PZwaystonepanel,
+	translation = PZwaystonepanel_eventreward5,
+}

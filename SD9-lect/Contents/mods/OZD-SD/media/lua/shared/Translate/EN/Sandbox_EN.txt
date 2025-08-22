@@ -1,0 +1,38 @@
+Sandbox_EN = {
+
+	Sandbox_OnZombieDeadSD = "Zombie Item Drop",
+	
+	Sandbox_OZD_roll6 = "Tier 6 Zombie Loot Drop (1 in n zombies)",
+	Sandbox_OZD_roll6_tooltip = "e.g. 7000",
+	
+	Sandbox_OZD_roll5 = "Tier 5 Zombie Loot Drop (1 in n zombies)",
+	Sandbox_OZD_roll5_tooltip = "e.g. 5000",
+	
+	Sandbox_OZD_roll4 = "Tier 4 Zombie Loot Drop (1 in n zombies)",
+	Sandbox_OZD_roll4_tooltip = "e.g. 2000",
+	
+	Sandbox_OZD_roll3 = "Tier 3 Zombie Loot Drop (1 in n zombies)",
+	Sandbox_OZD_roll3_tooltip = "e.g. 1000",
+	
+	Sandbox_OZD_roll2 = "Tier 2 Zombie Loot Drop (1 in n zombies)",
+	Sandbox_OZD_roll2_tooltip = "e.g. 450",
+
+	Sandbox_OZD_roll1 = "Tier 1 Zombie Loot Drop (1 in n zombies)",
+	Sandbox_OZD_roll1_tooltip = "e.g. 75",
+	
+	Sandbox_OZD_table5 = "Tier 5 loot table",
+	Sandbox_OZD_table5_tooltip = "e.g. "Base.Katana"",	
+	
+	Sandbox_OZD_table4 = "Tier 4 loot table",
+	Sandbox_OZD_table4_tooltip = "e.g. "Base.Katana"",	
+	
+	Sandbox_OZD_table3 = "Tier 3 loot table",
+	Sandbox_OZD_table3_tooltip = "e.g. "Base.Katana"",
+	
+	Sandbox_OZD_table2 = "Tier 2 loot table",
+	Sandbox_OZD_table2_tooltip = "e.g. Base.Machete",
+
+	Sandbox_OZD_table1 = "Tier 1 loot table",
+	Sandbox_OZD_table1_tooltip = "e.g. Base.KitchenKnife",
+
+}

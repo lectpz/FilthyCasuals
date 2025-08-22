@@ -1,0 +1,189 @@
+module Packing
+{
+	imports
+	{
+		Base,
+	}
+	
+	item 10pkRopeAsphalt
+	{
+		Weight			= 7.5,
+		Type			= Normal,
+		DisplayName		= 10 x Bag of Asphalt Powder (Rope),
+		DisplayCategory = Material,
+		Icon			= JRopeAsphaltPowder,
+		WorldStaticModel= StackOfAsphaltRoped
+	}
+	
+	item 5pkRopeAsphalt
+	{
+		Weight			= 5.0,
+		Type			= Normal,
+		DisplayName		= 5 x Bag of Asphalt Powder (Rope),
+		DisplayCategory = Material,
+		Icon			= JRopeAsphaltPowder,
+		WorldStaticModel= StackOfAsphaltRoped
+	}
+
+	item 10pkSheetRopeAsphalt
+	{
+		Weight			= 12.5,
+		Type			= Normal,
+		DisplayName		= 10 x Bag of Asphalt Powder (SheetRope),
+		DisplayCategory = Material,
+		Icon			= JSheetRopeAsphaltPowder,
+		WorldStaticModel= StackOfAsphaltSheetRoped
+	}
+	
+	item 5pkSheetRopeAsphalt
+	{
+		Weight			= 7.5,
+		Type			= Normal,
+		DisplayName		= 5 x Bag of Asphalt Powder (SheetRope),
+		DisplayCategory = Material,
+		Icon			= JSheetRopeAsphaltPowder,
+		WorldStaticModel= StackOfAsphaltSheetRoped
+	}
+	
+	recipe Rope 10
+	{
+		destroy AsphaltMixturePowder=10,
+		Rope=2,
+		
+		CanBeDoneFromFloor:true,
+		Result:10pkRopeAsphalt,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:300.0,
+		Category:Storage,
+	}
+	
+	recipe Unrope 10
+	{
+		destroy 10pkRopeAsphalt,
+		
+		CanBeDoneFromFloor:true,
+		Result:AsphaltMixturePowder=10,
+		OnCreate:Recipe.OnCreate.Unpack2Rope,
+		Time:250.0,
+		Category:Storage,
+	}
+	
+	recipe Rope 5
+	{
+		destroy AsphaltMixturePowder=5,
+		Rope=1,
+		
+		CanBeDoneFromFloor:true,
+		Result:5pkRopeAsphalt,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:250.0,
+		Category:Storage,
+	}
+	
+	recipe Unrope 5
+	{
+		destroy 5pkRopeAsphalt,
+		
+		CanBeDoneFromFloor:true,
+		Result:AsphaltMixturePowder=5,
+		OnCreate:Recipe.OnCreate.Unpack1Rope,
+		Time:200.0,
+		Category:Storage,
+	}
+	
+	recipe Rope 10
+	{
+		destroy AsphaltMixturePowder=10,
+		SheetRope=2,
+		
+		CanBeDoneFromFloor:true,
+		Result:10pkSheetRopeAsphalt,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:300.0,
+		Category:Storage,
+	}
+	
+	recipe Unrope 10
+	{
+		destroy 10pkSheetRopeAsphalt,
+		
+		CanBeDoneFromFloor:true,
+		Result:AsphaltMixturePowder=10,
+		OnCreate:Recipe.OnCreate.Unpack2SheetRope,
+		Time:250.0,
+		Category:Storage,
+	}
+	
+	recipe Rope 5
+	{
+		destroy AsphaltMixturePowder=5,
+		SheetRope=1,
+		
+		CanBeDoneFromFloor:true,
+		Result:5pkSheetRopeAsphalt,
+		OnTest:Recipe.OnTest.IsFavorite,
+		Time:250.0,
+		Category:Storage,
+	}
+	
+	recipe Unrope 5
+	{
+		destroy 5pkSheetRopeAsphalt,
+		
+		CanBeDoneFromFloor:true,
+		Result:AsphaltMixturePowder=5,
+		OnCreate:Recipe.OnCreate.Unpack1SheetRope,
+		Time:200.0,
+		Category:Storage,
+	}
+	
+	recipe Put Together
+	{
+		5pkRopeAsphalt=2,
+		
+		CanBeDoneFromFloor:true,
+		Result:10pkRopeAsphalt=1,
+		Time:70.0,
+	}
+
+	recipe Put Together
+	{
+		5pkSheetRopeAsphalt=2,
+		
+		CanBeDoneFromFloor:true,
+		Result:10pkSheetRopeAsphalt=1,
+		Time:70.0,
+	}
+
+	recipe Split in Two
+	{
+		10pkRopeAsphalt=1,
+		
+		CanBeDoneFromFloor:true,
+		Result:5pkRopeAsphalt=2,
+		Time:50.0,
+	}
+	
+	recipe Split in Two
+	{
+		10pkSheetRopeAsphalt=1,
+		
+		CanBeDoneFromFloor:true,
+		Result:5pkSheetRopeAsphalt=2,
+		Time:50.0,
+	}
+
+	model StackOfAsphaltRoped
+	{
+		mesh = WorldItems/stack_of_plaster_powder,
+		texture = WorldItems/AsphaltRoped,
+		scale = 1.0,
+	}
+
+	model StackOfAsphaltSheetRoped
+	{
+		mesh = WorldItems/stack_of_plaster_powder,
+		texture = WorldItems/AsphaltSheetRoped,
+		scale = 1.0,
+	}
+}

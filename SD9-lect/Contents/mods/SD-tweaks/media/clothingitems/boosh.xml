@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<clothingItem>
+	<m_MaleModel>Static\dotdbush</m_MaleModel>
+	<m_FemaleModel>Static\dotdbush</m_FemaleModel>
+	<m_GUID>71cf43a6-1063-4fe8-87d1-ea8da1ac98e9</m_GUID>
+	<m_Static>false</m_Static>
+	<m_AllowRandomHue>false</m_AllowRandomHue>
+	<m_AllowRandomTint>false</m_AllowRandomTint>
+	<m_AttachBone>Bip01_Head</m_AttachBone>
+	<m_Masks>0</m_Masks>
+	<m_Masks>1</m_Masks>
+	<m_Masks>2</m_Masks>
+	<m_Masks>3</m_Masks>
+	<m_Masks>4</m_Masks>
+	<m_Masks>5</m_Masks>
+	<m_Masks>6</m_Masks>
+	<m_Masks>7</m_Masks>
+	<m_Masks>8</m_Masks>
+	<m_Masks>9</m_Masks>
+	<m_Masks>10</m_Masks>
+	<m_Masks>11</m_Masks>
+	<m_Masks>12</m_Masks>
+	<m_Masks>13</m_Masks>
+	<m_Masks>14</m_Masks>
+	<m_Masks>15</m_Masks>
+	<m_Masks>15</m_Masks>
+	<m_MasksFolder></m_MasksFolder>
+	<textureChoices>clothes\boosh</textureChoices>
+</clothingItem>

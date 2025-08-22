@@ -1,0 +1,57 @@
+module Base {
+
+	item XCoin
+	{
+		Count	=	1,
+		Weight	=	0.00,
+		CanBeEquipped = FALSE,
+		Type	=	Normal,
+		DisplayName	=	Coin,
+		Icon	=	XCoin,
+		WorldStaticModel = XCoin,
+	}
+
+	model XCoin
+	{
+		mesh = WorldItems/Button,
+		texture = Item_XCoin,
+		scale = 1,
+	}
+
+	item SCoin
+	{
+		Count	=	1,
+		Weight	=	0.00,
+		CanBeEquipped = FALSE,
+		Type	=	Normal,
+		DisplayName	=	Event Coin,
+		Icon	=	SCoin,
+		WorldStaticModel = SCoin,
+	}
+
+	model SCoin
+	{
+		mesh = WorldItems/Button,
+		texture = Item_SCoin,
+		scale = 1,
+	}
+
+	item MedsPack
+	{
+		Count	=	1,
+		Weight	=	0.01,
+		Type	=	Normal,
+		DisplayName	= Meds pack,
+		Icon	=	Present4,
+	}
+
+	recipe Convert to Coins
+    {
+	    ATMTicket,
+
+	    Result:XCoin,
+	    Time:1.0,
+	    Category:Misc,
+	}
+
+}

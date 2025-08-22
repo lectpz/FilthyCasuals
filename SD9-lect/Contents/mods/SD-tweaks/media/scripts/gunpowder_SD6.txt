@@ -1,0 +1,93 @@
+module Base
+{	
+	
+	item Sulphur
+	{
+		DisplayCategory = Material,
+		Weight = 0.1,
+		Type	=	Normal,
+		UseWhileEquipped	=	FALSE,
+		DisplayName = 	Sulphur,
+		Icon	=	Yeast,
+		WorldStaticModel = Yeast,
+	}
+	
+	item Saltpeter
+	{
+		DisplayCategory = Material,
+		Weight = 0.75,
+		Type	=	Normal,
+		UseWhileEquipped	=	FALSE,
+		DisplayName = 	Saltpeter,
+		Icon	=	TZ_StrewberrySeeds,
+		WorldStaticModel = Seeds_Ground,
+	}
+	
+	item CharcoalPowder
+	{
+		DisplayCategory = Material,
+		Weight = 0.15,
+		Type	=	Normal,
+		UseWhileEquipped	=	FALSE,
+		DisplayName = 	Charcoal Powder,
+		Icon	=	TZ_LRRadishSeeds,
+		WorldStaticModel = Seeds_Ground,
+	}
+
+	recipe Refine Liquid Fertilizer
+	{
+        CanBeDoneFromFloor:true,
+		Heat:-0.22,
+		Biofuel.BucketFertilizerFull = 10,
+		keep Distiller,
+		AnimNode:Craft,
+        Sound:s_propane,
+		Category:Survivalist,
+		Result:GunPowder,
+		RemoveResultItem:true,
+		Time:250.0,
+		OnCreate:Recipe.OnCreate.RefineLiquidFertilizer,
+	}
+	
+	recipe Distill Liquid Fertilizer
+	{
+        CanBeDoneFromFloor:true,
+		Heat:-0.22,
+		Fertilizer = 20,
+		BucketEmpty,
+		keep Distiller,
+		AnimNode:Craft,
+        Sound:s_propane,
+		Category:Survivalist,
+		Result:Biofuel.BucketFertilizerFull,
+		Time:250.0,
+	}
+	
+	recipe Grind Charcoal
+	{
+        CanBeDoneFromFloor:true,
+		Charcoal = 10,
+		keep MortarPestle,
+		AnimNode:Craft,
+		Category:Survivalist,
+		Result:CharcoalPowder=4,
+		Time:250.0,
+	}
+	
+	recipe Create Gunpowder
+	{
+        CanBeDoneFromFloor:true,
+		Sulphur,
+		Saltpeter,
+		CharcoalPowder=2,
+		WaterBottleEmpty/BeerEmpty/WineEmpty2/WineEmpty/WhiskeyEmpty/farming.MayonnaiseEmpty/farming.RemouladeEmpty/MoreBrews.BeerBottleEmptyAmericanLager/MoreBrews.BeerBottleEmptyAPA1/MoreBrews.BeerBottleEmptyAPA2/MoreBrews.BeerBottleEmptyIPA1/MoreBrews.BeerBottleEmptyIPA2/MoreBrews.BeerBottleEmptyLightLager/MoreBrews.BeerBottleEmptyPilsner/MoreBrews.BeerBottleEmptyPorter/MoreBrews.BeerBottleEmptySkunked/MoreBrews.BeerBottleEmptyStout/SapphCooking.CachacaEmpty/SapphCooking.GinEmpty/SapphCooking.LiqueurEmpty/SapphCooking.TequilaEmpty/SapphCooking.VodkaEmpty,
+		WaterBottleEmpty/BeerEmpty/WineEmpty2/WineEmpty/WhiskeyEmpty/farming.MayonnaiseEmpty/farming.RemouladeEmpty/MoreBrews.BeerBottleEmptyAmericanLager/MoreBrews.BeerBottleEmptyAPA1/MoreBrews.BeerBottleEmptyAPA2/MoreBrews.BeerBottleEmptyIPA1/MoreBrews.BeerBottleEmptyIPA2/MoreBrews.BeerBottleEmptyLightLager/MoreBrews.BeerBottleEmptyPilsner/MoreBrews.BeerBottleEmptyPorter/MoreBrews.BeerBottleEmptySkunked/MoreBrews.BeerBottleEmptyStout/SapphCooking.CachacaEmpty/SapphCooking.GinEmpty/SapphCooking.LiqueurEmpty/SapphCooking.TequilaEmpty/SapphCooking.VodkaEmpty,
+		WaterBottleEmpty/BeerEmpty/WineEmpty2/WineEmpty/WhiskeyEmpty/farming.MayonnaiseEmpty/farming.RemouladeEmpty/MoreBrews.BeerBottleEmptyAmericanLager/MoreBrews.BeerBottleEmptyAPA1/MoreBrews.BeerBottleEmptyAPA2/MoreBrews.BeerBottleEmptyIPA1/MoreBrews.BeerBottleEmptyIPA2/MoreBrews.BeerBottleEmptyLightLager/MoreBrews.BeerBottleEmptyPilsner/MoreBrews.BeerBottleEmptyPorter/MoreBrews.BeerBottleEmptySkunked/MoreBrews.BeerBottleEmptyStout/SapphCooking.CachacaEmpty/SapphCooking.GinEmpty/SapphCooking.LiqueurEmpty/SapphCooking.TequilaEmpty/SapphCooking.VodkaEmpty,
+		WaterBottleEmpty/BeerEmpty/WineEmpty2/WineEmpty/WhiskeyEmpty/farming.MayonnaiseEmpty/farming.RemouladeEmpty/MoreBrews.BeerBottleEmptyAmericanLager/MoreBrews.BeerBottleEmptyAPA1/MoreBrews.BeerBottleEmptyAPA2/MoreBrews.BeerBottleEmptyIPA1/MoreBrews.BeerBottleEmptyIPA2/MoreBrews.BeerBottleEmptyLightLager/MoreBrews.BeerBottleEmptyPilsner/MoreBrews.BeerBottleEmptyPorter/MoreBrews.BeerBottleEmptySkunked/MoreBrews.BeerBottleEmptyStout/SapphCooking.CachacaEmpty/SapphCooking.GinEmpty/SapphCooking.LiqueurEmpty/SapphCooking.TequilaEmpty/SapphCooking.VodkaEmpty,
+		AnimNode:Craft,
+		Category:Survivalist,
+		Result:GunPowder=4,
+		Time:250.0,
+	}
+	
+}

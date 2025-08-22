@@ -1,0 +1,47 @@
+VERSION = 1,
+
+option RWC.table5
+{
+	type = string,
+	default = RMWeapons.MedSword;RMWeapons.PochitaSword;RMWeapons.NulBlade;RMWeapons.CavAxe;RMWeapons.MizutsuneSword;RMWeapons.ApostateAxe;RMWeapons.RefudClaws;RMWeapons.mace1;RMWeapons.RockstarGuitar;RMWeapons.VampClaymore,
+	
+	page = RikuWeaponCacheSD,
+	translation = RWC_table5,
+}
+
+option RWC.table4
+{
+	type = string,
+	default = RMWeapons.ArcSpear;RMWeapons.SealingStaff2;RMWeapons.LanceofLonginus;RMWeapons.JadeSword;RMWeapons.bassax;RMWeapons.EyeStaff;RMWeapons.themauler;RMWeapons.Nikabo;RMWeapons.FallenCross;RMWeapons.warhammer40k;RMWeapons.DreamAxe;RMWeapons.RoyalGreatsword;RMWeapons.crabspear;RMWeapons.MizutsuneGlaive;RMWeapons.SwordofSolitude;RMWeapons.firelink,
+	
+	page = RikuWeaponCacheSD,
+	translation = RWC_table4,
+}
+
+
+option RWC.table3
+{
+	type = string,
+	default = RMWeapons.MorningStar;RMWeapons.LastHope;RMWeapons.MadamScythe;RMWeapons.KineticHammer;RMWeapons.Shaxe;RMWeapons.TreeHugger;RMWeapons.bladebat;RMWeapons.sawbat1;RMWeapons.gnbat;RMWeapons.RebarClub;RMWeapons.CatnipCrusher;RMWeapons.MandateofHeaven;RMWeapons.steinsword;RMWeapons.CrimsonLance;RMWeapons.MoonlightGS;RMWeapons.waraxe;RMWeapons.BigBertha,
+	
+	page = RikuWeaponCacheSD,
+	translation = RWC_table3,
+}
+
+option RWC.table2
+{
+	type = string,
+	default = RMWeapons.Dadao;RMWeapons.dragonpiercer;RMWeapons.sword40k;RMWeapons.kindness;RMWeapons.spinecrusher;RMWeapons.Slapper;RMWeapons.BrushAxe;RMWeapons.warhammer;RMWeapons.SpikedClub1;RMWeapons.ZombieTrimmer;RMWeapons.Crimson1Sword;RMWeapons.MxScythe;RMWeapons.VikingWarhammer;RMWeapons.CavSword;RMWeapons.FuriosEppe;RMWeapons.StarWand;RMWeapons.falchion;RMWeapons.spikedsword,
+	
+	page = RikuWeaponCacheSD,
+	translation = RWC_table2,
+}
+
+option RWC.table1
+{
+	type = string,
+	default = RMWeapons.PiroCraftKnife;RMWeapons.steinbeer;RMWeapons.club1;RMWeapons.MightCleaver;RMWeapons.bonkhammer;RMWeapons.club2;RMWeapons.spear1;RMWeapons.tanto;RMWeapons.Thawk;RMWeapons.ScrapMace1;RMWeapons.spikedleg;RMWeapons.RailSpike;RMWeapons.dexkama;RMWeapons.TrenchShovel;RMWeapons.IceAxe1;RMWeapons.beardedaxe;RMWeapons.Golok;RMWeapons.MeatHook;RMWeapons.hellokittyax;RMWeapons.FlangedMace;RMWeapons.HeavyCleaver;RMWeapons.glaive;RMWeapons.dagger1;RMWeapons.thunderbreaker;RMWeapons.Falx;RMWeapons.MagicMace,
+	
+	page = RikuWeaponCacheSD,
+	translation = RWC_table1,
+}

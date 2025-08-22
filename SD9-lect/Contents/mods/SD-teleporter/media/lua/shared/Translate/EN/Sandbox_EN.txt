@@ -1,0 +1,17 @@
+VERSION = 1,
+
+Sandbox_EN = {
+    Sandbox_SDTeleporter = "Sunday Drivers Teleporter",
+
+    Sandbox_CooldownCCCategory = "Cooldown hours between returns to CC",
+    Sandbox_CooldownCCCategory_tooltip = "Ingame hours.",
+
+    Sandbox_CooldownPlayerCategory = "Cooldown hours between teleporting to another player",
+    Sandbox_CooldownPlayerCategory_tooltip = "Ingame hours.",
+
+    Sandbox_CooldownSafehouseCategory = "Cooldown hours between teleporting to player's safehouse",
+    Sandbox_CooldownSafehouseCategory_tooltip = "Ingame hours.",
+
+    Sandbox_AllowTeleportToPlayer = "Enable Teleport to Player",
+    Sandbox_AllowTeleportToPlayer_tooltip = "Allow players inside their safehouse to teleport to another faction member",
+}
