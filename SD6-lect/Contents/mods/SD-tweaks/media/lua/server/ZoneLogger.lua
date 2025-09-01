@@ -13,9 +13,21 @@ local function writeToFile(line)
 end
 
 Events.OnServerStarted.Add(function()
+    local zoneLines = {}
     for k,v in pairs(Zone.list) do
         local line = string.format("%s,%d,%d,%d,%d", k, v[1], v[2], v[3], v[4])
-        writeToFile(line)
+        table.insert(zoneLines, line)
+    end
+    
+    if #zoneLines > 0 then
+        local startTime = getTimestampMs()
+        local file = getFileWriter(ZoneLogger.fileName, true, false)
+        for _, line in ipairs(zoneLines) do
+            file:write(line .. "\n")
+        end
+        file:close()
+        local endTime = getTimestampMs()
+        print(string.format("Zone data write took %d ms for %d zones", endTime - startTime, #zoneLines))
     end
 
     saveAllItemsToFile()
