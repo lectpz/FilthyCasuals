@@ -14,21 +14,30 @@ end
 
 Events.OnServerStarted.Add(function()
     local zoneLines = {}
-    for k,v in pairs(Zone.list) do
-        local line = string.format("%s,%d,%d,%d,%d", k, v[1], v[2], v[3], v[4])
-        table.insert(zoneLines, line)
-    end
-    
-    if #zoneLines > 0 then
-        local startTime = getTimestampMs()
-        local file = getFileWriter(ZoneLogger.fileName, true, false)
-        for _, line in ipairs(zoneLines) do
-            file:write(line .. "\n")
-        end
-        file:close()
-        local endTime = getTimestampMs()
-        print(string.format("Zone data write took %d ms for %d zones", endTime - startTime, #zoneLines))
-    end
+	for k,v in pairs(Zone.list) do
+	    local line = string.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", 
+	        k, 
+	        tostring(v[1] or ""), 
+	        tostring(v[2] or ""), 
+	        tostring(v[3] or ""), 
+	        tostring(v[4] or ""), 
+	        tostring(v[5] or ""), 
+	        tostring(v[6] or ""), 
+	        tostring(v[7] or ""), 
+	        tostring(v[8] or ""), 
+	        tostring(v[9] or ""), 
+	        tostring(v[10] or "")
+	    )
+	    table.insert(zoneLines, line)
+	end
+	
+	if #zoneLines > 0 then
+	    local file = getFileWriter(ZoneLogger.fileName, true, false)
+	    for _, line in ipairs(zoneLines) do
+	        file:write(line .. "\n")
+	    end
+	    file:close()
+	end
 
     saveAllItemsToFile()
 
