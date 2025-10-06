@@ -1,0 +1,364 @@
+module Base
+{	
+	item perfectlyBalanced
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Global Reward - Perfectly Balanced,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open Global Reward - Perfectly Balanced
+	{
+		destroy perfectlyBalanced,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:GlobalReward.perfectlyBalanced,
+	}
+	
+	item FilthyCasuals
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Global Reward - Filthy Casuals,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Global Reward - Filthy Casuals
+	{
+		destroy FilthyCasuals,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:GlobalReward.FilthyCasuals,
+	}
+	
+	item SweatyTryhards
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Global Reward - Sweaty Tryhards,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Global Reward - Sweaty Tryhards
+	{
+		destroy SweatyTryhards,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:GlobalReward.SweatyTryhards,
+	}
+
+	item concertedEfforts
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Global Reward - Concerted Efforts,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Global Reward - Concerted Efforts
+	{
+		destroy concertedEfforts,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:GlobalReward.concertedEfforts,
+	}
+
+	item unquenchableThirst
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Global Reward - Unquenchable Thirst,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Global Reward - Unquenchable Thirst
+	{
+		destroy unquenchableThirst,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:GlobalReward.unquenchableThirst,
+	}
+	
+	item FactionRewardT1
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Faction Reward - Tier 1,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus,
+    }
+	
+	recipe Faction Reward - Tier 1
+	{
+		destroy FactionRewardT1,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:FactionReward.T1,
+	}
+
+	item FactionRewardT2
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Faction Reward - Tier 2,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus,
+    }
+	
+	recipe Faction Reward - Tier 2
+	{
+		destroy FactionRewardT2,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:FactionReward.T2,
+	}
+	
+	item FactionRewardT3
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Faction Reward - Tier 3,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus,
+    }
+	
+	recipe Faction Reward - Tier 3
+	{
+		destroy FactionRewardT3,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:FactionReward.T3,
+	}
+	
+	item FactionRewardT4
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Faction Reward - Tier 4,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus,
+    }
+	
+	recipe Faction Reward - Tier 4
+	{
+		destroy FactionRewardT4,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:FactionReward.T4,
+	}
+	
+	item FactionRewardT5
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Faction Reward - Tier 5,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus,
+    }
+	
+	recipe Faction Reward - Tier 5
+	{
+		destroy FactionRewardT5,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:FactionReward.T5,
+	}
+	
+	item FactionRewardT6
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Faction Reward - Tier 6,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic_plus,
+        WorldStaticModel        = RikuEmporiumBox_basic_plus,
+    }
+	
+	recipe Faction Reward - Tier 6
+	{
+		destroy FactionRewardT6,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:FactionReward.T6,
+	}
+	
+	item FactionForgedCacheT1
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = FactionForged Weapon Cache - Tier 1,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open FactionForged Weapon Cache - Tier 1
+	{
+		destroy FactionForgedCacheT1,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:FactionForgedWeapon.T1,
+	}
+	
+	item FactionForgedCacheT2
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = FactionForged Weapon Cache - Tier 2,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open FactionForged Weapon Cache - Tier 2
+	{
+		destroy FactionForgedCacheT2,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:FactionForgedWeapon.T2,
+	}
+	
+	item FactionForgedCacheT3
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = FactionForged Weapon Cache - Tier 3,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open FactionForged Weapon Cache - Tier 3
+	{
+		destroy FactionForgedCacheT3,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:FactionForgedWeapon.T3,
+	}
+	
+	item FactionForgedCacheT4
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = FactionForged Weapon Cache - Tier 4,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open FactionForged Weapon Cache - Tier 4
+	{
+		destroy FactionForgedCacheT4,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:FactionForgedWeapon.T4,
+	}
+	
+	item FactionForgedCacheT5
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = FactionForged Weapon Cache - Tier 5,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open FactionForged Weapon Cache - Tier 5
+	{
+		destroy FactionForgedCacheT5,
+		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:100,
+		OnCreate:FactionForgedWeapon.T5,
+	}
+}

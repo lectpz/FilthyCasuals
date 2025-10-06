@@ -246,9 +246,8 @@ function SoulSmithOnWeaponHitXP(player, handWeapon, character, damageSplit)
 	local SoulSmithValue = pMD.SoulSmithValue or 0
 	
 	local faction = pMD.faction
-	local handItem = player:getPrimaryHandItem()
-	if handItem and handItem:getModData().suffix2 == "Ranger" then
-		if faction == "Ranger" then SoulSmithValue = SoulSmithValue + 2 else SoulSmithValue = SoulSmithValue + 0.83 end
+	if handWeapon and handWeapon:getModData().suffix2 == "Ranger" then
+		if faction == "Ranger" then SoulSmithValue = SoulSmithValue + 1.05 else SoulSmithValue = SoulSmithValue + 0.35 end
 	end
 
 	if SoulSmithValue and permaSoulSmithValue and permaSoulSmithValue > 0 then SoulSmithValue = SoulSmithValue + permaSoulSmithValue end
@@ -384,14 +383,16 @@ function infuseAlert(item, playerObj)
 	itemModData.ironChefBuff = 1
 	if pMD.IronChefValue and pMD.IronChefValue > 0 then
 		itemModData.ironChefBuff = pMD.IronChefValue / 10 + 1
+		item:setAge(-1000000)
 		item:setOffAge(item:getOffAge() * 5 * itemModData.ironChefBuff)
 		item:setOffAgeMax(item:getOffAgeMax() * 5 * itemModData.ironChefBuff)
 	end
 		
 	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_Alert")
-	itemModData.setOnEat = "OnEat_Alert"
+	itemModData.setOnEat_new = "OnEat_Alert"
 	itemModData.hungerChange = item:getHungerChange() * -1 * itemModData.ironChefBuff
+	
 	local playerInv = playerObj:getInventory()
 	playerInv:RemoveOneOf(shard[1])
 	playerInv:RemoveOneOf(shard[2])
@@ -409,15 +410,23 @@ function infuseFortitude(item, playerObj)
 	itemModData.ironChefBuff = 1
 	if pMD.IronChefValue and pMD.IronChefValue > 0 then
 		itemModData.ironChefBuff = pMD.IronChefValue / 10 + 1
+		item:setAge(-1000000)
 		item:setOffAge(item:getOffAge() * 5 * itemModData.ironChefBuff)
 		item:setOffAgeMax(item:getOffAgeMax() * 5 * itemModData.ironChefBuff)
 	end
 	
 	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_Fortitude")
-	itemModData.setOnEat = "OnEat_Fortitude"
+	itemModData.setOnEat_new = "OnEat_Fortitude"
 	itemModData.hungerChange = item:getHungerChange() * -1 * itemModData.ironChefBuff
-	for i=1,3 do
+	
+	local mats = 3
+	local scrapmetal = 25
+	
+	if countItems(playerObj, shard[2]) < mats then return end
+	if countItems(playerObj, shard[3]) < mats then return end
+	
+	for i=1,mats do
 		playerInv:RemoveOneOf(shard[2])
 		playerInv:RemoveOneOf(shard[3])
 	end
@@ -432,9 +441,16 @@ function infuseIronChef(item, playerObj)
 	local itemModData = item:getModData()
 	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_IronChef")
-	itemModData.setOnEat = "OnEat_IronChef"
+	itemModData.setOnEat_new = "OnEat_IronChef"
 	itemModData.hungerChange = item:getHungerChange() * -1
-	for i=1,4 do
+	
+	local mats = 4
+	local scrapmetal = 25
+	
+	if countItems(playerObj, shard[1]) < mats then return end
+	if countItems(playerObj, shard[2]) < mats then return end
+	
+	for i=1,mats do
 		playerInv:RemoveOneOf(shard[1])
 		playerInv:RemoveOneOf(shard[2])
 	end
@@ -452,21 +468,31 @@ function infuseLuck(item, playerObj)
 	itemModData.ironChefBuff = 1
 	if pMD.IronChefValue and pMD.IronChefValue > 0 then
 		itemModData.ironChefBuff = pMD.IronChefValue / 10 + 1
+		item:setAge(-1000000)
 		item:setOffAge(item:getOffAge() * 5 * itemModData.ironChefBuff)
 		item:setOffAgeMax(item:getOffAgeMax() * 5 * itemModData.ironChefBuff)
 	end
 	
 	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_Luck")
-	itemModData.setOnEat = "OnEat_Luck"
+	itemModData.setOnEat_new = "OnEat_Luck"
 	itemModData.hungerChange = item:getHungerChange() * -1 * itemModData.ironChefBuff
-	for i=1,6 do
+	
+	local mats = 6
+	local scrapmetal = 25
+	
+	if countItems(playerObj, shard[1]) < mats then return end
+	if countItems(playerObj, shard[2]) < mats then return end
+	if countItems(playerObj, shard[3]) < mats then return end
+	if countItems(playerObj, "Base.ScrapMetal") < scrapmetal then return end
+	
+	for i=1,mats do
 		playerInv:RemoveOneOf(shard[1])
 		playerInv:RemoveOneOf(shard[2])
 		playerInv:RemoveOneOf(shard[3])
 		--playerInv:RemoveOneOf(shard[4])
 	end
-	for i=1,25 do
+	for i=1,scrapmetal do
 		playerInv:RemoveOneOf("Base.ScrapMetal")
 	end
 	getSoundManager():PlayWorldSoundImpl("infuseFood", false, playerObj:getX(), playerObj:getY(), playerObj:getZ(), 0.2, 10, 0.05, false) ;
@@ -483,21 +509,31 @@ function infuseSoulSmith(item, playerObj)
 	itemModData.ironChefBuff = 1
 	if pMD.IronChefValue and pMD.IronChefValue > 0 then
 		itemModData.ironChefBuff = pMD.IronChefValue / 10 + 1
+		item:setAge(-1000000)
 		item:setOffAge(item:getOffAge() * 5 * itemModData.ironChefBuff)
 		item:setOffAgeMax(item:getOffAgeMax() * 5 * itemModData.ironChefBuff)
 	end
 	
 	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_SoulSmith")
-	itemModData.setOnEat = "OnEat_SoulSmith"
+	itemModData.setOnEat_new = "OnEat_SoulSmith"
 	itemModData.hungerChange = item:getHungerChange() * -1 * itemModData.ironChefBuff
-	for i=1,3 do
+	
+	local mats = 3
+	local scrapmetal = 25
+	
+	if countItems(playerObj, shard[1]) < mats then return end
+	if countItems(playerObj, shard[2]) < mats then return end
+	if countItems(playerObj, shard[3]) < mats then return end
+	if countItems(playerObj, "Base.ScrapMetal") < scrapmetal then return end
+	
+	for i=1,mats do
 		playerInv:RemoveOneOf(shard[1])
 		playerInv:RemoveOneOf(shard[2])
 		playerInv:RemoveOneOf(shard[3])
 		--playerInv:RemoveOneOf(shard[4])
 	end
-	for i=1,25 do
+	for i=1,scrapmetal do
 		playerInv:RemoveOneOf("Base.ScrapMetal")
 	end
 	getSoundManager():PlayWorldSoundImpl("infuseFood", false, playerObj:getX(), playerObj:getY(), playerObj:getZ(), 0.2, 10, 0.05, false) ;
@@ -514,21 +550,31 @@ function infuseSoulThirst(item, playerObj)
 	itemModData.ironChefBuff = 1
 	if pMD.IronChefValue and pMD.IronChefValue > 0 then
 		itemModData.ironChefBuff = pMD.IronChefValue / 10 + 1
+		item:setAge(-1000000)
 		item:setOffAge(item:getOffAge() * 5 * itemModData.ironChefBuff)
 		item:setOffAgeMax(item:getOffAgeMax() * 5 * itemModData.ironChefBuff)
 	end
 	
 	local playerInv = playerObj:getInventory()
 	item:setOnEat("OnEat_SoulThirst")
-	itemModData.setOnEat = "OnEat_SoulThirst"
+	itemModData.setOnEat_new = "OnEat_SoulThirst"
 	itemModData.hungerChange = item:getHungerChange() * -1 * itemModData.ironChefBuff
+	
+	local mats = 3
+	local scrapmetal = 10
+	
+	if countItems(playerObj, shard[1]) < mats then return end
+	if countItems(playerObj, shard[2]) < mats then return end
+	if countItems(playerObj, shard[3]) < mats then return end
+	if countItems(playerObj, "Base.ScrapMetal") < scrapmetal then return end
+	
 	for i=1,3 do
 		playerInv:RemoveOneOf(shard[1])
 		playerInv:RemoveOneOf(shard[2])
 		playerInv:RemoveOneOf(shard[3])
 		--playerInv:RemoveOneOf(shard[4])
 	end
-	for i=1,10 do
+	for i=1,scrapmetal do
 		playerInv:RemoveOneOf("Base.ScrapMetal")
 	end
 	getSoundManager():PlayWorldSoundImpl("infuseFood", false, playerObj:getX(), playerObj:getY(), playerObj:getZ(), 0.2, 10, 0.05, false) ;
@@ -546,12 +592,12 @@ local function soulInfuse(player, context, _items)
 		--if not item:isInPlayerInventory() then return end
 		if instanceof(item, "Food") then
 			local iMD = item:getModData()
-			local ironChefBuff = 1
-			if pMD.IronChefValue then ironChefBuff = pMD.IronChefValue / 10 + 1 end
+			local ironChefBuff = iMD.ironChefBuff or 1
+			if pMD.IronChefValue and not iMD.ironChefBuff then ironChefBuff = pMD.IronChefValue / 10 + 1 end
 			--print(ironChefBuff)
 			
 			--dPr("Hunger Change value: " .. item:getHungerChange())
-			local setOnEatFlag = iMD.setOnEat or false
+			local setOnEatFlag = iMD.setOnEat_new or false
 			if setOnEatFlag then 
 				item:setOnEat(setOnEatFlag) 
 				if setOnEatFlag == "OnEat_Alert" then
@@ -602,7 +648,7 @@ local function soulInfuse(player, context, _items)
 				SoulThirst	= submenu:addOption("Infuse Food with Souls (SoulThirst)", item, infuseSoulThirst, playerObj)
 				
 				local iMD = item:getModData()
-				local setOnEatFlag = iMD.setOnEat or false
+				local setOnEatFlag = iMD.setOnEat_new or false
 				
 				local AlertnessMatNo = {1,1}
 				alerttooltip = ISWorldObjectContextMenu.addToolTip();
@@ -672,7 +718,7 @@ function ISInventoryPane:doContextualDblClick(item)
 	if instanceof(item, "Food") then
 		local iMD = item:getModData()
 		--dPr("Hunger Change value: " .. item:getHungerChange())
-		local setOnEatFlag = iMD.setOnEat or false
+		local setOnEatFlag = iMD.setOnEat_new or false
 		if setOnEatFlag then 
 			item:setOnEat(setOnEatFlag) 
 			dPr("Set flag: " .. setOnEatFlag)

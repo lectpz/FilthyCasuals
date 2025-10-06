@@ -12,7 +12,7 @@ SDeventTP.teleport = ISPanel:derive("SDeventTP.teleport")
 
 local coords = {
 	11200, 8806, 11280, 8883,--east shops
-	11108, 8778, 11152, 8810,--north shops
+	11108, 8778, 11152, 8816,--north shops
 	11165, 8775, 11233, 8796,--north shops 2
 	11120, 8885, 11139, 8933,--south shops 1
 	11139, 8885, 11280, 8991,--south shops 2

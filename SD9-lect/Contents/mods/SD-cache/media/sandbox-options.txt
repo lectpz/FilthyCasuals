@@ -45,3 +45,103 @@ option RWC.table1
 	page = RikuWeaponCacheSD,
 	translation = RWC_table1,
 }
+
+option SDGlobalRewards.perfectlyBalanced
+{
+	type = string,
+	default = Base.FactionForgedCacheT5;SoulForgeJewelery.EventJewelryCacheT6;SoulForge.LuckFlask_300;SoulForge.SoulThirstFlask_40;SoulForge.SoulSmithFlask_2pct;Base.bagCapacityTicket;Base.bagCapacityTicket;Base.bagCapacityTicket;Base.bagWeightTicket;Base.bagWeightTicket;Base.bagWeightTicket,
+	
+	page = SDGlobalRewards,
+	translation = SDGlobalRewards_perfectlyBalanced,
+}
+
+option SDGlobalRewards.FilthyCasuals
+{
+	type = string,
+	default = Base.FactionForgedCacheT3;Base.TileCachePremium;SoulForgeJewelery.EventJewelryCacheT4;SoulForge.LuckFlask_300;SoulForge.SoulThirstFlask_40;SoulForge.SoulSmithFlask_2pct,
+	
+	page = SDGlobalRewards,
+	translation = SDGlobalRewards_FilthyCasuals,
+}
+
+option SDGlobalRewards.unquenchableThirst
+{
+	type = string,
+	default = Base.FactionForgedCacheT4;Base.TileCachePremium;SoulForgeJewelery.EventJewelryCacheT4;Base.bagCapacityTicket;Base.bagCapacityTicket;Base.bagCapacityTicket;Base.bagWeightTicket;Base.bagWeightTicket;Base.bagWeightTicket,
+	
+	page = SDGlobalRewards,
+	translation = SDGlobalRewards_unquenchableThirst,
+}
+
+
+option SDGlobalRewards.concertedEfforts
+{
+	type = string,
+	default = Base.FactionForgedCacheT4;SoulForgeJewelery.EventJewelryCacheT6;SoulForge.ContainerSoulsDisposableGiant;SoulForgeJewelery.EventJewelryCacheT5,
+	
+	page = SDGlobalRewards,
+	translation = SDGlobalRewards_concertedEfforts,
+}
+
+option SDGlobalRewards.SweatyTryhards
+{
+	type = string,
+	default = Base.FactionForgedCacheT5;SoulForgeJewelery.EventJewelryCacheT6;Base.EventSpiffoCache;SoulForge.ContainerSoulsDisposable,
+	
+	page = SDGlobalRewards,
+	translation = SDGlobalRewards_SweatyTryhards,
+}
+
+option SDGlobalRewards.T1
+{
+	type = string,
+	default = SoulForgeJewelery.EventJewelryCacheT1;Base.bagCapacityTicket,
+	
+	page = SDGlobalRewards,
+	translation = SDGlobalRewards_T1,
+}
+
+option SDGlobalRewards.T2
+{
+	type = string,
+	default = SoulForgeJewelery.EventJewelryCacheT2;Base.bagWeightTicket,
+	
+	page = SDGlobalRewards,
+	translation = SDGlobalRewards_T2,
+}
+
+option SDGlobalRewards.T3
+{
+	type = string,
+	default = Base.FactionForgedCacheT1;SoulForgeJewelery.EventJewelryCacheT3;SoulForge.ContainerSoulsDisposable,
+	
+	page = SDGlobalRewards,
+	translation = SDGlobalRewards_T3,
+}
+
+option SDGlobalRewards.T4
+{
+	type = string,
+	default = Base.FactionForgedCacheT2;SoulForgeJewelery.EventJewelryCacheT4;SoulForge.LuckFlask_300,
+	
+	page = SDGlobalRewards,
+	translation = SDGlobalRewards_T4,
+}
+
+option SDGlobalRewards.T5
+{
+	type = string,
+	default = Base.FactionForgedCacheT3;SoulForgeJewelery.EventJewelryCacheT5;SoulForge.SoulThirstFlask_40,
+	
+	page = SDGlobalRewards,
+	translation = SDGlobalRewards_T5,
+}
+
+option SDGlobalRewards.T6
+{
+	type = string,
+	default = Base.FactionForgedCacheT4;SoulForgeJewelery.EventJewelryCacheT6;SoulForge.SoulSmithFlask_2pct,
+	
+	page = SDGlobalRewards,
+	translation = SDGlobalRewards_T6,
+}

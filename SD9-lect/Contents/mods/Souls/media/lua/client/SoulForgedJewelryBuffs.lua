@@ -8,7 +8,15 @@ BuffSystem.BUFF_CALCULATIONS = {
         getBonus = function(tier) return 1 end,
         modData = "PermaSoulForgeStrengthBonus",
         apply = function(player, value, isEquipping)
-            player:setMaxWeightBase(player:getMaxWeightBase() + (player:getModData().PermaSoulForgeStrengthBonus or 0))
+            local pMD = player:getModData()
+            local faction = pMD.faction
+            --COGbuff = pMD.WeaponCOGbuff or 0
+            local handItem = player:getPrimaryHandItem()
+            local COGbuff = 0
+            if handItem and handItem:getModData().suffix2 == "COG" then
+                if faction == "COG" then COGbuff = 3 else COGbuff = 1 end
+            end
+            player:setMaxWeightBase(player:getMaxWeightBase() + ( (pMD.PermaSoulForgeStrengthBonus + COGbuff) or (0+COGbuff) ))
         end,
         maxValue = 13,
         hasTier = false

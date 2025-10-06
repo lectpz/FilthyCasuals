@@ -355,6 +355,29 @@ function RikuWeaponCacheUpgradeSD(items, result, player)
 	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
 end
 
+function RikuRewardsT6(items, result, player)
+	local table5 = splitString(SandboxVars.RWC.table5)
+	local n5 = #table5 --number of tier 4 items in loot pool
+	local t5 = ZombRand(n5)+1	-- random number generator, integers from 1 to n [eg n = 23, therefore rolls integers from 1 to 23]
+	
+	local zonetier, zonename, x, y = checkZone()
+	
+	args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "T6 Event Weapon Cache",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+	
+	--addItemToPlayer(table5[t5])
+	addSoulForgedWeaponToPlayer(table5[t5], 6)
+	
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
+	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
+end
+
 function RikuRewardsT5(items, result, player)
 	local table5 = splitString(SandboxVars.RWC.table5)
 	local n5 = #table5 --number of tier 4 items in loot pool

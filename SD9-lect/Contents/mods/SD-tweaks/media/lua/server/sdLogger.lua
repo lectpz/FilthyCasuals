@@ -106,7 +106,11 @@ function Commands.sdLogger.ClaimReward(player, args)
 end
 
 function Commands.sdLogger.Login(player, args)
-	print("[sdLogger] Player [" .. args.player_name .. "] logged in at (" .. args.player_x .. "," .. args.player_y .. ") in " .. args.zonename .." [T" .. args.zonetier .. "] with " .. args.z_vis .. " visible zombies, " .. args.z_chase .. " chasing zombies, " .. args.z_close .. " very close zombies after " .. args.counter .. " seconds.")
+	print("[sdLogger] Player [" .. args.player_name .. "] logged in at (" .. args.player_x .. "," .. args.player_y .. ") in " .. args.zonename .." [T" .. args.zonetier .. "] with " .. args.z_vis .. " visible zombies, " .. args.z_chase .. " chasing zombies, " .. args.z_close .. " very close zombies.")
+end
+
+function Commands.sdLogger.VehicleLogin(player, args)
+	print("[sdLogger] Player [" .. args.player_name .. "] logged on inside of a vehicle at (" .. args.player_x .. "," .. args.player_y .. ") in " .. args.zonename .." [T" .. args.zonetier .. "] with " .. args.z_vis .. " visible zombies, " .. args.z_chase .. " chasing zombies, " .. args.z_close .. " very close zombies.")
 end
 
 function Commands.sdLogger.CheckIn(player, args)

@@ -80,14 +80,32 @@ module Base
 		Sulphur,
 		Saltpeter,
 		CharcoalPowder=2,
-		WaterBottleEmpty/BeerEmpty/WineEmpty2/WineEmpty/WhiskeyEmpty/farming.MayonnaiseEmpty/farming.RemouladeEmpty/MoreBrews.BeerBottleEmptyAmericanLager/MoreBrews.BeerBottleEmptyAPA1/MoreBrews.BeerBottleEmptyAPA2/MoreBrews.BeerBottleEmptyIPA1/MoreBrews.BeerBottleEmptyIPA2/MoreBrews.BeerBottleEmptyLightLager/MoreBrews.BeerBottleEmptyPilsner/MoreBrews.BeerBottleEmptyPorter/MoreBrews.BeerBottleEmptySkunked/MoreBrews.BeerBottleEmptyStout/SapphCooking.CachacaEmpty/SapphCooking.GinEmpty/SapphCooking.LiqueurEmpty/SapphCooking.TequilaEmpty/SapphCooking.VodkaEmpty,
-		WaterBottleEmpty/BeerEmpty/WineEmpty2/WineEmpty/WhiskeyEmpty/farming.MayonnaiseEmpty/farming.RemouladeEmpty/MoreBrews.BeerBottleEmptyAmericanLager/MoreBrews.BeerBottleEmptyAPA1/MoreBrews.BeerBottleEmptyAPA2/MoreBrews.BeerBottleEmptyIPA1/MoreBrews.BeerBottleEmptyIPA2/MoreBrews.BeerBottleEmptyLightLager/MoreBrews.BeerBottleEmptyPilsner/MoreBrews.BeerBottleEmptyPorter/MoreBrews.BeerBottleEmptySkunked/MoreBrews.BeerBottleEmptyStout/SapphCooking.CachacaEmpty/SapphCooking.GinEmpty/SapphCooking.LiqueurEmpty/SapphCooking.TequilaEmpty/SapphCooking.VodkaEmpty,
-		WaterBottleEmpty/BeerEmpty/WineEmpty2/WineEmpty/WhiskeyEmpty/farming.MayonnaiseEmpty/farming.RemouladeEmpty/MoreBrews.BeerBottleEmptyAmericanLager/MoreBrews.BeerBottleEmptyAPA1/MoreBrews.BeerBottleEmptyAPA2/MoreBrews.BeerBottleEmptyIPA1/MoreBrews.BeerBottleEmptyIPA2/MoreBrews.BeerBottleEmptyLightLager/MoreBrews.BeerBottleEmptyPilsner/MoreBrews.BeerBottleEmptyPorter/MoreBrews.BeerBottleEmptySkunked/MoreBrews.BeerBottleEmptyStout/SapphCooking.CachacaEmpty/SapphCooking.GinEmpty/SapphCooking.LiqueurEmpty/SapphCooking.TequilaEmpty/SapphCooking.VodkaEmpty,
-		WaterBottleEmpty/BeerEmpty/WineEmpty2/WineEmpty/WhiskeyEmpty/farming.MayonnaiseEmpty/farming.RemouladeEmpty/MoreBrews.BeerBottleEmptyAmericanLager/MoreBrews.BeerBottleEmptyAPA1/MoreBrews.BeerBottleEmptyAPA2/MoreBrews.BeerBottleEmptyIPA1/MoreBrews.BeerBottleEmptyIPA2/MoreBrews.BeerBottleEmptyLightLager/MoreBrews.BeerBottleEmptyPilsner/MoreBrews.BeerBottleEmptyPorter/MoreBrews.BeerBottleEmptySkunked/MoreBrews.BeerBottleEmptyStout/SapphCooking.CachacaEmpty/SapphCooking.GinEmpty/SapphCooking.LiqueurEmpty/SapphCooking.TequilaEmpty/SapphCooking.VodkaEmpty,
+		EmptyGunpowderContainer=4,
 		AnimNode:Craft,
 		Category:Survivalist,
 		Result:GunPowder=4,
 		Time:250.0,
+	}
+	
+	item EmptyGunpowderContainer
+	{
+		DisplayCategory = Material,
+		Weight = 0.01,
+		Type	=	Normal,
+		UseWhileEquipped	=	FALSE,
+		DisplayName = 	Empty Gunpowder Container,
+		Icon	=	GunpowderJar,
+		WorldStaticModel = GunpowderJar,
+	}
+	
+	recipe Create Empty Gunpowder Container
+	{
+        CanBeDoneFromFloor:true,
+		WaterBottleEmpty/BeerEmpty/WineEmpty2/WineEmpty/WhiskeyEmpty/farming.MayonnaiseEmpty/farming.RemouladeEmpty/MoreBrews.BeerBottleEmptyAmericanLager/MoreBrews.BeerBottleEmptyAPA1/MoreBrews.BeerBottleEmptyAPA2/MoreBrews.BeerBottleEmptyIPA1/MoreBrews.BeerBottleEmptyIPA2/MoreBrews.BeerBottleEmptyLightLager/MoreBrews.BeerBottleEmptyPilsner/MoreBrews.BeerBottleEmptyPorter/MoreBrews.BeerBottleEmptySkunked/MoreBrews.BeerBottleEmptyStout/SapphCooking.CachacaEmpty/SapphCooking.GinEmpty/SapphCooking.LiqueurEmpty/SapphCooking.TequilaEmpty/SapphCooking.VodkaEmpty,
+		AnimNode:Craft,
+		Category:Survivalist,
+		Result:EmptyGunpowderContainer,
+		Time:100.0,
 	}
 	
 }

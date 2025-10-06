@@ -791,6 +791,156 @@ local suff2_setstat = {
 					end,
 }
 
+---------------------------------------------------------
+---------------------------------------------------------
+local function countItems(playerObj, item)
+	local inv = playerObj:getInventory()
+	local items = inv:getItemsFromFullType(item, false)
+	local count = 0
+	for i=1,items:size() do
+		local invItem = items:get(i-1)
+		if not instanceof(invItem, "InventoryContainer") or item:getInventory():getItems():isEmpty() then
+			count = count + 1
+		end
+	end
+	return count
+end
+---------------------------------------------------------
+---------------------------------------------------------
+
+local function upgradeToFactionForged(weapon, tokens)
+	local scriptItem = weapon:getScriptItem()
+	local weaponModData = weapon:getModData()
+	local playerObj = getSpecificPlayer(0)
+	
+	if countItems(playerObj, "Base.cogToken") < tokens then return end
+	if countItems(playerObj, "Base.rangerToken") < tokens then return end
+	if countItems(playerObj, "Base.vwToken") < tokens then return end
+	
+	local wTier = weaponModData.Tier
+	if not wTier then return end
+	
+	for i=1,5 do
+		if countItems(playerObj, "SoulForge.SoulShardT"..i) < wTier then return end
+	end
+	
+	local inv = playerObj:getInventory()
+	for i=1,5 do
+		for j=1,wTier do
+			inv:RemoveOneOf("SoulForge.SoulShardT"..i)
+		end
+	end
+	
+	for i=1,wTier*5 do
+		inv:RemoveOneOf("Base.cogToken")
+		inv:RemoveOneOf("Base.rangerToken")
+		inv:RemoveOneOf("Base.vwToken")
+	end
+	
+	local rng = ZombRand(3)
+	
+	if rng == 0 then
+		
+		if weaponModData.soulForgeMinDmgMulti 	then weaponModData.soulForgeMinDmgMulti = weaponModData.soulForgeMinDmgMulti*1.15 	else weaponModData.soulForgeMinDmgMulti = 1.15 end
+		if weaponModData.soulForgeCritRate 		then weaponModData.soulForgeCritRate = weaponModData.soulForgeCritRate*1.2 			else weaponModData.soulForgeCritRate = 1.2 end
+		if weaponModData.ConditionLowerChance 	then weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance*1.2 	else weaponModData.ConditionLowerChance = 1.2 end
+		if weaponModData.MaxCondition 			then weaponModData.MaxCondition = weaponModData.MaxCondition*1.2 					else weaponModData.MaxCondition =  1.2 end
+						
+		weaponModData.s2_desc = gold .. "Suffix Modifer: COG" ..
+								green .. " <LINE> Max Hit Count +" .. 1 ..
+								green .. " <LINE> " .. string.format("%.0f", (1.2*100-100))  .. "% More Weapon Condition Lower Chance <LINE> " ..
+								green .. " <LINE> " .. string.format("%.0f", (1.2*100-100))  .. "% More Maximum Weapon Condition <LINE> " ..
+								green .. " <LINE> " .. string.format("%.0f", (1.2*100-100))  .. "% More Critical Chance <LINE> " .. 
+								green .. " <LINE> " .. string.format("%.0f", (1.15*100-100))  .. "% More Minimum Damage <LINE> "
+		
+		weaponModData.suffix2 = "COG"
+		
+		weapon:setCriticalChance(weaponModData.CriticalChance * weaponModData.soulForgeCritRate)
+		weapon:setMinDamage(weaponModData.MinDamage * weaponModData.soulForgeMinDmgMulti)
+		
+	elseif rng == 1 then
+	
+		if weaponModData.soulForgeMaxDmgMulti 	then weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti*1.15 	else weaponModData.soulForgeMaxDmgMulti = 1.15 end
+		if weaponModData.soulForgeCritRate 		then weaponModData.soulForgeCritRate = weaponModData.soulForgeCritRate*1.2 			else weaponModData.soulForgeCritRate = 1.2 end
+		if weaponModData.ConditionLowerChance 	then weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance*1.2 	else weaponModData.ConditionLowerChance = 1.2 end
+		if weaponModData.MaxCondition 			then weaponModData.MaxCondition = weaponModData.MaxCondition*1.2 					else weaponModData.MaxCondition =  1.2 end
+	
+		weaponModData.s2_desc = gold .. "Suffix Modifer: Voidwalker" ..
+								green .. " <LINE> Max Hit Count +" .. 1 ..
+								green .. " <LINE> " .. string.format("%.0f", (1.2*100-100))  .. "% More Weapon Condition Lower Chance <LINE> " ..
+								green .. " <LINE> " .. string.format("%.0f", (1.2*100-100))  .. "% More Maximum Weapon Condition <LINE> " ..
+								green .. " <LINE> " .. string.format("%.0f", (1.2*100-100))  .. "% More Critical Chance <LINE> " .. 
+								green .. " <LINE> " .. string.format("%.0f", (1.15*100-100))  .. "% More Maximum Damage <LINE> "
+		
+		weaponModData.suffix2 = "Voidwalker"
+		
+		weapon:setCriticalChance(weaponModData.CriticalChance * weaponModData.soulForgeCritRate)
+		weapon:setMinDamage(weaponModData.MaxDamage * weaponModData.soulForgeMaxDmgMulti)
+		
+	elseif rng == 2 then
+	
+		if weaponModData.soulForgeCritRate 		then weaponModData.soulForgeCritRate = weaponModData.soulForgeCritRate*1.2 			else weaponModData.soulForgeCritRate = 1.2 end
+		if weaponModData.soulForgeCritMulti 	then weaponModData.soulForgeCritMulti = weaponModData.soulForgeCritMulti*1.2 		else weaponModData.soulForgeCritMulti = 1.2 end
+		if weaponModData.ConditionLowerChance 	then weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance*1.2 	else weaponModData.ConditionLowerChance = 1.2 end
+		if weaponModData.MaxCondition 			then weaponModData.MaxCondition = weaponModData.MaxCondition*1.2 					else weaponModData.MaxCondition =  1.2 end
+		
+		weaponModData.s2_desc = gold .. "Suffix Modifer: Ranger" ..
+								green .. " <LINE> Max Hit Count +" .. 1 ..
+								green .. " <LINE> " .. string.format("%.0f", (1.2*100-100))  .. "% More Weapon Condition Lower Chance <LINE> " ..
+								green .. " <LINE> " .. string.format("%.0f", (1.2*100-100))  .. "% More Maximum Weapon Condition <LINE> " ..
+								green .. " <LINE> " .. string.format("%.0f", (1.2*100-100))  .. "% More Critical Chance <LINE> " .. 
+								green .. " <LINE> " .. string.format("%.0f", (1.2*100-100))  .. "% More Critical Damage Multiplier <LINE> "
+		
+		weaponModData.suffix2 = "Ranger"
+		
+		weapon:setCriticalChance(weaponModData.CriticalChance * weaponModData.soulForgeCritRate)
+		weapon:setCritDmgMultiplier(weaponModData.CritDmgMultiplier * weaponModData.soulForgeCritMulti)
+		
+	end
+
+	
+	local mdzPrefix = ""
+	if weaponModData.mdzPrefix then mdzPrefix = weaponModData.mdzPrefix .. " " end
+	
+	weaponModData.Name = weaponName(weaponModData, scriptItem)
+	
+	weapon:setName(mdzPrefix .. weaponModData.Name)
+	weapon:setConditionLowerChance(scriptItem:getConditionLowerChance() * weaponModData.ConditionLowerChance)
+	weapon:setConditionMax(scriptItem:getConditionMax() * weaponModData.MaxCondition)
+
+end
+
+local function reverse_iMD(item, stat, reductionValue)
+	item:getModData()[stat] = item:getModData()[stat] / reductionValue
+end
+
+local removeSuffix = { 
+	["Sunday Driver"]		= function(item) reverse_iMD(item, "soulForgeMinDmgMulti", 1.15) end, --item:getModData().soulForgeMaxDmgMulti = /1.15) end,
+	["Filthy Casual"]		= function(item) reverse_iMD(item, "soulForgeMaxDmgMulti", 1.15) end, --item:setMaxDamage(item:getMaxDamage()/1.15) end,
+	["Apocalypse Enjoyer"] 	= function(item) reverse_iMD(item, "MaxCondition", 1.1) end, --item:setConditionMax(item:getConditionMax()/1.1) end,
+	["Ascended Path"]		= function(item) reverse_iMD(item, "ConditionLowerChance", 1.1) end, --item:setConditionLowerChance(item:getConditionLowerChance()/1.1) end,
+	["Dying Dawn"]			= function(item) reverse_iMD(item, "soulForgeCritMulti", 1.2) end, --item:setCritDmgMultiplier(item:getCritDmgMultiplier()/1.2) end,
+	["Unhinged Tryhard"]	= function(item) reverse_iMD(item, "soulForgeCritRate", 1.2) end, --item:setCriticalChance(item:getCriticalChance()/1.2) end,
+	["COG"]					= function(item) 
+								reverse_iMD(item, "soulForgeMinDmgMulti", 1.15) --item:setMinDamage(item:getMinDamage()/1.15)
+								reverse_iMD(item, "soulForgeCritRate", 1.2) --item:setCriticalChance(item:getCriticalChance()/1.2)
+								reverse_iMD(item, "MaxCondition", 1.2) --item:setConditionMax(item:getConditionMax()/1.2)
+								reverse_iMD(item, "ConditionLowerChance", 1.2) --item:setConditionLowerChance(item:getConditionLowerChance()/1.2)
+								end,
+	["Ranger"]				= function(item) 
+								reverse_iMD(item, "soulForgeCritRate", 1.2) --tem:setCriticalChance(item:getCriticalChance()/1.2)
+								reverse_iMD(item, "soulForgeCritMulti", 1.2) --item:setCritDmgMultiplier(item:getCritDmgMultiplier()/1.2)
+								reverse_iMD(item, "MaxCondition", 1.2) --item:setConditionMax(item:getConditionMax()/1.2)
+								reverse_iMD(item, "ConditionLowerChance", 1.2) --item:setConditionLowerChance(item:getConditionLowerChance()/1.2)
+								end,							
+	["Voidwalker"]			= function(item) 
+								reverse_iMD(item, "soulForgeMaxDmgMulti", 1.15) --item:setMinDamage(item:getMaxDamage()/1.15)
+								reverse_iMD(item, "soulForgeCritRate", 1.2) --item:setCriticalChance(item:getCriticalChance()/1.2)
+								reverse_iMD(item, "MaxCondition", 1.2) --item:setConditionMax(item:getConditionMax()/1.2)
+								reverse_iMD(item, "ConditionLowerChance", 1.2) --item:setConditionLowerChance(item:getConditionLowerChance()/1.2)
+								end,
+	}
+
 local function SoulContextSD(player, context, items) -- # When an inventory item context menu is opened
 	playerObj = getSpecificPlayer(player)
 	playerInv = playerObj:getInventory()
@@ -1080,7 +1230,11 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 						option_soulForgeModifiers.toolTip = tooltip
 						itemStats()
 						
-						if item:isEquipped() then submenu1_soulForgedWeaponUpgrades = submenu:addOption("Upgrade Soul Forged Weapon", item, nil, player) end
+						if item:isEquipped() then
+							submenu1_soulForgedWeaponUpgrades = submenu:addOption("Upgrade Soul Forged Weapon", item, nil, player)
+						else
+							return
+						end
 						
 						submenu1 = ISContextMenu:getNew(submenu)
 						submenu:addSubMenu(submenu1_soulForgedWeaponUpgrades, submenu1)
@@ -1370,6 +1524,104 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 							sw_upgrade(swUpgrade5, Upgrade5MatNo, "SoulForge.EnduranceModTicket")
 						end
 						
+						-------------------------------------------------------------------
+						-------------------------------------------------------------------
+						local function countItems(playerObj, item)
+							local inv = playerObj:getInventory()
+							local items = inv:getItemsFromFullType(item, false)
+							local count = 0
+							for i=1,items:size() do
+								local invItem = items:get(i-1)
+								if not instanceof(invItem, "InventoryContainer") or item:getInventory():getItems():isEmpty() then
+									count = count + 1
+								end
+							end
+							return count
+						end
+
+						local function itemToolTipMats(tooltip, material, option, quantity)
+							local playerObj = getSpecificPlayer(0)
+							local playerInv = playerObj:getInventory()
+							local scriptItem = ScriptManager.instance:getItem(material)
+							local itemdisplayname = scriptItem:getDisplayName()
+							tooltip.description = tooltip.description .. " <LINE> "
+							if countItems(playerObj, material) < quantity then
+								count = countItems(playerObj, material)
+								option.notAvailable = true;
+								--tooltip = ISWorldObjectContextMenu.addToolTip();
+								tooltip.description = tooltip.description .. red .. itemdisplayname .. " " .. count .. "/" .. quantity ;
+							else
+								--count = playerInv:getCountTypeRecurse(material)
+								count = countItems(playerObj, material)
+								tooltip.description = tooltip.description .. green .. itemdisplayname .. " " .. count .. "/" .. quantity ;
+							end
+						end
+						-------------------------------------------------------------------
+						-------------------------------------------------------------------
+
+						local weaponSuffix = weaponModData.suffix2
+						local wTier = weaponModData.Tier
+						
+						--[[if wTier >= 1 then itemToolTipMats("SoulForge.SoulCrystalT1", option_soulForgeWeapon) end
+						if wTier >= 2 then itemToolTipMats("SoulForge.SoulCrystalT2", option_soulForgeWeapon) end
+						if wTier >= 3 then itemToolTipMats("SoulForge.SoulCrystalT3", option_soulForgeWeapon) end
+						if wTier >= 4 then itemToolTipMats("SoulForge.SoulCrystalT4", option_soulForgeWeapon) end]]
+						
+						if weaponSuffix then
+							if weaponSuffix ~= "COG" and weaponSuffix ~= "Ranger" and weaponSuffix ~= "Voidwalker" then
+							
+								local tokens = wTier*5
+								local factionForge = submenu:addOption("Faction-Forge Weapon (Replace "..weaponSuffix..")", item, 
+																	function(item, tokens)
+																		removeSuffix[weaponSuffix](item)
+																		upgradeToFactionForged(item, tokens)
+																	end, tokens, player)
+								local tooltip = ISWorldObjectContextMenu.addToolTip();
+								tooltip.description = gold .. "Material required for upgrade:"
+								itemToolTipMats(tooltip, "Base.cogToken", factionForge, tokens)
+								itemToolTipMats(tooltip, "Base.rangerToken", factionForge, tokens)
+								itemToolTipMats(tooltip, "Base.vwToken", factionForge, tokens)
+								--[[itemToolTipMats(tooltip, "SoulForge.SoulShardT1", factionForge, tokens)
+								itemToolTipMats(tooltip, "SoulForge.SoulShardT2", factionForge, tokens)
+								itemToolTipMats(tooltip, "SoulForge.SoulShardT3", factionForge, tokens)]]
+								
+								local crystal = { "SoulForge.SoulShardT1", "SoulForge.SoulShardT2", "SoulForge.SoulShardT3", "SoulForge.SoulShardT4", "SoulForge.SoulShardT5" }
+								local no_shards = wTier
+								for i=1,#crystal do
+									itemToolTipMats(tooltip, crystal[i], factionForge, no_shards)
+								end
+								factionForge.toolTip = tooltip
+							
+							end
+							
+							if weaponSuffix == "COG" or weaponSuffix == "Ranger" or weaponSuffix == "Voidwalker" then
+							
+								local tokens = wTier*5
+								local factionForge = submenu:addOption("Reroll Faction-Forge Weapon (Reroll "..weaponSuffix..")", item, 
+																	function(item, tokens)
+																		removeSuffix[weaponSuffix](item)
+																		upgradeToFactionForged(item, tokens)
+																	end, tokens, player)
+								local tooltip = ISWorldObjectContextMenu.addToolTip();
+								tooltip.description = gold .. "Material required for weapon reroll:"
+								itemToolTipMats(tooltip, "Base.cogToken", factionForge, tokens)
+								itemToolTipMats(tooltip, "Base.rangerToken", factionForge, tokens)
+								itemToolTipMats(tooltip, "Base.vwToken", factionForge, tokens)
+								--[[itemToolTipMats(tooltip, "SoulForge.SoulShardT1", factionForge, tokens)
+								itemToolTipMats(tooltip, "SoulForge.SoulShardT2", factionForge, tokens)
+								itemToolTipMats(tooltip, "SoulForge.SoulShardT3", factionForge, tokens)]]
+								
+								local crystal = { "SoulForge.SoulShardT1", "SoulForge.SoulShardT2", "SoulForge.SoulShardT3", "SoulForge.SoulShardT4", "SoulForge.SoulShardT5" }
+								local no_shards = wTier
+								for i=1,#crystal do
+									itemToolTipMats(tooltip, crystal[i], factionForge, no_shards)
+								end
+								tooltip.description = tooltip.description .. orange .. " <LINE> Disclaimer: You may end up with the same faction suffix."
+								factionForge.toolTip = tooltip
+							
+							end
+						end
+						
 					elseif (weaponCurrentCondition < (weaponMaxCond) or soulsFreed < soulsRequired) then
 						--print("elseif")
 						option_soulForgeWeapon.notAvailable = true;
@@ -1448,7 +1700,7 @@ function SoulCountSD(character, handWeapon)
 
 			local faction = pMD.faction
 			if weaponModData.suffix2 == "Voidwalker" then--capital W
-				if string.lower(faction) == "voidwalker" then SoulThirstValue = SoulThirstValue + 25 else SoulThirstValue = SoulThirstValue + 8.33 end
+				if string.lower(faction) == "voidwalker" then SoulThirstValue = SoulThirstValue + 33 else SoulThirstValue = SoulThirstValue + 11 end
 			end
 
 			local permaSoulThirst = pMD.PermaSoulThirstValue

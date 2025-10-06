@@ -41,12 +41,15 @@ local function tallyKills()
 	local faction = pmd.faction or nil
 
 	--local faction = "KEK"
-	if faction then 
+	if faction == "" then
+		isFaction = false
+	elseif faction then 
 		isFaction = true 
 	else
 		isFaction = false
 	end
 	local zonetier, zonename, x, y, control, toxic = checkZone()
+	if zonename == "Unnamed Zone" then return end
 	local zoneMulti = 1
 	--[[if zonetier == 6 then
 		zoneMulti = 3

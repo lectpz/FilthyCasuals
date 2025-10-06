@@ -210,6 +210,12 @@ if not isServer() then Events.EveryTenMinutes.Add(getZonesData) end
 --------------------------------------------------------------
 --------------------------------------------------------------
 
+local factions = {"COG", "Ranger", "VoidWalker"}
+local SDFactions = {}
+for i=1,#factions do
+	SDFactions[factions[i]]=true
+end
+
 local function getControl(zone, player, tier)
 	--[[local faction
 	local pMD = player:getModData()
@@ -232,6 +238,7 @@ local function getControl(zone, player, tier)
 		faction = pMD.faction
 	end
 	if not faction then return nil end
+	if not SDFactions[faction] then return nil end
 	--if not zonesGMD[faction.."_global"] then return nil end
 	
 	--if zonesGMD[faction.."_global"] and zonesGMD[zone][faction] then
@@ -270,18 +277,18 @@ function checkZone(x,y)
 					local yy2 = NestedZone.list[_nestedZoneName][4]
 					if x >= xx1 and y >= yy1 and x <= xx2 and y <= yy2 then 
 						local control = getControl(_nestedZoneName, player, NestedZone.list[_nestedZoneName][5])
-						return NestedZone.list[_nestedZoneName][5], _nestedZoneName, x, y, control, NestedZone.list[_nestedZoneName][7], NestedZone.list[_nestedZoneName][8], NestedZone.list[_nestedZoneName][9], NestedZone.list[_nestedZoneName][10], NestedZone.list[_nestedZoneName][11]
+						return NestedZone.list[_nestedZoneName][5], _nestedZoneName, x, y, control, NestedZone.list[_nestedZoneName][7], NestedZone.list[_nestedZoneName][8], NestedZone.list[_nestedZoneName][9], NestedZone.list[_nestedZoneName][10], NestedZone.list[_nestedZoneName][11], NestedZone.list[_nestedZoneName][12]
 					end
 				end
 				local control = getControl(_zoneName, player, Zone.list[_zoneName][5])
-				return Zone.list[_zoneName][5], _zoneName, x, y, control, Zone.list[_zoneName][7], Zone.list[_zoneName][8], Zone.list[_zoneName][9], Zone.list[_zoneName][10], Zone.list[_zoneName][11]
+				return Zone.list[_zoneName][5], _zoneName, x, y, control, Zone.list[_zoneName][7], Zone.list[_zoneName][8], Zone.list[_zoneName][9], Zone.list[_zoneName][10], Zone.list[_zoneName][11], Zone.list[_zoneName][12]
 			else
 				local control = getControl(_zoneName, player, Zone.list[_zoneName][5])
-				return Zone.list[_zoneName][5], _zoneName, x, y, control, Zone.list[_zoneName][7], Zone.list[_zoneName][8], Zone.list[_zoneName][9], Zone.list[_zoneName][10], Zone.list[_zoneName][11]
+				return Zone.list[_zoneName][5], _zoneName, x, y, control, Zone.list[_zoneName][7], Zone.list[_zoneName][8], Zone.list[_zoneName][9], Zone.list[_zoneName][10], Zone.list[_zoneName][11], Zone.list[_zoneName][12]
 			end
 		end
 	end
-	return zonetier[1], "Unnamed Zone", x, y, nil, nil, 1, 0, 0, base_health
+	return zonetier[1], "Unnamed Zone", x, y, nil, nil, 1, 0, 0, base_health, nil
 end
 
 function checkZoneAtXY(x, y)
@@ -301,12 +308,12 @@ function checkZoneAtXY(x, y)
 					local xx2 = NestedZone.list[_nestedZoneName][3]
 					local yy2 = NestedZone.list[_nestedZoneName][4]
 					if x >= xx1 and y >= yy1 and x <= xx2 and y <= yy2 then 
-						return NestedZone.list[_nestedZoneName][5], _nestedZoneName, x, y, control, NestedZone.list[_nestedZoneName][7], NestedZone.list[_nestedZoneName][8], NestedZone.list[_nestedZoneName][9], NestedZone.list[_nestedZoneName][10], NestedZone.list[_nestedZoneName][11]
+						return NestedZone.list[_nestedZoneName][5], _nestedZoneName, x, y, control, NestedZone.list[_nestedZoneName][7], NestedZone.list[_nestedZoneName][8], NestedZone.list[_nestedZoneName][9], NestedZone.list[_nestedZoneName][10], NestedZone.list[_nestedZoneName][11], NestedZone.list[_nestedZoneName][12]
 					end
 				end
-				return Zone.list[_zoneName][5], _zoneName, x, y, control, Zone.list[_zoneName][7], Zone.list[_zoneName][8], Zone.list[_zoneName][9], Zone.list[_zoneName][10], Zone.list[_zoneName][11]
+				return Zone.list[_zoneName][5], _zoneName, x, y, control, Zone.list[_zoneName][7], Zone.list[_zoneName][8], Zone.list[_zoneName][9], Zone.list[_zoneName][10], Zone.list[_zoneName][11], Zone.list[_zoneName][12]
 			else
-				return Zone.list[_zoneName][5], _zoneName, x, y, control, Zone.list[_zoneName][7], Zone.list[_zoneName][8], Zone.list[_zoneName][9], Zone.list[_zoneName][10], Zone.list[_zoneName][11]
+				return Zone.list[_zoneName][5], _zoneName, x, y, control, Zone.list[_zoneName][7], Zone.list[_zoneName][8], Zone.list[_zoneName][9], Zone.list[_zoneName][10], Zone.list[_zoneName][11], Zone.list[_zoneName][12]
 			end
 		end
 	end

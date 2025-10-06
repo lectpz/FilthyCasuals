@@ -792,7 +792,7 @@ function SpiffoCacheSD(items, result, player)
 
 	local zonetier, zonename, x, y = checkZone()
 	
-	local zoneroll = 6-zonetier
+	local zoneroll = 7-zonetier
 
 	args = {
 	  player_name = getOnlineUsername(),
@@ -873,6 +873,7 @@ end
 function PokemonCacheSD(items, result, player)
 	
 	local zonetier, zonename, x, y = checkZone()
+	local zoneroll = 7-zonetier
 	
 	args = {
 	  player_name = getOnlineUsername(),
@@ -941,6 +942,7 @@ end
 function ShinyPokemonCacheSD(items, result, player)
 	
 	local zonetier, zonename, x, y = checkZone()
+	local zoneroll = 7-zonetier
 	
 	args = {
 	  player_name = getOnlineUsername(),

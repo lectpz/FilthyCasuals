@@ -99,6 +99,12 @@ local function EveryOneMinuteSD()
 			pMD.faction = DD_Faction["Faction"] 
 		end--make factions persist on death
 
+		if faction == "Cog" then
+			DD_Faction["Faction"] = "COG"
+			pMD.faction = "COG"
+			faction = "COG"
+		end
+
 		if faction == "COG" then
 			MF.getMoodle("COG"):setValue(1.0)
 			MF.getMoodle("Ranger"):setValue(0.5)

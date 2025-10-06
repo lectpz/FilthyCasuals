@@ -1,4 +1,9 @@
 Sandbox_EN = {
+	Sandbox_SDWelcomePackage = "SD Welcome Package",
+
+	Sandbox_SDWelcomePackage_enabled = "Enable Welcome Package",
+	Sandbox_SDWelcomePackage_enabled_tooltip = "Check to enable, uncheck to disable",
+	
 	Sandbox_SDOnWeaponSwing = "Dynamic Weapons",
 	
 	Sandbox_SDnoBuild = "SD Building Exclusion Zones",

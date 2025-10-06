@@ -570,6 +570,20 @@ module SoulForge {
 		Result:SoulCrystalT3=2,
 		Time:100.0,
 	}
+	
+	recipe Unfuse Tier 5 Soul Crystal
+	{
+		CanBeDoneFromFloor:false,
+		SoulCrystalT5=1,
+		StoredSoulsSD_new=40,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		InSameInventory:true,
+		NoBrokenItems:false,
+		Result:SoulCrystalT4=3,
+		Time:100.0,
+	}
 
 	recipe Unfuse Tier 2 Soul Shard
 	{
@@ -797,7 +811,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		MaxDmgTicket=3,
-		Base.ScrapMetal=25,
+		Base.ScrapMetal=8,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,
@@ -811,7 +825,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		CritChanceTicket=3,
-		Base.ScrapMetal=25,
+		Base.ScrapMetal=8,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,
@@ -825,7 +839,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		CritMultiTicket=3,
-		Base.ScrapMetal=25,
+		Base.ScrapMetal=8,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,
@@ -839,7 +853,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		EnduranceModTicket=3,
-		Base.ScrapMetal=25,
+		Base.ScrapMetal=8,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,
@@ -853,7 +867,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		bagCapacityTicket=3,
-		Base.ScrapMetal=25,
+		Base.ScrapMetal=8,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,
@@ -867,7 +881,7 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		bagWeightTicket=3,
-		Base.ScrapMetal=25,
+		Base.ScrapMetal=8,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,
@@ -881,7 +895,6 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		WeightedDiceT2=3,
-		StoredSoulsSD_new=150,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,
@@ -893,7 +906,6 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		WeightedDiceT3=3,
-		StoredSoulsSD_new=400,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,
@@ -905,7 +917,6 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		WeightedDiceT4=3,
-		StoredSoulsSD_new=1000,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,
@@ -917,7 +928,6 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy WeightedDiceT3,
-		StoredSoulsSD_new=1000,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,
@@ -929,7 +939,6 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy WeightedDiceT4,
-		StoredSoulsSD_new=1000,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,
@@ -941,7 +950,6 @@ module SoulForge {
 	{
 		CanBeDoneFromFloor:false,
 		destroy WeightedDiceT5,
-		StoredSoulsSD_new=1000,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,

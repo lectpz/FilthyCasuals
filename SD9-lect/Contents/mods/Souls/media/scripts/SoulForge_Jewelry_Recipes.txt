@@ -15,7 +15,7 @@ module SoulForgeJewelery
         Sound:Hammering,
         Time:100.0,
         Category:Crafting,
-        OnCreate:SoulForgedJewelryOnCreate,
+        OnCreate:SoulForgedJewelryOnCreateRecipe,
 		RemoveResultItem:true,
         OnTest:OnTest_CheckInInventory
     }

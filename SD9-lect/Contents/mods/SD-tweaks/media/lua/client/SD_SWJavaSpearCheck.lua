@@ -3,7 +3,7 @@
 ----------------
 
 local threshold = 1000
-local sdLogger = false
+local sdLogger = true
 local hits = 0
 local overheads = 0
 
@@ -52,10 +52,8 @@ local function OnGameStart()
 
         threshold = SandboxVars.SD_SWDetect.SD_SWJavaSpearCheck_Threshold
 
-        local activatedMods = getActivatedMods()
-        if activatedMods:contains("SD6_tweaks") or activatedMods:contains("SD6_tweakstest") then
-            sdLogger = true
-        end
+        sdLogger = true
+
     end
 end
 

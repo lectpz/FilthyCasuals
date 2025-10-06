@@ -35,7 +35,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:ChiikuWeaponCacheSD,
 	}
 	
@@ -66,6 +66,17 @@ module Base
         Type                    = Normal,
         Weight                  = 1.0,
         DisplayName             = Tier 5 Event Weapon Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EventWeaponCacheT6
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Tier 6 Event Weapon Cache,
 		UseWhileEquipped 		= FALSE,
         Icon                    = i_RikuEmporiumBox_event_plus,
         WorldStaticModel        = RikuEmporiumBox_event_plus,
@@ -193,7 +204,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:RikuWeaponCacheSD,
 	}
 	
@@ -206,7 +217,7 @@ module Base
 		Result:EmptyWeaponCache,
 		OnTest:OnTest_isInPlayerInventory,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:RikuRewardsT3,
 	}
 	
@@ -219,7 +230,7 @@ module Base
 		Result:EmptyWeaponCache,
 		OnTest:OnTest_isInPlayerInventory,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:RikuRewardsT4,
 	}
 	
@@ -232,8 +243,21 @@ module Base
 		Result:EmptyWeaponCache,
 		OnTest:OnTest_isInPlayerInventory,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:RikuRewardsT5,
+	}
+	
+	recipe Open Tier 6 Event Weapon Cache
+	{
+		CanBeDoneFromFloor:true,
+		destroy EventWeaponCacheT6,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		OnTest:OnTest_isInPlayerInventory,
+		RemoveResultItem:true,
+		Time:0.2,
+		OnCreate:RikuRewardsT6,
 	}
 	
 	recipe Upgrade Weapon Cache To Tier 5
@@ -245,7 +269,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCanPerform:onTestTier5CheckSD,
 		OnCreate:RikuWeaponCacheUpgradeSD,
 	}
@@ -259,7 +283,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCanPerform:onTestTier3CheckSD,
 		OnCreate:RikuWeaponCacheUpgradeSD,
 	}
@@ -273,7 +297,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCanPerform:onTestTier2CheckSD,
 		OnCreate:RikuWeaponCacheUpgradeSD,
 	}
@@ -287,7 +311,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCanPerform:onTestTier1CheckSD,
 		OnCreate:RikuWeaponCacheUpgradeSD,
 	}
@@ -300,7 +324,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyMechanicCache,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:MechCacheSD,
 	}
 
@@ -312,7 +336,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyMetalworkCache,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:MetalworkCacheSD,
 	}
 	
@@ -324,7 +348,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyMedicalCache,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:MedicalCacheSD,
 	}
 
@@ -357,7 +381,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyAmmoCache,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:AmmoCacheSD,
 	}
 	
@@ -390,7 +414,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyArmorCachePatriot,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:ArmorCachePatriotSD,
 	}
 	
@@ -423,7 +447,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyArmorCacheDefender,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:ArmorCacheDefenderSD,
 	}
 	
@@ -456,7 +480,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptyArmorCacheVanguard,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:ArmorCacheVanguardSD,
 	}
 	
@@ -489,7 +513,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptySpiffoCache,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:SpiffoCacheSD,
 	}
 	
@@ -512,7 +536,7 @@ module Base
 		AnimNode:Loot,
 		Result:EmptySpiffoCache,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:EventSpiffoCacheSD,
 	}
 	
@@ -548,7 +572,7 @@ module Base
 		AnimNode:Loot,
 		Result:boosterpack_trash,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:PokemonCacheSD,
 	}
 	
@@ -601,7 +625,7 @@ module Base
 		AnimNode:Loot,
 		Result:Base.Dice,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:OnCreate_JewelryCache,
 	}
 	
@@ -624,7 +648,7 @@ module Base
 		AnimNode:Loot,
 		Result:Base.Dice,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:OnCreate_SoulForgeCache,
 	}
 	
@@ -657,7 +681,7 @@ module Base
 		AnimNode:Loot,
 		Result:boosterpack_trash,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:PokemonCacheSD,
 	}
 
@@ -669,7 +693,7 @@ module Base
 		AnimNode:Loot,
 		Result:boosterpack_trash,
 		RemoveResultItem:true,
-		Time:100.0,
+		Time:0.2,
 		OnCreate:ShinyPokemonCacheSD,
 	}
 	

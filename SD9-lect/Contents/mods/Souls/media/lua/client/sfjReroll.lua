@@ -5,6 +5,7 @@
 ----------------------------------------------
 local ItemGenerator = require('SoulForgedJewelryItemGeneration')
 local EventHandlers = require('SoulForgedJewelryEventHandlers')
+local BuffSystem = require('SoulForgedJewelryBuffs')
 
 -- Helper function to check if table contains a value
 local function table_contains(table, value)
@@ -143,17 +144,39 @@ end
 
 local function sfjUpgrade(player, item, tier)
 	local playerInv = getSpecificPlayer(0):getInventory()
-	item:getModData().Tier = tier
-	item:setName(upgradeTier(item:getName()))
-	for i=1, tier-1 do
+	local buffs = item:getModData().SoulBuffs
+	local numBuffs = #buffs
+
+	if countItems(playerObj, "SoulForge.SoulShardT"..tier) < (tier-1)*numBuffs then return end
+	if countItems(playerObj, "SoulForge.WeightedDiceT"..tier) < (tier-1)*numBuffs then return end
+	if countItems(playerObj, "Base.ScrapMetal") < (tier)^2 * numBuffs then return end
+
+	for i=1, (tier-1) * numBuffs do
 		playerInv:RemoveOneOf("SoulForge.SoulShardT"..tier)
 	end
-	for i=1, tier-1 do
+	for i=1, (tier-1) * numBuffs do
 		playerInv:RemoveOneOf("SoulForge.WeightedDiceT"..tier)
 	end
-	for i=1,(tier)^2 do
+	for i=1, (tier)^2 * numBuffs do
 		playerInv:RemoveOneOf("Base.ScrapMetal")
 	end
+	
+	if numBuffs > 1 then
+		local iMD = item:getModData()
+		for _, buff in ipairs(iMD.SoulBuffs) do
+			iMD.SoulBuffTiers[buff] = tier
+		end
+		iMD.Tier = tier
+		--item:setName(upgradeTier(item:getName()))	
+	else
+		--item:getModData().Tier = tier
+		BuffSystem.setBuffTier(item, buffs[1], tier)
+		-- Clear NameModified flag so name can be updated
+		item:getModData().NameModified = nil
+		ItemGenerator.SetResultName(item)
+		--item:setName(upgradeTier(item:getName()))	
+	end
+	
 end
 
 local function sfjUpgradeContext(player, context, items)
@@ -166,9 +189,11 @@ local function sfjUpgradeContext(player, context, items)
         if not item:isInPlayerInventory() or item:isEquipped() or item:isFavorite() or item:getContainer():getType() ~= "none" then return end -- item must be in inventory
         local iTier = item:getModData().Tier
         local iBuffs = item:getModData().SoulBuffs
+        local numBuffs = 1
+		if iBuffs and #iBuffs > 1 then numBuffs = #iBuffs end
         
-        -- Prevent upgrade for items with multiple buffs
-        if iTier and iTier < 5 and iBuffs and #iBuffs == 1 and not table_contains(iBuffs, "SoulStrength") then 
+        -- Prevent upgrade for items with SoulStrength
+		if iTier and iTier < 5 and iBuffs and #iBuffs == 1 and not table_contains(iBuffs, "SoulStrength") then 
             local sfj_upgrade = context:addOption("Upgrade [T" .. iTier .. "] SoulForged Jewelry to [T" .. iTier+1 .. "]", player, sfjUpgrade, item, iTier+1)
             local tooltip = ISWorldObjectContextMenu.addToolTip();
             tooltip.description = gold .. "Material required for upgrade:"
@@ -177,18 +202,25 @@ local function sfjUpgradeContext(player, context, items)
             itemToolTipMats(tooltip, "SoulForge.SoulShardT"..iTier+1, sfj_upgrade, iTier)
             sfj_upgrade.toolTip = tooltip
             break
-        elseif iTier and iTier < 5 and iBuffs and #iBuffs > 0 and table_contains(iBuffs, "SoulStrength") then
+        elseif iTier and iTier < 5 and iBuffs and #iBuffs > 1 and not table_contains(iBuffs, "SoulStrength") then 
+            local materialCostMultiplier = numBuffs
+            local scrapCost = (iTier+1)^2 * materialCostMultiplier
+            local shardCost = iTier * materialCostMultiplier
+            local diceCost = iTier * materialCostMultiplier
+
+            local sfj_upgrade = context:addOption("Upgrade [T" .. iTier .. "] SoulForged Jewelry to [T" .. iTier+1 .. "]", player, sfjUpgrade, item, iTier+1)
+            local tooltip = ISWorldObjectContextMenu.addToolTip();
+            tooltip.description = gold .. "Material required for upgrade:"
+            itemToolTipMats(tooltip, "Base.ScrapMetal", sfj_upgrade, scrapCost*#iBuffs)
+            itemToolTipMats(tooltip, "SoulForge.WeightedDiceT"..iTier+1, sfj_upgrade, diceCost*#iBuffs)
+            itemToolTipMats(tooltip, "SoulForge.SoulShardT"..iTier+1, sfj_upgrade, shardCost*#iBuffs)
+            sfj_upgrade.toolTip = tooltip
+            break
+        elseif iTier and iTier < 5 and iBuffs and table_contains(iBuffs, "SoulStrength") then
             local sfj_no_upgrade = context:addOption("Cannot Upgrade", player)
             sfj_no_upgrade.notAvailable = true
             local tooltip = ISWorldObjectContextMenu.addToolTip()
             tooltip.description = red .. "SoulStrength items cannot be upgraded."
-            sfj_no_upgrade.toolTip = tooltip
-            break
-        elseif iTier and iTier < 5 and iBuffs and #iBuffs > 1 then
-            local sfj_no_upgrade = context:addOption("Cannot Upgrade", player)
-            sfj_no_upgrade.notAvailable = true
-            local tooltip = ISWorldObjectContextMenu.addToolTip()
-            tooltip.description = red .. "Multi-buff items cannot be upgraded."
             sfj_no_upgrade.toolTip = tooltip
             break
         end

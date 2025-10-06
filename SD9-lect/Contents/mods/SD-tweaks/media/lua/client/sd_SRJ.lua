@@ -12,8 +12,20 @@ end
 
 local sd_original_update = ISCraftAction.update
 function ISCraftAction:update()
+	--[[if self.craftTimer and self.recipe and self.recipe:getOriginalname() == "Transcribe Journal" and self.item:getType() == "SkillRecoveryBoundJournal" then
+		self.changesMade = true
+	end]]
 	sd_original_update(self)
 	if self.recipe and self.recipe:getOriginalname() == "Transcribe Journal" and self.item:getType() == "SkillRecoveryBoundJournal" then
+	
+		self.craftTimer = self.craftTimer + getGameTime():getMultiplier()
+		self.changesMade = true
+		
+		if self.craftTimer <= 0 then
+            self.craftTimer = 10
+            self.changesMade = false
+		end
+	
 		local itemSRJ = self.item:getModData()["SRJ"]
 		local gmdSRJ = ModData.getOrCreate(getOnlineUsername().."SRJ_SD8")
 		if itemSRJ then

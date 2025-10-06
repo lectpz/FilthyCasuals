@@ -49,12 +49,13 @@ function ISInventoryTransferAction:new(character, item, srcContainer, destContai
 end
 
 SoulForgedJewelryOnCreate = EventHandlers.SoulForgedJewelryOnCreate
+SoulForgedJewelryOnCreateRecipe = EventHandlers.SoulForgedJewelryOnCreateRecipe
 function SoulForgedJewelryOnCreateCache(items, result, player)
     local cacheItem = items:get(0)
     local tier = tonumber(string.match(cacheItem:getType(), "T(%d+)"))
 	local forcedTier = nil
 	
-	local rolls = 3
+	local rolls = 1
 	if tier == 6 then rolls = 1 forcedTier = 6 end
     
     for i=1,rolls do

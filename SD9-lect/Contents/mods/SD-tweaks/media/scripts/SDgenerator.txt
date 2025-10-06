@@ -1,22 +1,14 @@
 module SD
 {	
 	
-	item Generator
-	{
-		DisplayName = Generator (SD),
-		DisplayCategory = Electronics,
-		Type = Normal,
-		Weight = 40,
-		Icon = Generator,
-		ConditionMax = 100,
-		MetalValue = 500,
-		RequiresEquippedBothHands = TRUE,
-		Tooltip = Tooltip_Generator,
-		Tags = HeavyItem;Generator;HasMetal;IgnoreZombieDensity;ShowCondition,
-		WorldObjectSprite = industry_tk_02_3,
-		ConditionLowerChanceOneIn = 30,
-		SoundRadius = 20,
-		SoundVolume = 1,
+	item FuelExtender
+    {
+        DisplayCategory = Mechanics,
+        Weight	=	5.0,
+        Type	=	Normal,
+        DisplayName	= Extended Fuel Tank,
+        Icon	=	CarGastank,
+        WorldStaticModel = BigGasTank,
 	}
 	
 }

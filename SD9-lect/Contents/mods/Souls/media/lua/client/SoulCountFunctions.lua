@@ -562,34 +562,47 @@ function OnCreate_unforgeMainHand(items, result, player)
 			returnBrokenWeapon:setHaveBeenRepaired(100)
 			playerInv:AddItem(returnBrokenWeapon)
 		end
-		local p1_desc = weaponModData.p1_desc or nil
-		local p2_desc = weaponModData.p2_desc or nil
-		local s1_desc = weaponModData.s1_desc or nil
-		local s2_desc = weaponModData.s2_desc or nil
+		local prefix1 = weaponModData.prefix1 or nil
+		local prefix2 = weaponModData.prefix2 or nil
+		local suffix1 = weaponModData.suffix1 or nil
+		local suffix2 = weaponModData.suffix2 or nil
 		
-		if p1_desc then 
+		if prefix1 then 
 			if wTier >= 1 then playerInv:AddItem("SoulForge.SoulCrystalT1") end
 			if wTier >= 2 then playerInv:AddItem("SoulForge.SoulCrystalT2") end
 			if wTier >= 3 then playerInv:AddItem("SoulForge.SoulCrystalT3") end
 			--playerInv:AddItem("SoulForge.SoulCrystalT4")
 		end
-		if p2_desc then 
+		if prefix2 then 
 			if wTier >= 1 then playerInv:AddItem("SoulForge.SoulCrystalT1") end
 			if wTier >= 2 then playerInv:AddItem("SoulForge.SoulCrystalT2") end
 			if wTier >= 3 then playerInv:AddItem("SoulForge.SoulCrystalT3") end
 			if wTier >= 4 then playerInv:AddItem("SoulForge.SoulCrystalT4") end
 		end
-		if s1_desc then 
+		if suffix1 then 
 			if wTier >= 1 then playerInv:AddItem("SoulForge.SoulCrystalT1") end
 			if wTier >= 2 then playerInv:AddItem("SoulForge.SoulCrystalT2") end
 			if wTier >= 3 then playerInv:AddItem("SoulForge.SoulCrystalT3") end
 			--playerInv:AddItem("SoulForge.SoulCrystalT4")
 		end
-		if s2_desc then 
+		if suffix2 then 
 			if wTier >= 1 then playerInv:AddItem("SoulForge.SoulCrystalT1") end
 			if wTier >= 2 then playerInv:AddItem("SoulForge.SoulCrystalT2") end
 			if wTier >= 3 then playerInv:AddItem("SoulForge.SoulCrystalT3") end
 			if wTier >= 4 then playerInv:AddItem("SoulForge.SoulCrystalT4") end
+			if suffix2 == "COG" then
+				playerInv:AddItems("Base.cogToken", wTier*2)
+				playerInv:AddItems("Base.rangerToken", math.floor(wTier/2))
+				playerInv:AddItems("Base.vwToken", math.floor(wTier/2))
+			elseif suffix2 == "Ranger" then
+				playerInv:AddItems("Base.cogToken", math.floor(wTier/2))
+				playerInv:AddItems("Base.rangerToken", wTier*2)
+				playerInv:AddItems("Base.vwToken", math.floor(wTier/2))
+			elseif suffix2 == "Voidwalker" then
+				playerInv:AddItems("Base.cogToken", math.floor(wTier/2))
+				playerInv:AddItems("Base.rangerToken", math.floor(wTier/2))
+				playerInv:AddItems("Base.vwToken", wTier*2)
+			end
 		end
 	end
 		
@@ -599,6 +612,7 @@ function OnCreate_unforgeMainHand(items, result, player)
 		local o_weaponRepair = weapon:getHaveBeenRepaired()
 		playerInv:Remove(weapon)
 		player:setPrimaryHandItem(nil)
+		player:setSecondaryHandItem(nil)
 		
 		local returnBrokenWeapon = InventoryItemFactory.CreateItem(weapon:getFullType())
 		--returnBrokenWeapon:copyModData(weaponModData)
@@ -662,6 +676,8 @@ function OnCreate_unforgeMainHand(items, result, player)
 		end
 	end
 	Events.OnPlayerUpdate.Add(waitToUnforge)
+	player:setPrimaryHandItem(nil)
+	player:setSecondaryHandItem(nil)
 end
 
 --------------------------------------------------------------------------------------------------------
@@ -941,20 +957,20 @@ function OnCreate_SoulShard(items, result, player)
 	local inv = player:getInventory()
 	local resultItem = result:getFullType()
 	
-	if resultItem == "SoulForge.SoulCrystalT1" then
-		--local tier = math.min(qualityTier, 1)
-		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT1")--..tier)
-	elseif resultItem == "SoulForge.SoulCrystalT2" then
-		--local tier = math.min(qualityTier, 2)
-		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT2")--..tier)
-	elseif resultItem == "SoulForge.SoulCrystalT3" then
-		--local tier = math.min(qualityTier, 3)
-		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT3")--..tier)
-	elseif resultItem == "SoulForge.SoulCrystalT4" then
-		--local tier = math.min(qualityTier, 4)
-		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT4")--..tier)
-	else
+	if resultItem == "SoulForge.SoulShardT5" then
 		--local tier = math.min(qualityTier, 5)
 		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT5")--..tier)
+	elseif resultItem == "SoulForge.SoulShardT4" then
+		--local tier = math.min(qualityTier, 4)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT4")--..tier)
+	elseif resultItem == "SoulForge.SoulShardT3" then
+		--local tier = math.min(qualityTier, 3)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT3")--..tier)
+	elseif resultItem == "SoulForge.SoulShardT2" then
+		--local tier = math.min(qualityTier, 2)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT2")--..tier)
+	else
+		--local tier = math.min(qualityTier, 1)
+		inv:AddItem("SoulForge."..maxValueName.."_EnhancerT1")--..tier)
 	end
 end

@@ -1,0 +1,12 @@
+module Base
+{
+    item WeaponSkinChanger
+    {
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = SD Melee Weapon Skin Changer,
+        DisplayCategory = Junk,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+}

@@ -69,6 +69,22 @@ local function getCustomTooltipText(item, baseTooltip)
         newTooltipText = newTooltipText .. getText("IGUI_IO_Owner") .. ": " .. owner
     end
 	
+	local isClothing = item:IsClothing()
+	if isClothing then
+		if item:getNbrOfCoveredParts() > 0 then
+			local canHaveHoles = item:getCanHaveHoles() 
+			local fabricType = item:getFabricType()
+
+			if canHaveHoles and fabricType then
+				newTooltipText = newTooltipText .. "\n\n" .."This item can be damaged and repaired."
+			elseif canHaveHoles and not fabricType then
+				newTooltipText = newTooltipText .. "\n\n" .. "This item can be damaged and cannot be repaired."
+			elseif not canHaveHoles then
+				newTooltipText = newTooltipText .. "\n\n" .. "This item cannot be damaged."
+			end
+		end
+	end
+	
 	if iMD.KillCount then
 		local o_scriptItem = ScriptManager.instance:getItem(item:getFullType())
 		weaponMaxCond = o_scriptItem:getConditionMax()

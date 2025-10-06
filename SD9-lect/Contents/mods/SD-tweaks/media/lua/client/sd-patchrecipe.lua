@@ -40,11 +40,15 @@ recipesToPatch["Make 97 Bushmaster Seat"] = true
 recipesToPatch["Make Bucket Of Concrete"] = true
 recipesToPatch["Redeem CDC Red Package"] = true
 recipesToPatch["Unpack Bundle of Crossbow Bolts"] = true
+recipesToPatch["Slice Frog"] = true
+recipesToPatch["Convert to Universal Pipe"] = true
 
 recipesToPatch["Divide Scrap Metal Into Bits"] = true
 recipesToPatch["Combine Scrap Metal Bits"] = true
 
 recipesToPatch["Gather Gunpowder HFO"] = true
+
+recipesToPatch["Craft Birchwood Tall Cabinet"] = true
 
 function patchConcreteBucket(items, result, player)
     local playerInv = player:getInventory()
@@ -60,7 +64,7 @@ end
 
 function OnTest_sellValuables(item)
 	local iMD = item:getModData()
-	if iMD.SoulBuff then 
+	if iMD.SoulBuff or iMD.Tier then 
 		return false
 	else
 		return true
@@ -121,6 +125,15 @@ function PokemonFullAlbumRedemption(items, result, player)
 	playerInv:AddItem("SoulForgeJewelery.EventJewelryCacheT5")
 end
 
+function protectFrogCompanion(item)
+	local player = getSpecificPlayer(0)
+	if player:HasTrait("SWFrogCompanion") then
+		return false
+	else
+		return true
+	end
+end
+
 local function patch_recipes()
     local patched = 0
     local start = Calendar.getInstance():getTimeInMillis()
@@ -144,6 +157,17 @@ local function patch_recipes()
                 recipe:setRemoveResultItem(true)
                 recipe:setLuaCreate("patchEmptyPropaneTank")
                 patched = patched + 1
+                print ("Patched \""..name.."\"..")
+			elseif name == "Craft Birchwood Tall Cabinet" then
+				recipe:setIsHidden(true)
+				recipe:setCanPerform("getYeetedToHell")
+				local result = recipe:getResult()
+				result:setType("ivery_BirchwoodTallCabinet")
+                patched = patched + 1
+                print ("Patched \""..name.."\"..")
+			elseif name == "Slice Frog" then
+				recipe:setLuaTest("protectFrogCompanion")
+				patched = patched + 1
                 print ("Patched \""..name.."\"..")
 			elseif name == "Redeem CDC Red Package" then
 				recipe:setIsHidden(true)
@@ -206,6 +230,8 @@ local function patch_recipes()
 				recipe:findSource("Base.ScrapMetalBits"):setCount(reqScrapMetalBits)
 				patched = patched + 1
 				print ("Patched \""..name.."\"..")
+			elseif name == "Convert to Universal Pipe" then
+				recipe:setLuaTest("OnTest_dontDestroySoulForgedGuns")
 			end
         end
 		
@@ -261,7 +287,7 @@ local function patch_recipes()
 			print ("Patched \""..name.."\"..")
 		end
 		
-		if recipe:getLuaCreate() == "Recipe.OnCreate.FirearmCleaning" then
+		--[[if recipe:getLuaCreate() == "Recipe.OnCreate.FirearmCleaning" then
 			--print(recipe:getLuaCreate())
 			--recipe:setLuaCreate("Recipe.OnCreate.FirearmCleaning")
 			--recipe:setLuaTest("OnTest_FirearmCleaning_SD")
@@ -272,6 +298,24 @@ local function patch_recipes()
 				print(rSource:get(0):setKeep(true))
 			--end
 			--print("==========GETSOURCE==============")
+		end]]
+		
+		if recipe:getLuaCreate() == "Recipe.OnCreate.FirearmCleaning" then
+			recipe:setIsHidden(true)
+			recipe:setCanPerform("getYeetedToHell")
+		end
+		
+		--[[local recipeModule = recipe:getModule()
+        if recipeModule == "ivery" then
+            recipe:setIsHidden(true)
+            recipe:setCanPerform("getYeetedToHell")
+        end]]
+		
+		local result = recipe:getResult()
+		if result:getModule() == "ivery" then
+            recipe:setIsHidden(true)
+            recipe:setCanPerform("getYeetedToHell")
+			print ("Patched \""..name.."\"..")
 		end
 		
     end

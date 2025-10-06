@@ -17,4 +17,39 @@ Sandbox_EN = {
 	Sandbox_RWC_table1 = "Tier 1 Loot Table",
 	Sandbox_RWC_table1_tooltip = "e.g. RMWeapons.PiroCraftKnife;RMWeapons.steinbeer;RMWeapons.club1;RMWeapons.MightCleaver;RMWeapons.bonkhammer;RMWeapons.club2;RMWeapons.spear1;RMWeapons.tanto;RMWeapons.Thawk;RMWeapons.ScrapMace1;RMWeapons.spikedleg;RMWeapons.RailSpike;RMWeapons.dexkama;RMWeapons.TrenchShovel;RMWeapons.IceAxe1;RMWeapons.beardedaxe;RMWeapons.Golok;RMWeapons.MeatHook;RMWeapons.hellokittyax;RMWeapons.FlangedMace;RMWeapons.HeavyCleaver;RMWeapons.glaive;RMWeapons.dagger1;RMWeapons.thunderbreaker;RMWeapons.Falx;RMWeapons.MagicMace",
 
+
+	Sandbox_SDGlobalRewards = "SD Global Objective Rewards",
+	
+	Sandbox_SDGlobalRewards_perfectlyBalanced = "Global Reward - Perfectly Balanced",
+	Sandbox_SDGlobalRewards_perfectlyBalanced_tooltip = "e.g. Base.Item1;Base.Item2",
+	
+	Sandbox_SDGlobalRewards_FilthyCasuals = "Global Reward - Filthy Casuals",
+	Sandbox_SDGlobalRewards_FilthyCasuals_tooltip = "e.g. Base.Item1;Base.Item2",
+
+	Sandbox_SDGlobalRewards_unquenchableThirst = "Global Reward - Unquenchable Thirst",
+	Sandbox_SDGlobalRewards_unquenchableThirst_tooltip = "e.g. Base.Item1;Base.Item2",
+	
+	Sandbox_SDGlobalRewards_SweatyTryhards = "Global Reward - Sweaty Tryhards",
+	Sandbox_SDGlobalRewards_SweatyTryhards_tooltip = "e.g. Base.Item1;Base.Item2",
+	
+	Sandbox_SDGlobalRewards_concertedEfforts = "Global Reward - Concerted Efforts",
+	Sandbox_SDGlobalRewards_concertedEfforts_tooltip = "e.g. Base.Item1;Base.Item2",
+	
+	Sandbox_SDGlobalRewards_T1 = "Faction Reward - Tier 1",
+	Sandbox_SDGlobalRewards_T1_tooltip = "e.g. Base.Item1;Base.Item2",
+	
+	Sandbox_SDGlobalRewards_T2 = "Faction Reward - Tier 2",
+	Sandbox_SDGlobalRewards_T2_tooltip = "e.g. Base.Item1;Base.Item2",
+	
+	Sandbox_SDGlobalRewards_T3 = "Faction Reward - Tier 3",
+	Sandbox_SDGlobalRewards_T3_tooltip = "e.g. Base.Item1;Base.Item2",
+	
+	Sandbox_SDGlobalRewards_T4 = "Faction Reward - Tier 4",
+	Sandbox_SDGlobalRewards_T4_tooltip = "e.g. Base.Item1;Base.Item2",
+	
+	Sandbox_SDGlobalRewards_T5 = "Faction Reward - Tier 5",
+	Sandbox_SDGlobalRewards_T5_tooltip = "e.g. Base.Item1;Base.Item2",
+	
+	Sandbox_SDGlobalRewards_T6 = "Faction Reward - Tier 6",
+	Sandbox_SDGlobalRewards_T6_tooltip = "e.g. Base.Item1;Base.Item2",
 }

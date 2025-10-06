@@ -136,15 +136,15 @@ function OnZombieDeadSouls(zombie)
                     4*multiVW, 
 					}
 	
-	local t1roll = ZombRand(math.max(250 - 0.2*(luck + toxicMod + controlMod),75))--ZombRand(SandboxVars.OZD.roll1) -- rolls an integer between 0-roll1
+	local t1roll = ZombRand(math.max(200 - 0.2*(luck + toxicMod + controlMod),30))--ZombRand(SandboxVars.OZD.roll1) -- rolls an integer between 0-roll1
 	--player:Say(tostring(SandboxVars.OZD.roll1))
-	local t2roll = ZombRand(math.max(300 - 0.4*(luck + toxicMod + controlMod),100)) -- rolls an integer between 0-roll2 
+	local t2roll = ZombRand(math.max(250 - 0.4*(luck + toxicMod + controlMod),35)) -- rolls an integer between 0-roll2 
 	--player:Say(tostring(SandboxVars.OZD.roll2))
-	local t3roll = ZombRand(math.max(350 - 0.6*(luck + toxicMod + controlMod),125)) -- rolls an integer between 0-roll3 
+	local t3roll = ZombRand(math.max(300 - 0.6*(luck + toxicMod + controlMod),40)) -- rolls an integer between 0-roll3 
 	--player:Say(tostring(SandboxVars.OZD.roll3))
-	local t4roll = ZombRand(math.max(400 - 0.8*(luck + toxicMod + controlMod),150))
+	local t4roll = ZombRand(math.max(350 - 0.8*(luck + toxicMod + controlMod),45))
 	--player:Say(tostring(SandboxVars.OZD.roll4))
-	local t5roll = ZombRand(math.max(450 - 1.0*(luck + toxicMod + controlMod),175))	
+	local t5roll = ZombRand(math.max(400 - 1.0*(luck + toxicMod + controlMod),50))	
 	
 -- function to add item
 	local function itemdrop(item)
@@ -159,21 +159,21 @@ function OnZombieDeadSouls(zombie)
 	
 	--check if player is in event zone, if event enabled and inside the zone then use event rolls, otherwise use the 
 	if tierzone == 6 then
-		if t5roll == 0 and (ZombRand(tierzone) > 2) then
+		if t5roll == 0 then
 			itemdrop(table5[t5])
 			if toxic then itemdrop(getWeightedItem(dd_T5, dd_T5weight, ZombRand(1,getTotalTableWeight(dd_T5weight)))) end
-			if (control or ZombRand(tierzone) > 2) and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T5, dd_T5weight, ZombRand(1,getTotalTableWeight(dd_T5weight)))) end
+			if (control or ZombRand(tierzone) > 2) then itemdrop(getWeightedItem(dd_T5, dd_T5weight, ZombRand(1,getTotalTableWeight(dd_T5weight)))) end
 			if (ZombRand(tierzone) > 2) then itemdrop(getWeightedItem(VAitems_t5, VAweight_t5, ZombRand(1,getTotalTableWeight(VAweight_t5)))) end
-		elseif t4roll == 0 and (ZombRand(tierzone) > 2) then
+		elseif t4roll == 0 then
 			itemdrop(table4[t4])
 			if toxic 	and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T4, dd_T4weight, ZombRand(1,getTotalTableWeight(dd_T4weight)))) end
 			if (control or ZombRand(tierzone) > 2) and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T4, dd_T4weight, ZombRand(1,getTotalTableWeight(dd_T4weight)))) end
-			if (ZombRand(tierzone) > 2)  and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(VAitems_t4, VAweight_t4, ZombRand(1,getTotalTableWeight(VAweight_t4)))) end
+			if (ZombRand(tierzone) > 2)  then itemdrop(getWeightedItem(VAitems_t4, VAweight_t4, ZombRand(1,getTotalTableWeight(VAweight_t4)))) end
 		elseif t3roll == 0 then
 			itemdrop(table3[t3])
 			if toxic 	and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T3, dd_T3weight, ZombRand(1,getTotalTableWeight(dd_T3weight)))) end
 			if (control or ZombRand(tierzone) > 2) and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T3, dd_T3weight, ZombRand(1,getTotalTableWeight(dd_T3weight)))) end
-			if (ZombRand(tierzone) > 2)  and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(VAitems_t3, VAweight_t3, ZombRand(1,getTotalTableWeight(VAweight_t3)))) end
+			if (ZombRand(tierzone) > 2)  then itemdrop(getWeightedItem(VAitems_t3, VAweight_t3, ZombRand(1,getTotalTableWeight(VAweight_t3)))) end
 		elseif t2roll == 0 then
 			itemdrop(table2[t2])
 		elseif t1roll == 0 then
@@ -181,21 +181,21 @@ function OnZombieDeadSouls(zombie)
 		end
 		
 	elseif tierzone == 5 then
-		if t5roll == 0 and (ZombRand(tierzone) > 2) then
+		if t5roll == 0 then
 			itemdrop(table5[t5])
 			if toxic then itemdrop(getWeightedItem(dd_T5, dd_T5weight, ZombRand(1,getTotalTableWeight(dd_T5weight)))) end
-			if (control or ZombRand(tierzone) > 2) and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T5, dd_T5weight, ZombRand(1,getTotalTableWeight(dd_T5weight)))) end
+			if (control or ZombRand(tierzone) > 2) then itemdrop(getWeightedItem(dd_T5, dd_T5weight, ZombRand(1,getTotalTableWeight(dd_T5weight)))) end
 			if (ZombRand(tierzone) > 2) then itemdrop(getWeightedItem(VAitems_t5, VAweight_t5, ZombRand(1,getTotalTableWeight(VAweight_t5)))) end
-		elseif t4roll == 0 and (ZombRand(tierzone) > 2) then
+		elseif t4roll == 0 then
 			itemdrop(table4[t4])
 			if toxic 	and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T4, dd_T4weight, ZombRand(1,getTotalTableWeight(dd_T4weight)))) end
 			if (control or ZombRand(tierzone) > 2) and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T4, dd_T4weight, ZombRand(1,getTotalTableWeight(dd_T4weight)))) end
-			if (ZombRand(tierzone) > 2)  and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(VAitems_t4, VAweight_t4, ZombRand(1,getTotalTableWeight(VAweight_t4)))) end
+			if (ZombRand(tierzone) > 2)  then itemdrop(getWeightedItem(VAitems_t4, VAweight_t4, ZombRand(1,getTotalTableWeight(VAweight_t4)))) end
 		elseif t3roll == 0 then
 			itemdrop(table3[t3])
 			if toxic 	and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T3, dd_T3weight, ZombRand(1,getTotalTableWeight(dd_T3weight)))) end
 			if (control or ZombRand(tierzone) > 2) and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T3, dd_T3weight, ZombRand(1,getTotalTableWeight(dd_T3weight)))) end
-			if (ZombRand(tierzone) > 2)  and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(VAitems_t3, VAweight_t3, ZombRand(1,getTotalTableWeight(VAweight_t3)))) end
+			if (ZombRand(tierzone) > 2)  then itemdrop(getWeightedItem(VAitems_t3, VAweight_t3, ZombRand(1,getTotalTableWeight(VAweight_t3)))) end
 		elseif t2roll == 0 then
 			itemdrop(table2[t2])
 		elseif t1roll == 0 then
@@ -203,16 +203,16 @@ function OnZombieDeadSouls(zombie)
 		end
 		
 	elseif tierzone == 4 then
-		if t4roll == 0 and (ZombRand(tierzone) > 2) then
+		if t4roll == 0 then
 			itemdrop(table4[t4])
 			if toxic then itemdrop(getWeightedItem(dd_T4, dd_T4weight, ZombRand(1,getTotalTableWeight(dd_T4weight)))) end
-			if (control or ZombRand(tierzone) > 2) and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T4, dd_T4weight, ZombRand(1,getTotalTableWeight(dd_T4weight)))) end
+			if (control or ZombRand(tierzone) > 2) then itemdrop(getWeightedItem(dd_T4, dd_T4weight, ZombRand(1,getTotalTableWeight(dd_T4weight)))) end
 			if (ZombRand(tierzone) > 2) then itemdrop(getWeightedItem(VAitems_t4, VAweight_t4, ZombRand(1,getTotalTableWeight(VAweight_t4)))) end
 		elseif t3roll == 0 then
 			itemdrop(table3[t3])
 			if toxic 	and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T3, dd_T3weight, ZombRand(1,getTotalTableWeight(dd_T3weight)))) end
 			if (control or ZombRand(tierzone) > 2) and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T3, dd_T3weight, ZombRand(1,getTotalTableWeight(dd_T3weight)))) end
-			if (ZombRand(tierzone) > 2) and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(VAitems_t3, VAweight_t3, ZombRand(1,getTotalTableWeight(VAweight_t3)))) end
+			if (ZombRand(tierzone) > 2) then itemdrop(getWeightedItem(VAitems_t3, VAweight_t3, ZombRand(1,getTotalTableWeight(VAweight_t3)))) end
 		elseif t2roll == 0 then
 			itemdrop(table2[t2])
 		elseif t1roll == 0 then
@@ -223,7 +223,7 @@ function OnZombieDeadSouls(zombie)
 		if t3roll == 0 then
 			itemdrop(table3[t3])
 			if toxic then itemdrop(getWeightedItem(dd_T3, dd_T3weight, ZombRand(1,getTotalTableWeight(dd_T3weight)))) end
-			if control and ZombRand(7-tierzone) == 0 then itemdrop(getWeightedItem(dd_T3, dd_T3weight, ZombRand(1,getTotalTableWeight(dd_T3weight)))) end
+			if control then itemdrop(getWeightedItem(dd_T3, dd_T3weight, ZombRand(1,getTotalTableWeight(dd_T3weight)))) end
 			if isToxicControl() then itemdrop(getWeightedItem(VAitems_t3, VAweight_t3, ZombRand(1,getTotalTableWeight(VAweight_t3)))) end
 		elseif t2roll == 0 then
 			itemdrop(table2[t2])

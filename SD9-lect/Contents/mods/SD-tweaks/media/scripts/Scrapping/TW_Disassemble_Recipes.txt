@@ -1,0 +1,87 @@
+module TW
+{
+	imports
+	{
+		Base,
+	}
+        recipe Disassamble Metal Armor
+    {
+	[Recipe.GetItemTypes.MetalArmor],
+		keep MetalWorkbench,
+	
+	NoBrokenItems			: False,
+	AllowDestroyedItem      : true,
+	Result 					: ScrapMetal,
+	OnTest:Recipe.OnTest.IsFavorite,		
+	Time 					: 100,
+	Category 				: Scrapping,
+	SkillRequired 			: MetalWelding=2,
+	OnGiveXP 				: Give2MWXP,
+	AnimNode 				: Disassemble,
+	CanBeDoneFromFloor      : TRUE,
+	Prop1 					: Screwdriver,
+	Prop2 					: Source=1,
+	NeedToBeLearn			: true,
+    }
+	recipe Disassamble Gun
+    {
+	[Recipe.GetItemTypes.Gun]/PM3RAK/SVDragunov/HeadhunterRifle/DeadlyHeadhunterRifle/VarmintRifle/HuntingRifle/AssaultRifle/AssaultRifle2/AK103/AK74/HenryRepeatingBigBoy/GrozaOTs14/M1918BAR/M1Garand/SIG550/StG44/MosinNagant/L2A1/EM2/L85A1/ASVal/BarrettM82A1/SVDDragunov/Galil/VSSVintorez/TheNailGun/AK74U/FranchiLF57/MiniUzi/P90/PM63RAK/MP28/TrenchGun/Pistol/Pistol2/Pistol3/Revolver_Short/Revolver/Revolver_Long/Shotgun/DoubleBarrelShotgun/ShotgunSawnoff/DoubleBarrelShotgunSawnoff/Glock/FiveSeven/Luger/WaltherPPK/Makarov/Derringer/PLR16/MosinNagantObrez/OA93/ColtCavalryRevolver/CrossbowCompound/M4A1/Remington1100/BeckerRevolver/PM3RAK/SVDragunov/FG42/Mossberg500/Mossberg500Super/PneumaticBlowgun/Ruger1022/RugerGP100/SIGSauer/Springfield1861/ThompsonM1921/MG42/CrossbowPistol/CrossbowReverseDraw/Blunderbuss/BrowningBLR/Chiappa1887/Chiappa1887Sawnoff/HighStandardSentinel/JenningsJ22/Marlin39A/FlintlockPistol/Musket/Musketoon/KCM_Handmade/KCM_Handmade02/UMP/marlin1894/HKUSP/FNFAL/marlin366Custom/SCARH2/SCARH/billythekid/PGMHecate,
+		keep MetalWorkbench,
+	
+	NoBrokenItems			: False,
+	AllowDestroyedItem      : true,
+	Result 					: GunParts,
+	Time 					: 100,
+	Category 				: Scrapping,
+	SkillRequired 			: MetalWelding=4,
+	OnCreate                : SD_DeconstructGun_OnCreate,
+	OnGiveXP 				: Give10MWXP,
+	AnimNode 				: Disassemble,
+	CanBeDoneFromFloor      : TRUE,
+	Prop1 					: Screwdriver,
+	Prop2 					: Source=1,
+	NeedToBeLearn			: true,
+	OnTest					: OnTest_dontDestroySoulForgedGuns,
+    }
+        recipe Disassemble Gun Magazine
+    {
+    	[Recipe.GetItemTypes.GunMagazine]/M14Clip/556Clip/308Clip/223Clip/44Clip/45Clip/9mmClip/545Clip/762Clip/9mmBoxClip/ScarHMag/FNFALMag/USPMag/UMPMag/VectorMag/223Clip10/9mmClip8/45Clip13/792x33Clip/50BMGClip/57Clip/380Clip/PM63RAK_Extended/PM63RAK_GripExtended/PM63RAK_Extended_Melee/Mag9ExtSm/Mag9ExtLg/Mag57ExtLg/MagLugerExtSm/MagLugerExtLg/Mag380ExtSm/Mag380ExtLg/Mag44ExtSm/Mag44ExtLg/Mag45ExtSm/Mag45ExtLg/Mag223ExtLg/MagMosinNagantExtSm/MagPM63RAKExtLg/MagM1GarandExtSm/Mag3006ExtLg/Mag308ExtSm/MagSVDExtSm/Mag50BMGExtSm/MagMP28ExtLg/Mag9x39ExtLg/3006BlocClip/TheNailGunClip/P90Clip/3006Clip/22SpeedLoader/308Clip5/38SpeedLoader5/38SpeedLoader7/44SpeedLoader/45SpeedLoader/762x51Clip/762x51Clip20/762x51Clip30/792Clip/9mmClip32/22Clip/22Clip10/762x54r/9x39Clip/762x54rClip/9x39Clip20/45Clip20,
+		keep MetalWorkbench,
+		
+	NoBrokenItems			: False,
+	AllowDestroyedItem      : true,
+        Result           	: Spring,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 100.0,,
+		OnGiveXP 				: Give10MWXP,
+		Category 		        : Scrapping,
+		SkillRequired 			: MetalWelding=3,
+		OnCreate                : DeconstructGunMag_OnCreate,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+    }
+	recipe Disassemble Motor
+    {
+
+    	Motor,
+		keep MetalWorkbench,
+
+		NoBrokenItems			: False,
+		AllowDestroyedItem      : true,
+        Result           		: MetalParts=15,
+        OnTest:Recipe.OnTest.IsFavorite,
+        Time             		: 100.0,
+		OnGiveXP 				: Give10MWXP,
+		Category 		        : Scrapping,
+		SkillRequired    		: Mechanics=3,
+		OnCreate                : DeconstructMotor_OnCreate,
+		AnimNode 				: Disassemble,
+        Prop1					: Screwdriver,
+        Prop2					: Source=1,
+		CanBeDoneFromFloor      : TRUE,
+		NeedToBeLearn: true,
+    }
+}

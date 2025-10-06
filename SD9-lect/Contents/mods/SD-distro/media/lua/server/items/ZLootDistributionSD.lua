@@ -63,7 +63,7 @@ local function preDistributionMergeSD5()
 		PawnShopKnives = 0.01,
 		BarCounterWeapon = 0.001,
 		GunStoreAmmunition = 0.01,
-		WardrobeMan = 0.000001,
+		--WardrobeMan = 0.000001,
 		GunStoreDisplayCase = 0.02,
 		PoliceStorageAmmunition = 0.01,
 		ArmyStorageGuns = 0.01,
@@ -130,7 +130,7 @@ local function preDistributionMergeSD5()
 		GunStoreShelf= 0.001,
 		PoliceStorageGuns = 0.001,
 		ArmyStorageGuns = 0.001,
-		WardrobeMan = 0.0001,
+		WardrobeMan = 0.00001,
 	}
 	
 	for distribution, chance in pairs(AmmoCacheData) do
@@ -147,6 +147,7 @@ local function preDistributionMergeSD5()
 		ArmyStorageMedical = 0.001,
 		MedicalStorageTools = 0.001,
 		MedicalClinicTools = 0.001,
+		WardrobeMan = 0.000001,
 	}
 	
 	for distribution, chance in pairs(medData) do
@@ -181,8 +182,7 @@ local function preDistributionMergeSD5()
 	end
 ----------------------------------------------------------------------------------------		
 	local jewelryData = {
-		WardrobeWoman = 0.00001,
-		WardrobeMan = 0.00001,
+		WardrobeWoman = 0.00000000001,
 		CampingStoreGear = 0.001,
 		FireStorageTools = 0.001,
 		GigamartTools = 0.001,
@@ -212,8 +212,7 @@ local function preDistributionMergeSD5()
 		WhiskeyBottlingFull = 0.0000001,
 		JanitorMisc = 0.000001,
 		PrisonCellRandom = 0.0001,
-		WardrobeWoman = 0.00001,
-		WardrobeMan = 0.00001,
+		WardrobeWoman = 0.00000000001,
 		CampingStoreGear = 0.001,
 		FireStorageTools = 0.001,
 		GigamartTools = 0.001,

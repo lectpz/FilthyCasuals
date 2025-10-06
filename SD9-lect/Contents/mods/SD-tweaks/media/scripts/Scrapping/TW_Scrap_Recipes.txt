@@ -13,34 +13,29 @@ module TW
 
         Result           		: ScrapMetal,
         OnTest:Recipe.OnTest.IsFavorite,
-        Time             		: 75.0,
-	    Sound 					: ScrapStuff,
+        Time             		: 10.0,
 		OnGiveXP 				: Give2MWXP,
 		Category 		        : Scrapping,
 		CanBeDoneFromFloor      : TRUE,
 		NeedToBeLearn: true,
-		Override:true,
     }
 	recipe Deconstruct Small Items
     {
 
-    	Fork/Pen/RedPen/BluePen/Spoon/Tweezers/Corkscrew/Locket/LargeBolt/PizzaCutter/ChokeTubeFull/ChokeTubeImproved/GunLight/Laser/IronSight/x2Scope/x4Scope/x8Scope/RedDot/BipodFG42/BipodFG42Open/BipodMG42/BipodMG42Open/Compensator/MuzzleBrake/IronSightsFG42/ScopeFG42/HoloSight/ReflexSight/ProOpticScope/CarryHandle/VertGrip/AngleGrip/LaserRed/LaserGreen/LaserNoLight/WeaponLight/WeaponLightMedium/HeadhunterScope/CompensatorHandgun/FiberglassStock/MuzzleBrakeHandgun/PEMScope/RecoilPad/SkeletonizedStock/SuppressorPistol/SuppressorRifle/SuppressorSniper/TacticalGrip,
+    	Fork/Pen/RedPen/BluePen/Spoon/Tweezers/Corkscrew/Locket/LargeBolt/PizzaCutter/ChokeTubeFull/ChokeTubeImproved/GunLight/Laser/IronSight/x2Scope/x4Scope/x8Scope/RedDot/BipodFG42/BipodFG42Open/BipodMG42/BipodMG42Open/Compensator/MuzzleBrake/IronSightsFG42/ScopeFG42/HoloSight/ReflexSight/ProOpticScope/CarryHandle/VertGrip/AngleGrip/LaserRed/LaserGreen/LaserNoLight/WeaponLight/WeaponLightMedium/HeadhunterScope/CompensatorHandgun/FiberglassStock/MuzzleBrakeHandgun/PEMScope/RecoilPad/SkeletonizedStock/SuppressorPistol/SuppressorRifle/SuppressorSniper/TacticalGrip/PSO1Scope/PistolScope/UniversalOpticalSight/ACOG,
 		keep MetalWorkbench,
 
 		NoBrokenItems			: false,
 		AllowDestroyedItem      : true,
         Result           		: MetalParts=1,
         OnTest:Recipe.OnTest.IsFavorite,
-        Time             		: 75.0,
-	    Sound 					: ScrapStuff,
+        Time             		: 100.0,
 		OnGiveXP 				: Give2MWXP,
 		Category 		        : Scrapping,
 		AnimNode 				: Disassemble,
         Prop1					: Screwdriver,
         Prop2					: Source=1,
 		CanBeDoneFromFloor      : TRUE,
-		OnTest:Recipe.OnTest.IsFavorite,
-		Override:true,
 		NeedToBeLearn: true,
     }
 	recipe Deconstruct Medium Items
@@ -53,38 +48,32 @@ module TW
 		AllowDestroyedItem      : true,
         Result           		: MetalParts=3,
         OnTest:Recipe.OnTest.IsFavorite,
-        Time             		: 75.0,
-	    Sound 					: ScrapStuff,
+        Time             		: 100.0,
 		OnGiveXP 				: Give2MWXP,
 		Category 		        : Scrapping,
 		AnimNode 				: Disassemble,
         Prop1					: Screwdriver,
         Prop2					: Source=1,
 		CanBeDoneFromFloor      : TRUE,
-		OnTest:Recipe.OnTest.IsFavorite,
-		Override:true,
 		NeedToBeLearn: true,
     }
 	recipe Deconstruct Large Items
     {
 
-    	LugWrench/Jack/Saw/PaintbucketEmpty/GardenSaw/Chain/GunParts,
+    	LugWrench/Jack/Saw/PaintbucketEmpty/GardenSaw/Chain/GunParts/club1/club2/sawbat1/MorningStar/SpikedClub1/mace1/gnbat/ScrapMace1/WokPan,
 		keep MetalWorkbench,
 
 		NoBrokenItems			: false,
 		AllowDestroyedItem      : true,
         Result           		: MetalParts=5,
         OnTest:Recipe.OnTest.IsFavorite,
-        Time             		: 75.0,
-	    Sound 					: ScrapStuff,
+        Time             		: 100.0,
 		OnGiveXP 				: Give2MWXP,
 		Category 		        : Scrapping,
 		AnimNode 				: Disassemble,
         Prop1					: Screwdriver,
         Prop2					: Source=1,
 		CanBeDoneFromFloor      : TRUE,
-		OnTest:Recipe.OnTest.IsFavorite,
-		Override:true,
 		NeedToBeLearn: true,
     }
 	recipe Cut Metal into Wire
@@ -97,15 +86,13 @@ module TW
 		AllowDestroyedItem      : true,
         Result           		: Wire=2,
         OnTest:Recipe.OnTest.IsFavorite,
-        Time             		: 50.0,
-	    Sound 					: CutSheet,
+        Time             		: 250.0,
 		OnGiveXP 				: Give2MWXP,
 		Category 		        : Scrapping,
 		AnimNode 				: Disassemble,
         Prop1					: MetalCutter,
         Prop2					: Source=1,
 		CanBeDoneFromFloor      : False,
-		Override:true,
 		NeedToBeLearn: false,
     }
 }

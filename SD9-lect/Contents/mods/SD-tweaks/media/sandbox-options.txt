@@ -1,5 +1,14 @@
 VERSION = 1,
 
+option SDWelcomePackage.enabled
+{
+	type = boolean,
+	default = false,
+
+	page = SDWelcomePackage,
+	translation = SDWelcomePackage_enabled,
+}
+
 option SoulForge.JewelryDropRateT3
 {
 	type = integer, min = 1, max = 9999, default = 450,

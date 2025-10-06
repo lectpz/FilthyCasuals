@@ -47,13 +47,22 @@ local fridgetiledescriptions = {
 
 local containertilenames = {
 	"Space Crate",
+	"Kokiri Storage Amulet",
+	"Zora Storage Amulet",
+	"Goron Storage Amulet",
 }
 
 local containertiles = {
 	"Industry_1_62",
+	"blackwood5_46",
+	"blackwood5_47",
+	"blackwood5_48",
 }
 
 local containertiledescriptions = {
+	"130 capacity (organized)",
+	"130 capacity (organized)",
+	"130 capacity (organized)",
 	"130 capacity (organized)",
 }
 

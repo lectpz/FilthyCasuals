@@ -49,43 +49,44 @@ function gatherLogsSD(player)
 	end
 end
 
-local o_start = ISChopTreeAction.start
-function ISChopTreeAction:start()
-	local handItem = self.character:getPrimaryHandItem()
-	local wMD = handItem:getModData()
-	local isOwnSafeHouse = SafeHouse.hasSafehouse(self.character)
-	local tierzone, zone, x, y = checkZone()
+Events.OnGameStart.Add(function()
+	local o_start = ISChopTreeAction.start
+	function ISChopTreeAction:start()
+		local handItem = self.character:getPrimaryHandItem()
+		local isOwnSafeHouse = SafeHouse.hasSafehouse(self.character)
+		local tierzone, zone, x, y = checkZone()
 
-    if isOwnSafeHouse then
-        local shx1 = isOwnSafeHouse:getX()-15
-        local shy1 = isOwnSafeHouse:getY()-15
-        local shx2 = isOwnSafeHouse:getW() + shx1 + 30
-        local shy2 = isOwnSafeHouse:getH() + shy1 + 30
+		if isOwnSafeHouse then
+			local shx1 = isOwnSafeHouse:getX()-15
+			local shy1 = isOwnSafeHouse:getY()-15
+			local shx2 = isOwnSafeHouse:getW() + shx1 + 30
+			local shy2 = isOwnSafeHouse:getH() + shy1 + 30
 
-        if x >= shx1 and y >= shy1 and x <= shx2 and y <= shy2 then
-            isInSafeHouse = true
-        else
-            isInSafeHouse = false
-        end
-    end
-	
-	local t5TreeDamage = tonumber(SandboxVars.SDOnWeaponSwing.TreeDamageT5) or 0.4
-	local t6TreeDamage = tonumber(SandboxVars.SDOnWeaponSwing.TreeDamageT6) or 0.2
-	local newItem = InventoryItemFactory.CreateItem(handItem:getFullType())
-	local treeDmg = newItem:getTreeDamage()
-	
-	if treeDmg then
-		if isInSafeHouse then 
-			handItem:setTreeDamage(wMD.entDamage)
-		else
-			if tierzone == 5 then
-				handItem:setTreeDamage(math.floor(treeDmg * t5TreeDamage + 0.5))
-			elseif tierzone == 6 then
-				handItem:setTreeDamage(math.floor(treeDmg * t6TreeDamage + 0.5))
+			if x >= shx1 and y >= shy1 and x <= shx2 and y <= shy2 then
+				isInSafeHouse = true
 			else
-				handItem:setTreeDamage(treeDmg)
+				isInSafeHouse = false
 			end
 		end
+		
+		local t5TreeDamage = tonumber(SandboxVars.SDOnWeaponSwing.TreeDamageT5) or 0.4
+		local t6TreeDamage = tonumber(SandboxVars.SDOnWeaponSwing.TreeDamageT6) or 0.2
+		local newItem = InventoryItemFactory.CreateItem(handItem:getFullType())
+		local treeDmg = newItem:getTreeDamage()
+		
+		if treeDmg then
+			if isInSafeHouse then 
+				handItem:setTreeDamage(treeDmg)
+			else
+				if tierzone == 5 then
+					handItem:setTreeDamage(math.floor(treeDmg * t5TreeDamage + 0.5))
+				elseif tierzone == 6 then
+					handItem:setTreeDamage(math.floor(treeDmg * t6TreeDamage + 0.5))
+				else
+					handItem:setTreeDamage(treeDmg)
+				end
+			end
+		end
+		o_start(self)
 	end
-	o_start(self)
-end
+end)

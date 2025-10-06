@@ -5,6 +5,7 @@ local function resetCounter()
 end
 
 local function OnWeaponHitThumpable(playerObj, handWeapon, object)
+	if not handWeapon then return end
 	local weapon = handWeapon:getType()
 	if not weapon then return end
 	if weapon == "BareHands" then

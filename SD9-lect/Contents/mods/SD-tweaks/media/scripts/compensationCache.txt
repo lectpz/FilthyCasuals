@@ -1,17 +1,17 @@
 module Base
 {	
-	item 20250610compensationcache
+	item 20250910compensationcache
 	{
         Type                    = Normal,
         Weight                  = 1.0,
-        DisplayName             = 20250610 Compensation Cache,
+        DisplayName             = 20250910 Compensation Cache,
 		UseWhileEquipped 		= FALSE,
         Icon                    = i_RikuEmporiumBox_complete,
         WorldStaticModel        = RikuEmporiumBox_complete,
         Tooltip = Tooltip_Cache,
 	}
 	
-	item Empty20250610compensationcache
+	item Empty20250910compensationcache
 	{
         Type                    = Normal,
         Weight                  = 0.1,
@@ -21,16 +21,16 @@ module Base
         Tooltip = Tooltip_Cache_Empty,
 	}
 	
-	recipe Open 20250610 compensation Cache
+	recipe Open 20250910 compensation Cache
 	{
 		CanBeDoneFromFloor:true,
-		destroy 20250610compensationcache,
+		destroy 20250910compensationcache,
 		Sound:s_zeldaitem,
 		AnimNode:Loot,
-		Result:Empty20250610compensationcache,
+		Result:Empty20250910compensationcache,
 		RemoveResultItem:true,
 		Time:100.0,
-		OnCreate:OnCreate_20250610compensationcache,
-		OnCanPerform:OnCanPerform_20250610compensationcache,
+		OnCreate:OnCreate_20250910compensationcache,
+		OnCanPerform:OnCanPerform_20250910compensationcache,
 	}
 }

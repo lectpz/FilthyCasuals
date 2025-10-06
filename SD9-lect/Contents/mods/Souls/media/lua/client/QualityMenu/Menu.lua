@@ -72,8 +72,8 @@ function Menu.buildQualityTicketMenu(player, context, weapon, tickets)
         if Utils.contains(validStats, statKey) then
             table.sort(list, function(a, b) return (a.bonus or 0) > (b.bonus or 0) end)
 
-            local child = ISContextMenu:getNew(context)
-            local head  = submenu:addOption(Tooltip.getDisplayName(statKey) .. " Tickets")
+            local child = ISContextMenu:getNew(submenu)
+            local head  = submenu:addOption(Tooltip.getDisplayName(statKey) .. " Tickets", nil, player)
             submenu:addSubMenu(head, child)
 
             child:addOption("Apply All Tickets", nil, function()
@@ -81,7 +81,7 @@ function Menu.buildQualityTicketMenu(player, context, weapon, tickets)
 					local t = list[i]
                     Menu.applyQualityTicket(weapon, player, statKey, t, true)
                 end
-            end)
+            end, player)
 
 			for i=1,#list do
 				local t = list[i]

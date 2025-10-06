@@ -186,6 +186,7 @@ PublicTransportationContextMenuObjectName.onTakingTheBus = function(item, destin
 			item:getContainer():Remove(item);
 		end
         playSoundWhenMoveFrom(playerObj,x,y);
+		Events.OnPlayerUpdate.Add(Udderly_makeSafe)
     else
         playerObj:Say("Not a valid bus stop.");
     end
@@ -270,7 +271,7 @@ SD6_PublicTransportationContextMenuObjectName.doMenu = function(player, context,
 end
 
 local function overwriteSDBus()
-	Events.OnFillInventoryObjectContextMenu.Remove(PublicTransportationContextMenuObjectName.doMenu);
+	Events.OnPreFillInventoryObjectContextMenu.Remove(PublicTransportationContextMenuObjectName.doMenu);
 	Events.OnPreFillInventoryObjectContextMenu.Add(SD6_PublicTransportationContextMenuObjectName.doMenu);
 end
 Events.OnGameStart.Add(overwriteSDBus)

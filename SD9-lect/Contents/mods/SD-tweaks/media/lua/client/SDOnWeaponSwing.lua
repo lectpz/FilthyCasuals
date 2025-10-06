@@ -15,24 +15,6 @@ local function untierWeapon(player)
 end
 Events.OnPlayerMove.Add(untierWeapon)
 
-local isInSafeHouse = false
-local function SDCheckSafehouse(player, x, y)
-	local isOwnSafeHouse = SafeHouse.hasSafehouse(player)
-
-    if isOwnSafeHouse then
-        local shx1 = isOwnSafeHouse:getX()-15
-        local shy1 = isOwnSafeHouse:getY()-15
-        local shx2 = isOwnSafeHouse:getW() + shx1 + 30
-        local shy2 = isOwnSafeHouse:getH() + shy1 + 30
-
-        if x >= shx1 and y >= shy1 and x <= shx2 and y <= shy2 then
-            isInSafeHouse = true
-        else
-            isInSafeHouse = false
-        end
-    end
-end
-
 local function initMeleeStats(modData, inventoryItem, character)
 	if	modData.CriticalChance		== nil and
 		modData.CritDmgMultiplier	== nil and
@@ -62,6 +44,7 @@ local function initMeleeStats(modData, inventoryItem, character)
 end
 
 local function initRangedStats(modData, inventoryItem, character)
+	local newItem = InventoryItemFactory.CreateItem(inventoryItem:getFullType())
 	if 	modData.AimingPerkHitChanceModifier == nil and
 		modData.AimingPerkCritModifier 		== nil and
 		modData.AimingPerkRangeModifier 	== nil and
@@ -75,8 +58,6 @@ local function initRangedStats(modData, inventoryItem, character)
 		modData.MaxDamage					== nil and
 		modData.MaxHitCount					== nil then
 		
-		local newItem = InventoryItemFactory.CreateItem(inventoryItem:getFullType())
-		
 		modData.CriticalChance				= newItem:getCriticalChance()
 		modData.CritDmgMultiplier			= newItem:getCritDmgMultiplier()
 		modData.MinDamage					= newItem:getMinDamage()
@@ -88,6 +69,7 @@ local function initRangedStats(modData, inventoryItem, character)
 		modData.ReloadTime					= newItem:getReloadTime()
 		modData.RecoilDelay					= newItem:getRecoilDelay()
 		modData.Name						= character:getPrimaryHandItem():getName()
+		modData.MaxHitCount					= newItem:getMaxHitCount()
 		modData.SD7_1						= true
 	elseif not modData.SD7_1 then
 		modData.MinDamage					= inventoryItem:getScriptItem():getMinDamage()
@@ -95,6 +77,10 @@ local function initRangedStats(modData, inventoryItem, character)
 		modData.SD7_1 						= true
 	end
 	modData.HFO_MeleeSwap = nil
+
+	if newItem:isPiercingBullets() then
+		inventoryItem:setPiercingBullets(true)
+	end
 end
 
 local function SDOnWeaponSwing(character, handWeapon)
@@ -115,9 +101,10 @@ local function SDOnWeaponSwing(character, handWeapon)
 	local inventoryItem = handWeapon
 	local scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
 	local modData = inventoryItem:getModData()
-	--print(modData.zoneTier)
+	if modData.Augments and modData.Augments > 4 then modData.Augments = 4 end
+	--print(modData.zonename)
 	
-	if tierzone and not handWeapon:isRanged() and modData.zoneTier ~= tierzone then
+	if tierzone and not handWeapon:isRanged() and modData.zonename ~= zonename then
 		initMeleeStats(modData, inventoryItem, character)
 		
 		local basecritrate, basecritmulti, basemindmg, basemaxdmg, basename = modData.CriticalChance, modData.CritDmgMultiplier, modData.MinDamage, modData.MaxDamage, modData.Name
@@ -218,9 +205,9 @@ local function SDOnWeaponSwing(character, handWeapon)
 			end
 		end
 
-		modData.zoneTier = tierzone
-		--print(modData.zoneTier)
-	elseif tierzone and handWeapon:isRanged() and modData.zoneTier ~= tierzone then-- and handWeapon:getSwingAnim() ~= "Handgun" then
+		modData.zonename = zonename
+		--print(modData.zonename)
+	elseif tierzone and handWeapon:isRanged() and modData.zonename ~= zonename then-- and handWeapon:getSwingAnim() ~= "Handgun" then
 		initRangedStats(modData, inventoryItem, character)
 
 		local mdzMaxDmg = modData.mdzMaxDmg or 1
@@ -237,19 +224,14 @@ local function SDOnWeaponSwing(character, handWeapon)
 		local soulForgeAimingPerkRangeModifier = modData.soulForgeAimingPerkRangeModifier or 1
 		local soulForgeAimingTime = modData.soulForgeAimingTime or 1
 		local soulForgeProjectileCount = modData.soulForgeProjectileCount or 1
-		local isPiercingBullets = modData.isPiercingBullets or false
+		
 		local soulWrought = modData.SoulWrought or ""
-		local maxHit = inventoryItem:getMaxHitCount()
-		local soulForgeMaxHitCount = modData.MaxHitCount or maxHit
-
-		if isPiercingBullets then
-			inventoryItem:setPiercingBullets(false)
-			inventoryItem:setProjectileCount(soulForgeProjectileCount)
-		end
+		--local maxHit = inventoryItem:getMaxHitCount()
+		local soulForgeMaxHitCount = modData.MaxHitCount
 
 		if soulForgeMaxHitCount then
 			local mhc = math.max(soulForgeMaxHitCount-math.floor(tierzone/4),1)
-			if mhc ~= maxHit then inventoryItem:setMaxHitCount(mhc) end
+			inventoryItem:setMaxHitCount(mhc)
 		end
 		
 		local dmgMulti = tonumber(SandboxVars.SDOnWeaponSwing.RangedDamageMultiplier) or 1.0
@@ -294,7 +276,7 @@ local function SDOnWeaponSwing(character, handWeapon)
 		if modData.RecoilDelay then inventoryItem:setRecoilDelay(permaRecoil * (modData.RecoilDelay + attachedRecoil) * mdzRecoilDelay) end
 		
 		inventoryItem:setAimingTime(permaAiming * (modData.AimingTime + attachedAim) * mdzAimingTime * soulForgeAimingTime * perkMulti)
-		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier * soulForgeAimingPerkHitChanceModifier * perkMulti)
+		inventoryItem:setAimingPerkHitChanceModifier(modData.AimingPerkHitChanceModifier * soulForgeAimingPerkHitChanceModifier)-- * perkMulti)
 		inventoryItem:setAimingPerkCritModifier(soulForgeAimingPerkCritModifier * modData.AimingPerkCritModifier * perkMulti)
 		inventoryItem:setAimingPerkRangeModifier(modData.AimingPerkRangeModifier * soulForgeAimingPerkRangeModifier * perkMulti)
 		
@@ -306,8 +288,8 @@ local function SDOnWeaponSwing(character, handWeapon)
 			if modData.mdzPrefix then mdzPrefix = modData.mdzPrefix .. " " end
 			inventoryItem:setName(mdzPrefix .. soulWrought ..  modData.Name .. " [T" .. tostring(tierzone) .. "]")
 		end
-		modData.zoneTier = tierzone
-		--print(modData.zoneTier)
+		modData.zonename = zonename
+		--print(modData.zonename)
 	end
 end
 Events.OnWeaponSwing.Add(SDOnWeaponSwing)
@@ -321,6 +303,7 @@ local function SDWeaponCheck(character, inventoryItem)
 	local tierzone = checkZone()
 	
 	local modData = inventoryItem:getModData()
+	if modData.Augments and modData.Augments > 4 then modData.Augments = 4 end
 	
 	if inventoryItem:IsWeapon() and not inventoryItem:isRanged() then
 		initMeleeStats(modData, inventoryItem, character)
@@ -418,7 +401,7 @@ local function SDWeaponCheck(character, inventoryItem)
 		else
 			pMD.WeaponCOGbuff = 0
 		end]]
-		modData.zoneTier = false
+		modData.zonename = false
 	elseif inventoryItem:IsWeapon() and inventoryItem:isRanged() then
 		initRangedStats(modData, inventoryItem, character)
 		local isSoulForged = modData.SoulForged or false
@@ -441,13 +424,7 @@ local function SDWeaponCheck(character, inventoryItem)
 		local soulWrought = modData.SoulWrought or ""
 		local soulForgeMaxHitCount = modData.MaxHitCount or nil
 		
-		if isPiercingBullets then
-			inventoryItem:setPiercingBullets(true)
-		else
-			inventoryItem:setProjectileCount(soulForgeProjectileCount)
-		end
-		
-		if soulForgeMaxHitCount and soulWrought then
+		if soulForgeMaxHitCount then
 			inventoryItem:setMaxHitCount(soulForgeMaxHitCount)
 		end
 		
@@ -513,7 +490,7 @@ local function SDWeaponCheck(character, inventoryItem)
 		if suffix and suffix == "Voidwalker" then pMD.WeaponVoidwalkerbuff = 1 end
 		if suffix and suffix == "Ranger" then pMD.WeaponRangerbuff = 1 end]]
 		
-		modData.zoneTier = false
+		modData.zonename = false
 	end
 end
 Events.OnEquipPrimary.Add(SDWeaponCheck)

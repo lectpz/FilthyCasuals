@@ -2,7 +2,7 @@
 --somewhatfrog--
 ----------------
 
-local sdLogger = false
+local sdLogger = true
 
 --EveryHours should be more than enough to eventually catch it, spottedList can get pretty big
 local function javaViewCheck()
@@ -40,10 +40,8 @@ local function OnGameStart()
     if SandboxVars.SD_SWDetect.SD_SWJavaViewCheck then
         Events.EveryHours.Add(javaViewCheck)
 
-        local activatedMods = getActivatedMods()
-        if activatedMods:contains("SD6_tweaks") or activatedMods:contains("SD6_tweakstest") then
-            sdLogger = true
-        end
+        sdLogger = true
+
     end
 end
 

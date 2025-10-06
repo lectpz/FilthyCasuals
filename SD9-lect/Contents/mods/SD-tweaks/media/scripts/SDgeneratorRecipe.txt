@@ -1,0 +1,23 @@
+module Base
+{	
+
+	recipe Make Extended Fuel Tank
+	{
+		CanBeDoneFromFloor:true,
+		BlowTorch=1,
+		PropaneTank=1,
+		SmallSheetMetal = 7,
+		SheetMetal = 4,
+		ScrapMetal = 10,
+		MetalBar = 3,
+		MetalPipe = 5,
+		keep [Recipe.GetItemTypes.Hammer],
+		keep WeldingMask,
+		AnimNode:Craft,
+		Sound:Hammering,
+		Category:Welding,
+		Result:SD.FuelExtender,
+		Time:500.0,
+	}
+
+}

@@ -2,8 +2,8 @@
 --somewhatfrog--
 ----------------
 
-local sdLogger = false
-local spearFix = false
+local sdLogger = true
+local spearFix = true
 local swingTime = 0.0
 local secondSwingTime = 0.0
 local cancels = 0
@@ -108,19 +108,10 @@ local function OnGameStart()
     if SandboxVars.SD_SWDetect.SD_SWJavaSpeedMacroCheck then
         Events.OnWeaponSwingHitPoint.Add(javaSpeedMacroCheck)
 
-        local activatedMods = getActivatedMods()
-        if activatedMods:contains("SD6_tweaks")
-            or activatedMods:contains("SD6_tweakstest")
-        then
-            sdLogger = true
-        end
-        if activatedMods:contains("CombatTraitsCore")
-            or activatedMods:contains("Melee-maticianTrait")
-            or activatedMods:contains("Melee-maticianTrait6pt")
-            or activatedMods:contains("Melee-maticianTrait8pt")
-        then
-            spearFix = true
-        end
+		sdLogger = true
+
+		spearFix = true
+
     end
 end
 

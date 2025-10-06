@@ -43,6 +43,8 @@ function SDmap.MapPanel:drawzone()
 	if self.zsubnested.selected[1] then _nested = "Subnested" end
 	local _toxic = nil
 	if self.ztoxic.selected[1] then _toxic = "Toxic" end
+	local _event = nil
+	if self.zevent.selected[1] then _event = true end
 	local sprinter = math.max(math.min(tonumber(self.zsprinter:getInternalText()),100),0)
 	local pinpoint = math.max(math.min(tonumber(self.zpinpoint:getInternalText()),100),0)
 	local cognition = math.max(math.min(tonumber(self.zcognition:getInternalText()),100),0)
@@ -56,10 +58,10 @@ function SDmap.MapPanel:drawzone()
 	Zone.list[self.zone[6]] = nil
 	NestedZone.list[self.zone[6]] = nil
 	--if not MDZ[_zname] then MDZ[_zname] = {} end
-	MDZ[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth }
-	Zone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth }
+	MDZ[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth, _event }
+	Zone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth, _event }
 	if _nested == "Subnested" then
-		NestedZone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth }
+		NestedZone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth, _event }
 	end
 	--zonesGMD["test"] = { 9856,3851,10561,4502, 4, nil, nil, 20, 20, 20 }
 	--Zone.list["test"] = { 9856,3851,10561,4502, 4, nil, nil, 20, 20, 20 }
@@ -68,14 +70,6 @@ function SDmap.MapPanel:drawzone()
 
 	populateZoneNames()
 	
-	local symbolsAPI = self.mapAPI:getSymbolsAPI()
-	for i=symbolsAPI:getSymbolCount()-1, 0, -1 do
-		local symbol = symbolsAPI:getSymbolByIndex(i)
-		if symbol:getSymbolID() == "Asterisk" then
-			symbolsAPI:removeSymbolByIndex(i)
-		end
-	end
-	
 	--for i=1,#ZoneNames do
 		--drawHatchedRectangleForZone(self, ZoneNames[i], 1.0, 750, self.mapAPI)
 	--end
@@ -83,6 +77,15 @@ function SDmap.MapPanel:drawzone()
 	ModDataMapDrawTierZones[getCurrentUserSteamID()] = false
 	ModData.transmit("MoreDifficultZones")
 	self:close()
+	
+	local symbolsAPI = self.mapAPI:getSymbolsAPI()
+	for i=symbolsAPI:getSymbolCount()-1, 0, -1 do
+		local symbol = symbolsAPI:getSymbolByIndex(i)
+		local symbolID = symbol:getSymbolID()
+		if symbol and symbolID and symbolID == "Asterisk" then
+			symbolsAPI:removeSymbolByIndex(i)
+		end
+	end
 end
 
 
@@ -93,6 +96,12 @@ function SDmap.MapPanel:onClickNested(_clickedOption, _ticked)
 end
 
 function SDmap.MapPanel:onClickSubnested(_clickedOption, _ticked)
+	if _clickedOption == 1 then
+		self.fullHighlight = _ticked;
+	end;
+end
+
+function SDmap.MapPanel:onClickEvent(_clickedOption, _ticked)
 	if _clickedOption == 1 then
 		self.fullHighlight = _ticked;
 	end;
@@ -110,7 +119,7 @@ function SDmap.MapPanel:createChildren()
 	local mx, my, zoneinfo, zoneXY, zonename = self.zone[1], self.zone[2], self.zone[3], self.zone[4], self.zone[6]
 	local zl = Zone.list[zonename]
 	local x1, y1, x2, y2, tier = zl[1], zl[2], zl[3], zl[4], zl[5]
-	local nested, toxic = zl[6], zl[7]
+	local nested, toxic, event = zl[6], zl[7], zl[12]
 	local sprinter, pinpoint, cognition, z_health = zl[8] or 0, zl[9] or 0, zl[10] or 0, zl[11] or 2.1
 	
     local emptyheight = self.height/80
@@ -223,6 +232,14 @@ function SDmap.MapPanel:createChildren()
 	self.ztoxic:addOption("");
 	self:addChild(self.ztoxic);
 	
+	self.zevent = ISTickBox:new(2*buttonoffset+12*emptyheight, buttonnewy, 20, 18, "", self, self.onClickEvent);
+	self.zevent:initialise();
+	self.zevent:instantiate();
+	self.zevent.selected[1] = false;
+	if event == true then self.zevent.selected[1] = true end
+	self.zevent:addOption("");
+	self:addChild(self.zevent);
+	
 	buttonnewy = buttonnewy + lblheight
 	self.zsprinter = ISTextEntryBox:new(tostring(sprinter), buttonoffset+3*emptyheight, buttonnewy, buttonwidth, buttonheight);
 	self.zsprinter.anchorTop = false
@@ -290,6 +307,7 @@ function SDmap.MapPanel:prerender()
 	
 	lblheight = 2*emptyheight + lblheight
 	self:drawText("             Toxic:", emptyheight, lblheight,1,1,1,1,UIFont.Small);
+	self:drawText("                                                 Event:", emptyheight, lblheight,1,1,1,1,UIFont.Small);
 	
 	lblheight = 2*emptyheight + lblheight
 	self:drawText("    Sprinter%:", emptyheight, lblheight,1,1,1,1,UIFont.Small);
@@ -436,6 +454,8 @@ function SDmap.CreateNewZone:drawzone()
 	if self.zsubnested.selected[1] then _nested = "Subnested" end
 	local _toxic = nil
 	if self.ztoxic.selected[1] then _toxic = "Toxic" end
+	local _event = nil
+	if self.zevent.selected[1] then _event = true end
 	local sprinter = math.max(math.min(tonumber(self.zsprinter:getInternalText()),100),0)
 	local pinpoint = math.max(math.min(tonumber(self.zpinpoint:getInternalText()),100),0)
 	local cognition = math.max(math.min(tonumber(self.zcognition:getInternalText()),100),0)
@@ -448,10 +468,10 @@ function SDmap.CreateNewZone:drawzone()
 	Zone.list[_zname] = nil
 	NestedZone.list[_zname] = nil
 	if not MDZ[_zname] then MDZ[_zname] = {} end
-	MDZ[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth }
-	Zone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth }
+	MDZ[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth, _event }
+	Zone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth, _event }
 	if _nested == "Subnested" then
-		NestedZone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth }
+		NestedZone.list[_zname] = { x1, y1, x2, y2, tier, _nested, _toxic, sprinter, pinpoint, cognition, zombieHealth, _event }
 	end
 	--zonesGMD["test"] = { 9856,3851,10561,4502, 4, nil, nil, 20, 20, 20 }
 	--Zone.list["test"] = { 9856,3851,10561,4502, 4, nil, nil, 20, 20, 20 }
@@ -460,14 +480,6 @@ function SDmap.CreateNewZone:drawzone()
 
 	populateZoneNames()
 	
-	local symbolsAPI = self.mapAPI:getSymbolsAPI()
-	for i=symbolsAPI:getSymbolCount()-1, 0, -1 do
-		local symbol = symbolsAPI:getSymbolByIndex(i)
-		if symbol:getSymbolID() == "Asterisk" then
-			symbolsAPI:removeSymbolByIndex(i)
-		end
-	end
-	
 	--for i=1,#ZoneNames do
 		--drawHatchedRectangleForZone(self, ZoneNames[i], 1.0, 750, self.mapAPI)
 	--end
@@ -475,6 +487,15 @@ function SDmap.CreateNewZone:drawzone()
 	ModDataMapDrawTierZones[getCurrentUserSteamID()] = false
 	ModData.transmit("MoreDifficultZones")
 	self:close()
+	
+	local symbolsAPI = self.mapAPI:getSymbolsAPI()
+	for i=symbolsAPI:getSymbolCount()-1, 0, -1 do
+		local symbol = symbolsAPI:getSymbolByIndex(i)
+		local symbolID = symbol:getSymbolID()
+		if symbol and symbolID and symbolID == "Asterisk" then
+			symbolsAPI:removeSymbolByIndex(i)
+		end
+	end
 end
 
 
@@ -485,6 +506,12 @@ function SDmap.CreateNewZone:onClickNested(_clickedOption, _ticked)
 end
 
 function SDmap.CreateNewZone:onClickSubnested(_clickedOption, _ticked)
+	if _clickedOption == 1 then
+		self.fullHighlight = _ticked;
+	end;
+end
+
+function SDmap.CreateNewZone:onClickEvent(_clickedOption, _ticked)
 	if _clickedOption == 1 then
 		self.fullHighlight = _ticked;
 	end;
@@ -609,6 +636,13 @@ function SDmap.CreateNewZone:createChildren()
 	self.ztoxic:addOption("");
 	self:addChild(self.ztoxic);
 	
+	self.zevent = ISTickBox:new(2*buttonoffset+12*emptyheight, buttonnewy, 20, 18, "", self, self.onClickEvent);
+	self.zevent:initialise();
+	self.zevent:instantiate();
+	self.zevent.selected[1] = false;
+	self.zevent:addOption("");
+	self:addChild(self.zevent);
+	
 	buttonnewy = buttonnewy + lblheight
 	self.zsprinter = ISTextEntryBox:new("0", buttonoffset+3*emptyheight, buttonnewy, buttonwidth, buttonheight);
 	self.zsprinter.anchorTop = false
@@ -675,6 +709,7 @@ function SDmap.CreateNewZone:prerender()
 	
 	lblheight = 2*emptyheight + lblheight
 	self:drawText("             Toxic:", emptyheight, lblheight,1,1,1,1,UIFont.Small);
+	self:drawText("                                                 Event:", emptyheight, lblheight,1,1,1,1,UIFont.Small);
 	
 	lblheight = 2*emptyheight + lblheight
 	self:drawText("    Sprinter%:", emptyheight, lblheight,1,1,1,1,UIFont.Small);

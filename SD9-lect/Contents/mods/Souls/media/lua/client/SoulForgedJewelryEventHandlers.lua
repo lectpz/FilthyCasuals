@@ -77,6 +77,43 @@ function EventHandlers.SoulForgedJewelryOnCreate(items, result, player, forcedTi
     end
 end
 
+function EventHandlers.SoulForgedJewelryOnCreateRecipe(items, result, player)
+    if not items then return end 
+    
+    local rolledItem = ItemGenerator.getRandomAccessoryForSlots()
+    local inventory = player:getInventory()
+    inventory:AddItems(rolledItem, 1)
+
+    local createdItem = ItemGenerator.findUnmodifiedSoulBuffJewlery(inventory, rolledItem)
+    createdItem:setDisplayCategory('SoulForge')
+
+    if createdItem then
+        local tier = 1
+
+		for i=0, items:size()-1 do
+			local itemType = items:get(i):getFullType()
+			if itemType == "SoulForge.SoulShardT5" then 
+				tier = 5
+			elseif itemType == "SoulForge.SoulShardT4" then 
+				tier = 4
+			elseif itemType == "SoulForge.SoulShardT3" then 
+				tier = 3
+			elseif itemType == "SoulForge.SoulShardT2" then 
+				tier = 2
+			end
+		end
+ 
+        
+	    tier = math.max(tier, 1)
+		local selectedBuff = BuffSystem.getWeightedBuff("T" .. tier)
+		createdItem:getModData().SoulBuffs = {selectedBuff}
+		createdItem:getModData().Tier = tier
+        
+        createdItem:setDisplayCategory('SoulForge')
+        ItemGenerator.SetResultName(createdItem)
+    end
+end
+
 function EventHandlers.OnClothingUpdated(player)
     if player:HasTrait("StrongBack") then
         player:setMaxWeightBase(9)
@@ -94,12 +131,12 @@ function EventHandlers.OnClothingUpdated(player)
     local faction = pMD.faction
 
     if faction == "COG" then
-        pMD.PermaSoulForgeStrengthBonus = 1
-        pMD.PermaSoulForgeDexterityBonus = .1
+        pMD.PermaSoulForgeStrengthBonus = 2
+        pMD.PermaSoulForgeDexterityBonus = .2
     elseif faction == "Ranger" then
-        pMD.PermaAiming = .15
+        pMD.PermaSoulSmithValue = .0025
     elseif faction == "VoidWalker" then
-        pMD.PermaSoulThirstValue = 15
+        pMD.PermaSoulThirstValue = 7.5
     end
 
     local playerWornItems = getPlayer():getWornItems()

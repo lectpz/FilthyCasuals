@@ -22,6 +22,18 @@ local function SDvanillaweaptweak()
         if item:getEnduranceMod() > 1 then
             item:DoParam("EnduranceMod = 1")
         end
+		if item:getChanceToFall() > 0 then
+            item:DoParam("ChanceToFall = 0")
+        end
     end
 end
 Events.OnInitGlobalModData.Add(SDvanillaweaptweak)
+
+local function frogTweak()
+	local frogItem = ScriptManager.instance:getItem("Base.paleSkinLegacy")
+	if frogItem then
+		frogItem:DoParam("BodyLocation = SWSuit")
+		frogItem:DoParam("BloodLocation = Trousers;Jumper;Head;Neck;Hands;Shoes")
+	end
+end
+Events.OnInitGlobalModData.Add(frogTweak)

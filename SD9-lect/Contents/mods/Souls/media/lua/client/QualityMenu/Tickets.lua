@@ -75,7 +75,7 @@ function Tickets.applyTicket(weapon, statKey, ticket)
 	
 	if not applyStatBonus then return false end
 
-    md.Augments = (md.Augments or 0) + 1
+    --md.Augments = (md.Augments or 0) + 1
 	
 	return true
 end

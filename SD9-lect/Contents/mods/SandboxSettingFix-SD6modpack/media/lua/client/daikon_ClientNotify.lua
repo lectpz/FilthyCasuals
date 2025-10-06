@@ -27,10 +27,10 @@ Daikon.SandboxOptionsSyncing.SyncSettings = function(tableName, options)
                 option:asConfigOption():parse(value)
                 ---@type ConfigOption
                 option = option:asConfigOption()
-                if isDebugEnabled() then
+                --[[if isDebugEnabled() then
                     print("Updated Sandbox Value: "..key.." -> "..value)
 
-                end
+                end]]
             end
         end
         print("Finished syncing the options")

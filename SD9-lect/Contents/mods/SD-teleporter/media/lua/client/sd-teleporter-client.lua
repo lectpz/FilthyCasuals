@@ -27,7 +27,7 @@ local function onPlayerUpdate(player)
 
 	if SundayDriversGlobalContext.updates >= 10 then
         sendClientCommand(player, 'SDT', 'GetCooldowns', {});
-		print('Requesting cooldowns')
+		--print('Requesting cooldowns')
 		SundayDriversGlobalContext.updates = -10000
 	end
 end
@@ -48,7 +48,7 @@ end
 
 function Commands.PlayersOnline(args)
 
-    print("Received list of players online.")
+    --print("Received list of players online.")
 
     SundayDriversGlobalContext.players_online = {}
 
@@ -79,7 +79,7 @@ function Commands.SD6_TPtoSH(args)
 		playerObj:setLx(args.safehouse_x)
 		playerObj:setLy(args.safehouse_y)
 		playerObj:setLz(args.safehouse_z)
-		print("TP to SH")
+		--print("TP to SH")
 	end
 end
 
@@ -92,7 +92,7 @@ function Commands.SD6_TravelToCC(args)
 		playerObj:setLx(args.x)
 		playerObj:setLy(args.y)
 		playerObj:setLz(args.z)
-		print("TP to CC")
+		--print("TP to CC")
 	end
 end
 
@@ -105,13 +105,13 @@ function Commands.SD6_TPtoPlayer(args)
 		playerObj:setLx(args.x)
 		playerObj:setLy(args.y)
 		playerObj:setLz(args.z)
-		print("TP to Player")
+		--print("TP to Player")
 	end
 end
 
 function Commands.SD6_denyTPtoPlayer(args)
 	getPlayer():Say(args.deny)
-	print("TP to Player Denied: " .. args.deny)
+	--print("TP to Player Denied: " .. args.deny)
 end
 
 local onServerCommand = function(module, command, args)
@@ -287,8 +287,8 @@ SundayDriversTeleporterContextMenuObjectName.doMenu = function(player, context, 
                                         local tooltip = ISWorldObjectContextMenu.addToolTip();
                                         tooltip.description = tooltip.description .. "Player offline."
                                         option.toolTip = tooltip
-                                    elseif not has_valid_safehouse(anotherplayer_username, player_safehouse)
-                                    then
+                                    --elseif not has_valid_safehouse(anotherplayer_username, player_safehouse)
+                                    --then
                                         -- option.notAvailable = true;
                                         -- local tooltip = ISWorldObjectContextMenu.addToolTip();
                                         -- tooltip.description = tooltip.description .. "Player doesnt have a safehouse near yours."
@@ -353,7 +353,7 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToPlayer = function(item, p
 		checkDepleted(player, item)
 		--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToPlayer', args));
 		ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'SD6_TPtoPlayer', args));
-		print("Player Teleport Requested")
+		--print("Player Teleport Requested")
 	end
 end
 
@@ -376,7 +376,7 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToCC = function(item, playe
 		checkDepleted(player, item)
 		--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToCC', args));
 		ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'SD6_TravelToCC', args));
-		print("CC Teleport Requested")
+		--print("CC Teleport Requested")
 		--[[local CC = { 11072, 8851, 0 }
 		
 		playerObj:setX(CC[1])
@@ -424,7 +424,7 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 				else
 					checkDepleted(player, item)
 					ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'SD6_TPtoSH', args));
-					--print("SH Teleport Requested")
+					----print("SH Teleport Requested")
 					--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
 					--[[playerObj:setX(args.safehouse_x)
 					playerObj:setY(args.safehouse_y)
@@ -454,7 +454,7 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 				else
 					checkDepleted(player, item)
 					ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'SD6_TPtoSH', args));
-					--print("SH Teleport Requested")
+					----print("SH Teleport Requested")
 					--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
 					--[[playerObj:setX(args.safehouse_x)
 					playerObj:setY(args.safehouse_y)
@@ -478,7 +478,7 @@ SundayDriversTeleporterContextMenuObjectName.onTravelToSafehouse = function(item
 			else
 				checkDepleted(player, item)
 				ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'SD6_TPtoSH', args));
-				print("SH Teleport Requested")
+				--print("SH Teleport Requested")
 				--ISTimedActionQueue.add(SDTeleporterAction:new(playerObj, 'TravelToSafehouse', args));
 				--[[playerObj:setX(args.safehouse_x)
 				playerObj:setY(args.safehouse_y)
@@ -497,7 +497,7 @@ SundayDriversTeleporterContextMenuObjectName.onRequestCooldowns = function(item,
 
     local playerObj = getSpecificPlayer(player);
 
-    print("requesting cooldowns")
+    --print("requesting cooldowns")
     local args = {}
     sendClientCommand(playerObj, 'SDT', "GetCooldowns", args);
 end

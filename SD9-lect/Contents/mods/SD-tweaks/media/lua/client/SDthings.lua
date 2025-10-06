@@ -50,19 +50,13 @@ local function PlayerDeathSD(player)
 end
 Events.OnPlayerDeath.Add(PlayerDeathSD)
 
-
-
-local counter = 0
-
-local function login_check()
+local function login_check(player)
 	local player = getSpecificPlayer(0)
 	local z_vis = player:getStats():getNumVisibleZombies() or 0
 	local z_chase = player:getStats():getNumChasingZombies() or 0
 	local z_close = player:getStats():getNumVeryCloseZombies() or 0
 	
 	local zonetier, zonename, x, y = checkZone()
-	
-	counter = counter + 1
 	
 	if z_vis > 0 or z_chase > 0 or z_close > 0 then
 		args = {
@@ -74,18 +68,21 @@ local function login_check()
 		  z_vis = z_vis,
 		  z_chase = z_chase,
 		  z_close = z_close,
-		  counter = counter*5
 		}
-		sendClientCommand(player, 'sdLogger', 'Login', args);
-		Events.EveryOneMinute.Remove(login_check)
+		
+		if not player:isSeatedInVehicle() then
+			if z_chase > 3 and zonetier > 3 then
+				processGeneralMessage("Help! I just logged in at " .. zonename .. " [T" .. zonetier .."] and I'm being chased by " .. z_chase .. " zombies!")
+			end
+			sendClientCommand(player, 'sdLogger', 'Login', args);
+		else
+			sendClientCommand(player, 'sdLogger', 'VehicleLogin', args);
+		end
 	end
-	
-	--print("counter: " .. counter)
-	if counter > 6 then 
-		Events.EveryOneMinute.Remove(login_check)
-	end
+
+	Events.OnPlayerMove.Remove(login_check)
 end
-Events.EveryOneMinute.Add(login_check)
+Events.OnPlayerMove.Add(login_check)
 
 local function EveryTenMinutes_check()
 	local player = getSpecificPlayer(0)

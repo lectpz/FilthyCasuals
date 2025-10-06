@@ -104,27 +104,27 @@ function ISRemoveBurntVehicle:perform()
 
 		if current_tier == 1 then
 			if ZombRand(2) == 0 then metalworks.MetalPipe = metalworks.MetalPipe + 1 else metalworks.MetalBar = metalworks.MetalBar + 1 end
-			if ZombRand(4-current_tier) == 0 then metalworks.SmallSheetMetal = metalworks.SmallSheetMetal end
-			if ZombRand(6-current_tier) == 0 then metalworks.SheetMetal = metalworks.SheetMetal end
+			if ZombRand(9-current_tier) == 0 then metalworks.SmallSheetMetal = metalworks.SmallSheetMetal + 1 end
+			if ZombRand(9-current_tier) == 0 then metalworks.SheetMetal = metalworks.SheetMetal + 1 end
 		elseif current_tier == 2 then
 			if ZombRand(2) == 0 then metalworks.MetalPipe = metalworks.MetalPipe + 1 else metalworks.MetalBar = metalworks.MetalBar + 1 end
 			if ZombRand(2) == 0 then metalworks.MetalPipe = metalworks.MetalPipe + 1 else metalworks.MetalBar = metalworks.MetalBar + 1 end
-			if ZombRand(4-current_tier) == 0 then metalworks.SmallSheetMetal = metalworks.SmallSheetMetal end
-			if ZombRand(6-current_tier) == 0 then metalworks.SheetMetal = metalworks.SheetMetal end
+			if ZombRand(9-current_tier) == 0 then metalworks.SmallSheetMetal = metalworks.SmallSheetMetal + 1 end
+			if ZombRand(9-current_tier) == 0 then metalworks.SheetMetal = metalworks.SheetMetal + 1 end
 		elseif current_tier == 3 then
 			metalworks.SmallSheetMetal = metalworks.SmallSheetMetal + 1
 			if ZombRand(2) == 0 then metalworks.MetalPipe = metalworks.MetalPipe + 1 else metalworks.MetalBar = metalworks.MetalBar + 1 end
-			if ZombRand(6-current_tier) == 0 then metalworks.SheetMetal = metalworks.SheetMetal end
+			if ZombRand(9-current_tier) == 0 then metalworks.SheetMetal = metalworks.SheetMetal + 1 end
 		elseif current_tier == 4 then
 		  metalworks.SmallSheetMetal = metalworks.SmallSheetMetal + 1
-			if ZombRand(7-current_tier) == 0 then metalworks.SheetMetal = metalworks.SheetMetal end
+			if ZombRand(9-current_tier) == 0 then metalworks.SheetMetal = metalworks.SheetMetal + 1 end
 		elseif current_tier == 5 then
 			metalworks.SmallSheetMetal = metalworks.SmallSheetMetal + 1
-			if ZombRand(7-current_tier) == 0 then metalworks.SheetMetal = metalworks.SheetMetal end
+			if ZombRand(9-current_tier) == 0 then metalworks.SheetMetal = metalworks.SheetMetal + 1 end
 		elseif current_tier == 6 then
 			metalworks.SmallSheetMetal = metalworks.SmallSheetMetal + 1
 			metalworks.SheetMetal = metalworks.SheetMetal + 1
-			if ZombRand(7-current_tier) == 0 then metalworks.SheetMetal = metalworks.SheetMetal end
+			if ZombRand(9-current_tier) == 0 then metalworks.SheetMetal = metalworks.SheetMetal + 1 end
 		end
 
 		for item_name, config in pairs(scrapConfig) do
@@ -277,4 +277,5 @@ function ISVehicleMenu.FillMenuOutsideVehicle(player, context, vehicle, test)
 	if getCore():getDebug() or ISVehicleMechanics.cheat then
 		vehicleMenu:addOption("Remove vehicle", playerObj, ISVehicleMechanics.onCheatRemove, vehicle);
 	end
+	if CWTitleVehicle and CWTitleVehicle.UI then CWTitleVehicle.UI.addOptionToMenuOutsideVehicle(getSpecificPlayer(player), context, vehicle) end
 end
