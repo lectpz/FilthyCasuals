@@ -169,10 +169,10 @@ local function sfjUpgrade(player, item, tier)
 		iMD.Tier = tier
 		--item:setName(upgradeTier(item:getName()))	
 	else
-		--item:getModData().Tier = tier
 		BuffSystem.setBuffTier(item, buffs[1], tier)
 		-- Clear NameModified flag so name can be updated
 		item:getModData().NameModified = nil
+		item:getModData().Tier = tier
 		ItemGenerator.SetResultName(item)
 		--item:setName(upgradeTier(item:getName()))	
 	end
