@@ -9,6 +9,7 @@ local playerKillCount
 local zoneKillCount = {}
 local isFaction = false
 --local toxicZone = false
+local totalKills = 0
 
 local function debugPrint(text)
 	if isDebugEnabled() then getSpecificPlayer(0):Say(text) end
@@ -32,7 +33,7 @@ local function initKills()
 	--end
 	debugPrint("SD_DEBUG: initKills")
 end
-Events.OnGameStart.Add(initKills) --initialize player kills and faction name args and set zoneControl/lonewolf to false
+Events.OnCreatePlayer.Add(initKills) --initialize player kills and faction name args and set zoneControl/lonewolf to false
 --if getSpecificPlayer(0) then initKills() end
 
 local function tallyKills()
@@ -65,6 +66,7 @@ local function tallyKills()
 
 		if killDiff > 0 then
 			playerKillCount = n_killcount -- set updated killcount
+			totalKills = totalKills + killDiff
 
 			if not zoneKillCount[zonename] then
 				zoneKillCount[zonename] = {}
@@ -106,5 +108,10 @@ local function syncToServer()
 	ModData.remove("clientKillTally")--reset client GMD
 	zoneKillCount = {}--reset zKC
 	--toxicZone = false--reset toxic zone so this only syncs when kills need to be tallied
+	local args = {}
+	args.steamID = getCurrentUserSteamID()
+	args.totalKills = totalKills
+	sendClientCommand(getSpecificPlayer(0), 'SDGlobalReward', 'tallyPlayerKills', args)
+	totalKills = 0
 end
 Events.EveryOneMinute.Add(syncToServer)

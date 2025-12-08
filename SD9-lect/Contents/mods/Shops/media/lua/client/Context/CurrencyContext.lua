@@ -33,11 +33,32 @@ function Currency.LootCoinsObjectContextMenu(playerNum, context, items)
     context:addOption(UIText.LootAllCoins, worldobjects, Currency.lootCoins,playerNum, player);
 end
 
-function Currency.coinsToAccount(worldobjects,items,coinQuantity)
-    for k,v in pairs(items) do
+-- function Currency.coinsToAccount(worldobjects,items,coinQuantity)
+    -- for k,v in pairs(items) do
+        -- v:getContainer():Remove(v)
+    -- end
+    -- sendClientCommand("BS", "Deposit", {coinQuantity.coin,coinQuantity.specialCoin})
+-- end
+
+function Currency.coinsToAccount(worldobjects, items, coinQuantity, player)
+    -- make sure coins are still in main inventory
+    local playerNum = player:getPlayerNum()
+    local mainInv = getPlayerInventory(playerNum).inventory
+
+    for _, v in pairs(items) do
+        if v:getContainer() ~= mainInv then
+            if HaloTextHelper then
+                HaloTextHelper.addText(player, "Keep your coins in your main inventory to move them to account.", 255, 60, 60)
+            end
+            return
+        end
+    end
+
+    -- safe: remove and deposit
+    for _, v in pairs(items) do
         v:getContainer():Remove(v)
     end
-    sendClientCommand("BS", "Deposit", {coinQuantity.coin,coinQuantity.specialCoin})
+    sendClientCommand("BS", "Deposit", { coinQuantity.coin, coinQuantity.specialCoin })
 end
 
 function Currency.CoinsToAccountObjectContextMenu(playerNum, context, items)
@@ -73,7 +94,7 @@ function Currency.CoinsToAccountObjectContextMenu(playerNum, context, items)
     end
     local account =  Balance.getUserAccount(username)
     if account and (coinQuantity.coin > 0 or coinQuantity.specialCoin > 0 ) then
-        context:addOption(UIText.CoinsToAccount, worldobjects, Currency.coinsToAccount,items,coinQuantity);
+        context:addOption(UIText.CoinsToAccount, worldobjects, Currency.coinsToAccount, items, coinQuantity, player);
     end
 end
 

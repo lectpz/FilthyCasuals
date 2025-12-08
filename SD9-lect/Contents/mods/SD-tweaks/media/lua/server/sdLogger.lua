@@ -39,6 +39,10 @@ function Commands.sdLogger.OpenCache(player, args)
     end
 end
 
+function Commands.sdLogger.LootCache(player, args)
+    print("[sdLogger] Player [" .. args.player_name .. "] looted a [" .. string.upper(args.cache) .. "] at (" .. args.player_x .. "," .. args.player_y .. "," .. args.player_z .. ") in " .. args.zonename .. " [T" .. args.zonetier .. "]")
+end
+
 function Commands.sdLogger.ItemTransfer(player, args)
     print("[sdLogger] Player [" .. args.player_name .. "] moved items at (" .. args.player_x .. "," .. args.player_y .. "," .. args.player_z .. ") in " .. args.zonename .. " [T" .. args.zonetier .. "]: " .. args.itemString[1])
 end
@@ -79,7 +83,11 @@ function Commands.sdLogger.onItemFall(player, args)
 end
 
 function Commands.sdLogger.SoulForgeEquip(player, args)
-    print("[sdLogger] Player [" .. args.player_name .. "] equipped a SoulForged Melee Weapon: [" .. args.name .. " (ID=".. args.itemID .. "]) with critrate mod: " .. args.critrate .. ", with critmulti mod: " .. args.critmulti .. ", with min dmg mod: " .. args.mindmg .. ", with max dmg mod: " .. args.maxdmg .. ", with endurance mod: " .. args.endurancemod .. ", with # of souls: " .. args.hassouls)
+    print("[sdLogger] Player [" .. args.player_name .. "] equipped a SoulForged Melee Weapon: [" .. args.name .. " (ID=" .. args.itemID .. "]) with critrate mod: " .. args.critrate .. ", with critmulti mod: " .. args.critmulti .. ", with min dmg mod: " .. args.mindmg .. ", with max dmg mod: " .. args.maxdmg .. ", with endurance mod: " .. args.endurancemod .. ", with mindmg augments: " .. args.augmentMinDmg .. ", with maxdmg augments: " .. args.augmentMaxDmg .. ", with critrate augments: " .. args.augmentCritRate .. ", with critmulti augments: " .. args.augmentCritMulti .. ", with endurancemod augments: " .. args.augmentEnduranceMod .. ", with aimingtime augments: " .. args.augmentAimingTime .. ", with aimingperkhit augments: " .. args.augmentAimingPerkHitChanceModifier .. ", with aimingperkcrit augments: " .. args.augmentAimingPerkCritModifier .. ", with # of souls: " .. args.hassouls)
+end
+
+function Commands.sdLogger.weaponFlag(player, args)
+	print("[sdLogger] War" .. "ning: Player [" .. args.player_name .. "] has equipped " .. args.item_name .. " (ID=" .. args.itemID .. ") - " .. args.reason)
 end
 
 function Commands.sdLogger.SoulForgeEquipRanged(player, args)
@@ -133,6 +141,13 @@ function Commands.sdLogger.isXferHeavyItem(player, args)
 	print("[sdLogger] Player [" .. args.player_name .. "] tried to force drop heavy items while transferring items at (" .. args.player_x .. "," .. args.player_y .. ") in " .. args.zonename .." [T" .. args.zonetier .. "]")
 end
 
+function Commands.sdLogger.customSafezone(player, args)
+	print("[sdLogger] Custom Safezone created for " .. args.owner .. " at x1=" .. args.x1 .. ", y1=" .. args.y1 .. ", x2=" .. args.x2 .. ", y2=" .. args.y2)
+end
+
+function Commands.sdLogger.addToSafehouse(player, args)
+	print("[sdLogger] Add to existing safehouse: Added player " .. args.alt .. " to " .. args.owner .. "'s Safehouse")
+end
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 

@@ -11,8 +11,8 @@ local EventHandlers = require('SoulForgedJewelryEventHandlers')
 
 local VAitems = {
 				"HS_VenenosusAer.VA_Charcoal_Tablets", "HS_VenenosusAer.VA_Filter_LowGrade", "HS_VenenosusAer.VA_Filter_MediumGrade", "HS_VenenosusAer.VA_Filter_HighGrade",
-				"Packing.5pkVA_Charcoal_Tablets", "Packing.5pkVA_Filter_LowGrade", "Packing.5pkVA_Filter_MediumGrade", "Packing.5pkVA_Filter_HighGrade", 
-				"Packing.10pkVA_Charcoal_Tablets", "Packing.10pkVA_Filter_LowGrade", "Packing.10pkVA_Filter_MediumGrade", "Packing.10pkVA_Filter_HighGrade", 
+				"PR.5pkVA_Charcoal_Tablets", "PR.5pkVA_Filter_LowGrade", "PR.5pkVA_Filter_MediumGrade", "PR.5pkVA_Filter_HighGrade", 
+				"PR.10pkVA_Charcoal_Tablets", "PR.10pkVA_Filter_LowGrade", "PR.10pkVA_Filter_MediumGrade", "PR.10pkVA_Filter_HighGrade", 
 				}
 
 local VAweight = {  
@@ -102,7 +102,8 @@ end
 function MechCacheSD(items, result, player)
 	
 -- tiered rolling, checks zone and adds item
-	local zonetier, zonename, x, y = checkZone()
+	local _zonetier, zonename, x, y = checkZone()
+	local zonetier = items:get(0):getModData().TierZone
 	local zoneroll = 7-zonetier
 	
 	local ki5parts = splitString("damnCraft.SteelRimSmall damnCraft.SteelRimMedium damnCraft.SteelRimLarge damnCraft.TireRubberNewSmall damnCraft.TireRubberUsedSmall damnCraft.TireRubberDestroyedSmall damnCraft.TireRubberNewLarge damnCraft.TireRubberUsedLarge damnCraft.TireRubberDestroyedLarge damnCraft.TireRubberMountSmall damnCraft.TireRubberMountedSmall damnCraft.TireRubberMountLarge damnCraft.TireRubberMountedLarge damnCraft.GlassPaneSmall damnCraft.GlassPaneLarge damnCraft.HandleClassic damnCraft.HandleModern damnCraft.HingeSmall damnCraft.HingeLarge damnCraft.RubberStrip damnCraft.SeatFabric damnCraft.SeatFoam damnCraft.SeatFrameSmall damnCraft.SeatFrameLarge damnCraft.TireRepairKit damnCraft.TireRepairTools damnCraft.TireRepairRubberSolution damnCraft.TireRepairStrips damnCraft.PlasticWeldingKit damnCraft.PlasticWeldingGun damnCraft.PlasticWeldingStaples100Pack damnCraft.SmallTire1 damnCraft.SmallTire2")
@@ -115,10 +116,10 @@ function MechCacheSD(items, result, player)
 	
 	local modsuspension = splitString("ModernSuspension1 ModernSuspension2 ModernSuspension3")
 	
-	local newtank = InventoryItemFactory.CreateItem("Base.PropaneTank")
+	--local newtank = InventoryItemFactory.CreateItem("Base.PropaneTank")
 	local gascan = InventoryItemFactory.CreateItem("Base.PetrolCan")
 	
-	args = {
+	local args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "Mechanic Cache",
 	  player_x = math.floor(x),
@@ -138,8 +139,8 @@ function MechCacheSD(items, result, player)
 		addItemToPlayer(modbrakes[ZombRand(#modbrakes)+1])
 		addItemToPlayer(modsuspension[ZombRand(#modsuspension)+1])
 		randomrollSD(zoneroll, "BlowTorch")
-		newtank:setUsedDelta(math.min(0.6, scaledNormal()))
-		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
+		--newtank:setUsedDelta(math.min(0.6, scaledNormal()))
+		--randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		gascan:setUsedDelta(math.min(0.6, scaledNormal()))
 	elseif zonetier == 5 then
 		addItemToPlayer("Base.PetrolBleachBottle")
@@ -152,8 +153,8 @@ function MechCacheSD(items, result, player)
 		addItemToPlayer(modbrakes[ZombRand(#modbrakes)+1])
 		addItemToPlayer(modsuspension[ZombRand(#modsuspension)+1])
 		randomrollSD(zoneroll, "BlowTorch")
-		newtank:setUsedDelta(math.min(0.5, scaledNormal()))
-		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
+		--newtank:setUsedDelta(math.min(0.5, scaledNormal()))
+		--randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		gascan:setUsedDelta(math.min(0.5, scaledNormal()))
 		randomrollSD(zoneroll, gascan, "Base.PetrolCan")
 	elseif zonetier == 4 then
@@ -167,8 +168,8 @@ function MechCacheSD(items, result, player)
 		addItemToPlayer(modbrakes[ZombRand(#modbrakes)+1])
 		addItemToPlayer(modsuspension[ZombRand(#modsuspension)+1])
 		randomrollSD(zoneroll, "BlowTorch")
-		newtank:setUsedDelta(math.min(0.4, scaledNormal()))
-		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
+		--newtank:setUsedDelta(math.min(0.4, scaledNormal()))
+		--randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		gascan:setUsedDelta(math.min(0.4, scaledNormal()))
 		randomrollSD(zoneroll, gascan, "Base.PetrolCan")
 	elseif zonetier == 3 then
@@ -181,8 +182,8 @@ function MechCacheSD(items, result, player)
 		addItemToPlayer(modbrakes[ZombRand(#modbrakes)+1])
 		addItemToPlayer(modsuspension[ZombRand(#modsuspension)+1])
 		randomrollSD(zoneroll, "BlowTorch")
-		newtank:setUsedDelta(math.min(0.3, scaledNormal()))
-		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
+		--newtank:setUsedDelta(math.min(0.3, scaledNormal()))
+		--randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		gascan:setUsedDelta(math.min(0.3, scaledNormal()))
 		randomrollSD(zoneroll, gascan, "Base.PetrolCan")
 	elseif zonetier == 2 then
@@ -193,8 +194,8 @@ function MechCacheSD(items, result, player)
 		randomrollSD(zoneroll, regbrakes[ZombRand(#regbrakes)+1])
 		randomrollSD(zoneroll, regsuspension[ZombRand(#regsuspension)+1])
 		randomrollSD(zoneroll, "BlowTorch")
-		newtank:setUsedDelta(math.min(0.3, scaledNormal()))
-		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
+		--newtank:setUsedDelta(math.min(0.3, scaledNormal()))
+		--randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		gascan:setUsedDelta(math.min(0.2, scaledNormal()))
 		randomrollSD(zoneroll, gascan, "Base.PetrolCan")
 	elseif zonetier == 1 then
@@ -204,8 +205,8 @@ function MechCacheSD(items, result, player)
 		randomrollSD(zoneroll, regsuspension[ZombRand(#regsuspension)+1])
 		randomrollSD(zoneroll, regbrakes[ZombRand(#regbrakes)+1])
 		randomrollSD(zoneroll, "BlowTorch")
-		newtank:setUsedDelta(math.min(0.3, scaledNormal()))
-		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
+		--newtank:setUsedDelta(math.min(0.3, scaledNormal()))
+		--randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		gascan:setUsedDelta(math.min(0.1, scaledNormal()))
 		randomrollSD(zoneroll, gascan, "Base.PetrolCan")
 	end
@@ -215,13 +216,15 @@ end
 
 function MetalworkCacheSD(items, result, player)
 -- tiered rolling, checks zone and adds item
-	local zonetier, zonename, x, y = checkZone()
+	local _zonetier, zonename, x, y = checkZone()
+	local zonetier = items:get(0):getModData().TierZone
 		
 	local zoneroll = 8-zonetier
 	
-	local newtank = InventoryItemFactory.CreateItem("Biofuel.IndustrialPropaneTank")
+	--local newtank = InventoryItemFactory.CreateItem("Biofuel.IndustrialPropaneTank")
+	local newtank = InventoryItemFactory.CreateItem("Base.PropaneTank")
 	
-	args = {
+	local args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "Metalwork Cache",
 	  player_x = math.floor(x),
@@ -231,7 +234,7 @@ function MetalworkCacheSD(items, result, player)
 	}
 	
 	if zonetier == 6 then
-		newtank:setUsedDelta(math.min(0.4, scaledNormal()))
+		newtank:setUsedDelta(math.min(0.5, scaledNormal()))
 		addItemsToPlayer("ScrapMetal", ZombRand(zonetier*2)+3)
 		addItemsToPlayer("MetalPipe", ZombRand(zonetier)+1)
 		addItemsToPlayer("MetalBar", ZombRand(zonetier)+1)
@@ -239,7 +242,8 @@ function MetalworkCacheSD(items, result, player)
 		--addItemToPlayer("SheetMetal")
 		--addItemToPlayer("BlowTorch")
 		randomrollSD(zoneroll, "BlowTorch")
-		randomrollSD(zoneroll, newtank, "Biofuel.IndustrialPropaneTank")
+		--randomrollSD(zoneroll, newtank, "Biofuel.IndustrialPropaneTank")
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
@@ -248,7 +252,7 @@ function MetalworkCacheSD(items, result, player)
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 	elseif zonetier == 5 then
-		newtank:setUsedDelta(math.min(0.3, scaledNormal()))
+		newtank:setUsedDelta(math.min(0.45, scaledNormal()))
 		addItemsToPlayer("ScrapMetal", ZombRand(zonetier*2)+3)
 		addItemsToPlayer("MetalPipe", ZombRand(zonetier)+1)
 		addItemsToPlayer("MetalBar", ZombRand(zonetier)+1)
@@ -256,14 +260,15 @@ function MetalworkCacheSD(items, result, player)
 		--addItemToPlayer("SheetMetal")
 		--addItemToPlayer("BlowTorch")
 		randomrollSD(zoneroll, "BlowTorch")
-		randomrollSD(zoneroll, newtank, "Biofuel.IndustrialPropaneTank")
+		--randomrollSD(zoneroll, newtank, "Biofuel.IndustrialPropaneTank")
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 	elseif zonetier == 4 then
-		newtank:setUsedDelta(math.min(0.25, scaledNormal()))
+		newtank:setUsedDelta(math.min(0.4, scaledNormal()))
 		addItemsToPlayer("ScrapMetal", ZombRand(zonetier*2)+3)
 		addItemsToPlayer("MetalPipe", ZombRand(zonetier)+1)
 		addItemsToPlayer("MetalBar", ZombRand(zonetier)+1)
@@ -271,14 +276,15 @@ function MetalworkCacheSD(items, result, player)
 		--addItemToPlayer("SheetMetal")
 		--addItemToPlayer("BlowTorch")
 		randomrollSD(zoneroll, "BlowTorch")
-		randomrollSD(zoneroll, newtank, "Biofuel.IndustrialPropaneTank")
+		--randomrollSD(zoneroll, newtank, "Biofuel.IndustrialPropaneTank")
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 	elseif zonetier == 3 then
-		newtank:setUsedDelta(math.min(0.2, scaledNormal()))
+		newtank:setUsedDelta(math.min(0.35, scaledNormal()))
 		addItemsToPlayer("ScrapMetal", ZombRand(zonetier*2)+3)
 		addItemsToPlayer("MetalPipe", ZombRand(zonetier)+1)
 		addItemsToPlayer("MetalBar", ZombRand(zonetier)+1)
@@ -286,13 +292,14 @@ function MetalworkCacheSD(items, result, player)
 		--addItemToPlayer("SheetMetal")
 		--addItemToPlayer("BlowTorch")
 		randomrollSD(zoneroll, "BlowTorch")
-		randomrollSD(zoneroll, newtank, "Biofuel.IndustrialPropaneTank")
+		--randomrollSD(zoneroll, newtank, "Biofuel.IndustrialPropaneTank")
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 	elseif zonetier == 2 then
-		newtank:setUsedDelta(math.min(0.15, scaledNormal()))
+		newtank:setUsedDelta(math.min(0.3, scaledNormal()))
 		addItemsToPlayer("ScrapMetal", ZombRand(zonetier*2)+3)
 		addItemsToPlayer("MetalPipe", ZombRand(zonetier)+1)
 		addItemsToPlayer("MetalBar", ZombRand(zonetier)+1)
@@ -300,20 +307,22 @@ function MetalworkCacheSD(items, result, player)
 		--addItemToPlayer("SheetMetal")
 		--addItemToPlayer("BlowTorch")
 		randomrollSD(zoneroll, "BlowTorch")
-		randomrollSD(zoneroll, newtank, "Biofuel.IndustrialPropaneTank")
+		--randomrollSD(zoneroll, newtank, "Biofuel.IndustrialPropaneTank")
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SmallSheetMetal")
 	elseif zonetier == 1 then
-		newtank:setUsedDelta(math.min(0.1, scaledNormal()))
+		newtank:setUsedDelta(math.min(0.25, scaledNormal()))
 		addItemsToPlayer("ScrapMetal", ZombRand(zonetier*2)+3)
 		addItemsToPlayer("MetalPipe", ZombRand(zonetier))
 		addItemsToPlayer("MetalBar", ZombRand(zonetier))
 		addItemsToPlayer("SmallSheetMetal", ZombRand(zonetier))
 		--addItemToPlayer("SheetMetal")
 		randomrollSD(zoneroll, "BlowTorch")
-		randomrollSD(zoneroll, newtank, "Biofuel.IndustrialPropaneTank")
+		--randomrollSD(zoneroll, newtank, "Biofuel.IndustrialPropaneTank")
+		randomrollSD(zoneroll, newtank, "Base.PropaneTank")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SheetMetal")
 		randomrollSD(zoneroll, "SmallSheetMetal")
@@ -324,13 +333,14 @@ end
 function MedicalCacheSD(items, result, player)
 	
 -- tiered rolling, checks zone and adds item
-	local zonetier, zonename, x, y = checkZone()
+	local _zonetier, zonename, x, y = checkZone()
+	local zonetier = items:get(0):getModData().TierZone
 	
 	local medicalitems = { "HS_VenenosusAer.VA_Charcoal_Tablets", "HS_VenenosusAer.VA_Filter_LowGrade", "HS_VenenosusAer.VA_Filter_MediumGrade", "HS_VenenosusAer.VA_Filter_HighGrade", "CDCRR.Zedalis", "CDCRR.Zomboflex", "CDCRR.Bitezapro", "CDCRR.Salivix", "CDCRR.Viazom", "CDCRR.Fevarax", "CDCRR.Humanox", "CDCRR.WeatheredPills", "CDCRR.ConsumerViralTestPackage", "CDCRR.PremiumViralTestPackage", "CDCRR.WeatheredViralTestPackage",  "CDCRR.CDCFamilyPack", "SoulForge.LacerationHealing", "SoulForge.DeepWoundHealing", "SoulForge.BiteHealing", "SoulForge.FractureHealing", "SoulForge.BurnHealing"}
 		
 	local zoneroll = 12-zonetier
 	
-	args = {
+	local args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "Medical Cache",
 	  player_x = math.floor(x),
@@ -398,7 +408,8 @@ end
 function AmmoCacheSD(items, result, player)
 	
 -- tiered rolling, checks zone and adds item
-	local zonetier, zonename, x, y = checkZone()
+	local _zonetier, zonename, x, y = checkZone()
+	local zonetier = items:get(0):getModData().TierZone
 	local gunpowder = InventoryItemFactory.CreateItem("Base.GunPowder")
 	--gunpowder:setUsedDelta(math.min(0.1, scaledNormal()))
 	--randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
@@ -433,7 +444,7 @@ function AmmoCacheSD(items, result, player)
 	
 	local zoneroll = 8-zonetier
 
-	args = {
+	local args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "Ammo Cache",
 	  player_x = math.floor(x),
@@ -454,6 +465,8 @@ function AmmoCacheSD(items, result, player)
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll+5, "Base.FirearmLubricant")
+		randomrollSD(zoneroll+5, "Base.FirearmCleaningKit")
 		--randomrollSD(zoneroll, hfoMag[ZombRand(#hfoMag)+1])
 		addItemToPlayer(hfoMag[ZombRand(#hfoMag)+1])
 		addItemToPlayer(hfoMag[ZombRand(#hfoMag)+1])
@@ -467,6 +480,8 @@ function AmmoCacheSD(items, result, player)
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll+5, "Base.FirearmLubricant")
+		randomrollSD(zoneroll+5, "Base.FirearmCleaningKit")
 		--randomrollSD(zoneroll, hfoMag[ZombRand(#hfoMag)+1])
 		addItemToPlayer(hfoMag[ZombRand(#hfoMag)+1])
 	elseif zonetier == 4 then
@@ -479,6 +494,8 @@ function AmmoCacheSD(items, result, player)
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, hfoMag[ZombRand(#hfoMag)+1])
+		randomrollSD(zoneroll+5, "Base.FirearmLubricant")
+		randomrollSD(zoneroll+5, "Base.FirearmCleaningKit")
 	elseif zonetier == 3 then
 		gunpowder:setUsedDelta(math.min(0.8, scaledNormal()))
 		randomrollSD(1, gunpowder, "Base.GunPowder")
@@ -488,6 +505,8 @@ function AmmoCacheSD(items, result, player)
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, hfoMag[ZombRand(#hfoMag)+1])
+		randomrollSD(zoneroll+5, "Base.FirearmLubricant")
+		randomrollSD(zoneroll+5, "Base.FirearmCleaningKit")
 	elseif zonetier == 2 then
 		gunpowder:setUsedDelta(math.min(0.7, scaledNormal()))
 		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
@@ -495,12 +514,16 @@ function AmmoCacheSD(items, result, player)
 		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll+5, "Base.FirearmLubricant")
+		randomrollSD(zoneroll+5, "Base.FirearmCleaningKit")
 	elseif zonetier == 1 then
 		gunpowder:setUsedDelta(math.min(0.6, scaledNormal()))
 		randomrollSD(zoneroll, gunpowder, "Base.GunPowder")
 		randomrollSD(1, gunpowder, "Base.GunPowder")
 		addItemToPlayer(ammo[ZombRand(#ammo)+1])
 		randomrollSD(zoneroll, ammo[ZombRand(#ammo)+1])
+		randomrollSD(zoneroll+5, "Base.FirearmLubricant")
+		randomrollSD(zoneroll+5, "Base.FirearmCleaningKit")
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 end
@@ -508,11 +531,12 @@ end
 function ArmorCachePatriotSD(items, result, player)
 	
 -- tiered rolling, checks zone and adds item
-	local zonetier, zonename, x, y = checkZone()
+	local _zonetier, zonename, x, y = checkZone()
+	local zonetier = items:get(0):getModData().TierZone
 	
 	local zoneroll = 8-zonetier
 
-	args = {
+	local args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "Armor Cache (Patriot)",
 	  player_x = math.floor(x),
@@ -575,11 +599,12 @@ end
 function ArmorCacheDefenderSD(items, result, player)
 	
 -- tiered rolling, checks zone and adds item
-	local zonetier, zonename, x, y = checkZone()
+	local _zonetier, zonename, x, y = checkZone()
+	local zonetier = items:get(0):getModData().TierZone
 	
 	local zoneroll = 8-zonetier
 
-	args = {
+	local args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "Armor Cache (Defender)",
 	  player_x = math.floor(x),
@@ -643,11 +668,12 @@ end
 function ArmorCacheVanguardSD(items, result, player)
 	
 -- tiered rolling, checks zone and adds item
-	local zonetier, zonename, x, y = checkZone()
+	local _zonetier, zonename, x, y = checkZone()
+	local zonetier = items:get(0):getModData().TierZone
 	
 	local zoneroll = 8-zonetier
 
-	args = {
+	local args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "Armor Cache (Vanguard)",
 	  player_x = math.floor(x),
@@ -790,11 +816,12 @@ local SpiffoName = {
 
 function SpiffoCacheSD(items, result, player)
 
-	local zonetier, zonename, x, y = checkZone()
+	local _zonetier, zonename, x, y = checkZone()
+	local zonetier = items:get(0):getModData().TierZone
 	
 	local zoneroll = 7-zonetier
 
-	args = {
+	local args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "Spiffo Cache",
 	  player_x = math.floor(x),
@@ -846,7 +873,7 @@ function EventSpiffoCacheSD(items, result, player)
 	
 	local zonetier, zonename, x, y = checkZone()
 	
-	args = {
+	local args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "Spiffo Cache",
 	  player_x = math.floor(x),
@@ -872,10 +899,11 @@ end
 
 function PokemonCacheSD(items, result, player)
 	
-	local zonetier, zonename, x, y = checkZone()
+	local _zonetier, zonename, x, y = checkZone()
+	local zonetier = items:get(0):getModData().TierZone or 0
 	local zoneroll = 7-zonetier
 	
-	args = {
+	local args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "Pokemon Cache",
 	  player_x = math.floor(x),
@@ -941,10 +969,11 @@ end
 
 function ShinyPokemonCacheSD(items, result, player)
 	
-	local zonetier, zonename, x, y = checkZone()
+	local _zonetier, zonename, x, y = checkZone()
+	local zonetier = items:get(0):getModData().TierZone
 	local zoneroll = 7-zonetier
 	
-	args = {
+	local args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "Shiny Pokemon Cache",
 	  player_x = math.floor(x),
@@ -1012,10 +1041,11 @@ local function rollJewelry(tier, playerObj)
 end
 
 function OnCreate_JewelryCache(items, result, player)
-	local zonetier, zonename, x, y = checkZone()
+	local _zonetier, zonename, x, y = checkZone()
+	local zonetier = items:get(0):getModData().TierZone
 	local zoneroll = 8-zonetier
 	
-	args = {
+	local args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "Jewelry Cache",
 	  player_x = math.floor(x),
@@ -1031,7 +1061,8 @@ end
 
 function OnCreate_SoulForgeCache(items, result, player)
 -- tiered rolling, checks zone and adds item
-	local zonetier, zonename, x, y = checkZone()
+	local _zonetier, zonename, x, y = checkZone()
+	local zonetier = items:get(0):getModData().TierZone
 	local zoneroll = 8-zonetier
 	
 	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "SoulForge.AimingTimeTicket", "SoulForge.AimingPerkHitTicket", "SoulForge.AimingPerkCritTicket"}
@@ -1039,7 +1070,7 @@ function OnCreate_SoulForgeCache(items, result, player)
 	
 	local soulFlask = InventoryItemFactory.CreateItem("SoulForge.StoredSoulsSD_new")
 	
-	args = {
+	local args = {
 	  player_name = getOnlineUsername(),
 	  cachetype = "SoulForge Cache",
 	  player_x = math.floor(x),
@@ -1052,9 +1083,9 @@ function OnCreate_SoulForgeCache(items, result, player)
 		soulFlask:setUsedDelta(math.min(scaledNormal()/10, zonetier/50))
 		randomrollSD(10, soulFlask, "SoulForge.StoredSoulsSD_new")
 		for i=1,3 do
-			randomrollSD(zoneroll, "SoulForge.SoulShardT"..zonetier)
+			randomrollSD(zoneroll, "SoulForge.SoulShardT5")
 			randomrollSD(zoneroll, getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
-			randomrollSD(zoneroll, "SoulForge.WeightedDiceT"..zonetier)
+			randomrollSD(zoneroll, "SoulForge.WeightedDiceT5")
 		end
 		addItemToPlayer(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
 		addItemToPlayer(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
@@ -1118,5 +1149,63 @@ function OnCreate_WeatheredAmmoBoxSD(items, result, player)
 	for i=1,10 do
 		randomrollSD(4, "Base.ScrapMetalBits")
 	end
+
+end
+
+function FarmingCache(items, result, player)
+
+	local _zonetier, zonename, x, y = checkZone()
+	local zonetier = items:get(0):getModData().TierZone
+	local zoneroll = 8-zonetier
+	
+	local args = {
+	  player_name = getOnlineUsername(),
+	  cachetype = "Farmer's Cache",
+	  player_x = math.floor(x),
+	  player_y = math.floor(y),
+	  zonename = zonename,
+	  zonetier = zonetier,
+	}
+	
+	local PZGseeds = { "PZGFarm.AppleBagSeed","PZGFarm.AvocadoBagSeed","PZGFarm.BananaBagSeed","PZGFarm.BellpepperBagSeed","PZGFarm.BlackbeansBagSeed","PZGFarm.BlackberryBagSeed","PZGFarm.BlueberryBagSeed","PZGFarm.CherryBagSeed","PZGFarm.CoconutBagSeed","PZGFarm.CornBagSeed","PZGFarm.CucumberBagSeed","PZGFarm.DaikonBagSeed","PZGFarm.EdamameBagSeed","PZGFarm.EggplantBagSeed","PZGFarm.GrapeBagSeed","PZGFarm.GrapefruitBagSeed","PZGFarm.PepperHabaneroBagSeed","PZGFarm.PepperJalapenoBagSeed","PZGFarm.LeekBagSeed","PZGFarm.LemonBagSeed","PZGFarm.LettuceBagSeed","PZGFarm.LimeBagSeed","PZGFarm.MangoBagSeed","PZGFarm.OnionBagSeed","PZGFarm.OrangeBagSeed","PZGFarm.PeachBagSeed","PZGFarm.PearBagSeed","PZGFarm.PineappleBagSeed","PZGFarm.PumpkinBagSeed","PZGFarm.SugarcaneBagSeed","PZGFarm.WatermelonBagSeed","PZGFarm.WheatBagSeed","PZGFarm.ZucchiniBagSeed" }
+	
+	if zonetier == 6 then
+		addItemToPlayer("Base.Fertilizer")
+		addItemToPlayer(PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, "Base.Fertilizer")
+	elseif zonetier == 5 then
+		addItemToPlayer("Base.Fertilizer")
+		addItemToPlayer(PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, "Base.Fertilizer")
+	elseif zonetier == 4 then
+		addItemToPlayer("Base.Fertilizer")
+		addItemToPlayer(PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, "Base.Fertilizer")
+	elseif zonetier == 3 then
+		addItemToPlayer(PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, "Base.Fertilizer")
+	elseif zonetier == 2 then
+		addItemToPlayer(PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, "Base.Fertilizer")
+	elseif zonetier == 1 then
+		addItemToPlayer(PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, PZGseeds[ZombRand(#PZGseeds)+1])
+		randomrollSD(zoneroll, "Base.Fertilizer")
+	end
+	
+	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 
 end

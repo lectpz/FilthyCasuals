@@ -1,9 +1,5 @@
 module Base
 {	
-	imports
-	{
-		Base
-	}
 	
 	item WeaponCache
 	{
@@ -14,29 +10,6 @@ module Base
         Icon                    = i_RikuEmporiumBox_event_plus,
         WorldStaticModel        = RikuEmporiumBox_event_plus,
         Tooltip = Tooltip_Cache,
-	}
-	
-	item ChiikuCache
-	{
-        Type                    = Normal,
-        Weight                  = 1.0,
-        DisplayName             = Chiiku Firearm Cache,
-		UseWhileEquipped 		= FALSE,
-        Icon                    = i_RikuEmporiumBox_basic_plus,
-        WorldStaticModel        = RikuEmporiumBox_basic_plus,
-        Tooltip = Tooltip_Cache,
-	}
-	
-	recipe Open Chiiku Firearm Cache
-	{
-		CanBeDoneFromFloor:true,
-		destroy ChiikuCache,
-/		Sound:s_zeldaitem,
-		AnimNode:Loot,
-		Result:EmptyWeaponCache,
-		RemoveResultItem:true,
-		Time:0.2,
-		OnCreate:ChiikuWeaponCacheSD,
 	}
 	
 	item EventWeaponCacheT3
@@ -133,6 +106,16 @@ module Base
         Tooltip = Tooltip_Cache_Empty,
 	}
 	
+	item EmptyWeaponCacheT5
+	{
+        Type                    = Normal,
+        Weight                  = 0.01,
+        DisplayName             = Tier 5 Empty Weapon Cache,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
 	item MetalworkCache
 	{
         Type                    = Normal,
@@ -198,157 +181,247 @@ module Base
 	
 	recipe Open Weapon Cache
 	{
-		CanBeDoneFromFloor:true,
 		destroy WeaponCache,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
+		OnTest:OnTest_Cache,
 		OnCreate:RikuWeaponCacheSD,
 	}
 	
 	recipe Open Tier 3 Event Weapon Cache
 	{
-		CanBeDoneFromFloor:true,
 		destroy EventWeaponCacheT3,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		OnTest:OnTest_isInPlayerInventory,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
 		OnCreate:RikuRewardsT3,
 	}
 	
 	recipe Open Tier 4 Event Weapon Cache
 	{
-		CanBeDoneFromFloor:true,
 		destroy EventWeaponCacheT4,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		OnTest:OnTest_isInPlayerInventory,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
 		OnCreate:RikuRewardsT4,
 	}
 	
 	recipe Open Tier 5 Event Weapon Cache
 	{
-		CanBeDoneFromFloor:true,
 		destroy EventWeaponCacheT5,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		OnTest:OnTest_isInPlayerInventory,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
 		OnCreate:RikuRewardsT5,
 	}
 	
 	recipe Open Tier 6 Event Weapon Cache
 	{
-		CanBeDoneFromFloor:true,
 		destroy EventWeaponCacheT6,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		OnTest:OnTest_isInPlayerInventory,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
 		OnCreate:RikuRewardsT6,
 	}
-	
-	recipe Upgrade Weapon Cache To Tier 5
+
+	recipe Upgrade Empty Weapon Cache to Tier 5
 	{
-		CanBeDoneFromFloor:true,
-		destroy WeaponCache,
-		EmptyWeaponCacheT4 = 5,
+		EmptyWeaponCacheT4,
+		cogToken=4,
+		AnimNode:Loot,
+		Result:EmptyWeaponCacheT5,
+		Time:250.0,
+	}
+	
+	recipe Upgrade Empty Weapon Cache to Tier 5
+	{
+		EmptyWeaponCacheT4,
+		vwToken=4,
+		AnimNode:Loot,
+		Result:EmptyWeaponCacheT5,
+		Time:250.0,
+	}
+	
+	recipe Upgrade Empty Weapon Cache to Tier 5
+	{
+		EmptyWeaponCacheT4,
+		rangerToken=4,
+		AnimNode:Loot,
+		Result:EmptyWeaponCacheT5,
+		Time:250.0,
+	}
+
+	recipe Upgrade Empty Weapon Cache to Tier 4
+	{
+		EmptyWeaponCacheT3,
+		cogToken=3,
+		AnimNode:Loot,
+		Result:EmptyWeaponCacheT4,
+		Time:250.0,
+	}
+	
+	recipe Upgrade Empty Weapon Cache to Tier 4
+	{
+		EmptyWeaponCacheT3,
+		vwToken=3,
+		AnimNode:Loot,
+		Result:EmptyWeaponCacheT4,
+		Time:250.0,
+	}
+	
+	recipe Upgrade Empty Weapon Cache to Tier 4
+	{
+		EmptyWeaponCacheT3,
+		rangerToken=3,
+		AnimNode:Loot,
+		Result:EmptyWeaponCacheT4,
+		Time:250.0,
+	}
+	
+	recipe Upgrade Empty Weapon Cache to Tier 3
+	{
+		EmptyWeaponCacheT2,
+		cogToken=2,
+		AnimNode:Loot,
+		Result:EmptyWeaponCacheT3,
+		Time:250.0,
+	}
+	
+	recipe Upgrade Empty Weapon Cache to Tier 3
+	{
+		EmptyWeaponCacheT2,
+		vwToken=2,
+		AnimNode:Loot,
+		Result:EmptyWeaponCacheT3,
+		Time:250.0,
+	}
+	
+	recipe Upgrade Empty Weapon Cache to Tier 3
+	{
+		EmptyWeaponCacheT2,
+		rangerToken=2,
+		AnimNode:Loot,
+		Result:EmptyWeaponCacheT3,
+		Time:250.0,
+	}
+
+	recipe Upgrade Empty Weapon Cache to Tier 2
+	{
+		EmptyWeaponCacheT1,
+		cogToken/vwToken/rangerToken,
+		AnimNode:Loot,
+		Result:EmptyWeaponCacheT2,
+		Time:250.0,
+	}
+
+	recipe Combine into Weapon Cache [T6]
+	{
+		EmptyWeaponCacheT5 = 7,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:0.2,
-		OnCanPerform:onTestTier5CheckSD,
+		Time:250.0,
+/		OnCanPerform:onTestTier5CheckSD,
 		OnCreate:RikuWeaponCacheUpgradeSD,
 	}
 	
-	recipe Upgrade Weapon Cache To Tier 4
+	recipe Combine into Weapon Cache [T5]
 	{
-		CanBeDoneFromFloor:true,
-		destroy WeaponCache,
-		EmptyWeaponCacheT3 = 4,
+		EmptyWeaponCacheT4 = 6,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:0.2,
-		OnCanPerform:onTestTier3CheckSD,
+		Time:250.0,
+/		OnCanPerform:onTestTier5CheckSD,
 		OnCreate:RikuWeaponCacheUpgradeSD,
 	}
 	
-	recipe Upgrade Weapon Cache To Tier 3
+	recipe Combine into Weapon Cache [T4]
 	{
-		CanBeDoneFromFloor:true,
-		destroy WeaponCache,
-		EmptyWeaponCacheT2 = 3,
+		EmptyWeaponCacheT3 = 5,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:0.2,
-		OnCanPerform:onTestTier2CheckSD,
+		Time:250.0,
+/		OnCanPerform:onTestTier4CheckSD,
 		OnCreate:RikuWeaponCacheUpgradeSD,
 	}
 	
-	recipe Upgrade Weapon Cache To Tier 2
+	recipe Combine into Weapon Cache [T3]
 	{
-		CanBeDoneFromFloor:true,
-		destroy WeaponCache,
-		EmptyWeaponCacheT1 = 2,
+		EmptyWeaponCacheT2 = 4,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyWeaponCache,
 		RemoveResultItem:true,
-		Time:0.2,
-		OnCanPerform:onTestTier1CheckSD,
+		Time:250.0,
+/		OnCanPerform:onTestTier3CheckSD,
+		OnCreate:RikuWeaponCacheUpgradeSD,
+	}
+	
+	recipe Combine into Weapon Cache [T2]
+	{
+		EmptyWeaponCacheT1 = 3,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyWeaponCache,
+		RemoveResultItem:true,
+		Time:250.0,
+/		OnCanPerform:onTestTier2CheckSD,
 		OnCreate:RikuWeaponCacheUpgradeSD,
 	}
 	
 	recipe Open Mechanic Cache
 	{
-		CanBeDoneFromFloor:true,
 		destroy MechanicCache,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyMechanicCache,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
+		OnTest:OnTest_Cache,
 		OnCreate:MechCacheSD,
 	}
 
 	recipe Open Metalwork Cache
 	{
-		CanBeDoneFromFloor:true,
 		destroy MetalworkCache,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyMetalworkCache,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
+		OnTest:OnTest_Cache,
 		OnCreate:MetalworkCacheSD,
 	}
 	
 	recipe Open Medical Cache
 	{
-		CanBeDoneFromFloor:true,
 		destroy MedicalCache,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyMedicalCache,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
+		OnTest:OnTest_Cache,
 		OnCreate:MedicalCacheSD,
 	}
 
@@ -375,13 +448,13 @@ module Base
 	
 	recipe Open Ammo Cache
 	{
-		CanBeDoneFromFloor:true,
 		destroy AmmoCache,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyAmmoCache,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
+		OnTest:OnTest_Cache,
 		OnCreate:AmmoCacheSD,
 	}
 	
@@ -408,13 +481,13 @@ module Base
 	
 	recipe Open Armor Cache (Patriot)
 	{
-		CanBeDoneFromFloor:true,
 		destroy ArmorCachePatriot,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyArmorCachePatriot,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
+		OnTest:OnTest_Cache,
 		OnCreate:ArmorCachePatriotSD,
 	}
 	
@@ -441,13 +514,13 @@ module Base
 	
 	recipe Open Armor Cache (Defender)
 	{
-		CanBeDoneFromFloor:true,
 		destroy ArmorCacheDefender,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyArmorCacheDefender,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
+		OnTest:OnTest_Cache,
 		OnCreate:ArmorCacheDefenderSD,
 	}
 	
@@ -474,13 +547,13 @@ module Base
 	
 	recipe Open Armor Cache (Vanguard)
 	{
-		CanBeDoneFromFloor:true,
 		destroy ArmorCacheVanguard,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptyArmorCacheVanguard,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
+		OnTest:OnTest_Cache,
 		OnCreate:ArmorCacheVanguardSD,
 	}
 	
@@ -507,13 +580,13 @@ module Base
 	
 	recipe Open Spiffo Cache
 	{
-		CanBeDoneFromFloor:true,
 		destroy SpiffoCache,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptySpiffoCache,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
+		OnTest:OnTest_Cache,
 		OnCreate:SpiffoCacheSD,
 	}
 	
@@ -530,13 +603,12 @@ module Base
 	
 	recipe Open Event Spiffo Cache
 	{
-		CanBeDoneFromFloor:true,
 		destroy EventSpiffoCache,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:EmptySpiffoCache,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
 		OnCreate:EventSpiffoCacheSD,
 	}
 	
@@ -564,7 +636,6 @@ module Base
 
 	recipe Whos That Pokemon
 	{
-		CanBeDoneFromFloor:true,
 		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackjungle,
 		destroy pkmncards.boosterpack/pkmncards.boosterpackjungle/pkmncards.boosterpackjungle,
 		destroy Base.TileCacheRegular,
@@ -572,7 +643,7 @@ module Base
 		AnimNode:Loot,
 		Result:boosterpack_trash,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
 		OnCreate:PokemonCacheSD,
 	}
 	
@@ -619,13 +690,13 @@ module Base
 	
 	recipe Open Jewelry Cache
 	{
-		CanBeDoneFromFloor:true,
 		destroy JewelryCache,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:Base.Dice,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
+		OnTest:OnTest_Cache,
 		OnCreate:OnCreate_JewelryCache,
 	}
 	
@@ -642,13 +713,13 @@ module Base
 	
 	recipe Open SoulForge Cache
 	{
-		CanBeDoneFromFloor:true,
 		destroy SoulForgeCache,
 /		Sound:s_zeldaitem,
 		AnimNode:Loot,
 		Result:Base.Dice,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
+		OnTest:OnTest_Cache,
 		OnCreate:OnCreate_SoulForgeCache,
 	}
 	
@@ -675,25 +746,25 @@ module Base
 
 	recipe Whos That Pokemon
 	{
-		CanBeDoneFromFloor:true,
 		destroy Base.PokemonCache,
 /		Sound:s_pokemon,
 		AnimNode:Loot,
 		Result:boosterpack_trash,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
+		OnTest:OnTest_Cache,
 		OnCreate:PokemonCacheSD,
 	}
 
 	recipe Whos That Pokemon
 	{
-		CanBeDoneFromFloor:true,
 		destroy Base.ShinyPokemonCache,
 /		Sound:s_pokemon,
 		AnimNode:Loot,
 		Result:boosterpack_trash,
 		RemoveResultItem:true,
-		Time:0.2,
+		Time:250.0,
+		OnTest:OnTest_Cache,
 		OnCreate:ShinyPokemonCacheSD,
 	}
 	
@@ -712,12 +783,112 @@ module Base
 	
 	recipe Open Box of Unmarked Ammunition (Weathered)
 	{
-		CanBeDoneFromFloor:true,
 		destroy WeatheredAmmoBox,
 		AnimNode:Loot,
 		Result:GunPowder,
 		RemoveResultItem:true,
 		Time:20.0,
 		OnCreate:OnCreate_WeatheredAmmoBoxSD,
+	}
+	
+	item ShoeCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Sunday Drivers Shoe Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyShoeCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Empty Shoe Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open Shoe Cache
+	{
+		destroy ShoeCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyShoeCache,
+		RemoveResultItem:true,
+		Time:250.0,
+		OnTest:OnTest_Cache,
+		OnCreate:OnCreate_ShoeCache,
+	}	
+	
+	item BagCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Sunday Drivers Bag Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyBagCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Empty Bag Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_event_plus,
+        WorldStaticModel        = RikuEmporiumBox_event_plus,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	recipe Open Bag Cache
+	{
+		destroy BagCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyBagCache,
+		RemoveResultItem:true,
+		Time:250.0,
+		OnTest:OnTest_Cache,
+		OnCreate:OnCreate_BagCache,
+	}
+	
+	item FarmerCache
+	{
+        Type                    = Normal,
+        Weight                  = 1.0,
+        DisplayName             = Farmer Cache,
+		UseWhileEquipped 		= FALSE,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache,
+	}
+	
+	item EmptyFarmerCache
+	{
+        Type                    = Normal,
+        Weight                  = 0.1,
+        DisplayName             = Empty Farmer Cache,
+        Icon                    = i_RikuEmporiumBox_basic,
+        WorldStaticModel        = RikuEmporiumBox_basic,
+        Tooltip = Tooltip_Cache_Empty,
+	}
+	
+	recipe Open Farmer Cache
+	{
+		destroy FarmerCache,
+/		Sound:s_zeldaitem,
+		AnimNode:Loot,
+		Result:EmptyFarmerCache,
+		RemoveResultItem:true,
+		Time:250.0,
+		OnTest:OnTest_Cache,
+		OnCreate:FarmingCache,
 	}
 }

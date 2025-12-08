@@ -345,7 +345,7 @@ function PZwaystone.mainpanel:eventreward()
 				addItemToPlayer(item)
 			end
 			
-			--sendClientCommand(player, 'sdLogger', 'ClaimReward', args);
+			sendClientCommand(player, 'sdLogger', 'ClaimReward', args);
 			--pzInv:AddItem(eventreward1);
 			--pzInv:AddItem(eventreward2);
 			--pzInv:AddItem(eventreward3);

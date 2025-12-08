@@ -121,7 +121,7 @@ local hfoMags = {
 }
 
 function ChiikuWeaponCacheSD(items, result, player)
-	
+--[[	
 	local zonetier, zonename, x, y = checkZone()
 	local gunpowder = InventoryItemFactory.CreateItem("Base.GunPowder")
 	
@@ -205,5 +205,5 @@ function ChiikuWeaponCacheSD(items, result, player)
 		randomrollSD(zoneroll, hfoMags[ZombRand(#hfoMags)+1])
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
-	player:getEmitter():playSoundImpl("s_zeldaitem", nil)
+	player:getEmitter():playSoundImpl("s_zeldaitem", nil)]]
 end

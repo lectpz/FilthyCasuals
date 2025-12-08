@@ -1,4 +1,4 @@
-ISRemoveGlass.o_perform = ISRemoveGlass.perform
+--[[ISRemoveGlass.o_perform = ISRemoveGlass.perform
 function ISRemoveGlass:perform()
 	self:o_perform()
 	local charSq = self.character:getSquare()
@@ -13,4 +13,4 @@ function ISRemoveGlass:perform()
 			break
 		end
 	end
-end
+end]]

@@ -35,4 +35,4 @@ local function SDcontext(player, context, items) -- # When an inventory item con
 
 	end
 end
-Events.OnFillInventoryObjectContextMenu.Add(SDcontext) -- everytime you rightclick an object in your inventory it will trigger this check to add a teleport option
+--Events.OnFillInventoryObjectContextMenu.Add(SDcontext) -- everytime you rightclick an object in your inventory it will trigger this check to add a teleport option

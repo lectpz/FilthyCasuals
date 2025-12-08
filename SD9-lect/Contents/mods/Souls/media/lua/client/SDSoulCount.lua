@@ -60,7 +60,7 @@ local function weaponName(weaponModData, scriptItem)
     return name
 end
 
-local function isAugmented()
+local function isAugmented(weaponModData)
 	local isAugmented = weaponModData.Augments or nil
 	if isAugmented then
 		weaponModData.Augments = isAugmented + 1
@@ -168,7 +168,7 @@ local function setStat(upgradeName, statName, descno, description, scriptItem, n
 			item:setEnduranceMod(n_stat)
 		end
 
-        isAugmented()
+        isAugmented(weaponModData)
         weaponModData.Name = weaponName(weaponModData, scriptItem)
 		item:setName(weaponModData.Name)
         weaponModData[descno] = description
@@ -368,7 +368,7 @@ local pref2_setstat = {
 						
 						weaponModData.prefix2 = "Absolutionist"
 						
-						isAugmented()
+						isAugmented(weaponModData)
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.p2_desc = description
@@ -399,7 +399,7 @@ local pref2_setstat = {
 
 						weaponModData.prefix2 = "Decimator"
 						
-						isAugmented()
+						isAugmented(weaponModData)
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.p2_desc = description
@@ -433,7 +433,7 @@ local pref2_setstat = {
 
 						weaponModData.prefix2 = "Deviant"
 						
-						isAugmented()
+						isAugmented(weaponModData)
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.p2_desc = description
@@ -464,7 +464,7 @@ local pref2_setstat = {
 						
 						weaponModData.prefix2 = "Perfectionist"
 						
-						isAugmented()
+						isAugmented(weaponModData)
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.p2_desc = description
@@ -495,7 +495,7 @@ local pref2_setstat = {
 						
 						weaponModData.prefix2 = "Reaver"
 						
-						isAugmented()
+						isAugmented(weaponModData)
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.p2_desc = description
@@ -526,7 +526,7 @@ local pref2_setstat = {
 						
 						weaponModData.prefix2 = "Zealot"
 						
-						isAugmented()
+						isAugmented(weaponModData)
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.p2_desc = description
@@ -646,7 +646,7 @@ local suff2_setstat = {
 						end]]
 						weaponModData.suffix2 = "Sunday Driver"
 						
-						isAugmented()
+						isAugmented(weaponModData)
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.s2_desc = description
@@ -676,7 +676,7 @@ local suff2_setstat = {
 
 						weaponModData.suffix2 = "Filthy Casual"
 						
-						isAugmented()
+						isAugmented(weaponModData)
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.s2_desc = description
@@ -704,7 +704,7 @@ local suff2_setstat = {
 
 						weaponModData.suffix2 = "Apocalypse Enjoyer"
 						
-						isAugmented()
+						isAugmented(weaponModData)
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.s2_desc = description
@@ -731,7 +731,7 @@ local suff2_setstat = {
 						end
 						weaponModData.suffix2 = "Ascended Path"
 						
-						isAugmented()
+						isAugmented(weaponModData)
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.s2_desc = description
@@ -757,7 +757,7 @@ local suff2_setstat = {
 						end
 						weaponModData.suffix2 = "Dying Dawn"
 						
-						isAugmented()
+						isAugmented(weaponModData)
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.s2_desc = description
@@ -782,7 +782,7 @@ local suff2_setstat = {
 						end
 						weaponModData.suffix2 = "Unhinged Tryhard"
 						
-						isAugmented()
+						isAugmented(weaponModData)
 						
 						weaponModData.Name = weaponName(weaponModData, scriptItem)
 						weaponModData.s2_desc = description
@@ -942,10 +942,10 @@ local removeSuffix = {
 	}
 
 local function SoulContextSD(player, context, items) -- # When an inventory item context menu is opened
-	playerObj = getSpecificPlayer(player)
-	playerInv = playerObj:getInventory()
+	local playerObj = getSpecificPlayer(player)
+	local playerInv = playerObj:getInventory()
 	local pMD = playerObj:getModData()
-	items = ISInventoryPane.getActualItems(items); -- Get table of inventory items (will not be module.item, just item)
+	local items = ISInventoryPane.getActualItems(items); -- Get table of inventory items (will not be module.item, just item)
 	for _, item in ipairs(items) do -- Check every item in inventory array
 		if item:IsWeapon() and not item:isRanged() then
 			weaponModData = item:getModData()
@@ -1008,6 +1008,12 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 				
 				tooltip.description = tooltip.description .. white .. " <LINE> Base Endurance Mod: " .. math.ceil(item:getEnduranceMod()*100)/100
 				if weaponModData.EnduranceMod then tooltip.description = tooltip.description .. white .. " <LINE> SoulForged Endurance Modifier: " .. weaponModData.EnduranceMod end
+
+				if weaponModData.augmentMinDmg then tooltip.description = tooltip.description .. white .. " <LINE> Min Dmg Augments: " .. weaponModData.augmentMinDmg end
+				if weaponModData.augmentMaxDmg then tooltip.description = tooltip.description .. white .. " <LINE> Max Dmg Augments: " .. weaponModData.augmentMaxDmg end
+				if weaponModData.augmentCritRate then tooltip.description = tooltip.description .. white .. " <LINE> Crit Rate Augments: " .. weaponModData.augmentCritRate end
+				if weaponModData.augmentCritMulti then tooltip.description = tooltip.description .. white .. " <LINE> Crit Multi Augments: " .. weaponModData.augmentCritMulti end
+				if weaponModData.augmentEnduranceMod then tooltip.description = tooltip.description .. white .. " <LINE> Endurance Mod Augments: " .. weaponModData.augmentEnduranceMod end
 				
 				local isAugmented = weaponModData.Augments or nil
 				
@@ -1484,6 +1490,8 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 																										remove_swMats(Upgrade1MatNo)
 																										playerInv:RemoveOneOf("SoulForge.MinDmgTicket")
 																										weaponModData.soulForgeMinDmgMulti = weaponModData.soulForgeMinDmgMulti + 0.01
+																										if not weaponModData.augmentMinDmg then weaponModData.augmentMinDmg = 0 end
+																										weaponModData.augmentMinDmg = weaponModData.augmentMinDmg + 1
 																										end, player)
 							sw_upgrade(swUpgrade1, Upgrade1MatNo, "SoulForge.MinDmgTicket")
 																										
@@ -1493,6 +1501,8 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 																										remove_swMats(Upgrade2MatNo)
 																										playerInv:RemoveOneOf("SoulForge.MaxDmgTicket")
 																										weaponModData.soulForgeMaxDmgMulti = weaponModData.soulForgeMaxDmgMulti + 0.01
+																										if not weaponModData.augmentMaxDmg then weaponModData.augmentMaxDmg = 0 end
+																										weaponModData.augmentMaxDmg = weaponModData.augmentMaxDmg + 1
 																										end, player)
 							sw_upgrade(swUpgrade2, Upgrade2MatNo, "SoulForge.MaxDmgTicket")
 																										
@@ -1502,6 +1512,8 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 																										remove_swMats(Upgrade3MatNo)
 																										playerInv:RemoveOneOf("SoulForge.CritChanceTicket")
 																										weaponModData.soulForgeCritRate = weaponModData.soulForgeCritRate + 0.01
+																										if not weaponModData.augmentCritRate then weaponModData.augmentCritRate = 0 end
+																										weaponModData.augmentCritRate = weaponModData.augmentCritRate + 1
 																										end, player)
 							sw_upgrade(swUpgrade3, Upgrade3MatNo, "SoulForge.CritChanceTicket")
 																										
@@ -1511,6 +1523,8 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 																													remove_swMats(Upgrade4MatNo)
 																													playerInv:RemoveOneOf("SoulForge.CritMultiTicket")
 																													weaponModData.soulForgeCritMulti = weaponModData.soulForgeCritMulti + 0.01
+																													if not weaponModData.augmentCritMulti then weaponModData.augmentCritMulti = 0 end
+																													weaponModData.augmentCritMulti = weaponModData.augmentCritMulti + 1
 																													end, player)
 							sw_upgrade(swUpgrade4, Upgrade4MatNo, "SoulForge.CritMultiTicket")
 																													
@@ -1520,6 +1534,8 @@ local function SoulContextSD(player, context, items) -- # When an inventory item
 																											remove_swMats(Upgrade5MatNo)
 																											playerInv:RemoveOneOf("SoulForge.EnduranceModTicket")
 																											weaponModData.EnduranceMod = weaponModData.EnduranceMod - 0.001
+																											if not weaponModData.augmentEnduranceMod then weaponModData.augmentEnduranceMod = 0 end
+																											weaponModData.augmentEnduranceMod = weaponModData.augmentEnduranceMod + 1
 																											end, player)
 							sw_upgrade(swUpgrade5, Upgrade5MatNo, "SoulForge.EnduranceModTicket")
 						end

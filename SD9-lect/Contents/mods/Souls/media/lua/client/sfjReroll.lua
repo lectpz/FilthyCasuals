@@ -164,15 +164,15 @@ local function sfjUpgrade(player, item, tier)
 	if numBuffs > 1 then
 		local iMD = item:getModData()
 		for _, buff in ipairs(iMD.SoulBuffs) do
-			iMD.SoulBuffTiers[buff] = tier
+			if buff ~= "SoulStrength" then iMD.SoulBuffTiers[buff] = tier end
 		end
 		iMD.Tier = tier
 		--item:setName(upgradeTier(item:getName()))	
 	else
-		--item:getModData().Tier = tier
 		BuffSystem.setBuffTier(item, buffs[1], tier)
 		-- Clear NameModified flag so name can be updated
 		item:getModData().NameModified = nil
+		item:getModData().Tier = tier
 		ItemGenerator.SetResultName(item)
 		--item:setName(upgradeTier(item:getName()))	
 	end
@@ -202,7 +202,7 @@ local function sfjUpgradeContext(player, context, items)
             itemToolTipMats(tooltip, "SoulForge.SoulShardT"..iTier+1, sfj_upgrade, iTier)
             sfj_upgrade.toolTip = tooltip
             break
-        elseif iTier and iTier < 5 and iBuffs and #iBuffs > 1 and not table_contains(iBuffs, "SoulStrength") then 
+        elseif iTier and iTier < 5 and iBuffs and #iBuffs > 1 then--and not table_contains(iBuffs, "SoulStrength") then 
             local materialCostMultiplier = numBuffs
             local scrapCost = (iTier+1)^2 * materialCostMultiplier
             local shardCost = iTier * materialCostMultiplier

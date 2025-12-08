@@ -121,15 +121,13 @@ local function spawnBldgZombies(bDef, bldgID, tier)
 		--bDef:setHasBeenVisited(false)
 		SD_bSpawned[bldgID] = true
 		
-		local ztier = 45 --6x6
+		local ztier = 55 --6x6
 		if tier == 6 then
-			ztier = 25 --3x3
+			ztier = 40 --3x3
 		elseif tier == 5 then
-			ztier = 30 --3x3
+			ztier = 45 --3x3
 		elseif tier == 4 then
-			ztier = 35 --4x4
-		elseif tier == 3 then
-			ztier = 40 --5x5
+			ztier = 50 --4x4
 		end
 		
 		local bRooms = bDef:getRooms()
@@ -144,9 +142,14 @@ end
 
 local function onFillContainer(_roomName, _containerType, container)
 	if instanceof(container:getParent(), "BaseVehicle") then return end
-	
+
 	local sq = container:getSourceGrid()
 	if not sq then return end
+	
+	local x, y = sq:getX(), sq:getY()	
+	
+	local tier, zone, x, y, control, toxic = checkZoneAtXY(x,y)
+	if tier < 3 then return end
 	
 	local SafeHouseSQ = SafeHouse.getSafeHouse(sq)
 	--SafeHouseSQ = true
@@ -173,12 +176,6 @@ local function onFillContainer(_roomName, _containerType, container)
 	
 	local sq_procedural = sq_roomDef:getProceduralSpawnedContainer()
 	if not sq_procedural then return end
-	
-	local x = sq:getX()
-	local y = sq:getY()
-
-	local tier, zone, x, y, control, toxic = checkZoneAtXY(x,y)
-	if tier == 1 then return end
 	
 	local hashMap = sq_procedural
 	local hashString = delimit(hashMap)
@@ -229,9 +226,9 @@ local function onFillContainer(_roomName, _containerType, container)
 					--if loot then
 						--local _additem = loot[ZombRand(#loot)+1]
 						--container:AddItem(_additem)
-				if tier > 3 then
-					VirtualZombieManager.instance:addZombiesToMap(numToSpawn, sq_roomDef, false)
-				end
+
+				VirtualZombieManager.instance:addZombiesToMap(numToSpawn, sq_roomDef, false)
+
 				break
 						
 					--end
@@ -240,7 +237,7 @@ local function onFillContainer(_roomName, _containerType, container)
 		end
 	end
 end
---Events.OnFillContainer.Add(onFillContainer)
+Events.OnFillContainer.Add(onFillContainer)
 
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------

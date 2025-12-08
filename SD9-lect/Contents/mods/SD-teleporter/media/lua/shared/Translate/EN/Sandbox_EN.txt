@@ -14,4 +14,7 @@ Sandbox_EN = {
 
     Sandbox_AllowTeleportToPlayer = "Enable Teleport to Player",
     Sandbox_AllowTeleportToPlayer_tooltip = "Allow players inside their safehouse to teleport to another faction member",
+	
+    Sandbox_SH_distance = "Allowable Distance Check",
+    Sandbox_SH_distance_tooltip = "Distance to Target Player's Safehouse",
 }

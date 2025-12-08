@@ -68,6 +68,33 @@ function OnTest_hasSoulCount(item)
 	
 end
 
+function OnCreate_add100SoulCount(items, result, player)
+	local weapon = player:getPrimaryHandItem()
+	local weaponModData = weapon:getModData()
+	local soulsFreed = weaponModData.KillCount or nil
+	weaponModData.KillCount = soulsFreed + 100 -- add souls from destroyed soul counter
+	soulsFreed = weaponModData.KillCount
+	--result:setUsedDelta(0)
+end
+
+function OnCreate_add250SoulCount(items, result, player)
+	local weapon = player:getPrimaryHandItem()
+	local weaponModData = weapon:getModData()
+	local soulsFreed = weaponModData.KillCount or nil
+	weaponModData.KillCount = soulsFreed + 250 -- add souls from destroyed soul counter
+	soulsFreed = weaponModData.KillCount
+	--result:setUsedDelta(0)
+end
+
+function OnCreate_add500SoulCount(items, result, player)
+	local weapon = player:getPrimaryHandItem()
+	local weaponModData = weapon:getModData()
+	local soulsFreed = weaponModData.KillCount or nil
+	weaponModData.KillCount = soulsFreed + 500 -- add souls from destroyed soul counter
+	soulsFreed = weaponModData.KillCount
+	--result:setUsedDelta(0)
+end
+
 function OnCreate_addFullSoulCount(items, result, player)
 	local weapon = player:getPrimaryHandItem()
 	local weaponModData = weapon:getModData()
@@ -170,7 +197,7 @@ end
 
 function OnTest_dontDestroySouls(item)
 
-	if not item:isInPlayerInventory() then return false end
+	if not item:isInPlayerInventory() or item:isEquipped() then return false end
 	
 	local weaponModData = item:getModData()
 	local player = getSpecificPlayer(0)
@@ -186,6 +213,8 @@ function OnTest_dontDestroySouls(item)
 end
 
 function OnTest_dontDestroySoulForgedGuns(item)
+
+	if item:isEquipped() then return false end
 	
 	local weaponModData = item:getModData()
 	local soulsFreed = weaponModData.KillCount or nil
@@ -197,6 +226,18 @@ function OnTest_dontDestroySoulForgedGuns(item)
 		return true
 	end
 	
+end
+
+function OnTest_isFullBottle(item)
+	if item:getFullType() == "Base.WhiskeyEmpty" then return true end
+	if item:IsFood() and item:getCalories() == 1500 then
+		return true
+	end
+	return false
+end
+
+function OnCreate_Bourbon(items, result, player)
+	player:getInventory():AddItem("CanteensAndBottles.FlaskEmpty")
 end
 
 function OnTest_isInPlayerInventory(item)
@@ -348,7 +389,7 @@ end
 function OnCreate_EmptySoulFlask(items, result, player)
 	local soulFlask = InventoryItemFactory.CreateItem("SoulForge.StoredSoulsSD_new")
 	soulFlask:setUsedDelta(0)
-	playerObj:getInventory():AddItem(soulFlask)
+	player:getInventory():AddItem(soulFlask)
 end
 
 local canReturnSoulForge = true
@@ -673,6 +714,14 @@ function OnCreate_unforgeMainHand(items, result, player)
 			if wTier >= 3 then playerInv:AddItem("SoulForge.SoulCrystalT3") end
 			if wTier >= 4 then playerInv:AddItem("SoulForge.SoulCrystalT4") end
 			playerInv:AddItem("SoulForge.SoulCrystalT5")
+			
+			if weaponModData.augmentMinDmg then playerInv:AddItems("SoulForge.MinDmgTicket", ZombRand(math.ceil(weaponModData.augmentMinDmg / 2),weaponModData.augmentMinDmg)) end
+			if weaponModData.augmentMaxDmg then playerInv:AddItems("SoulForge.MaxDmgTicket", ZombRand(math.ceil(weaponModData.augmentMaxDmg / 2),weaponModData.augmentMaxDmg)) end
+			if weaponModData.augmentCritRate then playerInv:AddItems("SoulForge.CritChanceTicket", ZombRand(math.ceil(weaponModData.augmentCritRate / 2),weaponModData.augmentCritRate)) end
+			if weaponModData.augmentCritMulti then playerInv:AddItems("SoulForge.CritMultiTicket", ZombRand(math.ceil(weaponModData.augmentCritMulti / 2),weaponModData.augmentCritMulti)) end
+			if weaponModData.augmentAimingTime then playerInv:AddItems("SoulForge.AimingTimeTicket", ZombRand(math.ceil(weaponModData.augmentAimingTime / 2),weaponModData.augmentAimingTime)) end
+			if weaponModData.augmentAimingPerkHitChanceModifier then playerInv:AddItems("SoulForge.AimingPerkHitTicket", ZombRand(math.ceil(weaponModData.augmentAimingPerkHitChanceModifier / 2),weaponModData.augmentAimingPerkHitChanceModifier)) end
+			if weaponModData.augmentAimingPerkCritModifier then playerInv:AddItems("SoulForge.AimingPerkCritTicket", ZombRand(math.ceil(weaponModData.augmentAimingPerkCritModifier / 2),weaponModData.augmentAimingPerkCritModifier)) end
 		end
 	end
 	Events.OnPlayerUpdate.Add(waitToUnforge)
@@ -704,109 +753,25 @@ end
 
 SoulForgeReroll = {}
 
-SoulForgeReroll.MinDmgTicket = function(items, result, player)
-	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
-	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
+local ticketNames = { "MinDmgTicket", "MaxDmgTicket", "CritChanceTicket", "CritMultiTicket", "EnduranceModTicket", "bagCapacityTicket", "bagWeightTicket", "AimingTimeTicket", "AimingPerkHitTicket", "AimingPerkCritTicket" }
 
-	for i=1, #augments do
-		if augments[i] == "SoulForge.MinDmgTicket" then
-			table.remove(augments, i)
-			table.remove(augmentsweight, i)
-			break
+for i=1, #ticketNames do
+	SoulForgeReroll[ticketNames[i]] = function(items, result, player)
+		local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", "SoulForge.AimingTimeTicket", "SoulForge.AimingPerkHitTicket", "SoulForge.AimingPerkCritTicket" }
+		local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, 3, 3, 3 }
+		
+		local sfName = "SoulForge." .. ticketNames[i]
+		local baseName = "Base." .. ticketNames[i]
+		for j=1, #augments do
+			if augments[j] == sfName or augments[j] == baseName then
+				table.remove(augments, j)
+				table.remove(augmentsweight, j)
+				break
+			end
 		end
+
+		player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
 	end
-
-	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
-end
-
-SoulForgeReroll.MaxDmgTicket = function(items, result, player)
-	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
-	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
-	
-	for i=1, #augments do
-		if augments[i] == "SoulForge.MaxDmgTicket" then
-			table.remove(augments, i)
-			table.remove(augmentsweight, i)
-			break
-		end
-	end
-
-	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
-end
-
-SoulForgeReroll.CritChanceTicket = function(items, result, player)
-	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
-	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
-	
-	for i=1, #augments do
-		if augments[i] == "SoulForge.CritChanceTicket" then
-			table.remove(augments, i)
-			table.remove(augmentsweight, i)
-			break
-		end
-	end
-
-	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
-end
-
-SoulForgeReroll.CritMultiTicket = function(items, result, player)
-	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
-	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
-	
-	for i=1, #augments do
-		if augments[i] == "SoulForge.CritMultiTicket" then
-			table.remove(augments, i)
-			table.remove(augmentsweight, i)
-			break
-		end
-	end
-
-	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
-end
-
-SoulForgeReroll.EnduranceModTicket = function(items, result, player)
-	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
-	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
-	
-	for i=1, #augments do
-		if augments[i] == "SoulForge.EnduranceModTicket" then
-			table.remove(augments, i)
-			table.remove(augmentsweight, i)
-			break
-		end
-	end
-
-	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
-end
-
-SoulForgeReroll.bagCapacityTicket = function(items, result, player)
-	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
-	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
-	
-	for i=1, #augments do
-		if augments[i] == "SoulForge.bagCapacityTicket" then
-			table.remove(augments, i)
-			table.remove(augmentsweight, i)
-			break
-		end
-	end
-
-	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
-end
-
-SoulForgeReroll.bagWeightTicket = function(items, result, player)
-	local augments = { "SoulForge.MinDmgTicket", "SoulForge.MaxDmgTicket", "SoulForge.CritChanceTicket", "SoulForge.CritMultiTicket", "SoulForge.EnduranceModTicket", "Base.bagCapacityTicket", "Base.bagWeightTicket", }
-	local augmentsweight = { 2, 8, 9, 10, 2, 6, 4, }
-	
-	for i=1, #augments do
-		if augments[i] == "SoulForge.bagWeightTicket" then
-			table.remove(augments, i)
-			table.remove(augmentsweight, i)
-			break
-		end
-	end
-
-	player:getInventory():AddItem(getWeightedItem(augments, augmentsweight, ZombRand(1,getTotalTableWeight(augmentsweight))))
 end
 
 local function needToEatItAll(character, percent)

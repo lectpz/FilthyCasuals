@@ -1,0 +1,1003 @@
+module SoulForge {	
+
+    item MinDmgTicket_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Min Damage Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item MinDmgTicket_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Min Damage Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item MinDmgTicket_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Min Damage Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item MinDmgTicket_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Min Damage Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item MinDmgTicket_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Min Damage Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item MaxDmgTicket_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Max Damage Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item MaxDmgTicket_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Max Damage Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item MaxDmgTicket_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Max Damage Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item MaxDmgTicket_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Max Damage Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item MaxDmgTicket_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Max Damage Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item CritChanceTicket_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Crit Chance Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item CritChanceTicket_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Crit Chance Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item CritChanceTicket_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Crit Chance Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item CritChanceTicket_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Crit Chance Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item CritChanceTicket_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Crit Chance Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item CritMultiTicket_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Crit Multi Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item CritMultiTicket_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Crit Multi Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item CritMultiTicket_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Crit Multi Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item CritMultiTicket_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Crit Multi Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item CritMultiTicket_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Crit Multi Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item EnduranceModTicket_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Endurance Mod Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item EnduranceModTicket_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Endurance Mod Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item EnduranceModTicket_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Endurance Mod Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item EnduranceModTicket_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Endurance Mod Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item EnduranceModTicket_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Endurance Mod Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item bagCapacityTicket_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Bag Capacity Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item bagCapacityTicket_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Bag Capacity Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item bagCapacityTicket_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Bag Capacity Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item bagCapacityTicket_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Bag Capacity Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item bagCapacityTicket_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Bag Capacity Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item bagWeightTicket_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Bag Weight Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item bagWeightTicket_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Bag Weight Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item bagWeightTicket_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Bag Weight Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item bagWeightTicket_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Bag Weight Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item bagWeightTicket_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Bag Weight Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingTimeTicket_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Aiming Time Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingTimeTicket_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Aiming Time Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingTimeTicket_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Aiming Time Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingTimeTicket_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Aiming Time Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingTimeTicket_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Aiming Time Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingPerkHitTicket_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Aiming Perk Hit Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingPerkHitTicket_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Aiming Perk Hit Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingPerkHitTicket_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Aiming Perk Hit Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingPerkHitTicket_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Aiming Perk Hit Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingPerkHitTicket_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Aiming Perk Hit Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingPerkCritTicket_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Aiming Perk Crit Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingPerkCritTicket_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Aiming Perk Crit Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingPerkCritTicket_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Aiming Perk Crit Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingPerkCritTicket_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Aiming Perk Crit Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item AimingPerkCritTicket_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Aiming Perk Crit Ticket,
+        Icon            = BusTicket,
+        WorldStaticModel = PaperNapkins_Ground,
+    }
+
+    item SoulCrystalT1_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Soul Crystal [T1],
+        Icon            = GreenCrystal,
+        WorldStaticModel = GreenCrystal,
+    }
+
+    item SoulCrystalT1_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Soul Crystal [T1],
+        Icon            = GreenCrystal,
+        WorldStaticModel = GreenCrystal,
+    }
+
+    item SoulCrystalT1_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Soul Crystal [T1],
+        Icon            = GreenCrystal,
+        WorldStaticModel = GreenCrystal,
+    }
+
+    item SoulCrystalT1_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Soul Crystal [T1],
+        Icon            = GreenCrystal,
+        WorldStaticModel = GreenCrystal,
+    }
+
+    item SoulCrystalT1_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Soul Crystal [T1],
+        Icon            = GreenCrystal,
+        WorldStaticModel = GreenCrystal,
+    }
+
+    item SoulCrystalT2_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Soul Crystal [T2],
+        Icon            = YellowCrystal,
+        WorldStaticModel = YellowCrystal,
+    }
+
+    item SoulCrystalT2_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Soul Crystal [T2],
+        Icon            = YellowCrystal,
+        WorldStaticModel = YellowCrystal,
+    }
+
+    item SoulCrystalT2_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Soul Crystal [T2],
+        Icon            = YellowCrystal,
+        WorldStaticModel = YellowCrystal,
+    }
+
+    item SoulCrystalT2_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Soul Crystal [T2],
+        Icon            = YellowCrystal,
+        WorldStaticModel = YellowCrystal,
+    }
+
+    item SoulCrystalT2_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Soul Crystal [T2],
+        Icon            = YellowCrystal,
+        WorldStaticModel = YellowCrystal,
+    }
+
+    item SoulCrystalT3_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Soul Crystal [T3],
+        Icon            = OrangeCrystal,
+        WorldStaticModel = OrangeCrystal,
+    }
+
+    item SoulCrystalT3_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Soul Crystal [T3],
+        Icon            = OrangeCrystal,
+        WorldStaticModel = OrangeCrystal,
+    }
+
+    item SoulCrystalT3_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Soul Crystal [T3],
+        Icon            = OrangeCrystal,
+        WorldStaticModel = OrangeCrystal,
+    }
+
+    item SoulCrystalT3_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Soul Crystal [T3],
+        Icon            = OrangeCrystal,
+        WorldStaticModel = OrangeCrystal,
+    }
+
+    item SoulCrystalT3_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Soul Crystal [T3],
+        Icon            = OrangeCrystal,
+        WorldStaticModel = OrangeCrystal,
+    }
+
+    item SoulCrystalT4_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Soul Crystal [T4],
+        Icon            = RedCrystal,
+        WorldStaticModel = RedCrystal,
+    }
+
+    item SoulCrystalT4_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Soul Crystal [T4],
+        Icon            = RedCrystal,
+        WorldStaticModel = RedCrystal,
+    }
+
+    item SoulCrystalT4_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Soul Crystal [T4],
+        Icon            = RedCrystal,
+        WorldStaticModel = RedCrystal,
+    }
+
+    item SoulCrystalT4_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Soul Crystal [T4],
+        Icon            = RedCrystal,
+        WorldStaticModel = RedCrystal,
+    }
+
+    item SoulCrystalT4_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Soul Crystal [T4],
+        Icon            = RedCrystal,
+        WorldStaticModel = RedCrystal,
+    }
+
+    item SoulCrystalT5_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Soul Crystal [T5],
+        Icon            = PrismCrystal,
+        WorldStaticModel = PrismCrystal,
+    }
+
+    item SoulCrystalT5_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Soul Crystal [T5],
+        Icon            = PrismCrystal,
+        WorldStaticModel = PrismCrystal,
+    }
+
+    item SoulCrystalT5_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Soul Crystal [T5],
+        Icon            = PrismCrystal,
+        WorldStaticModel = PrismCrystal,
+    }
+
+    item SoulCrystalT5_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Soul Crystal [T5],
+        Icon            = PrismCrystal,
+        WorldStaticModel = PrismCrystal,
+    }
+
+    item SoulCrystalT5_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Soul Crystal [T5],
+        Icon            = PrismCrystal,
+        WorldStaticModel = PrismCrystal,
+    }
+
+    item SoulShardT1_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Soul Shard [T1],
+        Icon            = GreenCrystalShard,
+        WorldStaticModel = GreenCrystalShard,
+    }
+
+    item SoulShardT1_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Soul Shard [T1],
+        Icon            = GreenCrystalShard,
+        WorldStaticModel = GreenCrystalShard,
+    }
+
+    item SoulShardT1_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Soul Shard [T1],
+        Icon            = GreenCrystalShard,
+        WorldStaticModel = GreenCrystalShard,
+    }
+
+    item SoulShardT1_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Soul Shard [T1],
+        Icon            = GreenCrystalShard,
+        WorldStaticModel = GreenCrystalShard,
+    }
+
+    item SoulShardT1_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Soul Shard [T1],
+        Icon            = GreenCrystalShard,
+        WorldStaticModel = GreenCrystalShard,
+    }
+
+    item SoulShardT2_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Soul Shard [T2],
+        Icon            = YellowCrystalShard,
+        WorldStaticModel = YellowCrystalShard,
+    }
+
+    item SoulShardT2_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Soul Shard [T2],
+        Icon            = YellowCrystalShard,
+        WorldStaticModel = YellowCrystalShard,
+    }
+
+    item SoulShardT2_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Soul Shard [T2],
+        Icon            = YellowCrystalShard,
+        WorldStaticModel = YellowCrystalShard,
+    }
+
+    item SoulShardT2_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Soul Shard [T2],
+        Icon            = YellowCrystalShard,
+        WorldStaticModel = YellowCrystalShard,
+    }
+
+    item SoulShardT2_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Soul Shard [T2],
+        Icon            = YellowCrystalShard,
+        WorldStaticModel = YellowCrystalShard,
+    }
+
+    item SoulShardT3_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Soul Shard [T3],
+        Icon            = OrangeCrystalShard,
+        WorldStaticModel = OrangeCrystalShard,
+    }
+
+    item SoulShardT3_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Soul Shard [T3],
+        Icon            = OrangeCrystalShard,
+        WorldStaticModel = OrangeCrystalShard,
+    }
+
+    item SoulShardT3_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Soul Shard [T3],
+        Icon            = OrangeCrystalShard,
+        WorldStaticModel = OrangeCrystalShard,
+    }
+
+    item SoulShardT3_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Soul Shard [T3],
+        Icon            = OrangeCrystalShard,
+        WorldStaticModel = OrangeCrystalShard,
+    }
+
+    item SoulShardT3_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Soul Shard [T3],
+        Icon            = OrangeCrystalShard,
+        WorldStaticModel = OrangeCrystalShard,
+    }
+
+    item SoulShardT4_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Soul Shard [T4],
+        Icon            = RedCrystalShard,
+        WorldStaticModel = RedCrystalShard,
+    }
+
+    item SoulShardT4_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Soul Shard [T4],
+        Icon            = RedCrystalShard,
+        WorldStaticModel = RedCrystalShard,
+    }
+
+    item SoulShardT4_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Soul Shard [T4],
+        Icon            = RedCrystalShard,
+        WorldStaticModel = RedCrystalShard,
+    }
+
+    item SoulShardT4_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Soul Shard [T4],
+        Icon            = RedCrystalShard,
+        WorldStaticModel = RedCrystalShard,
+    }
+
+    item SoulShardT4_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Soul Shard [T4],
+        Icon            = RedCrystalShard,
+        WorldStaticModel = RedCrystalShard,
+    }
+
+    item SoulShardT5_5x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 5x Soul Shard [T5],
+        Icon            = PrismCrystalShard,
+        WorldStaticModel = PrismCrystalShard,
+    }
+
+    item SoulShardT5_10x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 10x Soul Shard [T5],
+        Icon            = PrismCrystalShard,
+        WorldStaticModel = PrismCrystalShard,
+    }
+
+    item SoulShardT5_25x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 25x Soul Shard [T5],
+        Icon            = PrismCrystalShard,
+        WorldStaticModel = PrismCrystalShard,
+    }
+
+    item SoulShardT5_50x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 50x Soul Shard [T5],
+        Icon            = PrismCrystalShard,
+        WorldStaticModel = PrismCrystalShard,
+    }
+
+    item SoulShardT5_100x
+    {
+        DisplayCategory 	= 	SoulForge,
+        Type            = Normal,
+        Weight          = 0.01,
+        DisplayName     = Stack of 100x Soul Shard [T5],
+        Icon            = PrismCrystalShard,
+        WorldStaticModel = PrismCrystalShard,
+    }
+
+}

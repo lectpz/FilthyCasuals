@@ -124,7 +124,6 @@ Events.OnServerCommand.Add(onServerCommand)
 
 -----------------------------------------------------------------------------------------------------------------------
 -------------------- Utility
-
 local function has_valid_safehouse(player_name, player_safehouse)
 
     local result = false
@@ -139,7 +138,7 @@ local function has_valid_safehouse(player_name, player_safehouse)
         y2 = safehouse:getY()
 
         local distance = math.floor(math.sqrt((x2-x1)^2, (y2-y1)^2))
-        result = distance < 400
+        result = distance < SandboxVars.SDTeleporter.SH_distance or 424
     end
 
     return result
@@ -247,9 +246,9 @@ SundayDriversTeleporterContextMenuObjectName.doMenu = function(player, context, 
                     then
                         local players = {}
                         local faction_players = faction:getPlayers()
-                        for j = 1, faction_players:size()
+                        for j = 0, faction_players:size()-1
                         do
-                            local anotherplayer_username = faction_players:get(j - 1)
+                            local anotherplayer_username = faction_players:get(j)
                             if (anotherplayer_username ~= self_name) then
                                 players[anotherplayer_username] = anotherplayer_username
                             end
@@ -287,12 +286,12 @@ SundayDriversTeleporterContextMenuObjectName.doMenu = function(player, context, 
                                         local tooltip = ISWorldObjectContextMenu.addToolTip();
                                         tooltip.description = tooltip.description .. "Player offline."
                                         option.toolTip = tooltip
-                                    --elseif not has_valid_safehouse(anotherplayer_username, player_safehouse)
-                                    --then
-                                        -- option.notAvailable = true;
-                                        -- local tooltip = ISWorldObjectContextMenu.addToolTip();
-                                        -- tooltip.description = tooltip.description .. "Player doesnt have a safehouse near yours."
-                                        -- option.toolTip = tooltip
+                                    elseif not has_valid_safehouse(anotherplayer_username, player_safehouse)
+                                    then
+                                        option.notAvailable = true;
+                                        local tooltip = ISWorldObjectContextMenu.addToolTip();
+                                        tooltip.description = tooltip.description .. "Invalid player (no safehouse or safehouse is too far away from yours)."
+                                        option.toolTip = tooltip
                                     end
                                 end
                             end

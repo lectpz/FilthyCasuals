@@ -238,10 +238,13 @@ function ISWorldMap:new(x, y, width, height)
 			local split = splitString(SandboxVars.SDGlobalRewards[gRewardTypes[i]])
 			local sandboxString = "  "
 			for j=1,#split do
-				local displayName = ScriptManager.instance:getItem(split[j]):getDisplayName()
-				local color = red
-				if weeklyGlobalRewards[gRewardTypes[i]] then color = green end
-				sandboxString = color .. sandboxString .. displayName .." <LINE> "
+				local sItem = ScriptManager.instance:getItem(split[j])
+				if sItem then
+					local displayName = sItem:getDisplayName()
+					local color = red
+					if weeklyGlobalRewards[gRewardTypes[i]] then color = green end
+					sandboxString = color .. sandboxString .. displayName .." <LINE> "
+				end
 			end
 			table.insert(globalLine, gold .. "Objective: " .. gRewardTypes[i] .. " <LINE> " ..  sandboxString)
 		end
@@ -253,10 +256,13 @@ function ISWorldMap:new(x, y, width, height)
 			local split = splitString(SandboxVars.SDGlobalRewards["T"..i])
 			local sandboxString = "  "
 			for j=1,#split do
-				local displayName = ScriptManager.instance:getItem(split[j]):getDisplayName()
-				local color = red
-				if weeklyFactionRewards[mdFaction.."_T"..i] then color = green end
-				sandboxString = color .. sandboxString .. displayName .." <LINE> "
+				local sItem = ScriptManager.instance:getItem(split[j])
+				if sItem then
+					local displayName = sItem:getDisplayName()
+					local color = red
+					if weeklyFactionRewards[mdFaction.."_T"..i] then color = green end
+					sandboxString = color .. sandboxString .. displayName .." <LINE> "
+				end
 			end
 			table.insert(factionLine, gold .. "Objective: T" .. i .. " <LINE> " ..  sandboxString)
 		end
@@ -447,7 +453,7 @@ function ISWorldMap:onRightMouseUp(x, y)
     local worldX = math.floor(self.mapAPI:uiToWorldX(x, y))
     local worldY = math.floor(self.mapAPI:uiToWorldY(x, y))	
 	
-	if checkCCshopCoords(worldX, worldY, cc_coords) then
+	--[[if checkCCshopCoords(worldX, worldY, cc_coords) then
 	
 		local tier, zone = checkZone()
 		if zone == "CC" then
@@ -462,9 +468,31 @@ function ISWorldMap:onRightMouseUp(x, y)
 			end)
 		end
 	
+	end]]
+	local tier, zone = checkZone()
+	local _tier, _zone = checkZoneAtXY(worldX, worldY) --zone at mouse coordinates
+	if _zone == "CC" and zone == "CC" then --if player is in CC and the mouse is hovering over CC
+		context:addOptionOnTop("Teleport to this location at CC: " .. worldX .. "," .. worldY .. ",0", self, 
+			function()
+				playerObj:setX(worldX)
+				playerObj:setY(worldY)
+				playerObj:setZ(0)
+				playerObj:setLx(worldX)
+				playerObj:setLy(worldY)
+				playerObj:setLz(0)
+			end)
 	end
 	
-	if isAdmin() or isDebugEnabled() then
+	if playerObj:getAccessLevel() == "Overseer" or playerObj:getAccessLevel() == "Moderator" or playerObj:getAccessLevel() == "GM" then
+		if getWorld():getMetaGrid():isValidChunk(worldX / 10, worldY / 10) then
+			option = context:addOption("Teleport Here", self, self.onTeleport, worldX, worldY)
+		end
+		self.hideUnvisitedAreas = self.mapAPI:getBoolean("HideUnvisited")
+		option = context:addOption("Hide Unvisited Areas", self, function(self) self:setHideUnvisitedAreas(not self.hideUnvisitedAreas) end)
+		context:setOptionChecked(option, self.hideUnvisitedAreas)
+	end
+	
+	if isAdmin() or isDebugEnabled() or playerObj:getAccessLevel() == "Overseer" or playerObj:getAccessLevel() == "Moderator" or playerObj:getAccessLevel() == "GM" then
 		local newmapzone 	= context:addOptionOnTop("Draw new map zone:", self, nil)
 		local submenu 	= ISContextMenu:getNew(context)
 		context:addSubMenu(newmapzone, submenu)

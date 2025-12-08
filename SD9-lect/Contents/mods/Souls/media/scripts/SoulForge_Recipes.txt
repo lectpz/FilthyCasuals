@@ -3,14 +3,27 @@ module SoulForge {
 	recipe Create Empty Soul Flask
 	{
 		CanBeDoneFromFloor:true,
-		Base.WhiskeyFull=3,
-		Base.LeatherStrips=10,
+		Base.WhiskeyFull=4,
 		AnimNode:Loot,
 		Prop1: Source=1,
 		Result:EmptySoulFlaskWhite,
 		RemoveResultItem:true,
 		Time:100.0,
+		OnTest:OnTest_isFullBottle,
 		OnCreate:OnCreate_EmptySoulFlask,
+	}
+	
+	recipe Fill Up Bottle of Bourbon
+	{
+		CanBeDoneFromFloor:true,
+		CanteensAndBottles.FlaskBourbon,
+		Base.WhiskeyEmpty,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:Base.WhiskeyFull,
+		Time:100.0,
+		OnTest:OnTest_isFullBottle,
+		OnCreate:OnCreate_Bourbon,
 	}
 
 	recipe Convert Soul Flask Into A Water Container
@@ -63,26 +76,65 @@ module SoulForge {
 		OnCreate:OnCreate_fillSoulFlask,
 	}	
 	
-	recipe Infuse Souls Into Weapon (Single Use)
+	recipe Infuse 100 Souls Into Weapon (Single Use)
+	{
+		CanBeDoneFromFloor:true,
+		destroy ContainerSoulsDisposable100,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:ContainerSoulsDisposable100,
+		RemoveResultItem:true,
+		Time:50.0,
+		OnTest:OnTest_hasSoulCount,
+		OnCreate:OnCreate_add100SoulCount,
+	}
+	
+	recipe Infuse 250 Souls Into Weapon (Single Use)
+	{
+		CanBeDoneFromFloor:true,
+		destroy ContainerSoulsDisposable250,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:ContainerSoulsDisposable250,
+		RemoveResultItem:true,
+		Time:50.0,
+		OnTest:OnTest_hasSoulCount,
+		OnCreate:OnCreate_add250SoulCount,
+	}
+	
+	recipe Infuse 500 Souls Into Weapon (Single Use)
+	{
+		CanBeDoneFromFloor:true,
+		destroy ContainerSoulsDisposable500,
+		AnimNode:Loot,
+		Prop1: Source=1,
+		Result:ContainerSoulsDisposable500,
+		RemoveResultItem:true,
+		Time:50.0,
+		OnTest:OnTest_hasSoulCount,
+		OnCreate:OnCreate_add500SoulCount,
+	}
+	
+	recipe Infuse 1000 Souls Into Weapon (Single Use)
 	{
 		CanBeDoneFromFloor:true,
 		destroy ContainerSoulsDisposable,
 		AnimNode:Loot,
 		Prop1: Source=1,
-		Result:StoredSoulsSD_new,
+		Result:ContainerSoulsDisposable,
 		RemoveResultItem:true,
 		Time:50.0,
 		OnTest:OnTest_hasSoulCount,
 		OnCreate:OnCreate_addFullSoulCount,
 	}
 	
-	recipe Infuse Souls Into Weapon (Single Use)
+	recipe Infuse 10000 Souls Into Weapon (Single Use)
 	{
 		CanBeDoneFromFloor:true,
 		destroy ContainerSoulsDisposableGiant,
 		AnimNode:Loot,
 		Prop1: Source=1,
-		Result:StoredSoulsSD_new,
+		Result:ContainerSoulsDisposableGiant,
 		RemoveResultItem:true,
 		Time:50.0,
 		OnTest:OnTest_hasSoulCount,
@@ -866,7 +918,7 @@ module SoulForge {
 	recipe Reroll Augment Ticket
 	{
 		CanBeDoneFromFloor:false,
-		bagCapacityTicket=3,
+		Base.bagCapacityTicket=3,
 		Base.ScrapMetal=8,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
@@ -880,12 +932,54 @@ module SoulForge {
 	recipe Reroll Augment Ticket
 	{
 		CanBeDoneFromFloor:false,
-		bagWeightTicket=3,
+		Base.bagWeightTicket=3,
 		Base.ScrapMetal=8,
 		AnimNode:BlowTorch,
 		Prop1: Source=1,
 		OnTest:OnTest_isInPlayerInventory,
 		OnCreate:SoulForgeReroll.bagWeightTicket,
+		Result:Base.Dice,
+		RemoveResultItem:true,
+		Time:100.0,
+	}
+	
+	recipe Reroll Augment Ticket
+	{
+		CanBeDoneFromFloor:false,
+		AimingTimeTicket=3,
+		Base.ScrapMetal=8,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:SoulForgeReroll.AimingTimeTicket,
+		Result:Base.Dice,
+		RemoveResultItem:true,
+		Time:100.0,
+	}
+	
+	recipe Reroll Augment Ticket
+	{
+		CanBeDoneFromFloor:false,
+		AimingPerkHitTicket=3,
+		Base.ScrapMetal=8,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:SoulForgeReroll.AimingPerkHitTicket,
+		Result:Base.Dice,
+		RemoveResultItem:true,
+		Time:100.0,
+	}
+	
+	recipe Reroll Augment Ticket
+	{
+		CanBeDoneFromFloor:false,
+		AimingPerkCritTicket=3,
+		Base.ScrapMetal=8,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		OnCreate:SoulForgeReroll.AimingPerkCritTicket,
 		Result:Base.Dice,
 		RemoveResultItem:true,
 		Time:100.0,
@@ -984,10 +1078,27 @@ module SoulForge {
 	recipe Create Empty Soul Container (Single Use)
 	{
         CanBeDoneFromFloor:true,
-		BleachEmpty/WaterBottleEmpty/BeerEmpty/WineEmpty2/WineEmpty/WhiskeyEmpty/farming.MayonnaiseEmpty/farming.RemouladeEmpty/MoreBrews.BeerBottleEmptyAmericanLager/MoreBrews.BeerBottleEmptyAPA1/MoreBrews.BeerBottleEmptyAPA2/MoreBrews.BeerBottleEmptyIPA1/MoreBrews.BeerBottleEmptyIPA2/MoreBrews.BeerBottleEmptyLightLager/MoreBrews.BeerBottleEmptyPilsner/MoreBrews.BeerBottleEmptyPorter/MoreBrews.BeerBottleEmptySkunked/MoreBrews.BeerBottleEmptyStout/SapphCooking.CachacaEmpty/SapphCooking.GinEmpty/SapphCooking.LiqueurEmpty/SapphCooking.TequilaEmpty/SapphCooking.VodkaEmpty,
+		WaterBottleEmpty/BeerEmpty/WineEmpty2/WineEmpty/WhiskeyEmpty/farming.MayonnaiseEmpty/farming.RemouladeEmpty/MoreBrews.BeerBottleEmptyAmericanLager/MoreBrews.BeerBottleEmptyAPA1/MoreBrews.BeerBottleEmptyAPA2/MoreBrews.BeerBottleEmptyIPA1/MoreBrews.BeerBottleEmptyIPA2/MoreBrews.BeerBottleEmptyLightLager/MoreBrews.BeerBottleEmptyPilsner/MoreBrews.BeerBottleEmptyPorter/MoreBrews.BeerBottleEmptySkunked/MoreBrews.BeerBottleEmptyStout/SapphCooking.CachacaEmpty/SapphCooking.GinEmpty/SapphCooking.LiqueurEmpty/SapphCooking.TequilaEmpty/SapphCooking.VodkaEmpty/Base.EmptyJar/Base.PopBottleEmpty/SapphCooking.ColaBottleEmpty/MoreBrews.RedWineAgedEmpty/MoreBrews.PineappleWineEmpty/MoreBrews.WhiteWineEmpty/CanteensAndBottles.MedicinalCanteenGreenWhiteEmpty/CanteensAndBottles.MedicinalCanteenWhiteRedEmpty/CanteensAndBottles.MedicinalCanteenWhiteGreenEmpty/CanteensAndBottles.MedicinalCanteenRedWhiteEmpty,
 		AnimNode:Craft,
 		Category:SoulForge,
 		Result:EmptyContainerSoulsDisposable=1,
 		Time:75.0,
+	}
+	
+	recipe Create SoulForge Weighted Dice [T2]
+	{
+		CanBeDoneFromFloor:false,
+		MinDmgTicket/MaxDmgTicket/CritChanceTicket/CritMultiTicket/EnduranceModTicket/Base.bagCapacityTicket/Base.bagWeightTicket/AimingTimeTicket/AimingPerkHitTicket/AimingPerkCritTicket,
+		MinDmgTicket/MaxDmgTicket/CritChanceTicket/CritMultiTicket/EnduranceModTicket/Base.bagCapacityTicket/Base.bagWeightTicket/AimingTimeTicket/AimingPerkHitTicket/AimingPerkCritTicket,
+		MinDmgTicket/MaxDmgTicket/CritChanceTicket/CritMultiTicket/EnduranceModTicket/Base.bagCapacityTicket/Base.bagWeightTicket/AimingTimeTicket/AimingPerkHitTicket/AimingPerkCritTicket,
+		SoulCrystalT1=1,
+		SoulCrystalT2=1,
+		Base.ScrapMetal=15,
+		StoredSoulsSD_new=200,
+		AnimNode:BlowTorch,
+		Prop1: Source=1,
+		OnTest:OnTest_isInPlayerInventory,
+		Result:SoulForge.WeightedDiceT2,
+		Time:100.0,
 	}
 }

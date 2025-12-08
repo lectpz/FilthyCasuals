@@ -1,7 +1,8 @@
 local SD9_SteamIDmark
 local SD9_timestampMark
-local weeklyGlobalRewards
-local weeklyFactionRewards
+local sendGlobalRewards
+local sendFactionRewards
+local SD9_GlobalRewardKillCount = ModData.getOrCreate("SD9_GlobalRewardKillCount")
 
 local args = {}
 
@@ -29,15 +30,15 @@ Events.OnGameStart.Add(function()
 							ModData.transmit("transmit_steamID")
 						end)
 
-local function SDGlobalReward(module, command, weeklyGlobalRewards)
-	if module == "SDGlobalReward" and command == "receiveReward" and weeklyGlobalRewards and type(weeklyGlobalRewards)=="table" then
+local function SDGlobalReward(module, command, sendGlobalRewards)
+	if module == "SDGlobalReward" and command == "receiveReward" and sendGlobalRewards and type(sendGlobalRewards)=="table" then
 		local player = getSpecificPlayer(0)
 		local faction = player:getModData().faction
 		
 		local zonetier, zonename, x, y = checkZone()
 		args = {
 		  player_name = getOnlineUsername(),
-		  cachetype = "Faction Reward",
+		  cachetype = "Global Reward",
 		  player_x = math.floor(x),
 		  player_y = math.floor(y),
 		  zonename = zonename,
@@ -45,12 +46,16 @@ local function SDGlobalReward(module, command, weeklyGlobalRewards)
 		}
 
 		if faction == "COG" or faction == "Ranger" or faction == "VoidWalker" then
-			for k,v in pairs(weeklyGlobalRewards) do
+			for k,v in pairs(sendGlobalRewards) do
 				if v then addItemToPlayer("Base."..k) end
 			end
 
 			sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 		end
+	end
+	
+	if module == "SDGlobalReward" and command == "tallyPlayerKills" and args then
+		SD9_GlobalRewardKillCount = args.totalPlayerKills
 	end
 end
 
@@ -59,8 +64,8 @@ factionToken["Ranger"] 		= "Base.rangerToken"
 factionToken["VoidWalker"] 	= "Base.vwToken"
 factionToken["COG"] 		= "Base.cogToken"
 
-local function SDFactionReward(module, command, weeklyFactionRewards)
-	if module == "SDFactionReward" and command == "receiveReward" and weeklyFactionRewards and type(weeklyFactionRewards)=="table" then
+local function SDFactionReward(module, command, sendFactionRewards)
+	if module == "SDFactionReward" and command == "receiveReward" and sendFactionRewards and type(sendFactionRewards)=="table" then
 		local player = getSpecificPlayer(0)
 		local faction = player:getModData().faction
 		
@@ -76,7 +81,7 @@ local function SDFactionReward(module, command, weeklyFactionRewards)
 		
 		if faction == "COG" or faction == "Ranger" or faction == "VoidWalker" then
 			for i=1,6 do 
-				if weeklyFactionRewards[faction.."_T"..i] then
+				if sendFactionRewards[faction.."_T"..i] then
 					addItemToPlayer("Base.FactionRewardT"..i)
 					addItemToPlayer(factionToken[faction])
 					sendClientCommand(player, 'sdLogger', 'OpenCache', args);

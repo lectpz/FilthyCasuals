@@ -71,7 +71,7 @@ local function login_check(player)
 		}
 		
 		if not player:isSeatedInVehicle() then
-			if z_chase > 3 and zonetier > 3 then
+			if z_chase > 7 and zonetier >= 3 then
 				processGeneralMessage("Help! I just logged in at " .. zonename .. " [T" .. zonetier .."] and I'm being chased by " .. z_chase .. " zombies!")
 			end
 			sendClientCommand(player, 'sdLogger', 'Login', args);

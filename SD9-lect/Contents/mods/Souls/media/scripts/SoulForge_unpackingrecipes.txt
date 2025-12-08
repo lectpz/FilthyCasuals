@@ -1,0 +1,903 @@
+module SoulForge {	
+
+    recipe Unstack 5x MinDmgTicket
+    {
+        MinDmgTicket_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:MinDmgTicket=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x MinDmgTicket
+    {
+        MinDmgTicket_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:MinDmgTicket=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x MinDmgTicket
+    {
+        MinDmgTicket_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:MinDmgTicket=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x MinDmgTicket
+    {
+        MinDmgTicket_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:MinDmgTicket=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x MinDmgTicket
+    {
+        MinDmgTicket_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:MinDmgTicket=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x MaxDmgTicket
+    {
+        MaxDmgTicket_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:MaxDmgTicket=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x MaxDmgTicket
+    {
+        MaxDmgTicket_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:MaxDmgTicket=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x MaxDmgTicket
+    {
+        MaxDmgTicket_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:MaxDmgTicket=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x MaxDmgTicket
+    {
+        MaxDmgTicket_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:MaxDmgTicket=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x MaxDmgTicket
+    {
+        MaxDmgTicket_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:MaxDmgTicket=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x CritChanceTicket
+    {
+        CritChanceTicket_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:CritChanceTicket=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x CritChanceTicket
+    {
+        CritChanceTicket_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:CritChanceTicket=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x CritChanceTicket
+    {
+        CritChanceTicket_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:CritChanceTicket=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x CritChanceTicket
+    {
+        CritChanceTicket_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:CritChanceTicket=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x CritChanceTicket
+    {
+        CritChanceTicket_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:CritChanceTicket=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x CritMultiTicket
+    {
+        CritMultiTicket_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:CritMultiTicket=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x CritMultiTicket
+    {
+        CritMultiTicket_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:CritMultiTicket=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x CritMultiTicket
+    {
+        CritMultiTicket_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:CritMultiTicket=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x CritMultiTicket
+    {
+        CritMultiTicket_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:CritMultiTicket=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x CritMultiTicket
+    {
+        CritMultiTicket_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:CritMultiTicket=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x EnduranceModTicket
+    {
+        EnduranceModTicket_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:EnduranceModTicket=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x EnduranceModTicket
+    {
+        EnduranceModTicket_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:EnduranceModTicket=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x EnduranceModTicket
+    {
+        EnduranceModTicket_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:EnduranceModTicket=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x EnduranceModTicket
+    {
+        EnduranceModTicket_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:EnduranceModTicket=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x EnduranceModTicket
+    {
+        EnduranceModTicket_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:EnduranceModTicket=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x Bag Capacity Ticket
+    {
+        SoulForge.bagCapacityTicket_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:Base.bagCapacityTicket=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x Bag Capacity Ticket
+    {
+        SoulForge.bagCapacityTicket_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:Base.bagCapacityTicket=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x Bag Capacity Ticket
+    {
+        SoulForge.bagCapacityTicket_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:Base.bagCapacityTicket=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x Bag Capacity Ticket
+    {
+        SoulForge.bagCapacityTicket_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:Base.bagCapacityTicket=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x Bag Capacity Ticket
+    {
+        SoulForge.bagCapacityTicket_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:Base.bagCapacityTicket=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x Bag Weight Ticket
+    {
+        SoulForge.bagWeightTicket_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:Base.bagWeightTicket=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x Bag Weight Ticket
+    {
+        SoulForge.bagWeightTicket_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:Base.bagWeightTicket=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x Bag Weight Ticket
+    {
+        SoulForge.bagWeightTicket_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:Base.bagWeightTicket=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x Bag Weight Ticket
+    {
+        SoulForge.bagWeightTicket_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:Base.bagWeightTicket=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x Bag Weight Ticket
+    {
+        SoulForge.bagWeightTicket_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:Base.bagWeightTicket=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x AimingTimeTicket
+    {
+        AimingTimeTicket_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingTimeTicket=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x AimingTimeTicket
+    {
+        AimingTimeTicket_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingTimeTicket=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x AimingTimeTicket
+    {
+        AimingTimeTicket_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingTimeTicket=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x AimingTimeTicket
+    {
+        AimingTimeTicket_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingTimeTicket=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x AimingTimeTicket
+    {
+        AimingTimeTicket_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingTimeTicket=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x AimingPerkHitTicket
+    {
+        AimingPerkHitTicket_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingPerkHitTicket=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x AimingPerkHitTicket
+    {
+        AimingPerkHitTicket_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingPerkHitTicket=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x AimingPerkHitTicket
+    {
+        AimingPerkHitTicket_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingPerkHitTicket=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x AimingPerkHitTicket
+    {
+        AimingPerkHitTicket_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingPerkHitTicket=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x AimingPerkHitTicket
+    {
+        AimingPerkHitTicket_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingPerkHitTicket=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x AimingPerkCritTicket
+    {
+        AimingPerkCritTicket_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingPerkCritTicket=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x AimingPerkCritTicket
+    {
+        AimingPerkCritTicket_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingPerkCritTicket=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x AimingPerkCritTicket
+    {
+        AimingPerkCritTicket_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingPerkCritTicket=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x AimingPerkCritTicket
+    {
+        AimingPerkCritTicket_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingPerkCritTicket=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x AimingPerkCritTicket
+    {
+        AimingPerkCritTicket_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:AimingPerkCritTicket=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x SoulCrystalT1
+    {
+        SoulCrystalT1_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT1=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x SoulCrystalT1
+    {
+        SoulCrystalT1_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT1=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x SoulCrystalT1
+    {
+        SoulCrystalT1_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT1=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x SoulCrystalT1
+    {
+        SoulCrystalT1_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT1=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x SoulCrystalT1
+    {
+        SoulCrystalT1_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT1=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x SoulCrystalT2
+    {
+        SoulCrystalT2_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT2=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x SoulCrystalT2
+    {
+        SoulCrystalT2_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT2=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x SoulCrystalT2
+    {
+        SoulCrystalT2_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT2=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x SoulCrystalT2
+    {
+        SoulCrystalT2_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT2=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x SoulCrystalT2
+    {
+        SoulCrystalT2_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT2=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x SoulCrystalT3
+    {
+        SoulCrystalT3_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT3=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x SoulCrystalT3
+    {
+        SoulCrystalT3_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT3=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x SoulCrystalT3
+    {
+        SoulCrystalT3_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT3=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x SoulCrystalT3
+    {
+        SoulCrystalT3_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT3=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x SoulCrystalT3
+    {
+        SoulCrystalT3_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT3=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x SoulCrystalT4
+    {
+        SoulCrystalT4_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT4=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x SoulCrystalT4
+    {
+        SoulCrystalT4_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT4=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x SoulCrystalT4
+    {
+        SoulCrystalT4_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT4=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x SoulCrystalT4
+    {
+        SoulCrystalT4_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT4=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x SoulCrystalT4
+    {
+        SoulCrystalT4_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT4=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x SoulCrystalT5
+    {
+        SoulCrystalT5_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT5=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x SoulCrystalT5
+    {
+        SoulCrystalT5_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT5=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x SoulCrystalT5
+    {
+        SoulCrystalT5_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT5=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x SoulCrystalT5
+    {
+        SoulCrystalT5_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT5=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x SoulCrystalT5
+    {
+        SoulCrystalT5_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulCrystalT5=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x SoulShardT1
+    {
+        SoulShardT1_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT1=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x SoulShardT1
+    {
+        SoulShardT1_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT1=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x SoulShardT1
+    {
+        SoulShardT1_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT1=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x SoulShardT1
+    {
+        SoulShardT1_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT1=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x SoulShardT1
+    {
+        SoulShardT1_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT1=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x SoulShardT2
+    {
+        SoulShardT2_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT2=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x SoulShardT2
+    {
+        SoulShardT2_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT2=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x SoulShardT2
+    {
+        SoulShardT2_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT2=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x SoulShardT2
+    {
+        SoulShardT2_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT2=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x SoulShardT2
+    {
+        SoulShardT2_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT2=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x SoulShardT3
+    {
+        SoulShardT3_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT3=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x SoulShardT3
+    {
+        SoulShardT3_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT3=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x SoulShardT3
+    {
+        SoulShardT3_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT3=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x SoulShardT3
+    {
+        SoulShardT3_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT3=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x SoulShardT3
+    {
+        SoulShardT3_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT3=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x SoulShardT4
+    {
+        SoulShardT4_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT4=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x SoulShardT4
+    {
+        SoulShardT4_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT4=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x SoulShardT4
+    {
+        SoulShardT4_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT4=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x SoulShardT4
+    {
+        SoulShardT4_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT4=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x SoulShardT4
+    {
+        SoulShardT4_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT4=100,
+        Time:100.0,
+    }
+
+    recipe Unstack 5x SoulShardT5
+    {
+        SoulShardT5_5x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT5=5,
+        Time:100.0,
+    }
+
+    recipe Unstack 10x SoulShardT5
+    {
+        SoulShardT5_10x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT5=10,
+        Time:100.0,
+    }
+
+    recipe Unstack 25x SoulShardT5
+    {
+        SoulShardT5_25x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT5=25,
+        Time:100.0,
+    }
+
+    recipe Unstack 50x SoulShardT5
+    {
+        SoulShardT5_50x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT5=50,
+        Time:100.0,
+    }
+
+    recipe Unstack 100x SoulShardT5
+    {
+        SoulShardT5_100x,
+        AnimNode:Loot,
+        OnTest:OnTest_isInPlayerInventory,
+        Result:SoulShardT5=100,
+        Time:100.0,
+    }
+
+}

@@ -51,9 +51,9 @@ local function itemsLooted()
 		for source, destinationCounts in pairs(sourceData) do
 			for destination, count in pairs(destinationCounts) do
 				if itemCounts[item][source][destination].count == 1 then
-					result = result .. "\n[sdLogger] Player [" .. args.player_name .. "] moved items: " .. count.count .. "x " .. item .. " (ID=" .. count.itemID .. ") [" .. source .. " -> " .. destination .. "], "
+					result = result .. "\n[sdLogger] Player [" .. args.player_name .. "] moved items: " .. count.count .. "x " .. item .. " (ID=" .. count.itemID .. ") [" .. source .. " -> " .. destination .. "], at (" .. args.player_x .. "," .. args.player_y .. "," .. args.player_z .. "), "
 				else
-					result = result .. "\n[sdLogger] Player [" .. args.player_name .. "] moved items: " .. count.count .. "x " .. item .. " [" .. source .. " -> " .. destination .. "], "
+					result = result .. "\n[sdLogger] Player [" .. args.player_name .. "] moved items: " .. count.count .. "x " .. item .. " [" .. source .. " -> " .. destination .. "], at (" .. args.player_x .. "," .. args.player_y .. "," .. args.player_z .. "), "
 				end
 			end
 		end
@@ -107,10 +107,35 @@ local function xferItem(self)
 	end
 end
 
+local function isCache(iFT)
+	if	(iFT ~= "Base.WeaponCache" 
+	and iFT ~= "Base.MechanicCache" 
+	and iFT ~= "Base.MetalworkCache" 
+	and iFT ~= "Base.MedicalCache" 
+	and iFT ~= "Base.AmmoCache" 
+	and iFT ~= 'Base.ArmorCachePatriot' 
+	and iFT ~= 'Base.ArmorCacheDefender' 
+	and iFT ~= 'Base.ArmorCacheVanguard' 
+	and iFT ~= 'Base.SpiffoCache' 
+	and iFT ~= 'Base.JewelryCache' 
+	and iFT ~= 'Base.SoulForgeCache' 
+	and iFT ~= 'Base.PokemonCache' 
+	and iFT ~= 'Base.ShinyPokemonCache' 
+	and iFT ~= 'Base.ChiikuCache'
+	and iFT ~= 'Base.BagCache'
+	and iFT ~= 'Base.ShoeCache'
+	and iFT ~= 'Base.FarmerCache')
+	then
+		return false
+	end
+	return true
+end
+
 ISInventoryTransferAction.o_transferItem = ISInventoryTransferAction.transferItem;
 function ISInventoryTransferAction:transferItem(item)
 	
 	local zonetier, zonename, x, y = checkZone()
+	local player = getSpecificPlayer(0)
 	
 	local iFT = item:getFullType()
 	local itemID = item:getID()
@@ -131,13 +156,13 @@ function ISInventoryTransferAction:transferItem(item)
 	args.itemID = itemID
 	args.player_x = math.floor(x)
 	args.player_y = math.floor(y)
-	args.player_z = getSpecificPlayer(0):getZ()
+	args.player_z = player:getZ()
 	args.zonename = zonename
 	args.zonetier = zonetier
 	args.srcContainer = sourceContainer
 	args.destContainer = destinationContainer
 	
-	if	iFT ~= "Base.WeaponCache" 
+	--[[if	(iFT ~= "Base.WeaponCache" 
 	and iFT ~= "Base.MechanicCache" 
 	and iFT ~= "Base.MetalworkCache" 
 	and iFT ~= "Base.MedicalCache" 
@@ -151,7 +176,10 @@ function ISInventoryTransferAction:transferItem(item)
 	and iFT ~= 'Base.PokemonCache' 
 	and iFT ~= 'Base.ShinyPokemonCache' 
 	and iFT ~= 'Base.ChiikuCache'
-	then
+	and iFT ~= 'Base.BagCache'
+	and iFT ~= 'Base.ShoeCache')
+	or isDebugEnabled()
+	then]]
 
 		if sourceContainer == "floor" and not isAdmin() then
 			local playerSQ = getCell():getOrCreateGridSquare(x,y,0)
@@ -170,6 +198,16 @@ function ISInventoryTransferAction:transferItem(item)
 						else
 							self.character:getModData().isXferHeavyItem = false -- false
 						end
+						
+						if isCache(iFT) then
+							local iMD = item:getModData()
+							if not iMD.TierZone then iMD.TierZone = 1 end
+							local cacheName = item:getName()
+							args.cache = cacheName
+							item:setName(cacheName.." [T"..zonetier.."]")
+							sendClientCommand(player, 'sdLogger', 'LootCache', args);
+						end
+						
 						self:o_transferItem(item)
 						logItemTransfer(iFT, itemID, sourceContainer, destinationContainer)
 						return
@@ -177,7 +215,7 @@ function ISInventoryTransferAction:transferItem(item)
 				end
 				self.character:Say("I can't move items in someone else's SafeHouse.")
 				args.SafeHouseOwner = isOwned
-				sendClientCommand(getSpecificPlayer(0), 'sdLogger', 'ItemTransferSH', args);
+				sendClientCommand(player, 'sdLogger', 'ItemTransferSH', args);
 				self.character:StopAllActionQueue();
     			local queue = ISTimedActionQueue.getTimedActionQueue(self.character);
     			queue:clearQueue();
@@ -189,6 +227,16 @@ function ISInventoryTransferAction:transferItem(item)
 				else
 					self.character:getModData().isXferHeavyItem = false -- false
 				end
+				if isCache(iFT) then
+					local iMD = item:getModData()
+					if not iMD.TierZone then 
+						iMD.TierZone = zonetier
+						local cacheName = item:getName()
+						args.cache = cacheName
+						item:setName(cacheName.." [T"..zonetier.."]")
+						sendClientCommand(player, 'sdLogger', 'LootCache', args);
+					end
+				end
 				self:o_transferItem(item)
 				logItemTransfer(iFT, itemID, sourceContainer, destinationContainer)
 			end
@@ -198,12 +246,24 @@ function ISInventoryTransferAction:transferItem(item)
 			else
 				self.character:getModData().isXferHeavyItem = false -- false
 			end
+			
+			if isCache(iFT) then
+				local iMD = item:getModData()
+				if not iMD.TierZone then
+					iMD.TierZone = zonetier
+					local cacheName = item:getName()
+					args.cache = cacheName
+					item:setName(cacheName.." [T"..zonetier.."]")
+					sendClientCommand(player, 'sdLogger', 'LootCache', args);
+				end
+			end
+				
 			self:o_transferItem(item)
 			logItemTransfer(iFT, itemID, sourceContainer, destinationContainer)
 		end
-	else
+	--[[else
 		self.character:Say("I should just open this here.")
-	end
+	end]]
 end
 
 Events.EveryOneMinute.Add(printItemTransfer)

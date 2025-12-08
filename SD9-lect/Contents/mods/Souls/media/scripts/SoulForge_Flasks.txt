@@ -369,6 +369,45 @@ module SoulForge {
 		cantBeConsolided 	= 		TRUE,
 	}
 	
+	item ContainerSoulsDisposable100
+	{
+		DisplayCategory 	= 		SoulForge,
+		Type				=		Drainable,
+		DisplayName			=		Container of 100 Souls (Single Use),
+		Icon				=		WhiteBot,
+		Weight				=		0.5,
+		UseDelta 			=		0.001,
+		UseWhileEquipped  	=		FALSE,
+		StaticModel			=		static_WhiteBot,
+		WorldStaticModel	=		world_WhiteBot,
+	}
+	
+	item ContainerSoulsDisposable250
+	{
+		DisplayCategory 	= 		SoulForge,
+		Type				=		Drainable,
+		DisplayName			=		Container of 250 Souls (Single Use),
+		Icon				=		WhiteBot,
+		Weight				=		1.25,
+		UseDelta 			=		0.001,
+		UseWhileEquipped  	=		FALSE,
+		StaticModel			=		static_WhiteBot,
+		WorldStaticModel	=		world_WhiteBot,
+	}
+	
+	item ContainerSoulsDisposable500
+	{
+		DisplayCategory 	= 		SoulForge,
+		Type				=		Drainable,
+		DisplayName			=		Container of 500 Souls (Single Use),
+		Icon				=		WhiteBot,
+		Weight				=		2.5,
+		UseDelta 			=		0.001,
+		UseWhileEquipped  	=		FALSE,
+		StaticModel			=		static_WhiteBot,
+		WorldStaticModel	=		world_WhiteBot,
+	}
+	
 	item ContainerSoulsDisposable
 	{
 		DisplayCategory 	= 		SoulForge,
@@ -388,7 +427,7 @@ module SoulForge {
 		Type				=		Drainable,
 		DisplayName			=		Container of 10000 Souls (Single Use),
 		Icon				=		GiantWhiteBot,
-		Weight				=		5.0,
+		Weight				=		10.0,
 		UseDelta 			=		0.001,
 		UseWhileEquipped  	=		FALSE,
 		StaticModel			=		static_GiantWhiteBot,

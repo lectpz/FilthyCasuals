@@ -59,6 +59,38 @@ local scrapConfig = {
 	},
 }
 
+local function getScrapMetal(tier)
+	return ZombRand(16-tier*2,32-tier*3)
+end
+
+local function getMetalBar(tier)
+	if tier == 6 then return ZombRand(1,4) end
+	if tier >= 4 then return ZombRand(1,4) end
+	if tier >= 2 then return ZombRand(1,3) end
+	return ZombRand(1,2)
+end
+
+local function getMetalPipe(tier)
+	if tier == 6 then return ZombRand(1,4) end
+	if tier >= 4 then return ZombRand(1,3) end
+	if tier >= 2 then return ZombRand(1,2) end
+	return ZombRand(0,2)
+end
+
+local function getSmallSheetMetal(tier)
+	if tier == 6 then return ZombRand(2,4) end
+	if tier >= 4 then return ZombRand(1,4) end
+	if tier >= 2 then return ZombRand(1,3) end
+	return ZombRand(0,2)
+end
+
+local function getSheetMetal(tier)
+	if tier == 6 then return ZombRand(1,3) end
+	if tier >= 4 then return ZombRand(0,2) end
+	if tier >= 2 then return ZombRand(0,1) end
+	return 0
+end
+
 function ISRemoveBurntVehicle:perform()
 	local tierzone = checkZone()
 	if self.sound ~= 0 then
@@ -66,14 +98,14 @@ function ISRemoveBurntVehicle:perform()
 	end
 
 	local metalworks = {}
-	metalworks.ScrapMetal = 0
-	metalworks.MetalBar = 0
-	metalworks.MetalPipe = 0
-	metalworks.SmallSheetMetal = 0
-	metalworks.SheetMetal = 0
+	metalworks.ScrapMetal = getScrapMetal(tierzone)
+	metalworks.MetalBar = getMetalBar(tierzone)
+	metalworks.MetalPipe = getMetalPipe(tierzone)
+	metalworks.SmallSheetMetal = getSmallSheetMetal(tierzone)
+	metalworks.SheetMetal = getSheetMetal(tierzone)
 
 
-	local initScrapMulti = 2
+--[[	local initScrapMulti = 2
 	local finalScrapMulti = 0.25  
 	local scrap_reward_ranges = {
 		{min = 12, max = 20}, -- Tier 1
@@ -147,7 +179,7 @@ function ISRemoveBurntVehicle:perform()
 			end
 		end
 
-	end
+	end]]
 	
 	local vehSq = self.vehicle:getSquare()
 	
@@ -157,6 +189,7 @@ function ISRemoveBurntVehicle:perform()
 	if metalworks.SmallSheetMetal > 0 then vehSq:AddWorldInventoryItem("SmallSheetMetal", ZombRandFloat(0,0.9), ZombRandFloat(0,0.9), 0, metalworks.SmallSheetMetal) end
 	if metalworks.SheetMetal > 0 then vehSq:AddWorldInventoryItem("SheetMetal", ZombRandFloat(0,0.9), ZombRandFloat(0,0.9), 0, metalworks.SheetMetal) end
 	
+	vehSq:AddWorldInventoryItem(ki5parts[ZombRand(#ki5parts)+1], ZombRandFloat(0,0.9), ZombRandFloat(0,0.9), 0)
 	vehSq:AddWorldInventoryItem(ki5parts[ZombRand(#ki5parts)+1], ZombRandFloat(0,0.9), ZombRandFloat(0,0.9), 0)
 	--vehSq:AddWorldInventoryItem(ki5parts[ZombRand(#ki5parts)+1], ZombRandFloat(0,0.9), ZombRandFloat(0,0.9), 0)
 

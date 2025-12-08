@@ -19,3 +19,8 @@ option SDTeleporter.AllowTeleportToPlayer = {
 	type = boolean, default = false,
 	page = SDTeleporter, translation = AllowTeleportToPlayer,
 }
+
+option SDTeleporter.SH_distance = {
+	type = integer, default = 424, min = 400, max = 30000,
+	page = SDTeleporter, translation = SH_distance,
+}

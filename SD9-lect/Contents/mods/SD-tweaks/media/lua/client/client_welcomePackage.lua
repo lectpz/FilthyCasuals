@@ -71,7 +71,7 @@ function welcomePackage_GMD(key, modData)
 		player:setHaloNote("You have received a Sunday Drivers Welcome Package!", 0, 255, 0, 450)
 		player:getEmitter():playSoundImpl("SDWelcomePackage", nil)
 		
-		sendClientCommand(player, 'sdLogger', 'ReceiveCache', args);
+		sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 		Events.OnReceiveGlobalModData.Remove(welcomePackage_GMD)
 	end
 end

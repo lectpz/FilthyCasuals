@@ -137,7 +137,7 @@ local function updateZombie(zombie, speedType, cognition, hearing)
     local squareXVal = square and square:getX() or 0
     local squareYVal = square and square:getY() or 0
 	
-	local zombieAttackedBy = zombie:getAttackedBy()
+	--local zombieAttackedBy = zombie:getAttackedBy()
 
     -- NOTE(belette) we have to include X and Y in the check to catch zombies that have been recycled
     -- from _intended_ default state (i.e. RZ happened to assign it to default bucket) to _unintended_
@@ -151,7 +151,7 @@ local function updateZombie(zombie, speedType, cognition, hearing)
 
     local shouldSkip = speedTypeVal == modData.SDspeed and cognitionVal == modData.SDcog and hearingVal ==
                            modData.SDhearing and crawlingVal == modData.SDcrawl and math.abs(squareXVal - modData.SDx) <=
-                           50 and math.abs(squareYVal - modData.SDy) <= 50-- and modData.SDhealthValue == healthValue
+                           30 and math.abs(squareYVal - modData.SDy) <= 30-- and modData.SDhealthValue == healthValue
 	
 	local zombieSprinterZoneValue = modData.SDSprinterZoneValue or nil
 	local zombieSprinterZone = modData.SDSprinterZone or nil
@@ -200,6 +200,7 @@ local function updateZombie(zombie, speedType, cognition, hearing)
 	modData.SDSprinterZone = distributionZone
 	modData.SDSprinterZoneValue = sprinterValue
 	modData.SDCognitionValue = cognitionValue
+	modData.ZoneTier = tier
 	--modData.SDhealthValue = zombie:getHealth()
 
 end

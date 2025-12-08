@@ -62,6 +62,13 @@ function patchEmptyPropaneTank(items, result, player)
     playerInv:AddItem(newtank)
 end
 
+function createEmptyIndustrialPropaneTank(items, result, player)
+    local newtank = InventoryItemFactory.CreateItem("Biofuel.IndustrialPropaneTank")
+    newtank:setUsedDelta(0)
+    local playerInv = player:getInventory()
+    playerInv:AddItem(newtank)
+end
+
 function OnTest_sellValuables(item)
 	local iMD = item:getModData()
 	if iMD.SoulBuff or iMD.Tier then 
@@ -150,7 +157,7 @@ local function patch_recipes()
 			end
 		end
 		
-		local reqScrapMetalBits = 20
+		local reqScrapMetalBits = 25
 		
         if recipesToPatch[name] then
             if name == "Create Propane tank" then

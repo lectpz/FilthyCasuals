@@ -58,15 +58,17 @@ local n5 = #table5 --number of tier 4 items in loot pool
 local t5 = 1	-- random number generator, integers from 1 to n [eg n = 23, therefore rolls integers from 1 to 23]
 
 function OnZombieDeadSouls(zombie)
-	player = zombie:getAttackedBy()
-	if player:isSeatedInVehicle() then 
-		return 
-	end
+	local player = zombie:getAttackedBy()
+	if not player or not instanceof(player, "IsoPlayer") or player ~= getSpecificPlayer(0) then return end
+	
+	if player:isSeatedInVehicle() then return end
 	--player:Say("OZD TEST")
 	local tierzone, zonename, playerx, playery, control, toxic = checkZone()
 --	local tierzone = 4
 	
 	local pMD = player:getModData()
+	local zMD = zombie:getModData()
+	if not zMD.ZoneTier or zMD.ZoneTier ~= tierzone then return end
 	--local eventenabled = SandboxVars.SDevents.enabled	
 	local controlMod = 0
 	local toxicMod = 0
@@ -100,9 +102,9 @@ function OnZombieDeadSouls(zombie)
                     math.floor(6*nofaction), 
                     10*multiRanger*multiCOG, 
                     10*multiVW*multiCOG,
-					3*multiRanger*multiRanger 	*	((controlMod)/35+1),
-					3*multiCOG*multiCOG 		*	((controlMod)/35+1),
-					3*multiVW*multiVW		*	((controlMod)/35+1),
+					1.5*multiRanger*multiRanger 	*	((controlMod)/35+1),
+					1.5*multiCOG*multiCOG 		*	((controlMod)/35+1),
+					1.5*multiVW*multiVW		*	((controlMod)/35+1),
 					10*multiCOG, 
                     10*multiRanger, 
                     10*multiVW, 
@@ -115,9 +117,9 @@ function OnZombieDeadSouls(zombie)
                     10*multiVW*multiCOG, 
                     7*multiRanger*multiCOG, 
                     7*multiVW*multiCOG,
-					2*multiRanger*multiRanger 	*	((controlMod)/35+1),
-					2*multiCOG*multiCOG 		*	((controlMod)/35+1),
-					2*multiVW*multiVW		*	((controlMod)/35+1),
+					1*multiRanger*multiRanger 	*	((controlMod)/35+1),
+					1*multiCOG*multiCOG 		*	((controlMod)/35+1),
+					1*multiVW*multiVW		*	((controlMod)/35+1),
 					7*multiCOG, 
                     7*multiRanger, 
                     7*multiVW, 
@@ -128,23 +130,23 @@ function OnZombieDeadSouls(zombie)
                     10*multiVW*multiCOG, 
                     4*multiRanger*multiCOG, 
                     4*multiVW*multiCOG,
-					1*multiRanger*multiRanger 	*	((controlMod)/35+1),
-					1*multiCOG*multiCOG 		*	((controlMod)/35+1),
-					1*multiVW*multiVW		*	((controlMod)/35+1),
+					0.5*multiRanger*multiRanger 	*	((controlMod)/35+1),
+					0.5*multiCOG*multiCOG 		*	((controlMod)/35+1),
+					0.5*multiVW*multiVW		*	((controlMod)/35+1),
 					4*multiCOG, 
                     4*multiRanger, 
                     4*multiVW, 
 					}
 	
-	local t1roll = ZombRand(math.max(200 - 0.2*(luck + toxicMod + controlMod),30))--ZombRand(SandboxVars.OZD.roll1) -- rolls an integer between 0-roll1
+	local t1roll = ZombRand(math.max(225 - 0.2*(luck + toxicMod + controlMod),50))--ZombRand(SandboxVars.OZD.roll1) -- rolls an integer between 0-roll1
 	--player:Say(tostring(SandboxVars.OZD.roll1))
-	local t2roll = ZombRand(math.max(250 - 0.4*(luck + toxicMod + controlMod),35)) -- rolls an integer between 0-roll2 
+	local t2roll = ZombRand(math.max(275 - 0.4*(luck + toxicMod + controlMod),60)) -- rolls an integer between 0-roll2 
 	--player:Say(tostring(SandboxVars.OZD.roll2))
-	local t3roll = ZombRand(math.max(300 - 0.6*(luck + toxicMod + controlMod),40)) -- rolls an integer between 0-roll3 
+	local t3roll = ZombRand(math.max(325 - 0.6*(luck + toxicMod + controlMod),70)) -- rolls an integer between 0-roll3 
 	--player:Say(tostring(SandboxVars.OZD.roll3))
-	local t4roll = ZombRand(math.max(350 - 0.8*(luck + toxicMod + controlMod),45))
+	local t4roll = ZombRand(math.max(375 - 0.8*(luck + toxicMod + controlMod),80))
 	--player:Say(tostring(SandboxVars.OZD.roll4))
-	local t5roll = ZombRand(math.max(400 - 1.0*(luck + toxicMod + controlMod),50))	
+	local t5roll = ZombRand(math.max(425 - 1.0*(luck + toxicMod + controlMod),90))	
 	
 -- function to add item
 	local function itemdrop(item)

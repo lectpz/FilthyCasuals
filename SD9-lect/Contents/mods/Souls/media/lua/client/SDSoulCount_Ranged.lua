@@ -44,7 +44,7 @@ local function weaponName(wMD, scriptItem)
     return name
 end
 
-local function isAugmented()
+local function isAugmented(wMD)
 	local isAugmented = wMD.Augments or nil
 	if isAugmented then
 		wMD.Augments = isAugmented + 1
@@ -178,7 +178,7 @@ local function setStat(upgradeName, statName, descno, description, scriptItem, n
 			item:setPiercingBullets(true)
 		end
 
-        isAugmented()
+        isAugmented(wMD)
         wMD.Name = weaponName(wMD, scriptItem)
 		local mdzPrefix = ""
 		if wMD.mdzPrefix then mdzPrefix = wMD.mdzPrefix .. " " end
@@ -377,7 +377,7 @@ local pref2_setstat = {
 						
 						wMD.prefix2 = "Berserker"
 						
-						isAugmented()
+						isAugmented(wMD)
 						
 						wMD.Name = weaponName(wMD, scriptItem)
 						wMD.p2_desc = description
@@ -409,7 +409,7 @@ local pref2_setstat = {
 
 						wMD.prefix2 = "Deadeye"
 						
-						isAugmented()
+						isAugmented(wMD)
 						
 						wMD.Name = weaponName(wMD, scriptItem)
 						wMD.p2_desc = description
@@ -441,7 +441,7 @@ local pref2_setstat = {
 
 						wMD.prefix2 = "Marksman"
 						
-						isAugmented()
+						isAugmented(wMD)
 						
 						wMD.Name = weaponName(wMD, scriptItem)
 						wMD.p2_desc = description
@@ -473,7 +473,7 @@ local pref2_setstat = {
 
 						wMD.prefix2 = "Bandit"
 						
-						isAugmented()
+						isAugmented(wMD)
 						
 						wMD.Name = weaponName(wMD, scriptItem)
 						wMD.p2_desc = description
@@ -600,7 +600,7 @@ local suff2_setstat = {
 						end
 						wMD.suffix2 = "Sunday Driver"
 						
-						isAugmented()
+						isAugmented(wMD)
 						
 						wMD.Name = weaponName(wMD, scriptItem)
 						wMD.s2_desc = description
@@ -629,7 +629,7 @@ local suff2_setstat = {
 
 						wMD.suffix2 = "Filthy Casual"
 						
-						isAugmented()
+						isAugmented(wMD)
 						
 						wMD.Name = weaponName(wMD, scriptItem)
 						wMD.s2_desc = description
@@ -658,7 +658,7 @@ local suff2_setstat = {
 						
 						wMD.suffix2 = "Apocalypse Enjoyer"
 						
-						isAugmented()
+						isAugmented(wMD)
 						
 						wMD.Name = weaponName(wMD, scriptItem)
 						wMD.s2_desc = description
@@ -686,7 +686,7 @@ local suff2_setstat = {
 						end
 						wMD.suffix2 = "Ascended Path"
 						
-						isAugmented()
+						isAugmented(wMD)
 						
 						wMD.Name = weaponName(wMD, scriptItem)
 						wMD.s2_desc = description
@@ -718,7 +718,7 @@ local suff2_setstat = {
 						end
 						wMD.suffix2 = "Toxic Progenitor"
 						
-						isAugmented()
+						isAugmented(wMD)
 						
 						wMD.Name = weaponName(wMD, scriptItem)
 						wMD.s2_desc = description
@@ -747,7 +747,7 @@ local suff2_setstat = {
 						end
 						wMD.suffix2 = "Unhinged Tryhard"
 						
-						isAugmented()
+						isAugmented(wMD)
 						
 						wMD.Name = weaponName(wMD, scriptItem)
 						wMD.s2_desc = description
@@ -757,9 +757,9 @@ local suff2_setstat = {
 }
 
 local function SoulContextSDRanged(player, context, items) -- # When an inventory item context menu is opened
-	playerObj = getSpecificPlayer(player)
-	playerInv = playerObj:getInventory()
-	items = ISInventoryPane.getActualItems(items); -- Get table of inventory items (will not be module.item, just item)
+	local playerObj = getSpecificPlayer(player)
+	local playerInv = playerObj:getInventory()
+	local items = ISInventoryPane.getActualItems(items); -- Get table of inventory items (will not be module.item, just item)
 	for _, item in ipairs(items) do -- Check every item in inventory array
 		if item:IsWeapon() and item:isRanged() then
 			wMD = item:getModData()
@@ -819,6 +819,14 @@ local function SoulContextSDRanged(player, context, items) -- # When an inventor
 				tooltip.description = tooltip.description .. green .. " <LINE> More Maximum Damage: " .. 1 + (math.floor(soulPower * 10)/soulDenom * numAugments/4) .. "x <LINE> "
 				tooltip.description = tooltip.description .. green .. "More Critical Chance: " .. 1 + (math.floor(soulPower * 10)/soulDenom * numAugments/4) .. "x <LINE> "
 				tooltip.description = tooltip.description .. green .. "More Critical Multi: " .. 1 + (math.floor(soulPower * 10)/soulDenom * numAugments/4) .. "x <LINE> "
+				
+				if wMD.augmentMinDmg then tooltip.description = tooltip.description .. white .. " <LINE> Min Dmg Augments: " .. wMD.augmentMinDmg end
+				if wMD.augmentMaxDmg then tooltip.description = tooltip.description .. white .. " <LINE> Max Dmg Augments: " .. wMD.augmentMaxDmg end
+				if wMD.augmentCritRate then tooltip.description = tooltip.description .. white .. " <LINE> Crit Rate Augments: " .. wMD.augmentCritRate end
+				if wMD.augmentCritMulti then tooltip.description = tooltip.description .. white .. " <LINE> Crit Multi Augments: " .. wMD.augmentCritMulti end
+				if wMD.augmentAimingTime then tooltip.description = tooltip.description .. white .. " <LINE> Aiming Time Augments: " .. wMD.augmentAimingTime end
+				if wMD.augmentAimingPerkHitChanceModifier then tooltip.description = tooltip.description .. white .. " <LINE> Aiming Perk Hit Chance Augments: " .. wMD.augmentAimingPerkHitChanceModifier end
+				if wMD.augmentAimingPerkCritModifier then tooltip.description = tooltip.description .. white .. " <LINE> Aiming Per Crit Modifier Augments: " .. wMD.augmentAimingPerkCritModifier end
 				
 				local isAugmented = wMD.Augments or nil
 				
@@ -1272,6 +1280,8 @@ local function SoulContextSDRanged(player, context, items) -- # When an inventor
 																										remove_swMats(Upgrade1MatNo)
 																										playerInv:RemoveOneOf("SoulForge.MinDmgTicket")
 																										wMD.soulForgeMinDmgMulti = wMD.soulForgeMinDmgMulti + 0.01
+																										if not weaponModData.augmentMinDmg then weaponModData.augmentMinDmg = 0 end
+																										weaponModData.augmentMinDmg = weaponModData.augmentMinDmg + 1
 																										end, player)
 							sw_upgrade(swUpgrade1, Upgrade1MatNo, "SoulForge.MinDmgTicket")
 																										
@@ -1281,6 +1291,8 @@ local function SoulContextSDRanged(player, context, items) -- # When an inventor
 																										remove_swMats(Upgrade2MatNo)
 																										playerInv:RemoveOneOf("SoulForge.MaxDmgTicket")
 																										wMD.soulForgeMaxDmgMulti = wMD.soulForgeMaxDmgMulti + 0.01
+																										if not weaponModData.augmentMaxDmg then weaponModData.augmentMaxDmg = 0 end
+																										weaponModData.augmentMaxDmg = weaponModData.augmentMaxDmg + 1
 																										end, player)
 							sw_upgrade(swUpgrade2, Upgrade2MatNo, "SoulForge.MaxDmgTicket")
 																										
@@ -1290,6 +1302,8 @@ local function SoulContextSDRanged(player, context, items) -- # When an inventor
 																										remove_swMats(Upgrade3MatNo)
 																										playerInv:RemoveOneOf("SoulForge.CritChanceTicket")
 																										wMD.soulForgeCritRate = wMD.soulForgeCritRate + 0.01
+																										if not weaponModData.augmentCritRate then weaponModData.augmentCritRate = 0 end
+																										weaponModData.augmentCritRate = weaponModData.augmentCritRate + 1
 																										end, player)
 							sw_upgrade(swUpgrade3, Upgrade3MatNo, "SoulForge.CritChanceTicket")
 																										
@@ -1299,6 +1313,8 @@ local function SoulContextSDRanged(player, context, items) -- # When an inventor
 																													remove_swMats(Upgrade4MatNo)
 																													playerInv:RemoveOneOf("SoulForge.CritMultiTicket")
 																													wMD.soulForgeCritMulti = wMD.soulForgeCritMulti + 0.01
+																													if not weaponModData.augmentCritMulti then weaponModData.augmentCritMulti = 0 end
+																													weaponModData.augmentCritMulti = weaponModData.augmentCritMulti + 1
 																													end, player)
 							sw_upgrade(swUpgrade4, Upgrade4MatNo, "SoulForge.CritMultiTicket")
 							
@@ -1308,6 +1324,8 @@ local function SoulContextSDRanged(player, context, items) -- # When an inventor
 																											remove_swMats(Upgrade5MatNo)
 																											playerInv:RemoveOneOf("SoulForge.AimingTimeTicket")
 																											wMD.soulForgeAimingTime = wMD.soulForgeAimingTime + 0.01
+																											if not weaponModData.augmentAimingTime then weaponModData.augmentAimingTime = 0 end
+																											weaponModData.augmentAimingTime = weaponModData.augmentAimingTime + 1
 																											end, player)
 							sw_upgrade(swUpgrade5, Upgrade5MatNo, "SoulForge.AimingTimeTicket")
 							
@@ -1317,6 +1335,8 @@ local function SoulContextSDRanged(player, context, items) -- # When an inventor
 																											remove_swMats(Upgrade6MatNo)
 																											playerInv:RemoveOneOf("SoulForge.AimingPerkHitTicket")
 																											wMD.soulForgeAimingPerkHitChanceModifier = wMD.soulForgeAimingPerkHitChanceModifier + 0.01
+																											if not weaponModData.augmentAimingPerkHitChanceModifier then weaponModData.augmentAimingPerkHitChanceModifier = 0 end
+																											weaponModData.augmentAimingPerkHitChanceModifier = weaponModData.augmentAimingPerkHitChanceModifier + 1
 																											end, player)
 							sw_upgrade(swUpgrade6, Upgrade6MatNo, "SoulForge.AimingPerkHitTicket")
 							
@@ -1326,6 +1346,8 @@ local function SoulContextSDRanged(player, context, items) -- # When an inventor
 																											remove_swMats(Upgrade7MatNo)
 																											playerInv:RemoveOneOf("SoulForge.AimingPerkCritTicket")
 																											wMD.soulForgeAimingPerkCritModifier = wMD.soulForgeAimingPerkCritModifier + 0.01
+																											if not weaponModData.augmentAimingPerkCritModifier then weaponModData.augmentAimingPerkCritModifier = 0 end
+																											weaponModData.augmentAimingPerkCritModifier = weaponModData.augmentAimingPerkCritModifier + 1
 																											end, player)
 							sw_upgrade(swUpgrade7, Upgrade7MatNo, "SoulForge.AimingPerkCritTicket")
 							

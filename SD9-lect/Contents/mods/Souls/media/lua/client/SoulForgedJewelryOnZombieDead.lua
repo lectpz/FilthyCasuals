@@ -3,6 +3,10 @@ local ItemGenerator = require('SoulForgedJewelryItemGeneration')
 
 Events.OnZombieDead.Add(function(zombie)
     local tierZone, zonename, x, y, control = checkZone()
+	local player = zombie:getAttackedBy()
+	if not player or not instanceof(player, "IsoPlayer") or player ~= getSpecificPlayer(0) then return end
+	local modData = zombie:getModData()
+	if not modData.ZoneTier or modData.ZoneTier ~= tierZone then return end
 	
 	if control then
 		control = 50

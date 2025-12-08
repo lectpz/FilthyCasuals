@@ -73,8 +73,8 @@ local function addSoulForgedWeaponToPlayer(loot, tierzone)
 		
 		if rng == 0 then
 			
-			weaponModData.soulForgeMinDmgMulti = 1.15
-			weaponModData.soulForgeCritRate = 1.2
+			weaponModData.soulForgeMinDmgMulti = 1.1
+			weaponModData.soulForgeCritRate = 1.3
 			weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance * 1.2
 			weaponModData.MaxCondition = weaponModData.MaxCondition * 1.2
 							
@@ -92,8 +92,8 @@ local function addSoulForgedWeaponToPlayer(loot, tierzone)
 			
 		elseif rng == 1 then
 		
-			weaponModData.soulForgeMaxDmgMulti = 1.15
-			weaponModData.soulForgeCritRate = 1.2
+			weaponModData.soulForgeMaxDmgMulti = 1.2
+			weaponModData.soulForgeCritRate = 1.25
 			weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance * 1.2
 			weaponModData.MaxCondition = weaponModData.MaxCondition * 1.2
 		
@@ -111,8 +111,8 @@ local function addSoulForgedWeaponToPlayer(loot, tierzone)
 			
 		elseif rng == 2 then
 		
-			weaponModData.soulForgeCritRate = 1.2
-			weaponModData.soulForgeCritMulti = 1.2
+			weaponModData.soulForgeCritRate = 1.35
+			weaponModData.soulForgeCritMulti = 1.35
 			weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance * 1.2
 			weaponModData.MaxCondition = weaponModData.MaxCondition * 1.2
 			
@@ -148,9 +148,48 @@ local function addSoulForgedWeaponToPlayer(loot, tierzone)
 	addToArgs(loot, 1, "SoulForged")
 end
 
+function OnCanPerform_checkNumberOfPlayers(recipe, playerObj)
+	local sq = playerObj:getSquare()
+	local sq_x, sq_y, sq_z = sq:getX(), sq:getY(), sq:getZ()
+	local sqx, sqy, sqz = sq_x-2, sq_y+2, sq_z
+	
+	local playerCount = 0
+	
+	for i=sqx, sqx+4 do
+		for j=sqy-4, sqy do
+			local aroundSquare = getSquare(i, j, sqz)
+			local sqMovingObjects = aroundSquare:getMovingObjects()
+			local sqMovingObjectsSize = sqMovingObjects:size()
+			if sqMovingObjectsSize > 0 then
+				playerCount = playerCount + sqMovingObjectsSize
+			end
+		end
+	end
+	
+	--if playerCount == 1 and isDebugEnabled() then playerObj:Say("DEBUG: 1 player found") end
+	
+	if playerCount > 1 then
+		playerObj:Say("I need to open this away from prying eyes.")
+		return false
+	end
+	
+	return true
+end
+
+function OnTest_Cache(item)
+	
+	local iMD = item:getModData()
+	
+	if not item:isInPlayerInventory() or not iMD.TierZone then
+		return false
+	end
+	return true
+end
+
 function RikuWeaponCacheSD(items, result, player)
 
-	local zonetier, zonename, x, y, control, toxic = checkZone()
+	local _zonetier, zonename, x, y, control, toxic = checkZone()
+	local zonetier = items:get(0):getModData().TierZone
 
 	local table1 = splitString(SandboxVars.RWC.table1)
 	local n1 = #table1
@@ -174,11 +213,11 @@ function RikuWeaponCacheSD(items, result, player)
 	
 	args = {
 	  player_name = getOnlineUsername(),
-	  cachetype = "Weapon Cache",
+	  cachetype = "Weapon Cache ["..zonetier.."]",
 	  player_x = math.floor(x),
 	  player_y = math.floor(y),
 	  zonename = zonename,
-	  zonetier = zonetier,
+	  zonetier = _zonetier,
 	}
 	
 	local pMD = player:getModData()
@@ -263,7 +302,8 @@ end
 
 function RikuWeaponCacheUpgradeSD(items, result, player)
 
-	local zonetier, zonename, x, y, control, toxic = checkZone()
+	local _zonetier, zonename, x, y, control, toxic = checkZone()
+	local zonetier = string.sub(items:get(0):getFullType(), -1)+1
 	
 	local function isToxicControl()
 		if toxic then return true end
@@ -293,7 +333,7 @@ function RikuWeaponCacheUpgradeSD(items, result, player)
 	
 	args = {
 	  player_name = getOnlineUsername(),
-	  cachetype = "Upgraded Weapon Cache",
+	  cachetype = "Upgraded Weapon Cache [T"..zonetier.."]",
 	  player_x = math.floor(x),
 	  player_y = math.floor(y),
 	  zonename = zonename,
@@ -313,7 +353,7 @@ function RikuWeaponCacheUpgradeSD(items, result, player)
 			addItemToPlayer(table5[t5])
 			if ZombRand(luckValue)+1 > 300 then addItemToPlayer(table5[t5]) end
 		end
-		player:Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier-1) .. "!")
+		--player:Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier-1) .. "!")
 	elseif zonetier == 5 then
 		if (ZombRand(10) == 0) or (ZombRand(luckValue)+1 > 250) then
 			addSoulForgedWeaponToPlayer(table5[t5])
@@ -322,8 +362,8 @@ function RikuWeaponCacheUpgradeSD(items, result, player)
 			addItemToPlayer(table5[t5])
 			if ZombRand(luckValue)+1 > 250 then addItemToPlayer(table5[t5]) end
 		end
-		player:Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier) .. "!")
-	elseif zonetier == 3 then
+		--player:Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier) .. "!")
+	elseif zonetier == 4 then
 		if (ZombRand(10) == 0) or (ZombRand(luckValue)+1 > 200)  then
 			addSoulForgedWeaponToPlayer(table4[t4])
 			if ZombRand(luckValue)+1 > 200 then addItemToPlayer(table4[t4]) end
@@ -331,8 +371,8 @@ function RikuWeaponCacheUpgradeSD(items, result, player)
 			addItemToPlayer(table4[t4])
 			if ZombRand(luckValue)+1 > 200 then addItemToPlayer(table4[t4]) end
 		end
-		player:Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier + 1) .. "!")
-	elseif zonetier == 2 then
+		--player:Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier + 1) .. "!")
+	elseif zonetier == 3 then
 		if (ZombRand(10) == 0) or (ZombRand(luckValue)+1 > 150)  then
 			addSoulForgedWeaponToPlayer(table3[t3])
 			if ZombRand(luckValue)+1 > 150 then addItemToPlayer(table3[t3]) end
@@ -340,8 +380,8 @@ function RikuWeaponCacheUpgradeSD(items, result, player)
 			addItemToPlayer(table3[t3])
 			if ZombRand(luckValue)+1 > 150 then addItemToPlayer(table3[t3]) end
 		end
-		player:Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier + 1) .. "!")
-	elseif zonetier == 1 then
+		--player:Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier + 1) .. "!")
+	elseif zonetier == 2 then
 		if (ZombRand(10) == 0) or (ZombRand(luckValue)+1 > 100)  then
 			addSoulForgedWeaponToPlayer(table2[t2])
 			if ZombRand(luckValue)+1 > 100 then addItemToPlayer(table2[t2]) end
@@ -349,7 +389,7 @@ function RikuWeaponCacheUpgradeSD(items, result, player)
 			addItemToPlayer(table2[t2])
 			if ZombRand(luckValue)+1 > 100 then addItemToPlayer(table2[t2]) end
 		end
-		player:Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier + 1) .. "!")
+		--player:Say("Riku Weapon Cache Upgraded To: Tier " .. tostring(zonetier + 1) .. "!")
 	end
 	sendClientCommand(player, 'sdLogger', 'OpenCache', args);
 	player:getEmitter():playSoundImpl("s_zeldaitem", nil)

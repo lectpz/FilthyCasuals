@@ -179,4 +179,22 @@ module Base
 		Category:Survivalist,
 	}
 	
+	recipe Create Industrial Propane Tank
+	{
+		MetalSheet=3,
+		SmallMetalSheet=4,
+		MetalPipe=2,
+		MetalBar=3,
+		ScrapMetal=10,
+		BlowTorch=1,
+		Result:Biofuel.IndustrialPropaneTank,
+		RemoveResultItem:true,
+		Time:350.0,
+		Category:Survivalist,
+		AnimNode: BlowTorchMid,
+		Prop1: Source=1,
+		Prop2:BlowTorch,
+		Sound:s_propane,
+		OnCreate:createEmptyIndustrialPropaneTank,
+	}
 }

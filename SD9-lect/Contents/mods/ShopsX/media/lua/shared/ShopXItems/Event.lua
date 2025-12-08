@@ -20,7 +20,8 @@ Shop.Items["HCustoms.LongCoat_AbsolutistTrenchcoatNightstalker"]    = { tab = Ta
 Shop.Items["HCustoms.LongCoat_AbsolutistTrenchcoatWidowmaker"]      = { tab = Tab.Event, price = 1, specialCoin = true }
 
 Shop.Items["HCustoms.SArmorLite"]				   = { tab = Tab.Event, price = 1, specialCoin = true }
-Shop.Items["HCustoms.Gloves_PlateArmorBracers"]    = { tab = Tab.Event, price = 3, specialCoin = true }
+--Shop.Items["HCustoms.Gloves_PlateArmorBracers"]    = { tab = Tab.Event, price = 3, specialCoin = true }
+Shop.Items["HCustoms.Gloves_PlateArmorBracers"]    = { tab = Tab.Event, price = 5, specialCoin = true }
 Shop.Items["HCustoms.PlateArmorChausses"]          = { tab = Tab.Event, price = 1, specialCoin = true }
 Shop.Items["HCustoms.PlateArmorCuirass"]           = { tab = Tab.Event, price = 1, specialCoin = true }
 Shop.Items["HCustoms.Shoes_PlateArmorGreaves"]     = { tab = Tab.Event, price = 1, specialCoin = true }

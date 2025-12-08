@@ -70,20 +70,20 @@ module Base
 		keep MortarPestle,
 		AnimNode:Craft,
 		Category:Survivalist,
-		Result:CharcoalPowder=4,
+		Result:CharcoalPowder=3,
 		Time:250.0,
 	}
 	
 	recipe Create Gunpowder
 	{
         CanBeDoneFromFloor:true,
-		Sulphur,
-		Saltpeter,
-		CharcoalPowder=2,
-		EmptyGunpowderContainer=4,
+		Sulphur=2,
+		Saltpeter=2,
+		CharcoalPowder=6,
+		EmptyGunpowderContainer=5,
 		AnimNode:Craft,
 		Category:Survivalist,
-		Result:GunPowder=4,
+		Result:GunPowder=5,
 		Time:250.0,
 	}
 	
@@ -101,7 +101,7 @@ module Base
 	recipe Create Empty Gunpowder Container
 	{
         CanBeDoneFromFloor:true,
-		WaterBottleEmpty/BeerEmpty/WineEmpty2/WineEmpty/WhiskeyEmpty/farming.MayonnaiseEmpty/farming.RemouladeEmpty/MoreBrews.BeerBottleEmptyAmericanLager/MoreBrews.BeerBottleEmptyAPA1/MoreBrews.BeerBottleEmptyAPA2/MoreBrews.BeerBottleEmptyIPA1/MoreBrews.BeerBottleEmptyIPA2/MoreBrews.BeerBottleEmptyLightLager/MoreBrews.BeerBottleEmptyPilsner/MoreBrews.BeerBottleEmptyPorter/MoreBrews.BeerBottleEmptySkunked/MoreBrews.BeerBottleEmptyStout/SapphCooking.CachacaEmpty/SapphCooking.GinEmpty/SapphCooking.LiqueurEmpty/SapphCooking.TequilaEmpty/SapphCooking.VodkaEmpty,
+		WaterBottleEmpty/BeerEmpty/WineEmpty2/WineEmpty/WhiskeyEmpty/farming.MayonnaiseEmpty/farming.RemouladeEmpty/MoreBrews.BeerBottleEmptyAmericanLager/MoreBrews.BeerBottleEmptyAPA1/MoreBrews.BeerBottleEmptyAPA2/MoreBrews.BeerBottleEmptyIPA1/MoreBrews.BeerBottleEmptyIPA2/MoreBrews.BeerBottleEmptyLightLager/MoreBrews.BeerBottleEmptyPilsner/MoreBrews.BeerBottleEmptyPorter/MoreBrews.BeerBottleEmptySkunked/MoreBrews.BeerBottleEmptyStout/SapphCooking.CachacaEmpty/SapphCooking.GinEmpty/SapphCooking.LiqueurEmpty/SapphCooking.TequilaEmpty/SapphCooking.VodkaEmpty/Base.EmptyJar/Base.PopBottleEmpty/SapphCooking.ColaBottleEmpty/MoreBrews.RedWineAgedEmpty/MoreBrews.PineappleWineEmpty/MoreBrews.WhiteWineEmpty/CanteensAndBottles.MedicinalCanteenGreenWhiteEmpty/CanteensAndBottles.MedicinalCanteenWhiteRedEmpty/CanteensAndBottles.MedicinalCanteenWhiteGreenEmpty/CanteensAndBottles.MedicinalCanteenRedWhiteEmpty,
 		AnimNode:Craft,
 		Category:Survivalist,
 		Result:EmptyGunpowderContainer,

@@ -33,7 +33,7 @@ local function initMeleeStats(modData, inventoryItem, character)
 		modData.Name				= character:getPrimaryHandItem():getName()
 		modData.SD7_1				= true
 	elseif not modData.SD7_1 then
-		scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
+		local scriptItem = ScriptManager.instance:getItem(inventoryItem:getFullType())
 
 		inventoryItem:setMaxRange(scriptItem:getMaxRange())
 		
@@ -383,11 +383,21 @@ local function SDWeaponCheck(character, inventoryItem)
 		if soulForgeMaxCondition then inventoryItem:setConditionMax(scriptItem:getConditionMax() * soulForgeMaxCondition) end
 		if soulForgeEnduranceMod then inventoryItem:setEnduranceMod(soulForgeEnduranceMod) end
 		
+
+		
 		local args = {}
 		args.critrate = soulForgeCritRate
 		args.critmulti = soulForgeCritMulti
 		args.mindmg = soulForgeMinDmgMulti
 		args.maxdmg = soulForgeMaxDmgMulti
+		args.augmentMinDmg = modData.augmentMinDmg or 0
+		args.augmentMaxDmg = modData.augmentMaxDmg or 0
+		args.augmentCritRate = modData.augmentCritRate or 0
+		args.augmentCritMulti = modData.augmentCritMulti or 0
+		args.augmentEnduranceMod = modData.augmentEnduranceMod or 0
+		args.augmentAimingTime = modData.augmentAimingTime or 0
+		args.augmentAimingPerkHitChanceModifier = modData.augmentAimingPerkHitChanceModifier or 0
+		args.augmentAimingPerkCritModifier = modData.augmentAimingPerkCritModifier or 0
 		args.name = soulWrought..basename
 		args.endurancemod = soulForgeEnduranceMod
 		args.hassouls = hasSouls
@@ -473,6 +483,15 @@ local function SDWeaponCheck(character, inventoryItem)
 		args.critmulti = soulForgeCritMulti
 		args.mindmg = soulForgeMinDmgMulti
 		args.maxdmg = soulForgeMaxDmgMulti
+		args.endurancemod = 0
+		args.augmentMinDmg = modData.augmentMinDmg or 0
+		args.augmentMaxDmg = modData.augmentMaxDmg or 0
+		args.augmentCritRate = modData.augmentCritRate or 0
+		args.augmentCritMulti = modData.augmentCritMulti or 0
+		args.augmentEnduranceMod = modData.augmentEnduranceMod or 0
+		args.augmentAimingTime = modData.augmentAimingTime or 0
+		args.augmentAimingPerkHitChanceModifier = modData.augmentAimingPerkHitChanceModifier or 0
+		args.augmentAimingPerkCritModifier = modData.augmentAimingPerkCritModifier or 0
 		args.name = soulWrought..modData.Name
 		args.hassouls = hasSouls
 		args.player_name = getOnlineUsername()
@@ -491,6 +510,52 @@ local function SDWeaponCheck(character, inventoryItem)
 		if suffix and suffix == "Ranger" then pMD.WeaponRangerbuff = 1 end]]
 		
 		modData.zonename = false
+	end
+	
+	if inventoryItem:IsWeapon() then
+		local curMin = inventoryItem:getMinDamage()
+		local curMax = inventoryItem:getMaxDamage()
+		local curRange = inventoryItem:getMaxRange()
+		local curHit = inventoryItem:getMaxHitCount()
+
+		local baseMin = scriptItem:getMinDamage()
+		local baseMax = scriptItem:getMaxDamage()
+		local baseRange = scriptItem:getMaxRange()
+		local baseHit = scriptItem:getMaxHitCount()
+		
+		local flagReason = ""
+		local isFlagged = false
+		local checkMulti = 3
+
+		if curMin > (baseMin * checkMulti) then
+			isFlagged = true
+			flagReason = flagReason .. "MinDmg(" .. string.format("%.2f", curMin) .. ">" .. string.format("%.2f", baseMin*2.5) .. "); "
+		end
+
+		if curMax > (baseMax * checkMulti) then
+			isFlagged = true
+			flagReason = flagReason .. "MaxDmg(" .. string.format("%.2f", curMax) .. ">" .. string.format("%.2f", baseMax*2.5) .. "); "
+		end
+
+		if curRange ~= baseRange and not inventoryItem:isRanged() then
+			isFlagged = true
+			flagReason = flagReason .. "Range(" .. string.format("%.2f", curRange) .. "!=" .. string.format("%.2f", baseRange) .. "); "
+		end
+
+		if curHit > (baseHit + 2) then
+			isFlagged = true
+			flagReason = flagReason .. "HitCount(" .. curHit .. ">" .. (baseHit+1) .. "); "
+		end
+
+		if isFlagged then
+			local args = {}
+			args.player_name = getOnlineUsername()
+			args.item_name = inventoryItem:getName()
+			args.reason = flagReason
+			args.itemID = inventoryItem:getID()
+			
+			sendClientCommand(character, 'sdLogger', 'weaponFlag', args)
+		end
 	end
 end
 Events.OnEquipPrimary.Add(SDWeaponCheck)

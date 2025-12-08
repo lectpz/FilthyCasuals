@@ -106,8 +106,8 @@ local function itemdrop(item, player, zombie, shouldDrop)
 		
 		if rng == 0 then
 			
-			weaponModData.soulForgeMinDmgMulti = 1.15
-			weaponModData.soulForgeCritRate = 1.2
+			weaponModData.soulForgeMinDmgMulti = 1.1
+			weaponModData.soulForgeCritRate = 1.35
 			weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance * 1.2
 			weaponModData.MaxCondition = weaponModData.MaxCondition * 1.2
 							
@@ -125,8 +125,8 @@ local function itemdrop(item, player, zombie, shouldDrop)
 			
 		elseif rng == 1 then
 		
-			weaponModData.soulForgeMaxDmgMulti = 1.15
-			weaponModData.soulForgeCritRate = 1.2
+			weaponModData.soulForgeMaxDmgMulti = 1.2
+			weaponModData.soulForgeCritRate = 1.25
 			weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance * 1.2
 			weaponModData.MaxCondition = weaponModData.MaxCondition * 1.2
 		
@@ -144,8 +144,8 @@ local function itemdrop(item, player, zombie, shouldDrop)
 			
 		elseif rng == 2 then
 		
-			weaponModData.soulForgeCritRate = 1.2
-			weaponModData.soulForgeCritMulti = 1.2
+			weaponModData.soulForgeCritRate = 1.35
+			weaponModData.soulForgeCritMulti = 1.35
 			weaponModData.ConditionLowerChance = weaponModData.ConditionLowerChance * 1.2
 			weaponModData.MaxCondition = weaponModData.MaxCondition * 1.2
 			
@@ -212,7 +212,7 @@ Events.EveryTenMinutes.Add(syncSandbox)
 
 function OnZombieDeadItemDrop(zombie)
 	local player = zombie:getAttackedBy()
-    if not player or not instanceof(player, "IsoPlayer") or not player:isLocalPlayer() then return end
+    if not player or not instanceof(player, "IsoPlayer") or player ~= getSpecificPlayer(0) then return end
 	
 	local t1 = ZombRand(n1)+1
 	local t2 = ZombRand(n2)+1
@@ -239,6 +239,7 @@ function OnZombieDeadItemDrop(zombie)
 	if permaLuck then luckValue = luckValue + permaLuck end
 
 	local modData = zombie:getModData()
+	if not modData.ZoneTier or modData.ZoneTier ~= tierzone then return end
 	local zombieSprinterValue = 0
 	if modData.SDspeed == 1 then
 		zombieSprinterValue = modData.SDSprinterZoneValue or 0

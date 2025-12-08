@@ -5,7 +5,7 @@
 Shop.Items["Base.BusTicket"] = { tab = Tab.Misc, price = 0.5 }
 Shop.Items["SD.SDNutritionistPills"] = { tab = Tab.Misc, price = 200 }
 Shop.Items["pkmncards.cardbinder_empty"] = { tab = Tab.Misc, price = 10 }
-Shop.Items["Base.AutoForm"] = { tab = Tab.Misc, price = 50 }
+--Shop.Items["Base.AutoForm"] = { tab = Tab.Misc, price = 50 }
 Shop.Items["Base.Cigarettes"] = { tab = Tab.Misc, price = 3 }
 Shop.Items["Base.Matches"] = { tab = Tab.Misc, price = 0.5 }
 Shop.Items["Base.AlcoholWipes"] = { tab = Tab.Misc, price = 5 }
@@ -21,9 +21,9 @@ Shop.Items["Base.Paperbag_Jays"] = { tab = Tab.Misc, price = 0.5 }
 Shop.Items["Base.Lunchbag"] = { tab = Tab.Misc, price = 0.5 }
 Shop.Items["MoreBrews.RubberBandsBag"] = { tab = Tab.Misc, price = 10 }
 Shop.Items["Base.ScrapMetal"] = { tab = Tab.Misc, price = 1 }
-Shop.Items["Packing.5pkScrapMetal"] = { tab = Tab.Misc, price = 5 }
-Shop.Items["Packing.10pkScrapMetal"] = { tab = Tab.Misc, price = 10 }
-Shop.Items["Packing.100pkScrapMetal"] = { tab = Tab.Misc, price = 100 }
+Shop.Items["PR.5pkScrapMetal"] = { tab = Tab.Misc, price = 5 }
+Shop.Items["PR.10pkScrapMetal"] = { tab = Tab.Misc, price = 10 }
+Shop.Items["PR.100pkScrapMetal"] = { tab = Tab.Misc, price = 100 }
 Shop.Items["Base.paleSkinLegacy"] = { tab = Tab.Misc, price = 5 }
 
 Shop.Items["Base.GIR2Plushie"]                                      = { tab = Tab.Misc, price = 30 }

@@ -63,7 +63,7 @@ local function preDistributionMergeSD5()
 		PawnShopKnives = 0.01,
 		BarCounterWeapon = 0.001,
 		GunStoreAmmunition = 0.01,
-		--WardrobeMan = 0.000001,
+		WardrobeMan = 0.000001,
 		GunStoreDisplayCase = 0.02,
 		PoliceStorageAmmunition = 0.01,
 		ArmyStorageGuns = 0.01,
@@ -130,14 +130,14 @@ local function preDistributionMergeSD5()
 		GunStoreShelf= 0.001,
 		PoliceStorageGuns = 0.001,
 		ArmyStorageGuns = 0.001,
-		WardrobeMan = 0.00001,
+		WardrobeMan = 0.0001,
 	}
 	
 	for distribution, chance in pairs(AmmoCacheData) do
 		table.insert(ProceduralDistributions.list[distribution].items, "AmmoCache")
 		table.insert(ProceduralDistributions.list[distribution].items, chance)
-		table.insert(ProceduralDistributions.list[distribution].items, "ChiikuCache")
-		table.insert(ProceduralDistributions.list[distribution].items, chance)
+		--table.insert(ProceduralDistributions.list[distribution].items, "ChiikuCache")
+		--table.insert(ProceduralDistributions.list[distribution].items, chance)
 	end
 ----------------------------------------------------------------------------------------	
 	local medData = {
@@ -147,7 +147,6 @@ local function preDistributionMergeSD5()
 		ArmyStorageMedical = 0.001,
 		MedicalStorageTools = 0.001,
 		MedicalClinicTools = 0.001,
-		WardrobeMan = 0.000001,
 	}
 	
 	for distribution, chance in pairs(medData) do
@@ -182,7 +181,8 @@ local function preDistributionMergeSD5()
 	end
 ----------------------------------------------------------------------------------------		
 	local jewelryData = {
-		WardrobeWoman = 0.00000000001,
+		WardrobeWoman = 0.00001,
+		WardrobeMan = 0.00001,
 		CampingStoreGear = 0.001,
 		FireStorageTools = 0.001,
 		GigamartTools = 0.001,
@@ -212,7 +212,8 @@ local function preDistributionMergeSD5()
 		WhiskeyBottlingFull = 0.0000001,
 		JanitorMisc = 0.000001,
 		PrisonCellRandom = 0.0001,
-		WardrobeWoman = 0.00000000001,
+		WardrobeWoman = 0.00001,
+		WardrobeMan = 0.00001,
 		CampingStoreGear = 0.001,
 		FireStorageTools = 0.001,
 		GigamartTools = 0.001,
@@ -243,6 +244,74 @@ local function preDistributionMergeSD5()
 		table.insert(ProceduralDistributions.list[distribution].items, "ShinyPokemonCache")
 		table.insert(ProceduralDistributions.list[distribution].items, chance)
 	end		
+----------------------------------------------------------------------------------------
+	local bagCacheData = {
+		CampingStoreBackpacks = 0.0001,
+		ArmySurplusBackpacks = 0.0001,
+		CrateCamping = 0.0001,
+		SurvivalGear = 0.0001,
+		CampingLockers = 0.0001,
+		CrateRandomJunk = 0.0001,
+		Hiker = 0.0001,
+		HuntingLockers = 0.0001,
+		SurvivalGear = 0.0001,
+		Locker = 0.0001,
+		VacationStuff = 0.0001,
+		ClosetShelfGeneric = 0.0001,
+		LockerClassy = 0.0001,
+		LockerArmyBedroom = 0.0001,
+	}
+	
+	for distribution, chance in pairs(bagCacheData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "BagCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+	end	
+----------------------------------------------------------------------------------------
+	local shoeCacheData = {	
+		CampingStoreGear = 0.0001,
+		FireStorageTools = 0.0001,
+		GigamartTools = 0.0001,
+		PoliceStorageOutfit = 0.0001,
+		PoliceLockers = 0.0001,
+		ArmySurplusOutfit = 0.0001,
+		LockerArmyBedroom = 0.0001,
+		ArmyStorageOutfit = 0.0001,
+		ClothingStoresShoes = 0.001,
+		ClothingStorageFootwear = 0.001,
+		ClosetShelfGeneric = 0.001,
+		BandPracticeClothing = 0.001,
+		CrateFootwearRandom = 0.001,
+		FactoryLockers = 0.001,
+		BandMerchShelves = 0.001,
+		HuntingLockers = 0.001,
+		ToolStoreFootwear = 0.001,
+		ClothingStoresBoots = 0.001,
+		Hiker = 0.001,
+		CampingLockers = 0.001,
+	}
+	
+	for distribution, chance in pairs(shoeCacheData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "ShoeCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+	end
+----------------------------------------------------------------------------------------
+	local FarmerCacheData = {
+		CrateCamping = 0.0001,
+		SurvivalGear = 0.0001,
+		CampingStoreGear = 0.0001,
+		GigamartTools = 0.0001,
+		GardenStoreTools = 0.001,
+		ToolStoreTools = 0.0001,
+		CrateFarming = 0.001,
+		GardenStoreMisc = 0.001,
+		GigamartFarming = 0.001,
+		ToolStoreFarming = 0.001
+	}
+
+	for distribution, chance in pairs(FarmerCacheData) do
+		table.insert(ProceduralDistributions.list[distribution].items, "FarmerCache")
+		table.insert(ProceduralDistributions.list[distribution].items, chance)
+	end
 ----------------------------------------------------------------------------------------
 end
 	
@@ -424,8 +493,8 @@ local function editDistributions()
 			end
 		end
 	end
-	setRollValue(gunContainers, 4)
-	setRollValue(wardrobes, 2)	
+	setRollValue(gunContainers, 3)
+	setRollValue(wardrobes, 1)	
 	
 	local yeetBool = SandboxVars.SpawnChanceModifier.yeetBool
 	local yeetItems = getSandboxItems(SandboxVars.SpawnChanceModifier.yeetItems)
@@ -503,19 +572,20 @@ local function editDistributions()
 	--findItemInDistribution("Biofuel.IndustrialPropaneTank")
 
 	modifyItemWeight("Book", 0.125)
-	--modifyItemWeight("MetalworkCache", 1)
+	modifyItemWeight("MetalworkCache", 1.5)
 	--modifyItemWeight("MechanicCache", 1)
-	modifyItemWeight("MedicalCache", 3)
-	modifyItemWeight("ChiikuCache", 1.5)
-	modifyItemWeight("WeaponCache", 1.5)
-	modifyItemWeight("AmmoCache", 3)
+	modifyItemWeight("MedicalCache", 5)
+	--modifyItemWeight("ChiikuCache", 1.5)
+	--modifyItemWeight("WeaponCache", 1.5)
+	modifyItemWeight("AmmoCache", 6)
 	modifyItemWeight("SoulForgeCache", 2.5)
-	--modifyItemWeight("JewelryCache", 2)
+	modifyItemWeight("JewelryCache", 2)
 	
 	modifyItemWeight("SmallSheetMetal", 0.75)
-	modifyItemWeight("SheetMetal", 0.75)
+	modifyItemWeight("SheetMetal", 0.5)
 	modifyItemWeight("MetalPipe", 0.75)
 	modifyItemWeight("MetalBar", 0.75)
+	modifyItemWeight("Biofuel.IBCEmpty", 0.65)
 	
 	yeetItem("PropaneTank")
 	yeetItem("TW.LargePropaneTank")
@@ -530,7 +600,7 @@ local function editDistributions()
 	local replaceAmmoBox = {"223Box","3006Box","308Box","380Box","50BMGBox","545Box","556Box","57Box","762Box","762x51Box","762x54rBox","792Box","792x33Box","9x39Box","Bullets38Box","Bullets44Box","Bullets45Box","Bullets9mmBox","ShotgunShellsBox",}	
 	
 	for i=1, #replaceAmmoBox do
-		modifyItemWeight(replaceAmmoBox[i], 0.65)
+		--modifyItemWeight(replaceAmmoBox[i], 0.65)
 		replaceItemInDistribution(replaceAmmoBox[i], "WeatheredAmmoBox")
 		replaceItemInDistribution("Base."..replaceAmmoBox[i], "WeatheredAmmoBox")
 	end

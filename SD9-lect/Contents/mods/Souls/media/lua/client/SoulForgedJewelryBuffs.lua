@@ -14,7 +14,7 @@ BuffSystem.BUFF_CALCULATIONS = {
             local handItem = player:getPrimaryHandItem()
             local COGbuff = 0
             if handItem and handItem:getModData().suffix2 == "COG" then
-                if faction == "COG" then COGbuff = 3 else COGbuff = 1 end
+                if faction == "COG" then COGbuff = 2 else COGbuff = 1 end
             end
             player:setMaxWeightBase(player:getMaxWeightBase() + ( (pMD.PermaSoulForgeStrengthBonus + COGbuff) or (0+COGbuff) ))
         end,
@@ -69,8 +69,8 @@ BuffSystem.BUFF_CALCULATIONS = {
     },
     MaxDmg = {
         format = "Maximum Damage",
-        getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return (0.01 * tier) end,
+        getDisplayValue = function(tier) return 1.1 * tier end,
+        getBonus = function(tier) return (0.011 * tier) end,
         modData = "PermaSoulForgeMaxDmgBonus",
         defaultValue = 1
     },
@@ -82,21 +82,21 @@ BuffSystem.BUFF_CALCULATIONS = {
     },
     Aiming = {
         format = "Aiming Speed Bonus",
-        getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return (.01 * tier) end,
+        getDisplayValue = function(tier) return 1.25 * tier end,
+        getBonus = function(tier) return (.0125 * tier) end,
         modData = "PermaAiming",
         defaultValue = 1
     },
     Reloading = {
         format = "Reloading Speed Bonus",
-        getDisplayValue = function(tier) return 1 * tier end,
-        getBonus = function(tier) return (.01 * tier) end,
+        getDisplayValue = function(tier) return 1.25 * tier end,
+        getBonus = function(tier) return (.0125 * tier) end,
         modData = "PermaReloading",
     },
     Recoil = {
         format = "Recoil Reduction Bonus",
-        getDisplayValue = function(tier) return 0.4 * tier end,
-        getBonus = function(tier) return (.004 * tier) end,
+        getDisplayValue = function(tier) return 0.5 * tier end,
+        getBonus = function(tier) return (.005 * tier) end,
         modData = "PermaRecoil",
     },
  }

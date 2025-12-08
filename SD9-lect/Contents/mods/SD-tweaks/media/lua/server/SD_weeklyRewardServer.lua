@@ -4,6 +4,7 @@ local SD9_timestampMark
 local weeklyGlobalRewards
 local weeklyFactionRewards
 local zones
+local SD9_SteamIDPlayerKills
 
 local factions = {"COG", "Ranger", "VoidWalker"}
 local SDFactions = {}
@@ -173,6 +174,7 @@ local function weeklyReset()
 end
 
 local function OnServerStarted()
+	SD9_SteamIDPlayerKills = ModData.getOrCreate("SD9_SteamIDPlayerKills")
 	SD9_SteamIDmark = ModData.getOrCreate("SD9_SteamIDmark")
 	SD9_ReceivedRewards = ModData.getOrCreate("SD9_ReceivedRewards")
 	if not ModData.exists("SD9_timestampMark") then
@@ -186,7 +188,7 @@ local function OnServerStarted()
 	zones = ModData.getOrCreate("zonesData")
 	
 	local daysPassed = ModData.getOrCreate("countDaysPassed")
-	if daysPassed["count"] and daysPassed["count"] >= 168 then
+	if daysPassed["count"] and daysPassed["count"] >= 156 then
 		weeklyReset()
 		daysPassed["count"] = 0
 	end
@@ -242,6 +244,11 @@ local function receiveGMD(key, modData)
 		weeklyReset()
 	end
 	
+	if key == "resetCount" then
+		local daysPassed = ModData.getOrCreate("countDaysPassed")
+		daysPassed["count"] = 0
+	end
+	
 	if key == "resetGlobals" then
 		ModData.remove("previousGlobals")
 		ModData.getOrCreate("previousGlobals")
@@ -272,15 +279,66 @@ local function SDGlobalReward(module, command, player, args)
 	if module == "SDGlobalReward" and command == "playerRequest" and args then
 		local steamID = args.steamID
 		if not steamID then return end
-		if SD9_SteamIDmark and SD9_SteamIDmark[steamID] and (SD9_SteamIDmark[steamID] < SD9_timestampMark["TimeStamp"]) then
+		if SD9_SteamIDmark and SD9_SteamIDmark[steamID] and SD9_timestampMark["TimeStamp"] and (SD9_SteamIDmark[steamID] < SD9_timestampMark["TimeStamp"]) then
 			local ts = getTimestamp()
 			SD9_SteamIDmark[steamID] = ts
-			print("[sdLogger] SD9 Reward System -- Reward Request For Steam ID: [" .. steamID .. "] updated with timestamp " .. ts)
+			local totalKills = SD9_SteamIDPlayerKills[steamID] or 0
+			print("[sdLogger] SD9 Reward System -- Reward Request For Steam ID: [" .. steamID .. "] updated with timestamp " .. ts .. " with total kills: " .. totalKills)
 			
-			sendServerCommand(player, 'SDGlobalReward', 'receiveReward', weeklyGlobalRewards)
+			local sendGlobalRewards = {}
+			sendGlobalRewards.perfectlyBalanced = false
+			sendGlobalRewards.FilthyCasuals = false
+			sendGlobalRewards.SweatyTryhards = false
+			sendGlobalRewards.concertedEfforts = false
+			sendGlobalRewards.unquenchableThirst = false
 			
-			sendServerCommand(player, 'SDFactionReward', 'receiveReward', weeklyFactionRewards)
+			local sendFactionRewards = {}
+			for i=1,6 do
+				sendFactionRewards["COG_T"..i] = false
+				sendFactionRewards["Ranger_T"..i] = false
+				sendFactionRewards["VoidWalker_T"..i] = false
+			end
+
+			if totalKills >= 2400 then 
+				for k, v in pairs(weeklyGlobalRewards) do
+					sendGlobalRewards[k] = v
+				end
+			end
+				
+			for i=6,1,-1 do
+				if totalKills >= i*400 then
+					if weeklyFactionRewards["COG_T"..i] ~= nil then 
+						sendFactionRewards["COG_T"..i] = weeklyFactionRewards["COG_T"..i] 
+					end
+					if weeklyFactionRewards["Ranger_T"..i] ~= nil then 
+						sendFactionRewards["Ranger_T"..i] = weeklyFactionRewards["Ranger_T"..i] 
+					end
+					if weeklyFactionRewards["VoidWalker_T"..i] ~= nil then 
+						sendFactionRewards["VoidWalker_T"..i] = weeklyFactionRewards["VoidWalker_T"..i] 
+					end
+				end
+			end
+			
+			SD9_SteamIDPlayerKills[steamID] = 0
+			print("[sdLogger] SD9 Reward System -- Reset Kills For Steam ID: [" .. steamID .. "]")
+			
+			sendServerCommand(player, 'SDGlobalReward', 'receiveReward', sendGlobalRewards)
+			
+			sendServerCommand(player, 'SDFactionReward', 'receiveReward', sendFactionRewards)
 		end
+	end
+	
+	if module == "SDGlobalReward" and command == "tallyPlayerKills" and args then
+		local steamID = args.steamID
+		if not steamID then return end
+		local totalKills = args.totalKills
+		if not totalKills then return end
+		
+		if not SD9_SteamIDPlayerKills[steamID] then SD9_SteamIDPlayerKills[steamID] = 0 end
+		SD9_SteamIDPlayerKills[steamID] = SD9_SteamIDPlayerKills[steamID] + totalKills
+		local clientArgs = {}
+		clientArgs.totalPlayerKills = SD9_SteamIDPlayerKills[steamID]
+		sendServerCommand(player, 'SDGlobalReward', 'tallyPlayerKills', clientArgs)
 	end
 end
 
